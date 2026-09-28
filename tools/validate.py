@@ -146,8 +146,12 @@ def main() -> int:
     parser.add_argument('--evidence', type=Path)
     parser.add_argument('--report', type=Path)
     args = parser.parse_args()
-    modules = [load(p) for p in sorted((ROOT / 'catalog').glob('*.json'))]
+    paths = sorted((ROOT / 'catalog').glob('*.json'))
+    modules = [load(p) for p in paths]
     check(bool(modules), 'No modules')
+    # LocalizationManager in many mods reads every "<plugin name>.*" file under BepInEx as its own translation.
+    for path, m in zip(paths, modules):
+        check(path.name == 'tolmach-' + m['id'] + '.json', path.name + ': catalog file must be named tolmach-<id>.json')
     ids = [m['id'] for m in modules]
     check(len(set(ids)) == len(ids), 'Duplicate module ID')
     counts = collections.Counter(modules=len(modules))

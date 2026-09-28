@@ -22,6 +22,13 @@ namespace Tolmach.Tests
             Assert.That(ModuleIds(), Is.EquivalentTo(Fixture<List<Identity>>("snapshot-bindings.json").Select(x => x.id)));
         }
         [Test]
+        public void CatalogFilesCarryThePackPrefix()
+        {
+            // A catalog named after a mod ("SleepSkip.json") is read by that mod's LocalizationManager.
+            foreach (string path in Directory.GetFiles(Path.Combine(Root, "catalog")))
+                Assert.That(Path.GetFileName(path), Is.EqualTo(CatalogLoader.FilePrefix + CatalogLoader.Read(path).id + ".json"));
+        }
+        [Test]
         public void GameModulesBindToTheGameVersion()
         {
             PluginIdentity game = CatalogLoader.GameIdentity(typeof(FixtureGame.Version));

@@ -95,6 +95,9 @@ namespace Tolmach
         // Valheim itself has no BepInEx plugin record. Game modules (closed captions) bind to
         // this reserved GUID: the assembly declaring the game's Version type and its CurrentVersion.
         internal const string GameGuid = "valheim";
+        // LocalizationManager, embedded in many mods, reads every "<plugin name>.*" file under
+        // BepInEx as its own translation and fails on a name like "SleepSkip.json".
+        internal const string FilePrefix = "tolmach-";
         internal static PluginIdentity GameIdentity(Type versionType)
         {
             object current = versionType == null ? null : RuntimeAccess.Read(versionType, "CurrentVersion");

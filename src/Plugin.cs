@@ -81,7 +81,7 @@ namespace Tolmach
                 "Translate exact standard map labels on screen only; stored names remain unchanged. A custom name identical to a standard label is displayed translated too. Disable to keep all map names as entered. Restart required.").Value;
             string directory = Path.Combine(Path.GetDirectoryName(Info.Location), "catalog");
             if (!Directory.Exists(directory)) { Logger.LogError("Missing catalog directory next to plugin DLL."); return; }
-            foreach (string path in Directory.GetFiles(directory, "*.json").OrderBy(delegate(string s) { return s; }, StringComparer.Ordinal))
+            foreach (string path in Directory.GetFiles(directory, CatalogLoader.FilePrefix + "*.json").OrderBy(delegate(string s) { return s; }, StringComparer.Ordinal))
             {
                 try
                 {

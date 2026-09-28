@@ -25,14 +25,16 @@ namespace Tolmach.Tests
         private CultureInfo previousCulture;
         protected Harmony Patcher;
         protected static string Root { get { return TestContext.CurrentContext.TestDirectory; } }
-        protected static string Catalog(string id) { return Path.Combine(Root, "catalog", id + ".json"); }
+        protected static string Catalog(string id) { return Path.Combine(Root, "catalog", CatalogLoader.FilePrefix + id + ".json"); }
         protected static T Fixture<T>(string name)
         {
             return JsonConvert.DeserializeObject<T>(File.ReadAllText(Path.Combine(Root, "fixtures", name)));
         }
         protected static IEnumerable<string> ModuleIds()
         {
-            return Directory.GetFiles(Path.Combine(Root, "catalog"), "*.json").Select(Path.GetFileNameWithoutExtension).OrderBy(x => x, StringComparer.Ordinal);
+            return Directory.GetFiles(Path.Combine(Root, "catalog"), "*.json").Select(Path.GetFileNameWithoutExtension)
+                .Select(x => x.StartsWith(CatalogLoader.FilePrefix, StringComparison.Ordinal) ? x.Substring(CatalogLoader.FilePrefix.Length) : x)
+                .OrderBy(x => x, StringComparer.Ordinal);
         }
         internal static PluginIdentity Installed(Identity id)
         {

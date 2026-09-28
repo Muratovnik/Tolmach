@@ -39,7 +39,7 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
     name = 'BetterArchery' if mutation == 'markup' else 'StructureTweaks'
     if mutation == 'missing_key':
         name = 'Warfare'
-    path = root / 'catalog' / (name + '.json')
+    path = root / 'catalog' / ('tolmach-' + name + '.json')
     data = json.loads(path.read_text(encoding='utf-8'))
     if mutation == 'guid':
         data['guids'][0] = 'deliberately.wrong.guid'
