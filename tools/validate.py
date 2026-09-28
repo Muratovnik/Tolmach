@@ -80,6 +80,56 @@ def binding_checks(modules: list[dict], evidence: Path | None) -> None:
                     check(row['assembly'] in names, m['id'] + ': AssemblyName contradicts snapshot')
 
 
+CLLC_SECTIONS = {'creatureGender', 'genderedCreatureTranslations', 'genderedTranslations', 'translations', 'enumTranslations', 'settingGroups', 'settings'}
+CLLC_PLACEHOLDER = re.compile(r'\{[^{}]+\}')
+
+def cllc_template_ok(template: str) -> bool:
+    """CLLC's nameplate syntax: {name} once outside groups; each [...] group holds one other placeholder."""
+    rest = re.sub(r'\[[^\[\]{}]*\{(?:effect|infusion|affix)\}[^\[\]{}]*\]', '', template)
+    return rest.count('{name}') == 1 and not re.search(r'[\[\]{}]', rest.replace('{name}', ''))
+
+def cllc_checks(m: dict, counts: collections.Counter) -> None:
+    """Creature Level & Loot Control's own language schema (LocalizationWrapper), kept in section cllc."""
+    t, name = m.get('cllc'), m['id']
+    if t is None:
+        return
+    check(set(t) == CLLC_SECTIONS, name + ': CLLC table sections differ from the mod schema')
+    genders, templates, forms = t.get('creatureGender', {}), t.get('genderedCreatureTranslations', {}), t.get('genderedTranslations', {})
+    check('default' in genders and set(genders.values()) <= set(templates), name + ': CLLC gender without a nameplate template')
+    for template in templates.values():
+        check(isinstance(template, str) and cllc_template_ok(template), name + ': invalid CLLC nameplate template: ' + repr(template))
+    check(set(forms) <= set(templates), name + ': CLLC gendered words for a gender without a template')
+    check(len({frozenset(table) for table in forms.values()}) <= 1 and all(k in t.get('translations', {}) for table in forms.values() for k in table),
+          name + ': CLLC genders have different word sets')
+    values = list(genders.values()) + list(templates.values()) + list(t.get('translations', {}).values()) + list(t.get('settingGroups', {}).values())
+    values += [v for table in list(forms.values()) + list(t.get('enumTranslations', {}).values()) for v in table.values()]
+    values += [s.get(k) for s in t.get('settings', {}).values() for k in ('display', 'desc')]
+    check(all(isinstance(v, str) and v for v in values), name + ': empty CLLC entry')
+    counts['cllc_entries'] += len(values)
+
+def cllc_evidence_checks(m: dict, english: dict) -> None:
+    """Coverage and placeholders against the mod's English.yml (read as plain strings, like its YamlDotNet)."""
+    t, name = m['cllc'], m['id']
+    holes = lambda text: set(CLLC_PLACEHOLDER.findall(text or ''))
+    words = english.get('translations') or {}
+    check(set(t['translations']) == set(words), name + ': CLLC translations do not match the English table')
+    for key, ru in t['translations'].items():
+        check(key not in words or holes(words[key]) == holes(ru), name + ': CLLC placeholders differ: ' + key)
+    # The effect, infusion and affix words are enum names the English table maps to themselves.
+    enum_words = {k for k, v in words.items() if v == k and ' ' not in k}
+    for gender, table in t['genderedTranslations'].items():
+        check(set(table) == enum_words, name + ': CLLC gender ' + gender + ' lacks forms of the effect, infusion and affix words')
+    enums = english.get('enumTranslations') or {}
+    check(set(t['enumTranslations']) <= set(enums), name + ': CLLC enum unknown to the English table')
+    for enum, members in enums.items():
+        check(set(members) <= set(t['enumTranslations'].get(enum, {})), name + ': CLLC enum values not covered: ' + enum)
+    check(set(t['settingGroups']) == set(english.get('settingGroups') or {}), name + ': CLLC setting groups do not match the English table')
+    settings = english.get('settings') or {}
+    check(set(t['settings']) == set(settings), name + ': CLLC settings do not match the English table')
+    for key, s in t['settings'].items():
+        desc = (settings.get(key) or {}).get('desc', '')
+        check(holes(key) == holes(s['display']) and holes(desc) == holes(s['desc']), name + ': CLLC setting placeholders differ: ' + key)
+
 def fixture_data_checks(modules: list[dict]) -> None:
     """Validate fixture references only. NUnit, not Python, executes their behavior."""
     ids = {m['id'] for m in modules}
@@ -122,6 +172,9 @@ def evidence_checks(evidence: Path, modules: list[dict]) -> None:
         for relative in m['sourceFiles']:
             path = evidence / relative
             if not path.name.endswith('English.yml'): continue
+            if 'cllc' in m:
+                cllc_evidence_checks(m, yaml.load(path.read_text(encoding='utf-8-sig'), Loader=yaml.BaseLoader))
+                continue
             source = yaml.safe_load(path.read_text(encoding='utf-8-sig'))
             # englishWords[k] == k marks a key the mod uses without any English text; keys that the
             # mod builds in code (PieceManager categories) are not in its resource.
@@ -207,6 +260,7 @@ def main() -> int:
             check(HOLE.sub('', p['source']).strip() != '', name + ': raw pattern without fixed text: ' + repr(p['source']))
         for en, ru in m.get('mapLabels', {}).items():
             check(m['texts'].get(en) == ru, name + ': map label differs from display translation')
+        cllc_checks(m, counts)
     binding_checks(modules, args.evidence.resolve() if args.evidence else None)
     fixture_data_checks(modules)
     if args.evidence:
