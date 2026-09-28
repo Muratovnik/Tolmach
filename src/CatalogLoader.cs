@@ -41,33 +41,30 @@ namespace Tolmach
         internal static void Validate(Module m)
         {
             if (m == null || String.IsNullOrEmpty(m.id) || !Regex.IsMatch(m.id, @"\A[A-Za-z0-9_.]+\z") ||
-                String.IsNullOrEmpty(m.assembly) || m.guids == null || m.guids.Count == 0 || m.namespaces == null || m.namespaces.Count == 0 ||
+                String.IsNullOrEmpty(m.assembly) || m.guids == null || m.guids.Count == 0 || m.namespaces == null ||
                 m.guids.Any(String.IsNullOrWhiteSpace) || m.namespaces.Any(String.IsNullOrWhiteSpace))
                 throw new InvalidDataException("Missing or invalid module identity.");
             Version parsed;
             if (!Version.TryParse(m.version, out parsed) || !Version.TryParse(m.pluginVersion, out parsed))
                 throw new InvalidDataException("Package version and BepInPlugin version must both be declared.");
             if (m.words == null || m.englishWords == null || m.texts == null || m.mapLabels == null || m.patterns == null ||
-                m.returns == null || m.literals == null || m.prefabs == null)
+                m.returns == null || m.literals == null || m.prefabs == null || m.rawTexts == null || m.rawPatterns == null || m.terms == null)
                 throw new InvalidDataException("Catalog collections must not be null.");
+            // IL adapters are confined to the plugin's namespaces; a dictionary-only module has none.
+            if (m.namespaces.Count == 0 && m.NeedsIlAdapters) throw new InvalidDataException("Scoped adapters need plugin namespaces.");
             if (!new HashSet<string>(m.words.Keys).SetEquals(m.englishWords.Keys))
                 throw new InvalidDataException("English/Russian localization keys differ.");
-            foreach (Dictionary<string, string> table in new[] { m.words, m.englishWords, m.texts, m.mapLabels })
+            if (m.terms.Any(delegate(KeyValuePair<string, Dictionary<string, string>> t) { return !Regex.IsMatch(t.Key, @"\A[A-Za-z0-9_]+\z") || t.Value == null || t.Value.Count == 0; }))
+                throw new InvalidDataException("Invalid term vocabulary.");
+            foreach (Dictionary<string, string> table in new[] { m.words, m.englishWords, m.texts, m.mapLabels, m.rawTexts }.Concat(m.terms.Values))
                 if (table.Any(delegate(KeyValuePair<string, string> p) { return String.IsNullOrEmpty(p.Key) || String.IsNullOrEmpty(p.Value); }))
                     throw new InvalidDataException("Empty translation key/value.");
-            foreach (PatternSpec p in m.patterns)
+            foreach (PatternSpec p in m.patterns) ValidatePattern(m, p, "text", "message", "mapLabel");
+            foreach (PatternSpec p in m.rawPatterns)
             {
-                if (p == null || String.IsNullOrEmpty(p.source) || String.IsNullOrEmpty(p.target) || p.numeric == null || p.arguments == null)
-                    throw new InvalidDataException("Invalid pattern.");
-                HashSet<string> holes = new HashSet<string>(Hole.Matches(p.source).Cast<Match>().Select(delegate(Match h) { return h.Groups[1].Value; }));
-                if (!holes.SetEquals(Hole.Matches(p.target).Cast<Match>().Select(delegate(Match h) { return h.Groups[1].Value; })))
-                    throw new InvalidDataException("Pattern placeholders differ.");
-                if (p.numeric.Any(delegate(int n) { return !holes.Contains(n.ToString(System.Globalization.CultureInfo.InvariantCulture)); }))
-                    throw new InvalidDataException("Numeric argument has no source placeholder.");
-                foreach (KeyValuePair<string, string> a in p.arguments)
-                    if (!holes.Contains(a.Key) || (a.Value != "text" && a.Value != "message" && a.Value != "mapLabel") ||
-                        p.numeric.Contains(Int32.Parse(a.Key, System.Globalization.CultureInfo.InvariantCulture)))
-                        throw new InvalidDataException("Unknown or conflicting semantic argument.");
+                ValidatePattern(m, p, "text");
+                // Raw templates see every localized string in the game: a bare "{0}" would match them all.
+                if (Hole.Replace(p.source, "").Trim().Length == 0) throw new InvalidDataException("Raw pattern has no fixed text.");
             }
             foreach (MethodSpec r in m.returns)
                 if (r == null || String.IsNullOrEmpty(r.type) || String.IsNullOrEmpty(r.method)) throw new InvalidDataException("Invalid return adapter.");
@@ -77,6 +74,33 @@ namespace Tolmach
                     throw new InvalidDataException("Invalid literal adapter.");
             foreach (PrefabSpec r in m.prefabs)
                 if (r == null || r.fields == null || r.fields.Values.Any(String.IsNullOrEmpty)) throw new InvalidDataException("Invalid display fallback.");
+        }
+        private static void ValidatePattern(Module m, PatternSpec p, params string[] semantics)
+        {
+            if (p == null || String.IsNullOrEmpty(p.source) || String.IsNullOrEmpty(p.target) || p.numeric == null || p.arguments == null)
+                throw new InvalidDataException("Invalid pattern.");
+            HashSet<string> holes = new HashSet<string>(Hole.Matches(p.source).Cast<Match>().Select(delegate(Match h) { return h.Groups[1].Value; }));
+            if (!holes.SetEquals(Hole.Matches(p.target).Cast<Match>().Select(delegate(Match h) { return h.Groups[1].Value; })))
+                throw new InvalidDataException("Pattern placeholders differ.");
+            if (p.numeric.Any(delegate(int n) { return !holes.Contains(n.ToString(System.Globalization.CultureInfo.InvariantCulture)); }))
+                throw new InvalidDataException("Numeric argument has no source placeholder.");
+            foreach (KeyValuePair<string, string> a in p.arguments)
+            {
+                bool known = a.Value != null && (Array.IndexOf(semantics, a.Value) >= 0 ||
+                    (a.Value.StartsWith("term:", StringComparison.Ordinal) && m.terms.ContainsKey(a.Value.Substring(5))));
+                if (!holes.Contains(a.Key) || !known || p.numeric.Contains(Int32.Parse(a.Key, System.Globalization.CultureInfo.InvariantCulture)))
+                    throw new InvalidDataException("Unknown or conflicting semantic argument.");
+            }
+        }
+        // Valheim itself has no BepInEx plugin record. Game modules (closed captions) bind to
+        // this reserved GUID: the assembly declaring the game's Version type and its CurrentVersion.
+        internal const string GameGuid = "valheim";
+        internal static PluginIdentity GameIdentity(Type versionType)
+        {
+            object current = versionType == null ? null : RuntimeAccess.Read(versionType, "CurrentVersion");
+            object major = RuntimeAccess.Read(current, "m_major"), minor = RuntimeAccess.Read(current, "m_minor"), patch = RuntimeAccess.Read(current, "m_patch");
+            if (!(major is int) || !(minor is int) || !(patch is int) || (int)major < 0 || (int)minor < 0 || (int)patch < 0) return null;
+            return new PluginIdentity(GameGuid, versionType.Assembly, new Version((int)major, (int)minor, (int)patch));
         }
         internal static bool SameVersion(Version expected, Version actual)
         {

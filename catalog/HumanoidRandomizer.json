@@ -1,0 +1,463 @@
+{
+  "id": "HumanoidRandomizer",
+  "package": "Balrond-balrond_humanoidRandomizer",
+  "version": "1.6.0",
+  "pluginVersion": "1.6.0",
+  "assembly": "BalrondHumanoidRandomizer.merged",
+  "guids": [
+    "balrond.astafaraios.BalrondHumanoidRandomizer"
+  ],
+  "namespaces": [
+    "BalrondHumanoidRandomizer"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "BalrondHumanoidRandomizer.HumanoidExtend",
+      "method": "FindItemToSteal",
+      "values": {
+        " was stolen!": " украли!"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/c/42/BalrondHumanoidRandomizer/HumanoidExtend.cs"
+  ],
+  "notes": [
+    "Английский текст взят из кода и ресурсов этой версии мода; русский перевод собственный.",
+    "rawTexts и rawPatterns: строки, которые мод хранит в объектах (названия, описания, записи Compendium, составные имена). Переводятся только при показе через Localization.Localize; сохранённые данные не меняются.",
+    "Имя варианта: мод хранит «<m_name прототипа> <вариант>»; шаблон «{0} <вариант>» даёт «{0}-<существительное>»."
+  ],
+  "rawTexts": {
+    "A sailor's friend": "Друг моряка",
+    "A simple bow.": "Простой лук.",
+    "A slab of stone on a stick": "Каменная глыба на палке",
+    "A well made two handed sword.": "Добротный двуручный меч.",
+    "Bow": "Лук",
+    "Club": "Дубина",
+    "DraugrHeal": "Лечение драугра",
+    "Flint spear": "Кремнёвое копьё",
+    "GoblinHeal": "Лечение фулинга",
+    "Iron Bastard Sword": "Железный полуторный меч",
+    "Sailor's saber": "Сабля моряка",
+    "Shield_MonsterRandomizer": "Щит",
+    "SkeletonHeal": "Лечение скелета",
+    "Stonecrusher": "Камнедробитель",
+    "Torch left": "Факел (левая рука)",
+    "Unarmed": "Без оружия",
+    "You been shielded": "Вас защищает щит",
+    "base axe": "Топор",
+    "base staff-left": "Посох (левая рука)",
+    "base staff-right": "Посох (правая рука)",
+    "base sword": "Меч",
+    "base sword left": "Меч (левая рука)",
+    "claws": "Когти",
+    "claws kick": "Удар ногой с когтями",
+    "cluterbomb fire": "Огненная разрывная бомба",
+    "dual_knife": "Два ножа",
+    "dual_knife_slash": "Удар двумя ножами",
+    "dual_pierce": "Двойной укол",
+    "dual_slashBLUNT": "Двойной дробящий удар",
+    "fire spray": "Огненная струя",
+    "fire_hand_left": "Огонь (левая рука)",
+    "fire_hand_right": "Огонь (правая рука)",
+    "fireball": "Огненный шар",
+    "frostbolt": "Ледяная стрела",
+    "heal": "Лечение",
+    "ice_hand_left": "Лёд (левая рука)",
+    "ice_hand_right": "Лёд (правая рука)",
+    "kick": "Удар ногой",
+    "left special": "Особый удар левой",
+    "left_blade": "Удар клинком левой",
+    "left_blunt": "Дробящий удар левой",
+    "mage_hand_right": "Магия (правая рука)",
+    "poison spray": "Ядовитая струя",
+    "poison_hand_left": "Яд (левая рука)",
+    "poison_hand_right": "Яд (правая рука)",
+    "poisonbolt": "Ядовитая стрела",
+    "protect ": "Защита ",
+    "protectslef": "Самозащита",
+    "right special": "Особый удар правой",
+    "right_blade": "Удар клинком правой",
+    "right_blunt": "Дробящий удар правой",
+    "shadowbolt_left": "Теневая стрела (левая рука)",
+    "spirit spray": "Струя духа",
+    "spirit_hand_left": "Дух (левая рука)",
+    "spirit_hand_right": "Дух (правая рука)",
+    "thunder_hand_left": "Молния (левая рука)",
+    "thunder_hand_right": "Молния (правая рука)",
+    "twohand_pierce": "Двуручный выпад",
+    "twohand_slam": "Двуручный удар сверху",
+    "twohand_slash": "Двуручный рубящий удар",
+    "twohand_spin": "Двуручный удар с разворота",
+    "twohand_swing": "Двуручный размах",
+    "twohand_uppercutBlunt": "Дробящий удар снизу",
+    "twohand_uppercutPierce": "Колющий удар снизу",
+    "twohand_uppercutSlash": "Рубящий удар снизу",
+    "Harpooned": "Гарпун"
+  },
+  "rawPatterns": [
+    {
+      "source": "{0} Guardian",
+      "target": "{0}-страж",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Protector",
+      "target": "{0}-хранитель",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Vanguard",
+      "target": "{0}-застрельщик",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Defender",
+      "target": "{0}-защитник",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Sentry",
+      "target": "{0}-часовой",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Warden",
+      "target": "{0}-надзиратель",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Archer",
+      "target": "{0}-лучник",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Firestarter",
+      "target": "{0}-поджигатель",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Sharpshooter",
+      "target": "{0}-стрелок",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Coldblood",
+      "target": "{0}-морозострел",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Soulpiercer",
+      "target": "{0}-душестрел",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Hunter",
+      "target": "{0}-охотник",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Assassin",
+      "target": "{0}-убийца",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Cutthroat",
+      "target": "{0}-головорез",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Brute",
+      "target": "{0}-громила",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Duelist",
+      "target": "{0}-дуэлянт",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Berserker",
+      "target": "{0}-берсерк",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Bonebreaker",
+      "target": "{0}-костолом",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Swordmaster",
+      "target": "{0}-мечник",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Executioner",
+      "target": "{0}-палач",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Marauder",
+      "target": "{0}-мародёр",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Mercenary",
+      "target": "{0}-наёмник",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Fighter",
+      "target": "{0}-боец",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Warrior",
+      "target": "{0}-воин",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Bruiser",
+      "target": "{0}-драчун",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Solider",
+      "target": "{0}-солдат",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Thug",
+      "target": "{0}-бандит",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Scout",
+      "target": "{0}-разведчик",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Savage",
+      "target": "{0}-дикарь",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Pugilist",
+      "target": "{0}-кулачник",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Corsair",
+      "target": "{0}-корсар",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Sailor",
+      "target": "{0}-моряк",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Stabber",
+      "target": "{0}-поножовщик",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Thief",
+      "target": "{0}-вор",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Lightbringer",
+      "target": "{0}-светоносец",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Reaper",
+      "target": "{0}-жнец",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Frozenhammer",
+      "target": "{0}-морозобой",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Icecrusher",
+      "target": "{0}-ледолом",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Soulshreder",
+      "target": "{0}-душегуб",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Blackblade",
+      "target": "{0}-черноклинок",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Soulcalibur",
+      "target": "{0}-душеклинок",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Splasher",
+      "target": "{0}-брызгун",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Pyromancer",
+      "target": "{0}-пиромант",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Cryomancer",
+      "target": "{0}-криомант",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Thundercaller",
+      "target": "{0}-громовержец",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Venomancer",
+      "target": "{0}-отравитель",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Cultist",
+      "target": "{0}-культист",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Mage",
+      "target": "{0}-маг",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Cleric",
+      "target": "{0}-жрец",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Reaver",
+      "target": "{0}-разоритель",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} Arbalist",
+      "target": "{0}-арбалетчик",
+      "arguments": {
+        "0": "text"
+      }
+    }
+  ]
+}

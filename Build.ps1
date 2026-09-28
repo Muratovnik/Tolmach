@@ -173,7 +173,9 @@ try {
     if ((Sha256 $testedDll) -ne $dllHash) { throw 'Tested DLL differs from the plugin build output.' }
     $testedCatalog = @(Get-ChildItem -LiteralPath (Join-Path $testOutput 'catalog') -File -Filter '*.json')
     $catalog = @(Get-ChildItem -LiteralPath (Join-Path $Root 'catalog') -File -Filter '*.json' | Sort-Object Name)
-    if ($catalog.Count -ne 37 -or $testedCatalog.Count -ne $catalog.Count) { throw 'Catalog set is incomplete or differs from test output.' }
+    # The binding snapshot lists every module; Windows PowerShell emits a JSON array as one object.
+    $snapshot = Get-Content -Raw -LiteralPath (Join-Path $Root 'tests\fixtures\snapshot-bindings.json') | ConvertFrom-Json
+    if ($catalog.Count -eq 0 -or $catalog.Count -ne @($snapshot).Count -or $testedCatalog.Count -ne $catalog.Count) { throw 'Catalog set is incomplete or differs from test output.' }
     $catalogHashes = [ordered]@{}
     foreach ($file in $catalog) {
         $hash = Sha256 $file.FullName

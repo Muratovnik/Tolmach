@@ -26,13 +26,104 @@
   "returns": [],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/localization/a/Azumatt-AzuAutoStore/AzuAutoStore/AzuAutoStorePlugin.cs"
+    "source-evidence/localization/a/Azumatt-AzuAutoStore/AzuAutoStore/AzuAutoStorePlugin.cs",
+    "source-evidence/localization/a/Azumatt-AzuAutoStore/AzuAutoStore.Util/Functions.cs",
+    "source-evidence/localization/a/Azumatt-AzuAutoStore/AzuAutoStore.Interfaces/BackpackContainer.cs",
+    "source-evidence/localization/a/Azumatt-AzuAutoStore/AzuAutoStore.Interfaces/kgDrawer.cs",
+    "source-evidence/localization/a/Azumatt-AzuAutoStore/AzuAutoStore.Interfaces/mkzDrawer.cs",
+    "source-evidence/localization/a/Azumatt-AzuAutoStore/AzuAutoStore/TerminalInitTerminalPatch.cs",
+    "source-evidence/localization/a/Azumatt-AzuAutoStore/Backpacks/ItemContainer.cs",
+    "source-evidence/localization/a/Azumatt-AzuAutoStore/ServerSync/VersionCheck.cs"
   ],
   "notes": [
     "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
   ],
   "namespaces": [
-    "AzuAutoStore"
+    "AzuAutoStore",
+    "Backpacks",
+    "ServerSync"
   ],
-  "pluginVersion": "3.1.6"
+  "pluginVersion": "3.1.6",
+  "literals": [
+    {
+      "type": "AzuAutoStore.Util.Functions",
+      "method": "TryStore",
+      "values": {
+        "] is not in nearby containers</color>": "] отсутствует в ближайших контейнерах</color>",
+        "] cannot be stored based on configuration settings</color>": "] — хранение запрещено настройками</color>"
+      }
+    },
+    {
+      "type": "AzuAutoStore.Interfaces.BackpackContainer",
+      "method": "TryStore",
+      "values": {
+        " is not in nearby containers</color>": " отсутствует в ближайших контейнерах</color>"
+      }
+    },
+    {
+      "type": "AzuAutoStore.Interfaces.kgDrawer",
+      "method": "TryStoreToKG",
+      "values": {
+        " is not in nearby containers</color>": " отсутствует в ближайших контейнерах</color>"
+      }
+    },
+    {
+      "type": "AzuAutoStore.Interfaces.mkzDrawer",
+      "method": "TryStoreThisItem",
+      "values": {
+        "] is not in nearby drawers</color>": "] отсутствует в ближайших ящиках</color>"
+      }
+    },
+    {
+      "type": "AzuAutoStore.TerminalInitTerminalPatch",
+      "method": "Postfix",
+      "values": {
+        "[prefab name/query text] - search for items in chests near the player. It uses the prefab name": "[prefab name/query text] - поиск предметов в сундуках рядом с игроком. Используется имя префаба"
+      }
+    },
+    {
+      "type": "AzuAutoStore.TerminalInitTerminalPatch+<>c",
+      "method": "<Postfix>b__2_0",
+      "values": {
+        "<color=red>No items matching '": "<color=red>Предметы по запросу '",
+        "' found in nearby containers.</color>": "' в ближайших контейнерах не найдены.</color>"
+      }
+    },
+    {
+      "type": "Backpacks.ItemContainer",
+      "method": "GetPressOpenText",
+      "values": {
+        "Press [": "Нажмите [",
+        "] to open": "], чтобы открыть"
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    }
+  ]
 }

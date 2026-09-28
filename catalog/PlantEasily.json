@@ -1,0 +1,56 @@
+{
+  "id": "PlantEasily",
+  "package": "Advize-PlantEasily",
+  "version": "2.2.2",
+  "pluginVersion": "2.2.2",
+  "assembly": "Advize_PlantEasily",
+  "guids": [
+    "advize.PlantEasily"
+  ],
+  "namespaces": [
+    "Advize_PlantEasily"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "Advize_PlantEasily.HoverTextPatches",
+      "method": "BuildAreaHint",
+      "values": {
+        " (area)": " (по площади)"
+      }
+    },
+    {
+      "type": "Advize_PlantEasily.HoverTextPatches",
+      "method": "Postfix",
+      "values": {
+        "\nReplant as: <color=green>": "\nПересадить как: <color=green>"
+      }
+    },
+    {
+      "type": "Advize_PlantEasily.KeyHintPatches",
+      "method": "CreateKeyBoardHints",
+      "values": {
+        "Grid Size": "Размер сетки"
+      }
+    },
+    {
+      "type": "Advize_PlantEasily.KeyHintPatches",
+      "method": "UpdateGamepadHints",
+      "values": {
+        "Resize Grid ": "Размер сетки "
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/b/30-Advize-PlantEasily/Advize_PlantEasily/HoverTextPatches.cs",
+    "source-evidence/localization/b/30-Advize-PlantEasily/Advize_PlantEasily/KeyHintPatches.cs"
+  ],
+  "notes": [
+    "Английский текст взят из кода и ресурсов этой версии мода; русский перевод собственный."
+  ]
+}

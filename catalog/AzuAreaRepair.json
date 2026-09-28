@@ -1,0 +1,64 @@
+{
+  "id": "AzuAreaRepair",
+  "package": "Azumatt-AzuAreaRepair",
+  "version": "1.1.8",
+  "pluginVersion": "1.1.8",
+  "assembly": "AzuAreaRepair",
+  "guids": [
+    "Azumatt.AzuAreaRepair"
+  ],
+  "namespaces": [
+    "ServerSync",
+    "AzuAreaRepair"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    },
+    {
+      "type": "AzuAreaRepair.RpcHandlers",
+      "method": "RPC_AzuAutoStore_Version",
+      "values": {
+        "\n Needed: ": "\n Требуется: "
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/b/22-Azumatt-AzuAreaRepair/ServerSync/VersionCheck.cs",
+    "source-evidence/localization/b/22-Azumatt-AzuAreaRepair/AzuAreaRepair/RpcHandlers.cs"
+  ],
+  "notes": [
+    "Английский текст взят из кода и ресурсов этой версии мода; русский перевод собственный."
+  ]
+}

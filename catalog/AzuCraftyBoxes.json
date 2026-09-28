@@ -21,10 +21,19 @@
   "returns": [],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/AzuCraftyBoxes/AzuCraftyBoxesPlugin.cs"
+    "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/AzuCraftyBoxes/AzuCraftyBoxesPlugin.cs",
+    "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/AzuCraftyBoxes.Patches/FireplaceGetHoverTextPatch.cs",
+    "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/AzuCraftyBoxes.Patches/TurretGetHoverTextPatch.cs",
+    "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/AzuCraftyBoxes.Patches/OverrideHoverTextSg.cs",
+    "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/AzuCraftyBoxes.Patches/OverrideHoverText.cs",
+    "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/AzuCraftyBoxes.Patches/OverrideHoverTextFermenter.cs",
+    "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/AzuCraftyBoxes.Patches/SE_ContainerPull.cs",
+    "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/Backpacks/ItemContainer.cs",
+    "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/ServerSync/VersionCheck.cs"
   ],
   "notes": [
-    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен.",
+    "rawTexts и rawPatterns: строки, которые мод хранит в объектах (названия, описания, записи Compendium, составные имена). Переводятся только при показе через Localization.Localize; сохранённые данные не меняются."
   ],
   "literals": [
     {
@@ -36,10 +45,96 @@
         "<color=yellow>Only mine</color>": "<color=yellow>Только из моих</color>",
         "<color=red>No</color>": "<color=red>Нет</color>"
       }
+    },
+    {
+      "type": "AzuCraftyBoxes.Patches.FireplaceGetHoverTextPatch",
+      "method": "Postfix",
+      "values": {
+        " and ": " и "
+      }
+    },
+    {
+      "type": "AzuCraftyBoxes.Patches.TurretGetHoverTextPatch",
+      "method": "Postfix",
+      "values": {
+        " and ": " и "
+      }
+    },
+    {
+      "type": "AzuCraftyBoxes.Patches.OverrideHoverTextSg",
+      "method": "UpdateAddFuelSwitchHoverText",
+      "values": {
+        " and ": " и ",
+        "\n[<b><color=yellow>{0}</color> + <color=yellow>$KEY_Use</color></b>] Add {1}": "\n[<b><color=yellow>{0}</color> + <color=yellow>$KEY_Use</color></b>] Добавить: {1}"
+      }
+    },
+    {
+      "type": "AzuCraftyBoxes.Patches.OverrideHoverText",
+      "method": "UpdateAddOreSwitchHoverText",
+      "values": {
+        "\n[<b><color=yellow>{0}</color> + <color=yellow>$KEY_Use</color></b>] {1} {2} from Inventory & Nearby Containers": "\n[<b><color=yellow>{0}</color> + <color=yellow>$KEY_Use</color></b>] {1} {2} из инвентаря и ближайших сундуков"
+      }
+    },
+    {
+      "type": "AzuCraftyBoxes.Patches.OverrideHoverTextFermenter",
+      "method": "UpdateAddSwitchHoverText",
+      "values": {
+        "\n[<b><color=yellow>{0}</color> + <color=yellow>$KEY_Use</color></b>] {1} {2} from Inventory & Nearby Containers": "\n[<b><color=yellow>{0}</color> + <color=yellow>$KEY_Use</color></b>] {1} {2} из инвентаря и ближайших сундуков"
+      }
+    },
+    {
+      "type": "AzuCraftyBoxes.Patches.SE_ContainerPull",
+      "method": "CreateEffect",
+      "values": {
+        "Preventing Pulling": "Не брать из сундуков",
+        "Prevents pulling from nearby containers & backpacks": "Предметы не берутся из ближайших сундуков и рюкзаков"
+      }
+    },
+    {
+      "type": "Backpacks.ItemContainer",
+      "method": "GetPressOpenText",
+      "values": {
+        "Press [": "Нажмите [",
+        "] to open": "], чтобы открыть"
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
     }
   ],
   "namespaces": [
-    "AzuCraftyBoxes"
+    "AzuCraftyBoxes",
+    "Backpacks",
+    "ServerSync"
   ],
-  "pluginVersion": "1.8.26"
+  "pluginVersion": "1.8.26",
+  "rawTexts": {
+    "Preventing Pulling": "Не брать из сундуков",
+    "Prevents pulling from nearby containers & backpacks": "Предметы не берутся из ближайших сундуков и рюкзаков"
+  }
 }

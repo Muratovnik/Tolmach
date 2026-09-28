@@ -55,10 +55,14 @@ namespace Tolmach
     [BepInDependency("com.milkwyzard.ExpertExplorer", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("advize.PlantEverything", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("Azumatt.AzuCraftyBoxes", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("vapok.mods.adventurebackpacks", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Azumatt.AzuAreaRepair", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("advize.PlantEasily", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("balrond.astafaraios.BalrondHumanoidRandomizer", BepInDependency.DependencyFlags.SoftDependency)]
     public sealed class Plugin : BaseUnityPlugin
     {
         public const string PluginId = "muratovnik.tolmach";
-        public const string PluginVersion = "0.2.0";
+        public const string PluginVersion = "0.3.0";
         private static ManualLogSource Log;
         private static readonly List<string> Notes = new List<string>();
         private Harmony harmony;
@@ -86,6 +90,7 @@ namespace Tolmach
                     { Notes.Add(module.id + ": disabled by user"); continue; }
                     string reason;
                     bool loaded = CatalogLoader.TryBind(module, delegate(string guid) {
+                        if (guid == CatalogLoader.GameGuid) return CatalogLoader.GameIdentity(RuntimeAccess.ExactType("Version"));
                         PluginInfo info;
                         if (!Chainloader.PluginInfos.TryGetValue(guid, out info) || info.Instance == null) return null;
                         return new PluginIdentity(info.Metadata.GUID, info.Instance.GetType().Assembly, info.Metadata.Version);
@@ -99,7 +104,7 @@ namespace Tolmach
             try
             {
                 harmony = new Harmony(PluginId);
-                LegacyDisplay.Initialize();
+                RawDisplay.Initialize();
                 // Fallback only: once the game's Localization exists, its GetSelectedLanguage decides.
                 LocalizationBridge.Install(harmony, RuntimeAccess.ExactType("Localization"), delegate { return UnityEngine.PlayerPrefs.GetString("language", "English"); });
                 foreach (Module m in TextEngine.Modules.Values)
@@ -122,7 +127,7 @@ namespace Tolmach
                 if (harmony != null) harmony.UnpatchSelf();
                 PersistentUi.Reset();
                 LocalizationBridge.Reset();
-                LegacyDisplay.Reset();
+                RawDisplay.Reset();
                 DisplayPatches.Reset();
                 TextEngine.Modules.Clear();
             }
@@ -141,7 +146,7 @@ namespace Tolmach
             if (harmony != null) harmony.UnpatchSelf();
             PersistentUi.Reset();
             LocalizationBridge.Reset();
-            LegacyDisplay.Reset();
+            RawDisplay.Reset();
             DisplayPatches.Reset();
             TextEngine.Modules.Clear();
             started = false;

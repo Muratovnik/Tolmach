@@ -1,0 +1,48 @@
+{
+  "id": "AdventureBackpacks",
+  "package": "Vapok-AdventureBackpacks",
+  "version": "2.2.1",
+  "pluginVersion": "2.2.1",
+  "assembly": "AdventureBackpacks",
+  "guids": [
+    "vapok.mods.adventurebackpacks"
+  ],
+  "namespaces": [
+    "Vapok.Common.Managers.Skill"
+  ],
+  "words": {
+    "item_friendlyskeletonwand_spectralshroud_backpack": "Призрачный саван хранения"
+  },
+  "englishWords": {
+    "item_friendlyskeletonwand_spectralshroud_backpack": "Spectral Shroud of Holding"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "Vapok.Common.Managers.Skill.Skill",
+      "method": "Patch_Skills_CheatRaiseskill",
+      "values": {
+        "Skill increased ": "Повышен навык ",
+        "Skill ": "Навык "
+      }
+    },
+    {
+      "type": "Vapok.Common.Managers.Skill.Skill",
+      "method": "Patch_Skills_CheatResetSkill",
+      "values": {
+        "Skill ": "Навык ",
+        " reset": " сброшен"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/e/Vapok-AdventureBackpacks-2.2.1/Vapok.Common.Managers.Skill/Skill.cs"
+  ],
+  "notes": [
+    "Английский текст взят из кода и ресурсов этой версии мода; русский перевод собственный.",
+    "Собственный русский перевод мода сохраняется; добавлен только недостающий ключ и консольные сообщения."
+  ]
+}

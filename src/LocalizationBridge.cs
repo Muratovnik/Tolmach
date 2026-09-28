@@ -51,9 +51,9 @@ namespace Tolmach
                     harmony.Patch(method, HM("BeforeSetup", Priority.First), HM("AfterSetup", Priority.Last));
                     setupFound = true;
                 }
-                else if (LegacyDisplay.HasEntries && method.Name == "Localize" && !method.IsStatic && method.ReturnType == typeof(string) &&
+                else if (RawDisplay.HasEntries && method.Name == "Localize" && !method.IsStatic && method.ReturnType == typeof(string) &&
                     args.Length == 1 && args[0].ParameterType == typeof(string))
-                    harmony.Patch(method, postfix: HM("AfterLocalize", Priority.Last));
+                    harmony.Patch(method, prefix: HM("BeforeLocalize", Priority.Last));
             }
             if (!setupFound) throw new MissingMethodException("Localization.SetupLanguage API unavailable.");
             harmony.Patch(addWord, HM("BeforeAddWord", Priority.Last), HM("AfterAddWord", Priority.Last));
@@ -141,9 +141,12 @@ namespace Tolmach
         {
             if (__state) InvalidateCache(__instance);
         }
-        private static void AfterLocalize(object __instance, ref string __result)
+        // Raw text is matched before the game resolves its "$word" tokens: stored strings such
+        // as "$piece_workbench. ..." or "$enemy_greydwarf Guardian" keep their tokens, and the
+        // game then localizes (and caches) the Russian form. The caller's string is unchanged.
+        private static void BeforeLocalize(object __instance, ref string __0)
         {
-            if (Language(__instance) == "Russian") __result = LegacyDisplay.Translate(__result);
+            if (Language(__instance) == "Russian") __0 = RawDisplay.Translate(__0);
         }
         internal static void InjectMain()
         {

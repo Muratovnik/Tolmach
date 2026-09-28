@@ -4,6 +4,22 @@
   "basis": "User-provided snapshot; no upgrade of source mods is implied. Binary hashes are evidence metadata, not a claim that DLLs were shipped or runtime-verified.",
   "modules": [
     {
+      "id": "AdventureBackpacks",
+      "package": "Vapok-AdventureBackpacks",
+      "version": "2.2.1",
+      "status_in_archive": "not in archive (archive had 2.2.0: ru_present); 2.2.1 decompiled from the profile",
+      "source_root": "source-evidence/localization/e/Vapok-AdventureBackpacks-2.2.1",
+      "binary_identities": [
+        {
+          "mod": "Vapok-AdventureBackpacks-2.2.1",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Vapok-AdventureBackpacks/AdventureBackpacks.dll",
+          "size": 48911872,
+          "sha256": "9f0b0fd4d1fe3b1406ecd39beaa166c2e36f26cc012ea63812732f62afa5bda0"
+        }
+      ]
+    },
+    {
       "id": "Advize_PlantEverything",
       "package": "Advize-PlantEverything",
       "version": "1.21.3",
@@ -32,6 +48,22 @@
           "profile_path": "BepInEx/plugins/Marlthon-AirAnimals/AirAnimals.dll",
           "size": 17253376,
           "sha256": "b29905ffda5204570d64958cb18d74e08d7cee8aa361485e1d988b54242f2f85"
+        }
+      ]
+    },
+    {
+      "id": "AzuAreaRepair",
+      "package": "Azumatt-AzuAreaRepair",
+      "version": "1.1.8",
+      "status_in_archive": "ru_present",
+      "source_root": "source-evidence/localization/b/22-Azumatt-AzuAreaRepair",
+      "binary_identities": [
+        {
+          "mod": "Azumatt-AzuAreaRepair-1.1.8",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Azumatt-AzuAreaRepair/AzuAreaRepair.dll",
+          "size": 60416,
+          "sha256": "792bf8fc2252868cf622fa514ff3659e2f542c2753f720e5749b5cad74b609cc"
         }
       ]
     },
@@ -292,6 +324,38 @@
       ]
     },
     {
+      "id": "HumanoidRandomizer",
+      "package": "Balrond-balrond_humanoidRandomizer",
+      "version": "1.6.0",
+      "status_in_archive": "ru_present",
+      "source_root": "source-evidence/localization/c/42",
+      "binary_identities": [
+        {
+          "mod": "Balrond-balrond_humanoidRandomizer-1.6.0",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Balrond-balrond_humanoidRandomizer/BalrondHumanoidRandomizer.dll",
+          "size": 19048960,
+          "sha256": "b9553a604bc1f33ef12c472add5480f86b10c9b28b0307a60680dbb55908b568"
+        }
+      ]
+    },
+    {
+      "id": "Jotunn",
+      "package": "ValheimModding-Jotunn",
+      "version": "2.30.2",
+      "status_in_archive": "ru_present",
+      "source_root": "source-evidence/localization/a/ValheimModding-Jotunn",
+      "binary_identities": [
+        {
+          "mod": "ValheimModding-Jotunn-2.30.2",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/ValheimModding-Jotunn/Jotunn.dll",
+          "size": 526336,
+          "sha256": "9509221046842a70f94b98bab4cb41005dee026823a7a79345829ed46a30f796"
+        }
+      ]
+    },
+    {
       "id": "Mining",
       "package": "Smoothbrain-Mining",
       "version": "1.1.7",
@@ -352,6 +416,22 @@
           "profile_path": "BepInEx/plugins/blacks7ar-OreMines/OreMines.dll",
           "size": 13633536,
           "sha256": "82b776ba2e212de69c1b948e49b1e01369a4aeda00133a197f9f15f5dd0ba008"
+        }
+      ]
+    },
+    {
+      "id": "PlantEasily",
+      "package": "Advize-PlantEasily",
+      "version": "2.2.2",
+      "status_in_archive": "ru_present",
+      "source_root": "source-evidence/localization/b/30-Advize-PlantEasily",
+      "binary_identities": [
+        {
+          "mod": "Advize-PlantEasily-2.2.2",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Advize-PlantEasily/Advize_PlantEasily.dll",
+          "size": 75776,
+          "sha256": "8e48c43bb36c4e299037001734607fadd0635803d60e8ab84023a3bc7ffc6a58"
         }
       ]
     },
@@ -532,6 +612,22 @@
       ]
     },
     {
+      "id": "Valheim",
+      "package": "Valheim",
+      "version": "1.0.16",
+      "status_in_archive": "game: localization_captions has no Russian column values",
+      "source_root": "source-evidence/game/valheim-1.0.16",
+      "binary_identities": [
+        {
+          "mod": "Valheim 1.0.16 (Steam build 25527674)",
+          "enabled": true,
+          "game_path": "valheim_Data/Managed/assembly_valheim.dll",
+          "size": 2572288,
+          "sha256": "96cfc004f7f4a6f30d070bef39eafd79c466a137121c4665a2f19fb9c15c6127"
+        }
+      ]
+    },
+    {
       "id": "ValheimVisualEnhanced",
       "package": "Pumpkin-ValheimVisualEnhanced",
       "version": "0.5.18",
@@ -596,7 +692,7 @@
       ]
     }
   ],
-  "not_included": "ObeliskRU code/translations, proprietary game libraries, third-party DLLs, input logs, player/account identifiers, original absolute machine paths.",
+  "not_included": "Proprietary game libraries, third-party DLLs, input logs, player/account identifiers, original absolute machine paths.",
   "revision_0_1_1": {
     "base_archive": "ValheimRussianPack-0.1.0-source-and-installer.zip",
     "base_archive_sha256": "786ecfb189ab24548566fcdf06397ef86127050cad2118037e88a60939630467",
@@ -636,5 +732,33 @@
     "csharp_tests": "167 NUnit tests passed with Valheim 1.0.16, BepInEx 5.4.23.5 and HarmonyX 2.9 from the Default Gale profile",
     "package": "Muratovnik-Tolmach-0.2.0.zip, built by release-kit from the committed source and published as a GitHub release",
     "game_executed": false
+  },
+  "revision_0_3_0": {
+    "base": "Tolmach 0.2.0 (519a441)",
+    "catalogs_changed": true,
+    "new_modules": [
+      "Jotunn",
+      "AdventureBackpacks",
+      "AzuAreaRepair",
+      "PlantEasily",
+      "HumanoidRandomizer",
+      "Valheim"
+    ],
+    "extended_modules": [
+      "Advize_PlantEverything",
+      "AzuAutoStore",
+      "AzuCraftyBoxes",
+      "BalrondShipyard",
+      "BuildCamera",
+      "More_World_Locations_AIO"
+    ],
+    "english_sources": "Code and embedded resources of the installed mod versions (decompiled with ILSpy 9.1; asset bundles read with UnityPy) and the game's localization_captions table; Russian is this pack's own translation.",
+    "extra_evidence": [
+      "source-evidence/localization/e/Vapok-AdventureBackpacks-2.2.1",
+      "source-evidence/game/valheim-1.0.16"
+    ],
+    "review_fixes": "57 corrections in 17 catalogs (vanilla terminology, grammar, gender-neutral NPC lines)",
+    "csharp_tests": "237 NUnit tests passed with Valheim 1.0.16, BepInEx 5.4.23.5 and HarmonyX 2.9 from the Default Gale profile",
+    "game_test": "not performed"
   }
 }

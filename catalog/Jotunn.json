@@ -1,0 +1,147 @@
+{
+  "id": "Jotunn",
+  "package": "ValheimModding-Jotunn",
+  "version": "2.30.2",
+  "pluginVersion": "2.30.2",
+  "assembly": "Jotunn",
+  "guids": [
+    "com.jotunn.jotunn"
+  ],
+  "namespaces": [
+    "Jotunn.Utils",
+    "Jotunn.Managers"
+  ],
+  "words": {
+    "mod_compat_header_failed_connection": "Ошибка подключения:",
+    "mod_compat_header_remote_version": "Удалённая версия (сервер):",
+    "mod_compat_header_local_version": "Локальная версия (эта игра):",
+    "mod_compat_header_valheim_version": "Ошибка версии Valheim:",
+    "mod_compat_header_missing_mods": "Отсутствующие моды:",
+    "mod_compat_header_update_needed": "Требуется обновить моды:",
+    "mod_compat_header_downgrade_needed": "Требуется откатить моды:",
+    "mod_compat_header_additional_mods": "Загружены лишние моды:",
+    "mod_compat_header_further_steps": "Дальнейшие действия:",
+    "mod_compat_valheim_version_error_description": "На сервере запущена Valheim с сетевой версией $1, а у вас — с сетевой версией $2",
+    "mod_compat_valheim_version_upgrade": "Обновите игру",
+    "mod_compat_valheim_version_downgrade": "Установите более старую версию игры",
+    "mod_compat_further_steps_description": "Эта проверка версий касается только модов на Jötunn. Другие возможные причины отключения ищите в журналах сервера и клиента 'BepInEx/LogOutput.log'",
+    "mod_compat_mod_update": "Обновите $1 до версии $2",
+    "mod_compat_mod_downgrade": "Откатите $1 до версии $2",
+    "mod_compat_missing_mods_description": "Установите следующие моды",
+    "mod_compat_additional_mods_description": "Свяжитесь с администратором сервера или удалите следующие моды",
+    "mod_compat_missing_mod": "$1 $2 не загружен в вашей игре",
+    "mod_compat_additional_mod": "$1 $2 не загружен на сервере",
+    "mod_compat_open_log_file": "Открыть папку журналов",
+    "mod_compat_troubleshooting": "Устранение неполадок"
+  },
+  "englishWords": {
+    "mod_compat_header_failed_connection": "Failed Connection:",
+    "mod_compat_header_remote_version": "Remote Version (the Server):",
+    "mod_compat_header_local_version": "Local Version (this Game):",
+    "mod_compat_header_valheim_version": "Valheim Version Error:",
+    "mod_compat_header_missing_mods": "Missing Mods:",
+    "mod_compat_header_update_needed": "Mod Updates Needed:",
+    "mod_compat_header_downgrade_needed": "Mod Downgrades Needed:",
+    "mod_compat_header_additional_mods": "Additional Mods Loaded:",
+    "mod_compat_header_further_steps": "Further Steps:",
+    "mod_compat_valheim_version_error_description": "The server is running Valheim with network version $1, while your game is running Valheim with network version $2",
+    "mod_compat_valheim_version_upgrade": "Please update your game",
+    "mod_compat_valheim_version_downgrade": "Please downgrade your game",
+    "mod_compat_further_steps_description": "This version check only applies for mods using Jötunn. Please check both server and client log files from 'BepInEx/LogOutput.log' for other possible disconnects",
+    "mod_compat_mod_update": "Please update $1 to version $2",
+    "mod_compat_mod_downgrade": "Please downgrade $1 to version $2",
+    "mod_compat_missing_mods_description": "Please install the following mods",
+    "mod_compat_additional_mods_description": "Please contact your server admin or uninstall the following mods",
+    "mod_compat_missing_mod": "$1 $2 was not loaded on your game",
+    "mod_compat_additional_mod": "$1 $2 was not loaded on the server",
+    "mod_compat_open_log_file": "Open Log Folder",
+    "mod_compat_troubleshooting": "Troubleshooting"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "Jotunn.Utils.ModCompatibility",
+      "method": "CreateModModuleLayoutErrorMessage",
+      "values": {
+        "Jotunn versions on server and client are not compatible.": "Версии Jotunn на сервере и клиенте несовместимы."
+      }
+    },
+    {
+      "type": "Jotunn.Managers.SkillManager",
+      "method": "Skills_CheatResetSkill",
+      "values": {
+        "Skill ": "Навык ",
+        " reset": " сброшен"
+      }
+    },
+    {
+      "type": "Jotunn.Utils.UndoActions+UndoCreate",
+      "method": "UndoMessage",
+      "values": {
+        "Undo: Removed ": "Отмена: удалено "
+      }
+    },
+    {
+      "type": "Jotunn.Utils.UndoActions+UndoCreate",
+      "method": "RedoMessage",
+      "values": {
+        "Redo: Restored ": "Повтор: восстановлено "
+      }
+    },
+    {
+      "type": "Jotunn.Utils.UndoActions+UndoRemove",
+      "method": "UndoMessage",
+      "values": {
+        "Undo: Restored ": "Отмена: восстановлено "
+      }
+    },
+    {
+      "type": "Jotunn.Utils.UndoActions+UndoRemove",
+      "method": "RedoMessage",
+      "values": {
+        "Redo: Removed ": "Повтор: удалено "
+      }
+    },
+    {
+      "type": "Jotunn.Utils.UndoActions+UndoTerrain",
+      "method": "UndoMessage",
+      "values": {
+        "Undoing terrain changes": "Отмена изменений ландшафта"
+      }
+    },
+    {
+      "type": "Jotunn.Utils.UndoActions+UndoTerrain",
+      "method": "RedoMessage",
+      "values": {
+        "Redoing terrain changes": "Повтор изменений ландшафта"
+      }
+    },
+    {
+      "type": "Jotunn.Managers.UndoManager+UndoQueue",
+      "method": "Undo",
+      "values": {
+        "Nothing to undo.": "Нечего отменять."
+      }
+    },
+    {
+      "type": "Jotunn.Managers.UndoManager+UndoQueue",
+      "method": "Redo",
+      "values": {
+        "Nothing to redo.": "Нечего повторять."
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/a/ValheimModding-Jotunn/Jotunn.Utils/ModCompatibility.cs",
+    "source-evidence/localization/a/ValheimModding-Jotunn/Jotunn.Managers/SkillManager.cs",
+    "source-evidence/localization/a/ValheimModding-Jotunn/Jotunn.Utils/UndoActions.cs",
+    "source-evidence/localization/a/ValheimModding-Jotunn/Jotunn.Managers/UndoManager.cs"
+  ],
+  "notes": [
+    "Английский текст взят из кода и ресурсов этой версии мода; русский перевод собственный.",
+    "words: окно несовместимости модов при подключении; область переводов Jotunn дополняется без перезаписи."
+  ]
+}

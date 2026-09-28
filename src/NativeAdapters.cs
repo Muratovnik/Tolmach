@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
 using HarmonyLib;
 
 namespace Tolmach
@@ -129,48 +128,5 @@ namespace Tolmach
             if (additions.Count != 0) add.Invoke(scope, new object[] { "Russian", additions });
         }
 
-    }
-
-    // Only vetted raw display strings from the two custom axes and MWL's status effect.
-    // Item/recipe identifiers, SharedData.m_name, ZDO and save files remain untouched.
-    internal static class LegacyDisplay
-    {
-        private static readonly Dictionary<string, string> Values = new Dictionary<string, string>(StringComparer.Ordinal);
-        private static readonly Regex Tags = new Regex("(<[^>]+>)", RegexOptions.CultureInvariant);
-        internal static bool HasEntries { get { return Values.Count != 0; } }
-        internal static void Reset() { Values.Clear(); }
-        internal static void Initialize()
-        {
-            Values.Clear();
-            foreach (Module m in TextEngine.Modules.Values.Where(delegate(Module item) { return item.UiAllowed; }))
-                foreach (PrefabSpec prefab in m.prefabs)
-                    foreach (string english in prefab.fields.Values)
-                    {
-                        string russian;
-                        if (m.texts.TryGetValue(english, out russian)) Values[english] = russian;
-                    }
-        }
-        internal static string Translate(string value)
-        {
-            if (String.IsNullOrEmpty(value) || value.Length > 32768 || Values.Count == 0) return value;
-            bool possible = false;
-            foreach (string english in Values.Keys)
-                if (value.IndexOf(english, StringComparison.Ordinal) >= 0) { possible = true; break; }
-            if (!possible) return value;
-            string[] spans = Tags.Split(value);
-            for (int i = 0; i < spans.Length; i += 2)
-            {
-                string[] lines = spans[i].Split('\n');
-                for (int j = 0; j < lines.Length; j++)
-                {
-                    string trimmed = lines[j].Trim(); string translated;
-                    if (!Values.TryGetValue(trimmed, out translated)) continue;
-                    int start = lines[j].IndexOf(trimmed, StringComparison.Ordinal);
-                    lines[j] = lines[j].Substring(0, start) + translated + lines[j].Substring(start + trimmed.Length);
-                }
-                spans[i] = String.Join("\n", lines);
-            }
-            return String.Concat(spans);
-        }
     }
 }

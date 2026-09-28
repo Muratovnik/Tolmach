@@ -57,8 +57,15 @@ namespace Tolmach
         public List<MethodSpec> returns = new List<MethodSpec>();
         public List<LiteralSpec> literals = new List<LiteralSpec>();
         public List<PrefabSpec> prefabs = new List<PrefabSpec>();
+        // Raw strings stored in game objects (item, piece and status names, descriptions,
+        // Compendium entries) that Localization.Localize returns unchanged. Display only.
+        public Dictionary<string, string> rawTexts = new Dictionary<string, string>();
+        public List<PatternSpec> rawPatterns = new List<PatternSpec>();
+        // Named vocabularies for "term:<name>" pattern arguments; a pattern applies only if every term is known.
+        public Dictionary<string, Dictionary<string, string>> terms = new Dictionary<string, Dictionary<string, string>>();
         [JsonIgnore] public Assembly RuntimeAssembly;
         [JsonIgnore] public TextTable Table;
+        [JsonIgnore] public TextTable RawTable;
         [JsonIgnore] public bool ExactVersion;
         [JsonIgnore] public int PatchedMethods;
         [JsonIgnore] public int ScannedMethods;

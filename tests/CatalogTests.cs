@@ -18,8 +18,49 @@ namespace Tolmach.Tests
         [Test]
         public void SnapshotHasAllExpectedModules()
         {
-            Assert.That(ModuleIds().Count(), Is.EqualTo(37));
+            Assert.That(ModuleIds(), Is.Not.Empty);
             Assert.That(ModuleIds(), Is.EquivalentTo(Fixture<List<Identity>>("snapshot-bindings.json").Select(x => x.id)));
+        }
+        [Test]
+        public void GameModulesBindToTheGameVersion()
+        {
+            PluginIdentity game = CatalogLoader.GameIdentity(typeof(FixtureGame.Version));
+            Assert.That(game.Guid, Is.EqualTo(CatalogLoader.GameGuid));
+            Assert.That(game.Version, Is.EqualTo(new Version(1, 0, 16)));
+            Assert.That(game.Assembly, Is.EqualTo(typeof(FixtureGame.Version).Assembly));
+            Assert.That(CatalogLoader.GameIdentity(null), Is.Null);
+            Assert.That(CatalogLoader.GameIdentity(typeof(FixtureGame.GameVersion)), Is.Null, "A type without CurrentVersion is not the game.");
+            Module m = new Module { id = "Captions", assembly = game.Assembly.GetName().Name, pluginVersion = "1.0.16" };
+            m.guids.Add(CatalogLoader.GameGuid);
+            string reason;
+            Assert.That(CatalogLoader.TryBind(m, guid => guid == CatalogLoader.GameGuid ? game : null, false, out reason), Is.True, reason);
+            Assert.That(m.ExactVersion, Is.True);
+            m.assembly = "assembly_valheim";
+            Assert.That(CatalogLoader.TryBind(m, guid => guid == CatalogLoader.GameGuid ? game : null, false, out reason), Is.False, "Another assembly declaring Version is not the game.");
+        }
+        [Test]
+        public void InvalidRawDisplayDataIsRejected()
+        {
+            Func<Module> valid = () =>
+            {
+                Module m = CatalogLoader.Read(Catalog("StructureTweaks"));
+                m.terms["ship"] = new Dictionary<string, string> { { "Karve", "Карви" } };
+                m.rawPatterns.Add(new PatternSpec { source = "Plan {0}", target = "Чертёж ({0})", arguments = new Dictionary<string, string> { { "0", "term:ship" } } });
+                return m;
+            };
+            Assert.DoesNotThrow(() => CatalogLoader.Validate(valid()));
+            Module bare = valid(); bare.rawPatterns.Add(new PatternSpec { source = " {0} ", target = "{0}" });
+            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(bare), "A raw pattern must contain fixed text.");
+            Module unknown = valid(); unknown.rawPatterns[0].arguments["0"] = "term:missing";
+            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(unknown));
+            Module message = valid(); message.rawPatterns[0].arguments["0"] = "message";
+            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(message), "Raw patterns take text and term arguments only.");
+            Module empty = valid(); empty.terms["empty"] = new Dictionary<string, string>();
+            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(empty));
+            Module blank = valid(); blank.rawTexts["Bleeding"] = "";
+            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(blank));
+            Module missing = valid(); missing.rawTexts = null;
+            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(missing));
         }
         [TestCaseSource("Modules")]
         public void ActualBinderAcceptsSnapshotIdentity(string id)
@@ -34,8 +75,8 @@ namespace Tolmach.Tests
         {
             Module m = CatalogLoader.Read(Catalog(id));
             var pairs = m.words.Select(p => new KeyValuePair<string, string>(m.englishWords[p.Key], p.Value))
-                .Concat(m.texts).Concat(m.mapLabels)
-                .Concat(m.patterns.Select(p => new KeyValuePair<string, string>(p.source, p.target)))
+                .Concat(m.texts).Concat(m.mapLabels).Concat(m.rawTexts).Concat(m.terms.Values.SelectMany(t => t))
+                .Concat(m.patterns.Concat(m.rawPatterns).Select(p => new KeyValuePair<string, string>(p.source, p.target)))
                 .Concat(m.literals.SelectMany(p => p.values));
             const string tokens = @"\{\d+[^{}]*\}|\$\d+|\$[A-Za-z_]\w*|</?[^>\n]+>";
             foreach (var pair in pairs)

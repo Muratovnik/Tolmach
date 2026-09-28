@@ -31,13 +31,461 @@
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/Launch.cs"
+    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/Launch.cs",
+    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/ShipyardStation.cs",
+    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/AnchorSwitch.cs",
+    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/FishnetTrap.cs",
+    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/ShieldPainter.cs",
+    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/ShipProcessor.cs",
+    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/ShipOwnerName.cs",
+    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/ShipExtensionFactory.cs"
   ],
   "notes": [
-    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен.",
+    "rawTexts и rawPatterns: строки, которые мод хранит в объектах (названия, описания, записи Compendium, составные имена). Переводятся только при показе через Localization.Localize; сохранённые данные не меняются."
   ],
   "namespaces": [
     "BalrondShipyard"
   ],
-  "pluginVersion": "1.7.3"
+  "pluginVersion": "1.7.3",
+  "literals": [
+    {
+      "type": "BalrondShipyard.ShipyardStation",
+      "method": "GetLeverHoverText",
+      "values": {
+        "[<color=yellow><b>$KEY_Use</b></color>] Upgrade Ship": "[<color=yellow><b>$KEY_Use</b></color>] Улучшить корабль"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipyardStation",
+      "method": "RPC_ShipyardRespons",
+      "values": {
+        "Upgrade Added": "Улучшение установлено",
+        "Wrong resource amount - failed to upgrade": "Неверное количество ресурсов — улучшить не удалось",
+        "Cargo is empty": "Нет груза",
+        "Shipyard is in use": "Верфь занята",
+        "No Ship in range": "Поблизости нет корабля",
+        "Something went wrong": "Что-то пошло не так"
+      }
+    },
+    {
+      "type": "BalrondShipyard.AnchorSwitch",
+      "method": ".ctor",
+      "values": {
+        "Anchor": "Якорь"
+      }
+    },
+    {
+      "type": "BalrondShipyard.FishnetTrap",
+      "method": ".ctor",
+      "values": {
+        "FishnetTrap": "Сеть-ловушка",
+        "Add Fishbait": "Добавить наживку",
+        "Empty the basket": "Опустошить корзину"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShieldPainter",
+      "method": ".ctor",
+      "values": {
+        "Paint Shields": "Покрасить щиты"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipProcessor",
+      "method": "setupShipyard",
+      "values": {
+        "Upgrade Ship": "Улучшить корабль"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipOwnerName",
+      "method": "GetHoverText",
+      "values": {
+        "\n[<color=yellow><b>$KEY_Use</b></color>] Change Name": "\n[<color=yellow><b>$KEY_Use</b></color>] Изменить название"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createItemDescription",
+      "values": {
+        "\n Require: \n": "\n Требуется: \n",
+        "Schematic x 1": "Чертёж x 1"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createAnchor",
+      "values": {
+        "Adds Anchor. You gain ability to stop your ship in place": "Устанавливает якорь. Позволяет остановить корабль на месте"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createArmor",
+      "values": {
+        "Add Carapace armor. Increase ships health and resistance against pierce damage": "Устанавливает броню из панциря. Повышает прочность корабля и защиту от колющего урона"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createAshlandsDrakkarTent",
+      "values": {
+        "Adds Tent. Increase health by 200": "Устанавливает шатёр. Увеличивает прочность на 200"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createAshlandsRopes",
+      "values": {
+        "Adds side ropes. Allows you to get to upper deck from water level": "Устанавливает боковые канаты. Позволяют подняться на верхнюю палубу из воды"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createAshlandsSupply",
+      "values": {
+        "Adds supplies. Increase ship blunt resistance": "Устанавливает припасы. Повышает защиту корабля от дробящего урона"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createDrakkarSupply",
+      "values": {
+        "Adds Barrels. Increase blunt resistance and health": "Устанавливает бочки. Повышает защиту от дробящего урона и прочность"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createDrakkarSupply2",
+      "values": {
+        "Adds Crates. Increase slash resistance and health": "Устанавливает ящики. Повышает защиту от рассекающего урона и прочность"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createDrakkarTent",
+      "values": {
+        "Adds Tent. Gain shelter status. Increase health by 300": "Устанавливает шатёр. Даёт эффект «Укрытие». Увеличивает прочность на 300"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createHolkRopes",
+      "values": {
+        "Adds side ropes. Allows you to get to upper deck from water level": "Устанавливает боковые канаты. Позволяют подняться на верхнюю палубу из воды"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createHolkSupply",
+      "values": {
+        "Adds supplies. Increase ship blunt resistance": "Устанавливает припасы. Повышает защиту корабля от дробящего урона"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createHolkTent",
+      "values": {
+        "Adds Tent. Increase health by 200": "Устанавливает шатёр. Увеличивает прочность на 200"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createKarveSupply",
+      "values": {
+        "Adds supplies. Increase ship blunt resistance": "Устанавливает припасы. Повышает защиту корабля от дробящего урона"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createKnarrSupply",
+      "values": {
+        "Adds supplies. Increase ship blunt resistance": "Устанавливает припасы. Повышает защиту корабля от дробящего урона"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createKnarrTent",
+      "values": {
+        "Adds Tent. Increase health by 200": "Устанавливает шатёр. Увеличивает прочность на 200"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createLamp",
+      "values": {
+        "Adds Lights. Adds Warm effect": "Устанавливает фонари. Даёт эффект «Тепло»"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createNamePlate",
+      "values": {
+        "Adds Nameplate. You can name your ship.": "Устанавливает табличку с названием. Кораблю можно дать имя."
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createOars",
+      "values": {
+        "Add Oars. Increase ships movement capability": "Устанавливает вёсла. Улучшает ходовые качества корабля"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createShield",
+      "values": {
+        "Adds Shields. Increase ships health by 200": "Устанавливает щиты. Увеличивает прочность корабля на 200",
+        "Adds Shields. Increase ships health by 300": "Устанавливает щиты. Увеличивает прочность корабля на 300"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createSnekkeSupply",
+      "values": {
+        "Adds supplies. Increase ship blunt resistance": "Устанавливает припасы. Повышает защиту корабля от дробящего урона"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "createSnekkeTent",
+      "values": {
+        "Adds Tent. Increase health by 200": "Устанавливает шатёр. Увеличивает прочность на 200"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "drakarHeadCernyx",
+      "values": {
+        "Set Cernyx Head decoration": "Устанавливает носовую фигуру «Церникс»"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "drakkarHeadDefault",
+      "values": {
+        "Set Default Head decoration": "Устанавливает стандартную носовую фигуру"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "drakkarHeadDragon",
+      "values": {
+        "Set Dragon Head decoration": "Устанавливает носовую фигуру «Дракон»"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "drakkarHeadOsberg",
+      "values": {
+        "Set Osberg Head decoration": "Устанавливает носовую фигуру «Осеберг»"
+      }
+    },
+    {
+      "type": "BalrondShipyard.ShipExtensionFactory",
+      "method": "getSailDescription",
+      "values": {
+        "Set default(Red) sail color": "Устанавливает стандартный (красный) цвет паруса",
+        "Set blue sail color": "Устанавливает синий цвет паруса",
+        "Set Triangle Red sail color": "Устанавливает узор паруса «Красные треугольники»",
+        "Set green sail color": "Устанавливает зелёный цвет паруса",
+        "Set transparent sail color": "Устанавливает прозрачный парус",
+        "Set white sail color": "Устанавливает белый цвет паруса",
+        "Set Triangle Green sail pattern": "Устанавливает узор паруса «Зелёные треугольники»",
+        "Set Yellow  sail color": "Устанавливает жёлтый цвет паруса",
+        "Set Gray sail color": "Устанавливает серый цвет паруса",
+        "Set Vegvisir sail pattern": "Устанавливает узор паруса «Вегвизир»"
+      }
+    }
+  ],
+  "rawTexts": {
+    "$piece_craftingstation . For All ship work related stuff.": "$piece_craftingstation. Для любых корабельных работ.",
+    "$piece_craftingstation . For creating all ship schematics": "$piece_craftingstation. Для создания всех чертежей кораблей",
+    "$ship_raft floor": "$ship_raft: пол",
+    "A massive 40 slot chest made of tarred wood": "Огромный сундук на 40 ячеек из просмолённого дерева",
+    "A sailor's friend": "Друг моряка",
+    "A sailor's friend at a windy water": "Друг моряка в ветреных водах",
+    "A sailor's last resort.": "Последняя надежда моряка.",
+    "A set of easy to use dyes to color your sails.": "Набор простых в использовании красителей для окраски парусов.",
+    "A small 4 slot chest made of tarred wood": "Небольшой сундук на 4 ячейки из просмолённого дерева",
+    "Add Carapace armor. Increase ships health and resistance against pierce damage": "Устанавливает броню из панциря. Повышает прочность корабля и защиту от колющего урона",
+    "Add Fishbait": "Добавить наживку",
+    "Add Oars. Increase ships movement capability": "Устанавливает вёсла. Улучшает ходовые качества корабля",
+    "Adds Anchor. You gain ability to stop your ship in place": "Устанавливает якорь. Позволяет остановить корабль на месте",
+    "Adds Barrels. Increase blunt resistance and health": "Устанавливает бочки. Повышает защиту от дробящего урона и прочность",
+    "Adds Crates. Increase slash resistance and health": "Устанавливает ящики. Повышает защиту от рассекающего урона и прочность",
+    "Adds Lights. Adds Warm effect": "Устанавливает фонари. Даёт эффект «Тепло»",
+    "Adds Nameplate. You can name your ship.": "Устанавливает табличку с названием. Кораблю можно дать имя.",
+    "Adds Shields. Increase ships health by 200": "Устанавливает щиты. Увеличивает прочность корабля на 200",
+    "Adds Shields. Increase ships health by 300": "Устанавливает щиты. Увеличивает прочность корабля на 300",
+    "Adds Tent. Gain shelter status. Increase health by 300": "Устанавливает шатёр. Даёт эффект «Укрытие». Увеличивает прочность на 300",
+    "Adds Tent. Increase health by 200": "Устанавливает шатёр. Увеличивает прочность на 200",
+    "Adds side ropes. Allows you to get to upper deck from water level": "Устанавливает боковые канаты. Позволяют подняться на верхнюю палубу из воды",
+    "Adds supplies. Increase ship blunt resistance": "Устанавливает припасы. Повышает защиту корабля от дробящего урона",
+    "Anchor": "Якорь",
+    "Bandana": "Бандана",
+    "Cargo": "Груз",
+    "Catches fishes over time if fueled with proper fishing bait": "Со временем ловит рыбу, если заправить её подходящей наживкой",
+    "Charcoal paste": "Угольная паста",
+    "Disable": "Выключить",
+    "Dock Cargo": "Портовый груз",
+    "Dragon Decor Head": "Декоративная голова дракона",
+    "Drakkar": "Драккар",
+    "Drop Anchor": "Бросить якорь",
+    "Empty the basket": "Опустошить корзину",
+    "Enable": "Включить",
+    "Fishing Net": "Рыболовная сеть",
+    "Fishnet Trap": "Сеть-ловушка",
+    "Fishnet Wall": "Стена из сети",
+    "FishnetTrap": "Сеть-ловушка",
+    "For All Your ship upgrades": "Для всех улучшений кораблей",
+    "Fueled with Tar keeps fire 3 times longer": "На дёгте горит в 3 раза дольше",
+    "Good for laminating the wood": "Подходит для пропитки дерева",
+    "Holk": "Хольк",
+    "Iron wall Torch": "Железный настенный факел",
+    "It's waterproof": "Не промокает",
+    "Knarr": "Кнорр",
+    "Longship": "Длинный корабль",
+    "Lookout this is heavy....": "Осторожно, это тяжело....",
+    "My Ship": "Мой корабль",
+    "Ocean Crusher": "Сокрушитель океанов",
+    "Paint Shields": "Покрасить щиты",
+    "Pirate Hat": "Пиратская шляпа",
+    "Pull Anchor": "Поднять якорь",
+    "Reinforced Steering WHeel": "Укреплённый штурвал",
+    "Rope": "Канат",
+    "Rope Bridge": "Канатный мост",
+    "Rope Bridge Supported": "Канатный мост с опорами",
+    "Rope Bridge one side support": "Канатный мост с опорой с одной стороны",
+    "Rope wall 2m": "Канатная стена 2 м",
+    "Rope wall 4m": "Канатная стена 4 м",
+    "Sail Ink": "Краска для парусов",
+    "Sail banner": "Парусный флаг",
+    "Sail banner wide": "Широкий парусный флаг",
+    "Sailor Rain cloak": "Дождевой плащ моряка",
+    "Sailor's saber": "Сабля моряка",
+    "Scribe Table": "Стол писца",
+    "Scribe's Table": "Стол писца",
+    "Scribe's table": "Стол писца",
+    "Set Gray sail color": "Устанавливает серый цвет паруса",
+    "Set Triangle Green sail pattern": "Устанавливает узор паруса «Зелёные треугольники»",
+    "Set Triangle Red sail color": "Устанавливает узор паруса «Красные треугольники»",
+    "Set Vegvisir sail pattern": "Устанавливает узор паруса «Вегвизир»",
+    "Set Yellow  sail color": "Устанавливает жёлтый цвет паруса",
+    "Set blue sail color": "Устанавливает синий цвет паруса",
+    "Set default(Red) sail color": "Устанавливает стандартный (красный) цвет паруса",
+    "Set green sail color": "Устанавливает зелёный цвет паруса",
+    "Set transparent sail color": "Устанавливает прозрачный парус",
+    "Set white sail color": "Устанавливает белый цвет паруса",
+    "Shipyard": "Верфь",
+    "Shipyard Station": "Верфь",
+    "Shipyard is in use": "Верфь занята",
+    "Shipyard material storage": "Склад материалов верфи",
+    "Slim fast vessel": "Лёгкое быстрое судно",
+    "Slower cargo vessel": "Более медленное грузовое судно",
+    "Snekke": "Шнека",
+    "Storage": "Хранилище",
+    "Tarred Wood Beam 27": "Просмолённый брус 27°",
+    "Tarred Wood Beam 2m": "Просмолённый брус 2 м",
+    "Tarred Wood Beam 45": "Просмолённый брус 45°",
+    "Tarred Wood Beam 4m": "Просмолённый брус 4 м",
+    "Tarred Wood Floor 2x2": "Просмолённый пол 2x2",
+    "Tarred Wood Ladder 2m": "Просмолённая лестница 2 м",
+    "Tarred Wood Pole 1m": "Просмолённый столб 1 м",
+    "Tarred Wood Pole 2m": "Просмолённый столб 2 м",
+    "Tarred Wood Pole 4m": "Просмолённый столб 4 м",
+    "Tarred Wood Ramp 26": "Просмолённый пандус 26°",
+    "Tent Roof": "Крыша шатра",
+    "Tent Roof Flat": "Плоская крыша шатра",
+    "Tent Roof Sloope": "Скатная крыша шатра",
+    "Tent wall side": "Боковая стенка шатра",
+    "This Shipyard will help you improve your ships. Put schematic in to the cargo and activate the table. If there is a ship in range that can be upgraded item put in to the cargo will be used.": "Эта верфь поможет улучшать корабли. Положите чертёж в груз и активируйте стол. Если поблизости есть корабль, который можно улучшить, положенный в груз предмет будет использован.",
+    "This Trap will le tyou catch fish native to the biome you build it . \nPut proper Fishing Bait for the biome to increase chance of catching valuabe fishes. Note: You cant catch Angler with it.": "Эта ловушка ловит рыбу, которая водится в биоме, где она построена.\nПоложите подходящую для биома наживку, чтобы повысить шанс поймать ценную рыбу. Примечание: удильщика ею не поймать.",
+    "This is Scribe's table for creating Schematics. Those items provide information about ship upgrades": "Это стол писца для создания чертежей. Чертежи содержат сведения об улучшениях кораблей",
+    "This maasive ship is proof of Dvergr's craftmanship": "Этот огромный корабль — доказательство мастерства двергов",
+    "This thic cape can whiwstand harsh wind and water\n": "Этот плотный плащ выдерживает суровый ветер и воду\n",
+    "Upgrade Added": "Улучшение установлено",
+    "Upgrade Ship": "Улучшить корабль",
+    "Waterproof": "Непромокаемость",
+    "Wisp lamp": "Фонарь со светлячком",
+    "You are a priate ! Yarrp !": "Вы пират! Йо-хо-хо!",
+    "a floor tile you can build on water": "Плита пола, которую можно строить на воде",
+    "shipwright Station": "Стойка корабела",
+    "Plan Holk:Wisp Lamps": "Чертёж (Хольк): Фонари со светлячками",
+    "Sail Knarr:  Blue": "Парус (Кнорр): Синий",
+    "Sail Snekke:  Blue": "Парус (Шнека): Синий",
+    "Harpooned": "Гарпун"
+  },
+  "rawPatterns": [
+    {
+      "source": "Plan {0}: {1}",
+      "target": "Чертёж ({0}): {1}",
+      "arguments": {
+        "0": "term:ship",
+        "1": "term:feature"
+      }
+    },
+    {
+      "source": "Sail {0}: {1}",
+      "target": "Парус ({0}): {1}",
+      "arguments": {
+        "0": "term:ship",
+        "1": "term:feature"
+      }
+    },
+    {
+      "source": "Head {0}: {1}",
+      "target": "Носовая фигура ({0}): {1}",
+      "arguments": {
+        "0": "term:ship",
+        "1": "term:feature"
+      }
+    }
+  ],
+  "terms": {
+    "ship": {
+      "Longship": "Длинный корабль",
+      "Drakkar": "Драккар",
+      "Karve": "Карви",
+      "Knarr": "Кнорр",
+      "Snekke": "Шнека",
+      "Holk": "Хольк"
+    },
+    "feature": {
+      "Anchor": "Якорь",
+      "Armor": "Броня",
+      "Barrels": "Бочки",
+      "Crates": "Ящики",
+      "Lamps": "Фонари",
+      "Wisp Lamps": "Фонари со светлячками",
+      "Oar": "Весло",
+      "Oars": "Вёсла",
+      "Shields": "Щиты",
+      "Roof": "Крыша",
+      "Tent": "Шатёр",
+      "Supply Bag": "Мешок с припасами",
+      "Supply Crates": "Ящики с припасами",
+      "Ropes": "Канаты",
+      "Name Plate": "Табличка с названием",
+      "Fishnet": "Рыболовная сеть",
+      "Ram": "Таран",
+      "Cage": "Клетка",
+      "Cernyx": "Церникс",
+      "Dragon": "Дракон",
+      "Osberg": "Осеберг",
+      "Skull": "Череп",
+      "Default": "По умолчанию",
+      "Blue": "Синий",
+      "Dark Gray": "Тёмно-серый",
+      "Dark Grey": "Тёмно-серый",
+      "Green": "Зелёный",
+      "Transparent": "Прозрачный",
+      "White": "Белый",
+      "Triangle-Green": "Зелёные треугольники",
+      "Triangle-Red": "Красные треугольники",
+      "Vegvisir": "Вегвизир",
+      "Yellow": "Жёлтый"
+    }
+  }
 }

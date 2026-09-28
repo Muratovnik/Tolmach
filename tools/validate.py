@@ -7,6 +7,7 @@ additional comparisons against English/Russian resources in the supplied archive
 from __future__ import annotations
 import argparse
 import collections
+import csv
 import hashlib
 import json
 import re
@@ -14,6 +15,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+# Valheim itself has no BepInEx plugin record; game modules bind to this reserved GUID.
+GAME_GUID = 'valheim'
+GAME_ASSEMBLY = 'assembly_valheim'
 HOLE = re.compile(r'\{(\d+)\}')
 TOKEN = re.compile(r'\{\d+[^{}]*\}|\$\d+|\$[A-Za-z_]\w*|</?[^>\n]+>')
 checks = 0
@@ -53,7 +57,9 @@ def binding_checks(modules: list[dict], evidence: Path | None) -> None:
         if row is None:
             continue
         check(row['guid'] in m['guids'], m['id'] + ': wrong catalog GUID')
-        check(set(m['guids']) <= declared, m['id'] + ': GUID has no declared BepInEx dependency')
+        check(set(m['guids']) - {GAME_GUID} <= declared, m['id'] + ': GUID has no declared BepInEx dependency')
+        check(GAME_GUID not in m['guids'] or (m['guids'] == [GAME_GUID] and m['assembly'] == GAME_ASSEMBLY),
+              m['id'] + ': game GUID must stand alone and bind the game assembly')
         check(m['assembly'] == row['assembly'], m['id'] + ': wrong assembly identity')
         check(m.get('pluginVersion') == row['pluginVersion'], m['id'] + ': wrong/missing BepInPlugin version')
         if evidence is not None:
@@ -63,7 +69,10 @@ def binding_checks(modules: list[dict], evidence: Path | None) -> None:
                 if not path.is_file():
                     continue
                 check(hashlib.sha256(path.read_bytes()).hexdigest() == source['sha256'], m['id'] + ': binding evidence hash changed')
-                if path.suffix == '.cs':
+                if path.suffix == '.cs' and row['guid'] == GAME_GUID:
+                    found = re.search(r'CurrentVersion \{ get; \} = new GameVersion\((\d+), (\d+), (\d+)\)', path.read_text(encoding='utf-8-sig'))
+                    check(bool(found) and '.'.join(found.groups()) == row['pluginVersion'], m['id'] + ': game version contradicts snapshot')
+                elif path.suffix == '.cs':
                     matches = [(g, v) for g, _, v in attribute.findall(path.read_text(encoding='utf-8-sig'))]
                     check((row['guid'], row['pluginVersion']) in matches, m['id'] + ': BepInPlugin metadata contradicts snapshot')
                 elif path.suffix == '.csproj':
@@ -80,11 +89,20 @@ def fixture_data_checks(modules: list[dict]) -> None:
 
 def evidence_checks(evidence: Path, modules: list[dict]) -> None:
     coverage = load(evidence / 'localization/coverage.json')
-    expected = {r['fullName'] for r in coverage['rows'] if r['status'] in ('missing', 'partial')}
-    check({m['package'] + '-' + m['version'] for m in modules} == expected, 'Archive audit/module set mismatch')
+    # The archived audit lists packages without Russian text; each needs a module. Packages
+    # the audit saw with Russian (often from another pack) may have modules as well.
+    gaps = {r['fullName'] for r in coverage['rows'] if r['status'] in ('missing', 'partial')}
+    uncovered = gaps - {m['package'] + '-' + m['version'] for m in modules}
+    check(not uncovered, 'Archive audit gaps without a module: ' + ', '.join(sorted(uncovered)))
     for m in modules:
         for relative in m['sourceFiles']:
             check((evidence / relative).is_file(), m['id'] + ': missing evidence ' + relative)
+            if relative.endswith('localization_captions.csv') and (evidence / relative).is_file():
+                with (evidence / relative).open(encoding='utf-8-sig', newline='') as stream:
+                    rows = list(csv.reader(stream))
+                column = rows[0].index('English')
+                english = {r[0]: r[column] for r in rows[1:] if r and r[0] and not r[0].startswith('//') and len(r) > column}
+                check(m['englishWords'] == english, m['id'] + ': game caption table not exactly represented')
     expert = next(m for m in modules if m['id'] == 'ExpertExplorer')
     expert_english = {}
     for path in (evidence / 'packages/MilkMediaProductions-ExpertExplorer/plugins').glob('*.English.json'):
@@ -129,35 +147,44 @@ def main() -> int:
     parser.add_argument('--report', type=Path)
     args = parser.parse_args()
     modules = [load(p) for p in sorted((ROOT / 'catalog').glob('*.json'))]
-    check(len(modules) == 37, 'Expected 37 modules')
+    check(bool(modules), 'No modules')
     ids = [m['id'] for m in modules]
     check(len(set(ids)) == len(ids), 'Duplicate module ID')
     counts = collections.Counter(modules=len(modules))
     for m in modules:
         name = m['id']
+        terms = m.get('terms', {})
         check(bool(re.fullmatch(r'\d+\.\d+(?:\.\d+){0,2}', m.get('pluginVersion', ''))), name + ': invalid pluginVersion')
         check(bool(re.fullmatch(r'[A-Za-z0-9_.]+', name)), name + ': invalid module ID')
-        check(bool(m['guids'] and m['namespaces']), name + ': missing GUID/namespace')
+        scoped = any(m.get(k) for k in ('texts', 'patterns', 'literals', 'returns'))
+        check(bool(m['guids']) and (bool(m['namespaces']) or not scoped), name + ': missing GUID/namespace')
         check(set(m['words']) == set(m['englishWords']), name + ': mismatched English/Russian key sets')
-        check(sum(len(m.get(k, [])) for k in ('words', 'texts', 'patterns', 'literals')) > 0, name + ': empty module')
-        counts.update({key: len(m.get(key, [])) for key in ('words', 'texts', 'patterns')})
+        check(sum(len(m.get(k, [])) for k in ('words', 'texts', 'patterns', 'literals', 'rawTexts', 'rawPatterns')) > 0, name + ': empty module')
+        counts.update({key: len(m.get(key, [])) for key in ('words', 'texts', 'patterns', 'rawTexts', 'rawPatterns')})
         for key in m['words']:
             check(bool(re.fullmatch(r'[A-Za-z0-9_]+', key)), name + ': unsafe token ' + key)
+        for vocabulary, table in terms.items():
+            check(bool(re.fullmatch(r'[A-Za-z0-9_]+', vocabulary)) and bool(table), name + ': invalid term vocabulary ' + vocabulary)
         pairs = [(m['englishWords'][k], ru) for k, ru in m['words'].items()] + list(m['texts'].items())
-        pairs += list(m.get('mapLabels', {}).items())
-        pairs += [(p['source'], p['target']) for p in m['patterns']]
+        pairs += list(m.get('mapLabels', {}).items()) + list(m.get('rawTexts', {}).items())
+        pairs += [pair for table in terms.values() for pair in table.items()]
+        pairs += [(p['source'], p['target']) for p in m['patterns'] + m.get('rawPatterns', [])]
         pairs += [p for rule in m.get('literals', []) for p in rule['values'].items()]
         counts['explicit_literals'] += sum(len(rule['values']) for rule in m.get('literals', []))
         for en, ru in pairs:
             check(isinstance(en, str) and isinstance(ru, str) and bool(en) and bool(ru), name + ': empty/non-string translation')
             check(collections.Counter(TOKEN.findall(en)) == collections.Counter(TOKEN.findall(ru)), name + ': placeholder/markup mismatch: ' + repr(en))
             check(re.findall(r'</?[^>\n]+>', en) == re.findall(r'</?[^>\n]+>', ru), name + ': markup order mismatch: ' + repr(en))
-        for p in m['patterns']:
+        for p, allowed in [(p, ('text', 'message', 'mapLabel')) for p in m['patterns']] + [(p, ('text',)) for p in m.get('rawPatterns', [])]:
             holes = set(HOLE.findall(p['source']))
+            check(holes == set(HOLE.findall(p['target'])), name + ': pattern placeholders differ: ' + repr(p['source']))
             check(set(p.get('numeric', [])) <= {int(h) for h in holes}, name + ': invalid numeric placeholder')
             for key, semantic in p.get('arguments', {}).items():
-                check(key in holes and semantic in ('text', 'message', 'mapLabel'), name + ': invalid semantic argument')
+                known = semantic in allowed or (semantic.startswith('term:') and semantic[5:] in terms)
+                check(key in holes and known, name + ': invalid semantic argument')
                 check(int(key) not in p.get('numeric', []), name + ': conflicting numeric/semantic argument')
+        for p in m.get('rawPatterns', []):
+            check(HOLE.sub('', p['source']).strip() != '', name + ': raw pattern without fixed text: ' + repr(p['source']))
         for en, ru in m.get('mapLabels', {}).items():
             check(m['texts'].get(en) == ru, name + ': map label differs from display translation')
     binding_checks(modules, args.evidence.resolve() if args.evidence else None)

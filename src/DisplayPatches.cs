@@ -27,14 +27,16 @@ namespace Tolmach
             // reflection. Skip only that type or method; the rest of the module stays patched.
             foreach (Type type in AccessTools.GetTypesFromAssembly(module.RuntimeAssembly))
             {
-                List<MethodInfo> methods;
+                List<MethodBase> methods;
                 try
                 {
                     if (!module.OwnType(type) || type.ContainsGenericParameters) continue;
-                    methods = AccessTools.GetDeclaredMethods(type);
+                    methods = AccessTools.GetDeclaredMethods(type).Cast<MethodBase>().ToList();
+                    // Instance constructors carry field initializers (component defaults) too.
+                    methods.AddRange(AccessTools.GetDeclaredConstructors(type, false).Cast<MethodBase>());
                 }
                 catch (Exception e) { module.Warn("Type skipped " + type.Name + ": " + e.GetType().Name); continue; }
-                foreach (MethodInfo method in methods)
+                foreach (MethodBase method in methods)
                 {
                     try { InstallMethod(harmony, module, type, method); }
                     catch (Exception e) { module.Warn("UI adapter skipped " + type.FullName + "." + method.Name + ": " + e.GetType().Name); }
@@ -47,12 +49,13 @@ namespace Tolmach
                 if (!Declares(module, expected.type, expected.method))
                     module.Warn("Expected literal adapter not found: " + expected.type + "." + expected.method);
         }
-        private static void InstallMethod(Harmony harmony, Module module, Type type, MethodInfo method)
+        private static void InstallMethod(Harmony harmony, Module module, Type type, MethodBase method)
         {
             if (!RuntimeAccess.ManagedBody(method)) return;
             module.ScannedMethods++;
             bool literal = module.literals.Any(delegate(LiteralSpec p) { return p.type == type.FullName && p.method == method.Name; });
-            bool result = method.ReturnType == typeof(string) &&
+            MethodInfo function = method as MethodInfo;
+            bool result = function != null && function.ReturnType == typeof(string) &&
                 module.returns.Any(delegate(MethodSpec p) { return p.type == type.FullName && p.method == method.Name; });
             bool sink = false;
             try { sink = module.HasDisplayText && PatchProcessor.GetOriginalInstructions(method, null).Any(delegate(CodeInstruction instruction) { return Relevant(instruction, module); }); }
@@ -94,6 +97,7 @@ namespace Tolmach
             try
             {
                 Type t = module.RuntimeAssembly.GetType(typeName, false);
+                if (t != null && methodName == ".ctor") return AccessTools.GetDeclaredConstructors(t, false).Count != 0;
                 return t != null && t.GetMethods(AccessTools.allDeclared).Any(delegate(MethodInfo m) { return m.Name == methodName; });
             }
             catch (Exception) { return false; }

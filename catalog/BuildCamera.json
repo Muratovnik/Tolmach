@@ -21,13 +21,53 @@
   "returns": [],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/localization/b/21-Azumatt-Build_Camera_Custom_Hammers_Edition/Valheim_Build_Camera/Valheim_Build_CameraPlugin.cs"
+    "source-evidence/localization/b/21-Azumatt-Build_Camera_Custom_Hammers_Edition/Valheim_Build_Camera/Valheim_Build_CameraPlugin.cs",
+    "source-evidence/localization/b/21-Azumatt-Build_Camera_Custom_Hammers_Edition/Valheim_Build_Camera/Utils.cs",
+    "source-evidence/localization/b/21-Azumatt-Build_Camera_Custom_Hammers_Edition/ServerSync/VersionCheck.cs"
   ],
   "notes": [
     "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
   ],
   "namespaces": [
-    "Valheim_Build_Camera"
+    "Valheim_Build_Camera",
+    "ServerSync"
   ],
-  "pluginVersion": "1.3.3"
+  "pluginVersion": "1.3.3",
+  "literals": [
+    {
+      "type": "Valheim_Build_Camera.Utils",
+      "method": "EnableBuildMode",
+      "values": {
+        "Entering Build Mode.": "Переход в режим строительства."
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    }
+  ]
 }

@@ -6,11 +6,288 @@
   "guids": [
     "warpalicious.More_World_Locations_AIO"
   ],
-  "words": {},
-  "englishWords": {},
+  "words": {
+    "mwl_plainstavern1_trader": "Торвин",
+    "mwl_plainscamp1_trader": "Рагнир",
+    "mwl_blackforestblacksmith1_trader": "Вёлунд",
+    "mwl_blackforestblacksmith2_trader": "Синдри",
+    "mwl_mountainsblacksmith1_trader": "Торгрим",
+    "mwl_mistlandsblacksmith1_trader": "Двалин",
+    "mwl_oceantavern1_trader": "Бьёрн",
+    "mwl_meadowstrainer1_trainer": "Эйрик",
+    "mwl_swamptrainer1_trainer": "Гримхильд",
+    "mwl_plainstrainer1_trainer": "Асмунд",
+    "mwl_misttrainer1_trainer": "Сигрун",
+    "se_blacksmithStone": "Кузнечный камень",
+    "se_skillBook": "Книга навыка",
+    "item_mwl_blacksmithstone_tier1": "Кузнечный камень (1)",
+    "item_mwl_blacksmithstone_tier2": "Кузнечный камень (2)",
+    "item_mwl_blacksmithstone_tier3": "Кузнечный камень (3)",
+    "item_mwl_blacksmithstone_description": "Улучшает броню или оружие сверх максимального качества. Положите броню или оружие в левую верхнюю ячейку инвентаря и используйте этот предмет.",
+    "mwl_skillbook_tier1": "Книга навыка (1)",
+    "mwl_skillbook_tier2": "Книга навыка (2)",
+    "mwl_skillbook_tier3": "Книга навыка (3)",
+    "mwl_skillbook_desc_tier1": "Повышает навык на 1 уровень.",
+    "mwl_skillbook_desc_tier2": "Повышает навык на 3 уровня.",
+    "mwl_skillbook_desc_tier3": "Повышает навык на 5 уровней.",
+    "mwl_marblejail1_key": "Ключ от мраморной тюрьмы",
+    "mwl_marblejail1_key_desc": "Ржавый железный ключ, истёртый временем. Отпирает тюремный блок.",
+    "mwl_marblejail1_runestone": "Мрачный конец",
+    "mwl_marblejail1_runestone_text": "Обо мне здесь забыли. Годы сложились в десятилетия. Твари внизу стали мне привычны — их вой был моим единственным обществом. Теперь я иду к ним. Они ждали меня. Больше никто не ждал.",
+    "mwl_marblecliffaltar1_runestone": "Опасная добыча",
+    "mwl_marblecliffaltar1_runestone_text": "То, что лежит на алтаре, — не твоё. Оно принадлежит тем, кто кружит в вышине и безмолвно ждёт. Возьми его — и смертоносный рог нарушит безмолвие тумана.",
+    "mwl_port1_runestone": "Кража Дрелтора",
+    "mwl_port1_runestone_text": "Проклят будь Дрелтор Алчный, король двергов в Золотой век. Это он так жаждал знаний, что похитил Око Одина из источника Мимира. Осквернённые воды отравили Иггдрасиль: больные побеги стали падать в Вальхейм, и на мир обрушился гнев самого Одина.",
+    "mwl_port2_runestone": "Мы — дверги",
+    "mwl_port2_runestone_text": "Проклят будь Дрелтор Алчный! Тысячу лет мы строили наши великие цивилизации, а разрушены они были в одно мгновение. Наши города, торговые центры, крепости и фермы опустошили павшие. Так почему же мы не сдаёмся? Ради чего храним свои крохотные крепости и стоянки в эти безнадёжные времена? Потому что мы — дверги! Даже гнев Одина нас не погубит. Мы выживем. Мы отстроимся. Мы вернём милость Одина. Мы принесём новый золотой век.",
+    "mwl_port3_runestone": "Семена новой эпохи",
+    "mwl_port3_runestone_text": "Зачем содержать эти порты — реликвии давно минувшей великой эпохи? От них нет проку, разве что изредка перепадёт монета от проезжих кочевников. Затем, что они понадобятся нам, когда мы начнём отстраиваться! Когда великие народы двергов возродятся, нам понадобятся торговля и коммерция! Это семена новой эпохи, и они расцветут!\n\nАх да, и проклят будь Дрелтор Алчный.",
+    "mwl_port4_runestone": "Царства в руинах",
+    "mwl_port4_runestone_text": "Проклят будь Дрелтор Алчный, что разгневал Одина и поверг наши процветающие народы двергов в разорение. Всеотец низверг в наш мир своих злейших павших и заблудшие души — в наказание и им, и нам. Наши царства пали. Некогда цветущие земли заполнили туман и огонь. Наш народ рассеян и лишён вождей.",
+    "mwl_port5_runestone": "Плач Дрелтора",
+    "mwl_port5_runestone_text": "Я Дрелтор, некогда король двергов. В своей гордыне я похитил Око Одина и навлёк на нас гибель. Какая ирония: Око даровало мне мудрость понять, что красть его не следовало. О, если бы я мог искупить свой проступок! Но дело сделано. Мне остаётся лишь бесконечно скитаться, ведь Око обрекло меня и на бессмертие — чтобы я видел нескончаемые страдания моего народа и крушение всего, чем некогда правил.\n\nПроклят будь я сам.",
+    "mwl_forbiddencatacombs_runestone_text": "Когда умирали ярлы, их хоронили наверху — в золотых одеяниях, нетронутых временем. Внизу же простолюдины — работники и те, у кого не было щита, — гнили во тьме, и их могилы отмечали лишь смрад и скорбь. Со временем скверна разрослась, и великий маг вмешался, запечатав глубины, чтобы остановить тлен. Лишь пустая корона ярла может снять печать и вновь открыть проход.",
+    "label_shipment": "Грузы",
+    "label_port": "Порт",
+    "label_delivery": "Доставки",
+    "label_manifest": "Манифест",
+    "label_open_map": "Открыть карту",
+    "label_teleport": "Телепорт",
+    "label_in_transit": "В пути",
+    "label_delivered": "Доставлен",
+    "label_expired": "Просрочен",
+    "label_open": "Открыть",
+    "msg_successfully_sent": "Груз успешно отправлен!",
+    "msg_failed_to_send": "Недопустимый манифест",
+    "msg_failed_to_load_delivery": "Контейнеры не пусты!",
+    "label_current_shipments": "Текущие грузы",
+    "label_cost": "Стоимость",
+    "label_nr_of_items": "Количество предметов",
+    "label_total_weight": "Общий вес",
+    "label_contents": "Содержимое",
+    "label_estimated_ship_time": "Ожидаемое время доставки",
+    "label_origin": "Отправление",
+    "label_destination": "Назначение",
+    "tooltip_port": "Список доступных портов",
+    "tooltip_shipment": "Список активных грузов",
+    "tooltip_delivery": "Список активных доставок",
+    "tooltip_manifest": "Покупка манифестов",
+    "tooltip_teleport": "Телепортация в порты",
+    "label_exit": "Выход",
+    "label_purchase": "Купить",
+    "label_open_delivery": "Открыть доставку",
+    "msg_max_shipments": "Достигнут предел грузов",
+    "msg_send_shipment": "Отправить груз!",
+    "label_origin_port": "Порт отправления",
+    "label_destination_port": "Порт назначения",
+    "label_state": "Состояние",
+    "label_items": "Предметы",
+    "label_required_to_defeat": "Нужно победить",
+    "label_capacity": "Вместимость",
+    "label_cost_to_ship": "Стоимость отправки",
+    "msg_delivery_collected": "Доставка отмечена как полученная",
+    "trader_port_name_1": "Хальмар",
+    "trader_port_name_2": "Хальвар",
+    "trader_port_name_3": "Хальрик",
+    "trader_port_name_4": "Хальгрим",
+    "trader_port_name_5": "Хальден",
+    "trader_port_name_6": "Хальфи",
+    "trader_port_name_7": "Хальвор",
+    "trader_port_name_8": "Халькар",
+    "msg_randomPortTalk_1": "Ахх, ещё один верзила за моими кораблями? Не споткнись о причал, человек.",
+    "msg_randomPortTalk_2": "Сперва монеты, потом груз. Таков закон моря — и закон моей бороды!",
+    "msg_randomPortTalk_3": "Надо перевезти товар? Мои лодки быстрее, чем вонь тролля по ветру.",
+    "msg_randomPortTalk_4": "Людям вечно надо отправить что-то ещё вчера. К счастью, мои завтрашние лодки ходят уже сегодня!",
+    "msg_randomPortTalk_5": "Ты платишь — я везу. Просто, как махнуть молотом, да и шуму меньше.",
+    "msg_randomPortTalk_6": "Руки прочь от бочек с ромом — они для команды, а не для груза!",
+    "msg_randomPortTalk_7": "Клянусь бородой, я возил и потяжелее тебя! Не переживай, твой груз доберётся.",
+    "msg_randomPortTalk_8": "Порты, манифесты и монеты. Такова моя жизнь. А твоя какова, а, человек?",
+    "msg_randomGreet_1": "Здорово, долговязый! Пришёл отправить свои блестяшки за море?",
+    "msg_randomGreet_2": "Хар! Ещё один клиент! Осторожно с канатами, о них вечно спотыкаются такие верзилы, как ты.",
+    "msg_randomGreet_3": "Ветер попутный, и сделки честные — были бы монеты.",
+    "msg_randomGreet_4": "Клянусь бородой, вид у тебя потрёпанный с дороги. К счастью, я как раз торгую дорогами.",
+    "msg_randomGreet_5": "Шевелись, человек! Моя пристань — не место для мечтателей.",
+    "msg_randomGreet_6": "Доброго дня! Есть груз? А у меня есть корабли.",
+    "msg_randomGreet_7": "Ах, ветерок пахнет монетами. У тебя ко мне дело, а?",
+    "msg_randomGreet_8": "Добро пожаловать в мой порт! Ничего блестящего не трогай, если не купил.",
+    "msg_randomGoodbye_1": "Попутного ветра, и не утопи мою прибыль!",
+    "msg_randomGoodbye_2": "Ну, ступай — корабли сами себя не загрузят.",
+    "msg_randomGoodbye_3": "Лёгкой дороги, долговязый. В следующий раз трать побольше!",
+    "msg_randomGoodbye_4": "Берегись моря — оно буйнее моего дядьки после трёх кружек эля.",
+    "msg_randomGoodbye_5": "Груз никого не ждёт. Проходи!",
+    "msg_randomGoodbye_6": "До следующего прилива, и пусть твои сапоги останутся сухими.",
+    "msg_randomGoodbye_7": "Заглядывай ещё — только не в долг.",
+    "msg_randomGoodbye_8": "Прощай, и пусть борода твоя будет густой, а кошелёк — толстым.",
+    "MWL_PortName_Skjoldhavn": "Порт Скьольдхавн",
+    "MWL_PortName_Ravensvik": "Порт Равенсвик",
+    "MWL_PortName_Drakkarsund": "Драккарсунд",
+    "MWL_PortName_Jotunfjord": "Порт Йотунфьорд",
+    "MWL_PortName_Miststrand": "Порт Мистстранд",
+    "MWL_PortName_Ironvik": "Айронвик",
+    "MWL_PortName_Stormhavn": "Порт Стормхавн",
+    "MWL_PortName_Eirsholm": "Порт Эйрсхольм",
+    "MWL_PortName_Njordhavn": "Ньордхавн",
+    "MWL_PortName_Hrafnnes": "Порт Храфннес",
+    "MWL_PortName_Vargrvik": "Порт Варгрвик",
+    "MWL_PortName_Skeldholm": "Скельдхольм",
+    "MWL_PortName_Frostsund": "Порт Фростсунд",
+    "MWL_PortName_Ulfsfjord": "Порт Ульфсфьорд",
+    "MWL_PortName_Runavik": "Рунавик",
+    "MWL_PortName_Ormsvik": "Порт Ормсвик",
+    "MWL_PortName_Dyrhavn": "Порт Дюрхавн",
+    "MWL_PortName_Eldersund": "Эльдерсунд",
+    "MWL_PortName_Seidrholm": "Порт Сейдрхольм",
+    "MWL_PortName_Skaldhavn": "Порт Скальдхавн"
+  },
+  "englishWords": {
+    "mwl_plainstavern1_trader": "Torvin",
+    "mwl_plainscamp1_trader": "Ragnir",
+    "mwl_blackforestblacksmith1_trader": "Volund",
+    "mwl_blackforestblacksmith2_trader": "Sindri",
+    "mwl_mountainsblacksmith1_trader": "Thorgrim",
+    "mwl_mistlandsblacksmith1_trader": "Dvalin",
+    "mwl_oceantavern1_trader": "Bjorn",
+    "mwl_meadowstrainer1_trainer": "Eirik",
+    "mwl_swamptrainer1_trainer": "Grimhild",
+    "mwl_plainstrainer1_trainer": "Asmund",
+    "mwl_misttrainer1_trainer": "Sigrun",
+    "se_blacksmithStone": "Blacksmith Stone",
+    "se_skillBook": "Skill Book",
+    "item_mwl_blacksmithstone_tier1": "Blacksmith Stone (1)",
+    "item_mwl_blacksmithstone_tier2": "Blacksmith Stone (2)",
+    "item_mwl_blacksmithstone_tier3": "Blacksmith Stone (3)",
+    "item_mwl_blacksmithstone_description": "Upgrades an armor or weapon past max quality. Place an armor or weapon in top left cell in inventory and consume this item.",
+    "mwl_skillbook_tier1": "Skill Book (1)",
+    "mwl_skillbook_tier2": "Skill Book (2)",
+    "mwl_skillbook_tier3": "Skill Book (3)",
+    "mwl_skillbook_desc_tier1": "Raises a skill by 1 level.",
+    "mwl_skillbook_desc_tier2": "Raises a skill by 3 levels.",
+    "mwl_skillbook_desc_tier3": "Raises a skill by 5 levels.",
+    "mwl_marblejail1_key": "Marble Jail Key",
+    "mwl_marblejail1_key_desc": "A rusted iron key, worn with age. It unlocks the cell block.",
+    "mwl_marblejail1_runestone": "Bleak finality",
+    "mwl_marblejail1_runestone_text": "They forgot me here. Years turned to decades. The creatures below grew familiar — their howls, my only company. I go to them now. They waited for me. No one else did.",
+    "mwl_marblecliffaltar1_runestone": "Dangerous Acquisition",
+    "mwl_marblecliffaltar1_runestone_text": "What rests upon the altar is not yours. It belongs to those who circle above, who wait in silence. Take it, and a deadly horn will break the silence of the mist.",
+    "mwl_port1_runestone": "Drelthor's Theft",
+    "mwl_port1_runestone_text": "Cursed be to Drelthor the Covetous, King of the Dvergr in the Golden Age. For it was he who so desired knowledge that stole Odin’s Eye from Mimir's Well. The desecrated waters poisoned Yggdrasil, causing shoots to fall to Valheim in sickness and incurring the wrath of Odin himself.",
+    "mwl_port2_runestone": "We Are Dvergr",
+    "mwl_port2_runestone_text": "Cursed be to Drelthor the Covetous! Our great civilizations took a thousand years to build and moments to destroy. Our cities, trade hubs, fortresses and farms all laid waste by the forsaken. Why, then do we persist? To what end to we maintain our tiny fortresses and encampments in these hopeless times? Because we are Dvergr! And even the wrath of Odin will not end us. We will survive. We will rebuild. We will regain Odin’s favor. We will bring about a new golden age.",
+    "mwl_port3_runestone": "Seeds of a New Era",
+    "mwl_port3_runestone_text": "Why maintain these ports – relics of a once great era long past? They serve no purpose save the occasional income from passing nomads. Because we shall need them when we rebuild! When the great Dvergr nations arise again, we will need trade and commerce! These are the seeds of a new era and they will flourish!\n\nOh, and cursed be to Drelthor the Covetous.",
+    "mwl_port4_runestone": "Kingdoms in Ruin",
+    "mwl_port4_runestone_text": "Cursed be to Drelthor the Covetous, who plunged our prosperous Dvergr nations into ruin by angering Odin. The All-Father cast his most villainous forsaken and lost souls into our realm as punishment both for them and us. Our kingdoms crumbled. Our once-vibrant lands filled with mist and fire. Our people scattered and leaderless.",
+    "mwl_port5_runestone": "Drelthor's Lament",
+    "mwl_port5_runestone_text": "I am Drelthor, one-time king of the Dvergr. In my arrogance I stole the eye of Odin and brought about our ruin. It is ironic that the Eye gave me wisdom to know I should never have stolen it. Would only that I could undo my transgression! But it is done. There is nothing left for me but to wander endlessly. For the Eye has also doomed me with immortality. So that I may watch the endless suffering of my people and the destruction of all I once ruled.\n\nCursed be to me.",
+    "mwl_forbiddencatacombs_runestone_text": "When the jarls passed, they were laid to rest above--cloaked in gold, untouched by time. Below, the lowborn--the laborers, the shieldless--were left to rot in shadow, their graves marked by stench and sorrow. In time, the filth festered, and a great mage intervened, sealing the depths to halt the spread of decay. Only the hollow crown of a jarl may unbind the seal and grant passage once more.",
+    "label_shipment": "Shipments",
+    "label_port": "Port",
+    "label_delivery": "Deliveries",
+    "label_manifest": "Manifest",
+    "label_open_map": "Open Map",
+    "label_teleport": "Teleport",
+    "label_in_transit": "In Transit",
+    "label_delivered": "Delivered",
+    "label_expired": "Expired",
+    "label_open": "Open",
+    "msg_successfully_sent": "Successfully sent shipment!",
+    "msg_failed_to_send": "Manifest is invalid",
+    "msg_failed_to_load_delivery": "Containers are not empty!",
+    "label_current_shipments": "Current shipments",
+    "label_cost": "Cost",
+    "label_nr_of_items": "Number of items",
+    "label_total_weight": "Total weight",
+    "label_contents": "Contents",
+    "label_estimated_ship_time": "Estimated shipment time",
+    "label_origin": "Origin",
+    "label_destination": "Destination",
+    "tooltip_port": "List of available ports",
+    "tooltip_shipment": "List of active shipments",
+    "tooltip_delivery": "List of active deliveries",
+    "tooltip_manifest": "Purchase manifests",
+    "tooltip_teleport": "Teleport to ports",
+    "label_exit": "Exit",
+    "label_purchase": "Purchase",
+    "label_open_delivery": "Open Delivery",
+    "msg_max_shipments": "Maximum shipments reached",
+    "msg_send_shipment": "Send shipment!",
+    "label_origin_port": "Origin port",
+    "label_destination_port": "Destination port",
+    "label_state": "State",
+    "label_items": "Items",
+    "label_required_to_defeat": "Required to defeat",
+    "label_capacity": "Capacity",
+    "label_cost_to_ship": "Cost to Ship",
+    "msg_delivery_collected": "Delivery marked as collected",
+    "trader_port_name_1": "Halmar",
+    "trader_port_name_2": "Halvar",
+    "trader_port_name_3": "Halrik",
+    "trader_port_name_4": "Halgrim",
+    "trader_port_name_5": "Halden",
+    "trader_port_name_6": "Halfi",
+    "trader_port_name_7": "Halvor",
+    "trader_port_name_8": "Halkar",
+    "msg_randomPortTalk_1": "Ahh, another tall one wantin' me ships? Don't trip on the pier, human.",
+    "msg_randomPortTalk_2": "Coin first, cargo later. That's the way of the sea—and the way o' me beard!",
+    "msg_randomPortTalk_3": "Got goods to move? My boats are faster than a troll smell downwind.",
+    "msg_randomPortTalk_4": "Humans always want somethin' shipped yesterday. Lucky for you, I run tomorrow's boats today!",
+    "msg_randomPortTalk_5": "You pay, I haul. Simple as swingin' a hammer, less noisy too.",
+    "msg_randomPortTalk_6": "Keep yer fingers off the rum barrels—those be for the crew, not the cargo!",
+    "msg_randomPortTalk_7": "By me beard, I've hauled heavier than you! Don't fret, yer shipment'll make it.",
+    "msg_randomPortTalk_8": "Ports, manifests, and coin. That's my life. What's yours, eh human?",
+    "msg_randomGreet_1": "Well met, longshanks! Come to send yer shiny things across the seas?",
+    "msg_randomGreet_2": "Har! Another customer! Mind the ropes, they trip taller folk like you.",
+    "msg_randomGreet_3": "A fair wind blows, and so do fair deals—if ye got the coin.",
+    "msg_randomGreet_4": "By me beard, you look travel-worn. Lucky for ye, I deal in travel.",
+    "msg_randomGreet_5": "Step lively, human! Me dock's no place for daydreamers.",
+    "msg_randomGreet_6": "Good day to ye! Got cargo? I got ships.",
+    "msg_randomGreet_7": "Ah, the smell of coin on the breeze. You've got business, eh?",
+    "msg_randomGreet_8": "Welcome to me port! Don't touch nothin' shiny, 'less ye bought it.",
+    "msg_randomGoodbye_1": "Fair winds, and don't sink me profits!",
+    "msg_randomGoodbye_2": "Off with ye then—me ships won't load themselves.",
+    "msg_randomGoodbye_3": "Safe travels, longshanks. Spend more coin next time!",
+    "msg_randomGoodbye_4": "Mind the seas—they're rougher than me uncle after three ales.",
+    "msg_randomGoodbye_5": "Cargo waits for no one. Move along!",
+    "msg_randomGoodbye_6": "Till next tide, may yer boots stay dry.",
+    "msg_randomGoodbye_7": "Don't be a stranger—or worse, a debtor.",
+    "msg_randomGoodbye_8": "Goodbye, and may yer beard grow as strong as yer purse.",
+    "MWL_PortName_Skjoldhavn": "Port of Skjoldhavn",
+    "MWL_PortName_Ravensvik": "Ravensvik Port",
+    "MWL_PortName_Drakkarsund": "Drakkarsund",
+    "MWL_PortName_Jotunfjord": "Port of Jotunfjord",
+    "MWL_PortName_Miststrand": "Miststrand Port",
+    "MWL_PortName_Ironvik": "Ironvik",
+    "MWL_PortName_Stormhavn": "Port of Stormhavn",
+    "MWL_PortName_Eirsholm": "Eirsholm Port",
+    "MWL_PortName_Njordhavn": "Njordhavn",
+    "MWL_PortName_Hrafnnes": "Port of Hrafnnes",
+    "MWL_PortName_Vargrvik": "Vargrvik Port",
+    "MWL_PortName_Skeldholm": "Skeldholm",
+    "MWL_PortName_Frostsund": "Port of Frostsund",
+    "MWL_PortName_Ulfsfjord": "Ulfsfjord Port",
+    "MWL_PortName_Runavik": "Runavik",
+    "MWL_PortName_Ormsvik": "Port of Ormsvik",
+    "MWL_PortName_Dyrhavn": "Dyrhavn Port",
+    "MWL_PortName_Eldersund": "Eldersund",
+    "MWL_PortName_Seidrholm": "Port of Seidrholm",
+    "MWL_PortName_Skaldhavn": "Skaldhavn Port"
+  },
   "texts": {
     "Peaceful": "Мирная зона",
-    "You cannot deal damage in this area.": "В этой области нельзя наносить урон."
+    "You cannot deal damage in this area.": "В этой области нельзя наносить урон.",
+    "Introduction": "Введение",
+    "Ports are locations scattered across the world that let you <color=orange>ship items</color> and <color=orange>teleport</color> between them. If this is the first port you've found, congratulations — you've begun your shipping journey! Ports become much more useful as you discover more of them in the world.\n\n<color=orange><b>How it works</b></color>\n<size=5>●</size> Find a port and talk to its <color=orange>Port Manager</color> to discover it — it will then appear as a destination at all other ports\n<size=5>●</size> Buy a <color=orange>manifest</color> from the Port Manager. Manifests are the shipping chests you use to transport items between ports. You can purchase up to three manifests per shipment, and higher tiers unlock as you discover more advanced materials. Fill your manifest chests with the items you want to ship\n<size=5>●</size> Once the chests are loaded, talk to the Port Manager again and use the <color=yellow>Port</color> tab to select a destination. There will be a shipment fee that scales with distance — pay the fee by clicking <color=yellow>[Send Shipment]</color> and your shipment will be on its way\n<size=5>●</size> You can see the status of all your active shipments in the <color=yellow>Shipment</color> tab\n<size=5>●</size> Travel to the destination port, open the <color=yellow>Delivery</color> tab, and once the shipment has arrived click collect — the chests will appear!\n\n<color=yellow>Note:</color> Travel time is based on in-game time, not real-life time.\n\n<color=orange><b>Tabs</b></color>\n<size=5>●</size> <color=yellow>Port</color> - Browse discovered ports and send shipments\n<size=5>●</size> <color=yellow>Manifest</color> - Purchase and manage shipping chests\n<size=5>●</size> <color=yellow>Shipment</color> - Track outgoing shipments from this port\n<size=5>●</size> <color=yellow>Delivery</color> - View and collect incoming deliveries\n<size=5>●</size> <color=yellow>Teleport</color> - Fast travel between ports for a fee (if enabled in config)\n": "Порты — это места по всему миру, которые позволяют <color=orange>отправлять предметы</color> и <color=orange>телепортироваться</color> между ними. Если это ваш первый найденный порт, поздравляем — ваш путь в морских перевозках начался! Чем больше портов вы откроете в мире, тем полезнее они станут.\n\n<color=orange><b>Как это работает</b></color>\n<size=5>●</size> Найдите порт и поговорите с его <color=orange>начальником порта</color>, чтобы открыть порт, — после этого он появится как пункт назначения во всех остальных портах\n<size=5>●</size> Купите у начальника порта <color=orange>манифест</color>. Манифесты — это грузовые сундуки для перевозки предметов между портами. На один груз можно купить до трёх манифестов, а манифесты более высоких уровней открываются по мере того, как вы находите более продвинутые материалы. Заполните сундуки-манифесты предметами, которые хотите отправить\n<size=5>●</size> Когда сундуки загружены, снова поговорите с начальником порта и выберите пункт назначения на вкладке <color=yellow>Порт</color>. За отправку берётся плата, которая растёт с расстоянием, — оплатите её, нажав <color=yellow>[Отправить груз]</color>, и груз отправится в путь\n<size=5>●</size> Состояние всех активных грузов показано на вкладке <color=yellow>Грузы</color>\n<size=5>●</size> Отправляйтесь в порт назначения, откройте вкладку <color=yellow>Доставки</color> и, когда груз прибудет, нажмите на него, чтобы получить, — появятся сундуки!\n\n<color=yellow>Примечание:</color> время в пути считается по игровому времени, а не по реальному.\n\n<color=orange><b>Вкладки</b></color>\n<size=5>●</size> <color=yellow>Порт</color> — просмотр открытых портов и отправка грузов\n<size=5>●</size> <color=yellow>Манифест</color> — покупка грузовых сундуков и управление ими\n<size=5>●</size> <color=yellow>Грузы</color> — отслеживание грузов, отправленных из этого порта\n<size=5>●</size> <color=yellow>Доставки</color> — просмотр и получение входящих доставок\n<size=5>●</size> <color=yellow>Телепорт</color> — быстрое перемещение между портами за плату (если включено в настройках)\n",
+    "Port": "Порт",
+    "The Port tab lists every port you've discovered. Use it to choose where to send your shipments.\n\n<color=orange><b>Discovering Ports</b></color>\n<size=5>●</size> Talk to the <color=orange>Port Manager</color> at any port to discover it\n<size=5>●</size> Discovered ports appear as destinations at every other port you visit\n\n<color=orange><b>Selecting a Destination</b></color>\n<size=5>●</size> Click a port in the list to select it as your destination\n<size=5>●</size> Hover over a port to see its tooltip:\n   <size=5>♦</size> Shipment cost (scales with distance)\n   <size=5>♦</size> Estimated time of arrival\n   <size=5>♦</size> Items currently loaded in your manifests\n   <size=5>♦</size> Active shipments and deliveries at that port\n\n<color=orange><b>Sending a Shipment</b></color>\n<size=5>●</size> Once you've loaded your manifests and selected a destination, click <color=yellow>[Send Shipment]</color>\n<size=5>●</size> The shipping fee will be deducted from your inventory\n<size=5>●</size> <color=yellow>Empty manifests cannot be sent</color>\n": "На вкладке «Порт» перечислены все открытые вами порты. Здесь выбирается, куда отправить груз.\n\n<color=orange><b>Открытие портов</b></color>\n<size=5>●</size> Поговорите с <color=orange>начальником порта</color> в любом порту, чтобы открыть его\n<size=5>●</size> Открытые порты появляются как пункты назначения во всех других портах, которые вы посещаете\n\n<color=orange><b>Выбор пункта назначения</b></color>\n<size=5>●</size> Нажмите на порт в списке, чтобы выбрать его пунктом назначения\n<size=5>●</size> Наведите курсор на порт, чтобы увидеть подсказку:\n   <size=5>♦</size> Стоимость отправки (растёт с расстоянием)\n   <size=5>♦</size> Ожидаемое время прибытия\n   <size=5>♦</size> Предметы, загруженные в ваши манифесты\n   <size=5>♦</size> Активные грузы и доставки в этом порту\n\n<color=orange><b>Отправка груза</b></color>\n<size=5>●</size> Загрузив манифесты и выбрав пункт назначения, нажмите <color=yellow>[Отправить груз]</color>\n<size=5>●</size> Плата за отправку будет списана из вашего инвентаря\n<size=5>●</size> <color=yellow>Пустые манифесты отправить нельзя</color>\n",
+    "Manifest": "Манифест",
+    "Manifests are the shipping chests you use to transport items. Purchase them from the Manifest tab before sending a shipment.\n\n<color=orange><b>Purchasing</b></color>\n<size=5>●</size> Each manifest has a purchase cost shown at the bottom of its tooltip\n<size=5>●</size> You can purchase up to <color=orange>three manifests</color> per shipment\n<size=5>●</size> Higher-tier manifests unlock as you discover more advanced materials\n\n<color=orange><b>Loading Items</b></color>\n<size=5>●</size> Purchased manifests appear as containers near the Port Manager\n<size=5>●</size> Open a manifest and fill it with the items you want to ship\n<size=5>●</size> The tooltip shows each manifest's capacity and current contents\n\n<color=yellow>Tip:</color> You don't need to fill every slot — send as many or as few items as you like, but manifests cannot be sent empty.\n": "Манифесты — это грузовые сундуки для перевозки предметов. Купите их на вкладке «Манифест», прежде чем отправлять груз.\n\n<color=orange><b>Покупка</b></color>\n<size=5>●</size> Цена каждого манифеста указана внизу его подсказки\n<size=5>●</size> На один груз можно купить до <color=orange>трёх манифестов</color>\n<size=5>●</size> Манифесты более высоких уровней открываются по мере того, как вы находите более продвинутые материалы\n\n<color=orange><b>Загрузка предметов</b></color>\n<size=5>●</size> Купленные манифесты появляются в виде контейнеров рядом с начальником порта\n<size=5>●</size> Откройте манифест и заполните его предметами, которые хотите отправить\n<size=5>●</size> В подсказке показаны вместимость и текущее содержимое каждого манифеста\n\n<color=yellow>Совет:</color> заполнять все ячейки не обязательно — отправляйте сколько угодно предметов, но пустой манифест отправить нельзя.\n",
+    "Shipment": "Грузы",
+    "The Shipment tab shows all outgoing shipments from the <color=orange>current port</color>.\n\n<color=orange><b>Shipment Details</b></color>\nEach shipment entry displays:\n<size=5>●</size> The items packed in each manifest\n<size=5>●</size> The destination port\n<size=5>●</size> Estimated time of arrival\n<size=5>●</size> Current status (<color=yellow>In Transit</color> or <color=yellow>Delivered</color>)\n\n<color=yellow>Note:</color> The Port tab also shows a summary of shipments per destination, but only the Shipment tab shows the full contents of each manifest.\n": "На вкладке «Грузы» показаны все грузы, отправленные из <color=orange>текущего порта</color>.\n\n<color=orange><b>Сведения о грузе</b></color>\nДля каждого груза указаны:\n<size=5>●</size> Предметы, упакованные в каждый манифест\n<size=5>●</size> Порт назначения\n<size=5>●</size> Ожидаемое время прибытия\n<size=5>●</size> Текущее состояние (<color=yellow>В пути</color> или <color=yellow>Доставлен</color>)\n\n<color=yellow>Примечание:</color> вкладка «Порт» тоже показывает сводку грузов по пунктам назначения, но полное содержимое каждого манифеста видно только на вкладке «Грузы».\n",
+    "Delivery": "Доставки",
+    "The Delivery tab shows incoming shipments at the <color=orange>current port</color>.\n\n<color=orange><b>Collecting a Delivery</b></color>\n<size=5>●</size> When a shipment's status changes to <color=yellow>Delivered</color>, click it to collect\n<size=5>●</size> The manifest chests will appear near the Port Manager with all your items inside\n<size=5>●</size> Once you've emptied every chest, the containers disappear and the delivery is marked complete\n": "На вкладке «Доставки» показаны грузы, прибывающие в <color=orange>текущий порт</color>.\n\n<color=orange><b>Получение доставки</b></color>\n<size=5>●</size> Когда состояние груза сменится на <color=yellow>Доставлен</color>, нажмите на него, чтобы получить\n<size=5>●</size> Сундуки-манифесты со всеми вашими предметами появятся рядом с начальником порта\n<size=5>●</size> Когда вы опустошите все сундуки, контейнеры исчезнут, а доставка будет отмечена как завершённая\n",
+    "Teleport": "Телепорт",
+    "The Teleport tab lets you fast travel directly to any discovered port.\n\n<color=orange><b>How it Works</b></color>\n<size=5>●</size> Select a destination and click <color=yellow>[Teleport]</color>\n<size=5>●</size> The teleport fee scales with distance, similar to shipping costs\n<size=5>●</size> You will arrive at the destination port instantly\n\n<color=yellow>Note:</color> Teleporting is a config option and may be disabled by the server.\n": "Вкладка «Телепорт» позволяет быстро переместиться прямо в любой открытый порт.\n\n<color=orange><b>Как это работает</b></color>\n<size=5>●</size> Выберите пункт назначения и нажмите <color=yellow>[Телепорт]</color>\n<size=5>●</size> Плата за телепорт растёт с расстоянием, как и стоимость отправки\n<size=5>●</size> Вы мгновенно окажетесь в порту назначения\n\n<color=yellow>Примечание:</color> телепортация включается в настройках и может быть отключена на сервере.\n",
+    "This shipment belongs to another player": "Этот груз принадлежит другому игроку"
   },
   "patterns": [],
   "returns": [],
@@ -25,13 +302,368 @@
     }
   ],
   "sourceFiles": [
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/More_World_Locations_AIOPlugin.cs"
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/More_World_Locations_AIOPlugin.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/ServerSync/VersionCheck.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/PortInit.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Shrines/Shrine.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Shrines/ShrineDB.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Shrines/StatusEffectDB.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Waystones/Waystone.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Traders/BlacksmithStone_SE.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Traders/BlacksmithStoneCanConsumeItemPatch.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Traders/SkillBook_SE.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/PortUI.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/Forbidden_Catacombs/AltarDoor.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/Common/LootManager.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/Commands.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/MWLCommands.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Utils/UpgradeWorldCommands.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Waystones/WaystoneDB.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Waystones/WaystoneUtils.cs",
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Shrines/ShrineUtils.cs"
   ],
   "notes": [
     "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
   ],
   "namespaces": [
-    "More_World_Locations_AIO"
+    "More_World_Locations_AIO",
+    "ServerSync",
+    "Forbidden_Catacombs",
+    "Common"
   ],
-  "pluginVersion": "5.1.4"
+  "pluginVersion": "5.1.4",
+  "literals": [
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — требуется "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — требуется версия не ниже ",
+        ". You have version ": ". Ваша версия: ",
+        " may not be higher than version ": " — версия не должна быть выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.PortInit+<>c",
+      "method": "<SetupManifests>b__13_0",
+      "values": {
+        "Wooden Shipment": "Деревянный груз"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.PortInit+<>c",
+      "method": "<SetupManifests>b__13_1",
+      "values": {
+        "Barrel Shipment": "Бочковой груз"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.PortInit+<>c",
+      "method": "<SetupManifests>b__13_2",
+      "values": {
+        "Fine Shipment": "Ценный груз"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.PortInit+<>c",
+      "method": "<SetupManifests>b__13_3",
+      "values": {
+        "Fuling Shipment": "Груз фулингов"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.PortInit+<>c",
+      "method": "<SetupManifests>b__13_4",
+      "values": {
+        "Dvergr Shipment": "Груз двергов"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Shrines.Shrine",
+      "method": "GetHoverText",
+      "values": {
+        "Unknown Shrine": "Неизвестное святилище",
+        "Shrine": "Святилище",
+        "\n<color=red>Shrine is misconfigured</color>": "\n<color=red>Святилище настроено неверно</color>",
+        "\n<color=red>Can only be used once per day</color>\n": "\n<color=red>Можно использовать раз в день</color>\n"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Shrines.Shrine",
+      "method": "Interact",
+      "values": {
+        "Shrine can only be used once per day. Try again tomorrow!": "Святилище можно использовать раз в день. Возвращайтесь завтра!"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Shrines.ShrineDB",
+      "method": "BuildShrineConfigs",
+      "values": {
+        "Odin's Shrine of The Boar": "Святилище Одина: Кабан",
+        "Odin's Shrine of The Deer": "Святилище Одина: Олень",
+        "Odin's Shrine of The Neck": "Святилище Одина: Никс",
+        "Odin's Shrine of The Greydwarf": "Святилище Одина: Грейдворф",
+        "Odin's Shrine of The Skeleton": "Святилище Одина: Скелет",
+        "Odin's Shrine of The Greydwarf Shaman": "Святилище Одина: Грейдворф-шаман",
+        "Odin's Shrine of The Poison Skeleton": "Святилище Одина: Сгнившие останки",
+        "Odin's Shrine of The Draugr": "Святилище Одина: Драугр",
+        "Odin's Shrine of The Leech": "Святилище Одина: Пиявка",
+        "Odin's Shrine of The Wraith": "Святилище Одина: Призрак",
+        "Odin's Shrine of The Abomination": "Святилище Одина: Мерзость",
+        "Odin's Shrine of The Wolf": "Святилище Одина: Волк",
+        "Odin's Shrine of The Hatchling": "Святилище Одина: Дракон",
+        "Odin's Shrine of The Ulv": "Святилище Одина: Ульв",
+        "Odin's Shrine of The Cultist": "Святилище Одина: Культист",
+        "Odin's Shrine of The Goblin": "Святилище Одина: Фулинг",
+        "Odin's Shrine of The Deathsquito": "Святилище Одина: Смертожал",
+        "Odin's Shrine of The Goblin Shaman": "Святилище Одина: Фулинг-шаман",
+        "Odin's Shrine of The Goblin Brute": "Святилище Одина: Фулинг-берсерк",
+        "Odin's Shrine of The Seeker": "Святилище Одина: Искатель",
+        "Odin's Shrine of The Hare": "Святилище Одина: Заяц",
+        "Odin's Shrine of The Dvergr": "Святилище Одина: Двергр",
+        "Odin's Shrine of The Seeker Brute": "Святилище Одина: Искатель-солдат"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Shrines.StatusEffectDB",
+      "method": "BuildStatusEffects",
+      "values": {
+        "Blessing of the Boar": "Благословение Кабана",
+        "Blessing of the Greydwarf": "Благословение Грейдворфа",
+        "Blessing of the Draugr": "Благословение Драугра",
+        "Blessing of the Wolf": "Благословение Волка",
+        "Blessing of the Fuling": "Благословение Фулинга",
+        "Blessing of the Seeker": "Благословение Искателя",
+        "Blessing of the Deer": "Благословение Оленя",
+        "Blessing of the Skeleton": "Благословение Скелета",
+        "Blessing of the Leech": "Благословение Пиявки",
+        "Blessing of the Hatchling": "Благословение Дракона",
+        "Blessing of the Deathsquito": "Благословение Смертожала",
+        "Blessing of the Hare": "Благословение Зайца",
+        "Blessing of the Neck": "Благословение Никса",
+        "Blessing of the Greydwarf Shaman": "Благословение Грейдворфа-шамана",
+        "Blessing of the Wraith": "Благословение Призрака",
+        "Blessing of the Ulv": "Благословение Ульва",
+        "Blessing of the Fuling Shaman": "Благословение Фулинга-шамана",
+        "Blessing of the Dvergr": "Благословение Двергра",
+        "Blessing of the Poison Skeleton": "Благословение Сгнивших останков",
+        "Blessing of the Abomination": "Благословение Мерзости",
+        "Blessing of the Cultist": "Благословение Культиста",
+        "Blessing of the Fuling Berserker": "Благословение Фулинга-берсерка",
+        "Blessing of the Seeker Soldier": "Благословение Искателя-солдата"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Waystones.Waystone",
+      "method": "GetHoverText",
+      "values": {
+        "Unknown Waystone": "Неизвестный путевой камень",
+        "Waystone": "Путевой камень",
+        "\n[<color=yellow><b>$KEY_Use</b></color>] Use Waystone\n": "\n[<color=yellow><b>$KEY_Use</b></color>] Использовать путевой камень\n"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Traders.BlacksmithStone_SE",
+      "method": "Setup",
+      "values": {
+        "Using Blacksmith Stone to enhance an item...": "Улучшение предмета кузнечным камнем..."
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Traders.BlacksmithStone_SE",
+      "method": "EnhanceItem",
+      "values": {
+        "Item: ": "Предмет: ",
+        " was enhanced": " — улучшен",
+        "No suitable item found in top left corner of inventory.": "В левой верхней ячейке инвентаря нет подходящего предмета."
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Traders.BlacksmithStoneCanConsumeItemPatch",
+      "method": "Prefix",
+      "values": {
+        "No suitable item found in top left corner of inventory.": "В левой верхней ячейке инвентаря нет подходящего предмета."
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Traders.SkillBook_SE",
+      "method": "ApplySkillBook",
+      "values": {
+        " is already at max level": " — уже максимальный уровень",
+        " increased to ": " — уровень повышен до "
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.PortUI+Tab",
+      "method": ".ctor",
+      "values": {
+        "MWL_Ports_Tooltip": "Порты"
+      }
+    },
+    {
+      "type": "Forbidden_Catacombs.AltarDoor",
+      "method": ".ctor",
+      "values": {
+        "Sacrificial Altar": "Жертвенный алтарь"
+      }
+    },
+    {
+      "type": "Forbidden_Catacombs.AltarDoor",
+      "method": "GetHoverText",
+      "values": {
+        "\n[<color=yellow><b>$KEY_Use</b></color>] Sacrifice": "\n[<color=yellow><b>$KEY_Use</b></color>] Принести жертву"
+      }
+    },
+    {
+      "type": "Common.LootManager",
+      "method": "AddContainerToChild",
+      "values": {
+        "Chest": "Сундук"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Commands",
+      "method": "Setup",
+      "values": {
+        "list of all shipments": "список всех грузов",
+        "pins port locations on map": "отмечает порты на карте",
+        "removes port pins from map": "убирает метки портов с карты",
+        "removes known ports from player save": "удаляет известные порты из сохранения игрока"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Commands+<>c",
+      "method": "<Setup>b__1_0",
+      "values": {
+        "No shipments found": "Грузы не найдены"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.MWLCommands",
+      "method": "Postfix",
+      "values": {
+        "Teleport to a location. Usage: gotolocation <name> [index]": "Телепорт к локации. Использование: gotolocation <name> [index]",
+        "Pin multiple locations on map. Usage: findlocations <name1> <name2> ...": "Отметить несколько локаций на карте. Использование: findlocations <name1> <name2> ..."
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.MWLCommands+<>c",
+      "method": "<Postfix>b__0_0",
+      "values": {
+        "ZoneSystem not available": "ZoneSystem недоступна",
+        "No local player": "Нет локального игрока",
+        "Usage: gotolocation <location_name> [index]": "Использование: gotolocation <location_name> [index]",
+        "  index: which instance to go to (default: closest)": "  index: номер экземпляра (по умолчанию — ближайший)",
+        "Location '": "Локация «",
+        "' exists but no instances have spawned yet": "» существует, но ни одного её экземпляра ещё не появилось",
+        "No location found matching '": "Не найдено локаций, соответствующих «",
+        "'": "»"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.MWLCommands+<>c",
+      "method": "<Postfix>b__0_2",
+      "values": {
+        "ZoneSystem not available": "ZoneSystem недоступна",
+        "Minimap not available": "Миникарта недоступна",
+        "Usage: findlocations <location_name1> <location_name2> ...": "Использование: findlocations <location_name1> <location_name2> ...",
+        "  Use 'findlocations clear' to remove all pins": "  Чтобы убрать все метки, введите 'findlocations clear'",
+        "No spawned instances found matching: ": "Не найдено появившихся экземпляров по запросу: ",
+        "Use 'findlocations clear' to remove pins": "Чтобы убрать метки, введите 'findlocations clear'"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Utils.UpgradeWorldCommands",
+      "method": "AddUpgradeWorldCommands",
+      "values": {
+        "Adds MWL dungeon locations to corresponding biomes.": "Добавляет подземелья MWL в соответствующие биомы.",
+        "Adds MWL locations to the Ashlands biome.": "Добавляет локации MWL в биом Пепельные земли.",
+        "Adds MWL locations to the Black Forest biome.": "Добавляет локации MWL в биом Чёрный лес.",
+        "Adds MWL locations to the Meadows biome.": "Добавляет локации MWL в биом Луга.",
+        "Adds MWL locations to the Mistlands biome.": "Добавляет локации MWL в биом Туманные земли.",
+        "Adds MWL locations to the Mountains biome.": "Добавляет локации MWL в биом Горы.",
+        "Adds MWL locations to the Plains biome.": "Добавляет локации MWL в биом Равнины.",
+        "Adds MWL locations to the Swamp biome.": "Добавляет локации MWL в биом Болото.",
+        "Adds MWL shipping port locations to corresponding biomes.": "Добавляет порты MWL в соответствующие биомы.",
+        "Adds MWL trader locations to corresponding biomes.": "Добавляет локации торговцев MWL в соответствующие биомы.",
+        "All MWL locations to the world.": "Добавляет в мир все локации MWL."
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Waystones.WaystoneDB",
+      "method": "BuildWaystoneConfigs",
+      "values": {
+        "Odin's Waystone of The Dragur": "Путевой камень Одина: Драугр",
+        "Sunken Crypt": "затонувший склеп",
+        "Odin's Waystone of The Ulv": "Путевой камень Одина: Ульв",
+        "Frost Cave": "ледяную пещеру",
+        "Odin's Waystone of The Seeker": "Путевой камень Одина: Искатель",
+        "Infested Mine": "заражённый рудник",
+        "Odin's Waystone of Far Sight": "Путевой камень Одина: Дальний взор"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Waystones.WaystoneDB",
+      "method": "GetDefaultWaystoneConfig",
+      "values": {
+        "Odin's Waystone": "Путевой камень Одина"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Waystones.WaystoneUtils",
+      "method": "GetWaystoneDetails",
+      "values": {
+        "Marks a ": "Отмечает ",
+        " on map": " на карте"
+      }
+    },
+    {
+      "type": "More_World_Locations_AIO.Shrines.ShrineUtils",
+      "method": "GetEffectDescription",
+      "values": {
+        "HP per tick": "Здоровье за тик",
+        "Health over time": "Здоровье со временем",
+        "Stamina over time": "Выносливость со временем",
+        "Eitr over time": "Эйтр со временем",
+        "Health regen": "Восстановление здоровья",
+        "Stamina regen": "Восстановление выносливости",
+        "Eitr regen": "Восстановление эйтра",
+        "Carry weight": "Переносимый вес",
+        " kg": " кг",
+        "Speed": "Скорость",
+        "Stealth": "Скрытность",
+        "Noise": "Шум",
+        "Fall damage": "Урон от падения",
+        "Max fall speed": "Макс. скорость падения",
+        " m/s": " м/с",
+        "Run stamina drain": "Трата выносливости на бег",
+        "Jump stamina use": "Расход выносливости в прыжке",
+        "Attack stamina use": "Расход выносливости при атаке",
+        "Block stamina use": "Расход выносливости при блокировании",
+        "Dodge stamina use": "Расход выносливости при уклонении",
+        "Swim stamina use": "Расход выносливости при плавании",
+        "Sneak stamina use": "Расход выносливости при подкрадывании",
+        "Run stamina use": "Расход выносливости при беге",
+        "Damage mods: ": "Модификаторы урона: "
+      }
+    }
+  ]
 }

@@ -104,13 +104,27 @@ public sealed class Localization
     [MethodImpl(MethodImplOptions.NoInlining)]
     internal string Translate(string word) { string value; return m_translations.TryGetValue(word, out value) ? value : "[" + word + "]"; }
     private void Clear() { m_translations.Clear(); m_cache.EvictAll(); }
+    private static readonly char[] EndChars = " (){}[]+-!?/\\&%,.:-=<>\n".ToCharArray();
     [MethodImpl(MethodImplOptions.NoInlining)]
     public string Localize(string text)
     {
         if (String.IsNullOrEmpty(text)) return text;
         string value;
         if (!m_cache.Values.TryGetValue(text, out value))
-        { value = text.StartsWith("$") ? Translate(text.Substring(1)) : text; m_cache.Values[text] = value; }
+        {
+            // The game's token scan: every "$word" up to the next end character.
+            System.Text.StringBuilder s = new System.Text.StringBuilder();
+            int position = 0, start;
+            while (position < text.Length - 1 && (start = text.IndexOf('$', position)) != -1)
+            {
+                int end = text.IndexOfAny(EndChars, start);
+                if (end == -1) end = text.Length;
+                s.Append(text, position, start - position).Append(Translate(text.Substring(start + 1, end - start - 1)));
+                position = end;
+            }
+            value = s.Append(text.Substring(position)).ToString();
+            m_cache.Values[text] = value;
+        }
         return value;
     }
 }
@@ -162,6 +176,13 @@ namespace FixturePlugin
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static void Name(StatusEffect effect) { effect.m_name = "Price"; }
     }
+    // A component default: the field initializer is compiled into the instance constructor.
+    public sealed class Built
+    {
+        public string m_name = "Built literal";
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public Built() { }
+    }
     // Same public shape as the LocalizeKey embedded by Blaxxun's Item/Piece/Creature/SkillManager.
     internal sealed class LocalizeKey
     {
@@ -179,6 +200,23 @@ namespace FixturePlugin
             return this;
         }
         internal static void ResetForTests() { keys.Clear(); }
+    }
+}
+
+namespace FixtureGame
+{
+    // Shape of Valheim 1.0.16 Version/GameVersion. The game declares them in the global
+    // namespace, where a fake would shadow System.Version in this assembly.
+    public struct GameVersion
+    {
+        public int m_major;
+        public int m_minor;
+        public int m_patch;
+        public GameVersion(int major, int minor, int patch) { m_major = major; m_minor = minor; m_patch = patch; }
+    }
+    public static class Version
+    {
+        public static GameVersion CurrentVersion { get; } = new GameVersion(1, 0, 16);
     }
 }
 

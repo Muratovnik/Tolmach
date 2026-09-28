@@ -17,17 +17,24 @@ namespace Tolmach
         }
         private readonly Dictionary<string, string> exact;
         private readonly Dictionary<string, string> mapLabels;
+        private readonly Dictionary<string, Dictionary<string, string>> terms;
         private const int MaxNestedMessages = 4;
         private readonly List<Template> templates = new List<Template>();
         private readonly Dictionary<string, string> cache = new Dictionary<string, string>(StringComparer.Ordinal);
         private readonly object cacheLock = new object();
         private static readonly Regex Hole = new Regex(@"\{(\d+)\}", RegexOptions.CultureInvariant);
+        private static readonly Regex Tags = new Regex("(<[^>]+>)", RegexOptions.CultureInvariant);
 
-        public TextTable(Module module)
+        public TextTable(Module module) : this(module.texts, module.patterns, module.mapLabels, module.terms) { }
+        public TextTable(Dictionary<string, string> texts, IEnumerable<PatternSpec> patterns, Dictionary<string, string> labels,
+                         Dictionary<string, Dictionary<string, string>> vocabularies)
         {
-            exact = new Dictionary<string, string>(module.texts, StringComparer.Ordinal);
-            mapLabels = new Dictionary<string, string>(module.mapLabels, StringComparer.Ordinal);
-            foreach (PatternSpec p in module.patterns)
+            exact = new Dictionary<string, string>(texts, StringComparer.Ordinal);
+            mapLabels = new Dictionary<string, string>(labels, StringComparer.Ordinal);
+            terms = new Dictionary<string, Dictionary<string, string>>(StringComparer.Ordinal);
+            foreach (KeyValuePair<string, Dictionary<string, string>> t in vocabularies)
+                terms[t.Key] = new Dictionary<string, string>(t.Value, StringComparer.Ordinal);
+            foreach (PatternSpec p in patterns)
             {
                 MatchCollection holes = Hole.Matches(p.source);
                 StringBuilder expression = new StringBuilder(@"\A");
@@ -93,18 +100,53 @@ namespace Tolmach
                 try { match = p.Matcher.Match(value); }
                 catch (RegexMatchTimeoutException) { continue; }
                 if (!match.Success) continue;
-                return Hole.Replace(p.Target, delegate(Match h) {
+                bool unknownTerm = false;
+                string output = Hole.Replace(p.Target, delegate(Match h) {
                     string captured = match.Groups["p" + h.Groups[1].Value].Value;
                     string semantic;
                     if (!p.Arguments.TryGetValue(h.Groups[1].Value, out semantic)) return captured;
                     string translated;
                     if (semantic == "text") return exact.TryGetValue(captured, out translated) ? translated : captured;
                     if (semantic == "mapLabel") return MapLabel(captured);
+                    Dictionary<string, string> vocabulary;
+                    if (semantic.StartsWith("term:", StringComparison.Ordinal))
+                    {
+                        if (terms.TryGetValue(semantic.Substring(5), out vocabulary) && vocabulary.TryGetValue(captured, out translated)) return translated;
+                        unknownTerm = true;
+                        return captured;
+                    }
                     // Only a declared nested message can recurse; its identifiers still stay opaque.
                     return semantic == "message" && depth < MaxNestedMessages ? Whole(captured, depth + 1) : captured;
                 });
+                // A half-translated composite name is worse than the original: try the next template.
+                if (unknownTerm) continue;
+                return output;
             }
             return value;
+        }
+        // Raw display text: the whole string, then each line of each span between markup tags.
+        // Uncached: RawDisplay keeps one bounded cache in front of every raw table.
+        public string TranslateRaw(string value)
+        {
+            if (String.IsNullOrEmpty(value) || value.Length > 32768) return value;
+            string result = Whole(value, 0);
+            if (result != value || (value.IndexOf('\n') < 0 && value.IndexOf('<') < 0)) return result;
+            string[] spans = Tags.Split(value);
+            bool changed = false;
+            for (int i = 0; i < spans.Length; i += 2)
+            {
+                if (spans[i].Length == 0) continue;
+                string[] lines = spans[i].Split('\n');
+                for (int j = 0; j < lines.Length; j++)
+                {
+                    string translated = Whole(lines[j], 0);
+                    if (translated == lines[j]) continue;
+                    lines[j] = translated;
+                    changed = true;
+                }
+                spans[i] = String.Join("\n", lines);
+            }
+            return changed ? String.Concat(spans) : value;
         }
         public string MapLabel(string value)
         {

@@ -79,6 +79,19 @@ namespace Tolmach.Tests
             Assert.That(m.Patches.Values.Sum(p => p.displayFields), Is.EqualTo(1));
         }
         [Test]
+        public void ConstructorLiteralIsTranslatedWhenTheObjectIsBuilt()
+        {
+            Module m = FixtureModule("ctor", "FixturePlugin");
+            m.literals.Add(new LiteralSpec { type = "FixturePlugin.Built", method = ".ctor", values = new Dictionary<string, string> { { "Built literal", "Литерал конструктора" } } });
+            Activate(m);
+            DisplayPatches.Install(Patcher, m);
+            Assert.That(new FixturePlugin.Built().m_name, Is.EqualTo("Литерал конструктора"));
+            TextEngine.IsRussian = false;
+            Assert.That(new FixturePlugin.Built().m_name, Is.EqualTo("Built literal"));
+            Assert.That(m.Warnings, Has.None.StartsWith("Expected literal adapter not found"));
+            Assert.That(m.Warnings, Has.None.StartsWith("Literal not replaced"));
+        }
+        [Test]
         public void MethodWithAbsentOptionalDependencyIsSkippedWithoutAbortingTheModule()
         {
             Module m = FixtureModule("optional", "FixtureOptional");

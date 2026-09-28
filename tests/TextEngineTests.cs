@@ -45,6 +45,30 @@ namespace Tolmach.Tests
             Assert.That(TextEngine.Display("LumberAxe", id), Is.EqualTo("LumberAxe"));
             Assert.That(TextEngine.Display(null, id), Is.Null);
         }
+        [TestCaseSource("Modules")]
+        public void RawCatalogEntriesTranslateOnDisplay(string id)
+        {
+            Module m = LoadModule(id);
+            RawDisplay.Initialize();
+            foreach (var pair in m.rawTexts)
+                Assert.That(RawDisplay.Translate(pair.Key), Is.EqualTo(pair.Value), pair.Key);
+            foreach (PatternSpec pattern in m.rawPatterns)
+            {
+                // A known term for each term argument, an opaque name otherwise.
+                Func<Match, bool, string> fill = (h, russian) =>
+                {
+                    string semantic;
+                    if (pattern.arguments.TryGetValue(h.Groups[1].Value, out semantic) && semantic.StartsWith("term:"))
+                    {
+                        var term = m.terms[semantic.Substring(5)].OrderBy(t => t.Key, StringComparer.Ordinal).First();
+                        return russian ? term.Value : term.Key;
+                    }
+                    return "Zq" + h.Groups[1].Value;
+                };
+                string source = Regex.Replace(pattern.source, @"\{(\d+)\}", h => fill(h, false));
+                Assert.That(RawDisplay.Translate(source), Is.EqualTo(Regex.Replace(pattern.target, @"\{(\d+)\}", h => fill(h, true))), pattern.source);
+            }
+        }
         [TestCaseSource("Regressions")]
         public void VerifiedRealStrings(string module, string source, string expected)
         {

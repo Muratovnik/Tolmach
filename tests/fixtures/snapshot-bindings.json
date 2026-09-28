@@ -1,5 +1,21 @@
 [
   {
+    "id": "AdventureBackpacks",
+    "guid": "vapok.mods.adventurebackpacks",
+    "pluginVersion": "2.2.1",
+    "assembly": "AdventureBackpacks",
+    "sources": [
+      {
+        "path": "source-evidence/localization/e/Vapok-AdventureBackpacks-2.2.1/AdventureBackpacks/AdventureBackpacks.cs",
+        "sha256": "53b201f08fe420ccf47be5da6043a615c57e9c0e81b0c30536ca2f3b88e7c4ba"
+      },
+      {
+        "path": "source-evidence/localization/e/Vapok-AdventureBackpacks-2.2.1/AdventureBackpacks.csproj",
+        "sha256": "86e6448f9f95927100a8b0a0676c2fcf510f51fb80fb4adc27be8c4072d7ff35"
+      }
+    ]
+  },
+  {
     "id": "Advize_PlantEverything",
     "guid": "advize.PlantEverything",
     "pluginVersion": "1.21.3",
@@ -28,6 +44,22 @@
       {
         "path": "source-evidence/localization/c/40/AirAnimals.csproj",
         "sha256": "605fde68de5e901cb33591450a158a6252900def69e2ee225ec77079e3da6137"
+      }
+    ]
+  },
+  {
+    "id": "AzuAreaRepair",
+    "guid": "Azumatt.AzuAreaRepair",
+    "pluginVersion": "1.1.8",
+    "assembly": "AzuAreaRepair",
+    "sources": [
+      {
+        "path": "source-evidence/localization/b/22-Azumatt-AzuAreaRepair/AzuAreaRepair/AzuAreaRepairPlugin.cs",
+        "sha256": "95087a85b2ca0d971da6b68ee12bcf771796ffe72e1673d1c5abd2d984dfedcd"
+      },
+      {
+        "path": "source-evidence/localization/b/22-Azumatt-AzuAreaRepair/AzuAreaRepair.csproj",
+        "sha256": "4dc0bfcca6e854cfabec8f41e53d22be3960bec5ed6c1a719e6ab3469ccf6e49"
       }
     ]
   },
@@ -288,6 +320,38 @@
     ]
   },
   {
+    "id": "HumanoidRandomizer",
+    "guid": "balrond.astafaraios.BalrondHumanoidRandomizer",
+    "pluginVersion": "1.6.0",
+    "assembly": "BalrondHumanoidRandomizer.merged",
+    "sources": [
+      {
+        "path": "source-evidence/localization/c/42/BalrondHumanoidRandomizer/Launch.cs",
+        "sha256": "063f4086af85490def6b4799cd95f89b7baf5a0d371d6503825f7dea2c604010"
+      },
+      {
+        "path": "source-evidence/localization/c/42/BalrondHumanoidRandomizer.csproj",
+        "sha256": "e5e5080e639d187025c19aec5e9c8b5ee17929c6bc587802a4d8ec698c86aa7a"
+      }
+    ]
+  },
+  {
+    "id": "Jotunn",
+    "guid": "com.jotunn.jotunn",
+    "pluginVersion": "2.30.2",
+    "assembly": "Jotunn",
+    "sources": [
+      {
+        "path": "source-evidence/localization/a/ValheimModding-Jotunn/Jotunn/Main.cs",
+        "sha256": "fab931fc1d743204810a64b7b83fc92844f7a68273611323ceed1489d62945ca"
+      },
+      {
+        "path": "source-evidence/localization/a/ValheimModding-Jotunn/Jotunn.csproj",
+        "sha256": "4ff04301607e337a5839daf9815f5558f9ec04b261261cb53a0767a28fa5d7a1"
+      }
+    ]
+  },
+  {
     "id": "Mining",
     "guid": "org.bepinex.plugins.mining",
     "pluginVersion": "1.1.7",
@@ -348,6 +412,22 @@
       {
         "path": "source-evidence/localization/b/38-blacks7ar-OreMines/OreMines.csproj",
         "sha256": "5640a051ca43e9aac2b24f7835018e867ba28eb17e01d2e7f2fc0b68e237e205"
+      }
+    ]
+  },
+  {
+    "id": "PlantEasily",
+    "guid": "advize.PlantEasily",
+    "pluginVersion": "2.2.2",
+    "assembly": "Advize_PlantEasily",
+    "sources": [
+      {
+        "path": "source-evidence/localization/b/30-Advize-PlantEasily/Advize_PlantEasily/PlantEasily.cs",
+        "sha256": "36db63046e8b6581bcf5d82be917ce8020b358d512ff2b4046ce2bded29824a2"
+      },
+      {
+        "path": "source-evidence/localization/b/30-Advize-PlantEasily/Advize_PlantEasily.csproj",
+        "sha256": "4e6022b50b7223d5637bc86823a6c859a466b7b4304c7052b85d1b2d683a320b"
       }
     ]
   },
@@ -524,6 +604,18 @@
       {
         "path": "source-evidence/localization/d/sighsorry-UsefulRunestones-proj/UsefulRunestones.csproj",
         "sha256": "f218017d43f5d61674368cf1f595c04f0f9613debf0e54d1d998bf881d9c6352"
+      }
+    ]
+  },
+  {
+    "id": "Valheim",
+    "guid": "valheim",
+    "pluginVersion": "1.0.16",
+    "assembly": "assembly_valheim",
+    "sources": [
+      {
+        "path": "source-evidence/game/valheim-1.0.16/Version.cs",
+        "sha256": "7e6885e975a43ae695f11206839261742c85d2e782d09a63c621d3720e894053"
       }
     ]
   },

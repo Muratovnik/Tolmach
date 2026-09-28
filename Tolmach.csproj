@@ -2,13 +2,13 @@
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
     <LangVersion>7.3</LangVersion>
-    <Version>0.2.0</Version>
+    <Version>0.3.0</Version>
     <AssemblyVersion>$(Version).0</AssemblyVersion>
     <FileVersion>$(Version).0</FileVersion>
     <AssemblyName>Tolmach</AssemblyName>
     <RootNamespace>Tolmach</RootNamespace>
     <Title>Tolmach</Title>
-    <Description>Client-side Russian translations for Valheim mods, complementing ObeliskRU.</Description>
+    <Description>Client-side Russian translations for Valheim mods and the game's closed captions.</Description>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <EnableDefaultItems>false</EnableDefaultItems>
     <Deterministic>true</Deterministic>
