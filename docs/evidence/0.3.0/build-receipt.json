@@ -1,11 +1,11 @@
 {
     "package":  "Tolmach",
     "version":  "0.3.0",
-    "utc":  "2026-09-28T15:23:04.7492961Z",
+    "utc":  "2026-09-28T16:00:11.7472845Z",
     "sdk":  "9.0.318",
     "plugin_assembly_version":  "0.3.0.0",
-    "plugin_sha256":  "5564b1f623e5952266e554bb802dad1ddd68d668ed8d2a2c91562aafd7ea37c3",
-    "nunit_passed":  239,
+    "plugin_sha256":  "d3f17e8562f42ceefb96989f04702b829e8532dd09f3d417d05a8f3bb4c53c62",
+    "nunit_passed":  240,
     "test_scope":  "Compiled production plugin and profile Harmony against managed endpoints; not Unity gameplay.",
     "game_test":  "not run",
     "references":  [
