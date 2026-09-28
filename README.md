@@ -98,6 +98,15 @@ python tools\validate.py
 Перед коммитом полезно запустить `python .github/relkit.pyz audit`: он ищет секреты,
 битые локальные ссылки и нарушения правил из `relkit.toml`.
 
+Выпуск требует хук release-kit перед push (`require_guard`, `owner_audit`). Хук проверяет
+всю историю, в том числе по приватным правилам владельца. Они не хранятся в
+репозитории. В новом клоне путь к ним задаётся локальной настройкой
+`git config --local releasekit.privateRoot <папка>`. Затем хук ставится командами
+`python .github/relkit.pyz protect install --dry-run --json` (показывает `plan_sha256`) и
+`python .github/relkit.pyz protect install --plan-hash <plan_sha256>`. После
+осознанной правки `relkit.toml`, `.betterleaks.toml` или обновления `relkit.pyz` хук
+обновляется командой `python .github/relkit.pyz update --refresh-guard`.
+
 На thunderstore.io пакет не публиковался. Для этого нужен токен команды
 Thunderstore `Muratovnik`; ZIP из релиза публикуется командой
 `dotnet tool run tcli publish --file <ZIP>`.
