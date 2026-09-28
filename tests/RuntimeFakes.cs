@@ -183,6 +183,21 @@ namespace FixturePlugin
         [MethodImpl(MethodImplOptions.NoInlining)]
         public Built() { }
     }
+    // Same exception-handling shape as TradersExtended's ConfigEditor.OnGUI: catch ... when inside try/finally.
+    public static class Filtered
+    {
+        public static bool Fail;
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static string Title()
+        {
+            try
+            {
+                try { if (Fail) throw new InvalidOperationException(); return "Filtered literal"; }
+                catch (InvalidOperationException) when (Fail) { return "Filtered literal"; }
+            }
+            finally { Fail = false; }
+        }
+    }
     // Same public shape as the LocalizeKey embedded by Blaxxun's Item/Piece/Creature/SkillManager.
     internal sealed class LocalizeKey
     {

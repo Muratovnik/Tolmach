@@ -92,6 +92,23 @@ namespace Tolmach.Tests
             Assert.That(m.Warnings, Has.None.StartsWith("Literal not replaced"));
         }
         [Test]
+        public void MethodWithExceptionFilterIsLeftUnpatched()
+        {
+            // The reason for the skip: this Harmony cannot rebuild such a method even unchanged.
+            MethodInfo title = typeof(FixturePlugin.Filtered).GetMethod("Title");
+            Assert.Throws<HarmonyLib.HarmonyException>(() => Patcher.Patch(title,
+                transpiler: new HarmonyLib.HarmonyMethod(typeof(HarmonyTests).GetMethod("Unchanged", BindingFlags.NonPublic | BindingFlags.Static))));
+            Patcher.UnpatchSelf();
+            Module m = FixtureModule("filter", "FixturePlugin");
+            m.literals.Add(new LiteralSpec { type = "FixturePlugin.Filtered", method = "Title", values = new Dictionary<string, string> { { "Filtered literal", "Литерал с фильтром" } } });
+            Activate(m);
+            Assert.DoesNotThrow(() => DisplayPatches.Install(Patcher, m));
+            Assert.That(m.Warnings, Has.Some.EqualTo("UI patch skipped FixturePlugin.Filtered.Title: exception filter"));
+            Assert.That(m.PatchedMethods, Is.EqualTo(0));
+            Assert.That(FixturePlugin.Filtered.Title(), Is.EqualTo("Filtered literal"));
+        }
+        private static IEnumerable<HarmonyLib.CodeInstruction> Unchanged(IEnumerable<HarmonyLib.CodeInstruction> instructions) { return instructions; }
+        [Test]
         public void MethodWithAbsentOptionalDependencyIsSkippedWithoutAbortingTheModule()
         {
             Module m = FixtureModule("optional", "FixtureOptional");

@@ -61,6 +61,11 @@ namespace Tolmach
             try { sink = module.HasDisplayText && PatchProcessor.GetOriginalInstructions(method, null).Any(delegate(CodeInstruction instruction) { return Relevant(instruction, module); }); }
             catch (Exception e) { module.Warn("IL inspection skipped " + type.Name + "." + method.Name + ": " + e.GetType().Name); }
             if (!literal && !result && !sink) return;
+            // HarmonyX 2.9 never marks the handler of an exception filter (catch ... when), so any
+            // patch of such a method fails to compile. A mod that delays patching (StartupAccelerator)
+            // applies it after this try/catch has returned, and the failure stops the game instead.
+            if (HasExceptionFilter(method))
+            { module.Warn("UI patch skipped " + type.FullName + "." + method.Name + ": exception filter"); return; }
             string key = RuntimeAccess.MethodKey(method);
             Owners[key] = module;
             try
@@ -78,13 +83,6 @@ namespace Tolmach
                     module.Patches[key] = evidence;
                 }
                 evidence.returnAdapter = result;
-                if (literal)
-                    foreach (LiteralSpec spec in module.literals.Where(delegate(LiteralSpec p) { return p.type == type.FullName && p.method == method.Name; }))
-                        foreach (string value in spec.values.Keys)
-                            if (!evidence.matchedLiterals.Contains(value))
-                                module.Warn("Literal not replaced: " + type.FullName + "." + method.Name + " :: " + value);
-                if (tr != null && evidence.displayCalls + evidence.displayFields + evidence.literals == 0)
-                    module.Warn("Transpiler installed but no display site changed: " + type.FullName + "." + method.Name);
             }
             catch (Exception e)
             {
@@ -238,7 +236,21 @@ namespace Tolmach
                 evidence.displayCalls++;
                 output.AddRange(replacement);
             }
+            // Checked when the plan is known: a mod that delays patching runs this transpiler
+            // long after harmony.Patch has returned.
+            string owner = __originalMethod.DeclaringType.FullName + "." + __originalMethod.Name;
+            foreach (LiteralSpec spec in module.literals.Where(delegate(LiteralSpec p) { return p.type == __originalMethod.DeclaringType.FullName && p.method == __originalMethod.Name; }))
+                foreach (string value in spec.values.Keys)
+                    if (!evidence.matchedLiterals.Contains(value))
+                        module.Warn("Literal not replaced: " + owner + " :: " + value);
+            if (evidence.displayCalls + evidence.displayFields + evidence.literals == 0)
+                module.Warn("Transpiler installed but no display site changed: " + owner);
             return output;
+        }
+        private static bool HasExceptionFilter(MethodBase method)
+        {
+            MethodBody body = method.GetMethodBody();
+            return body != null && body.ExceptionHandlingClauses.Any(delegate(ExceptionHandlingClause c) { return c.Flags == ExceptionHandlingClauseOptions.Filter; });
         }
     }
 }
