@@ -8,7 +8,7 @@
   ],
   "words": {
     "jotunn_cat_corewoodpieces": "Цельная древесина",
-    "jotunn_cat_craftycarts": "Ремесленные тележки"
+    "jotunn_cat_craftycarts": "Ремесленные повозки"
   },
   "englishWords": {
     "jotunn_cat_corewoodpieces": "CoreWoodPieces",
@@ -16,7 +16,7 @@
   },
   "texts": {
     "CoreWoodPieces": "Цельная древесина",
-    "CraftyCarts": "Ремесленные тележки"
+    "CraftyCarts": "Ремесленные повозки"
   },
   "patterns": [],
   "returns": [],

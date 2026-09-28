@@ -18,7 +18,7 @@
     "bom_tinmine": "Оловянная шахта",
     "bom_silvermine": "Серебряная шахта",
     "bom_silvervein": "Серебряная жила",
-    "bom_bonemasskey": "Ключ Массы Костей",
+    "bom_bonemasskey": "Ключ Массы костей",
     "bom_bonemasskey_description": "Открывает серебряные шахты в горах.",
     "bom_eikthyrkey": "Ключ Эйктюра",
     "bom_eikthyrkey_description": "Открывает медные и оловянные шахты.",
@@ -34,7 +34,7 @@
     "bom_flametalvein": "Огнеметаллическая жила",
     "bom_flametalminegate": "Ворота огнеметаллической шахты",
     "bom_crystalkey": "Кристальный ключ",
-    "bom_crystalkey_description": "Открывает шахты чёрного металла на равнинах и в Туманных землях.",
+    "bom_crystalkey_description": "Открывает шахты чёрного металла на Равнинах и в Туманных землях.",
     "bom_lavakey": "Лавовый ключ",
     "bom_lavakey_description": "Открывает огнеметаллические шахты в Пепельных землях."
   },

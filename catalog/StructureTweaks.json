@@ -9,8 +9,8 @@
   "words": {},
   "englishWords": {},
   "texts": {
-    "Force unlock": "Принудительно открыть",
-    "Remove unlock": "Отменить принудительное открытие",
+    "Force unlock": "Принудительно разблокировать",
+    "Remove unlock": "Отменить разблокировку",
     "Edit": "Изменить"
   },
   "patterns": [],
@@ -27,8 +27,8 @@
       "type": "StructureTweaksPlugin.Unlock",
       "method": "OverrideHoverText",
       "values": {
-        "\n[<color=yellow><b>$KEY_AltPlace + $KEY_Use</b></color>] Remove unlock": "\n[<color=yellow><b>$KEY_AltPlace + $KEY_Use</b></color>] Отменить открытие",
-        "\n[<color=yellow><b>$KEY_AltPlace + $KEY_Use</b></color>] Force unlock": "\n[<color=yellow><b>$KEY_AltPlace + $KEY_Use</b></color>] Принудительно открыть"
+        "\n[<color=yellow><b>$KEY_AltPlace + $KEY_Use</b></color>] Remove unlock": "\n[<color=yellow><b>$KEY_AltPlace + $KEY_Use</b></color>] Отменить разблокировку",
+        "\n[<color=yellow><b>$KEY_AltPlace + $KEY_Use</b></color>] Force unlock": "\n[<color=yellow><b>$KEY_AltPlace + $KEY_Use</b></color>] Принудительно разблокировать"
       }
     }
   ],

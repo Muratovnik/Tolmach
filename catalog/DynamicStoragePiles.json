@@ -12,7 +12,7 @@
   "patterns": [
     {
       "source": "{0} cannot be placed in {1}",
-      "target": "Нельзя положить {0} в {1}"
+      "target": "{0}: нельзя положить в хранилище «{1}»"
     }
   ],
   "returns": [],

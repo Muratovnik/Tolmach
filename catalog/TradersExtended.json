@@ -96,7 +96,7 @@
     "Discard unsaved changes and reload this file?": "Отменить несохранённые изменения и заново загрузить этот файл?",
     "Administrator access is required to create files on this server.": "Для создания файлов на этом сервере нужны права администратора сервера.",
     "Discard unsaved changes and create a new configuration file?": "Отменить несохранённые изменения и создать новый файл конфигурации?",
-    "The file no longer exists. Unsaved changes are retained until explicitly discarded.": "Файл больше не существует. Несохранённые изменения будут сохранены в редакторе, пока вы их не отмените.",
+    "The file no longer exists. Unsaved changes are retained until explicitly discarded.": "Файл больше не существует. Несохранённые изменения останутся в редакторе, пока вы их не отмените.",
     "The item configuration could not be parsed.": "Не удалось разобрать конфигурацию предметов.",
     "The trader configuration could not be parsed.": "Не удалось разобрать конфигурацию торговца.",
     "Item prefab is required.": "Укажите префаб предмета.",
@@ -187,7 +187,7 @@
     "Hide the trader's vanilla item list.": "Скрыть стандартный список предметов торговца.",
     "Disable other mods items": "Скрыть предметы других модов",
     "Hide trader entries added by other mods.": "Скрыть товары, добавленные другими модами.",
-    "Add common valuable items to sell list": "Добавлять обычные ценности в список продажи",
+    "Add common valuable items to sell list": "Добавлять ценные предметы в список продажи",
     "Automatically add valuable ObjectDB items to this trader's sell list.": "Автоматически добавлять ценные предметы из ObjectDB в список продажи этому торговцу.",
     "Fixed position for Store GUI": "Фиксированное положение окна торговли",
     "Fixed Store GUI position. Use zero coordinates to retain the normal position.": "Фиксированное положение окна торговли. Нулевые координаты сохраняют стандартное положение.",
@@ -204,7 +204,7 @@
   "patterns": [
     {
       "source": "The same {0} key cannot be both required and blocked: {1}.",
-      "target": "Один ключ ({0}) нельзя одновременно требовать и запрещать: {1}.",
+      "target": "Один и тот же {0} ключ нельзя одновременно требовать и запрещать: {1}.",
       "arguments": {
         "0": "text"
       }

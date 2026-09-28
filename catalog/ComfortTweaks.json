@@ -9,13 +9,13 @@
   "words": {
     "ct_campfireinabottle": "Костёр в бутылке",
     "ct_campfireinabottle_desc": "Вкус тепла костра в беззвёздную ночь.",
-    "ct_campfireinabottle_tooltip": "Короткий отдых",
+    "ct_campfireinabottle_tooltip": "Малый заряд бодрости",
     "ct_bonfireinabottle": "Большой костёр в бутылке",
     "ct_bonfireinabottle_desc": "Вкус вечера с друзьями у большого костра.",
-    "ct_bonfireinabottle_tooltip": "Продолжительный отдых",
+    "ct_bonfireinabottle_tooltip": "Средний заряд бодрости",
     "ct_livingroominabottle": "Домашний уют в бутылке",
     "ct_livingroominabottle_desc": "Вкус отдыха на троне у очага с кружкой медовухи.",
-    "ct_livingroominabottle_tooltip": "Долгий отдых",
+    "ct_livingroominabottle_tooltip": "Большой заряд бодрости",
     "jc_necklace_blueish": "Ожерелье сытого отдыха",
     "jc_necklace_blueish_description": "Голубоватое ожерелье, которое сохраняет сытость во время отдыха.",
     "ct_rested": "Бодрость"

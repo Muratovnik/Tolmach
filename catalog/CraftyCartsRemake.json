@@ -10,8 +10,8 @@
     "msg_cartupgraded": "$1: улучшение выполнено",
     "msg_cantupgrade": "Невозможно улучшить $1",
     "msg_maxlevel": "$1: уже достигнут максимальный уровень",
-    "piece_upgradecart": "Улучшить тележку",
-    "piece_upgradecart_description": "Повысить уровень тележки"
+    "piece_upgradecart": "Улучшить повозку",
+    "piece_upgradecart_description": "Повысить уровень повозки"
   },
   "englishWords": {
     "msg_cartupgraded": "$1 has been upgraded",

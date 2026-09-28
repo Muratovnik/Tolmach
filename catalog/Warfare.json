@@ -7,9 +7,9 @@
     "Therzie.Warfare"
   ],
   "words": {
-    "crossbow_wood_TW": "Примитивный арбалет",
-    "crossbow_wood_description_TW": "Простой деревянный арбалет с медленной перезарядкой. Метает болты во врагов.",
-    "SE_Decapitator5_description_TW": "Каждый пятый удар снижает сопротивление противника рубящему урону."
+    "crossbow_wood_TW": "Грубый арбалет",
+    "crossbow_wood_description_TW": "Простой деревянный арбалет с медленной перезарядкой. Стреляет во врагов болтами.",
+    "SE_Decapitator5_description_TW": "Каждый пятый удар снижает сопротивление противника рассекающему урону."
   },
   "englishWords": {
     "SE_Decapitator5_description_TW": "Lowers your opponents slash resistance on 5th hit.",
