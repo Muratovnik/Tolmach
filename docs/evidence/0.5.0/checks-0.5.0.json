@@ -1,0 +1,44 @@
+{
+  "date": "2026-09-28",
+  "package": {
+    "file": "Muratovnik-Tolmach-0.5.0.zip",
+    "sha256": "bf7eb3fce4d69edd97a2530e9d32e95c315193c4729ecd6842077b4443ccdc92",
+    "entries": 76,
+    "manifest": {
+      "name": "Tolmach",
+      "version_number": "0.5.0",
+      "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.2351",
+        "ValheimModding-JsonDotNET-13.0.4"
+      ],
+      "website_url": "https://github.com/Muratovnik/Tolmach"
+    }
+  },
+  "build": {
+    "nunit_passed": 368,
+    "sdk": "9.0.318",
+    "plugin_sha256": "5939fb22dc400404c454483985b597534de9660cc81ac13d49bff09e5c651712"
+  },
+  "catalogs": {
+    "modules": 69
+  },
+  "package_gate_controls": "7 of 7 (valid package accepted, six broken copies rejected)",
+  "pytest_data_controls": "8 passed (two new controls for the cllc section)",
+  "literals_in_il": {
+    "method": "ilspycmd 9.1 -il written to UTF-8 files; profile DLLs and the CreatureLevelControl 4.6.4 package DLL",
+    "values_checked": 350,
+    "problems": 0,
+    "not_rechecked": "312 values of the other stage B modules: catalogs unchanged since 0.4.0, where all were found in their Thunderstore DLLs"
+  },
+  "cllc_mod_dll_check": {
+    "dll": "CreatureLevelControl.dll 4.6.4, sha256 601739b998f956bc49a871a4b0c7761e1f6389e5f8604d3234868f9e92d2761e",
+    "result": "The adapter installed the catalog table without warnings (251 entries filled). Nameplates of 13 creatures with every infusion and effect and of 7 bosses with every affix were built by the mod's own code and parsed back into the vanilla name; the effect label stays separate from the name; enum values, messages and 113 bound settings are Russian.",
+    "literal_methods": "No filter or fault handlers; all 32 literals are ldstr in their methods. HarmonyX compiled CreatureSector+PatchMinimapAwake.Postfix; the other methods cannot be compiled on .NET Framework (types with default interface methods, ServerSync static constructor)."
+  },
+  "profile_patch_probe": {
+    "mode": "real profile DLLs on .NET Framework 4.8, assembly_valheim shim without default interface methods",
+    "tolmach_caused_failures": 0,
+    "result": "Only overloads that hold a literal are patched (AzuAutoStore TryStore, PlantEasily Postfix); no false 'Literal not replaced' warnings remain."
+  },
+  "game_test": "0.4.0 started in the Default profile on 2026-09-28 with Russian active; the strings seen untranslated there are fixed in 0.5.0, which has not been started in game yet."
+}
