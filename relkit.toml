@@ -24,6 +24,9 @@ forbid_png_metadata = true
 
 [changelog]
 profile = "strict"
+# 0.1.x were local builds under the former name ValheimRussianPack; 0.2.0 is the
+# first published release.
+first_version = "0.2.0"
 
 [release]
 publisher = "github"
