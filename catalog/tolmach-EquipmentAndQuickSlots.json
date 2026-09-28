@@ -12,12 +12,13 @@
     "Head": "Голова",
     "Chest": "Грудь",
     "Legs": "Ноги",
-    "Shoulder": "Плечи",
     "Utility": "Аксессуар",
     "Feet": "Ступни",
     "Ammo": "Боеприпасы",
     "Quick Slots": "Быстрые ячейки",
-    "Equipment": "Снаряжение"
+    "Equipment": "Снаряжение",
+    "Shoulders": "Плечи",
+    "Trinket": "Оберег"
   },
   "patterns": [],
   "returns": [

@@ -306,16 +306,16 @@
   {
     "id": "CraftyCartsRemake",
     "guid": "Azumatt.CraftyCarts",
-    "pluginVersion": "3.2.3",
+    "pluginVersion": "3.2.4",
     "assembly": "CraftyCartsRemake",
     "sources": [
       {
-        "path": "source-evidence/localization/c/43/CraftyCartsRemake/CCR.cs",
-        "sha256": "2047227923c7c978a1896259d579a48c9be99b0513d4eb254aa60b01a6fd00ea"
+        "path": "source-evidence/profile-updates/OdinPlus-CraftyCartsRemake-3.2.4/CraftyCartsRemake/CCR.cs",
+        "sha256": "9cd2cecf4078369430712874202f7bd840308cdabdedf8e96379ce58678a318e"
       },
       {
-        "path": "source-evidence/localization/c/43/CraftyCartsRemake.csproj",
-        "sha256": "5e76ed1c8759ba4daa8e90f0eb6e4e116d1f279c2114b270a8501a9a083558f0"
+        "path": "source-evidence/profile-updates/OdinPlus-CraftyCartsRemake-3.2.4/CraftyCartsRemake.csproj",
+        "sha256": "f751d573834e6ae79f347339e8b509bf75193e55002a33d71483f8627c010397"
       }
     ]
   },

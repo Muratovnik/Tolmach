@@ -318,18 +318,19 @@
     {
       "id": "CraftyCartsRemake",
       "package": "OdinPlus-CraftyCartsRemake",
-      "version": "3.2.3",
+      "version": "3.2.4",
       "status_in_archive": "missing",
-      "source_root": "source-evidence/localization/c/43",
+      "source_root": "source-evidence/profile-updates/OdinPlus-CraftyCartsRemake-3.2.4",
       "binary_identities": [
         {
-          "mod": "OdinPlus-CraftyCartsRemake-3.2.3",
+          "mod": "OdinPlus-CraftyCartsRemake-3.2.4",
           "enabled": true,
           "profile_path": "BepInEx/plugins/OdinPlus-CraftyCartsRemake/CraftyCartsRemake.dll",
-          "size": 5592064,
-          "sha256": "2a6816f6a05f6d6a880676a7d589345445e9aded1286b5bb356b241c4736d297"
+          "size": 5593088,
+          "sha256": "3988448eaa736cdb1f6db733cc80830d59322cea523f9e2bda825bef99ce5468"
         }
-      ]
+      ],
+      "archived_version": "3.2.3"
     },
     {
       "id": "CreatureLevelControl",
@@ -1258,7 +1259,18 @@
       "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4"
     ],
     "offline_mod_check": "The adapter and the table ran against the mod's own CreatureLevelControl.dll outside the game: nameplates of 13 creatures and 7 bosses built and parsed back by the mod's code, messages, enum values and 113 config entries.",
-    "csharp_tests": "366 NUnit tests passed with Valheim 1.0.16, BepInEx 5.4.23.5 and HarmonyX 2.9 from the Default Gale profile",
-    "game_test": "not performed"
+    "csharp_tests": "368 NUnit tests passed with Valheim 1.0.16, BepInEx 5.4.23.5 and HarmonyX 2.9 from the Default Gale profile",
+    "game_test": "0.4.0 started in the Default profile on 2026-09-28 with Russian active; the untranslated strings seen there are fixed here. CLLC and the fixes were not tested in game.",
+    "fixed_after_game_test": {
+      "modules": [
+        "EquipmentAndQuickSlots",
+        "CraftyCartsRemake",
+        "AzuAutoStore",
+        "UsefulRunestones",
+        "ExpertExplorer"
+      ],
+      "rebound": "CraftyCartsRemake 3.2.3 -> 3.2.4 installed in the profile; evidence source-evidence/profile-updates/OdinPlus-CraftyCartsRemake-3.2.4 (decompiled plugin, English resource, cart names read from its asset bundle)",
+      "sources": "Strings seen untranslated in the 0.4.0 game session, located in the installed mods' code, config defaults, asset bundle and the Default profile's UsefulRunestones.yml; location names reuse this pack's ExpertExplorer translations."
+    }
   }
 }

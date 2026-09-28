@@ -1,7 +1,7 @@
 {
   "id": "CraftyCartsRemake",
   "package": "OdinPlus-CraftyCartsRemake",
-  "version": "3.2.3",
+  "version": "3.2.4",
   "assembly": "CraftyCartsRemake",
   "guids": [
     "Azumatt.CraftyCarts"
@@ -25,14 +25,40 @@
   "returns": [],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/localization/c/43/CraftyCartsRemake.translations.English.yml",
-    "source-evidence/localization/c/43/CraftyCartsRemake/CCR.cs"
+    "source-evidence/profile-updates/OdinPlus-CraftyCartsRemake-3.2.4/CraftyCartsRemake.translations.English.yml",
+    "source-evidence/profile-updates/OdinPlus-CraftyCartsRemake-3.2.4/CraftyCartsRemake/CCR.cs",
+    "source-evidence/profile-updates/OdinPlus-CraftyCartsRemake-3.2.4/bundle-strings.json"
   ],
   "notes": [
-    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен.",
+    "0.5.0: bound to 3.2.4 installed in the profile; cart piece and container names from its asset bundle."
   ],
   "namespaces": [
     "CraftyCartsRemake"
   ],
-  "pluginVersion": "3.2.3"
+  "pluginVersion": "3.2.4",
+  "rawTexts": {
+    "$piece_workbench $tool_cart": "$tool_cart ($piece_workbench)",
+    "$piece_workbench $tool_cart Storage": "Хранилище: $tool_cart ($piece_workbench)",
+    "$piece_forge $tool_cart": "$tool_cart ($piece_forge)",
+    "$piece_forge $tool_cart Storage": "Хранилище: $tool_cart ($piece_forge)",
+    "$piece_blackforge $tool_cart": "$tool_cart ($piece_blackforge)",
+    "$piece_blackforge $tool_cart Storage": "Хранилище: $tool_cart ($piece_blackforge)",
+    "$piece_artisanstation $tool_cart": "$tool_cart ($piece_artisanstation)",
+    "$piece_artisanstation $tool_cart Storage": "Хранилище: $tool_cart ($piece_artisanstation)",
+    "$piece_cauldron $tool_cart": "$tool_cart ($piece_cauldron)",
+    "$piece_cauldron $tool_cart Storage": "Хранилище: $tool_cart ($piece_cauldron)",
+    "$piece_stonecutter $tool_cart": "$tool_cart ($piece_stonecutter)",
+    "$piece_stonecutter $tool_cart Inventory": "Инвентарь: $tool_cart ($piece_stonecutter)"
+  },
+  "rawPatterns": [
+    {
+      "source": "{0} ( $piece_container_empty )",
+      "target": "{0} ( $piece_container_empty )",
+      "numeric": [],
+      "arguments": {
+        "0": "text"
+      }
+    }
+  ]
 }

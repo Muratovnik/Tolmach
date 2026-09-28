@@ -11,7 +11,24 @@
   "texts": {
     "Haldor": "Хальдор",
     "You got bamboozled": "Вас провели",
-    "You already have this effect": "Этот эффект уже действует"
+    "You already have this effect": "Этот эффект уже действует",
+    "Hildir_camp": "Лагерь Хильдир",
+    "BogWitch_Camp": "Хижина Болотной ведьмы",
+    "SunkenCrypt4": "Затонувший склеп",
+    "MountainCave02": "Горная пещера",
+    "StoneHenge1": "Стоунхендж",
+    "StoneHenge3": "Путевые камни",
+    "StoneHenge4": "Погребальные камни",
+    "StoneHenge5": "Каменный путевой знак",
+    "Mistlands_DvergrTownEntrance1": "Разрушенные шахты двергов",
+    "Mistlands_DvergrTownEntrance2": "Заражённые шахты",
+    "Mistlands_Excavation1": "Место раскопок",
+    "Mistlands_Excavation2": "Место раскопок",
+    "Mistlands_Excavation3": "Место раскопок",
+    "PlaceofMystery1": "Таинственные руины",
+    "PlaceofMystery2": "Таинственные руины",
+    "PlaceofMystery3": "Таинственные руины",
+    "CombatRuin01": "Руины поля боя"
   },
   "patterns": [
     {
@@ -40,6 +57,23 @@
   ],
   "pluginVersion": "1.0.3",
   "mapLabels": {
-    "Haldor": "Хальдор"
+    "Haldor": "Хальдор",
+    "Hildir_camp": "Лагерь Хильдир",
+    "BogWitch_Camp": "Хижина Болотной ведьмы",
+    "SunkenCrypt4": "Затонувший склеп",
+    "MountainCave02": "Горная пещера",
+    "StoneHenge1": "Стоунхендж",
+    "StoneHenge3": "Путевые камни",
+    "StoneHenge4": "Погребальные камни",
+    "StoneHenge5": "Каменный путевой знак",
+    "Mistlands_DvergrTownEntrance1": "Разрушенные шахты двергов",
+    "Mistlands_DvergrTownEntrance2": "Заражённые шахты",
+    "Mistlands_Excavation1": "Место раскопок",
+    "Mistlands_Excavation2": "Место раскопок",
+    "Mistlands_Excavation3": "Место раскопок",
+    "PlaceofMystery1": "Таинственные руины",
+    "PlaceofMystery2": "Таинственные руины",
+    "PlaceofMystery3": "Таинственные руины",
+    "CombatRuin01": "Руины поля боя"
   }
 }

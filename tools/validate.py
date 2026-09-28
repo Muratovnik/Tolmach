@@ -142,7 +142,10 @@ def evidence_checks(evidence: Path, modules: list[dict]) -> None:
     # The archived audit lists packages without Russian text; each needs a module. Packages
     # the audit saw with Russian (often from another pack) may have modules as well.
     gaps = {r['fullName'] for r in coverage['rows'] if r['status'] in ('missing', 'partial')}
-    uncovered = gaps - {m['package'] + '-' + m['version'] for m in modules}
+    provenance = load(ROOT / 'PROVENANCE.json')
+    # A module rebound to a newer installed version keeps the archived version it replaces.
+    archived = {r['package'] + '-' + r['archived_version'] for r in provenance['modules'] if 'archived_version' in r}
+    uncovered = gaps - {m['package'] + '-' + m['version'] for m in modules} - archived
     check(not uncovered, 'Archive audit gaps without a module: ' + ', '.join(sorted(uncovered)))
     for m in modules:
         for relative in m['sourceFiles']:
@@ -189,7 +192,6 @@ def evidence_checks(evidence: Path, modules: list[dict]) -> None:
                 wordy = {k for k, v in source.items() if re.search(r'[A-Za-z]{2,}', re.sub(r'\{[^{}]*\}', '', str(v)))}
                 check(wordy <= set(m['words']), m['id'] + ': English table not fully covered')
     # Check the exact explicit literal replacements against the selected decompilations.
-    provenance = load(ROOT / 'PROVENANCE.json')
     roots = {m['id']: evidence / m['source_root'] for m in provenance['modules']}
     for m in modules:
         if not m.get('literals'):
