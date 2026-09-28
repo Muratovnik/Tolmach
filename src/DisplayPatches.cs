@@ -23,6 +23,8 @@ namespace Tolmach
             if (!module.NeedsIlAdapters) return;
             if (!module.UiAllowed)
             { module.Warn("Version differs from snapshot; scoped IL/return adapters skipped. Native key adapters remain enabled."); return; }
+            // Literal values found in the original IL of their methods, over all overloads of the name.
+            HashSet<string> seen = new HashSet<string>(StringComparer.Ordinal);
             // A type, signature or body referring to an absent optional dependency throws on
             // reflection. Skip only that type or method; the rest of the module stays patched.
             foreach (Type type in AccessTools.GetTypesFromAssembly(module.RuntimeAssembly))
@@ -38,7 +40,7 @@ namespace Tolmach
                 catch (Exception e) { module.Warn("Type skipped " + type.Name + ": " + e.GetType().Name); continue; }
                 foreach (MethodBase method in methods)
                 {
-                    try { InstallMethod(harmony, module, type, method); }
+                    try { InstallMethod(harmony, module, type, method, seen); }
                     catch (Exception e) { module.Warn("UI adapter skipped " + type.FullName + "." + method.Name + ": " + e.GetType().Name); }
                 }
             }
@@ -46,20 +48,49 @@ namespace Tolmach
                 if (!Declares(module, expected.type, expected.method))
                     module.Warn("Expected return adapter not found: " + expected.type + "." + expected.method);
             foreach (LiteralSpec expected in module.literals)
+            {
                 if (!Declares(module, expected.type, expected.method))
-                    module.Warn("Expected literal adapter not found: " + expected.type + "." + expected.method);
+                { module.Warn("Expected literal adapter not found: " + expected.type + "." + expected.method); continue; }
+                // Known from the original IL, so a mod that delays patching does not affect this check.
+                foreach (string value in expected.values.Keys)
+                    if (!seen.Contains(LiteralKey(expected, value)))
+                        module.Warn("Literal not found in IL: " + expected.type + "." + expected.method + " :: " + Shown(value));
+            }
         }
-        private static void InstallMethod(Harmony harmony, Module module, Type type, MethodBase method)
+        private static string LiteralKey(LiteralSpec spec, string value) { return spec.type + "\n" + spec.method + "\n" + value; }
+        // A literal may start with a line break; warnings show control characters escaped.
+        private static string Shown(string value) { return value.Replace("\r", "\\r").Replace("\n", "\\n").Replace("\t", "\\t"); }
+        private static void InstallMethod(Harmony harmony, Module module, Type type, MethodBase method, HashSet<string> seen)
         {
             if (!RuntimeAccess.ManagedBody(method)) return;
             module.ScannedMethods++;
-            bool literal = module.literals.Any(delegate(LiteralSpec p) { return p.type == type.FullName && p.method == method.Name; });
+            LiteralSpec[] specs = module.literals.Where(delegate(LiteralSpec p) { return p.type == type.FullName && p.method == method.Name; }).ToArray();
             MethodInfo function = method as MethodInfo;
             bool result = function != null && function.ReturnType == typeof(string) &&
                 module.returns.Any(delegate(MethodSpec p) { return p.type == type.FullName && p.method == method.Name; });
-            bool sink = false;
-            try { sink = module.HasDisplayText && PatchProcessor.GetOriginalInstructions(method, null).Any(delegate(CodeInstruction instruction) { return Relevant(instruction, module); }); }
-            catch (Exception e) { module.Warn("IL inspection skipped " + type.Name + "." + method.Name + ": " + e.GetType().Name); }
+            if (specs.Length == 0 && !result && !module.HasDisplayText) return;
+            bool literal = false, sink = false;
+            try
+            {
+                List<CodeInstruction> original = PatchProcessor.GetOriginalInstructions(method, null);
+                // A literal rule names a method, and overloads share the name: only a body that holds
+                // one of its values gets the literal transpiler, so the others are neither patched nor reported.
+                foreach (CodeInstruction instruction in original)
+                {
+                    string text = instruction.opcode == OpCodes.Ldstr ? instruction.operand as string : null;
+                    if (text == null) continue;
+                    foreach (LiteralSpec spec in specs)
+                        if (spec.values.ContainsKey(text)) { literal = true; seen.Add(LiteralKey(spec, text)); }
+                }
+                sink = module.HasDisplayText && original.Any(delegate(CodeInstruction instruction) { return Relevant(instruction, module); });
+            }
+            catch (Exception e)
+            {
+                module.Warn("IL inspection skipped " + type.Name + "." + method.Name + ": " + e.GetType().Name);
+                // Without the body the rule cannot be narrowed to an overload: try it as named.
+                literal = specs.Length != 0;
+                foreach (LiteralSpec spec in specs) foreach (string value in spec.values.Keys) seen.Add(LiteralKey(spec, value));
+            }
             if (!literal && !result && !sink) return;
             // HarmonyX 2.9 cannot rebuild two kinds of exception blocks: it never marks the handler of an
             // exception filter (catch ... when), and it ends a fault handler (iterators with try/finally)
@@ -242,10 +273,13 @@ namespace Tolmach
             // Checked when the plan is known: a mod that delays patching runs this transpiler
             // long after harmony.Patch has returned.
             string owner = __originalMethod.DeclaringType.FullName + "." + __originalMethod.Name;
+            HashSet<string> present = new HashSet<string>(input.Where(delegate(CodeInstruction i) { return i.opcode == OpCodes.Ldstr && i.operand is string; })
+                .Select(delegate(CodeInstruction i) { return (string)i.operand; }), StringComparer.Ordinal);
             foreach (LiteralSpec spec in module.literals.Where(delegate(LiteralSpec p) { return p.type == __originalMethod.DeclaringType.FullName && p.method == __originalMethod.Name; }))
                 foreach (string value in spec.values.Keys)
-                    if (!evidence.matchedLiterals.Contains(value))
-                        module.Warn("Literal not replaced: " + owner + " :: " + value);
+                    // Another overload may hold the value; only a value left in this body is a miss.
+                    if (present.Contains(value) && !evidence.matchedLiterals.Contains(value))
+                        module.Warn("Literal not replaced: " + owner + " :: " + Shown(value));
             if (evidence.displayCalls + evidence.displayFields + evidence.literals == 0)
                 module.Warn("Transpiler installed but no display site changed: " + owner);
             return output;

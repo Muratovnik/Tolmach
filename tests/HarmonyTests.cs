@@ -92,6 +92,28 @@ namespace Tolmach.Tests
             Assert.That(m.Warnings, Has.None.StartsWith("Literal not replaced"));
         }
         [Test]
+        public void LiteralRuleOnOverloadsPatchesOnlyTheBodyWithTheLiteral()
+        {
+            Module m = FixtureModule("overloads", "FixturePlugin");
+            m.literals.Add(new LiteralSpec { type = "FixturePlugin.Overloads", method = "Pick", values = new Dictionary<string, string> { { "Overloaded literal", "Литерал перегрузки" } } });
+            Activate(m);
+            DisplayPatches.Install(Patcher, m);
+            Assert.That(FixturePlugin.Overloads.Pick(), Is.EqualTo("Литерал перегрузки"));
+            Assert.That(FixturePlugin.Overloads.Pick(2), Is.EqualTo("Other 2"));
+            Assert.That(m.PatchedMethods, Is.EqualTo(1));
+            Assert.That(m.Warnings, Is.Empty, "The overload without the literal is neither patched nor reported.");
+        }
+        [Test]
+        public void LiteralMissingFromEveryOverloadIsReportedOnce()
+        {
+            Module m = FixtureModule("missing", "FixturePlugin");
+            m.literals.Add(new LiteralSpec { type = "FixturePlugin.Overloads", method = "Pick", values = new Dictionary<string, string> { { "\nGone literal", "\nПропавший литерал" } } });
+            Activate(m);
+            DisplayPatches.Install(Patcher, m);
+            Assert.That(m.PatchedMethods, Is.Zero);
+            Assert.That(m.Warnings, Is.EqualTo(new[] { "Literal not found in IL: FixturePlugin.Overloads.Pick :: \\nGone literal" }));
+        }
+        [Test]
         public void MethodWithExceptionFilterIsLeftUnpatched()
         {
             // The reason for the skip: this Harmony cannot rebuild such a method even unchanged.

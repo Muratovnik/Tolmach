@@ -209,6 +209,14 @@ namespace FixturePlugin
             finally { Done = true; }
         }
     }
+    // Two methods of one name, like AzuAutoStore's TryStore overloads: only one holds the literal.
+    public static class Overloads
+    {
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static string Pick() { return "Overloaded literal"; }
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static string Pick(int count) { return "Other " + count; }
+    }
     // Same public shape as the LocalizeKey embedded by Blaxxun's Item/Piece/Creature/SkillManager.
     internal sealed class LocalizeKey
     {

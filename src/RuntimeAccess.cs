@@ -18,9 +18,11 @@ namespace Tolmach
             if (instanceOrType == null) return null;
             Type type = instanceOrType as Type ?? instanceOrType.GetType();
             object receiver = instanceOrType is Type ? null : instanceOrType;
-            FieldInfo field = AccessTools.Field(type, name);
+            // The same base-type search as AccessTools.Field/Property, without their warning for a
+            // member that is a property rather than a field (or absent from this game version).
+            FieldInfo field = AccessTools.FindIncludingBaseTypes(type, delegate(Type t) { return t.GetField(name, AccessTools.all); });
             if (field != null) return field.GetValue(receiver);
-            PropertyInfo property = AccessTools.Property(type, name);
+            PropertyInfo property = AccessTools.FindIncludingBaseTypes(type, delegate(Type t) { return t.GetProperty(name, AccessTools.all); });
             return property == null ? null : property.GetValue(receiver, null);
         }
         internal static string MethodKey(MethodBase method)
