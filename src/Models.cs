@@ -82,11 +82,16 @@ namespace Tolmach
             Warnings.Add(message);
             Plugin.Warn(id + ": " + message);
         }
+        // Marks a plugin's types declared outside any namespace; an empty entry would be rejected.
+        public const string GlobalNamespace = "<global>";
         public bool OwnType(Type type)
         {
             string ns = type.Namespace ?? "";
             foreach (string allowed in namespaces)
+            {
+                if (allowed == GlobalNamespace) { if (ns.Length == 0) return true; continue; }
                 if (ns == allowed || ns.StartsWith(allowed + ".", StringComparison.Ordinal)) return true;
+            }
             return false;
         }
     }

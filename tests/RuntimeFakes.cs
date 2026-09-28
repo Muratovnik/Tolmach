@@ -258,3 +258,9 @@ namespace FixtureOptional
         public static void Draw() { UnityEngine.GUI.Label("Price"); }
     }
 }
+// A plugin type declared outside any namespace, like Amazing Nature's MonsterDoorSensor.
+public static class GlobalFixture
+{
+    [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+    public static string Label() { return "Global literal"; }
+}

@@ -126,6 +126,16 @@ namespace Tolmach.Tests
         }
         private static IEnumerable<HarmonyLib.CodeInstruction> Unchanged(IEnumerable<HarmonyLib.CodeInstruction> instructions) { return instructions; }
         [Test]
+        public void LiteralInATypeWithoutNamespaceIsTranslated()
+        {
+            Module m = FixtureModule("global", Module.GlobalNamespace);
+            m.literals.Add(new LiteralSpec { type = "GlobalFixture", method = "Label", values = new Dictionary<string, string> { { "Global literal", "Литерал без namespace" } } });
+            Activate(m);
+            DisplayPatches.Install(Patcher, m);
+            Assert.That(GlobalFixture.Label(), Is.EqualTo("Литерал без namespace"));
+            Assert.That(m.OwnType(typeof(FixturePlugin.Built)), Is.False, "The marker admits only types without a namespace.");
+        }
+        [Test]
         public void MethodWithAbsentOptionalDependencyIsSkippedWithoutAbortingTheModule()
         {
             Module m = FixtureModule("optional", "FixtureOptional");
