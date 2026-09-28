@@ -37,7 +37,14 @@ function Run-Dotnet([string[]]$Arguments, [string]$LogPath) {
     } finally { $ErrorActionPreference = $previous }
     if ($code -ne 0) { throw "dotnet $($Arguments[0]) failed (exit $code). Log: $LogPath" }
 }
-function Sha256([string]$Path) { (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLowerInvariant() }
+# .NET instead of Get-FileHash: that cmdlet lives in the script part of the Utility module,
+# which Windows PowerShell fails to load when a PowerShell 7 PSModulePath is inherited
+# through another process (for example release-kit started from pwsh).
+function Sha256([string]$Path) {
+    $sha = [Security.Cryptography.SHA256]::Create()
+    $stream = [IO.File]::OpenRead($Path)
+    try { return (($sha.ComputeHash($stream) | ForEach-Object { $_.ToString('x2') }) -join '') } finally { $stream.Dispose(); $sha.Dispose() }
+}
 function Entry-Bytes($Entry) {
     $stream = $Entry.Open()
     try { $memory = New-Object IO.MemoryStream; $stream.CopyTo($memory); return ,$memory.ToArray() } finally { $stream.Dispose() }
