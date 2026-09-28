@@ -1,6 +1,6 @@
-<div align="center">
+![Книга рун с надписью «Толмач» на перилах у фьорда с драккаром](docs/images/banner.jpg)
 
-<img src="package/icon.png" alt="Иконка Tolmach" width="128">
+<div align="center">
 
 # Tolmach
 
