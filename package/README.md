@@ -1,5 +1,7 @@
 # Tolmach
 
+![Книга рун с надписью «Толмач» на перилах у фьорда с драккаром](https://raw.githubusercontent.com/Muratovnik/Tolmach/main/docs/images/banner.jpg)
+
 *Russian translations for 37 Valheim mods that ObeliskRU leaves untranslated or partly translated. Client-side, display text only.*
 
 **Tolmach** (от старинного «толмач» — переводчик) переводит на русский 37 модов,
