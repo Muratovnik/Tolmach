@@ -6,8 +6,16 @@
 
 Русский перевод для 37 модов Valheim, которые ObeliskRU не переводит или переводит частично.
 
-[![Release](https://img.shields.io/github/v/release/Muratovnik/Tolmach?style=flat-square)](https://github.com/Muratovnik/Tolmach/releases)
+[![Release](https://img.shields.io/github/v/release/Muratovnik/Tolmach?style=flat-square&color=blue)](https://github.com/Muratovnik/Tolmach/releases)
+[![Downloads](https://img.shields.io/github/downloads/Muratovnik/Tolmach/total?style=flat-square&color=blue)](https://github.com/Muratovnik/Tolmach/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+
+[![Valheim 1.0.16](https://img.shields.io/badge/Valheim-1.0.16-2f6f9f?style=flat-square&logo=steam)](docs/VALIDATION.md)
+[![BepInEx 5.4.2351](https://img.shields.io/badge/BepInEx-5.4.2351-6f42c1?style=flat-square)](https://thunderstore.io/c/valheim/p/denikson/BepInExPack_Valheim/)
+[![Works with ObeliskRU](https://img.shields.io/badge/works%20with-ObeliskRU-8b5a2b?style=flat-square)](https://thunderstore.io/c/valheim/p/DragonMotion/ObeliskRU/)
+[![37 mods](https://img.shields.io/badge/mods-37-8b5a2b?style=flat-square)](package/README.md#переводимые-моды)
+
+[Установка](#установка) · [Первый запуск](#первый-запуск) · [Документация](#документация) · [Сообщить о непереведённой строке](https://github.com/Muratovnik/Tolmach/issues/new)
 
 </div>
 
@@ -17,20 +25,22 @@ Tolmach — плагин BepInEx, названный по старинному �
 
 ## Возможности
 
-- Переводит 37 модов: 24 без русского перевода и 13 переведённых частично. Список с
-  версиями — в [описании пакета](package/README.md#переводимые-моды), что именно
-  переведено в каждом моде — в [docs/COVERAGE.md](docs/COVERAGE.md).
-- Дополняет ObeliskRU, а не заменяет его. Tolmach заполняет только отсутствующие и
-  английские строки; уже существующий русский перевод, в том числе от ObeliskRU,
-  остаётся.
-- Меняет только текст на экране. Сохранения, рецепты, предметы и конфиги модов не
+- **37 модов.** 24 из них не имели русского перевода, 13 были переведены частично.
+  Список с версиями — в [описании пакета](package/README.md#переводимые-моды), что
+  именно переведено в каждом моде — в [docs/COVERAGE.md](docs/COVERAGE.md).
+- **Дополняет ObeliskRU.** Tolmach заполняет только отсутствующие и английские строки;
+  уже существующий русский перевод, в том числе от ObeliskRU, остаётся как есть.
+- **Только текст на экране.** Сохранения, рецепты, предметы и конфиги модов не
   затрагиваются. Мод нужен только на клиенте: серверу и другим игрокам его ставить не
   нужно.
-- Отключает перевод отдельного мода или весь пакет в настройках BepInEx.
-- Пишет отчёт о том, какие моды найдены и какие переводы подключены.
+- **Настройка по модам.** Перевод любого мода или весь пакет отключается в конфиге
+  BepInEx.
+- **Отчёт о работе.** После запуска плагин записывает, какие моды найдены и какие
+  переводы подключены: по отчёту видно, работает ли перевод нужного мода.
 
 ## Установка
 
+> [!NOTE]
 > Tolmach проверен автоматическими тестами с библиотеками игры, BepInEx и Harmony.
 > В самой игре на всех экранах его ещё не проверяли; о непереведённых местах сообщайте
 > в [issues](https://github.com/Muratovnik/Tolmach/issues).
@@ -84,14 +94,15 @@ Tolmach — плагин BepInEx, названный по старинному �
 
 ## Документация
 
-- [package/README.md](package/README.md) — описание пакета, которое показывает менеджер
-  модов: список модов и версий, настройки, удаление.
-- [docs/COVERAGE.md](docs/COVERAGE.md) — что переведено в каждом моде.
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — как плагин находит и подменяет текст.
-- [docs/BUILD.md](docs/BUILD.md) — сборка, изменение переводов и выпуск версий.
-- [docs/VALIDATION.md](docs/VALIDATION.md) — что проверено и что нет.
-- [docs/RUNTIME-CHECKLIST.md](docs/RUNTIME-CHECKLIST.md) — план проверки в игре.
-- [CHANGELOG.md](CHANGELOG.md) — изменения по версиям.
+| Документ | Что в нём |
+|---|---|
+| [package/README.md](package/README.md) | Описание пакета, которое показывает менеджер модов: список модов и версий, настройки, удаление |
+| [docs/COVERAGE.md](docs/COVERAGE.md) | Что переведено в каждом моде |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Как плагин находит и подменяет текст |
+| [docs/BUILD.md](docs/BUILD.md) | Сборка, изменение переводов и выпуск версий |
+| [docs/VALIDATION.md](docs/VALIDATION.md) | Что проверено и что нет |
+| [docs/RUNTIME-CHECKLIST.md](docs/RUNTIME-CHECKLIST.md) | План проверки в игре |
+| [CHANGELOG.md](CHANGELOG.md) | Изменения по версиям |
 
 ## Ограничения
 
