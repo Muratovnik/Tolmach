@@ -2,7 +2,7 @@
   "date": "2026-09-28",
   "package": {
     "file": "Muratovnik-Tolmach-0.3.0.zip",
-    "sha256": "313332a79e80e1f1452568b830face2e131423183b9ef9d8dd6853311643832d",
+    "sha256": "e9471738908ed8cbf7e729b9a225a85005dd61ffb12e3576f5b93d427c22c235",
     "entries": 50,
     "manifest": {
       "name": "Tolmach",
@@ -15,9 +15,9 @@
     }
   },
   "build": {
-    "nunit_passed": 237,
+    "nunit_passed": 239,
     "sdk": "9.0.318",
-    "plugin_sha256": "8771852a8b2cf396e8db1c6d5e1e1040e83d4a6fc7fce979c92c467a019744ae"
+    "plugin_sha256": "5564b1f623e5952266e554bb802dad1ddd68d668ed8d2a2c91562aafd7ea37c3"
   },
   "catalogs": {
     "modules": 43
@@ -67,5 +67,11 @@
     "keys": 142,
     "english_equal": true
   },
-  "game_test": "not performed"
+  "game_test": {
+    "first_start": "2026-09-28, Gale profile Default, ObeliskRU disabled: failed before the main menu",
+    "cause": "StartupAccelerator (Delay Patching = On) applied Tolmach's patch of TradersExtended.ConfigEditor.OnGUI after Tolmach's try/catch; HarmonyX 2.9 cannot compile a method with an exception filter ('Incorrect code generation for exception block'), and the TypeInitializationException in UnityEngine.GameObject stopped scene loading",
+    "second_finding": "SleepSkip's embedded LocalizationManager read catalog/SleepSkip.json as its own translation file (IndexOutOfRangeException)",
+    "fix": "methods with exception filters are not patched; catalogs are named tolmach-<id>.json; literal warnings are raised by the transpiler",
+    "repeat_start": "pending"
+  }
 }

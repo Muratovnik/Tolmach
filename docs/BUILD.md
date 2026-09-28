@@ -72,7 +72,7 @@ CLI (`tcli`) 0.2.4 как локальный dotnet-tool (`.config/dotnet-tools.
 3. Пишет `build-receipt.json`: версия SDK, SHA-256 DLL, число тестов, хеши ссылок
    компилятора и каталогов. Локальные пути в него не попадают.
 4. Собирает ZIP через `tcli build` по `thunderstore.toml` с версией из csproj: манифест,
-   иконка, README, CHANGELOG, LICENSE, `plugins/Tolmach.dll`, `plugins/catalog/*.json`.
+   иконка, README, CHANGELOG, LICENSE, `plugins/Tolmach.dll`, `plugins/catalog/tolmach-*.json`.
 5. Проверяет готовый ZIP (см. [Проверка готового пакета](#проверка-готового-пакета)) и
    переносит его в `artifacts/` или в `-OutputDirectory`.
 
@@ -81,7 +81,9 @@ CLI (`tcli`) 0.2.4 как локальный dotnet-tool (`.config/dotnet-tools.
 
 ## Изменение переводов
 
-Каждый мод описан файлом в [catalog/](../catalog/): идентичность (GUID, имя сборки,
+Каждый мод описан файлом `tolmach-<id>.json` в [catalog/](../catalog/). Имя с префиксом
+обязательно: файл с именем мода (`SleepSkip.json`) встроенный в моды LocalizationManager
+принимает за свой перевод. В каталоге — идентичность (GUID, имя сборки,
 версия плагина, namespaces), словарные ключи `words`/`englishWords`, точные строки
 `texts`, шаблоны `patterns`, адресные литералы `literals` и другие адаптеры. Формат и
 политика переводов — в [ARCHITECTURE.md](ARCHITECTURE.md), покрытие по модам — в
