@@ -198,6 +198,17 @@ namespace FixturePlugin
             finally { Fail = false; }
         }
     }
+    // Same shape as MWL's Port.RunWhenReady coroutine: an iterator with try/finally compiles to a
+    // MoveNext with a fault block.
+    public static class Faulted
+    {
+        public static bool Done;
+        public static IEnumerable<string> Lines()
+        {
+            try { yield return "Faulted literal"; }
+            finally { Done = true; }
+        }
+    }
     // Same public shape as the LocalizeKey embedded by Blaxxun's Item/Piece/Creature/SkillManager.
     internal sealed class LocalizeKey
     {

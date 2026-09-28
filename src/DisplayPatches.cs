@@ -61,11 +61,14 @@ namespace Tolmach
             try { sink = module.HasDisplayText && PatchProcessor.GetOriginalInstructions(method, null).Any(delegate(CodeInstruction instruction) { return Relevant(instruction, module); }); }
             catch (Exception e) { module.Warn("IL inspection skipped " + type.Name + "." + method.Name + ": " + e.GetType().Name); }
             if (!literal && !result && !sink) return;
-            // HarmonyX 2.9 never marks the handler of an exception filter (catch ... when), so any
-            // patch of such a method fails to compile. A mod that delays patching (StartupAccelerator)
-            // applies it after this try/catch has returned, and the failure stops the game instead.
-            if (HasExceptionFilter(method))
-            { module.Warn("UI patch skipped " + type.FullName + "." + method.Name + ": exception filter"); return; }
+            // HarmonyX 2.9 cannot rebuild two kinds of exception blocks: it never marks the handler of an
+            // exception filter (catch ... when), and it ends a fault handler (iterators with try/finally)
+            // with leave instead of endfinally. Any patch of such a method fails to compile or yields
+            // invalid IL. A mod that delays patching (StartupAccelerator) applies it after this try/catch
+            // has returned, and the failure stops the game instead.
+            string unsupported = UnsupportedHandler(method);
+            if (unsupported != null)
+            { module.Warn("UI patch skipped " + type.FullName + "." + method.Name + ": " + unsupported); return; }
             string key = RuntimeAccess.MethodKey(method);
             Owners[key] = module;
             try
@@ -247,10 +250,16 @@ namespace Tolmach
                 module.Warn("Transpiler installed but no display site changed: " + owner);
             return output;
         }
-        private static bool HasExceptionFilter(MethodBase method)
+        private static string UnsupportedHandler(MethodBase method)
         {
             MethodBody body = method.GetMethodBody();
-            return body != null && body.ExceptionHandlingClauses.Any(delegate(ExceptionHandlingClause c) { return c.Flags == ExceptionHandlingClauseOptions.Filter; });
+            if (body == null) return null;
+            foreach (ExceptionHandlingClause clause in body.ExceptionHandlingClauses)
+            {
+                if (clause.Flags == ExceptionHandlingClauseOptions.Filter) return "exception filter";
+                if (clause.Flags == ExceptionHandlingClauseOptions.Fault) return "fault block";
+            }
+            return null;
         }
     }
 }

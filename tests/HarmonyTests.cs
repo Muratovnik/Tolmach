@@ -107,6 +107,23 @@ namespace Tolmach.Tests
             Assert.That(m.PatchedMethods, Is.EqualTo(0));
             Assert.That(FixturePlugin.Filtered.Title(), Is.EqualTo("Filtered literal"));
         }
+        [Test]
+        public void IteratorWithFaultBlockIsLeftUnpatched()
+        {
+            Type iterator = typeof(FixturePlugin.Faulted).GetNestedTypes(BindingFlags.NonPublic).Single(t => t.Name.StartsWith("<Lines>", StringComparison.Ordinal));
+            MethodInfo moveNext = iterator.GetMethod("MoveNext", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            Assert.That(moveNext.GetMethodBody().ExceptionHandlingClauses.Select(c => c.Flags), Has.Member(ExceptionHandlingClauseOptions.Fault));
+            // The reason for the skip: this Harmony ends the fault handler with leave, and the runtime rejects the IL.
+            Assert.Throws<HarmonyLib.HarmonyException>(() => Patcher.Patch(moveNext,
+                transpiler: new HarmonyLib.HarmonyMethod(typeof(HarmonyTests).GetMethod("Unchanged", BindingFlags.NonPublic | BindingFlags.Static))));
+            Patcher.UnpatchSelf();
+            Module m = FixtureModule("fault", "FixturePlugin");
+            m.literals.Add(new LiteralSpec { type = iterator.FullName, method = "MoveNext", values = new Dictionary<string, string> { { "Faulted literal", "Литерал итератора" } } });
+            Activate(m);
+            Assert.DoesNotThrow(() => DisplayPatches.Install(Patcher, m));
+            Assert.That(m.Warnings, Has.Some.EqualTo("UI patch skipped " + iterator.FullName + ".MoveNext: fault block"));
+            Assert.That(FixturePlugin.Faulted.Lines().ToList(), Is.EqualTo(new[] { "Faulted literal" }));
+        }
         private static IEnumerable<HarmonyLib.CodeInstruction> Unchanged(IEnumerable<HarmonyLib.CodeInstruction> instructions) { return instructions; }
         [Test]
         public void MethodWithAbsentOptionalDependencyIsSkippedWithoutAbortingTheModule()
