@@ -30,6 +30,8 @@ def test_unmodified_data_passes():
     ('version', 'wrong/missing BepInPlugin version'),
     ('markup', 'markup'),
     ('missing_key', 'mismatched English/Russian key sets'),
+    ('cllc_template', 'invalid CLLC nameplate template'),
+    ('cllc_gender', 'CLLC gender without a nameplate template'),
 ])
 def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
     root = tmp_path / 'subject'
@@ -39,6 +41,8 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
     name = 'BetterArchery' if mutation == 'markup' else 'StructureTweaks'
     if mutation == 'missing_key':
         name = 'Warfare'
+    elif mutation.startswith('cllc'):
+        name = 'CreatureLevelControl'
     path = root / 'catalog' / ('tolmach-' + name + '.json')
     data = json.loads(path.read_text(encoding='utf-8'))
     if mutation == 'guid':
@@ -52,6 +56,10 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
         pattern['target'] = pattern['target'].replace('</size>', '', 1)
     elif mutation == 'missing_key':
         del data['words'][next(iter(data['words']))]
+    elif mutation == 'cllc_template':
+        data['cllc']['genderedCreatureTranslations']['m'] = '{name}[ ]'
+    elif mutation == 'cllc_gender':
+        data['cllc']['creatureGender']['Troll'] = 'x'
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
     process, report = run_validator(root)
     assert process.returncode == 1, process.stderr + process.stdout

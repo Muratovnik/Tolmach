@@ -1,0 +1,600 @@
+{
+  "id": "CreatureLevelControl",
+  "package": "Smoothbrain-CreatureLevelAndLootControl",
+  "version": "4.6.4",
+  "pluginVersion": "4.6.4",
+  "assembly": "CreatureLevelControl",
+  "guids": [
+    "org.bepinex.plugins.creaturelevelcontrol"
+  ],
+  "namespaces": [
+    "CreatureLevelControl",
+    "ServerSync"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    },
+    {
+      "type": "CreatureLevelControl.CreatureLevelControl+PatchTerminal",
+      "method": "Prefix",
+      "values": {
+        "Removed all nearby creatures with at least ": "Удалены все существа поблизости с числом звёзд от ",
+        " stars": " и выше",
+        "Removed all nearby creatures": "Удалены все существа поблизости",
+        "Current world level: ": "Текущий уровень мира: ",
+        "Kills in the current sector: ": "Убийств в текущем секторе: ",
+        "Reset all nearby creature sectors": "Сброшены все ближайшие секторы существ",
+        "Current star chances": "Текущие шансы звёзд",
+        " for ": " — ",
+        " star: ": " зв.: ",
+        " is not a creature": " — не существо",
+        "Spawning object ": "Создание объекта ",
+        "Unknown effect ": "Неизвестный эффект ",
+        "CLLC console commands - use 'cllc' followed by one of the following options": "Консольные команды CLLC — введите 'cllc' и один из следующих параметров",
+        "killhighstars [stars] - removes all nearby creatures with at least stars. Default stars is 6.": "killhighstars [stars] — удаляет всех существ поблизости, у которых звёзд не меньше [stars]. По умолчанию [stars] = 6.",
+        "killall - removes all nearby creatures": "killall — удаляет всех существ поблизости",
+        "worldlevel - displays the current world level": "worldlevel — показывает текущий уровень мира",
+        "sectorkills - displays the creatures killed in the current sector": "sectorkills — показывает, сколько существ убито в текущем секторе",
+        "resetsector - resets all nearby creature sectors": "resetsector — сбрасывает все ближайшие секторы существ",
+        "starchance [creature] - displays the current star chances. Optionally for a specific creature.": "starchance [creature] — показывает текущие шансы звёзд. Можно указать конкретное существо.",
+        "spawn [creature] [level] [affix] [extraeffect] [infusion] - spawns a creature with the provided properties.": "spawn [creature] [level] [affix] [extraeffect] [infusion] — создаёт существо с заданными свойствами.",
+        "You are not allowed to use this command on this server.": "Вам нельзя использовать эту команду на этом сервере."
+      }
+    },
+    {
+      "type": "CreatureLevelControl.CreatureSector+PatchMinimapAwake",
+      "method": "Postfix",
+      "values": {
+        "Sector Level: 0": "Уровень сектора: 0"
+      }
+    }
+  ],
+  "prefabs": [],
+  "cllc": {
+    "creatureGender": {
+      "default": "m",
+      "Abomination": "f",
+      "Bat": "f",
+      "BlobTar": "f",
+      "Bonemass": "f",
+      "Dragon": "f",
+      "FallenValkyrie": "f",
+      "Leech": "f",
+      "SeekerQueen": "f",
+      "Hen": "f",
+      "Skeleton_Hildir": "f",
+      "Fenring_Cultist_Hildir": "f",
+      "Skeleton_Poison": "p"
+    },
+    "genderedCreatureTranslations": {
+      "m": "[{effect} ][{infusion} ]{name}[ {affix}]",
+      "f": "[{effect} ][{infusion} ]{name}[ {affix}]",
+      "n": "[{effect} ][{infusion} ]{name}[ {affix}]",
+      "p": "[{effect} ][{infusion} ]{name}[ {affix}]"
+    },
+    "genderedTranslations": {
+      "m": {
+        "Aggressive": "Агрессивный",
+        "Armored": "Бронированный",
+        "Curious": "Любопытный",
+        "Quick": "Быстрый",
+        "Regenerating": "Регенерирующий",
+        "Splitting": "Делящийся",
+        "Fire": "Огненный",
+        "Frost": "Морозный",
+        "Lightning": "Грозовой",
+        "Chaos": "Хаотический",
+        "Spirit": "Призрачный",
+        "Poison": "Ядовитый",
+        "Reflective": "Отражающий",
+        "Shielded": "Щитоносный",
+        "Mending": "Исцеляющийся",
+        "Summoner": "Призыватель",
+        "Elementalist": "Повелитель стихий",
+        "Enraged": "Разъярённый",
+        "Twin": "Близнец"
+      },
+      "f": {
+        "Aggressive": "Агрессивная",
+        "Armored": "Бронированная",
+        "Curious": "Любопытная",
+        "Quick": "Быстрая",
+        "Regenerating": "Регенерирующая",
+        "Splitting": "Делящаяся",
+        "Fire": "Огненная",
+        "Frost": "Морозная",
+        "Lightning": "Грозовая",
+        "Chaos": "Хаотическая",
+        "Spirit": "Призрачная",
+        "Poison": "Ядовитая",
+        "Reflective": "Отражающая",
+        "Shielded": "Щитоносная",
+        "Mending": "Исцеляющаяся",
+        "Summoner": "Призывательница",
+        "Elementalist": "Повелительница стихий",
+        "Enraged": "Разъярённая",
+        "Twin": "Близнец"
+      },
+      "n": {
+        "Aggressive": "Агрессивное",
+        "Armored": "Бронированное",
+        "Curious": "Любопытное",
+        "Quick": "Быстрое",
+        "Regenerating": "Регенерирующее",
+        "Splitting": "Делящееся",
+        "Fire": "Огненное",
+        "Frost": "Морозное",
+        "Lightning": "Грозовое",
+        "Chaos": "Хаотическое",
+        "Spirit": "Призрачное",
+        "Poison": "Ядовитое",
+        "Reflective": "Отражающее",
+        "Shielded": "Щитоносное",
+        "Mending": "Исцеляющееся",
+        "Summoner": "Призыватель",
+        "Elementalist": "Повелитель стихий",
+        "Enraged": "Разъярённое",
+        "Twin": "Близнец"
+      },
+      "p": {
+        "Aggressive": "Агрессивные",
+        "Armored": "Бронированные",
+        "Curious": "Любопытные",
+        "Quick": "Быстрые",
+        "Regenerating": "Регенерирующие",
+        "Splitting": "Делящиеся",
+        "Fire": "Огненные",
+        "Frost": "Морозные",
+        "Lightning": "Грозовые",
+        "Chaos": "Хаотические",
+        "Spirit": "Призрачные",
+        "Poison": "Ядовитые",
+        "Reflective": "Отражающие",
+        "Shielded": "Щитоносные",
+        "Mending": "Исцеляющиеся",
+        "Summoner": "Призыватели",
+        "Elementalist": "Повелители стихий",
+        "Enraged": "Разъярённые",
+        "Twin": "Близнецы"
+      }
+    },
+    "translations": {
+      "Aggressive": "Агрессивный",
+      "Armored": "Бронированный",
+      "Curious": "Любопытный",
+      "Quick": "Быстрый",
+      "Regenerating": "Регенерирующий",
+      "Splitting": "Делящийся",
+      "Fire": "Огненный",
+      "Frost": "Морозный",
+      "Lightning": "Грозовой",
+      "Chaos": "Хаотический",
+      "Spirit": "Призрачный",
+      "Poison": "Ядовитый",
+      "Reflective": "Отражающий",
+      "Shielded": "Щитоносный",
+      "Mending": "Исцеляющийся",
+      "Summoner": "Призыватель",
+      "Elementalist": "Повелитель стихий",
+      "Enraged": "Разъярённый",
+      "Twin": "Близнец",
+      "CreatureSectorLevelIncrease": "Существа рядом с игроком {player} набираются сил, чтобы отомстить за гибель сородичей.",
+      "MinimapSectorLevel": "Уровень сектора: {level}",
+      "ConfigEditorSave": "Сохранить и применить",
+      "ConfigEditorApplyNoSave": "Применить без сохранения",
+      "ConfigEditorDiscard": "Отменить и закрыть",
+      "Edit Creature YAML config": "Изменить YAML-конфигурацию существ",
+      "Edit Item YAML config": "Изменить YAML-конфигурацию предметов",
+      "SummonerEikthyr": "Призыватель {boss} зовёт на помощь Грейдворфов: {number}",
+      "SummonerElder": "Призыватель {boss} зовёт на помощь Грейдворфа-дикаря",
+      "SummonerBonemass": "Призывательница {boss} зовёт на помощь Элитных драугров: {number}",
+      "SummonerModer": "Призывательница {boss} зовёт на помощь Драконов: {number}",
+      "SummonerYagluth": "Призыватель {boss} зовёт на помощь Фулинга-берсерка",
+      "SummonerQueen": "Призывательница {boss} зовёт на помощь Искателей: {number}",
+      "SummonerFader": "Призыватель {boss} зовёт на помощь Обугленных лучников: {number}"
+    },
+    "enumTranslations": {
+      "Toggle": {
+        "On": "Вкл.",
+        "Off": "Выкл."
+      },
+      "Difficulty": {
+        "Custom": "Пользовательская",
+        "Very_easy": "Очень лёгкая",
+        "Easy": "Лёгкая",
+        "Medium": "Средняя",
+        "Hard": "Сложная",
+        "Very_hard": "Очень сложная",
+        "Insane": "Безумная"
+      },
+      "CreatureSectorAnnouncementScope": {
+        "Local": "Локально",
+        "Global": "Глобально",
+        "Off": "Выкл."
+      },
+      "LootSystem": {
+        "Vanilla": "Ванильная",
+        "Linear": "Линейная",
+        "CalculateChance": "Расчёт шанса",
+        "CalculateAmount": "Расчёт количества"
+      },
+      "VisualLevelIndicator": {
+        "Off": "Выкл.",
+        "On": "Вкл.",
+        "BossesOff": "Выкл. для боссов",
+        "CreaturesOff": "Выкл. для существ"
+      },
+      "AllowedConsoleCommands": {
+        "CreatureCommands": "Команды существ",
+        "InformationCommands": "Информационные команды",
+        "None": "Нет"
+      },
+      "VisualExtraEffectIndicator": {
+        "Color": "Цвет",
+        "Text": "Текст",
+        "Both": "Цвет и текст"
+      },
+      "DifficultySecondFactor": {
+        "None": "Нет",
+        "Age_of_world": "Возраст мира",
+        "Distance": "Расстояние от точки появления",
+        "BossesKilled": "Число убитых боссов"
+      },
+      "SpawnLevel": {
+        "None": "Нет",
+        "One": "Одна",
+        "Two": "Две",
+        "Three": "Три",
+        "Four": "Четыре",
+        "Five": "Пять"
+      },
+      "CreatureSectorWorldLevel": {
+        "Disabled": "Отключено",
+        "None": "Нет",
+        "One": "Один",
+        "Two": "Два",
+        "Three": "Три",
+        "Four": "Четыре",
+        "Five": "Пять",
+        "Six": "Шесть",
+        "Seven": "Семь"
+      }
+    },
+    "settingGroups": {
+      "General": "Общие",
+      "Creatures": "Существа",
+      "Loot": "Добыча",
+      "Bosses": "Боссы",
+      "Distance from Spawn": "Расстояние от точки появления",
+      "Age of world": "Возраст мира",
+      "Custom level chances": "Пользовательские шансы уровней",
+      "Creature Affix chances": "Шансы эффектов существ",
+      "Creature Infusion chances": "Шансы стихийного насыщения",
+      "Boss Affix chances": "Шансы особенностей боссов",
+      "Boss Affix power": "Сила особенностей боссов"
+    },
+    "settings": {
+      "Lock Configuration": {
+        "display": "Блокировка конфигурации",
+        "desc": "Конфигурация заблокирована, клиенты не могут её менять. Действует только на серверах."
+      },
+      "Use creature configuration yaml": {
+        "display": "Использовать YAML-конфигурацию существ",
+        "desc": "Читает файл CreatureConfig.yml, если он есть. Настройки из YAML-файла заменяют такие же настройки из основного файла конфигурации. Для всего, что в YAML-файле не задано, по-прежнему используется основной файл конфигурации."
+      },
+      "Use item configuration yaml": {
+        "display": "Использовать YAML-конфигурацию предметов",
+        "desc": "Читает файл ItemConfig.yml, если он есть. Настройки из YAML-файла заменяют такие же настройки из основного файла конфигурации. Для всего, что в YAML-файле не задано, по-прежнему используется основной файл конфигурации."
+      },
+      "nexusID": {
+        "display": "ID на Nexus",
+        "desc": "ID мода на Nexus для обновлений."
+      },
+      "HP increase per player in multiplayer (percentage)": {
+        "display": "Прирост здоровья за игрока в сетевой игре (%)",
+        "desc": "Увеличение здоровья за каждого игрока в сетевой игре, в процентах."
+      },
+      "DMG increase per player in multiplayer (percentage)": {
+        "display": "Прирост урона за игрока в сетевой игре (%)",
+        "desc": "Увеличение урона за каждого игрока в сетевой игре, в процентах."
+      },
+      "Minimum player count for multiplayer scaling": {
+        "display": "Минимальное число игроков для масштабирования",
+        "desc": "Задаёт минимальное число игроков для сетевой игры."
+      },
+      "Maximum player count for multiplayer scaling": {
+        "display": "Максимальное число игроков для масштабирования",
+        "desc": "Задаёт максимальное число игроков для сетевой игры."
+      },
+      "Player count to be added to the actual player count for multiplayer scaling (0 is disabled)": {
+        "display": "Дополнительные игроки для масштабирования (0 — выключено)",
+        "desc": "Прибавляет заданное число игроков к фактическому числу игроков при масштабировании в сетевой игре."
+      },
+      "Multiplayer scaling per player range (0 is unlimited)": {
+        "display": "Радиус учёта игроков для масштабирования (0 — без ограничений)",
+        "desc": "Расстояние, на котором должны находиться другие игроки, чтобы учитываться при масштабировании. Не действует, если фиксированное число игроков отлично от 0."
+      },
+      "Nameplate display on mouseover range": {
+        "display": "Дальность показа таблички с именем при наведении",
+        "desc": "Наибольшее расстояние, на котором табличка с именем показывается при наведении курсора."
+      },
+      "Visual indicators for level": {
+        "display": "Визуальные индикаторы уровня",
+        "desc": "Позволяет отключить визуальные индикаторы уровня цели, например звёзды или цвет."
+      },
+      "Console commands allowed to be used by users on a server": {
+        "display": "Консольные команды, доступные игрокам на сервере",
+        "desc": "Задаёт команды CLLC, которые могут использовать игроки на сервере. Администраторам сервера всегда доступны все команды. Не действует, если конфигурация не заблокирована (по понятным причинам)."
+      },
+      "Detailed damage log": {
+        "display": "Подробный журнал урона",
+        "desc": "Включает подробную запись урона от каждого удара."
+      },
+      "Difficulty": {
+        "display": "Сложность",
+        "desc": "Задаёт шансы повышения уровня для всех существ."
+      },
+      "Second factor": {
+        "display": "Второй фактор",
+        "desc": "Меняет второй фактор, по которому рассчитываются шансы повышения уровня."
+      },
+      "Display circles on the map for distance from spawn option": {
+        "display": "Круги на карте для режима расстояния от точки появления",
+        "desc": "Показывает на карте круги для режима «Расстояние от точки появления»."
+      },
+      "Creatures can spawn with special effects": {
+        "display": "Существа с особыми эффектами",
+        "desc": "Существа могут появляться с особыми эффектами, из-за которых их гораздо труднее убить."
+      },
+      "Visual indicator for special effects": {
+        "display": "Индикатор особых эффектов",
+        "desc": "Меняет способ отображения индикатора дополнительных эффектов существ."
+      },
+      "Creatures can spawn with elemental infusions": {
+        "display": "Существа со стихийным насыщением",
+        "desc": "Существа могут появляться со стихийным насыщением, из-за которого их гораздо труднее убить."
+      },
+      "Add the infusion to the creatures name": {
+        "display": "Стихия в имени существа",
+        "desc": "К имени существ со стихийным насыщением добавляется название стихии."
+      },
+      "Brightness for the elemental infusions visual indicator (percentage)": {
+        "display": "Яркость индикатора стихийного насыщения (%)",
+        "desc": "Задаёт яркость эффекта пламени у существ со стихийным насыщением."
+      },
+      "Minimum stars": {
+        "display": "Минимум звёзд",
+        "desc": "Задаёт минимальное число звёзд для всех существ. Не влияет на пользовательскую сложность."
+      },
+      "Maximum stars": {
+        "display": "Максимум звёзд",
+        "desc": "Задаёт максимальное число звёзд для всех существ. Не влияет на пользовательскую сложность."
+      },
+      "Time until creatures in dungeons respawn in minutes (0 means disabled, 30 is one ingame day)": {
+        "display": "Возрождение существ в подземельях, мин (0 — выключено, 30 — один игровой день)",
+        "desc": "Время до возрождения существ в подземельях в минутах (0 — выключено, 30 — один игровой день)."
+      },
+      "Time until creatures in camps respawn in minutes (0 means disabled, 30 is one ingame day)": {
+        "display": "Возрождение существ в лагерях, мин (0 — выключено, 30 — один игровой день)",
+        "desc": "Время до возрождения существ в лагерях в минутах (0 — выключено, 30 — один игровой день)."
+      },
+      "Creature size increase per star (percentage)": {
+        "display": "Увеличение размера существ за звезду (%)",
+        "desc": "Увеличивает размер существ за каждую звезду."
+      },
+      "Increase creature size even in dungeons (where they might get stuck)": {
+        "display": "Увеличивать размер и в подземельях (существа могут застрять)",
+        "desc": "Увеличивать ли размер существ и в подземельях, где слишком крупные существа могут застрять."
+      },
+      "Base health for creatures (percentage)": {
+        "display": "Базовое здоровье существ (%)",
+        "desc": "Базовое здоровье существ в процентах."
+      },
+      "Health gained per star for creatures (percentage)": {
+        "display": "Прирост здоровья существ за звезду (%)",
+        "desc": "Прирост здоровья существ за каждую звезду в процентах."
+      },
+      "Base damage for creatures (percentage)": {
+        "display": "Базовый урон существ (%)",
+        "desc": "Базовый урон существ в процентах."
+      },
+      "Damage gained per star for creatures (percentage)": {
+        "display": "Прирост урона существ за звезду (%)",
+        "desc": "Прирост урона существ за каждую звезду в процентах."
+      },
+      "Base movement speed for creatures (percentage)": {
+        "display": "Базовая скорость передвижения существ (%)",
+        "desc": "Базовая скорость передвижения существ в процентах."
+      },
+      "Base attack speed for creatures (percentage)": {
+        "display": "Базовая скорость атаки существ (%)",
+        "desc": "Базовая скорость атаки существ в процентах."
+      },
+      "World level required to enable creature sectors": {
+        "display": "Уровень мира для включения секторов существ",
+        "desc": "Минимальный уровень мира, с которого начинают действовать секторы существ."
+      },
+      "Time until each creature sector is reset (0 is no reset)": {
+        "display": "Время до сброса сектора существ (0 — без сброса)",
+        "desc": "Сколько минут должно пройти, прежде чем бонусный уровень сектора существ сбросится (0 — выключено, 30 — один игровой день)."
+      },
+      "Kills required in a sector for each bonus level": {
+        "display": "Убийства в секторе для каждого бонусного уровня",
+        "desc": "Сколько существ нужно убить в одном секторе, чтобы существа получили бонусный уровень."
+      },
+      "Sets the scope for creature sector level up announcements": {
+        "display": "Охват объявлений о росте уровня сектора",
+        "desc": "Задаёт, кому показываются объявления о повышении уровня сектора существ."
+      },
+      "Duration of the map ping for creature sector level ups in seconds (0 is disabled)": {
+        "display": "Длительность метки на карте при росте уровня сектора, с (0 — выключено)",
+        "desc": "Отмечает на карте повышение уровня сектора существ. Время в секундах, 0 — выключено."
+      },
+      "Displays the current creature sector level on the minimap": {
+        "display": "Уровень сектора на миникарте",
+        "desc": "Показывает текущий уровень сектора существ на миникарте."
+      },
+      "Loot system to be used": {
+        "display": "Система добычи",
+        "desc": "Задаёт используемую систему добычи.\n«Ванильная» полностью отключает систему добычи этого мода.\n«Линейная»: число выпавших предметов умножается на уровень существа.\n«Расчёт шанса»: если кабан с шансом 50% роняет 2 мяса, он уронит либо 2, либо ничего.\n«Расчёт количества»: если кабан с шансом 50% роняет 2 мяса, он всегда уронит 1.\n"
+      },
+      "Chance for additional loot per star for creatures": {
+        "display": "Шанс дополнительной добычи за звезду (существа)",
+        "desc": "Шанс дополнительной добычи за каждую звезду у существ."
+      },
+      "Chance for additional loot per star for bosses": {
+        "display": "Шанс дополнительной добычи за звезду (боссы)",
+        "desc": "Шанс дополнительной добычи за каждую звезду у боссов."
+      },
+      "Multiplier for dropped creature items": {
+        "display": "Множитель добычи с существ",
+        "desc": "Умножает число предметов, выпадающих из всех существ."
+      },
+      "Multiplier for dropped boss items": {
+        "display": "Множитель добычи с боссов",
+        "desc": "Умножает число предметов, выпадающих из всех боссов."
+      },
+      "Creatures can drop multiple trophies": {
+        "display": "Несколько трофеев с существ",
+        "desc": "Могут ли существа ронять несколько трофеев."
+      },
+      "Bosses can drop multiple trophies": {
+        "display": "Несколько трофеев с боссов",
+        "desc": "Могут ли боссы ронять несколько трофеев."
+      },
+      "Drop multiplier for passive creatures (like Seagulls and Crows)": {
+        "display": "Множитель добычи с мирных существ (чайки, вороны)",
+        "desc": "Умножает число предметов, выпадающих из всех мирных существ, например ворон и чаек."
+      },
+      "Time until items in dungeons respawn in minutes (0 means disabled, 30 is one ingame day)": {
+        "display": "Восстановление предметов в подземельях, мин (0 — выключено, 30 — один игровой день)",
+        "desc": "Время до восстановления предметов в подземельях в минутах (0 — выключено, 30 — один игровой день)."
+      },
+      "Bosses can spawn with special effects": {
+        "display": "Боссы с особыми эффектами",
+        "desc": "Боссы могут появляться с особыми эффектами, из-за которых их гораздо труднее убить."
+      },
+      "Use creature level chances for bosses": {
+        "display": "Шансы уровней существ для боссов",
+        "desc": "«Вкл.» — шансы повышения уровня существ используются и для боссов. Иначе используются пользовательские шансы уровней для боссов."
+      },
+      "Star chances for bosses (percentages)": {
+        "display": "Шансы звёзд для боссов (%)",
+        "desc": "Шансы уровней для боссов. Начните с 1 звезды и перечисляйте слева направо сколько угодно звёзд. Шанс 0 звёзд вычисляется автоматически из остатка."
+      },
+      "Boss size increase per star (percentage)": {
+        "display": "Увеличение размера боссов за звезду (%)",
+        "desc": "Увеличивает размер боссов за каждую звезду."
+      },
+      "Health gained per star for bosses (percentage)": {
+        "display": "Прирост здоровья боссов за звезду (%)",
+        "desc": "Прирост здоровья боссов за каждую звезду в процентах."
+      },
+      "Damage gained per star for bosses (percentage)": {
+        "display": "Прирост урона боссов за звезду (%)",
+        "desc": "Прирост урона боссов за каждую звезду в процентах."
+      },
+      "World level {level} start (days)": {
+        "display": "Начало уровня мира {level} (дни)",
+        "desc": "Сколько дней должно пройти, чтобы мир достиг уровня {level}."
+      },
+      "Distance from spawn for level {level} start": {
+        "display": "Расстояние от точки появления для уровня {level}",
+        "desc": "Расстояние от точки появления, с которого начинается уровень {level}. Радиус мира по умолчанию — 10500."
+      },
+      "Chances for stars at world level {level} (percent)": {
+        "display": "Шансы звёзд на уровне мира {level} (%)",
+        "desc": "Шансы звёзд на уровне мира {level} в процентах. Перечисляйте через запятую слева направо сколько угодно звёзд, начиная с 1 звезды. Шанс 0 звёзд вычисляется автоматически из остатка. Пример: 30, 5.5, 2.25, 5, 10, 10, 3"
+      },
+      "Chance for {effect} effect to spawn (percentage)": {
+        "display": "Шанс эффекта «{effect}» (%)",
+        "desc": "Шанс появления существ с эффектом «{effect}» (в процентах)."
+      },
+      "Chance for {infusionDescription} infusion to spawn (percentage)": {
+        "display": "Шанс насыщения «{infusionDescription}» (%)",
+        "desc": "Шанс появления существ с насыщением «{infusionDescription}» (в процентах)."
+      },
+      "Multiplier for infusion chances per star": {
+        "display": "Множитель шансов насыщения по звёздам",
+        "desc": "Множитель базовых шансов появления стихийного насыщения в зависимости от числа звёзд существа. Перечисляйте значения для каждого числа звёзд через запятую слева направо, начиная с 0 звёзд. По умолчанию 1."
+      },
+      "Chance for {affix} affix to spawn (percentage)": {
+        "display": "Шанс особенности «{affix}» (%)",
+        "desc": "Шанс появления боссов с особенностью «{affix}» (в процентах)."
+      },
+      "Reflective base damage": {
+        "display": "Отражающий: базовый урон",
+        "desc": "Базовый урон за удар для особенности босса «Отражающий»."
+      },
+      "Shielded damage reduction (percentage)": {
+        "display": "Щитоносный: снижение урона (%)",
+        "desc": "Снижение урона от снарядов в процентах для особенности босса «Щитоносный»."
+      },
+      "Mending healing factor": {
+        "display": "Исцеляющийся: множитель лечения",
+        "desc": "Множитель для особенности босса «Исцеляющийся»."
+      },
+      "Number of summons for Summoners": {
+        "display": "Призыватель: число призывов",
+        "desc": "Сколько раз за бой призывает помощь босс с особенностью «Призыватель»."
+      },
+      "Elementalist damage increase (percentage)": {
+        "display": "Повелитель стихий: прирост урона (%)",
+        "desc": "Прирост стихийного урона для особенности босса «Повелитель стихий»."
+      },
+      "Enraged damage increase (percentage)": {
+        "display": "Разъярённый: прирост урона (%)",
+        "desc": "Прирост физического урона для особенности босса «Разъярённый»."
+      },
+      "Twin damage and health (percentage)": {
+        "display": "Близнец: урон и здоровье (%)",
+        "desc": "Здоровье и урон для особенности босса «Близнец»."
+      }
+    }
+  },
+  "sourceFiles": [
+    "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4/CreatureLevelControl/CreatureLevelControl.cs",
+    "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4/CreatureLevelControl.csproj",
+    "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4/ServerSync/VersionCheck.cs",
+    "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4/CreatureLevelControl/CreatureSector.cs",
+    "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4/CreatureLevelControl/LocalizationWrapper.cs",
+    "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4/CreatureLevelControl/ConfigurationManagerAttributes.cs",
+    "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4/CreatureLevelControl.languages.English.yml",
+    "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4/CreatureLevelControl.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: Smoothbrain-CreatureLevelAndLootControl 4.6.4 from Thunderstore (deprecated)",
+    "The mod's texts come from its own YAML table (LocalizationWrapper), not the game's Localization: section cllc keeps that schema, the CLLC adapter applies it."
+  ]
+}

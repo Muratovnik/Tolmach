@@ -332,6 +332,23 @@
       ]
     },
     {
+      "id": "CreatureLevelControl",
+      "package": "Smoothbrain-CreatureLevelAndLootControl",
+      "version": "4.6.4",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4",
+      "binary_identities": [
+        {
+          "mod": "Smoothbrain-CreatureLevelAndLootControl-4.6.4",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "CreatureLevelControl.dll",
+          "size": 1000960,
+          "sha256": "601739b998f956bc49a871a4b0c7761e1f6389e5f8604d3234868f9e92d2761e"
+        }
+      ]
+    },
+    {
       "id": "Culinary_Horizons",
       "package": "lnsanity-Culinary_Horizons",
       "version": "1.0.42",
@@ -1228,6 +1245,20 @@
       "Smoothbrain-CreatureLevelAndLootControl-4.6.4 (needs an adapter for its own YAML translator)"
     ],
     "csharp_tests": "341 NUnit tests passed with Valheim 1.0.16, BepInEx 5.4.23.5 and HarmonyX 2.9 from the Default Gale profile",
+    "game_test": "not performed"
+  },
+  "revision_0_5_0": {
+    "base": "Tolmach 0.4.0 (feat/stage-b 4191316)",
+    "catalogs_changed": true,
+    "new_modules": [
+      "CreatureLevelControl"
+    ],
+    "english_sources": "Creature Level & Loot Control 4.6.4 from Thunderstore (deprecated there), decompiled with ILSpy 9.1: its embedded English.yml, LocalizationWrapper and the code that binds settings, builds nameplates and prints console output; IL string constants. Creature genders follow the Russian names of the game's own localization 1.0.16. The mod's German, French and Chinese tables were read only to see how its gender templates work.",
+    "extra_evidence": [
+      "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4"
+    ],
+    "offline_mod_check": "The adapter and the table ran against the mod's own CreatureLevelControl.dll outside the game: nameplates of 13 creatures and 7 bosses built and parsed back by the mod's code, messages, enum values and 113 config entries.",
+    "csharp_tests": "366 NUnit tests passed with Valheim 1.0.16, BepInEx 5.4.23.5 and HarmonyX 2.9 from the Default Gale profile",
     "game_test": "not performed"
   }
 }

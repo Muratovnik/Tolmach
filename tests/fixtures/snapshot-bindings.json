@@ -320,6 +320,22 @@
     ]
   },
   {
+    "id": "CreatureLevelControl",
+    "guid": "org.bepinex.plugins.creaturelevelcontrol",
+    "pluginVersion": "4.6.4",
+    "assembly": "CreatureLevelControl",
+    "sources": [
+      {
+        "path": "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4/CreatureLevelControl/CreatureLevelControl.cs",
+        "sha256": "ff0d516fa77a9308d50874ecdc97f29bee5e5753edbeb6ccaff68ed9f2d6c0d2"
+      },
+      {
+        "path": "source-evidence/stage-b/Smoothbrain-CreatureLevelAndLootControl-4.6.4/CreatureLevelControl.csproj",
+        "sha256": "b53e6d08f8036a6538257b80513325f333a70afedb6ac64863a06b282bdf9d01"
+      }
+    ]
+  },
+  {
     "id": "Culinary_Horizons",
     "guid": "Insanity.Culinary_Horizons",
     "pluginVersion": "1.0.42",
