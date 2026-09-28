@@ -1,0 +1,161 @@
+{
+  "id": "Huginn",
+  "package": "NightOfGames-Huginn_Map",
+  "version": "1.0.5",
+  "pluginVersion": "1.0.5",
+  "assembly": "Huginn",
+  "guids": [
+    "nightofgames.huginn"
+  ],
+  "namespaces": [
+    "Huginn"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "Huginn.Names",
+      "method": "GroupLabel",
+      "values": {
+        "Meadows": "Луга",
+        "Black Forest": "Чёрный лес",
+        "Swamp": "Болото",
+        "Mountain": "Гора",
+        "Plains": "Равнины",
+        "Mistlands": "Туманные земли",
+        "Ashlands": "Пепельные земли",
+        "Deep North": "Дальний север",
+        "Ocean": "Океан",
+        "Anywhere": "Везде",
+        "Other": "Прочее"
+      }
+    },
+    {
+      "type": "Huginn.Names",
+      "method": "Leaf",
+      "values": {
+        "Unknown": "Неизвестно",
+        "Boat": "Лодка",
+        "Location": "Место"
+      }
+    },
+    {
+      "type": "Huginn.Names",
+      "method": "Pretty",
+      "values": {
+        "Unknown": "Неизвестно"
+      }
+    },
+    {
+      "type": "Huginn.PinFilterUI",
+      "method": "BuildSkeleton",
+      "values": {
+        "Show all": "Показать всё",
+        "Hide all": "Скрыть всё"
+      }
+    },
+    {
+      "type": "Huginn.PinFilterUI",
+      "method": "BuildGroup",
+      "values": {
+        "Toggle all ": "Переключить всё: "
+      }
+    },
+    {
+      "type": "Huginn.PinCleanup+PurgeCommand",
+      "method": "get_Help",
+      "values": {
+        "Remove pins copied onto your map from other players (cartography table). Your own pins and Huginn's pins are kept.": "Удаляет с вашей карты метки других игроков, скопированные со стола картографа. Ваши метки и метки Huginn сохраняются."
+      }
+    },
+    {
+      "type": "Huginn.PinCleanup+PurgeCommand",
+      "method": "Run",
+      "values": {
+        "Huginn: can't purge pins — no map loaded.": "Huginn: невозможно удалить метки — карта не загружена.",
+        "Huginn: removed {0} imported foreign pin(s).": "Huginn: удалено импортированных чужих меток: {0}."
+      }
+    },
+    {
+      "type": "Huginn.PinCleanup+ClearRadiusCommand",
+      "method": "get_Help",
+      "values": {
+        "huginn.clearpins <radius> — remove map pins within <radius> meters of you. Affects your own and other mods' pins; Huginn's managed pins are kept.": "huginn.clearpins <radius> — удаляет метки на карте в радиусе <radius> м от вас. Затрагивает ваши метки и метки других модов; метки, которыми управляет Huginn, сохраняются."
+      }
+    },
+    {
+      "type": "Huginn.PinCleanup+ClearRadiusCommand",
+      "method": "Run",
+      "values": {
+        "Huginn: no map loaded.": "Huginn: карта не загружена.",
+        "Usage: huginn.clearpins <radius>   e.g. huginn.clearpins 50": "Использование: huginn.clearpins <radius>   например, huginn.clearpins 50",
+        "Huginn: no removable pins within {0:0}m.": "Huginn: в радиусе {0:0} м нет меток, которые можно удалить.",
+        "Huginn: removed {0} pin(s) within {1:0}m.": "Huginn: удалено меток в радиусе {1:0} м: {0}."
+      }
+    },
+    {
+      "type": "Huginn.PinCleanup+LocationsCommand",
+      "method": "get_Help",
+      "values": {
+        "Log all world Location names grouped by biome (optionally filtered): huginn.locations [filter]": "Записывает в лог названия всех локаций мира по биомам (можно отфильтровать): huginn.locations [filter]"
+      }
+    },
+    {
+      "type": "Huginn.PinCleanup+LocationsCommand",
+      "method": "Run",
+      "values": {
+        "Huginn: ZoneSystem not ready.": "Huginn: ZoneSystem ещё не готова.",
+        "Huginn: logged {0} locations to LogOutput.log.": "Huginn: записано локаций в LogOutput.log: {0}."
+      }
+    },
+    {
+      "type": "Huginn.PinCleanup+LookingAtCommand",
+      "method": "get_Help",
+      "values": {
+        "Print the prefab name of the object you're looking at.": "Выводит имя префаба объекта, на который вы смотрите."
+      }
+    },
+    {
+      "type": "Huginn.PinCleanup+LookingAtCommand",
+      "method": "Run",
+      "values": {
+        "Huginn: not looking at anything (aim at it and try again).": "Huginn: вы ни на что не смотрите (наведите прицел на объект и повторите).",
+        " [components: ": " [компоненты: ",
+        "none": "нет",
+        "Huginn: looking at '": "Huginn: вы смотрите на '"
+      }
+    },
+    {
+      "type": "Huginn.PinCleanup+DumpCommand",
+      "method": "get_Help",
+      "values": {
+        "Log a summary of all map pins (type, owner, names) for diagnostics.": "Записывает в лог сводку по всем меткам карты (тип, владелец, названия) для диагностики."
+      }
+    },
+    {
+      "type": "Huginn.PinCleanup+DumpCommand",
+      "method": "Run",
+      "values": {
+        "Huginn: no map loaded.": "Huginn: карта не загружена.",
+        "Huginn: {0} pins across {1} type(s):": "Huginn: меток — {0}, типов — {1}:",
+        "(unnamed)": "(без названия)",
+        "  PinType {0}: {1} pins (foreign={2}, saved={3}) e.g. [{4}]": "  PinType {0}: меток — {1} (чужих={2}, сохранённых={3}), например [{4}]"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/NightOfGames-Huginn_Map-1.0.5/Huginn/HuginnPlugin.cs",
+    "source-evidence/stage-b/NightOfGames-Huginn_Map-1.0.5/Huginn.csproj",
+    "source-evidence/stage-b/NightOfGames-Huginn_Map-1.0.5/Huginn/Names.cs",
+    "source-evidence/stage-b/NightOfGames-Huginn_Map-1.0.5/Huginn/PinFilterUI.cs",
+    "source-evidence/stage-b/NightOfGames-Huginn_Map-1.0.5/Huginn/PinCleanup.cs",
+    "source-evidence/stage-b/NightOfGames-Huginn_Map-1.0.5/Huginn.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: NightOfGames-Huginn_Map 1.0.5 from Thunderstore"
+  ]
+}

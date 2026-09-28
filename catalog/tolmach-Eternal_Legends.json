@@ -1,0 +1,95 @@
+{
+  "id": "Eternal_Legends",
+  "package": "Dreanegade-Eternal_Legends",
+  "version": "1.0.4",
+  "pluginVersion": "1.0.4",
+  "assembly": "Eternal_Legends",
+  "guids": [
+    "Dreanegade.Eternal_Legends"
+  ],
+  "namespaces": [
+    "Eternal_Legends",
+    "ServerSync"
+  ],
+  "words": {
+    "caption_swing": "рассекает воздух",
+    "config_update_line_1_DO": "Мод {0} обновлён до версии {1}.",
+    "config_update_line_2_DO": "В этом обновлении появились новые параметры настроек.",
+    "config_update_line_3_DO": "Сбросить настройки к новым значениям по умолчанию?",
+    "config_update_line_4_DO": "- ДА - применить рекомендуемые значения по умолчанию.",
+    "config_update_line_5_DO": "- НЕТ - сохранить текущие настройки.",
+    "config_update_title_DO": "Обновление {0}",
+    "horus_set": "Комплект доспехов",
+    "horus_set_1": "пробуждается",
+    "piecemanager_cat_distantorigins": "Далёкие истоки",
+    "thanatos_set": "Комплект доспехов",
+    "thanatos_set_1": "пробуждается"
+  },
+  "englishWords": {
+    "caption_swing": "caption_swing",
+    "config_update_line_1_DO": "{0} has been updated to version {1}.",
+    "config_update_line_2_DO": "This update includes new config values.",
+    "config_update_line_3_DO": "Reset the configs to the new default values?",
+    "config_update_line_4_DO": "- YES - apply the recommended defaults.",
+    "config_update_line_5_DO": "- NO - keep your current settings.",
+    "config_update_title_DO": "{0} Updated",
+    "horus_set": "horus_set",
+    "horus_set_1": "horus_set_1",
+    "piecemanager_cat_distantorigins": "Distant Origins",
+    "thanatos_set": "thanatos_set",
+    "thanatos_set_1": "thanatos_set_1"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    },
+    {
+      "type": "Eternal_Legends.RpcHandlers",
+      "method": "RPC_Eternal_Legends_Version",
+      "values": {
+        "Eternal_Legends Installed: 1.0.4\n Needed: ": "Eternal_Legends: установлена версия 1.0.4\n Требуется: "
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/Dreanegade-Eternal_Legends-1.0.4/Eternal_Legends/Eternal_LegendsPlugin.cs",
+    "source-evidence/stage-b/Dreanegade-Eternal_Legends-1.0.4/Eternal_Legends.csproj",
+    "source-evidence/stage-b/Dreanegade-Eternal_Legends-1.0.4/ServerSync/VersionCheck.cs",
+    "source-evidence/stage-b/Dreanegade-Eternal_Legends-1.0.4/Eternal_Legends/RpcHandlers.cs",
+    "source-evidence/stage-b/Dreanegade-Eternal_Legends-1.0.4/Eternal_Legends.translations.English.yml",
+    "source-evidence/stage-b/Dreanegade-Eternal_Legends-1.0.4/Eternal_Legends.translations.Russian.yml",
+    "source-evidence/stage-b/Dreanegade-Eternal_Legends-1.0.4/Eternal_Legends.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: Dreanegade-Eternal_Legends 1.0.4 from Thunderstore (deprecated)"
+  ]
+}

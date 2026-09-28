@@ -1,0 +1,55 @@
+{
+  "id": "MoveBuildPieces",
+  "package": "DragonMotion-MoveBuildPieces",
+  "version": "1.1.1",
+  "pluginVersion": "1.1.1",
+  "assembly": "MoveBuildPieces",
+  "guids": [
+    "obelisk.valheim.movebuildpieces"
+  ],
+  "namespaces": [
+    "Obelisk.MoveBuildPieces"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "MoveBuildPieces is disabled by the server policy": "MoveBuildPieces отключён настройками сервера",
+    "Move lock request timed out or the object owner has an incompatible mod version": "Нет ответа на запрос блокировки для перемещения, или у владельца объекта несовместимая версия мода",
+    "Move confirmation timed out; verify the object's position": "Подтверждение перемещения не получено; проверьте положение объекта",
+    "Move cancelled because the selected build piece changed": "Перемещение отменено: выбрана другая постройка",
+    "The object has no network owner yet": "У объекта пока нет сетевого владельца",
+    "Requesting move lock": "Запрос блокировки для перемещения",
+    "MoveBuildPieces server protocol stopped responding": "Серверная часть MoveBuildPieces перестала отвечать",
+    "Move cancelled": "Перемещение отменено",
+    "Waiting for server confirmation": "Ожидание подтверждения сервера",
+    "Hover a build piece to move it": "Наведите курсор на постройку, чтобы переместить её",
+    "Only player-built removable pieces can be moved": "Перемещать можно только разбираемые постройки игроков",
+    "Pieces that modify terrain are blocked": "Нельзя перемещать постройки, изменяющие ландшафт",
+    "Dynamic pieces are blocked": "Нельзя перемещать динамические постройки",
+    "Pieces with nested network objects cannot be moved safely": "Постройки с вложенными сетевыми объектами нельзя безопасно переместить",
+    "Only the player who claimed this bed can move it": "Переместить эту кровать может только игрок, который её занял",
+    "This piece contains world state that cannot be relocated safely": "Постройка хранит состояние мира, её нельзя безопасно переместить",
+    "Already being moved by another player": "Это уже перемещает другой игрок"
+  },
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "Obelisk.MoveBuildPieces.MoveController",
+      "method": "BeginRelocationPlacement",
+      "values": {
+        "Move": "Перемещение"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/DragonMotion-MoveBuildPieces-1.1.1/Obelisk.MoveBuildPieces/MoveBuildPiecesPlugin.cs",
+    "source-evidence/stage-b/DragonMotion-MoveBuildPieces-1.1.1/MoveBuildPieces.csproj",
+    "source-evidence/stage-b/DragonMotion-MoveBuildPieces-1.1.1/Obelisk.MoveBuildPieces/MoveController.cs",
+    "source-evidence/stage-b/DragonMotion-MoveBuildPieces-1.1.1/MoveBuildPieces.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: DragonMotion-MoveBuildPieces 1.1.1 from Thunderstore"
+  ]
+}

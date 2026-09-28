@@ -1,0 +1,87 @@
+{
+  "id": "LocationPlacementAccelerator",
+  "package": "NickPappas-Location_Placement_Accelerator",
+  "version": "1.0.24",
+  "pluginVersion": "1.0.24",
+  "assembly": "LocationPlacementAccelerator",
+  "guids": [
+    "nickpappas.locationplacementaccelerator"
+  ],
+  "namespaces": [
+    "LPA"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "LPA.GenerationProgress",
+      "method": "BuildModeName",
+      "values": {
+        "Survey": "Разведка",
+        "Filter": "Фильтр",
+        "Force": "Принудительно",
+        "Replaced": "Замена",
+        "Transpiled": "Транспиляция",
+        " - Parallel": " - Параллельно"
+      }
+    },
+    {
+      "type": "LPA.GenerationProgress",
+      "method": "UpdateText",
+      "values": {
+        "<size=28><b>Placing locations using ": "<size=28><b>Размещение локаций, режим: ",
+        "\n<color=#FF4444><size=22><b>FAILED - ATTEMPTING RELAXATION:</b></size>": "\n<color=#FF4444><size=22><b>СБОЙ - ОСЛАБЛЕНИЕ ОГРАНИЧЕНИЙ:</b></size>",
+        "\n<color=#55AAFF><size=22><b>RELAXED CONSTRAINTS:</b></size>": "\n<color=#55AAFF><size=22><b>ОСЛАБЛЕННЫЕ ОГРАНИЧЕНИЯ:</b></size>",
+        "\n<color=#FF4444><size=22><b>FAILED - COULD NOT PLACE:</b></size>": "\n<color=#FF4444><size=22><b>СБОЙ - НЕ УДАЛОСЬ РАЗМЕСТИТЬ:</b></size>",
+        "<size=20>  {0}  (exhausted {1} relaxation attempts)</size>": "<size=20>  {0}  (исчерпано попыток ослабления: {1})</size>"
+      }
+    },
+    {
+      "type": "LPA.ConstraintRelaxer",
+      "method": "BuildAttemptDescription",
+      "values": {
+        "Altitude {0:F0}..{1:F0}-->{2:F0}..{3:F0}": "Высота {0:F0}..{1:F0}-->{2:F0}..{3:F0}",
+        "Distance {0:F0}..{1:F0}-->{2:F0}..{3:F0}": "Расстояние {0:F0}..{1:F0}-->{2:F0}..{3:F0}",
+        "TerrainDelta {0:F1}-->{1:F1}": "Перепад высот {0:F1}-->{1:F1}",
+        "ExteriorRadius {0:F0}-->{1:F0}": "Внешний радиус {0:F0}-->{1:F0}",
+        "Constraints loosened": "Ограничения ослаблены",
+        "[attempt {0}]: {1}": "[попытка {0}]: {1}"
+      }
+    },
+    {
+      "type": "LPA.ConstraintRelaxer",
+      "method": "GetRelaxationSummary",
+      "values": {
+        "(Relaxed {0} times)": "(Ослаблений: {0})",
+        "MinAlt: {0:F0}->{1:F0}": "Мин. высота: {0:F0}->{1:F0}",
+        "MaxDist: {0:F0}->{1:F0}": "Макс. расстояние: {0:F0}->{1:F0}",
+        "MinDist: {0:F0}->{1:F0}": "Мин. расстояние: {0:F0}->{1:F0}",
+        "MaxTerr: {0:F1}->{1:F1}": "Макс. перепад: {0:F1}->{1:F1}",
+        "ExtRadius: {0:F0}->{1:F0}": "Внеш. радиус: {0:F0}->{1:F0}",
+        "(Relaxed {0}x: {1})": "(Ослаблений: {0} — {1})"
+      }
+    },
+    {
+      "type": "LPA.PlacementEngine",
+      "method": "RunInlineRelaxation",
+      "values": {
+        "{0}  (Relaxation attempt {1})": "{0}  (Попытка ослабления {1})"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/NickPappas-Location_Placement_Accelerator-1.0.24/LPA/LPAPlugin.cs",
+    "source-evidence/stage-b/NickPappas-Location_Placement_Accelerator-1.0.24/LocationPlacementAccelerator.csproj",
+    "source-evidence/stage-b/NickPappas-Location_Placement_Accelerator-1.0.24/LPA/GenerationProgress.cs",
+    "source-evidence/stage-b/NickPappas-Location_Placement_Accelerator-1.0.24/LPA/ConstraintRelaxer.cs",
+    "source-evidence/stage-b/NickPappas-Location_Placement_Accelerator-1.0.24/LPA/PlacementEngine.cs",
+    "source-evidence/stage-b/NickPappas-Location_Placement_Accelerator-1.0.24/LocationPlacementAccelerator.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: NickPappas-Location_Placement_Accelerator 1.0.24 from Thunderstore (deprecated)"
+  ]
+}

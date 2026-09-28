@@ -1,0 +1,67 @@
+{
+  "id": "XPortal",
+  "package": "SpikeHimself-XPortal",
+  "version": "1.2.25",
+  "pluginVersion": "1.2.25",
+  "assembly": "XPortal",
+  "guids": [
+    "yay.spikehimself.xportal"
+  ],
+  "namespaces": [
+    "XPortal",
+    "XPortal.Patches",
+    "XPortal.UI"
+  ],
+  "words": {
+    "piece_portal_defaultportal": "Портал по умолчанию"
+  },
+  "englishWords": {
+    "piece_portal_defaultportal": "Default portal"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "XPortal.KnownPortal",
+      "method": "GetFriendlyTargetName",
+      "values": {
+        "{0} (invalid)": "{0} (недействителен)"
+      }
+    },
+    {
+      "type": "XPortal.UI.PortalConfigurationPanel",
+      "method": "PopulateDropdown",
+      "values": {
+        "{0:0.0} km": "{0:0.0} км",
+        "{0} m": "{0} м"
+      }
+    },
+    {
+      "type": "XPortal.XPortal",
+      "method": "OnPrePortalHover",
+      "values": {
+        "Fetching portal info...": "Получение данных портала..."
+      }
+    },
+    {
+      "type": "XPortal.Patches.TeleportWorld_GetHoverText",
+      "method": "Prefix",
+      "values": {
+        "This portal doesn't actually appear to exist. Heimdallr sees you...": "Похоже, этого портала на самом деле нет. Хеймдалль видит вас..."
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/SpikeHimself-XPortal-1.2.25/XPortal/XPortal.cs",
+    "source-evidence/stage-b/SpikeHimself-XPortal-1.2.25/XPortal.csproj",
+    "source-evidence/stage-b/SpikeHimself-XPortal-1.2.25/XPortal/KnownPortal.cs",
+    "source-evidence/stage-b/SpikeHimself-XPortal-1.2.25/XPortal.UI/PortalConfigurationPanel.cs",
+    "source-evidence/stage-b/SpikeHimself-XPortal-1.2.25/XPortal.Patches/TeleportWorld_GetHoverText.cs",
+    "source-evidence/stage-b/SpikeHimself-XPortal-1.2.25/XPortal.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: SpikeHimself-XPortal 1.2.25 from Thunderstore"
+  ]
+}

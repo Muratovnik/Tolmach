@@ -1,0 +1,83 @@
+{
+  "id": "Culinary_Horizons",
+  "package": "lnsanity-Culinary_Horizons",
+  "version": "1.0.42",
+  "pluginVersion": "1.0.42",
+  "assembly": "Culinary_Horizons",
+  "guids": [
+    "Insanity.Culinary_Horizons"
+  ],
+  "namespaces": [
+    "Culinary_Horizons",
+    "ServerSync"
+  ],
+  "words": {
+    "caption_roaring": "ревёт",
+    "piecemanager_cat_banquets": "Банкеты",
+    "piecemanager_cat_culinaryhorizons": "Кулинарные горизонты",
+    "piecemanager_cat_enhancedfoods": "Улучшенная еда",
+    "piecemanager_cat_forgottenrecipes": "Забытые рецепты",
+    "sfx_clay_pot_break": "Глиняный горшок разбивается"
+  },
+  "englishWords": {
+    "caption_roaring": "caption_roaring",
+    "piecemanager_cat_banquets": "Banquets",
+    "piecemanager_cat_culinaryhorizons": "Culinary Horizons",
+    "piecemanager_cat_enhancedfoods": "Enhanced Foods",
+    "piecemanager_cat_forgottenrecipes": "Forgotten Recipes",
+    "sfx_clay_pot_break": "sfx_clay_pot_break"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    },
+    {
+      "type": "Culinary_Horizons.RpcHandlers",
+      "method": "RPC_Culinary_Horizons_Version",
+      "values": {
+        "Culinary_Horizons Installed: 1.0.42\n Needed: ": "Culinary_Horizons: установлена версия 1.0.42\n Требуется: "
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/lnsanity-Culinary_Horizons-1.0.42/Culinary_Horizons/Culinary_HorizonsPlugin.cs",
+    "source-evidence/stage-b/lnsanity-Culinary_Horizons-1.0.42/Culinary_Horizons.csproj",
+    "source-evidence/stage-b/lnsanity-Culinary_Horizons-1.0.42/ServerSync/VersionCheck.cs",
+    "source-evidence/stage-b/lnsanity-Culinary_Horizons-1.0.42/Culinary_Horizons/RpcHandlers.cs",
+    "source-evidence/stage-b/lnsanity-Culinary_Horizons-1.0.42/Culinary_Horizons.translations.English.yml",
+    "source-evidence/stage-b/lnsanity-Culinary_Horizons-1.0.42/Culinary_Horizons.translations.Russian.yml",
+    "source-evidence/stage-b/lnsanity-Culinary_Horizons-1.0.42/Culinary_Horizons.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: lnsanity-Culinary_Horizons 1.0.42 from Thunderstore"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "TakeAllCooked",
+  "package": "hoskope-TakeAllCooked",
+  "version": "1.1.0",
+  "pluginVersion": "1.1.0",
+  "assembly": "TakeAllCooked",
+  "guids": [
+    "petri.valheim.takeallcooked"
+  ],
+  "namespaces": [
+    "TakeAllCooked.Patches"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "TakeAllCooked.Patches.CookingStationHoverTextPatch",
+      "method": "GetShortcutDisplayText",
+      "values": {
+        "Unbound": "Не назначена"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/hoskope-TakeAllCooked-1.1.0/TakeAllCooked/Plugin.cs",
+    "source-evidence/stage-b/hoskope-TakeAllCooked-1.1.0/TakeAllCooked.csproj",
+    "source-evidence/stage-b/hoskope-TakeAllCooked-1.1.0/TakeAllCooked.Patches/CookingStationHoverTextPatch.cs",
+    "source-evidence/stage-b/hoskope-TakeAllCooked-1.1.0/TakeAllCooked.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: hoskope-TakeAllCooked 1.1.0 from Thunderstore"
+  ]
+}

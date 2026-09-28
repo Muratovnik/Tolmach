@@ -1,0 +1,125 @@
+{
+  "id": "BalrondFurnitureReborn",
+  "package": "Balrond-balrond_furniture_reborn",
+  "version": "1.2.9",
+  "pluginVersion": "1.2.9",
+  "assembly": "BalrondFurnitureReborn",
+  "guids": [
+    "balrond.astafaraios.BalrondFurnitureReborn"
+  ],
+  "namespaces": [
+    "BalrondFurnitureReborn",
+    "YourModNamespace"
+  ],
+  "words": {
+    "planterDecorative_bal": "Декоративная кадка",
+    "planterDecorative_bal_description": "В кадку можно посадить любое семя, чтобы показать растение. Семя не расходуется, но и урожай с растения не собрать: это просто украшение.",
+    "tag_blackmarble_runestone1_bal": "Рунный камень из чёрного мрамора",
+    "tag_bookcabinet_bal": "Книжный шкаф",
+    "tag_brassbell_bal": "Латунный колокол",
+    "tag_decowindmill_bal": "Декоративная мельница",
+    "tag_decowindmill_bal_description": "Поворачивается по ветру",
+    "tag_flag_balrond_bal": "Флаг Балронда",
+    "tag_flag_balrond_bal_description": "Лучший из флагов",
+    "tag_flag_dark_bal": "Флаг: тёмный",
+    "tag_flag_red_bal": "Флаг: красный",
+    "tag_flag_torn_bal": "Флаг: рваный",
+    "tag_flag_tower_bal": "Флаг: башенный",
+    "tag_ironbell_bal": "Железный колокол",
+    "tag_massivebattlehorn_bal": "Большой боевой рог",
+    "tag_massivebattlehorn_bal_description": "Трубите в рог, чтобы предупредить всех на большом расстоянии",
+    "tag_piece_bannerbalrond_bal": "Знамя Балронда",
+    "tag_piece_bannerbalrond_bal_description": "Лучшее из знамён",
+    "tag_rug_balrond_bal": "Коврик Балронда",
+    "tag_rug_balrond_bal_description": "Лучший из ковриков",
+    "tag_rug_habrok_bal": "Коврик из меха хаброка",
+    "tag_rug_habrok_bal_description": "Скорее перья, чем мех...",
+    "tag_rug_leatherscrap_bal": "Коврик из кожаных обрывков",
+    "tag_rug_leatherscrap_bal_description": "Хоть что-то, правда?",
+    "tag_scarecrow_bal": "Пугало",
+    "tag_simple_brasschain_bal": "Латунная цепь 2 м",
+    "tag_simple_ironchain_bal": "Железная цепь 2 м",
+    "tag_tombstone_bal": "Надгробие",
+    "tag_wallscroll_bal": "Настенный свиток",
+    "tag_windvane_bal": "Флюгер",
+    "tag_windvane_bal_description": "Показывает стороны света и поворачивается по ветру."
+  },
+  "englishWords": {
+    "planterDecorative_bal": "planterDecorative_bal",
+    "planterDecorative_bal_description": "planterDecorative_bal_description",
+    "tag_blackmarble_runestone1_bal": "tag_blackmarble_runestone1_bal",
+    "tag_bookcabinet_bal": "Book Cabinet",
+    "tag_brassbell_bal": "Brass Bell",
+    "tag_decowindmill_bal": "Decorative windmill",
+    "tag_decowindmill_bal_description": "Moves towards wind direction",
+    "tag_flag_balrond_bal": "Balrond's Flag",
+    "tag_flag_balrond_bal_description": "The best flag",
+    "tag_flag_dark_bal": "Flag: Dark",
+    "tag_flag_red_bal": "Flag: Red",
+    "tag_flag_torn_bal": "Flag: Torn",
+    "tag_flag_tower_bal": "Flag: Tower",
+    "tag_ironbell_bal": "Iron Bell",
+    "tag_massivebattlehorn_bal": "Large Battlehorn",
+    "tag_massivebattlehorn_bal_description": "Blow the horn to alert everyone in long range",
+    "tag_piece_bannerbalrond_bal": "Balrond's Banner",
+    "tag_piece_bannerbalrond_bal_description": "The best banner",
+    "tag_rug_balrond_bal": "Balrond's Rug",
+    "tag_rug_balrond_bal_description": "The best rug",
+    "tag_rug_habrok_bal": "Habrok Fur Rug",
+    "tag_rug_habrok_bal_description": "More like feathers than fur...",
+    "tag_rug_leatherscrap_bal": "Leather Scrap Rug",
+    "tag_rug_leatherscrap_bal_description": "Always something right?",
+    "tag_scarecrow_bal": "Scarecrow",
+    "tag_simple_brasschain_bal": "Brass Chain 2m",
+    "tag_simple_ironchain_bal": "Iron Chain 2m",
+    "tag_tombstone_bal": "Tombstone",
+    "tag_wallscroll_bal": "Wall Scroll",
+    "tag_windvane_bal": "Wind Vane",
+    "tag_windvane_bal_description": "Shows cardinal directions and rotates with wind directions."
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "BalrondFurnitureReborn.BalrondToggle",
+      "method": ".ctor",
+      "values": {
+        "toggle shelfs": "Переключить полки"
+      }
+    },
+    {
+      "type": "BalrondFurnitureReborn.BalrondToggle",
+      "method": "GetHoverText",
+      "values": {
+        "Shelfs\n[<color=yellow><b>$KEY_Use</b></color>] ": "Полки\n[<color=yellow><b>$KEY_Use</b></color>] "
+      }
+    },
+    {
+      "type": "YourModNamespace.RingingBell",
+      "method": ".ctor",
+      "values": {
+        "Bell": "Колокол"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/Balrond-balrond_furniture_reborn-1.2.9/BalrondFurnitureReborn/Launch.cs",
+    "source-evidence/stage-b/Balrond-balrond_furniture_reborn-1.2.9/BalrondFurnitureReborn.csproj",
+    "source-evidence/stage-b/Balrond-balrond_furniture_reborn-1.2.9/BalrondFurnitureReborn/BalrondToggle.cs",
+    "source-evidence/stage-b/Balrond-balrond_furniture_reborn-1.2.9/YourModNamespace/RingingBell.cs",
+    "source-evidence/stage-b/Balrond-balrond_furniture_reborn-1.2.9/BalrondFurnitureReborn.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: Balrond-balrond_furniture_reborn 1.2.9 from Thunderstore"
+  ],
+  "rawTexts": {
+    "Black Marble Sarcophagus": "Саркофаг из чёрного мрамора",
+    "Charred Enchanted Chest": "Обугленный сундук",
+    "Hook stand": "Крюк для предмета",
+    "Ladder": "Лестница",
+    "Runefire": "Рунический огонь",
+    "Sofa": "Диван"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "id": "PerfectPlacement",
+  "package": "Azumatt-PerfectPlacement",
+  "version": "1.2.2",
+  "pluginVersion": "1.2.2",
+  "assembly": "PerfectPlacement",
+  "guids": [
+    "Azumatt_and_ValheimPlusDevs.PerfectPlacement"
+  ],
+  "namespaces": [
+    "AllManagersModTemplate",
+    "PerfectPlacement.Patches",
+    "ServerSync"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "PerfectPlacement.Patches.ABM",
+      "method": "changeModificationSpeed",
+      "values": {
+        "Modification Speed: ": "Скорость изменения: "
+      }
+    },
+    {
+      "type": "PerfectPlacement.Patches.ABM",
+      "method": "startMode",
+      "values": {
+        "Starting ABM": "Запуск ABM",
+        "<color=yellow>ABM is active</color>": "<color=yellow>ABM активен</color>"
+      }
+    },
+    {
+      "type": "PerfectPlacement.Patches.ABM",
+      "method": "exitMode",
+      "values": {
+        "Exiting ABM": "Выход из ABM"
+      }
+    },
+    {
+      "type": "PerfectPlacement.Patches.ABM",
+      "method": "resetObjectTransform",
+      "values": {
+        "Object has been reset to initial position & rotation.": "Положение и поворот объекта сброшены к исходным."
+      }
+    },
+    {
+      "type": "PerfectPlacement.Patches.AEM",
+      "method": "changeModificationSpeed",
+      "values": {
+        "Modification Speed: ": "Скорость изменения: "
+      }
+    },
+    {
+      "type": "PerfectPlacement.Patches.AEM",
+      "method": "startMode",
+      "values": {
+        "Entering AEM": "Вход в AEM",
+        "<color=yellow>AEM is active</color>": "<color=yellow>AEM активен</color>"
+      }
+    },
+    {
+      "type": "PerfectPlacement.Patches.AEM",
+      "method": "exitMode",
+      "values": {
+        "Exiting AEM": "Выход из AEM"
+      }
+    },
+    {
+      "type": "PerfectPlacement.Patches.AEM",
+      "method": "resetObjectTransform",
+      "values": {
+        "Object has been reset to initial position & rotation.": "Положение и поворот объекта сброшены к исходным."
+      }
+    },
+    {
+      "type": "PerfectPlacement.Patches.GridAlignment",
+      "method": "Postfix",
+      "values": {
+        "Default grid alignment set to ": "Шаг сетки по умолчанию изменён на ",
+        "Grid alignment by default ": "Выравнивание по сетке по умолчанию ",
+        "enabled": "включено",
+        "disabled": "выключено"
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    },
+    {
+      "type": "AllManagersModTemplate.RpcHandlers",
+      "method": "RPC_AllManagersModTemplate_Version",
+      "values": {
+        "PerfectPlacement Installed: 1.2.2 ": "PerfectPlacement: установлена версия 1.2.2 ",
+        "\n Needed: ": "\n Требуется: "
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/Azumatt-PerfectPlacement-1.2.2/PerfectPlacement/PerfectPlacementPlugin.cs",
+    "source-evidence/stage-b/Azumatt-PerfectPlacement-1.2.2/PerfectPlacement.csproj",
+    "source-evidence/stage-b/Azumatt-PerfectPlacement-1.2.2/PerfectPlacement.Patches/ABM.cs",
+    "source-evidence/stage-b/Azumatt-PerfectPlacement-1.2.2/PerfectPlacement.Patches/AEM.cs",
+    "source-evidence/stage-b/Azumatt-PerfectPlacement-1.2.2/PerfectPlacement.Patches/GridAlignment.cs",
+    "source-evidence/stage-b/Azumatt-PerfectPlacement-1.2.2/ServerSync/VersionCheck.cs",
+    "source-evidence/stage-b/Azumatt-PerfectPlacement-1.2.2/AllManagersModTemplate/RpcHandlers.cs",
+    "source-evidence/stage-b/Azumatt-PerfectPlacement-1.2.2/PerfectPlacement.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: Azumatt-PerfectPlacement 1.2.2 from Thunderstore (deprecated)"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "BalrondDualMastery",
+  "package": "Balrond-balrond_DualMastery",
+  "version": "0.2.7",
+  "pluginVersion": "0.2.7",
+  "assembly": "BalrondDualMastery",
+  "guids": [
+    "balrond.astafaraios.BalrondDualMastery"
+  ],
+  "namespaces": [
+    "Balrond.DualMastery.Progression"
+  ],
+  "words": {
+    "balrond_dualmastery_tooltip": "Повышает эффективность ударов второй рукой, когда в обеих руках одноручное оружие.",
+    "skill_874298": "Парное оружие",
+    "tag_dualwield_bal": "Парное оружие",
+    "tag_dualwield_bal_tooltip": "Повышает эффективность ударов второй рукой, когда в обеих руках одноручное оружие."
+  },
+  "englishWords": {
+    "balrond_dualmastery_tooltip": "balrond_dualmastery_tooltip",
+    "skill_874298": "Dual Wield",
+    "tag_dualwield_bal": "Dual Wield",
+    "tag_dualwield_bal_tooltip": "Improves your effectiveness with off-hand attacks while dual wielding one-handed weapons."
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "Balrond.DualMastery.Progression.MasterySkillPatches",
+      "method": "RaiseCustomSkill",
+      "values": {
+        "Dual Mastery": "Парное оружие"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/Balrond-balrond_DualMastery-0.2.7/Balrond.DualMastery/Plugin.cs",
+    "source-evidence/stage-b/Balrond-balrond_DualMastery-0.2.7/BalrondDualMastery.csproj",
+    "source-evidence/stage-b/Balrond-balrond_DualMastery-0.2.7/Balrond.DualMastery.Progression/MasterySkillPatches.cs",
+    "source-evidence/stage-b/Balrond-balrond_DualMastery-0.2.7/BalrondDualMastery.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: Balrond-balrond_DualMastery 0.2.7 from Thunderstore"
+  ]
+}

@@ -100,6 +100,125 @@
       ]
     },
     {
+      "id": "AzuWorkbenchTweaks",
+      "package": "Azumatt-AzuWorkbenchTweaks",
+      "version": "1.0.7",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Azumatt-AzuWorkbenchTweaks-1.0.7",
+      "binary_identities": [
+        {
+          "mod": "Azumatt-AzuWorkbenchTweaks-1.0.7",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "AzuWorkbenchTweaks.dll",
+          "size": 61952,
+          "sha256": "dd2435802c93174f37b30ba5f2e35943697b1f9218eb9fcefead7efc909dbcca"
+        }
+      ]
+    },
+    {
+      "id": "BalrondAmazingNature",
+      "package": "Balrond-balrond_amazing_nature",
+      "version": "1.4.0",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Balrond-balrond_amazing_nature-1.4.0",
+      "binary_identities": [
+        {
+          "mod": "Balrond-balrond_amazing_nature-1.4.0",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "plugins/BalrondAmazingNature.dll",
+          "size": 298628608,
+          "sha256": "3e946d0fb382159ee399941d41e013b17a40fe6f5d1f6993c90612c914ae12a4"
+        }
+      ]
+    },
+    {
+      "id": "BalrondArsenalReborn",
+      "package": "Balrond-balrond_arsenal_reborn",
+      "version": "0.1.6",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Balrond-balrond_arsenal_reborn-0.1.6",
+      "binary_identities": [
+        {
+          "mod": "Balrond-balrond_arsenal_reborn-0.1.6",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "plugins/BalrondArsenalReborn.dll",
+          "size": 118868480,
+          "sha256": "40e655f3420a1bcf8790bb5aed8c6d61699652272935a901f1b19286c1edb161"
+        }
+      ]
+    },
+    {
+      "id": "BalrondConstructions",
+      "package": "Balrond-balrond_constructions",
+      "version": "1.4.5",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Balrond-balrond_constructions-1.4.5",
+      "binary_identities": [
+        {
+          "mod": "Balrond-balrond_constructions-1.4.5",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "plugins/BalrondConstructions.dll",
+          "size": 40396800,
+          "sha256": "a304e846d2e6b191dfdc2e28c1d06e557242827015f397a729e7764bf8fb6e90"
+        }
+      ]
+    },
+    {
+      "id": "BalrondDualMastery",
+      "package": "Balrond-balrond_DualMastery",
+      "version": "0.2.7",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Balrond-balrond_DualMastery-0.2.7",
+      "binary_identities": [
+        {
+          "mod": "Balrond-balrond_DualMastery-0.2.7",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "plugins/BalrondDualMastery.dll",
+          "size": 359424,
+          "sha256": "617d535a9dba0a796ad6db23199687bf83b3b43f9da160e241ad4c5f95925171"
+        }
+      ]
+    },
+    {
+      "id": "BalrondFurnitureReborn",
+      "package": "Balrond-balrond_furniture_reborn",
+      "version": "1.2.9",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Balrond-balrond_furniture_reborn-1.2.9",
+      "binary_identities": [
+        {
+          "mod": "Balrond-balrond_furniture_reborn-1.2.9",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "plugins/BalrondFurnitureReborn.dll",
+          "size": 74964992,
+          "sha256": "86e689176114bcff0faf138c29cdccb6fd933b9a4833d926295036e8ea5593cd"
+        }
+      ]
+    },
+    {
+      "id": "BalrondLightkeeper",
+      "package": "Balrond-balrond_lightkeeper",
+      "version": "1.0.2",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Balrond-balrond_lightkeeper-1.0.2",
+      "binary_identities": [
+        {
+          "mod": "Balrond-balrond_lightkeeper-1.0.2",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "plugins/BalrondLightkeeper.dll",
+          "size": 3227648,
+          "sha256": "1e9eedbdfa859b4e25096133a0ec65d342ba94b6a4ac5d12ee7834d4321ecc80"
+        }
+      ]
+    },
+    {
       "id": "BalrondShipyard",
       "package": "Balrond-balrond_shipyard",
       "version": "1.7.3",
@@ -128,6 +247,23 @@
           "profile_path": "BepInEx/plugins/ishid4-BetterArchery/BetterArchery.dll",
           "size": 1281024,
           "sha256": "941009c601f0386b1f843b3ead73d9e2df57ee85cdf0c8ea3306225de01a125d"
+        }
+      ]
+    },
+    {
+      "id": "BossAdd",
+      "package": "LJS-BossAdd",
+      "version": "1.2.0",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/LJS-BossAdd-1.2.0",
+      "binary_identities": [
+        {
+          "mod": "LJS-BossAdd-1.2.0",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "BepInEx/plugins/bossadd/bossadd.dll",
+          "size": 382464,
+          "sha256": "2d4994ad29949a6c147bc8c014784c3abaf7edb148ede09a00d10c49f8c84d93"
         }
       ]
     },
@@ -196,6 +332,23 @@
       ]
     },
     {
+      "id": "Culinary_Horizons",
+      "package": "lnsanity-Culinary_Horizons",
+      "version": "1.0.42",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/lnsanity-Culinary_Horizons-1.0.42",
+      "binary_identities": [
+        {
+          "mod": "lnsanity-Culinary_Horizons-1.0.42",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "plugins/Culinary_Horizons.dll",
+          "size": 37871104,
+          "sha256": "264a1bf5ad63008f88b5227d0531e53229260711cf19307d22f09f1880f2c0c7"
+        }
+      ]
+    },
+    {
       "id": "Digitalroot.Valheim.GoldBars",
       "package": "Digitalroot-Digitalroots_GoldBars",
       "version": "1.2.34",
@@ -228,6 +381,23 @@
       ]
     },
     {
+      "id": "EpicLoot",
+      "package": "RandyKnapp-EpicLoot",
+      "version": "0.14.13",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/RandyKnapp-EpicLoot-0.14.13",
+      "binary_identities": [
+        {
+          "mod": "RandyKnapp-EpicLoot-0.14.13",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "plugins/EpicLoot.dll",
+          "size": 39085568,
+          "sha256": "802790e0cbd8a6f951627619a488b84e6a406e8770e2687b2fff8b63d2adf9ea"
+        }
+      ]
+    },
+    {
       "id": "EquipmentAndQuickSlots",
       "package": "RandyKnapp-EquipmentAndQuickSlots",
       "version": "3.1.3",
@@ -240,6 +410,23 @@
           "profile_path": "BepInEx/plugins/RandyKnapp-EquipmentAndQuickSlots/EquipmentAndQuickSlots.dll",
           "size": 416256,
           "sha256": "b08d791cc1324fc24c5aff591784ce867a8179d5b887797372506bb8626c6d9a"
+        }
+      ]
+    },
+    {
+      "id": "Eternal_Legends",
+      "package": "Dreanegade-Eternal_Legends",
+      "version": "1.0.4",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Dreanegade-Eternal_Legends-1.0.4",
+      "binary_identities": [
+        {
+          "mod": "Dreanegade-Eternal_Legends-1.0.4",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "plugins/Eternal_Legends.dll",
+          "size": 39021056,
+          "sha256": "8d0593997d842caaac2fd36f0cbe4ac039428a6a87a92c0cc23cd05fe28b53ba"
         }
       ]
     },
@@ -272,6 +459,40 @@
           "profile_path": "BepInEx/plugins/blacks7ar-Fermenting/Fermenting.dll",
           "size": 80896,
           "sha256": "ace8fd0281a7b8b0dd5d774ef8b845cec238eeb069c7d3d16fbf89ef28e71ec5"
+        }
+      ]
+    },
+    {
+      "id": "FirstPersonMode",
+      "package": "Azumatt-FirstPersonMode",
+      "version": "1.3.12",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Azumatt-FirstPersonMode-1.3.12",
+      "binary_identities": [
+        {
+          "mod": "Azumatt-FirstPersonMode-1.3.12",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "FirstPersonMode.dll",
+          "size": 70656,
+          "sha256": "f942c253a38b667845935c6819e9f63e9606499af6775c3533b98d9e9761e791"
+        }
+      ]
+    },
+    {
+      "id": "FoodDurationMultiplier",
+      "package": "blacks7ar-FoodDurationMultiplier",
+      "version": "1.1.7",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/blacks7ar-FoodDurationMultiplier-1.1.7",
+      "binary_identities": [
+        {
+          "mod": "blacks7ar-FoodDurationMultiplier-1.1.7",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "FoodDurationMultiplier.dll",
+          "size": 59904,
+          "sha256": "9a7e9f429ebaebbd5bc426ff1a65c47e19d9d810e8a23925a2a12430985c1078"
         }
       ]
     },
@@ -324,6 +545,23 @@
       ]
     },
     {
+      "id": "Huginn",
+      "package": "NightOfGames-Huginn_Map",
+      "version": "1.0.5",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/NightOfGames-Huginn_Map-1.0.5",
+      "binary_identities": [
+        {
+          "mod": "NightOfGames-Huginn_Map-1.0.5",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "Huginn.dll",
+          "size": 246272,
+          "sha256": "1108fec508f9096efbb73aa032ba72502cc92eefe7829bd614587fd4395fcfcd"
+        }
+      ]
+    },
+    {
       "id": "HumanoidRandomizer",
       "package": "Balrond-balrond_humanoidRandomizer",
       "version": "1.6.0",
@@ -340,6 +578,40 @@
       ]
     },
     {
+      "id": "Hunter_Legacy",
+      "package": "Dreanegade-Hunter_Legacy",
+      "version": "1.1.4",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Dreanegade-Hunter_Legacy-1.1.4",
+      "binary_identities": [
+        {
+          "mod": "Dreanegade-Hunter_Legacy-1.1.4",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "plugins/Hunter_Legacy.dll",
+          "size": 105251328,
+          "sha256": "e50eb6908b8aa46bf652d39c9f942cd200c2317cadb3303c9f0e30bc66f52a1e"
+        }
+      ]
+    },
+    {
+      "id": "InventorySlots",
+      "package": "sighsorry-InventorySlots",
+      "version": "1.5.15",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/sighsorry-InventorySlots-1.5.15",
+      "binary_identities": [
+        {
+          "mod": "sighsorry-InventorySlots-1.5.15",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "InventorySlots.dll",
+          "size": 1427968,
+          "sha256": "9d2b50e454aa45faa1dac80380b71e8bb6d774772aa2afcda61cd2602afaa076"
+        }
+      ]
+    },
+    {
       "id": "Jotunn",
       "package": "ValheimModding-Jotunn",
       "version": "2.30.2",
@@ -352,6 +624,40 @@
           "profile_path": "BepInEx/plugins/ValheimModding-Jotunn/Jotunn.dll",
           "size": 526336,
           "sha256": "9509221046842a70f94b98bab4cb41005dee026823a7a79345829ed46a30f796"
+        }
+      ]
+    },
+    {
+      "id": "LocationPlacementAccelerator",
+      "package": "NickPappas-Location_Placement_Accelerator",
+      "version": "1.0.24",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/NickPappas-Location_Placement_Accelerator-1.0.24",
+      "binary_identities": [
+        {
+          "mod": "NickPappas-Location_Placement_Accelerator-1.0.24",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "LocationPlacementAccelerator.dll",
+          "size": 203776,
+          "sha256": "c7de6bfd6980ea17d71d1cc143826815affc41ff2c5615104933f8c7b17fd606"
+        }
+      ]
+    },
+    {
+      "id": "Magic_Supremacy",
+      "package": "Dreanegade-Magic_Supremacy",
+      "version": "3.1.2",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Dreanegade-Magic_Supremacy-3.1.2",
+      "binary_identities": [
+        {
+          "mod": "Dreanegade-Magic_Supremacy-3.1.2",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "plugins/Magic_Supremacy.dll",
+          "size": 86345728,
+          "sha256": "5005abf1a1d75209ed0d43e786acf28456e2ef594ea24dbdd5d4517fe4af0d18"
         }
       ]
     },
@@ -388,6 +694,23 @@
       ]
     },
     {
+      "id": "MoveBuildPieces",
+      "package": "DragonMotion-MoveBuildPieces",
+      "version": "1.1.1",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/DragonMotion-MoveBuildPieces-1.1.1",
+      "binary_identities": [
+        {
+          "mod": "DragonMotion-MoveBuildPieces-1.1.1",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "MoveBuildPieces.dll",
+          "size": 88576,
+          "sha256": "eaee91dea14296c1238d563a29310431cd5beab63c72313672b04e37b6e0b2dd"
+        }
+      ]
+    },
+    {
       "id": "Norsemen",
       "package": "SephrinMods-VikingNPC_Continued",
       "version": "0.4.1",
@@ -404,6 +727,23 @@
       ]
     },
     {
+      "id": "OdinsSteelworks",
+      "package": "OdinPlus-OdinsSteelworks",
+      "version": "0.4.1",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/OdinPlus-OdinsSteelworks-0.4.1",
+      "binary_identities": [
+        {
+          "mod": "OdinPlus-OdinsSteelworks-0.4.1",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "OdinsSteelworks.dll",
+          "size": 20062208,
+          "sha256": "a83e1db60f405a6f536aeae9ffd6ec9b8e772a97fc0a7017c0bd6af442e306f2"
+        }
+      ]
+    },
+    {
       "id": "OreMines",
       "package": "blacks7ar-OreMines",
       "version": "1.2.1",
@@ -416,6 +756,40 @@
           "profile_path": "BepInEx/plugins/blacks7ar-OreMines/OreMines.dll",
           "size": 13633536,
           "sha256": "82b776ba2e212de69c1b948e49b1e01369a4aeda00133a197f9f15f5dd0ba008"
+        }
+      ]
+    },
+    {
+      "id": "PassivePowers",
+      "package": "Smoothbrain-PassivePowers",
+      "version": "1.1.5",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Smoothbrain-PassivePowers-1.1.5",
+      "binary_identities": [
+        {
+          "mod": "Smoothbrain-PassivePowers-1.1.5",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "PassivePowers.dll",
+          "size": 333824,
+          "sha256": "8c03d1c5ecdddffe357a884d1f48cc3d764e06210745fa875abc1a0e2a76cad3"
+        }
+      ]
+    },
+    {
+      "id": "PerfectPlacement",
+      "package": "Azumatt-PerfectPlacement",
+      "version": "1.2.2",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/Azumatt-PerfectPlacement-1.2.2",
+      "binary_identities": [
+        {
+          "mod": "Azumatt-PerfectPlacement-1.2.2",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "PerfectPlacement.dll",
+          "size": 104960,
+          "sha256": "a5b0ba54d7cf0520566d8f97f718b8a1a5838b1ed6f13d1fbdab580dd97e1693"
         }
       ]
     },
@@ -580,6 +954,23 @@
       ]
     },
     {
+      "id": "TakeAllCooked",
+      "package": "hoskope-TakeAllCooked",
+      "version": "1.1.0",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/hoskope-TakeAllCooked-1.1.0",
+      "binary_identities": [
+        {
+          "mod": "hoskope-TakeAllCooked-1.1.0",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "TakeAllCooked.dll",
+          "size": 13312,
+          "sha256": "08e653faef466ddabb6af1b5246264dfaac9e247a2f57a3fd947789f504ec068"
+        }
+      ]
+    },
+    {
       "id": "TradersExtended",
       "package": "shudnal-TradersExtended",
       "version": "2.0.4",
@@ -608,6 +999,23 @@
           "profile_path": "BepInEx/plugins/sighsorry-UsefulRunestones/UsefulRunestones.dll",
           "size": 392192,
           "sha256": "32f0c32fc3871e82e5d82591c7cdea47a0973bb5c1ba373d6191f9ba6e54235e"
+        }
+      ]
+    },
+    {
+      "id": "VNEI",
+      "package": "MSchmoecker-VNEI",
+      "version": "0.17.6",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/MSchmoecker-VNEI-0.17.6",
+      "binary_identities": [
+        {
+          "mod": "MSchmoecker-VNEI-0.17.6",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "VNEI.dll",
+          "size": 174080,
+          "sha256": "a496f106b325414eff2f19d1c48afb522b8f10359f0571cecb85754d53012ebd"
         }
       ]
     },
@@ -672,6 +1080,23 @@
           "profile_path": "BepInEx/plugins/Therzie-Warfare/Warfare.dll",
           "size": 182304256,
           "sha256": "7e001761d3d20382b271a22b9535c1b557056db005a7ea0e9913565e6d70280e"
+        }
+      ]
+    },
+    {
+      "id": "XPortal",
+      "package": "SpikeHimself-XPortal",
+      "version": "1.2.25",
+      "status_in_archive": "stage_b_thunderstore",
+      "source_root": "source-evidence/stage-b/SpikeHimself-XPortal-1.2.25",
+      "binary_identities": [
+        {
+          "mod": "SpikeHimself-XPortal-1.2.25",
+          "enabled": false,
+          "source": "thunderstore",
+          "package_path": "plugins/XPortal/XPortal.dll",
+          "size": 55296,
+          "sha256": "f133fb57501260276e1783f20dd89f8675e7e1efcf29571d53e0d40f3ae6cd5b"
         }
       ]
     },
@@ -759,6 +1184,50 @@
     ],
     "review_fixes": "57 corrections in 17 catalogs (vanilla terminology, grammar, gender-neutral NPC lines)",
     "csharp_tests": "237 NUnit tests passed with Valheim 1.0.16, BepInEx 5.4.23.5 and HarmonyX 2.9 from the Default Gale profile",
+    "game_test": "not performed"
+  },
+  "revision_0_4_0": {
+    "base": "Tolmach 0.3.0 (feat/standalone a0466b7)",
+    "catalogs_changed": true,
+    "new_modules": [
+      "BalrondAmazingNature",
+      "BalrondArsenalReborn",
+      "BalrondConstructions",
+      "BalrondFurnitureReborn",
+      "BalrondDualMastery",
+      "BalrondLightkeeper",
+      "PassivePowers",
+      "OdinsSteelworks",
+      "EpicLoot",
+      "VNEI",
+      "InventorySlots",
+      "Culinary_Horizons",
+      "Hunter_Legacy",
+      "Magic_Supremacy",
+      "Eternal_Legends",
+      "XPortal",
+      "TakeAllCooked",
+      "MoveBuildPieces",
+      "FoodDurationMultiplier",
+      "BossAdd",
+      "Huginn",
+      "FirstPersonMode",
+      "PerfectPlacement",
+      "LocationPlacementAccelerator",
+      "AzuWorkbenchTweaks"
+    ],
+    "english_sources": "Latest Thunderstore versions of 28 mods on 2026-09-28, decompiled with ILSpy 9.1; English resources and code of those versions; IL string constants where the decompiler shows interpolation. Russian is this pack's own translation; a mod's own Russian file was read only for the set of keys it already translates and for the names of its own items.",
+    "extra_evidence": [
+      "source-evidence/stage-b"
+    ],
+    "natively_complete": [
+      "MidnightMods-ValheimArmory-1.34.0",
+      "MidnightMods-ImpactfulSkills-0.20.2"
+    ],
+    "deferred": [
+      "Smoothbrain-CreatureLevelAndLootControl-4.6.4 (needs an adapter for its own YAML translator)"
+    ],
+    "csharp_tests": "341 NUnit tests passed with Valheim 1.0.16, BepInEx 5.4.23.5 and HarmonyX 2.9 from the Default Gale profile",
     "game_test": "not performed"
   }
 }

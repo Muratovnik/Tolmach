@@ -1,0 +1,84 @@
+{
+  "id": "BalrondLightkeeper",
+  "package": "Balrond-balrond_lightkeeper",
+  "version": "1.0.2",
+  "pluginVersion": "1.0.2",
+  "assembly": "BalrondLightkeeper",
+  "guids": [
+    "balrond.astafaraios.BalrondLightkeeper"
+  ],
+  "namespaces": [
+    "LightController"
+  ],
+  "words": {
+    "tag_lightkeeper_adjust_range_bal": "Изменить радиус",
+    "tag_lightkeeper_description_bal": "Позволяет управлять источниками огня поблизости и снабжает их топливом из общего хранилища",
+    "tag_lightkeeper_fire_ignore_bal": "Не подчиняться хранителю огней",
+    "tag_lightkeeper_fire_msg_ignored_bal": "Этот огонь больше не подчиняется хранителю огней.",
+    "tag_lightkeeper_fire_msg_obey_bal": "Этот огонь теперь подчиняется хранителю огней.",
+    "tag_lightkeeper_fire_obey_bal": "Подчиняться хранителю огней",
+    "tag_lightkeeper_msg_autofuel_disabled_bal": "Автозаправка выключена.",
+    "tag_lightkeeper_msg_autofuel_enabled_bal": "Автозаправка включена.",
+    "tag_lightkeeper_msg_range_bal": "Радиус хранителя огней:",
+    "tag_lightkeeper_msg_turned_off_bal": "Хранитель огней выключен.",
+    "tag_lightkeeper_msg_turned_on_bal": "Хранитель огней включён.",
+    "tag_lightkeeper_name_bal": "Хранитель огней",
+    "tag_lightkeeper_noaccess_bal": "$piece_noaccess",
+    "tag_lightkeeper_off_bal": "ВЫКЛ",
+    "tag_lightkeeper_on_bal": "ВКЛ",
+    "tag_lightkeeper_open_storage_bal": "Открыть хранилище топлива",
+    "tag_lightkeeper_storage_skipped_bal": "Открытое хранилище не участвует в автозаправке.",
+    "tag_lightkeeper_turn_autofuel_bal": "Переключить автозаправку",
+    "tag_lightkeeper_turn_lights_bal": "Переключить огни"
+  },
+  "englishWords": {
+    "tag_lightkeeper_adjust_range_bal": "Adjust range",
+    "tag_lightkeeper_description_bal": "Allows control over fire sources in area and centralizes fuel supply",
+    "tag_lightkeeper_fire_ignore_bal": "Ignore Lightkeeper",
+    "tag_lightkeeper_fire_msg_ignored_bal": "This light now ignores Lightkeeper.",
+    "tag_lightkeeper_fire_msg_obey_bal": "This light now obeys Lightkeeper.",
+    "tag_lightkeeper_fire_obey_bal": "Obey Lightkeeper",
+    "tag_lightkeeper_msg_autofuel_disabled_bal": "Auto-fuel disabled.",
+    "tag_lightkeeper_msg_autofuel_enabled_bal": "Auto-fuel enabled.",
+    "tag_lightkeeper_msg_range_bal": "Lightkeeper range:",
+    "tag_lightkeeper_msg_turned_off_bal": "Lightkeeper turned off.",
+    "tag_lightkeeper_msg_turned_on_bal": "Lightkeeper turned on.",
+    "tag_lightkeeper_name_bal": "Lightkeeper",
+    "tag_lightkeeper_noaccess_bal": "$piece_noaccess",
+    "tag_lightkeeper_off_bal": "OFF",
+    "tag_lightkeeper_on_bal": "ON",
+    "tag_lightkeeper_open_storage_bal": "Open fuel storage",
+    "tag_lightkeeper_storage_skipped_bal": "Open storage is skipped by auto-fuel.",
+    "tag_lightkeeper_turn_autofuel_bal": "Toggle auto-fuel",
+    "tag_lightkeeper_turn_lights_bal": "Toggle lights"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "LightController.FireController",
+      "method": "ChangeRadius",
+      "values": {
+        "m": "м"
+      }
+    },
+    {
+      "type": "LightController.FireController",
+      "method": "GetHoverText",
+      "values": {
+        "m</b>": "м</b>"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/Balrond-balrond_lightkeeper-1.0.2/LightController/Launch.cs",
+    "source-evidence/stage-b/Balrond-balrond_lightkeeper-1.0.2/BalrondLightkeeper.csproj",
+    "source-evidence/stage-b/Balrond-balrond_lightkeeper-1.0.2/LightController/FireController.cs",
+    "source-evidence/stage-b/Balrond-balrond_lightkeeper-1.0.2/BalrondLightkeeper.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: Balrond-balrond_lightkeeper 1.0.2 from Thunderstore"
+  ]
+}

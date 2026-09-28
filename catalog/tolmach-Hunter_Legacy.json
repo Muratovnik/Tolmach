@@ -1,0 +1,87 @@
+{
+  "id": "Hunter_Legacy",
+  "package": "Dreanegade-Hunter_Legacy",
+  "version": "1.1.4",
+  "pluginVersion": "1.1.4",
+  "assembly": "Hunter_Legacy",
+  "guids": [
+    "Dreanegade.Hunter_Legacy"
+  ],
+  "namespaces": [
+    "Hunter_Legacy",
+    "ServerSync"
+  ],
+  "words": {
+    "caption_bow_NB": "Лук",
+    "caption_firing_NB": "стреляет",
+    "caption_knife_fire1": "Снаряд",
+    "caption_knife_fire2": "летит",
+    "caption_sling_fire1": "Рогатка",
+    "caption_sling_fire2": "стреляет",
+    "cbdh_b_shoot": "Кровавый выстрел",
+    "piecemanager_cat_distantorigins": "Далёкие истоки"
+  },
+  "englishWords": {
+    "caption_bow_NB": "caption_bow_NB",
+    "caption_firing_NB": "caption_firing_NB",
+    "caption_knife_fire1": "caption_knife_fire1",
+    "caption_knife_fire2": "caption_knife_fire2",
+    "caption_sling_fire1": "caption_sling_fire1",
+    "caption_sling_fire2": "caption_sling_fire2",
+    "cbdh_b_shoot": "cbdh_b_shoot",
+    "piecemanager_cat_distantorigins": "Distant Origins"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    },
+    {
+      "type": "Hunter_Legacy.RpcHandlers",
+      "method": "RPC_Hunter_Legacy_Version",
+      "values": {
+        "Hunter_Legacy Installed: 1.1.4\n Needed: ": "Hunter_Legacy: установлена версия 1.1.4\n Требуется: "
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/Dreanegade-Hunter_Legacy-1.1.4/Hunter_Legacy/Hunter_LegacyPlugin.cs",
+    "source-evidence/stage-b/Dreanegade-Hunter_Legacy-1.1.4/Hunter_Legacy.csproj",
+    "source-evidence/stage-b/Dreanegade-Hunter_Legacy-1.1.4/ServerSync/VersionCheck.cs",
+    "source-evidence/stage-b/Dreanegade-Hunter_Legacy-1.1.4/Hunter_Legacy/RpcHandlers.cs",
+    "source-evidence/stage-b/Dreanegade-Hunter_Legacy-1.1.4/Hunter_Legacy.translations.English.yml",
+    "source-evidence/stage-b/Dreanegade-Hunter_Legacy-1.1.4/Hunter_Legacy.translations.Russian.yml",
+    "source-evidence/stage-b/Dreanegade-Hunter_Legacy-1.1.4/Hunter_Legacy.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: Dreanegade-Hunter_Legacy 1.1.4 from Thunderstore"
+  ]
+}

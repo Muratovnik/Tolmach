@@ -1,0 +1,58 @@
+{
+  "id": "FoodDurationMultiplier",
+  "package": "blacks7ar-FoodDurationMultiplier",
+  "version": "1.1.7",
+  "pluginVersion": "1.1.7",
+  "assembly": "FoodDurationMultiplier",
+  "guids": [
+    "blacks7ar.FoodDurationMultiplier"
+  ],
+  "namespaces": [
+    "ServerSync"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/blacks7ar-FoodDurationMultiplier-1.1.7/FoodDurationMultiplier/Plugin.cs",
+    "source-evidence/stage-b/blacks7ar-FoodDurationMultiplier-1.1.7/FoodDurationMultiplier.csproj",
+    "source-evidence/stage-b/blacks7ar-FoodDurationMultiplier-1.1.7/ServerSync/VersionCheck.cs",
+    "source-evidence/stage-b/blacks7ar-FoodDurationMultiplier-1.1.7/FoodDurationMultiplier.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: blacks7ar-FoodDurationMultiplier 1.1.7 from Thunderstore"
+  ]
+}

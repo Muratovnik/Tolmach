@@ -1,0 +1,181 @@
+{
+  "id": "EpicLoot",
+  "package": "RandyKnapp-EpicLoot",
+  "version": "0.14.13",
+  "pluginVersion": "0.14.13",
+  "assembly": "EpicLoot",
+  "guids": [
+    "randyknapp.mods.epicloot"
+  ],
+  "namespaces": [
+    "EpicLoot",
+    "EpicLoot.Adventure"
+  ],
+  "words": {
+    "mod_epicloot_adventure_locatefailed": "Не удалось найти подходящее место в биоме «$1».",
+    "mod_epicloot_adventure_locateunavailable": "Карта мира ещё составляется — повторите попытку чуть позже.",
+    "mod_epicloot_enchanting_identifycategory": "Изменить категорию",
+    "mod_epicloot_identify_progressgated": "<color=yellow>(зависит от прогресса)</color>",
+    "mod_epicloot_shardupgrade": "Улучшить",
+    "mod_epicloot_shardupgradecost": "Стоимость улучшения:",
+    "mod_epicloot_shardupgradedesc": "Улучшить осколочные камни",
+    "mod_epicloot_shardupgradeprogress": "Улучшаем осколочные камни...",
+    "mod_epicloot_unidentified_prefix": "Нераспознанная экипировка:",
+    "mod_epicloot_unidentified_suffix": "(биом)"
+  },
+  "englishWords": {
+    "mod_epicloot_adventure_locatefailed": "Could not find a suitable location in the $1.",
+    "mod_epicloot_adventure_locateunavailable": "Still mapping the world - try again in a moment.",
+    "mod_epicloot_enchanting_identifycategory": "Change Category",
+    "mod_epicloot_identify_progressgated": "<color=yellow>(Progress-gated)</color>",
+    "mod_epicloot_shardupgrade": "Upgrade",
+    "mod_epicloot_shardupgradecost": "Upgrade Cost:",
+    "mod_epicloot_shardupgradedesc": "Upgrade Shardstones",
+    "mod_epicloot_shardupgradeprogress": "Upgrading shardstones...",
+    "mod_epicloot_unidentified_prefix": "Unidentified",
+    "mod_epicloot_unidentified_suffix": "Gear"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "EpicLoot.Adventure.Container_RPC_OpenRespons_Patch",
+      "method": "Postfix",
+      "values": {
+        "Treasure Found!": "Сокровище найдено!"
+      }
+    },
+    {
+      "type": "EpicLoot.LootRoller",
+      "method": "PrintLuckTest",
+      "values": {
+        "Luck Test: {0}, {1}": "Проверка удачи: {0}, {1}",
+        "Rarity     Base    %       Luck    %       Diff    Factor": "Редкость   База    %       Удача   %       Разн.   Множ."
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager+Register_Commands",
+      "method": "Postfix",
+      "values": {
+        "rolls an example loot table with the sepcified luck eg: lucktest Greydwarf 1.0": "разыгрывает пример таблицы добычи с заданной удачей, например: lucktest Greydwarf 1.0"
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "CheckStackQuality",
+      "values": {
+        "> ObjectDB is null": "> ObjectDB отсутствует",
+        "> (none)": "> (нет)"
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "SpawnMagicItem",
+      "values": {
+        "magicitem - rarity:{0}, item:{1}, count:{2}": "magicitem - редкость: {0}, предмет: {1}, количество: {2}",
+        "> Could not find item: ": "> Не удалось найти предмет: ",
+        ">  {0} - rarity: [{1}], item: {2}": ">  {0} - редкость: [{1}], предмет: {2}"
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "SpawnMagicItemWithEffect",
+      "values": {
+        "> Specify effect and item name": "> Укажите эффект и название предмета",
+        " with effect: ": " с эффектом: ",
+        "> Could not find effect: ": "> Не удалось найти эффект: ",
+        "> Could not find item: ": "> Не удалось найти предмет: ",
+        "> Can't be magic item: ": "> Не может быть магическим предметом: "
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "SpawnLegendary",
+      "values": {
+        "> Specify legendaryID, itemID (optional)": "> Укажите legendaryID и itemID (необязательно)"
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "SpawnLegendaryHelper",
+      "values": {
+        "> Could not find legendary/mythic info for legendaryID: (": "> Не найдены данные легендарного/мифического предмета для legendaryID: (",
+        "> Could not find suitable items with parameter (": "> Не найдены подходящие предметы с параметром (",
+        ") for legendaryID: (": ") для legendaryID: (",
+        "> Could not find suitable item for legendaryID: (": "> Не найден подходящий предмет для legendaryID: ("
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "SpawnMagicItemSet",
+      "values": {
+        "> Specify Set ID": "> Укажите ID комплекта",
+        "> Could not find set info for setID: (": "> Не найдены данные комплекта для setID: ("
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "ToggleAlwaysDrop",
+      "values": {
+        "> Always Drop: {0}": "> Гарантированное выпадение: {0}"
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "OnTreasureChestSpawnComplete",
+      "values": {
+        "> Failed to spawn treasure map chest": "> Не удалось создать сундук с картой сокровищ",
+        "> Spawning Treasure Map Chest at <{0:0.#}, {1:0.#}> (height:{2:0.#})": "> Создание сундука с картой сокровищ в точке <{0:0.#}, {1:0.#}> (высота: {2:0.#})"
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "ToggleCheatGating",
+      "values": {
+        "> Disable gating for magic item drops: {0}": "> Отключить ограничение по прогрессу для выпадения магических предметов: {0}"
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "DebugTreasureMap",
+      "values": {
+        "> Treasure Map Debug Mode: {0}": "> Режим отладки карт сокровищ: {0}"
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "PrintAvailableBounties",
+      "values": {
+        "Bounties for Interval {0}:": "Награды за интервал {0}:"
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "PrintPlayerAvailableBounties",
+      "values": {
+        "Player Bounties:": "Награды игрока:"
+      }
+    },
+    {
+      "type": "EpicLoot.TerminalManager",
+      "method": "PrintGlobalKeys",
+      "values": {
+        "> Print Global Keys:": "> Глобальные ключи:"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/RandyKnapp-EpicLoot-0.14.13/EpicLoot/EpicLoot.cs",
+    "source-evidence/stage-b/RandyKnapp-EpicLoot-0.14.13/EpicLoot.csproj",
+    "source-evidence/stage-b/RandyKnapp-EpicLoot-0.14.13/EpicLoot.Adventure/Container_RPC_OpenRespons_Patch.cs",
+    "source-evidence/stage-b/RandyKnapp-EpicLoot-0.14.13/EpicLoot/LootRoller.cs",
+    "source-evidence/stage-b/RandyKnapp-EpicLoot-0.14.13/EpicLoot/TerminalManager.cs",
+    "source-evidence/stage-b/RandyKnapp-EpicLoot-0.14.13/EpicLoot.localizations.English.json",
+    "source-evidence/stage-b/RandyKnapp-EpicLoot-0.14.13/EpicLoot.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: RandyKnapp-EpicLoot 0.14.13 from Thunderstore"
+  ]
+}

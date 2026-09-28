@@ -1,0 +1,61 @@
+{
+  "id": "BossAdd",
+  "package": "LJS-BossAdd",
+  "version": "1.2.0",
+  "pluginVersion": "1.2.0",
+  "assembly": "bossadd",
+  "guids": [
+    "bossadd"
+  ],
+  "namespaces": [
+    "bossadd.Patches"
+  ],
+  "words": {
+    "bossadd_yagluth_curse_name": "Бессилие",
+    "bossadd_yagluth_curse_startmsg": "Проклятие Яглута высасывает силы из вашего тела",
+    "bossadd_yagluth_curse_tooltip": "Вас поразило проклятие Яглута, и вы обессилены. Силы покидают тело — бегать нельзя, можно лишь медленно идти.",
+    "bossadd_yagluth_head_name": "Взор Яглута",
+    "bossadd_yagluth_wrongenervate_name": "Бессилие",
+    "bossadd_yagluth_wrongenervate_startmsg": "Убийство неверной головы лишило ваше тело сил",
+    "bossadd_yagluth_wrongenervate_tooltip": "Вы убили неверную голову и обессилены. Силы покидают тело — бегать нельзя, можно лишь медленно идти."
+  },
+  "englishWords": {
+    "bossadd_yagluth_curse_name": "Enervated",
+    "bossadd_yagluth_curse_startmsg": "Yagluth's curse drains the strength from your body",
+    "bossadd_yagluth_curse_tooltip": "Struck by Yagluth's curse, you are enervated. Your strength drains away — you cannot run and can only walk slowly.",
+    "bossadd_yagluth_head_name": "Gaze of Yagluth",
+    "bossadd_yagluth_wrongenervate_name": "Enervated",
+    "bossadd_yagluth_wrongenervate_startmsg": "Killing the wrong head has drained the strength from your body",
+    "bossadd_yagluth_wrongenervate_tooltip": "A wrong-answer head kill has enervated you. Your strength drains away — you cannot run and can only walk slowly."
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "bossadd.Patches.BonemassKillConditionPatch",
+      "method": "Prefix",
+      "values": {
+        "분열된 본매스를 모두 처치하라!": "Уничтожьте все части Массы костей!"
+      }
+    },
+    {
+      "type": "bossadd.Patches.MiniBonemassOrderDamageBlockPatch",
+      "method": "Prefix",
+      "values": {
+        "]색 본매스를 먼저 처치하라!": "] — сначала убейте Массу костей этого цвета!"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/LJS-BossAdd-1.2.0/bossadd/Plugin.cs",
+    "source-evidence/stage-b/LJS-BossAdd-1.2.0/bossadd.csproj",
+    "source-evidence/stage-b/LJS-BossAdd-1.2.0/bossadd.Patches/BonemassKillConditionPatch.cs",
+    "source-evidence/stage-b/LJS-BossAdd-1.2.0/bossadd.Patches/MiniBonemassOrderDamageBlockPatch.cs",
+    "source-evidence/stage-b/LJS-BossAdd-1.2.0/bossadd.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: LJS-BossAdd 1.2.0 from Thunderstore"
+  ]
+}

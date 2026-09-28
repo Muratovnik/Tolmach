@@ -1,0 +1,67 @@
+{
+  "id": "FirstPersonMode",
+  "package": "Azumatt-FirstPersonMode",
+  "version": "1.3.12",
+  "pluginVersion": "1.3.12",
+  "assembly": "FirstPersonMode",
+  "guids": [
+    "Azumatt.FirstPersonMode"
+  ],
+  "namespaces": [
+    "FirstPersonMode.Util",
+    "ServerSync"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "FirstPersonMode.Util.Functions",
+      "method": "HandleFirstPersonMode",
+      "values": {
+        "Changed fov to: {0}": "Угол обзора изменён: {0}"
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/Azumatt-FirstPersonMode-1.3.12/FirstPersonMode/FirstPersonModePlugin.cs",
+    "source-evidence/stage-b/Azumatt-FirstPersonMode-1.3.12/FirstPersonMode.csproj",
+    "source-evidence/stage-b/Azumatt-FirstPersonMode-1.3.12/FirstPersonMode.Util/Functions.cs",
+    "source-evidence/stage-b/Azumatt-FirstPersonMode-1.3.12/ServerSync/VersionCheck.cs",
+    "source-evidence/stage-b/Azumatt-FirstPersonMode-1.3.12/FirstPersonMode.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: Azumatt-FirstPersonMode 1.3.12 from Thunderstore (deprecated)"
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "VNEI",
+  "package": "MSchmoecker-VNEI",
+  "version": "0.17.6",
+  "pluginVersion": "0.17.6",
+  "assembly": "VNEI",
+  "guids": [
+    "com.maxsch.valheim.vnei"
+  ],
+  "namespaces": [
+    "VNEI.Logic",
+    "VNEI.UI"
+  ],
+  "words": {
+    "copy_display_name": "Копировать отображаемое имя",
+    "copy_internal_name": "Копировать ItemID",
+    "copy_mod_name": "Копировать название мода",
+    "vnei_any_item": "Любой предмет",
+    "vnei_back_to_search": "Показать поиск",
+    "vnei_category_armor": "Показать броню",
+    "vnei_category_creature": "Показать существ",
+    "vnei_category_favorite": "Показать только избранное",
+    "vnei_category_food": "Показать еду",
+    "vnei_category_item": "Показать обычные предметы",
+    "vnei_category_piece": "Показать постройки",
+    "vnei_category_undefined": "Показать предметы без категории",
+    "vnei_category_weapon": "Показать оружие и щиты",
+    "vnei_combined_view": "Рецепты",
+    "vnei_enable_cheats": "Включить читы",
+    "vnei_hand_station": "Инвентарь",
+    "vnei_items_in_category": "Предметов в этом фильтре: $1",
+    "vnei_no_station": "Без ремесленной станции",
+    "vnei_obtaining": "Получение",
+    "vnei_search": "Поиск...",
+    "vnei_unknown_item": "Неизвестный предмет",
+    "vnei_using": "Использование"
+  },
+  "englishWords": {
+    "copy_display_name": "Copy display name",
+    "copy_internal_name": "Copy ItemID",
+    "copy_mod_name": "Copy mod name",
+    "vnei_any_item": "Any item",
+    "vnei_back_to_search": "Show Search",
+    "vnei_category_armor": "Show Armor",
+    "vnei_category_creature": "Show Creatures",
+    "vnei_category_favorite": "Show only Favorites",
+    "vnei_category_food": "Show Food",
+    "vnei_category_item": "Show Generic Items",
+    "vnei_category_piece": "Show Pieces",
+    "vnei_category_undefined": "Show Undefined Items",
+    "vnei_category_weapon": "Show Weapon/Shields",
+    "vnei_combined_view": "Recipes",
+    "vnei_enable_cheats": "Enable cheats",
+    "vnei_hand_station": "Inventory",
+    "vnei_items_in_category": "$1 items in this filter",
+    "vnei_no_station": "No crafting station",
+    "vnei_obtaining": "Obtaining",
+    "vnei_search": "Search...",
+    "vnei_unknown_item": "Unknown item",
+    "vnei_using": "Using"
+  },
+  "texts": {
+    "Search": "Поиск"
+  },
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "VNEI.UI.HistoryElement",
+      "method": "Description",
+      "values": {
+        "Previous: ": "Предыдущее: ",
+        ", Next: ": ", следующее: "
+      }
+    },
+    {
+      "type": "VNEI.UI.HistorySnapshotRecipe",
+      "method": "Description",
+      "values": {
+        "Recipe: ": "Рецепт: "
+      }
+    },
+    {
+      "type": "VNEI.UI.HistorySnapshotSearch",
+      "method": "Description",
+      "values": {
+        "Search": "Поиск"
+      }
+    },
+    {
+      "type": "VNEI.Logic.FileWriterController",
+      "method": "get_Help",
+      "values": {
+        "Writes all indexed items to a file": "Записывает все проиндексированные предметы в файл"
+      }
+    },
+    {
+      "type": "VNEI.Logic.IconExport",
+      "method": "get_Help",
+      "values": {
+        "Exports icons": "Экспортирует значки"
+      }
+    },
+    {
+      "type": "VNEI.UI.SelectUITest+ToggleUIConsoleCommand",
+      "method": "get_Help",
+      "values": {
+        "Shows the selection test": "Показывает тест выбора"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/MSchmoecker-VNEI-0.17.6/VNEI/Plugin.cs",
+    "source-evidence/stage-b/MSchmoecker-VNEI-0.17.6/VNEI.csproj",
+    "source-evidence/stage-b/MSchmoecker-VNEI-0.17.6/VNEI.UI/HistoryElement.cs",
+    "source-evidence/stage-b/MSchmoecker-VNEI-0.17.6/VNEI.UI/HistorySnapshotRecipe.cs",
+    "source-evidence/stage-b/MSchmoecker-VNEI-0.17.6/VNEI.UI/HistorySnapshotSearch.cs",
+    "source-evidence/stage-b/MSchmoecker-VNEI-0.17.6/VNEI.Logic/FileWriterController.cs",
+    "source-evidence/stage-b/MSchmoecker-VNEI-0.17.6/VNEI.Logic/IconExport.cs",
+    "source-evidence/stage-b/MSchmoecker-VNEI-0.17.6/VNEI.UI/SelectUITest.cs",
+    "source-evidence/stage-b/MSchmoecker-VNEI-0.17.6/VNEI.Localization.English.json",
+    "source-evidence/stage-b/MSchmoecker-VNEI-0.17.6/VNEI.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: MSchmoecker-VNEI 0.17.6 from Thunderstore"
+  ]
+}

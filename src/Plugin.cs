@@ -59,10 +59,35 @@ namespace Tolmach
     [BepInDependency("Azumatt.AzuAreaRepair", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("advize.PlantEasily", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("balrond.astafaraios.BalrondHumanoidRandomizer", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("org.bepinex.plugins.passivepowers", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("org.bepinex.plugins.odinssteelworks", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("randyknapp.mods.epicloot", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.maxsch.valheim.vnei", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("sighsorry.InventorySlots", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Insanity.Culinary_Horizons", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Dreanegade.Hunter_Legacy", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Dreanegade.Magic_Supremacy", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("yay.spikehimself.xportal", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("petri.valheim.takeallcooked", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("obelisk.valheim.movebuildpieces", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("blacks7ar.FoodDurationMultiplier", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("bossadd", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("nightofgames.huginn", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("balrond.astafaraios.BalrondAmazingNature", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("balrond.astafaraios.ZBalrondArsenalReborn", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("balrond.astafaraios.BalrondConstructions", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("balrond.astafaraios.BalrondFurnitureReborn", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("balrond.astafaraios.BalrondDualMastery", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("balrond.astafaraios.BalrondLightkeeper", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Dreanegade.Eternal_Legends", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Azumatt.FirstPersonMode", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Azumatt_and_ValheimPlusDevs.PerfectPlacement", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("nickpappas.locationplacementaccelerator", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Azumatt.AzuWorkbenchTweaks", BepInDependency.DependencyFlags.SoftDependency)]
     public sealed class Plugin : BaseUnityPlugin
     {
         public const string PluginId = "muratovnik.tolmach";
-        public const string PluginVersion = "0.3.0";
+        public const string PluginVersion = "0.4.0";
         private static ManualLogSource Log;
         private static readonly List<string> Notes = new List<string>();
         private Harmony harmony;

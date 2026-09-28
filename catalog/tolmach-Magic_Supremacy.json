@@ -1,0 +1,85 @@
+{
+  "id": "Magic_Supremacy",
+  "package": "Dreanegade-Magic_Supremacy",
+  "version": "3.1.2",
+  "pluginVersion": "3.1.2",
+  "assembly": "Magic_Supremacy",
+  "guids": [
+    "Dreanegade.Magic_Supremacy"
+  ],
+  "namespaces": [
+    "Magic_Supremacy",
+    "ServerSync"
+  ],
+  "words": {
+    "caption_knife_fire1": "Снаряд",
+    "caption_knife_fire2": "летит",
+    "electro_trap_land": "Электрическая ловушка падает",
+    "item_staff_death_blaster": "Смертное тление",
+    "npc_riko_DO": "Рико",
+    "piecemanager_cat_distantorigins": "Далёкие истоки",
+    "se_inspiration_tooltip": "Очки Вдохновения:"
+  },
+  "englishWords": {
+    "caption_knife_fire1": "caption_knife_fire1",
+    "caption_knife_fire2": "caption_knife_fire2",
+    "electro_trap_land": "electro_trap_land",
+    "item_staff_death_blaster": "item_staff_death_blaster",
+    "npc_riko_DO": "npc_riko_DO",
+    "piecemanager_cat_distantorigins": "Distant Origins",
+    "se_inspiration_tooltip": "se_inspiration_tooltip"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    },
+    {
+      "type": "Magic_Supremacy.RpcHandlers",
+      "method": "RPC_Magic_Supremacy_Version",
+      "values": {
+        "Magic_Supremacy Installed: 3.1.2\n Needed: ": "Magic_Supremacy: установлена версия 3.1.2\n Требуется: "
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/stage-b/Dreanegade-Magic_Supremacy-3.1.2/Magic_Supremacy/Magic_SupremacyPlugin.cs",
+    "source-evidence/stage-b/Dreanegade-Magic_Supremacy-3.1.2/Magic_Supremacy.csproj",
+    "source-evidence/stage-b/Dreanegade-Magic_Supremacy-3.1.2/ServerSync/VersionCheck.cs",
+    "source-evidence/stage-b/Dreanegade-Magic_Supremacy-3.1.2/Magic_Supremacy/RpcHandlers.cs",
+    "source-evidence/stage-b/Dreanegade-Magic_Supremacy-3.1.2/Magic_Supremacy.translations.English.yml",
+    "source-evidence/stage-b/Dreanegade-Magic_Supremacy-3.1.2/Magic_Supremacy.translations.Russian.yml",
+    "source-evidence/stage-b/Dreanegade-Magic_Supremacy-3.1.2/Magic_Supremacy.ldstr.il"
+  ],
+  "notes": [
+    "Stage B: Dreanegade-Magic_Supremacy 3.1.2 from Thunderstore"
+  ]
+}
