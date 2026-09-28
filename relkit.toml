@@ -54,3 +54,7 @@ smoke = [
 smoke_platforms = ["win32"]
 timeout = 3600
 command_timeout = 1800
+# Releases run the pre-push guard and the owner audit, which load private owner
+# rules located through the local Git setting releasekit.privateRoot.
+require_guard = true
+owner_audit = true
