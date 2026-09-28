@@ -1,0 +1,52 @@
+{
+  "id": "ComfortTweaks",
+  "package": "Smoothbrain-ComfortTweaks",
+  "version": "3.3.11",
+  "assembly": "ComfortTweaks",
+  "guids": [
+    "xyz.alcan.comfortcalc"
+  ],
+  "words": {
+    "ct_campfireinabottle": "Костёр в бутылке",
+    "ct_campfireinabottle_desc": "Вкус тепла костра в беззвёздную ночь.",
+    "ct_campfireinabottle_tooltip": "Короткий отдых",
+    "ct_bonfireinabottle": "Большой костёр в бутылке",
+    "ct_bonfireinabottle_desc": "Вкус вечера с друзьями у большого костра.",
+    "ct_bonfireinabottle_tooltip": "Продолжительный отдых",
+    "ct_livingroominabottle": "Домашний уют в бутылке",
+    "ct_livingroominabottle_desc": "Вкус отдыха на троне у очага с кружкой медовухи.",
+    "ct_livingroominabottle_tooltip": "Долгий отдых",
+    "jc_necklace_blueish": "Ожерелье сытого отдыха",
+    "jc_necklace_blueish_description": "Голубоватое ожерелье, которое сохраняет сытость во время отдыха.",
+    "ct_rested": "Бодрость"
+  },
+  "englishWords": {
+    "ct_campfireinabottle": "Campfire in a bottle",
+    "ct_campfireinabottle_desc": "Tastes like the feeling of a campfire in a starless night.",
+    "ct_campfireinabottle_tooltip": "Small rested buff",
+    "ct_bonfireinabottle": "Bonfire in a bottle",
+    "ct_bonfireinabottle_desc": "Tastes like an evening with friends by the bonfire.",
+    "ct_bonfireinabottle_tooltip": "Medium rested buff",
+    "ct_livingroominabottle": "Livingroom in a bottle",
+    "ct_livingroominabottle_desc": "Tastes like the feeling of sitting on your throne at the hearth, drinking a mead",
+    "ct_livingroominabottle_tooltip": "Large rested buff",
+    "jc_necklace_blueish": "Necklace of comfortable satiation",
+    "jc_necklace_blueish_description": "A blueish necklace that keeps you satiated while resting.",
+    "ct_rested": "Rested"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/d/Smoothbrain-ComfortTweaks-proj/ComfortTweaks.translations.English.yml",
+    "source-evidence/localization/d/Smoothbrain-ComfortTweaks-proj/ComfortTweaks/ComfortTweaks.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "ComfortTweaks"
+  ],
+  "pluginVersion": "3.3.11"
+}

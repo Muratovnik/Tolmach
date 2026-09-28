@@ -1,0 +1,30 @@
+{
+  "id": "DynamicStoragePiles",
+  "package": "MSchmoecker-DynamicStoragePiles",
+  "version": "0.8.1",
+  "assembly": "DynamicStoragePiles",
+  "guids": [
+    "com.maxsch.valheim.DynamicStoragePiles"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [
+    {
+      "source": "{0} cannot be placed in {1}",
+      "target": "Нельзя положить {0} в {1}"
+    }
+  ],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/a/MSchmoecker-DynamicStoragePiles/DynamicStoragePiles/DynamicStoragePiles.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "DynamicStoragePiles"
+  ],
+  "pluginVersion": "0.8.1"
+}

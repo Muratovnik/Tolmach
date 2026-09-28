@@ -1,0 +1,49 @@
+{
+  "scope": "Current artifact, static inventory and standard parsers; not a compiled C# run",
+  "python": "3.13.5",
+  "tools": {
+    "dotnet": null,
+    "mono": null,
+    "csc": null,
+    "msbuild": null,
+    "pwsh": null,
+    "powershell": null
+  },
+  "dotnet_attempt": {
+    "started": false,
+    "error_type": "FileNotFoundError",
+    "message": "dotnet executable not found; compiler and tests were not started."
+  },
+  "xml_well_formed": [
+    "ValheimRussianPack.csproj",
+    "tests/ValheimRussianPack.Tests.csproj",
+    "build/RuntimeReferences.props"
+  ],
+  "catalogs_byte_identical": 37,
+  "dictionary_only_modules_skipping_il": [
+    "Advize_PlantEverything",
+    "BuildCamera",
+    "ComfortTweaks",
+    "CraftyCartsRemake",
+    "Digitalroot.Valheim.GoldBars",
+    "FoodStaminaRegen",
+    "Groups",
+    "Recycle_N_Reclaim",
+    "RenegadeVikings",
+    "SeedBed",
+    "SleepSkip",
+    "Warfare"
+  ],
+  "retired_files_absent": [
+    "src/Reflect.cs",
+    "src/IlReader.cs",
+    "tests/EngineFixtures.cs",
+    "tests/HarmonyFixtures.cs",
+    "tools/review_checks.py"
+  ],
+  "in_game_run": false,
+  "windows_scripts_run": false,
+  "xunity_pilot_run": false,
+  "initial_pytest_run": "5 passed, 1 fixture setup failure: mutation looked for a size tag in texts instead of patterns. Fixed test input; not counted as defect detection.",
+  "final_pytest_run": "6 passed; one clean baseline and five deliberate data mutations; actual JUnit output in pytest-data-controls.xml."
+}

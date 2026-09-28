@@ -1,0 +1,46 @@
+{
+  "id": "AirAnimals",
+  "package": "Marlthon-AirAnimals",
+  "version": "0.3.2",
+  "assembly": "AirAnimals",
+  "guids": [
+    "marlthon.AirAnimals"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Harpy Eagle": "Гарпия",
+    "Swan": "Лебедь",
+    "Wild Duck": "Дикая утка",
+    "Hummingbird": "Колибри",
+    "Bald Eagle": "Белоголовый орлан",
+    "Barn Owl": "Сипуха",
+    "Red Crowned Crane": "Японский журавль",
+    "Pigeon": "Голубь",
+    "Secretary Bird": "Птица-секретарь",
+    "Archaeopteryx": "Археоптерикс",
+    "Viceroy": "Бабочка-вице-король",
+    "Horaces DuskyWing": "Толстоголовка Горация",
+    "RedSpoted Purple": "Пятнистая ленточница",
+    "RedBanded": "Краснополосая бабочка",
+    "CloudLess Sulphur": "Жёлтая бабочка",
+    "Checkered White": "Белянка",
+    "Beetle Brown": "Коричневый жук",
+    "Beetle Gold": "Золотистый жук",
+    "Beetle Purple": "Фиолетовый жук",
+    "Beetle Green": "Зелёный жук"
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/c/40/AirAnimals/AirAnimalsPlugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "AirAnimals"
+  ],
+  "pluginVersion": "0.3.2"
+}

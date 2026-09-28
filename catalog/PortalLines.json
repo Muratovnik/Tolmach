@@ -1,0 +1,28 @@
+{
+  "id": "PortalLines",
+  "package": "Jumpingmushroom-PortalLines",
+  "version": "0.8.0",
+  "assembly": "PortalLines",
+  "guids": [
+    "com.jumpingmushroom.portallines"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Portal lines": "Линии порталов",
+    "Route: arrived": "Маршрут: вы прибыли"
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/d/Jumpingmushroom-PortalLines-proj/PortalLines/PortalLinesPlugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "PortalLines"
+  ],
+  "pluginVersion": "0.8.0"
+}

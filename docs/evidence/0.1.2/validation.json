@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "python_assertions": 4352,
+  "counts": {
+    "modules": 37,
+    "words": 540,
+    "texts": 399,
+    "patterns": 41,
+    "explicit_literals": 29
+  },
+  "errors": [],
+  "skipped": [],
+  "scope": "Data only: JSON, placeholder/tag preservation, fixture references, independent snapshot binding metadata and optional source-resource comparisons. No C# parser or alternate translation engine.",
+  "csharp_compilation": "not run",
+  "csharp_execution": "not run",
+  "windows_installer_execution": "not run",
+  "harmony_runtime": "not run",
+  "valheim_runtime": "not run"
+}

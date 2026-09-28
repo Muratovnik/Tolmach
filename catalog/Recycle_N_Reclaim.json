@@ -1,0 +1,36 @@
+{
+  "id": "Recycle_N_Reclaim",
+  "package": "Azumatt-Recycle_N_Reclaim",
+  "version": "1.4.5",
+  "assembly": "Recycle_N_Reclaim",
+  "guids": [
+    "Azumatt.Recycle_N_Reclaim"
+  ],
+  "words": {
+    "azumatt_recycle_n_reclaim_tooltip_yield_header": "Ресурсы после разборки:",
+    "azumatt_recycle_n_reclaim_undo_success": "Разборка отменена.",
+    "azumatt_recycle_n_reclaim_undo_failed": "Нельзя отменить разборку: возвращённых ресурсов больше нет в инвентаре.",
+    "azumatt_recycle_n_reclaim_undo_expired": "Время для отмены разборки истекло."
+  },
+  "englishWords": {
+    "azumatt_recycle_n_reclaim_tooltip_yield_header": "Recycle Yield:",
+    "azumatt_recycle_n_reclaim_undo_success": "Reclaim undone.",
+    "azumatt_recycle_n_reclaim_undo_failed": "Cannot undo: returned resources are no longer in inventory.",
+    "azumatt_recycle_n_reclaim_undo_expired": "Undo window has expired."
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/b/34-Azumatt-Recycle_N_Reclaim/Recycle_N_Reclaim.translations.English.yml",
+    "source-evidence/localization/b/34-Azumatt-Recycle_N_Reclaim/Recycle_N_Reclaim/Recycle_N_ReclaimPlugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "Recycle_N_Reclaim"
+  ],
+  "pluginVersion": "1.4.5"
+}

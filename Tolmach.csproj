@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+    <Version>0.2.0</Version>
+    <AssemblyVersion>$(Version).0</AssemblyVersion>
+    <FileVersion>$(Version).0</FileVersion>
+    <AssemblyName>Tolmach</AssemblyName>
+    <RootNamespace>Tolmach</RootNamespace>
+    <Title>Tolmach</Title>
+    <Description>Client-side Russian translations for Valheim mods, complementing ObeliskRU.</Description>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <Deterministic>true</Deterministic>
+    <DebugType>portable</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <Import Project="build/RuntimeReferences.props" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <Compile Include="src/**/*.cs" />
+    <None Include="catalog/*.json" CopyToOutputDirectory="PreserveNewest" />
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>Tolmach.Tests</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.InteropServices.ComVisibleAttribute">
+      <_Parameter1>false</_Parameter1>
+      <_Parameter1_TypeName>System.Boolean</_Parameter1_TypeName>
+    </AssemblyAttribute>
+  </ItemGroup>
+  <Target Name="RecordResolvedReferences" AfterTargets="ResolveAssemblyReferences">
+    <!-- Standard MSBuild hashing task; no second reflection/compiler pipeline. -->
+    <MakeDir Directories="$(IntermediateOutputPath)" />
+    <GetFileHash Files="@(ReferencePath)" Algorithm="SHA256">
+      <Output TaskParameter="Items" ItemName="_HashedReferences" />
+    </GetFileHash>
+    <WriteLinesToFile File="$(IntermediateOutputPath)reference-hashes.txt"
+      Lines="@(_HashedReferences->'%(Filename)%(Extension)|%(FileHash)')" Overwrite="true" Encoding="UTF-8" />
+  </Target>
+</Project>

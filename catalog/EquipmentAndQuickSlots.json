@@ -1,0 +1,40 @@
+{
+  "id": "EquipmentAndQuickSlots",
+  "package": "RandyKnapp-EquipmentAndQuickSlots",
+  "version": "3.1.3",
+  "assembly": "EquipmentAndQuickSlots",
+  "guids": [
+    "randyknapp.mods.equipmentandquickslots"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Head": "Голова",
+    "Chest": "Грудь",
+    "Legs": "Ноги",
+    "Shoulder": "Плечи",
+    "Utility": "Аксессуар",
+    "Feet": "Ступни",
+    "Ammo": "Боеприпасы",
+    "Quick Slots": "Быстрые ячейки",
+    "Equipment": "Снаряжение"
+  },
+  "patterns": [],
+  "returns": [
+    {
+      "type": "EquipmentAndQuickSlots.Slots+Slot",
+      "method": "get_Name"
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/a/RandyKnapp-EquipmentAndQuickSlots/EquipmentAndQuickSlots/EquipmentAndQuickSlots.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "EquipmentAndQuickSlots"
+  ],
+  "pluginVersion": "3.1.3"
+}

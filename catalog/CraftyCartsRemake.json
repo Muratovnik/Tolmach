@@ -1,0 +1,38 @@
+{
+  "id": "CraftyCartsRemake",
+  "package": "OdinPlus-CraftyCartsRemake",
+  "version": "3.2.3",
+  "assembly": "CraftyCartsRemake",
+  "guids": [
+    "Azumatt.CraftyCarts"
+  ],
+  "words": {
+    "msg_cartupgraded": "$1: улучшение выполнено",
+    "msg_cantupgrade": "Невозможно улучшить $1",
+    "msg_maxlevel": "$1: уже достигнут максимальный уровень",
+    "piece_upgradecart": "Улучшить тележку",
+    "piece_upgradecart_description": "Повысить уровень тележки"
+  },
+  "englishWords": {
+    "msg_cartupgraded": "$1 has been upgraded",
+    "msg_cantupgrade": "$1 can't be upgraded",
+    "msg_maxlevel": "$1 is already at max level",
+    "piece_upgradecart": "Upgrade Cart",
+    "piece_upgradecart_description": "Upgrade your cart to a higher level"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/c/43/CraftyCartsRemake.translations.English.yml",
+    "source-evidence/localization/c/43/CraftyCartsRemake/CCR.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "CraftyCartsRemake"
+  ],
+  "pluginVersion": "3.2.3"
+}

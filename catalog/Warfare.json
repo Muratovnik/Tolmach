@@ -1,0 +1,34 @@
+{
+  "id": "Warfare",
+  "package": "Therzie-Warfare",
+  "version": "1.9.4",
+  "assembly": "Warfare",
+  "guids": [
+    "Therzie.Warfare"
+  ],
+  "words": {
+    "crossbow_wood_TW": "Примитивный арбалет",
+    "crossbow_wood_description_TW": "Простой деревянный арбалет с медленной перезарядкой. Метает болты во врагов.",
+    "SE_Decapitator5_description_TW": "Каждый пятый удар снижает сопротивление противника рубящему урону."
+  },
+  "englishWords": {
+    "SE_Decapitator5_description_TW": "Lowers your opponents slash resistance on 5th hit.",
+    "crossbow_wood_TW": "Crude Crossbow",
+    "crossbow_wood_description_TW": "A basic and slow wooden crossbow to shoot bolts with at your enemies."
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "profile/BepInEx/config/TherzieTranslations/Warfare/Warfare.English-LatestUpToDate.yml",
+    "source-evidence/localization/a/Therzie-Warfare/Warfare/WarfarePlugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "Warfare"
+  ],
+  "pluginVersion": "1.9.4"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "AzuCraftyBoxes",
+  "package": "Azumatt-AzuCraftyBoxes",
+  "version": "1.8.26",
+  "assembly": "AzuCraftyBoxes",
+  "guids": [
+    "Azumatt.AzuCraftyBoxes"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Pull from containers? Yes": "Брать из сундуков? Да",
+    "Pull from containers? No": "Брать из сундуков? Нет",
+    "Pull from containers? Only mine": "Брать из сундуков? Только из моих",
+    "Pull from containers?": "Брать из сундуков?",
+    "Only mine": "Только из моих",
+    "Yes": "Да",
+    "No": "Нет"
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/AzuCraftyBoxes/AzuCraftyBoxesPlugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "literals": [
+    {
+      "type": "AzuCraftyBoxes.AzuCraftyBoxesPlugin",
+      "method": "Update",
+      "values": {
+        "Pull from containers?": "Брать из сундуков?",
+        "<color=green>Yes</color>": "<color=green>Да</color>",
+        "<color=yellow>Only mine</color>": "<color=yellow>Только из моих</color>",
+        "<color=red>No</color>": "<color=red>Нет</color>"
+      }
+    }
+  ],
+  "namespaces": [
+    "AzuCraftyBoxes"
+  ],
+  "pluginVersion": "1.8.26"
+}

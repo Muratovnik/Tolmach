@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+    <AssemblyName>Tolmach.Tests</AssemblyName>
+    <IsTestProject>true</IsTestProject>
+    <IsPackable>false</IsPackable>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <CopyRuntimeReferences>true</CopyRuntimeReferences>
+  </PropertyGroup>
+  <Import Project="../build/RuntimeReferences.props" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" PrivateAssets="all" />
+    <PackageReference Include="NUnit" Version="3.14.0" PrivateAssets="all" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" PrivateAssets="all" />
+    <ProjectReference Include="../Tolmach.csproj" />
+    <!-- Compile-only: absent beside the test host, like a mod's missing optional dependency. -->
+    <Reference Include="UnityEngine.AudioModule"><HintPath>$(GamePath)/valheim_Data/Managed/UnityEngine.AudioModule.dll</HintPath><Private>false</Private></Reference>
+    <None Update="fixtures/**/*.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../catalog/*.json" Link="catalog/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <!-- Dependencies of the profile's Harmony build, only beside the test host. -->
+    <None Include="$(BepInExCorePath)/Mono*.dll" Link="%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

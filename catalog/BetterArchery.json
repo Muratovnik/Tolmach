@@ -1,0 +1,55 @@
+{
+  "id": "BetterArchery",
+  "package": "ishid4-BetterArchery",
+  "version": "2.0.2",
+  "assembly": "BetterArchery",
+  "guids": [
+    "ishid4.mods.betterarchery"
+  ],
+  "words": {
+    "mod_betterarchery_test": "Загружено",
+    "mod_betterarchery_tombstone_space_error": "Недостаточно места в инвентаре. Выброшенные предметы:",
+    "mod_betterarchery_quiver_equipped_error": "Нельзя выбросить надетый колчан.",
+    "mod_betterarchery_quiver_wrong_item_error": "Этот предмет нельзя положить в колчан.",
+    "mod_betterarchery_quiver_transfer_chest_error": "Снимите предмет.",
+    "mod_betterarchery_quiver_item_swap_error": "Нельзя поменять местами этот предмет.",
+    "mod_betterarchery_quiver_swap_chest_error": "Снимите предмет перед перемещением.",
+    "mod_betterarchery_quiver_drop_outside_error": "Сначала снимите колчан.",
+    "mod_betterarchery_quiver_unequip_error": "Сначала опустошите колчан.",
+    "mod_betterarchery_leather_quiver_name": "Кожаный колчан",
+    "mod_betterarchery_leather_quiver_description": "Колчан из кожи. Добавляет три ячейки для ваших стрел."
+  },
+  "englishWords": {
+    "mod_betterarchery_test": "Loaded",
+    "mod_betterarchery_tombstone_space_error": "Not enough space in inventory, Items Dropped:",
+    "mod_betterarchery_quiver_equipped_error": "You can't drop the quiver while equipped.",
+    "mod_betterarchery_quiver_wrong_item_error": "You can not put this inside of the quiver.",
+    "mod_betterarchery_quiver_transfer_chest_error": "Unequip the item.",
+    "mod_betterarchery_quiver_item_swap_error": "Can't swap this item.",
+    "mod_betterarchery_quiver_swap_chest_error": "Unequip the item before moving it.",
+    "mod_betterarchery_quiver_drop_outside_error": "Unequip the quiver first.",
+    "mod_betterarchery_quiver_unequip_error": "Empty the quiver first.",
+    "mod_betterarchery_leather_quiver_name": "Leather Quiver",
+    "mod_betterarchery_leather_quiver_description": "An arrow holder made with leathers. Gives 3 extra slots for your lovely arrows."
+  },
+  "texts": {},
+  "patterns": [
+    {
+      "source": "<size=25>Sneak attack for {0}X ({1}) damage!</size>",
+      "target": "<size=25>Скрытая атака: урон ×{0} ({1})!</size>"
+    }
+  ],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "packages/ishid4-BetterArchery/plugins/betterarchery_translations.json",
+    "source-evidence/localization/c/47/BetterArchery/BetterArchery.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "BetterArchery"
+  ],
+  "pluginVersion": "2.0.2"
+}

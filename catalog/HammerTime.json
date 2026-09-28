@@ -1,0 +1,34 @@
+{
+  "id": "HammerTime",
+  "package": "MSchmoecker-HammerTime",
+  "version": "0.3.11",
+  "assembly": "HammerTime",
+  "guids": [
+    "com.maxsch.valheim.HammerTime"
+  ],
+  "words": {
+    "jotunn_cat_corewoodpieces": "Цельная древесина",
+    "jotunn_cat_craftycarts": "Ремесленные тележки"
+  },
+  "englishWords": {
+    "jotunn_cat_corewoodpieces": "CoreWoodPieces",
+    "jotunn_cat_craftycarts": "CraftyCarts"
+  },
+  "texts": {
+    "CoreWoodPieces": "Цельная древесина",
+    "CraftyCarts": "Ремесленные тележки"
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/a/MSchmoecker-HammerTime/HammerTime/Plugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "HammerTime"
+  ],
+  "pluginVersion": "0.3.11"
+}

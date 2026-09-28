@@ -1,0 +1,43 @@
+{
+  "id": "BalrondShipyard",
+  "package": "Balrond-balrond_shipyard",
+  "version": "1.7.3",
+  "assembly": "BalrondShipyard.merged",
+  "guids": [
+    "balrond.astafaraios.BalrondShipyard"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Upgrade failed": "Улучшение не удалось",
+    "Ship Light": "Судовое освещение",
+    "Change Name": "Изменить название",
+    "(no name)": "(без названия)",
+    "There is no ship available to upgrade": "Нет корабля для улучшения",
+    "Upgrade was applied but resource consumption failed - check server log": "Улучшение применено, но списать ресурсы не удалось. Проверьте журнал сервера.",
+    "Upgrade Ship": "Улучшить корабль",
+    "[<color=yellow><b>$KEY_Use</b></color>] Upgrade Ship": "[<color=yellow><b>$KEY_Use</b></color>] Улучшить корабль",
+    "There is no ship available for that upgrade": "Нет корабля, подходящего для этого улучшения",
+    "[<color=yellow><b>$KEY_Use</b></color>] Change Name": "[<color=yellow><b>$KEY_Use</b></color>] Изменить название",
+    "[<color=yellow><b>$KEY_Use</b></color>] Disable": "[<color=yellow><b>$KEY_Use</b></color>] Выключить",
+    "[<color=yellow><b>$KEY_Use</b></color>] Enable": "[<color=yellow><b>$KEY_Use</b></color>] Включить"
+  },
+  "patterns": [],
+  "returns": [
+    {
+      "type": "BalrondShipyard.ShipSwitch",
+      "method": "GetHoverName"
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/Launch.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "BalrondShipyard"
+  ],
+  "pluginVersion": "1.7.3"
+}

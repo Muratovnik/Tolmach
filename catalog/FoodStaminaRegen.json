@@ -1,0 +1,30 @@
+{
+  "id": "FoodStaminaRegen",
+  "package": "Smoothbrain-StaminaRegenerationFromFood",
+  "version": "1.5.8",
+  "assembly": "FoodStaminaRegen",
+  "guids": [
+    "org.bepinex.plugins.foodstaminaregen"
+  ],
+  "words": {
+    "fsr_stat_name": "Восстановление выносливости"
+  },
+  "englishWords": {
+    "fsr_stat_name": "Endurance"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/c/54/FoodStaminaRegen.translations.English.yml",
+    "source-evidence/localization/c/54/FoodStaminaRegen/FoodStaminaRegen.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "FoodStaminaRegen"
+  ],
+  "pluginVersion": "1.5.8"
+}

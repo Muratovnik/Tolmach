@@ -1,0 +1,31 @@
+{
+  "id": "Advize_PlantEverything",
+  "package": "Advize-PlantEverything",
+  "version": "1.21.3",
+  "assembly": "Advize_PlantEverything",
+  "guids": [
+    "advize.PlantEverything"
+  ],
+  "words": {
+    "peLingonberryBushName": "Куст брусники",
+    "peLingonberryBushDescription": "Посадите бруснику, чтобы вырастить брусничный куст."
+  },
+  "englishWords": {
+    "peLingonberryBushName": "Lingonberry Bush",
+    "peLingonberryBushDescription": "Plant lingonberries to grow lingonberry bushes."
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/b/29-Advize-PlantEverything/Advize_PlantEverything/PlantEverything.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "Advize_PlantEverything"
+  ],
+  "pluginVersion": "1.21.3"
+}

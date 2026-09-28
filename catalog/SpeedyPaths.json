@@ -1,0 +1,42 @@
+{
+  "id": "SpeedyPaths",
+  "package": "Nextek-SpeedyPaths",
+  "version": "1.0.9",
+  "assembly": "SpeedyPaths",
+  "guids": [
+    "nex.SpeedyPaths"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Speedy Path": "Быстрый путь",
+    "Dirt Path": "Грунтовая дорога",
+    "Stone Path": "Мощёная дорога",
+    "Cultivated": "Возделанная почва",
+    "Wood": "Древесина",
+    "Hard Wood": "Цельная древесина",
+    "Core Wood": "Цельная древесина",
+    "Stone": "Камень",
+    "Iron": "Железо",
+    "Iron Wood": "Железодерево",
+    "Ironwood": "Железодерево",
+    "Black Marble": "Чёрный мрамор",
+    "Marble": "Мрамор",
+    "Grausten": "Граустен",
+    "Untamed": "Пересечённая местность",
+    "Hardwood": "Цельная древесина"
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/d/Nextek-SpeedyPaths-proj/SpeedyPaths/SpeedyPathsClientMod.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "SpeedyPaths"
+  ],
+  "pluginVersion": "1.0.9"
+}

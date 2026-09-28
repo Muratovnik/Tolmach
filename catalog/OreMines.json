@@ -1,0 +1,90 @@
+{
+  "id": "OreMines",
+  "package": "blacks7ar-OreMines",
+  "version": "1.2.1",
+  "assembly": "OreMines",
+  "guids": [
+    "blacks7ar.OreMines"
+  ],
+  "words": {
+    "bom_coalmine": "Угольная шахта",
+    "bom_deposit_coal": "Залежи угля",
+    "bom_coppermine": "Медная шахта",
+    "bom_coppervein": "Медная жила",
+    "bom_flintmine": "Кремнёвая шахта",
+    "bom_deposit_flint": "Залежи кремня",
+    "bom_ironmine": "Железная шахта",
+    "bom_ironvein": "Железная жила",
+    "bom_tinmine": "Оловянная шахта",
+    "bom_silvermine": "Серебряная шахта",
+    "bom_silvervein": "Серебряная жила",
+    "bom_bonemasskey": "Ключ Массы Костей",
+    "bom_bonemasskey_description": "Открывает серебряные шахты в горах.",
+    "bom_eikthyrkey": "Ключ Эйктюра",
+    "bom_eikthyrkey_description": "Открывает медные и оловянные шахты.",
+    "bom_coalminegate": "Ворота угольной шахты",
+    "bom_copperminegate": "Ворота медной шахты",
+    "bom_ironminegate": "Ворота железной шахты",
+    "bom_silverminegate": "Ворота серебряной шахты",
+    "bom_tinminegate": "Ворота оловянной шахты",
+    "bom_blackmetalmine": "Шахта чёрного металла",
+    "bom_blackmetalvein": "Залежи лома чёрного металла",
+    "bom_blackmetalminegate": "Ворота шахты чёрного металла",
+    "bom_flametalmine": "Огнеметаллическая шахта",
+    "bom_flametalvein": "Огнеметаллическая жила",
+    "bom_flametalminegate": "Ворота огнеметаллической шахты",
+    "bom_crystalkey": "Кристальный ключ",
+    "bom_crystalkey_description": "Открывает шахты чёрного металла на равнинах и в Туманных землях.",
+    "bom_lavakey": "Лавовый ключ",
+    "bom_lavakey_description": "Открывает огнеметаллические шахты в Пепельных землях."
+  },
+  "englishWords": {
+    "bom_coalmine": "Coal Mine",
+    "bom_deposit_coal": "Coal Deposit",
+    "bom_coppermine": "Copper Mine",
+    "bom_coppervein": "Copper Ore Deposit",
+    "bom_flintmine": "Flint Mine",
+    "bom_deposit_flint": "Flint Deposit",
+    "bom_ironmine": "Iron Mine",
+    "bom_ironvein": "Iron Ore Deposit",
+    "bom_tinmine": "Tin Mine",
+    "bom_silvermine": "Silver Mine",
+    "bom_silvervein": "Silver Ore Deposit",
+    "bom_bonemasskey": "BonemassKey",
+    "bom_bonemasskey_description": "Unlocks silver mines at the mountains",
+    "bom_eikthyrkey": "EikthyrKey",
+    "bom_eikthyrkey_description": "Unlocks copper and tin mines.",
+    "bom_coalminegate": "Coal Mine Gate",
+    "bom_copperminegate": "Copper Mine Gate",
+    "bom_ironminegate": "Iron Mine Gate",
+    "bom_silverminegate": "Silver Mine Gate",
+    "bom_tinminegate": "Tin Mine Gate",
+    "bom_blackmetalmine": "BlackMetal Mine",
+    "bom_blackmetalvein": "BlackMetal Scrap Deposit",
+    "bom_blackmetalminegate": "BlackMetal Scrap Mine Gate",
+    "bom_flametalmine": "Flametal Mine",
+    "bom_flametalvein": "Flametal Ore Deposit",
+    "bom_flametalminegate": "Flametal Mine Gate",
+    "bom_crystalkey": "Crystal Key",
+    "bom_crystalkey_description": "Unlocks blackmetal mines at the plains and mistlands.",
+    "bom_lavakey": "Lava Key",
+    "bom_lavakey_description": "Unlocks flametal mines at the ashlands."
+  },
+  "texts": {
+    "Mines have been reset!": "Шахты восстановлены!"
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/b/38-blacks7ar-OreMines/OreMines.translations.English.yml",
+    "source-evidence/localization/b/38-blacks7ar-OreMines/OreMines/Plugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "OreMines"
+  ],
+  "pluginVersion": "1.2.1"
+}

@@ -1,0 +1,96 @@
+[
+  {
+    "name": "multiple validation errors",
+    "parts": [
+      {
+        "method": "BuildItemRowValidation",
+        "literal": "Item prefab is required."
+      },
+      {
+        "opaque": " "
+      },
+      {
+        "method": "BuildItemRowValidation",
+        "literal": "Price must be a valid integer."
+      }
+    ],
+    "expected": "Укажите префаб предмета. Цена должна быть целым числом."
+  },
+  {
+    "name": "technical prefab remains opaque inside composed errors",
+    "parts": [
+      {
+        "method": "BuildItemRowValidation",
+        "literal": "Item prefab '"
+      },
+      {
+        "opaque": "Price"
+      },
+      {
+        "method": "BuildItemRowValidation",
+        "literal": "' was not found in ObjectDB."
+      },
+      {
+        "opaque": " "
+      },
+      {
+        "method": "BuildItemRowValidation",
+        "literal": "Stack must be a valid integer."
+      }
+    ],
+    "expected": "Префаб предмета «Price» не найден в ObjectDB. Количество должно быть целым числом."
+  },
+  {
+    "name": "global key diagnostic uses display label but preserves key",
+    "parts": [
+      {
+        "method": "BuildItemRowValidation",
+        "literal": "Required global key"
+      },
+      {
+        "method": "GetKeyValidation",
+        "literal": " '"
+      },
+      {
+        "opaque": "Price"
+      },
+      {
+        "method": "GetKeyValidation",
+        "literal": "' is not present in the configured "
+      },
+      {
+        "method": "GetKeyValidation",
+        "literal": "global"
+      },
+      {
+        "method": "GetKeyValidation",
+        "literal": " key list."
+      }
+    ],
+    "expected": "Обязательный глобальный ключ «Price» отсутствует в настроенном списке глобальных ключей."
+  },
+  {
+    "name": "intersecting player keys remain opaque",
+    "parts": [
+      {
+        "method": "GetIntersectionValidation",
+        "literal": "The same "
+      },
+      {
+        "method": "BuildItemRowValidation",
+        "literal": "player"
+      },
+      {
+        "method": "GetIntersectionValidation",
+        "literal": " key cannot be both required and blocked: "
+      },
+      {
+        "opaque": "Price, Wood"
+      },
+      {
+        "opaque": "."
+      }
+    ],
+    "expected": "Один и тот же личный ключ нельзя одновременно требовать и запрещать: Price, Wood."
+  }
+]

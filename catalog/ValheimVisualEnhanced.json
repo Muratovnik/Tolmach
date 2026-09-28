@@ -1,0 +1,30 @@
+{
+  "id": "ValheimVisualEnhanced",
+  "package": "Pumpkin-ValheimVisualEnhanced",
+  "version": "0.5.18",
+  "assembly": "ValheimVisualEnhanced",
+  "guids": [
+    "dev.local.valheimvisualenhanced"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Cloud shadows enabled": "Тени от облаков включены",
+    "Cloud shadows disabled": "Тени от облаков выключены",
+    "Enhanced Environment enabled": "Улучшенное освещение включено",
+    "Enhanced Environment disabled": "Улучшенное освещение выключено"
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/d/Pumpkin-ValheimVisualEnhanced-proj/ValheimVisualEnhanced/ValheimVisualEnhancedPlugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "ValheimVisualEnhanced"
+  ],
+  "pluginVersion": "0.5.18"
+}

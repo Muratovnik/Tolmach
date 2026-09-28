@@ -1,0 +1,53 @@
+# release-kit (.github/relkit.pyz) publication gate and release cycle. See README.md.
+
+[exposure]
+betterleaks_config = ".betterleaks.toml"
+private_paths = [".private"]
+required_ignores = [
+  ".cache/release-kit/state.json",
+  ".private/notes.md",
+  "artifacts/Muratovnik-Tolmach-0.2.0.zip",
+  "bin/Release/net48/Tolmach.dll",
+  "obj/project.assets.json",
+  "tests/bin/Release/net48/Tolmach.Tests.dll",
+]
+# The owner's own commits must not credit an AI; other contributors carry their own
+# attribution.
+owner_identities = [
+  "Nikolai Muratov <el.muratovnik@gmail.com>",
+  "Muratovnik <68428072+Muratovnik@users.noreply.github.com>",
+]
+forbid_ai_attribution = true
+forbid_internal_planning = true
+forbid_machine_observations = true
+forbid_png_metadata = true
+
+[changelog]
+profile = "strict"
+
+[release]
+publisher = "github"
+repository = "Muratovnik/Tolmach"
+branch = "main"
+# The csproj <Version> is the single version source; Plugin.PluginVersion is held to
+# it by a test, and Build.ps1 passes it to the Thunderstore manifest.
+version_file = "Tolmach.csproj"
+version_pattern = '<Version>([0-9]+\.[0-9]+\.[0-9]+)</Version>'
+changelog = "CHANGELOG.md"
+assets = ["Muratovnik-Tolmach-{version}.zip", "SHA256SUMS"]
+checksum_file = "SHA256SUMS"
+checks = [
+  ["{python}", "tools/validate.py"],
+  ["uv", "run", "--no-project", "--python", "3.11", "--with", "pytest==9.1.1", "python", "-m", "pytest", "tests/test_validation.py", "-q", "-p", "no:cacheprovider"],
+]
+# The build compiles against the game and the mod-manager profile, which are not in
+# the repository: set TOLMACH_GAME_PATH and TOLMACH_PROFILE_PATH before a release.
+build = [
+  ["powershell.exe", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-File", "Build.ps1", "-OutputDirectory", "{assets}"],
+]
+smoke = [
+  ["powershell.exe", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-File", "tools/Test-PackageCheck.ps1", "-Package", "{assets}/Muratovnik-Tolmach-{version}.zip"],
+]
+smoke_platforms = ["win32"]
+timeout = 3600
+command_timeout = 1800

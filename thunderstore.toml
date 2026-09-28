@@ -1,0 +1,46 @@
+# Thunderstore package definition, built by Thunderstore CLI (tcli, .config/dotnet-tools.json).
+# Use Build.cmd / Build.ps1: it compiles, runs every test, stages the tested files into
+# artifacts/stage and passes --package-version from Tolmach.csproj <Version>.
+[config]
+schemaVersion = "0.0.1"
+
+[package]
+namespace = "Muratovnik"
+name = "Tolmach"
+description = "Русский перевод 37 модов, которые ObeliskRU не переводит или переводит частично. Меняется только отображаемый текст: сохранения, рецепты и конфиги модов не затрагиваются."
+websiteUrl = "https://github.com/Muratovnik/Tolmach"
+containsNsfwContent = false
+
+[package.dependencies]
+denikson-BepInExPack_Valheim = "5.4.2351"
+ValheimModding-JsonDotNET = "13.0.4"
+
+[build]
+icon = "./package/icon.png"
+readme = "./package/README.md"
+outdir = "./artifacts/stage-package"
+
+# Everything the plugin loads sits under plugins/: Gale and r2modman map it to
+# BepInEx/plugins/<package>/ and keep the catalog/ subdirectory beside the DLL.
+[[build.copy]]
+source = "./artifacts/stage/plugins"
+target = "plugins"
+
+[[build.copy]]
+source = "./artifacts/stage/build-receipt.json"
+target = "build-receipt.json"
+
+[[build.copy]]
+source = "./CHANGELOG.md"
+target = "CHANGELOG.md"
+
+[[build.copy]]
+source = "./LICENSE"
+target = "LICENSE"
+
+[publish]
+repository = "https://thunderstore.io"
+communities = ["valheim"]
+
+[publish.categories]
+valheim = ["language", "client-side", "mods"]

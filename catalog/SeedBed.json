@@ -1,0 +1,46 @@
+{
+  "id": "SeedBed",
+  "package": "blacks7ar-SeedBed",
+  "version": "1.2.9",
+  "assembly": "SeedBed",
+  "guids": [
+    "blacks7ar.SeedBed"
+  ],
+  "words": {
+    "bsb_seedbed": "Рассадная грядка",
+    "bsb_seedbed_description": "Позволяет семенам прорастать в безопасных условиях.",
+    "bsb_noaccess": "Нет доступа",
+    "bsb_germentation_ready": "Готово к сбору",
+    "bsb_seedbed_harvest": "Собрать",
+    "bsb_seedbed_germinating": "Прорастает",
+    "bsb_seedbed_empty": "Пусто",
+    "bsb_seedbed_add": "Посадить семена",
+    "bsb_notenoughseeds": "Недостаточно семян."
+  },
+  "englishWords": {
+    "bsb_seedbed": "Seed Bed",
+    "bsb_seedbed_description": "Lets seedlings germinate in a safe environment.",
+    "bsb_noaccess": "No Access",
+    "bsb_germentation_ready": "Ready to Harvest",
+    "bsb_seedbed_harvest": "Harvest",
+    "bsb_seedbed_germinating": "Germinating",
+    "bsb_seedbed_empty": "Empty",
+    "bsb_seedbed_add": "Plant Seeds",
+    "bsb_notenoughseeds": "Not enough seeds."
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/b/31-blacks7ar-SeedBed/SeedBed.translations.English.yml",
+    "source-evidence/localization/b/31-blacks7ar-SeedBed/SeedBed/Plugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "SeedBed"
+  ],
+  "pluginVersion": "1.2.9"
+}

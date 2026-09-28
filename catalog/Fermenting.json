@@ -1,0 +1,33 @@
+{
+  "id": "Fermenting",
+  "package": "blacks7ar-Fermenting",
+  "version": "1.1.8",
+  "assembly": "Fermenting",
+  "guids": [
+    "blacks7ar.Fermenting"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Fermenting": "Брожение",
+    "Increase production speed and product output of Fermenters.": "Повышает скорость брожения и количество получаемого продукта."
+  },
+  "patterns": [
+    {
+      "source": "Level {0} Fermenting [{1}/{2}] ({3}%)",
+      "target": "Брожение: уровень {0} [{1}/{2}] ({3}%)"
+    }
+  ],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/b/32-blacks7ar-Fermenting/Fermenting/Plugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "Fermenting"
+  ],
+  "pluginVersion": "1.1.8"
+}

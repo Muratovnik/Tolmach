@@ -1,0 +1,44 @@
+{
+  "id": "Digitalroot.Valheim.GoldBars",
+  "package": "Digitalroot-Digitalroots_GoldBars",
+  "version": "1.2.34",
+  "assembly": "Digitalroot.Valheim.GoldBars",
+  "guids": [
+    "digitalroot.mods.GoldBars"
+  ],
+  "words": {
+    "gold_bar": "Золотой слиток",
+    "gold_bar_desc": "Всё то золото, что блестит. Слиток чистого золота, готовый к обработке.",
+    "coin_pile": "Небольшая кучка монет",
+    "coin_pile_desc": "Кучка монет.",
+    "piece_goldstack": "Стопка золотых слитков",
+    "piece_goldstack_desc": "Стопка слитков чистого золота.",
+    "piece_coinpile": "Небольшая кучка монет",
+    "piece_coinpile_desc": "Кучка монет."
+  },
+  "englishWords": {
+    "gold_bar": "Gold",
+    "gold_bar_desc": "All that glitters is gold. A bar of pure gold ready to be worked.",
+    "coin_pile": "Small Coin Pile",
+    "coin_pile_desc": "A pile of coins.",
+    "piece_goldstack": "Gold Stack",
+    "piece_goldstack_desc": "A stack of gold ingots.",
+    "piece_coinpile": "Small Coin Pile",
+    "piece_coinpile_desc": "A pile of coins."
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "packages/Digitalroot-Digitalroots_GoldBars/plugins/Assets/Translations/English/translations.json",
+    "source-evidence/localization/b/36-Digitalroot-Digitalroots_GoldBars/Digitalroot.Valheim.GoldBars/Main.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "Digitalroot.Valheim.GoldBars"
+  ],
+  "pluginVersion": "1.2.34"
+}

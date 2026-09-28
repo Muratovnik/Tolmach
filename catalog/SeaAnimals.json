@@ -1,0 +1,71 @@
+{
+  "id": "SeaAnimals",
+  "package": "Marlthon-SeaAnimals",
+  "version": "0.3.9",
+  "assembly": "SeaAnimals",
+  "guids": [
+    "marlthon.SeaAnimals"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Orca": "Косатка",
+    "Dolphin": "Дельфин",
+    "Crocodile": "Крокодил",
+    "White Shark": "Белая акула",
+    "Humboldt Squid": "Кальмар Гумбольдта",
+    "Leatherback SeaTurtle": "Кожистая черепаха",
+    "Right Whale": "Гладкий кит",
+    "Whale Shark": "Китовая акула",
+    "Blue Shark": "Синяя акула",
+    "HammerHead Shark": "Акула-молот",
+    "Tiger Shark": "Тигровая акула",
+    "Blue Turtle": "Синяя черепаха",
+    "Green Turtle": "Зелёная черепаха",
+    "Red Turtle": "Красная черепаха",
+    "Yellow Turtle": "Жёлтая черепаха",
+    "Blue Shark Meat": "Мясо синей акулы",
+    "Raw Blue Shark meat.": "Сырое мясо синей акулы.",
+    "Roasted Blue Shark Meat": "Жареное мясо синей акулы",
+    "Roasted Blue Shark meat.": "Жареное мясо синей акулы.",
+    "Crocodile Meat": "Мясо крокодила",
+    "Raw Crocodile meat.": "Сырое мясо крокодила.",
+    "Roasted Crocodile Meat": "Жареное мясо крокодила",
+    "Roasted Crocodile meat.": "Жареное мясо крокодила.",
+    "Humboldt Squid Meat": "Мясо кальмара Гумбольдта",
+    "Raw Humboldt Squid meat.": "Сырое мясо кальмара Гумбольдта.",
+    "Roasted Humboldt Squid Meat": "Жареное мясо кальмара Гумбольдта",
+    "Roasted Humboldt Squid meat.": "Жареное мясо кальмара Гумбольдта.",
+    "Whale Meat": "Мясо кита",
+    "Raw Whale meat.": "Сырое мясо кита.",
+    "Roasted Whale Meat": "Жареное мясо кита",
+    "Roasted Whale meat.": "Жареное мясо кита.",
+    "Sea Turtle Meat": "Мясо морской черепахи",
+    "Raw Sea Turtle meat.": "Сырое мясо морской черепахи.",
+    "Roasted Sea Turtle Meat": "Жареное мясо морской черепахи",
+    "Roasted Sea Turtle meat.": "Жареное мясо морской черепахи.",
+    "Shark Meat": "Мясо акулы",
+    "Raw Shark meat.": "Сырое мясо акулы.",
+    "Roasted Shark Meat": "Жареное мясо акулы",
+    "Roasted Shark meat.": "Жареное мясо акулы.",
+    "Turtle Meat": "Мясо черепахи",
+    "Raw Turtle meat.": "Сырое мясо черепахи.",
+    "Roasted Turtle Meat": "Жареное мясо черепахи",
+    "Roasted Turtle meat.": "Жареное мясо черепахи.",
+    "Maritime Saddle": "Морское седло",
+    "Maritime Saddle used for riding in Orca, Dolphin, Crocodile and White Shark.": "Морское седло для верховой езды на косатке, дельфине, крокодиле и белой акуле."
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/c/41/SeaAnimals/SeaAnimalsPlugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "SeaAnimals"
+  ],
+  "pluginVersion": "0.3.9"
+}

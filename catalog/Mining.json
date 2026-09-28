@@ -1,0 +1,30 @@
+{
+  "id": "Mining",
+  "package": "Smoothbrain-Mining",
+  "version": "1.1.7",
+  "assembly": "Mining",
+  "guids": [
+    "org.bepinex.plugins.mining"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Mining": "Горное дело",
+    "Increases damage done while mining and item yield from ore deposits.": "Повышает урон при добыче и количество ресурсов из рудных залежей.",
+    "Explosive Mining: True": "Взрывная добыча: включена",
+    "Explosive Mining: False": "Взрывная добыча: выключена"
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/c/53/Mining/Mining.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "Mining"
+  ],
+  "pluginVersion": "1.1.7"
+}

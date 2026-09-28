@@ -1,0 +1,22 @@
+<Project>
+  <!-- One reference definition for the plugin and its tests. Runtime DLLs come
+       from the supplied game/profile; development packages never enter plugins. -->
+  <PropertyGroup>
+    <BepInExCorePath Condition="'$(BepInExCorePath)' == ''">$(ProfilePath)/BepInEx/core</BepInExCorePath>
+    <NewtonsoftJsonPath Condition="'$(NewtonsoftJsonPath)' == ''">$(ProfilePath)/BepInEx/plugins/ValheimModding-JsonDotNET/Newtonsoft.Json.dll</NewtonsoftJsonPath>
+    <CopyRuntimeReferences Condition="'$(CopyRuntimeReferences)' == ''">false</CopyRuntimeReferences>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BepInEx"><HintPath>$(BepInExCorePath)/BepInEx.dll</HintPath><Private>$(CopyRuntimeReferences)</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(BepInExCorePath)/0Harmony.dll</HintPath><Private>$(CopyRuntimeReferences)</Private></Reference>
+    <Reference Include="Newtonsoft.Json"><HintPath>$(NewtonsoftJsonPath)</HintPath><Private>$(CopyRuntimeReferences)</Private></Reference>
+    <Reference Include="UnityEngine"><HintPath>$(GamePath)/valheim_Data/Managed/UnityEngine.dll</HintPath><Private>$(CopyRuntimeReferences)</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(GamePath)/valheim_Data/Managed/UnityEngine.CoreModule.dll</HintPath><Private>$(CopyRuntimeReferences)</Private></Reference>
+  </ItemGroup>
+  <Target Name="CheckGameReferences" BeforeTargets="ResolveAssemblyReferences">
+    <Error Condition="!Exists('$(BepInExCorePath)/BepInEx.dll')" Text="Set ProfilePath or BepInExCorePath to an existing BepInEx 5 profile." />
+    <Error Condition="!Exists('$(BepInExCorePath)/0Harmony.dll')" Text="0Harmony.dll is missing from BepInExCorePath." />
+    <Error Condition="!Exists('$(GamePath)/valheim_Data/Managed/UnityEngine.dll') or !Exists('$(GamePath)/valheim_Data/Managed/UnityEngine.CoreModule.dll')" Text="Set GamePath to the Valheim installation (with valheim_Data/Managed)." />
+    <Error Condition="!Exists('$(NewtonsoftJsonPath)')" Text="Set NewtonsoftJsonPath to the profile's Newtonsoft.Json.dll 13.x." />
+  </Target>
+</Project>

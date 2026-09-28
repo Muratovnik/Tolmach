@@ -1,0 +1,39 @@
+{
+  "id": "StructureTweaks",
+  "package": "JereKuusela-Structure_Tweaks",
+  "version": "1.37.0",
+  "assembly": "StructureTweaks",
+  "guids": [
+    "structure_tweaks"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Force unlock": "Принудительно открыть",
+    "Remove unlock": "Отменить принудительное открытие",
+    "Edit": "Изменить"
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/d/JereKuusela-Structure_Tweaks-proj/StructureTweaksPlugin/Plugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "literals": [
+    {
+      "type": "StructureTweaksPlugin.Unlock",
+      "method": "OverrideHoverText",
+      "values": {
+        "\n[<color=yellow><b>$KEY_AltPlace + $KEY_Use</b></color>] Remove unlock": "\n[<color=yellow><b>$KEY_AltPlace + $KEY_Use</b></color>] Отменить открытие",
+        "\n[<color=yellow><b>$KEY_AltPlace + $KEY_Use</b></color>] Force unlock": "\n[<color=yellow><b>$KEY_AltPlace + $KEY_Use</b></color>] Принудительно открыть"
+      }
+    }
+  ],
+  "namespaces": [
+    "StructureTweaksPlugin"
+  ],
+  "pluginVersion": "1.37"
+}

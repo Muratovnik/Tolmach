@@ -1,0 +1,34 @@
+{
+  "id": "trustymod",
+  "package": "trustworthy-MaxwellTheCat",
+  "version": "0.0.1",
+  "assembly": "trustymod",
+  "guids": [
+    "com.jotunn.trustymod"
+  ],
+  "words": {
+    "piece_plush": "Максвелл",
+    "piece_plush_desc": "Он здесь."
+  },
+  "englishWords": {
+    "piece_plush": "Maxwell",
+    "piece_plush_desc": "Its here"
+  },
+  "texts": {
+    "Maxwell": "Максвелл",
+    "Its here": "Он здесь."
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/b/26-trustworthy-MaxwellTheCat/trustymod/trustymod.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "trustymod"
+  ],
+  "pluginVersion": "0.0.1"
+}

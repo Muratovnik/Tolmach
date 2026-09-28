@@ -1,0 +1,45 @@
+{
+  "id": "UsefulRunestones",
+  "package": "sighsorry-UsefulRunestones",
+  "version": "1.0.3",
+  "assembly": "UsefulRunestones",
+  "guids": [
+    "sighsorry.UsefulRunestones"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Haldor": "Хальдор",
+    "You got bamboozled": "Вас провели!",
+    "You already have this effect": "Этот эффект уже действует"
+  },
+  "patterns": [
+    {
+      "source": "You have received {0}",
+      "target": "Получен эффект: {0}"
+    },
+    {
+      "source": "Buff Cooldown {0}s",
+      "target": "До следующего усиления: {0} с"
+    },
+    {
+      "source": "Already active {0}",
+      "target": "Уже действует: {0}"
+    }
+  ],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/d/sighsorry-UsefulRunestones-proj/UsefulRunestones/UsefulRunestonesPlugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "UsefulRunestones"
+  ],
+  "pluginVersion": "1.0.3",
+  "mapLabels": {
+    "Haldor": "Хальдор"
+  }
+}

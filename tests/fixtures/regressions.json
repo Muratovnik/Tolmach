@@ -1,0 +1,92 @@
+[
+  {
+    "module": "ExpertExplorer",
+    "source": "Home or Town",
+    "expected": "Дом или поселение"
+  },
+  {
+    "module": "ExpertExplorer",
+    "source": "Ore Deposit",
+    "expected": "Рудная залежь"
+  },
+  {
+    "module": "ExpertExplorer",
+    "source": "Crypt or Dungeon",
+    "expected": "Склеп или подземелье"
+  },
+  {
+    "module": "ExpertExplorer",
+    "source": "Camp pinned to minimap.",
+    "expected": "Лагерь: отметка добавлена на мини-карту."
+  },
+  {
+    "module": "ExpertExplorer",
+    "source": "My Camp pinned to minimap.",
+    "expected": "My Camp: отметка добавлена на мини-карту."
+  },
+  {
+    "module": "ExpertExplorer",
+    "source": "Ore pinned to minimap.",
+    "expected": "Ore: отметка добавлена на мини-карту."
+  },
+  {
+    "module": "TradersExtended",
+    "source": "Row 1: Item prefab is required.",
+    "expected": "Строка 1: Укажите префаб предмета."
+  },
+  {
+    "module": "TradersExtended",
+    "source": "Row 1: Item prefab 'Wood' was not found in ObjectDB.",
+    "expected": "Строка 1: Префаб предмета «Wood» не найден в ObjectDB."
+  },
+  {
+    "module": "TradersExtended",
+    "source": "Row 2: Item prefab 'Price' was not found in ObjectDB.",
+    "expected": "Строка 2: Префаб предмета «Price» не найден в ObjectDB."
+  },
+  {
+    "module": "TradersExtended",
+    "source": "Fix invalid value: Trader repair / Repair cost.",
+    "expected": "Исправьте недопустимое значение: Ремонт у торговца / Стоимость ремонта."
+  },
+  {
+    "module": "TradersExtended",
+    "source": "Row 3: Fix invalid value: Trader repair / Repair cost.",
+    "expected": "Строка 3: Исправьте недопустимое значение: Ремонт у торговца / Стоимость ремонта."
+  },
+  {
+    "module": "TradersExtended",
+    "source": "Row 3: Unknown external error",
+    "expected": "Строка 3: Unknown external error"
+  },
+  {
+    "module": "TradersExtended",
+    "source": "Saving Price...",
+    "expected": "Сохранение Price..."
+  },
+  {
+    "module": "TradersExtended",
+    "source": "Hello, Price!",
+    "expected": "Hello, Price!"
+  },
+  {
+    "module": "CarturFeedingTrough",
+    "source": "17s",
+    "expected": "17 с"
+  },
+  {
+    "module": "CarturFeedingTrough",
+    "source": "Animals",
+    "expected": "Animals"
+  },
+  {
+    "module": "StructureTweaks",
+    "source": "Edit",
+    "expected": "Изменить"
+  },
+  {
+    "module": "BalrondShipyard",
+    "source": "Upgrade failed",
+    "expected": "Улучшение не удалось"
+  }
+]

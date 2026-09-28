@@ -1,0 +1,36 @@
+{
+  "id": "SleepSkip",
+  "package": "Azumatt-SleepSkip",
+  "version": "1.3.2",
+  "assembly": "SleepSkip",
+  "guids": [
+    "Azumatt.SleepSkip"
+  ],
+  "words": {
+    "sleep_vote_status": "В постели: {0}  |  За: {1}  |  Против: {2}  |  Ожидают: {3}",
+    "sleep_vote_prompt": "Пропустить ночь?",
+    "sleep_vote_passed": "Голосование завершено! Наступает утро.",
+    "sleep_vote_failed": "Ночь не пропущена: недостаточно игроков проголосовало за."
+  },
+  "englishWords": {
+    "sleep_vote_status": "In bed: {0}  |  Yes: {1}  |  No: {2}  |  Waiting: {3}",
+    "sleep_vote_prompt": "Skip the night?",
+    "sleep_vote_passed": "Vote passed! Skipping to morning.",
+    "sleep_vote_failed": "Sleep vote failed. Not enough players agreed."
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/d/Azumatt-SleepSkip-proj/SleepSkip.translations.English.yml",
+    "source-evidence/localization/d/Azumatt-SleepSkip-proj/SleepSkip/SleepSkipPlugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "SleepSkip"
+  ],
+  "pluginVersion": "1.3.2"
+}

@@ -1,0 +1,640 @@
+{
+  "input_archive": "valheim-handoff-2026-09-27-2300.zip",
+  "input_archive_sha256": "cacddf56723856451edd2a1a78533bfae9be8856bcea24d1bf16a2716cb9f683",
+  "basis": "User-provided snapshot; no upgrade of source mods is implied. Binary hashes are evidence metadata, not a claim that DLLs were shipped or runtime-verified.",
+  "modules": [
+    {
+      "id": "Advize_PlantEverything",
+      "package": "Advize-PlantEverything",
+      "version": "1.21.3",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/b/29-Advize-PlantEverything",
+      "binary_identities": [
+        {
+          "mod": "Advize-PlantEverything-1.21.3",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Advize-PlantEverything/Advize_PlantEverything.dll",
+          "size": 260096,
+          "sha256": "313d57d5d9df2a27bff04ab184487d544a0749bbbe2c10cb1c41a0ae964cac62"
+        }
+      ]
+    },
+    {
+      "id": "AirAnimals",
+      "package": "Marlthon-AirAnimals",
+      "version": "0.3.2",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/c/40",
+      "binary_identities": [
+        {
+          "mod": "Marlthon-AirAnimals-0.3.2",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Marlthon-AirAnimals/AirAnimals.dll",
+          "size": 17253376,
+          "sha256": "b29905ffda5204570d64958cb18d74e08d7cee8aa361485e1d988b54242f2f85"
+        }
+      ]
+    },
+    {
+      "id": "AzuAutoStore",
+      "package": "Azumatt-AzuAutoStore",
+      "version": "3.1.6",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/a/Azumatt-AzuAutoStore",
+      "binary_identities": [
+        {
+          "mod": "Azumatt-AzuAutoStore-3.1.6",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Azumatt-AzuAutoStore/AzuAutoStore.dll",
+          "size": 570368,
+          "sha256": "106876c65eef3c9b50ca2f9123ee166be3d64e5e6798dca1592a4ffc60378021"
+        }
+      ]
+    },
+    {
+      "id": "AzuCraftyBoxes",
+      "package": "Azumatt-AzuCraftyBoxes",
+      "version": "1.8.26",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes",
+      "binary_identities": [
+        {
+          "mod": "Azumatt-AzuCraftyBoxes-1.8.26",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Azumatt-AzuCraftyBoxes/AzuCraftyBoxes.dll",
+          "size": 698880,
+          "sha256": "35e726e43f0dd395a327fe5a536cb6a7d6b5405b8aa2f5d2033058a8c280575a"
+        }
+      ]
+    },
+    {
+      "id": "BalrondShipyard",
+      "package": "Balrond-balrond_shipyard",
+      "version": "1.7.3",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/d/Balrond-balrond_shipyard-proj",
+      "binary_identities": [
+        {
+          "mod": "Balrond-balrond_shipyard-1.7.3",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Balrond-balrond_shipyard/BalrondShipyard.dll",
+          "size": 44901888,
+          "sha256": "6137214da2470369efb717f06b16997c73e5fed1fc81e07f41806fcc64fc43e2"
+        }
+      ]
+    },
+    {
+      "id": "BetterArchery",
+      "package": "ishid4-BetterArchery",
+      "version": "2.0.2",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/c/47",
+      "binary_identities": [
+        {
+          "mod": "ishid4-BetterArchery-2.0.2",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/ishid4-BetterArchery/BetterArchery.dll",
+          "size": 1281024,
+          "sha256": "941009c601f0386b1f843b3ead73d9e2df57ee85cdf0c8ea3306225de01a125d"
+        }
+      ]
+    },
+    {
+      "id": "BuildCamera",
+      "package": "Azumatt-Build_Camera_Custom_Hammers_Edition",
+      "version": "1.3.3",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/b/21-Azumatt-Build_Camera_Custom_Hammers_Edition",
+      "binary_identities": [
+        {
+          "mod": "Azumatt-Build_Camera_Custom_Hammers_Edition-1.3.3",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Azumatt-Build_Camera_Custom_Hammers_Edition/Build Camera.dll",
+          "size": 95744,
+          "sha256": "6bdff35b982cc92a494cc37de6f136b2ca67ceca9681e9967e21181fc6a16f36"
+        }
+      ]
+    },
+    {
+      "id": "CarturFeedingTrough",
+      "package": "Cartur-Carturs_Feeding_Trough",
+      "version": "1.0.0",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/d/Cartur-Carturs_Feeding_Trough-proj",
+      "binary_identities": [
+        {
+          "mod": "Cartur-Carturs_Feeding_Trough-1.0.0",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Cartur-Carturs_Feeding_Trough/CarturFeedingTrough/CarturFeedingTrough.dll",
+          "size": 24064,
+          "sha256": "20d37ad8be4188f21a0a6f7593b977a2852fa52912cf38503c260efe876f6191"
+        }
+      ]
+    },
+    {
+      "id": "ComfortTweaks",
+      "package": "Smoothbrain-ComfortTweaks",
+      "version": "3.3.11",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/d/Smoothbrain-ComfortTweaks-proj",
+      "binary_identities": [
+        {
+          "mod": "Smoothbrain-ComfortTweaks-3.3.11",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Smoothbrain-ComfortTweaks/ComfortTweaks.dll",
+          "size": 2011648,
+          "sha256": "ab6e31f25c37bbb4da04401f1310619fdd5dfbdbd40f6e852a47c35dab5183b6"
+        }
+      ]
+    },
+    {
+      "id": "CraftyCartsRemake",
+      "package": "OdinPlus-CraftyCartsRemake",
+      "version": "3.2.3",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/c/43",
+      "binary_identities": [
+        {
+          "mod": "OdinPlus-CraftyCartsRemake-3.2.3",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/OdinPlus-CraftyCartsRemake/CraftyCartsRemake.dll",
+          "size": 5592064,
+          "sha256": "2a6816f6a05f6d6a880676a7d589345445e9aded1286b5bb356b241c4736d297"
+        }
+      ]
+    },
+    {
+      "id": "Digitalroot.Valheim.GoldBars",
+      "package": "Digitalroot-Digitalroots_GoldBars",
+      "version": "1.2.34",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/b/36-Digitalroot-Digitalroots_GoldBars",
+      "binary_identities": [
+        {
+          "mod": "Digitalroot-Digitalroots_GoldBars-1.2.34",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Digitalroot-Digitalroots_GoldBars/Digitalroot.Valheim.GoldBars.dll",
+          "size": 177664,
+          "sha256": "e9378ff63a0de7ab410430d42fb706c88721b2cb3e85ccb5f0eedee4c5aa88db"
+        }
+      ]
+    },
+    {
+      "id": "DynamicStoragePiles",
+      "package": "MSchmoecker-DynamicStoragePiles",
+      "version": "0.8.1",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/a/MSchmoecker-DynamicStoragePiles",
+      "binary_identities": [
+        {
+          "mod": "MSchmoecker-DynamicStoragePiles-0.8.1",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/MSchmoecker-DynamicStoragePiles/DynamicStoragePiles.dll",
+          "size": 253440,
+          "sha256": "3de96602c036bdb37518a9ee4cd938f38352d4cf5c00f5f6cfcaa4e66e799671"
+        }
+      ]
+    },
+    {
+      "id": "EquipmentAndQuickSlots",
+      "package": "RandyKnapp-EquipmentAndQuickSlots",
+      "version": "3.1.3",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/a/RandyKnapp-EquipmentAndQuickSlots",
+      "binary_identities": [
+        {
+          "mod": "RandyKnapp-EquipmentAndQuickSlots-3.1.3",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/RandyKnapp-EquipmentAndQuickSlots/EquipmentAndQuickSlots.dll",
+          "size": 416256,
+          "sha256": "b08d791cc1324fc24c5aff591784ce867a8179d5b887797372506bb8626c6d9a"
+        }
+      ]
+    },
+    {
+      "id": "ExpertExplorer",
+      "package": "MilkMediaProductions-ExpertExplorer",
+      "version": "1.7.0",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/d/MilkMediaProductions-ExpertExplorer-proj",
+      "binary_identities": [
+        {
+          "mod": "MilkMediaProductions-ExpertExplorer-1.7.0",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/MilkMediaProductions-ExpertExplorer/ExpertExplorer.dll",
+          "size": 38400,
+          "sha256": "e8d6f2de6e3dd71eba3344d6d46f3d6dd1adfa28c889c11f83115cab9739402a"
+        }
+      ]
+    },
+    {
+      "id": "Fermenting",
+      "package": "blacks7ar-Fermenting",
+      "version": "1.1.8",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/b/32-blacks7ar-Fermenting",
+      "binary_identities": [
+        {
+          "mod": "blacks7ar-Fermenting-1.1.8",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/blacks7ar-Fermenting/Fermenting.dll",
+          "size": 80896,
+          "sha256": "ace8fd0281a7b8b0dd5d774ef8b845cec238eeb069c7d3d16fbf89ef28e71ec5"
+        }
+      ]
+    },
+    {
+      "id": "FoodStaminaRegen",
+      "package": "Smoothbrain-StaminaRegenerationFromFood",
+      "version": "1.5.8",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/c/54",
+      "binary_identities": [
+        {
+          "mod": "Smoothbrain-StaminaRegenerationFromFood-1.5.8",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Smoothbrain-StaminaRegenerationFromFood/FoodStaminaRegen.dll",
+          "size": 273920,
+          "sha256": "82f3939e43aaf5f2545985f40b364cc81af13f769ab78f7824dc0c59e781c9f5"
+        }
+      ]
+    },
+    {
+      "id": "Groups",
+      "package": "Smoothbrain-Groups",
+      "version": "1.2.12",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/d/Smoothbrain-Groups-proj",
+      "binary_identities": [
+        {
+          "mod": "Smoothbrain-Groups-1.2.12",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Smoothbrain-Groups/Groups.dll",
+          "size": 359424,
+          "sha256": "6ee3db0e3c4c830e26e0d2d7854cd7fe90e8b6a666bf65da463e337eabf13232"
+        }
+      ]
+    },
+    {
+      "id": "HammerTime",
+      "package": "MSchmoecker-HammerTime",
+      "version": "0.3.11",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/a/MSchmoecker-HammerTime",
+      "binary_identities": [
+        {
+          "mod": "MSchmoecker-HammerTime-0.3.11",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/MSchmoecker-HammerTime/HammerTime.dll",
+          "size": 22528,
+          "sha256": "3b22ed138cd6846f1e0d56605738637bcf9d629412109fac747ad54d4e97bc44"
+        }
+      ]
+    },
+    {
+      "id": "Mining",
+      "package": "Smoothbrain-Mining",
+      "version": "1.1.7",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/c/53",
+      "binary_identities": [
+        {
+          "mod": "Smoothbrain-Mining-1.1.7",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Smoothbrain-Mining/Mining.dll",
+          "size": 84992,
+          "sha256": "728fdf95c1ac9e5528eaee9b0244e86d18240904eee687eb196a9c62959d26bf"
+        }
+      ]
+    },
+    {
+      "id": "More_World_Locations_AIO",
+      "package": "warpalicious-More_World_Locations_AIO",
+      "version": "5.1.4",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO",
+      "binary_identities": [
+        {
+          "mod": "warpalicious-More_World_Locations_AIO-5.1.4",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.dll",
+          "size": 79247872,
+          "sha256": "4f44034478172fe46e847a0b5ae32fe0e8d46d7b045d9f5357e86e1fbd7485a4"
+        }
+      ]
+    },
+    {
+      "id": "Norsemen",
+      "package": "SephrinMods-VikingNPC_Continued",
+      "version": "0.4.1",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/d/SephrinMods-VikingNPC_Continued-proj",
+      "binary_identities": [
+        {
+          "mod": "SephrinMods-VikingNPC_Continued-0.4.1",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/SephrinMods-VikingNPC_Continued/Norsemen.dll",
+          "size": 418816,
+          "sha256": "8681c7238ca2b1a2b199a31cd3a042b6dfe045292ae8f7a1c6821de56deaecb1"
+        }
+      ]
+    },
+    {
+      "id": "OreMines",
+      "package": "blacks7ar-OreMines",
+      "version": "1.2.1",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/b/38-blacks7ar-OreMines",
+      "binary_identities": [
+        {
+          "mod": "blacks7ar-OreMines-1.2.1",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/blacks7ar-OreMines/OreMines.dll",
+          "size": 13633536,
+          "sha256": "82b776ba2e212de69c1b948e49b1e01369a4aeda00133a197f9f15f5dd0ba008"
+        }
+      ]
+    },
+    {
+      "id": "PortalLines",
+      "package": "Jumpingmushroom-PortalLines",
+      "version": "0.8.0",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/d/Jumpingmushroom-PortalLines-proj",
+      "binary_identities": [
+        {
+          "mod": "Jumpingmushroom-PortalLines-0.8.0",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Jumpingmushroom-PortalLines/PortalLines/PortalLines.dll",
+          "size": 75776,
+          "sha256": "f7aa352f99be26fdbc0c5a5c30b78ea93e92ec2fddbe57c48ee24c24cc426df8"
+        }
+      ]
+    },
+    {
+      "id": "Recycle_N_Reclaim",
+      "package": "Azumatt-Recycle_N_Reclaim",
+      "version": "1.4.5",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/b/34-Azumatt-Recycle_N_Reclaim",
+      "binary_identities": [
+        {
+          "mod": "Azumatt-Recycle_N_Reclaim-1.4.5",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Azumatt-Recycle_N_Reclaim/Recycle_N_Reclaim.dll",
+          "size": 674816,
+          "sha256": "362e0a417c28cf4ac1afe6db8a6fe35ea8daf7ff6dc5b71690b06b177c9d21fc"
+        }
+      ]
+    },
+    {
+      "id": "RenegadeVikings",
+      "package": "blacks7ar-RenegadeVikings",
+      "version": "1.4.2",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/d/blacks7ar-RenegadeVikings-proj",
+      "binary_identities": [
+        {
+          "mod": "blacks7ar-RenegadeVikings-1.4.2",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/blacks7ar-RenegadeVikings/RenegadeVikings.dll",
+          "size": 1181184,
+          "sha256": "f95638ff497fbd29c8b8a3f965533bc3099a8e16c447f8d610a6597aac69c679"
+        }
+      ]
+    },
+    {
+      "id": "SNEAKer",
+      "package": "blacks7ar-SNEAKer",
+      "version": "1.1.8",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/c/50",
+      "binary_identities": [
+        {
+          "mod": "blacks7ar-SNEAKer-1.1.8",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/blacks7ar-SNEAKer/SNEAKer.dll",
+          "size": 55296,
+          "sha256": "91f4888dda9424fe615fb815446fcc20645f388279f3950769f0eb96a71e630d"
+        }
+      ]
+    },
+    {
+      "id": "SeaAnimals",
+      "package": "Marlthon-SeaAnimals",
+      "version": "0.3.9",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/c/41",
+      "binary_identities": [
+        {
+          "mod": "Marlthon-SeaAnimals-0.3.9",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Marlthon-SeaAnimals/SeaAnimals.dll",
+          "size": 27876352,
+          "sha256": "3f57f6ad089d5616a924d5917851a0a7c99715cc0b2062ef23b2fa15d07c721a"
+        }
+      ]
+    },
+    {
+      "id": "SeedBed",
+      "package": "blacks7ar-SeedBed",
+      "version": "1.2.9",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/b/31-blacks7ar-SeedBed",
+      "binary_identities": [
+        {
+          "mod": "blacks7ar-SeedBed-1.2.9",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/blacks7ar-SeedBed/SeedBed.dll",
+          "size": 1576448,
+          "sha256": "e11f04bf3b267ceeac0bb990d89b21d77a190ca074058d327c88a0712d0d9ce5"
+        }
+      ]
+    },
+    {
+      "id": "SleepSkip",
+      "package": "Azumatt-SleepSkip",
+      "version": "1.3.2",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/d/Azumatt-SleepSkip-proj",
+      "binary_identities": [
+        {
+          "mod": "Azumatt-SleepSkip-1.3.2",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Azumatt-SleepSkip/SleepSkip.dll",
+          "size": 359936,
+          "sha256": "6450b44aad39bdfc63eed958815cdca9a326e1b0d730fcbbaf6b889dad32de5f"
+        }
+      ]
+    },
+    {
+      "id": "SpeedyPaths",
+      "package": "Nextek-SpeedyPaths",
+      "version": "1.0.9",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/d/Nextek-SpeedyPaths-proj",
+      "binary_identities": [
+        {
+          "mod": "Nextek-SpeedyPaths-1.0.9",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Nextek-SpeedyPaths/SpeedyPaths.dll",
+          "size": 38400,
+          "sha256": "5334bb44bc8e6b167c7f51cab66dedf8214cc11fd383b75c5f787dff4e7b5484"
+        }
+      ]
+    },
+    {
+      "id": "StructureTweaks",
+      "package": "JereKuusela-Structure_Tweaks",
+      "version": "1.37.0",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/d/JereKuusela-Structure_Tweaks-proj",
+      "binary_identities": [
+        {
+          "mod": "JereKuusela-Structure_Tweaks-1.37.0",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/JereKuusela-Structure_Tweaks/StructureTweaks.dll",
+          "size": 100864,
+          "sha256": "ceae14265a81fda4ff2e49bfea145dc401e9ea9847f0e3f91e1e09bdce0c7092"
+        }
+      ]
+    },
+    {
+      "id": "TradersExtended",
+      "package": "shudnal-TradersExtended",
+      "version": "2.0.4",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/c/59",
+      "binary_identities": [
+        {
+          "mod": "shudnal-TradersExtended-2.0.4",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/shudnal-TradersExtended/TradersExtended.dll",
+          "size": 305664,
+          "sha256": "c3849c5fdbd5d5695e1f8c1ca6f4442d1081a1738994b7179804f6802ce36b3a"
+        }
+      ]
+    },
+    {
+      "id": "UsefulRunestones",
+      "package": "sighsorry-UsefulRunestones",
+      "version": "1.0.3",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/d/sighsorry-UsefulRunestones-proj",
+      "binary_identities": [
+        {
+          "mod": "sighsorry-UsefulRunestones-1.0.3",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/sighsorry-UsefulRunestones/UsefulRunestones.dll",
+          "size": 392192,
+          "sha256": "32f0c32fc3871e82e5d82591c7cdea47a0973bb5c1ba373d6191f9ba6e54235e"
+        }
+      ]
+    },
+    {
+      "id": "ValheimVisualEnhanced",
+      "package": "Pumpkin-ValheimVisualEnhanced",
+      "version": "0.5.18",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/d/Pumpkin-ValheimVisualEnhanced-proj",
+      "binary_identities": [
+        {
+          "mod": "Pumpkin-ValheimVisualEnhanced-0.5.18",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Pumpkin-ValheimVisualEnhanced/ValheimVisualEnhanced/ValheimVisualEnhanced.dll",
+          "size": 165888,
+          "sha256": "e1f611ad5d1b3a59a79dd9926cd5fd813c4e24265f0626554db52ab51bb25f2e"
+        }
+      ]
+    },
+    {
+      "id": "WackysDatabase",
+      "package": "WackyMole-WackysDatabase",
+      "version": "2.5.35",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/d/WackyMole-WackysDatabase-proj",
+      "binary_identities": [
+        {
+          "mod": "WackyMole-WackysDatabase-2.5.35",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/WackyMole-WackysDatabase/WackysDatabase.dll",
+          "size": 1379328,
+          "sha256": "7e820ea3bf99cba23b5f2b9b2769834b8c11ecee9bf4a298771dce40e732e742"
+        }
+      ]
+    },
+    {
+      "id": "Warfare",
+      "package": "Therzie-Warfare",
+      "version": "1.9.4",
+      "status_in_archive": "partial",
+      "source_root": "source-evidence/localization/a/Therzie-Warfare",
+      "binary_identities": [
+        {
+          "mod": "Therzie-Warfare-1.9.4",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Therzie-Warfare/Warfare.dll",
+          "size": 182304256,
+          "sha256": "7e001761d3d20382b271a22b9535c1b557056db005a7ea0e9913565e6d70280e"
+        }
+      ]
+    },
+    {
+      "id": "trustymod",
+      "package": "trustworthy-MaxwellTheCat",
+      "version": "0.0.1",
+      "status_in_archive": "missing",
+      "source_root": "source-evidence/localization/b/26-trustworthy-MaxwellTheCat",
+      "binary_identities": [
+        {
+          "mod": "trustworthy-MaxwellTheCat-0.0.1",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/trustworthy-MaxwellTheCat/trustymod.dll",
+          "size": 317440,
+          "sha256": "d637187d884d21a3f7d2e8194167bc057a4ff1a2b5240b636d0c9c5cc59bb0c8"
+        }
+      ]
+    }
+  ],
+  "not_included": "ObeliskRU code/translations, proprietary game libraries, third-party DLLs, input logs, player/account identifiers, original absolute machine paths.",
+  "revision_0_1_1": {
+    "base_archive": "ValheimRussianPack-0.1.0-source-and-installer.zip",
+    "base_archive_sha256": "786ecfb189ab24548566fcdf06397ef86127050cad2118037e88a60939630467",
+    "review_archive": "ValheimRussianPack-0.1.0-review.zip",
+    "review_archive_sha256": "84b14b46a66c3bba3ef403a0dd85adec101127c35194fb18a6ab5000c75045f8",
+    "assay_revision": "171a951c71eced1a9a99dd769bc78ae85db421eb",
+    "review_type": "self-review with explicit data fault controls; not an independent reviewer",
+    "binary_compiled": false,
+    "game_executed": false
+  },
+  "revision_0_1_2": {
+    "base_archive": "ValheimRussianPack-0.1.1-source-and-installer.zip",
+    "base_archive_sha256": "5b6afab0716997bbb9479d220a9b60fc5097c14c4cbf5a4dbefe8c10ba04bebf",
+    "reuse_review_archive": "ValheimRussianPack-0.1.1-reuse-review.zip",
+    "reuse_review_archive_sha256": "b9c2baef6c2f16da5627e29032185a0ca7373422938f7b245a9160818ca2d617",
+    "assay_revision": "171a951c71eced1a9a99dd769bc78ae85db421eb",
+    "catalogs_changed": false,
+    "binary_compiled": false,
+    "game_executed": false,
+    "review_type": "self-review of authored changes, not independent reviewer"
+  },
+  "revision_0_1_3": {
+    "base": "ValheimRussianPack 0.1.2 source (backup .private/backups/ValheimRussianPack-0.1.2-before-0.1.3 in the valheim project)",
+    "catalogs_changed": false,
+    "binary_compiled": true,
+    "csharp_tests": "167 NUnit tests passed with Valheim 1.0.16, BepInEx 5.4.23.5 and HarmonyX 2.9 from the Default Gale profile",
+    "bindings_checked_against_installed_dlls": "37/37 (GUID, assembly name, BepInPlugin version, namespaces, adapter methods, IL literals)",
+    "package": "Thunderstore package built by tcli 0.2.4; format and Gale layout checked by Build.ps1",
+    "game_executed": false,
+    "review_type": "independent review of 0.1.2 followed by authored fixes; fixes are not independently re-reviewed"
+  },
+  "revision_0_2_0": {
+    "base": "ValheimRussianPack 0.1.3 source, renamed to Tolmach",
+    "catalogs_changed": false,
+    "plugin_guid": "muratovnik.tolmach (was local.valheim.russianpack)",
+    "binary_compiled": true,
+    "csharp_tests": "167 NUnit tests passed with Valheim 1.0.16, BepInEx 5.4.23.5 and HarmonyX 2.9 from the Default Gale profile",
+    "package": "Muratovnik-Tolmach-0.2.0.zip, built by release-kit from the committed source and published as a GitHub release",
+    "game_executed": false
+  }
+}

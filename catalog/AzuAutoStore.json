@@ -1,0 +1,38 @@
+{
+  "id": "AzuAutoStore",
+  "package": "Azumatt-AzuAutoStore",
+  "version": "3.1.6",
+  "assembly": "AzuAutoStore",
+  "guids": [
+    "Azumatt.AzuAutoStore"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [
+    {
+      "source": "AzuAutoStore Installed: {0}\n Needed: {1}",
+      "target": "AzuAutoStore: установлена версия {0}\n Требуется: {1}"
+    },
+    {
+      "source": "AzuAutoStore Installed: {0}",
+      "target": "AzuAutoStore: установлена версия {0}"
+    },
+    {
+      "source": " Needed: {0}",
+      "target": " Требуется: {0}"
+    }
+  ],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/a/Azumatt-AzuAutoStore/AzuAutoStore/AzuAutoStorePlugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "AzuAutoStore"
+  ],
+  "pluginVersion": "3.1.6"
+}

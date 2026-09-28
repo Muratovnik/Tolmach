@@ -1,0 +1,33 @@
+{
+  "id": "BuildCamera",
+  "package": "Azumatt-Build_Camera_Custom_Hammers_Edition",
+  "version": "1.3.3",
+  "assembly": "Build Camera",
+  "guids": [
+    "Azumatt.BuildCameraCHE"
+  ],
+  "words": {
+    "buildcamera_needs_cozy": "Для строительной камеры нужен уют (комфорт: $1).",
+    "buildcamera_pickup_blocked_title": "Подбор строительной камерой",
+    "buildcamera_pickup_blocked": "Повысьте комфорт, чтобы подбирать предметы строительной камерой.\nТребуемый комфорт: $1"
+  },
+  "englishWords": {
+    "buildcamera_needs_cozy": "Be cozy to use Build Camera (requires comfort $1).",
+    "buildcamera_pickup_blocked_title": "Build Camera Pickup",
+    "buildcamera_pickup_blocked": "Get cozy before collecting items through the build camera.\nRequired comfort: $1"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/b/21-Azumatt-Build_Camera_Custom_Hammers_Edition/Valheim_Build_Camera/Valheim_Build_CameraPlugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "Valheim_Build_Camera"
+  ],
+  "pluginVersion": "1.3.3"
+}

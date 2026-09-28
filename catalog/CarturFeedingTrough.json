@@ -1,0 +1,64 @@
+{
+  "id": "CarturFeedingTrough",
+  "package": "Cartur-Carturs_Feeding_Trough",
+  "version": "1.0.0",
+  "assembly": "CarturFeedingTrough",
+  "guids": [
+    "cartur.feedingtrough"
+  ],
+  "words": {
+    "piece_cartur_trough": "Кормушка",
+    "piece_cartur_trough_description": "Наполните кормушку едой, и животные будут подходить к ней кормиться."
+  },
+  "englishWords": {
+    "piece_cartur_trough": "Feeding Trough",
+    "piece_cartur_trough_description": "Fill it with food and your animals will come and eat from it."
+  },
+  "texts": {
+    "Feeding Trough": "Кормушка",
+    "Fill it with food and your animals will come and eat from it.": "Наполните кормушку едой, и животные будут подходить к ней кормиться."
+  },
+  "patterns": [
+    {
+      "source": "{0}m {1}s",
+      "target": "{0} мин {1} с",
+      "numeric": [
+        0,
+        1
+      ]
+    },
+    {
+      "source": "{0}s",
+      "target": "{0} с",
+      "numeric": [
+        0
+      ]
+    }
+  ],
+  "returns": [
+    {
+      "type": "CarturFeedingTrough.TameTimer",
+      "method": "Format"
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/d/Cartur-Carturs_Feeding_Trough-proj/CarturFeedingTrough/Plugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "literals": [
+    {
+      "type": "CarturFeedingTrough.TameTimer",
+      "method": "Postfix",
+      "values": {
+        " left": " осталось"
+      }
+    }
+  ],
+  "namespaces": [
+    "CarturFeedingTrough"
+  ],
+  "pluginVersion": "1.0.0"
+}

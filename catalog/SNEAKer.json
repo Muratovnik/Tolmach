@@ -1,0 +1,34 @@
+{
+  "id": "SNEAKer",
+  "package": "blacks7ar-SNEAKer",
+  "version": "1.1.8",
+  "assembly": "SNEAKer",
+  "guids": [
+    "blacks7ar.SNEAKer"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [
+    {
+      "source": "Level {0} Sneak [{1} / {2}] ({3}%)",
+      "target": "Скрытность: уровень {0} [{1} / {2}] ({3}%)"
+    },
+    {
+      "source": "Level {0} Sneak [{1}/{2}] ({3}%)",
+      "target": "Скрытность: уровень {0} [{1}/{2}] ({3}%)"
+    }
+  ],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/c/50/SNEAKer/Plugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "SNEAKer"
+  ],
+  "pluginVersion": "1.1.8"
+}

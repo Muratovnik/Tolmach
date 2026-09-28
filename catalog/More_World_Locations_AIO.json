@@ -1,0 +1,37 @@
+{
+  "id": "More_World_Locations_AIO",
+  "package": "warpalicious-More_World_Locations_AIO",
+  "version": "5.1.4",
+  "assembly": "More_World_Locations_AIO",
+  "guids": [
+    "warpalicious.More_World_Locations_AIO"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Peaceful": "Мирная зона",
+    "You cannot deal damage in this area.": "В этой области нельзя наносить урон."
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [
+    {
+      "name": "MWL_SE_Peaceful",
+      "kind": "StatusEffect",
+      "fields": {
+        "m_name": "Peaceful",
+        "m_tooltip": "You cannot deal damage in this area."
+      }
+    }
+  ],
+  "sourceFiles": [
+    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/More_World_Locations_AIOPlugin.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "More_World_Locations_AIO"
+  ],
+  "pluginVersion": "5.1.4"
+}

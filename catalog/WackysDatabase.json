@@ -1,0 +1,47 @@
+{
+  "id": "WackysDatabase",
+  "package": "WackyMole-WackysDatabase",
+  "version": "2.5.35",
+  "assembly": "WackysDatabase",
+  "guids": [
+    "WackyMole.WackysDatabase"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Lumberjack Axe": "Топор лесоруба",
+    "A axe designed for cutting down trees not enemies.": "Топор для рубки деревьев, а не врагов.",
+    "Harden Lumberjack Axe": "Закалённый топор лесоруба",
+    "A hardened axe designed for cutting down trees not enemies.": "Закалённый топор для рубки деревьев, а не врагов."
+  },
+  "patterns": [],
+  "returns": [],
+  "prefabs": [
+    {
+      "name": "LumberAxe",
+      "kind": "ItemDrop",
+      "fields": {
+        "m_itemData.m_shared.m_name": "Lumberjack Axe",
+        "m_itemData.m_shared.m_description": "A axe designed for cutting down trees not enemies."
+      }
+    },
+    {
+      "name": "LumberAxeSteel",
+      "kind": "ItemDrop",
+      "fields": {
+        "m_itemData.m_shared.m_name": "Harden Lumberjack Axe",
+        "m_itemData.m_shared.m_description": "A hardened axe designed for cutting down trees not enemies."
+      }
+    }
+  ],
+  "sourceFiles": [
+    "source-evidence/localization/d/WackyMole-WackysDatabase-proj/wackydatabase/WMRecipeCust.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "wackydatabase"
+  ],
+  "pluginVersion": "2.5.35"
+}

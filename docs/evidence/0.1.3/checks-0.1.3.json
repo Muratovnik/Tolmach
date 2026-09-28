@@ -1,0 +1,68 @@
+{
+  "date": "2026-09-28",
+  "package": {
+    "file": "Muratovnik-ValheimRussianPack-0.1.3.zip",
+    "sha256": "2f9c0dbd0a5397bb0c840401936c49d16659a4b6d8d8ddf9fc1b462dacb94d93",
+    "entries": 44,
+    "manifest": {
+      "name": "ValheimRussianPack",
+      "version_number": "0.1.3",
+      "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.2351",
+        "ValheimModding-JsonDotNET-13.0.4"
+      ],
+      "website_url": ""
+    }
+  },
+  "build": {
+    "nunit_passed": 167,
+    "sdk": "9.0.318",
+    "plugin_sha256": "24127190abfdd6dd7d9128df280430af5712399932975556bd73fc0349002c5e"
+  },
+  "gale_1_22_3_layout_simulation": {
+    "source": "port of SubdirInstaller.map_file (src-tauri/src/profile/install/installers/subdir.rs @1.22.3)",
+    "all_files_under": [
+      "BepInEx/plugins/ValheimRussianPack"
+    ],
+    "catalog_beside_dll": 37,
+    "dll": [
+      "BepInEx/plugins/ValheimRussianPack/ValheimRussianPack.dll"
+    ]
+  },
+  "package_gate_controls": [
+    "ACCEPTED  valid package",
+    "REJECTED  catalog outside plugins/ (Gale would flatten it) :: Unexpected package layout. Missing: plugins/catalog/Advize_PlantEverything.json, plugins/catalog/AirAnimals.js",
+    "REJECTED  manifest with UTF-8 BOM :: manifest.json must not start with a UTF-8 BOM.",
+    "REJECTED  icon 128x128 :: icon.png must be 256x256, found 128x128.",
+    "REJECTED  description over 250 characters :: Manifest description must have 1..250 characters.",
+    "REJECTED  DLL differs from tested one :: Packaged DLL differs from the tested DLL.",
+    "REJECTED  missing README.md :: Unexpected package layout. Missing: README.md. Extra:"
+  ],
+  "regression_tests_failing_on_0_1_2_code": [
+    "MethodWithAbsentOptionalDependencyIsSkippedWithoutAbortingTheModule (FileNotFoundException escaped DisplayPatches.Install)",
+    "NativeLocalizeKeyKeepsExistingThirdPartyRussian (third-party Russian replaced by ours)",
+    "SeparateEnglishLocalizationStaysEnglish (Russian leaked into the detached instance)",
+    "LanguageChosenInsideTheGameConstructorIsAppliedOnRefresh (IsRussian stayed false)",
+    "OreMinesResetNoticeIsTranslatedInChatLogAndBubble (hook not installed: Chat.AddString not found)"
+  ],
+  "catalogs_byte_identical_to_0_1_2": 37,
+  "bindings_vs_installed_dlls": "37/37 matched in the Default Gale profile: GUID, assembly name, BepInPlugin version, namespaces, return/literal adapter methods, literal strings in IL",
+  "real_mod_offline_probe": {
+    "scope": "Plugin DLL + real HarmonyX 2.9 on the 37 installed mod assemblies under .NET Framework 4.8, outside Unity",
+    "modules_aborted_by_reflection_errors": {
+      "0.1.2": 21,
+      "0.1.3": 0
+    },
+    "note": "TypeLoadException (Splatform default interface methods) and ECall compile errors are .NET Framework limits absent in Unity Mono; identity-transpiler controls fail identically (13/13).",
+    "executed": [
+      "CarturFeedingTrough.TameTimer.Format(188) -> \"3 мин 8 с\"; English -> \"3m 8s\"",
+      "TradersExtended.ConfigEditor.GetIntersectionValidation literals translated; English unchanged"
+    ]
+  },
+  "not_verified": [
+    "Valheim runtime on all screens",
+    "import through the Gale UI/backend",
+    "r2modman import",
+    "Thunderstore upload"
+  ]
+}

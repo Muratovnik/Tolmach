@@ -1,0 +1,362 @@
+{
+  "id": "TradersExtended",
+  "package": "shudnal-TradersExtended",
+  "version": "2.0.4",
+  "assembly": "TradersExtended",
+  "guids": [
+    "shudnal.TradersExtended"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Traders Extended configuration editor": "Редактор настроек Traders Extended",
+    "Confirm": "Подтвердить",
+    "Select global keys": "Выбрать глобальные ключи",
+    "Select player keys": "Выбрать ключи игрока",
+    "Create configuration": "Создать конфигурацию",
+    "The configuration request timed out. Check the server connection and mod version.": "Время ожидания конфигурации истекло. Проверьте соединение с сервером и версию мода.",
+    "Discard unsaved changes and close the editor?": "Отменить несохранённые изменения и закрыть редактор?",
+    "Working...": "Выполняется...",
+    "Refresh": "Обновить",
+    "New": "Создать",
+    "Delete": "Удалить",
+    "Save": "Сохранить",
+    "Cancel": "Отмена",
+    "Search": "Поиск",
+    "Buy items": "Покупка предметов",
+    "Sell items": "Продажа предметов",
+    "Trader Settings": "Настройки торговца",
+    "Other files": "Другие файлы",
+    "No matching files.": "Подходящих файлов нет.",
+    "Select a configuration file or create a new one.": "Выберите файл конфигурации или создайте новый.",
+    "The file name does not match a supported Traders Extended configuration pattern.": "Имя файла не соответствует формату конфигураций Traders Extended.",
+    "Loading configuration...": "Загрузка конфигурации...",
+    "Configuration is not loaded.": "Конфигурация не загружена.",
+    "Prevent input": "Блокировать управление",
+    "Block all Valheim gameplay input while the configuration editor is open.": "Отключить игровое управление Valheim, пока открыт редактор конфигурации.",
+    "Close": "Закрыть",
+    "Add item...": "Добавить предмет...",
+    "Add items...": "Добавить предметы...",
+    "Add blank": "Добавить пустую строку",
+    "Select filtered": "Выбрать отфильтрованные",
+    "Clear selection": "Снять выделение",
+    "Sort selected by:": "Сортировать выбранное по:",
+    "Sort by:": "Сортировать по:",
+    "Prefab": "Префаб",
+    "Name": "Название",
+    "Stack": "Количество",
+    "Price": "Цена",
+    "Quality": "Качество",
+    "Currency": "Валюта",
+    "Columns:": "Столбцы:",
+    "Req global": "Нужен глоб. ключ",
+    "Block global": "Запрещён глоб. ключ",
+    "Req player": "Нужен ключ игрока",
+    "Block player": "Запрещён ключ игрока",
+    "Enable Override for a field to store a trader-specific value. Disabled fields inherit the synchronized BepInEx configuration.": "Включите переопределение поля, чтобы задать значение для этого торговца. Остальные поля используют синхронизированную конфигурацию BepInEx.",
+    "Enabled": "Включено",
+    "Disabled": "Выключено",
+    "Override": "Переопределить",
+    "Configuration type": "Тип конфигурации",
+    "Item list": "Список предметов",
+    "Trader settings": "Настройки торговца",
+    "Trader prefab": "Префаб торговца",
+    "Select...": "Выбрать...",
+    "List type": "Тип списка",
+    "Buy": "Купить",
+    "Sell": "Продать",
+    "Optional dot-separated identifier": "Необязательный идентификатор с разделением точками",
+    "File format": "Формат файла",
+    "File name": "Имя файла",
+    "Create": "Создать",
+    "Select": "Выбрать",
+    "Previous": "Назад",
+    "Next": "Далее",
+    "Add key": "Добавить ключ",
+    "Selected value:": "Выбранное значение:",
+    "Apply": "Применить",
+    "PREVIOUS CONFIGURATION TARGET (READ ONLY)": "ПРЕДЫДУЩИЙ ИСТОЧНИК КОНФИГУРАЦИИ (ТОЛЬКО ЧТЕНИЕ)",
+    "SERVER CONFIGURATION DIRECTORY": "КАТАЛОГ КОНФИГУРАЦИИ СЕРВЕРА",
+    "Local configuration directory": "Локальный каталог конфигурации",
+    "Common": "Общие",
+    "No file selected": "Файл не выбран",
+    "Configuration": "Конфигурация",
+    "Select item": "Выбрать предмет",
+    "Add item": "Добавить предмет",
+    "Add items": "Добавить предметы",
+    "Select trader prefab": "Выбрать префаб торговца",
+    "Show all": "Показать всё",
+    "Sort": "Сортировка",
+    "Include AI equipment and items without a normal user-facing name, description or icon.": "Показывать снаряжение ИИ и предметы без обычного игрового названия, описания или значка.",
+    "Configuration target changed. The previous document is read-only; Refresh to select the current target.": "Источник конфигурации изменился. Предыдущий документ доступен только для чтения. Нажмите «Обновить», чтобы выбрать текущий источник.",
+    "The connection changed. Discard unsaved changes and open the current configuration target?": "Подключение изменилось. Отменить несохранённые изменения и открыть текущую конфигурацию?",
+    "Loading configuration files...": "Загрузка файлов конфигурации...",
+    "Discard unsaved changes and open another file?": "Отменить несохранённые изменения и открыть другой файл?",
+    "Unsupported configuration file name.": "Недопустимое имя файла конфигурации.",
+    "Discard unsaved changes and reload this file?": "Отменить несохранённые изменения и заново загрузить этот файл?",
+    "Administrator access is required to create files on this server.": "Для создания файлов на этом сервере нужны права администратора сервера.",
+    "Discard unsaved changes and create a new configuration file?": "Отменить несохранённые изменения и создать новый файл конфигурации?",
+    "The file no longer exists. Unsaved changes are retained until explicitly discarded.": "Файл больше не существует. Несохранённые изменения будут сохранены в редакторе, пока вы их не отмените.",
+    "The item configuration could not be parsed.": "Не удалось разобрать конфигурацию предметов.",
+    "The trader configuration could not be parsed.": "Не удалось разобрать конфигурацию торговца.",
+    "Item prefab is required.": "Укажите префаб предмета.",
+    "Item prefab must not contain leading or trailing whitespace.": "В начале и конце имени префаба предмета не должно быть пробелов.",
+    "Stack must be a valid integer.": "Количество должно быть целым числом.",
+    "Price must be a valid integer.": "Цена должна быть целым числом.",
+    "Quality must be a valid integer.": "Качество должно быть целым числом.",
+    "Currency prefab must not contain leading or trailing whitespace.": "В начале и конце имени префаба валюты не должно быть пробелов.",
+    "Required global key": "Обязательный глобальный ключ",
+    "Blocked global key": "Запрещённый глобальный ключ",
+    "Required player key": "Обязательный ключ игрока",
+    "Blocked player key": "Запрещённый ключ игрока",
+    "global": "глобальный",
+    "player": "личный",
+    "Trader prefab is required. Use common for shared item lists.": "Укажите префаб торговца. Для общих списков предметов используйте common.",
+    "Trader prefab contains invalid file-name characters.": "Имя префаба торговца содержит недопустимые для имени файла символы.",
+    "Identifier contains invalid file-name characters.": "Идентификатор содержит недопустимые для имени файла символы.",
+    "A file with this name already exists.": "Файл с таким именем уже существует.",
+    "A personal configuration for this trader already exists. Only one personal file per trader is used.": "Для этого торговца уже есть отдельная конфигурация. Для каждого торговца используется только один такой файл.",
+    "The generated item configuration file name is invalid.": "Сформировано недопустимое имя файла конфигурации предметов.",
+    "The generated trader configuration file name is invalid.": "Сформировано недопустимое имя файла конфигурации торговца.",
+    "Drag to resize": "Перетащите, чтобы изменить размер",
+    "Invalid configuration transfer length or ID.": "Недопустимая длина или идентификатор передачи конфигурации.",
+    "Invalid or out-of-order configuration transfer chunk.": "Повреждённый или полученный не по порядку фрагмент конфигурации.",
+    "The configuration exceeds the 8 MiB editor file limit.": "Конфигурация превышает ограничение редактора: 8 МиБ на файл.",
+    "Invalid editor request correlation data.": "Некорректные данные сопоставления запроса редактора.",
+    "The server returned a different configuration file.": "Сервер вернул другой файл конфигурации.",
+    "The configuration response exceeds the editor transfer limit.": "Ответ с конфигурацией превышает ограничение редактора на передачу данных.",
+    "Invalid configuration transfer chunk size.": "Недопустимый размер фрагмента конфигурации.",
+    "Invalid configuration transfer chunk payload.": "Некорректное содержимое фрагмента конфигурации.",
+    "This operation does not accept request chunks.": "Эта операция не принимает фрагментированные запросы.",
+    "Configuration transfer correlation mismatch.": "Данные передачи конфигурации не соответствуют запросу.",
+    "The selected configuration file no longer exists.": "Выбранный файл конфигурации больше не существует.",
+    "A configuration file with this name already exists.": "Файл конфигурации с таким именем уже существует.",
+    "The file was saved, but configuration reload failed. The previous runtime configuration remains active; check the server log.": "Файл сохранён, но перезагрузить конфигурацию не удалось. Продолжает действовать предыдущая конфигурация. Проверьте журнал сервера.",
+    "The file was deleted, but configuration reload failed. The previous runtime configuration remains active; check the server log.": "Файл удалён, но перезагрузить конфигурацию не удалось. Продолжает действовать предыдущая конфигурация. Проверьте журнал сервера.",
+    "Unknown configuration editor operation.": "Неизвестная операция редактора конфигурации.",
+    "Invalid Traders Extended configuration file name.": "Недопустимое имя файла конфигурации Traders Extended.",
+    "The selected path is outside the Traders Extended configuration directory.": "Выбранный путь находится вне каталога конфигурации Traders Extended.",
+    "Symbolic links are not editable configuration files.": "Нельзя редактировать символическую ссылку как файл конфигурации.",
+    "Expected an object with numeric x and y fields.": "Ожидается объект с числовыми полями x и y.",
+    "Expected a finite number.": "Ожидается конечное число.",
+    "Item discovery": "Открытие предметов",
+    "Sell only discovered items": "Продавать только открытые предметы",
+    "Prevent the trader from selling items that the player has not discovered.": "Не позволять торговцу продавать предметы, которые игрок ещё не открыл.",
+    "Undiscovered items list to sell": "Исключения для неоткрытых предметов",
+    "Comma-separated item prefab names that bypass discovery checks.": "Имена префабов предметов, для которых не проверяется открытие, через запятую.",
+    "Trader repair": "Ремонт у торговца",
+    "Weapons": "Оружие",
+    "Allow this trader to repair weapons.": "Разрешить этому торговцу ремонтировать оружие.",
+    "Armor": "Броня",
+    "Allow this trader to repair armor.": "Разрешить этому торговцу ремонтировать броню.",
+    "Repair cost": "Стоимость ремонта",
+    "Currency amount charged for one repair.": "Количество валюты за один ремонт.",
+    "Repair currency": "Валюта ремонта",
+    "Item prefab used to pay for repairs.": "Префаб предмета, которым оплачивается ремонт.",
+    "Trader coins": "Баланс торговца",
+    "Use currency": "Ограниченный баланс",
+    "Use a limited replenishing trader balance.": "Использовать ограниченный пополняемый баланс торговца.",
+    "Use flexible pricing": "Гибкие цены",
+    "Adjust prices according to the current trader balance.": "Менять цены в зависимости от текущего баланса торговца.",
+    "Trader pricing": "Цены торговца",
+    "Amount of currency after replenishment minimum": "Минимальный баланс после пополнения",
+    "Minimum trader balance after replenishment.": "Минимальный баланс торговца после пополнения.",
+    "Amount of currency replenished daily": "Ежедневное пополнение",
+    "Currency added during a daily balance update.": "Сумма, добавляемая при ежедневном обновлении баланса.",
+    "Amount of currency removed daily": "Ежедневное списание",
+    "Currency removed during a daily balance update.": "Сумма, списываемая при ежедневном обновлении баланса.",
+    "Amount of currency after replenishment maximum": "Максимальный баланс после пополнения",
+    "Maximum trader balance after replenishment.": "Максимальный баланс торговца после пополнения.",
+    "Trader discount": "Коэффициент покупки у игрока",
+    "Multiplier used when the trader pays the player.": "Множитель цены, когда торговец платит игроку.",
+    "Trader markup": "Наценка торговца",
+    "Multiplier used when the trader sells to the player.": "Множитель цены, когда торговец продаёт предмет игроку.",
+    "Currency replenishment rate in days": "Период пополнения в днях",
+    "Number of world days between balance updates.": "Количество игровых дней между обновлениями баланса.",
+    "Send replenishment message in the morning": "Сообщать о пополнении утром",
+    "Show a message when the trader balance is replenished.": "Показывать сообщение при пополнении баланса торговца.",
+    "Trader currency": "Валюта торговца",
+    "Default currency item prefab for this trader.": "Префаб валюты по умолчанию для этого торговца.",
+    "Trader buyback": "Обратный выкуп",
+    "Enable buyback for last item sold": "Разрешить выкуп последнего проданного предмета",
+    "Allow buying back the last item sold to this trader.": "Разрешить выкупать последний предмет, проданный этому торговцу.",
+    "Buyback lifetime in world seconds": "Время выкупа в игровых секундах",
+    "World-time duration before the saved buyback expires. Zero disables expiration.": "Срок обратного выкупа в секундах игрового времени. Ноль отключает ограничение срока.",
+    "Misc": "Прочее",
+    "Disable vanilla items": "Скрыть предметы базовой игры",
+    "Hide the trader's vanilla item list.": "Скрыть стандартный список предметов торговца.",
+    "Disable other mods items": "Скрыть предметы других модов",
+    "Hide trader entries added by other mods.": "Скрыть товары, добавленные другими модами.",
+    "Add common valuable items to sell list": "Добавлять обычные ценности в список продажи",
+    "Automatically add valuable ObjectDB items to this trader's sell list.": "Автоматически добавлять ценные предметы из ObjectDB в список продажи этому торговцу.",
+    "Fixed position for Store GUI": "Фиксированное положение окна торговли",
+    "Fixed Store GUI position. Use zero coordinates to retain the normal position.": "Фиксированное положение окна торговли. Нулевые координаты сохраняют стандартное положение.",
+    "Store GUI EpicLoot compatibility": "Совместимость окна торговли с EpicLoot",
+    "Shift the Store GUI for EpicLoot Adventure Mode compatibility.": "Сдвигать окно торговли для совместимости с режимом приключений EpicLoot.",
+    "— Item discovery —": "— Открытие предметов —",
+    "— Trader repair —": "— Ремонт у торговца —",
+    "— Trader coins —": "— Баланс торговца —",
+    "— Trader pricing —": "— Цены торговца —",
+    "— Trader currency —": "— Валюта торговца —",
+    "— Trader buyback —": "— Обратный выкуп —",
+    "— Misc —": "— Прочее —"
+  },
+  "patterns": [
+    {
+      "source": "The same {0} key cannot be both required and blocked: {1}.",
+      "target": "Один ключ ({0}) нельзя одновременно требовать и запрещать: {1}.",
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0} '{1}' is not present in the configured {2} key list.",
+      "target": "{0} «{1}» отсутствует в настроенном списке ключей ({2}).",
+      "arguments": {
+        "0": "text",
+        "2": "text"
+      }
+    },
+    {
+      "source": "Currency prefab '{0}' was not found in ObjectDB.",
+      "target": "Префаб валюты «{0}» не найден в ObjectDB."
+    },
+    {
+      "source": "Item prefab '{0}' was not found in ObjectDB.",
+      "target": "Префаб предмета «{0}» не найден в ObjectDB."
+    },
+    {
+      "source": "Fix invalid value: {0} / {1}.",
+      "target": "Исправьте недопустимое значение: {0} / {1}.",
+      "arguments": {
+        "0": "text",
+        "1": "text"
+      }
+    },
+    {
+      "source": "Page {0}/{1} — {2} result(s)",
+      "target": "Страница {0}/{1} — результатов: {2}",
+      "numeric": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "source": "Editor GUI error: {0}",
+      "target": "Ошибка интерфейса редактора: {0}"
+    },
+    {
+      "source": "Delete selected ({0})",
+      "target": "Удалить выбранное ({0})"
+    },
+    {
+      "source": "Rows: {0}; filtered: {1}",
+      "target": "Строк: {0}; после фильтра: {1}"
+    },
+    {
+      "source": "Delete '{0}' from {1}?",
+      "target": "Удалить «{0}» из {1}?"
+    },
+    {
+      "source": "Deleting {0}...",
+      "target": "Удаление {0}..."
+    },
+    {
+      "source": "Creating {0}...",
+      "target": "Создание {0}..."
+    },
+    {
+      "source": "Inherited: {0}",
+      "target": "Унаследовано: {0}"
+    },
+    {
+      "source": "Loading {0}...",
+      "target": "Загрузка {0}..."
+    },
+    {
+      "source": "{0}  [active]",
+      "target": "{0}  [активен]"
+    },
+    {
+      "source": "Saving {0}...",
+      "target": "Сохранение {0}..."
+    },
+    {
+      "source": "Page {0}/{1}",
+      "target": "Страница {0}/{1}",
+      "numeric": [
+        0,
+        1
+      ]
+    },
+    {
+      "source": "Row {0}: {1}",
+      "target": "Строка {0}: {1}",
+      "numeric": [
+        0
+      ],
+      "arguments": {
+        "1": "message"
+      }
+    }
+  ],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/localization/c/59/TradersExtended/ConfigEditor.cs",
+    "source-evidence/localization/c/59/TradersExtended/ConfigEditorTransport.cs",
+    "source-evidence/localization/c/59/TradersExtended/TraderConfigSchema.cs",
+    "source-evidence/localization/c/59/TradersExtended/TradersExtended.cs"
+  ],
+  "notes": [
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен.",
+    "Валидация редактора переводится до объединения нескольких сообщений: литералы строго трёх методов. Идентификаторы/введённые значения и проверка валидности не изменяются."
+  ],
+  "namespaces": [
+    "TradersExtended"
+  ],
+  "pluginVersion": "2.0.4",
+  "literals": [
+    {
+      "type": "TradersExtended.ConfigEditor",
+      "method": "BuildItemRowValidation",
+      "values": {
+        "Item prefab is required.": "Укажите префаб предмета.",
+        "Item prefab must not contain leading or trailing whitespace.": "В начале и конце имени префаба предмета не должно быть пробелов.",
+        "Stack must be a valid integer.": "Количество должно быть целым числом.",
+        "Price must be a valid integer.": "Цена должна быть целым числом.",
+        "Quality must be a valid integer.": "Качество должно быть целым числом.",
+        "Currency prefab must not contain leading or trailing whitespace.": "В начале и конце имени префаба валюты не должно быть пробелов.",
+        "Required global key": "Обязательный глобальный ключ",
+        "Blocked global key": "Запрещённый глобальный ключ",
+        "Required player key": "Обязательный ключ игрока",
+        "Blocked player key": "Запрещённый ключ игрока",
+        "Item prefab '": "Префаб предмета «",
+        "Currency prefab '": "Префаб валюты «",
+        "' was not found in ObjectDB.": "» не найден в ObjectDB.",
+        "global": "глобальный",
+        "player": "личный"
+      }
+    },
+    {
+      "type": "TradersExtended.ConfigEditor",
+      "method": "GetKeyValidation",
+      "values": {
+        " '": " «",
+        "' is not present in the configured ": "» отсутствует в настроенном списке ",
+        "global": "глобальных",
+        "player": "личных",
+        " key list.": " ключей."
+      }
+    },
+    {
+      "type": "TradersExtended.ConfigEditor",
+      "method": "GetIntersectionValidation",
+      "values": {
+        "The same ": "Один и тот же ",
+        " key cannot be both required and blocked: ": " ключ нельзя одновременно требовать и запрещать: "
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+bin/
+obj/
+artifacts/
+TestResults/
+__pycache__/
+.pytest_cache/
+.vs/
+*.user
+*.suo
+# release-kit scanner caches and candidate state; private notes and backups.
+.cache/
+.private/
