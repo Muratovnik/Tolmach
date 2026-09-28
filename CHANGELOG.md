@@ -1,5 +1,23 @@
 # Изменения
 
+## 0.4.0 — ещё 25 модов
+
+- Переведены моды, которых нет в профиле автора, но которые поддерживал другой пакет
+  перевода: Balrond Amazing Nature, Arsenal Reborn, Constructions, Furniture Reborn, Dual
+  Mastery и Lightkeeper, Passive Powers, OdinsSteelworks, Epic Loot, VNEI, Inventory Slots,
+  Culinary Horizons, Hunter Legacy, Magic Supremacy, Eternal Legends, XPortal, TakeAllCooked,
+  MoveBuildPieces, FoodDurationMultiplier, BossAdd, Huginn, FirstPersonMode, PerfectPlacement,
+  Location Placement Accelerator и AzuWorkbenchTweaks. Всего 67 модов и субтитры игры.
+- У модов со своим русским переводом Tolmach дописывает только недостающие строки: ключи без
+  перевода, вкладки строительства, сообщения ServerSync. Ключи, которые мод использует без
+  английского текста (в игре виден `[ключ]`), переведены по месту использования.
+- ValheimArmory и ImpactfulSkills уже полностью переведены самими модами. Creature Level and
+  Loot Control будет в следующей версии: ему нужен отдельный адаптер.
+- Литералы можно задавать и в типах без namespace (`<global>` в списке namespaces каталога).
+- Валидатор отклоняет ключ или сырую строку, которые в разных каталогах переведены по-разному.
+- Проверки: 341 тест NUnit, валидатор данных, сверка всех 630 литералов с IL самих DLL. В игре
+  моды этой версии ещё не проверялись.
+
 ## 0.3.0 — самостоятельный пакет: 42 мода и субтитры игры
 
 - Tolmach работает сам по себе: другие пакеты русского перевода не нужны. Если такой

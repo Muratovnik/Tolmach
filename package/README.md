@@ -2,9 +2,9 @@
 
 ![Книга рун с надписью «Толмач» на перилах у фьорда с драккаром](https://raw.githubusercontent.com/Muratovnik/Tolmach/main/docs/images/banner.jpg)
 
-*Russian translations for 42 Valheim mods and the game's closed captions. Client-side, display text only.*
+*Russian translations for 67 Valheim mods and the game's closed captions. Client-side, display text only.*
 
-**Tolmach** (от старинного «толмач» — переводчик) переводит на русский 42 мода Valheim и
+**Tolmach** (от старинного «толмач» — переводчик) переводит на русский 67 модов Valheim и
 субтитры самой игры. Другие пакеты перевода не нужны. Tolmach заполняет только
 отсутствующие и английские строки: русский текст самого мода или другого пакета перевода
 остаётся как есть.
@@ -55,30 +55,47 @@
 
 | Мод | Версия | Мод | Версия |
 |---|---|---|---|
-| Advize-PlantEasily | 2.2.2 | Marlthon-SeaAnimals | 0.3.9 |
-| Advize-PlantEverything | 1.21.3 | MilkMediaProductions-ExpertExplorer | 1.7.0 |
-| Azumatt-AzuAreaRepair | 1.1.8 | MSchmoecker-DynamicStoragePiles | 0.8.1 |
-| Azumatt-AzuAutoStore | 3.1.6 | MSchmoecker-HammerTime | 0.3.11 |
-| Azumatt-AzuCraftyBoxes | 1.8.26 | Nextek-SpeedyPaths | 1.0.9 |
-| Azumatt-Build_Camera_Custom_Hammers_Edition | 1.3.3 | OdinPlus-CraftyCartsRemake | 3.2.3 |
-| Azumatt-Recycle_N_Reclaim | 1.4.5 | Pumpkin-ValheimVisualEnhanced | 0.5.18 |
-| Azumatt-SleepSkip | 1.3.2 | RandyKnapp-EquipmentAndQuickSlots | 3.1.3 |
-| Balrond-balrond_humanoidRandomizer | 1.6.0 | SephrinMods-VikingNPC_Continued | 0.4.1 |
+| Advize-PlantEasily | 2.2.2 | Jumpingmushroom-PortalLines | 0.8.0 |
+| Advize-PlantEverything | 1.21.3 | LJS-BossAdd | 1.2.0 |
+| Azumatt-AzuAreaRepair | 1.1.8 | lnsanity-Culinary_Horizons | 1.0.42 |
+| Azumatt-AzuAutoStore | 3.1.6 | Marlthon-AirAnimals | 0.3.2 |
+| Azumatt-AzuCraftyBoxes | 1.8.26 | Marlthon-SeaAnimals | 0.3.9 |
+| Azumatt-AzuWorkbenchTweaks | 1.0.7 | MilkMediaProductions-ExpertExplorer | 1.7.0 |
+| Azumatt-Build_Camera_Custom_Hammers_Edition | 1.3.3 | MSchmoecker-DynamicStoragePiles | 0.8.1 |
+| Azumatt-FirstPersonMode | 1.3.12 | MSchmoecker-HammerTime | 0.3.11 |
+| Azumatt-PerfectPlacement | 1.2.2 | MSchmoecker-VNEI | 0.17.6 |
+| Azumatt-Recycle_N_Reclaim | 1.4.5 | Nextek-SpeedyPaths | 1.0.9 |
+| Azumatt-SleepSkip | 1.3.2 | NickPappas-Location_Placement_Accelerator | 1.0.24 |
+| Balrond-balrond_amazing_nature | 1.4.0 | NightOfGames-Huginn_Map | 1.0.5 |
+| Balrond-balrond_arsenal_reborn | 0.1.6 | OdinPlus-CraftyCartsRemake | 3.2.3 |
+| Balrond-balrond_constructions | 1.4.5 | OdinPlus-OdinsSteelworks | 0.4.1 |
+| Balrond-balrond_DualMastery | 0.2.7 | Pumpkin-ValheimVisualEnhanced | 0.5.18 |
+| Balrond-balrond_furniture_reborn | 1.2.9 | RandyKnapp-EpicLoot | 0.14.13 |
+| Balrond-balrond_humanoidRandomizer | 1.6.0 | RandyKnapp-EquipmentAndQuickSlots | 3.1.3 |
+| Balrond-balrond_lightkeeper | 1.0.2 | SephrinMods-VikingNPC_Continued | 0.4.1 |
 | Balrond-balrond_shipyard | 1.7.3 | shudnal-TradersExtended | 2.0.4 |
-| blacks7ar-Fermenting | 1.1.8 | sighsorry-UsefulRunestones | 1.0.3 |
+| blacks7ar-Fermenting | 1.1.8 | sighsorry-InventorySlots | 1.5.15 |
+| blacks7ar-FoodDurationMultiplier | 1.1.7 | sighsorry-UsefulRunestones | 1.0.3 |
 | blacks7ar-OreMines | 1.2.1 | Smoothbrain-ComfortTweaks | 3.3.11 |
 | blacks7ar-RenegadeVikings | 1.4.2 | Smoothbrain-Groups | 1.2.12 |
 | blacks7ar-SeedBed | 1.2.9 | Smoothbrain-Mining | 1.1.7 |
-| blacks7ar-SNEAKer | 1.1.8 | Smoothbrain-StaminaRegenerationFromFood | 1.5.8 |
-| Cartur-Carturs_Feeding_Trough | 1.0.0 | Therzie-Warfare | 1.9.4 |
-| Digitalroot-Digitalroots_GoldBars | 1.2.34 | trustworthy-MaxwellTheCat | 0.0.1 |
-| ishid4-BetterArchery | 2.0.2 | ValheimModding-Jotunn | 2.30.2 |
-| JereKuusela-Structure_Tweaks | 1.37.0 | Vapok-AdventureBackpacks | 2.2.1 |
-| Jumpingmushroom-PortalLines | 0.8.0 | WackyMole-WackysDatabase | 2.5.35 |
-| Marlthon-AirAnimals | 0.3.2 | warpalicious-More_World_Locations_AIO | 5.1.4 |
+| blacks7ar-SNEAKer | 1.1.8 | Smoothbrain-PassivePowers | 1.1.5 |
+| Cartur-Carturs_Feeding_Trough | 1.0.0 | Smoothbrain-StaminaRegenerationFromFood | 1.5.8 |
+| Digitalroot-Digitalroots_GoldBars | 1.2.34 | SpikeHimself-XPortal | 1.2.25 |
+| DragonMotion-MoveBuildPieces | 1.1.1 | Therzie-Warfare | 1.9.4 |
+| Dreanegade-Eternal_Legends | 1.0.4 | trustworthy-MaxwellTheCat | 0.0.1 |
+| Dreanegade-Hunter_Legacy | 1.1.4 | ValheimModding-Jotunn | 2.30.2 |
+| Dreanegade-Magic_Supremacy | 3.1.2 | Vapok-AdventureBackpacks | 2.2.1 |
+| hoskope-TakeAllCooked | 1.1.0 | WackyMole-WackysDatabase | 2.5.35 |
+| ishid4-BetterArchery | 2.0.2 | warpalicious-More_World_Locations_AIO | 5.1.4 |
+| JereKuusela-Structure_Tweaks | 1.37.0 |  |  |
 
 Кроме модов, переводятся субтитры звуков самой игры (Valheim 1.0.16): в её русской
 локализации их нет.
+
+У модов со своим русским переводом (Amazing Nature, Epic Loot, Culinary Horizons и другие)
+Tolmach дописывает только недостающие строки. ValheimArmory и ImpactfulSkills переведены
+самими модами полностью.
 
 ## Настройки
 

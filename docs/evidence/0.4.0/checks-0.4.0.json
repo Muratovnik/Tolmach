@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-28",
+  "package": {
+    "file": "Muratovnik-Tolmach-0.4.0.zip",
+    "sha256": "db75513859a2ad53e0b149070ae1e84ae5dfec3992df50b8b8275bc7b83ffa83",
+    "entries": 75,
+    "manifest": {
+      "name": "Tolmach",
+      "version_number": "0.4.0",
+      "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.2351",
+        "ValheimModding-JsonDotNET-13.0.4"
+      ],
+      "website_url": "https://github.com/Muratovnik/Tolmach"
+    }
+  },
+  "build": {
+    "nunit_passed": 341,
+    "sdk": "9.0.318",
+    "plugin_sha256": "6022828307cd2c88dbe105ec81ecf5e8ce67941c02f5a9257937b92daca70a48"
+  },
+  "catalogs": {
+    "modules": 68
+  },
+  "package_gate_controls": "7 of 7 (valid package accepted, six broken copies rejected)",
+  "pytest_data_controls": "6 passed",
+  "literals_in_il": {
+    "method": "ilspycmd 9.1 -il written to UTF-8 files; profile DLLs for stage A, Thunderstore package DLLs for stage B",
+    "values_checked": 630,
+    "problems": 0
+  },
+  "stage_b": {
+    "packages": 28,
+    "modules": 25,
+    "natively_complete": [
+      "ValheimArmory",
+      "ImpactfulSkills"
+    ],
+    "deferred": [
+      "CreatureLevelControl (needs an adapter for its YAML translator)"
+    ],
+    "english_side": "analysis packets B-AN-1..6 against the decompiled current versions; missing targets listed per module"
+  },
+  "game_test": "not performed"
+}
