@@ -123,20 +123,27 @@ def evidence_checks(evidence: Path, modules: list[dict]) -> None:
             path = evidence / relative
             if not path.name.endswith('English.yml'): continue
             source = yaml.safe_load(path.read_text(encoding='utf-8-sig'))
-            check(all(source.get(k) == v for k, v in m['englishWords'].items()), m['id'] + ': English resource/key mismatch')
+            # englishWords[k] == k marks a key the mod uses without any English text; keys that the
+            # mod builds in code (PieceManager categories) are not in its resource.
+            check(all(source[k] == v for k, v in m['englishWords'].items() if v != k and k in source), m['id'] + ': English resource/key mismatch')
             russian = path.with_name(path.name.replace('English.yml', 'Russian.yml'))
             if russian.is_file():
                 existing = yaml.safe_load(russian.read_text(encoding='utf-8-sig')) or {}
-                missing = {k for k in source if not existing.get(k)}
+                missing = {k for k in source if source[k] and not existing.get(k)}
                 check(missing <= set(m['words']), m['id'] + ': existing Russian resource gaps are not covered')
             elif m['id'] != 'Norsemen':
-                check(set(source) <= set(m['words']), m['id'] + ': English table not fully covered')
+                # A value made only of placeholders ("{label} x{count}") has nothing to translate.
+                wordy = {k for k, v in source.items() if re.search(r'[A-Za-z]{2,}', re.sub(r'\{[^{}]*\}', '', str(v)))}
+                check(wordy <= set(m['words']), m['id'] + ': English table not fully covered')
     # Check the exact explicit literal replacements against the selected decompilations.
     provenance = load(ROOT / 'PROVENANCE.json')
     roots = {m['id']: evidence / m['source_root'] for m in provenance['modules']}
     for m in modules:
-        for rule in m.get('literals', []):
-            text = '\n'.join(p.read_text(encoding='utf-8-sig') for p in roots[m['id']].rglob('*.cs'))
+        if not m.get('literals'):
+            continue
+        # IL dumps back literals that a decompiler shows as string interpolation.
+        text = '\n'.join(p.read_text(encoding='utf-8-sig') for pattern in ('*.cs', '*.il') for p in roots[m['id']].rglob(pattern))
+        for rule in m['literals']:
             for en in rule['values']:
                 literal = json.dumps(en, ensure_ascii=False)
                 check(literal in text, m['id'] + ': explicit literal not found in evidence: ' + repr(en))
@@ -155,6 +162,15 @@ def main() -> int:
     ids = [m['id'] for m in modules]
     check(len(set(ids)) == len(ids), 'Duplicate module ID')
     counts = collections.Counter(modules=len(modules))
+    # One key or raw text, one translation: the plugin skips a key whose English or Russian
+    # differs between modules, and the first module wins a conflicting raw text.
+    seen_words, seen_raw = {}, {}
+    for m in modules:
+        for key, ru in m['words'].items():
+            pair = (m['englishWords'].get(key), ru)
+            check(seen_words.setdefault(key, pair) == pair, m['id'] + ': word key conflicts with another module: ' + key)
+        for en, ru in m.get('rawTexts', {}).items():
+            check(seen_raw.setdefault(en, ru) == ru, m['id'] + ': raw text conflicts with another module: ' + en)
     for m in modules:
         name = m['id']
         terms = m.get('terms', {})
