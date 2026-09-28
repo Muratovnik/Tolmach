@@ -4,7 +4,7 @@
 
 # Tolmach
 
-Русский перевод для 67 модов Valheim и субтитров самой игры.
+Русский перевод для 68 модов Valheim и субтитров самой игры.
 
 [![Release](https://img.shields.io/github/v/release/Muratovnik/Tolmach?style=flat-square&color=blue)](https://github.com/Muratovnik/Tolmach/releases)
 [![Downloads](https://img.shields.io/github/downloads/Muratovnik/Tolmach/total?style=flat-square&color=blue)](https://github.com/Muratovnik/Tolmach/releases)
@@ -12,7 +12,7 @@
 
 [![Valheim 1.0.16](https://img.shields.io/badge/Valheim-1.0.16-2f6f9f?style=flat-square&logo=steam)](docs/VALIDATION.md)
 [![BepInEx 5.4.2351](https://img.shields.io/badge/BepInEx-5.4.2351-6f42c1?style=flat-square)](https://thunderstore.io/c/valheim/p/denikson/BepInExPack_Valheim/)
-[![67 mods](https://img.shields.io/badge/mods-67-8b5a2b?style=flat-square)](package/README.md#переводимые-моды)
+[![68 mods](https://img.shields.io/badge/mods-68-8b5a2b?style=flat-square)](package/README.md#переводимые-моды)
 
 [Установка](#установка) · [Первый запуск](#первый-запуск) · [Документация](#документация) · [Сообщить о непереведённой строке](https://github.com/Muratovnik/Tolmach/issues/new)
 
@@ -25,7 +25,7 @@ Tolmach — плагин BepInEx, названный по старинному �
 
 ## Возможности
 
-- **67 модов и субтитры игры.** Список с версиями — в
+- **68 модов и субтитры игры.** Список с версиями — в
   [описании пакета](package/README.md#переводимые-моды), что именно переведено в каждом
   моде — в [docs/COVERAGE.md](docs/COVERAGE.md). Другие пакеты перевода не нужны.
 - **Не перезаписывает чужой перевод.** Tolmach заполняет только отсутствующие и

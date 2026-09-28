@@ -7,7 +7,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "Muratovnik"
 name = "Tolmach"
-description = "Русский перевод 67 модов Valheim и субтитров игры. Меняется только отображаемый текст: сохранения, рецепты и конфиги модов не затрагиваются."
+description = "Русский перевод 68 модов Valheim и субтитров игры. Меняется только отображаемый текст: сохранения, рецепты и конфиги модов не затрагиваются."
 websiteUrl = "https://github.com/Muratovnik/Tolmach"
 containsNsfwContent = false
 

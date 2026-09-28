@@ -2,9 +2,9 @@
 
 ![Книга рун с надписью «Толмач» на перилах у фьорда с драккаром](https://raw.githubusercontent.com/Muratovnik/Tolmach/main/docs/images/banner.jpg)
 
-*Russian translations for 67 Valheim mods and the game's closed captions. Client-side, display text only.*
+*Russian translations for 68 Valheim mods and the game's closed captions. Client-side, display text only.*
 
-**Tolmach** (от старинного «толмач» — переводчик) переводит на русский 67 модов Valheim и
+**Tolmach** (от старинного «толмач» — переводчик) переводит на русский 68 модов Valheim и
 субтитры самой игры. Другие пакеты перевода не нужны. Tolmach заполняет только
 отсутствующие и английские строки: русский текст самого мода или другого пакета перевода
 остаётся как есть.
@@ -77,18 +77,18 @@
 | blacks7ar-Fermenting | 1.1.8 | sighsorry-InventorySlots | 1.5.15 |
 | blacks7ar-FoodDurationMultiplier | 1.1.7 | sighsorry-UsefulRunestones | 1.0.3 |
 | blacks7ar-OreMines | 1.2.1 | Smoothbrain-ComfortTweaks | 3.3.11 |
-| blacks7ar-RenegadeVikings | 1.4.2 | Smoothbrain-Groups | 1.2.12 |
-| blacks7ar-SeedBed | 1.2.9 | Smoothbrain-Mining | 1.1.7 |
-| blacks7ar-SNEAKer | 1.1.8 | Smoothbrain-PassivePowers | 1.1.5 |
-| Cartur-Carturs_Feeding_Trough | 1.0.0 | Smoothbrain-StaminaRegenerationFromFood | 1.5.8 |
-| Digitalroot-Digitalroots_GoldBars | 1.2.34 | SpikeHimself-XPortal | 1.2.25 |
-| DragonMotion-MoveBuildPieces | 1.1.1 | Therzie-Warfare | 1.9.4 |
-| Dreanegade-Eternal_Legends | 1.0.4 | trustworthy-MaxwellTheCat | 0.0.1 |
-| Dreanegade-Hunter_Legacy | 1.1.4 | ValheimModding-Jotunn | 2.30.2 |
-| Dreanegade-Magic_Supremacy | 3.1.2 | Vapok-AdventureBackpacks | 2.2.1 |
-| hoskope-TakeAllCooked | 1.1.0 | WackyMole-WackysDatabase | 2.5.35 |
-| ishid4-BetterArchery | 2.0.2 | warpalicious-More_World_Locations_AIO | 5.1.4 |
-| JereKuusela-Structure_Tweaks | 1.37.0 |  |  |
+| blacks7ar-RenegadeVikings | 1.4.2 | Smoothbrain-CreatureLevelAndLootControl | 4.6.4 |
+| blacks7ar-SeedBed | 1.2.9 | Smoothbrain-Groups | 1.2.12 |
+| blacks7ar-SNEAKer | 1.1.8 | Smoothbrain-Mining | 1.1.7 |
+| Cartur-Carturs_Feeding_Trough | 1.0.0 | Smoothbrain-PassivePowers | 1.1.5 |
+| Digitalroot-Digitalroots_GoldBars | 1.2.34 | Smoothbrain-StaminaRegenerationFromFood | 1.5.8 |
+| DragonMotion-MoveBuildPieces | 1.1.1 | SpikeHimself-XPortal | 1.2.25 |
+| Dreanegade-Eternal_Legends | 1.0.4 | Therzie-Warfare | 1.9.4 |
+| Dreanegade-Hunter_Legacy | 1.1.4 | trustworthy-MaxwellTheCat | 0.0.1 |
+| Dreanegade-Magic_Supremacy | 3.1.2 | ValheimModding-Jotunn | 2.30.2 |
+| hoskope-TakeAllCooked | 1.1.0 | Vapok-AdventureBackpacks | 2.2.1 |
+| ishid4-BetterArchery | 2.0.2 | WackyMole-WackysDatabase | 2.5.35 |
+| JereKuusela-Structure_Tweaks | 1.37.0 | warpalicious-More_World_Locations_AIO | 5.1.4 |
 
 Кроме модов, переводятся субтитры звуков самой игры (Valheim 1.0.16): в её русской
 локализации их нет.
