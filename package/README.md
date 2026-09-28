@@ -67,7 +67,7 @@
 | Azumatt-Recycle_N_Reclaim | 1.4.5 | Nextek-SpeedyPaths | 1.0.9 |
 | Azumatt-SleepSkip | 1.3.2 | NickPappas-Location_Placement_Accelerator | 1.0.24 |
 | Balrond-balrond_amazing_nature | 1.4.0 | NightOfGames-Huginn_Map | 1.0.5 |
-| Balrond-balrond_arsenal_reborn | 0.1.6 | OdinPlus-CraftyCartsRemake | 3.2.3 |
+| Balrond-balrond_arsenal_reborn | 0.1.6 | OdinPlus-CraftyCartsRemake | 3.2.4 |
 | Balrond-balrond_constructions | 1.4.5 | OdinPlus-OdinsSteelworks | 0.4.1 |
 | Balrond-balrond_DualMastery | 0.2.7 | Pumpkin-ValheimVisualEnhanced | 0.5.18 |
 | Balrond-balrond_furniture_reborn | 1.2.9 | RandyKnapp-EpicLoot | 0.14.13 |

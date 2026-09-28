@@ -116,7 +116,7 @@ Player.log без удаления Steam/PlayFab-идентификаторов 
       путевые камни, торговцы; вывод консольных команд по-русски, имена команд английские.
 - [ ] PlantEverything/PlantEasily: названия саженцев, подсказки посадки и размера сетки.
 - [ ] AdventureBackpacks: Spectral Shroud of Holding; консольные команды навыков.
-- [ ] В runtime.txt нет «Literal not replaced» и «Expected literal adapter not found».
+- [ ] В runtime.txt нет «Literal not replaced», «Literal not found in IL» и «Expected literal adapter not found».
 - [ ] English→Russian без перезапуска: словарные и сырые строки переключаются; строки,
       созданные модами при запуске (описания улучшений, святилища), меняются после
       перезапуска — это ожидаемое ограничение.
