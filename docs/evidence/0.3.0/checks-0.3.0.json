@@ -1,0 +1,71 @@
+{
+  "date": "2026-09-28",
+  "package": {
+    "file": "Muratovnik-Tolmach-0.3.0.zip",
+    "sha256": "313332a79e80e1f1452568b830face2e131423183b9ef9d8dd6853311643832d",
+    "entries": 50,
+    "manifest": {
+      "name": "Tolmach",
+      "version_number": "0.3.0",
+      "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.2351",
+        "ValheimModding-JsonDotNET-13.0.4"
+      ],
+      "website_url": "https://github.com/Muratovnik/Tolmach"
+    }
+  },
+  "build": {
+    "nunit_passed": 237,
+    "sdk": "9.0.318",
+    "plugin_sha256": "8771852a8b2cf396e8db1c6d5e1e1040e83d4a6fc7fce979c92c467a019744ae"
+  },
+  "catalogs": {
+    "modules": 43
+  },
+  "package_gate_controls": [
+    "ACCEPTED valid package",
+    "REJECTED catalog outside plugins/",
+    "REJECTED manifest with UTF-8 BOM",
+    "REJECTED icon 128x128",
+    "REJECTED description over 250 characters",
+    "REJECTED DLL differs from tested one",
+    "REJECTED missing README.md"
+  ],
+  "pytest_data_controls": "6 passed",
+  "literals_in_il": {
+    "method": "ilspycmd 9.1 -il on the DLLs named in PROVENANCE binary_identities (Gale profile Default); each value must be an ldstr inside the named method",
+    "values_checked": 318,
+    "problems": 0
+  },
+  "literal_data_flow_audit": {
+    "scope": "292 new literals in 11 modules",
+    "display": 289,
+    "identifier": 2,
+    "unclear": 1,
+    "excluded": [
+      "BalrondShipyard ShipProcessor 'Anchor' x2 (Transform.Find path; methods absent in 1.7.3)",
+      "More_World_Locations_AIO PortNames.GetRandomName 'Port' (would be stored in the port ZDO)"
+    ]
+  },
+  "raw_texts_against_bundles": {
+    "method": "UnityPy typetrees of the asset bundles embedded in the installed DLLs, plus decompiled code",
+    "BalrondShipyard": {
+      "monobehaviours": 1145,
+      "schematic_names_via_patterns": 113,
+      "stale_excluded": 28,
+      "added_from_bundle": 4
+    },
+    "HumanoidRandomizer": {
+      "monobehaviours": 813,
+      "variants_found": 51,
+      "stale_excluded": 8,
+      "added_from_bundle": 1
+    }
+  },
+  "game_captions": {
+    "source": "localization_captions (Valheim 1.0.16 resources)",
+    "keys": 142,
+    "english_equal": true
+  },
+  "game_test": "not performed"
+}

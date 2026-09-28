@@ -4,7 +4,7 @@
 
 # Tolmach
 
-Русский перевод для 37 модов Valheim, которые ObeliskRU не переводит или переводит частично.
+Русский перевод для 42 модов Valheim и субтитров самой игры.
 
 [![Release](https://img.shields.io/github/v/release/Muratovnik/Tolmach?style=flat-square&color=blue)](https://github.com/Muratovnik/Tolmach/releases)
 [![Downloads](https://img.shields.io/github/downloads/Muratovnik/Tolmach/total?style=flat-square&color=blue)](https://github.com/Muratovnik/Tolmach/releases)
@@ -12,24 +12,25 @@
 
 [![Valheim 1.0.16](https://img.shields.io/badge/Valheim-1.0.16-2f6f9f?style=flat-square&logo=steam)](docs/VALIDATION.md)
 [![BepInEx 5.4.2351](https://img.shields.io/badge/BepInEx-5.4.2351-6f42c1?style=flat-square)](https://thunderstore.io/c/valheim/p/denikson/BepInExPack_Valheim/)
-[![Works with ObeliskRU](https://img.shields.io/badge/works%20with-ObeliskRU-8b5a2b?style=flat-square)](https://thunderstore.io/c/valheim/p/DragonMotion/ObeliskRU/)
-[![37 mods](https://img.shields.io/badge/mods-37-8b5a2b?style=flat-square)](package/README.md#переводимые-моды)
+[![42 mods](https://img.shields.io/badge/mods-42-8b5a2b?style=flat-square)](package/README.md#переводимые-моды)
 
 [Установка](#установка) · [Первый запуск](#первый-запуск) · [Документация](#документация) · [Сообщить о непереведённой строке](https://github.com/Muratovnik/Tolmach/issues/new)
 
 </div>
 
 Tolmach — плагин BepInEx, названный по старинному русскому слову «толмач»
-(переводчик). Он работает рядом с ObeliskRU и переводит то, что остаётся английским:
-подписи интерфейса, подсказки, сообщения, названия предметов и навыков.
+(переводчик). Он переводит то, что в модах остаётся английским: подписи интерфейса,
+подсказки, сообщения, названия предметов, существ и навыков, — а также субтитры звуков,
+которых нет в русской версии игры.
 
 ## Возможности
 
-- **37 модов.** 24 из них не имели русского перевода, 13 были переведены частично.
-  Список с версиями — в [описании пакета](package/README.md#переводимые-моды), что
-  именно переведено в каждом моде — в [docs/COVERAGE.md](docs/COVERAGE.md).
-- **Дополняет ObeliskRU.** Tolmach заполняет только отсутствующие и английские строки;
-  уже существующий русский перевод, в том числе от ObeliskRU, остаётся как есть.
+- **42 мода и субтитры игры.** Список с версиями — в
+  [описании пакета](package/README.md#переводимые-моды), что именно переведено в каждом
+  моде — в [docs/COVERAGE.md](docs/COVERAGE.md). Другие пакеты перевода не нужны.
+- **Не перезаписывает чужой перевод.** Tolmach заполняет только отсутствующие и
+  английские строки; русский текст самого мода или другого пакета перевода остаётся как
+  есть.
 - **Только текст на экране.** Сохранения, рецепты, предметы и конфиги модов не
   затрагиваются. Мод нужен только на клиенте: серверу и другим игрокам его ставить не
   нужно.
@@ -50,17 +51,14 @@ Tolmach — плагин BepInEx, названный по старинному �
 - Valheim с профилем в менеджере модов Gale или r2modman.
 - BepInExPack_Valheim и JsonDotNET — это зависимости пакета. Gale доустанавливает их
   при импорте, если их нет в профиле.
-- ObeliskRU — рекомендуется оставить включённым: Tolmach переводит только то, чего нет
-  в ObeliskRU и в собственных переводах модов. Без ObeliskRU часть строк останется
-  английской.
 
 1. Скачайте `Muratovnik-Tolmach-<версия>.zip` из
    [последнего релиза](https://github.com/Muratovnik/Tolmach/releases/latest). Рядом
    лежит `SHA256SUMS`. Чтобы сверить хеш, выполните в папке загрузки
-   (пример для 0.2.0):
+   (пример для 0.3.0):
 
    ```powershell
-   (Get-FileHash .\Muratovnik-Tolmach-0.2.0.zip -Algorithm SHA256).Hash.ToLower()
+   (Get-FileHash .\Muratovnik-Tolmach-0.3.0.zip -Algorithm SHA256).Hash.ToLower()
    Get-Content .\SHA256SUMS
    ```
 
@@ -106,8 +104,12 @@ Tolmach — плагин BepInEx, названный по старинному �
 
 ## Ограничения
 
-- Не переводятся: команды и вывод консоли, окно настроек F1, пользовательские
-  конфиги и имена, которые вводит игрок.
+- Не переводятся: имена консольных команд и их аргументы, окно настроек F1,
+  пользовательские конфиги и имена, которые вводит игрок. Вывод консольных команд
+  переведён только у модов, где он указан в [docs/COVERAGE.md](docs/COVERAGE.md).
+- Часть строк мод создаёт при запуске игры (описания улучшений кораблей, названия
+  святилищ). Они появляются на языке, выбранном при запуске; после смены языка в
+  настройках их обновит перезапуск игры.
 - Перехват экранного текста привязан к версиям модов из списка. Если у мода другая
   версия, словарные переводы продолжают работать, а экранные по умолчанию
   отключаются. Включить их можно параметром `Compatibility.AllowOtherVersions`, но
@@ -121,7 +123,12 @@ Tolmach — плагин BepInEx, названный по старинному �
 этого мода из `Tolmach.runtime.txt`. Сборка, правка переводов и выпуск описаны в
 [docs/BUILD.md](docs/BUILD.md).
 
+## Благодарности
+
+Tolmach вдохновлён пакетом [ObeliskRU](https://thunderstore.io/c/valheim/p/DragonMotion/ObeliskRU/):
+он показал, какие моды и строки стоит перевести. Перевод в Tolmach сделан заново
+с английских оригиналов модов.
+
 ## Лицензия
 
-[MIT](LICENSE) — для кода пакета и новых русских переводов. Оригинальные английские
-строки, названия и идентификаторы модов принадлежат их авторам.
+[MIT](LICENSE).
