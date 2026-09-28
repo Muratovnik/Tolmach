@@ -8,7 +8,7 @@
 
 - [ ] Есть `Muratovnik-Tolmach-<версия>.zip`: из релиза GitHub (хеш совпадает с его `SHA256SUMS`)
       или из `artifacts/` после успешного Build.cmd.
-- [ ] Импорт ZIP в Gale (или `node gale.mjs install-local`) прошёл; мод виден в профиле,
+- [ ] Импорт ZIP в Gale прошёл; мод виден в профиле,
       зависимости BepInExPack и JsonDotNET на месте, файлы в `BepInEx/plugins/Tolmach/`.
 - [ ] В BepInEx нет ошибок загрузки Tolmach/JSON/Harmony.
 - [ ] runtime.txt содержит нужные 37 модулей без неожиданных пропусков/несовпадений.

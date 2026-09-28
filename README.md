@@ -1,131 +1,116 @@
+<div align="center">
+
+<img src="package/icon.png" alt="Иконка Tolmach" width="128">
+
 # Tolmach
 
-Исходники BepInEx-плагина для Valheim, который добавляет русский перевод 37 модам:
-24 непереведённым и 13 частично переведённым. Название — от старинного русского
-«толмач», переводчик. Пакет дополняет **ObeliskRU**: заполняет только отсутствующие и
-английские строки и меняет лишь текст на экране. Результат сборки — пакет Thunderstore,
-который Gale и r2modman импортируют как локальный мод. Готовые пакеты публикуются в
-[релизах GitHub](https://github.com/Muratovnik/Tolmach/releases). Описание для
-игроков, которое показывается в менеджере модов, — [package/README.md](package/README.md).
+Русский перевод для 37 модов Valheim, которые ObeliskRU не переводит или переводит частично.
 
-## Сборка пакета
+[![Release](https://img.shields.io/github/v/release/Muratovnik/Tolmach?style=flat-square)](https://github.com/Muratovnik/Tolmach/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 
-Нужны Windows, .NET SDK 8 или новее (проверено с 9.0.318), .NET Framework 4.8 и
-установленная Valheim. Нужен и профиль менеджера модов с BepInEx 5 и JsonDotNET:
-из него берутся библиотеки для компиляции и тестов. При первой сборке NuGet скачивает
-зафиксированные пакеты разработки и Thunderstore CLI; источник задан в
-[nuget.config](nuget.config).
+</div>
 
-Сборка ничего не пишет ни в игру, ни в профиль, поэтому игру закрывать не нужно.
+Tolmach — плагин BepInEx, названный по старинному русскому слову «толмач»
+(переводчик). Он работает рядом с ObeliskRU и переводит то, что остаётся английским:
+подписи интерфейса, подсказки, сообщения, названия предметов и навыков.
 
-1. Запустите `Build.cmd` и укажите папку Valheim и папку профиля. Можно передать их
-   сразу (пути этого компьютера):
+## Возможности
 
-   ```powershell
-   .\Build.ps1 -GamePath 'D:\SteamLibrary\steamapps\common\Valheim' `
-     -ProfilePath "$env:APPDATA\com.kesomannen.gale\valheim\profiles\Default"
-   ```
+- Переводит 37 модов: 24 без русского перевода и 13 переведённых частично. Список с
+  версиями — в [описании пакета](package/README.md#переводимые-моды), что именно
+  переведено в каждом моде — в [docs/COVERAGE.md](docs/COVERAGE.md).
+- Дополняет ObeliskRU, а не заменяет его. Tolmach заполняет только отсутствующие и
+  английские строки; уже существующий русский перевод, в том числе от ObeliskRU,
+  остаётся.
+- Меняет только текст на экране. Сохранения, рецепты, предметы и конфиги модов не
+  затрагиваются. Мод нужен только на клиенте: серверу и другим игрокам его ставить не
+  нужно.
+- Отключает перевод отдельного мода или весь пакет в настройках BepInEx.
+- Пишет отчёт о том, какие моды найдены и какие переводы подключены.
 
-   Вместо параметров можно один раз задать переменные окружения `TOLMACH_GAME_PATH` и
-   `TOLMACH_PROFILE_PATH`: их читают и `Build.ps1`, и выпуск через release-kit.
+## Установка
 
-2. Готовый пакет: `artifacts/Muratovnik-Tolmach-<версия>.zip`. Журналы, TRX и
-   `build-receipt.json` этого запуска лежат в `artifacts/run-<GUID>/`.
+> Tolmach проверен автоматическими тестами с библиотеками игры, BepInEx и Harmony.
+> В самой игре на всех экранах его ещё не проверяли; о непереведённых местах сообщайте
+> в [issues](https://github.com/Muratovnik/Tolmach/issues).
 
-Пакет появляется, только если все тесты выполнены и прошли, DLL и 37 каталогов
-совпадают с протестированными, а готовый ZIP прошёл проверку формата Thunderstore и
-раскладки Gale. Подробности и ручные команды: [docs/BUILD.md](docs/BUILD.md).
+Нужны:
 
-## Установка собранного пакета
+- Valheim с профилем в менеджере модов Gale или r2modman.
+- BepInExPack_Valheim и JsonDotNET — это зависимости пакета. Gale доустанавливает их
+  при импорте, если их нет в профиле.
+- ObeliskRU — рекомендуется оставить включённым: Tolmach переводит только то, чего нет
+  в ObeliskRU и в собственных переводах модов. Без ObeliskRU часть строк останется
+  английской.
 
-- Gale: «Импорт» → «…локальный мод», выбрать ZIP (или перетащить его в окно).
-- Из проекта `valheim` командой, которая создаёт резервную копию профиля:
-  `node gale.mjs install-local '<путь к ZIP>'`.
-- r2modman: Settings → Import local mod.
-
-Менеджер установит зависимости из манифеста (BepInExPack_Valheim, JsonDotNET) и
-разложит файлы в `BepInEx/plugins/Tolmach/`. Повторный импорт заменяет прежнюю
-версию локального мода.
-
-## Изменение переводов
-
-Каждый мод описан файлом в [catalog/](catalog/): идентичность (GUID, имя сборки,
-версия плагина, namespaces), словарные ключи `words`/`englishWords`, точные строки
-`texts`, шаблоны `patterns`, адресные литералы `literals` и другие адаптеры. Формат
-и политика переводов — [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), покрытие по
-модам — [docs/COVERAGE.md](docs/COVERAGE.md).
-
-После правки каталога запустите проверку данных и сборку:
-
-```powershell
-python tools\validate.py
-.\Build.cmd
-```
-
-`validate.py` проверяет плейсхолдеры, разметку, ключи и привязки без выполнения C#.
-Поведение перевода проверяют NUnit-тесты, которые запускает сборка.
-
-## Выпуск новой версии
-
-Релизы выпускает [release-kit](https://github.com/Muratovnik/release-kit), закреплённый
-в репозитории как `.github/relkit.pyz`; настройки — в [relkit.toml](relkit.toml). Он
-собирает пакет из закоммиченного кода, проверяет его и публикует релиз GitHub с ZIP и
-`SHA256SUMS`. Нужны Python 3.11+, GitHub CLI 2.98+ с доступом на запись в репозиторий
-и те же библиотеки игры и профиля, что для обычной сборки.
-
-1. Поднимите `<Version>` в [Tolmach.csproj](Tolmach.csproj) и `PluginVersion` в
-   [src/Plugin.cs](src/Plugin.cs). Тест сверяет их между собой, release-kit берёт номер
-   версии из csproj.
-2. Добавьте в [CHANGELOG.md](CHANGELOG.md) запись `## <версия> — <заголовок>`. Она
-   входит в пакет, видна в менеджере модов и становится текстом релиза.
-3. Закоммитьте изменения: release-kit работает только с чистым деревом.
-4. Задайте пути к игре и профилю и выпустите релиз:
+1. Скачайте `Muratovnik-Tolmach-<версия>.zip` из
+   [последнего релиза](https://github.com/Muratovnik/Tolmach/releases/latest). Рядом
+   лежит `SHA256SUMS`. Чтобы сверить хеш, выполните в папке загрузки
+   (пример для 0.2.0):
 
    ```powershell
-   $env:TOLMACH_GAME_PATH = 'D:\SteamLibrary\steamapps\common\Valheim'
-   $env:TOLMACH_PROFILE_PATH = "$env:APPDATA\com.kesomannen.gale\valheim\profiles\Default"
-   python .github/relkit.pyz release plan <версия>
-   python .github/relkit.pyz release run <версия> --publish --prepare --plan-hash <хеш из plan>
+   (Get-FileHash .\Muratovnik-Tolmach-0.2.0.zip -Algorithm SHA256).Hash.ToLower()
+   Get-Content .\SHA256SUMS
    ```
 
-   `plan` показывает, что будет опубликовано, и печатает хеш плана. `run` повторяет
-   проверки, аудит секретов и ссылок, сборку и проверку ZIP, затем создаёт тег
-   `v<версия>`, отправляет его вместе с веткой `main` и публикует релиз.
-5. После сбоя начните с `python .github/relkit.pyz release status <версия>`, затем
-   продолжите командой `release resume <версия> --publish`. Опубликованный релиз
-   перепроверяет `release verify <версия>`.
+   Первая строка вывода должна совпасть с хешем в `SHA256SUMS`.
 
-Перед коммитом полезно запустить `python .github/relkit.pyz audit`: он ищет секреты,
-битые локальные ссылки и нарушения правил из `relkit.toml`.
+2. Импортируйте ZIP в менеджер модов:
+   - **Gale:** «Импорт» → «…локальный мод» и выберите ZIP, или перетащите ZIP в окно
+     Gale. Файлы появятся в папке профиля `BepInEx/plugins/Tolmach/`. Повторный
+     импорт новой версии заменяет прежнюю.
+   - **r2modman:** Settings → Import local mod. Этот путь не проверялся.
+   - **Вручную:** скопируйте содержимое папки `plugins` из архива в
+     `BepInEx/plugins/Tolmach/` так, чтобы `Tolmach.dll` и папка `catalog` лежали рядом.
 
-Выпуск требует хук release-kit перед push (`require_guard`, `owner_audit`). Хук проверяет
-всю историю, в том числе по приватным правилам владельца. Они не хранятся в
-репозитории. В новом клоне путь к ним задаётся локальной настройкой
-`git config --local releasekit.privateRoot <папка>`. Затем хук ставится командами
-`python .github/relkit.pyz protect install --dry-run --json` (показывает `plan_sha256`) и
-`python .github/relkit.pyz protect install --plan-hash <plan_sha256>`. После
-осознанной правки `relkit.toml`, `.betterleaks.toml` или обновления `relkit.pyz` хук
-обновляется командой `python .github/relkit.pyz update --refresh-guard`.
+На thunderstore.io пакет пока не опубликован.
 
-На thunderstore.io пакет не публиковался. Для этого нужен токен команды
-Thunderstore `Muratovnik`; ZIP из релиза публикуется командой
-`dotnet tool run tcli publish --file <ZIP>`.
+## Первый запуск
 
-## Что проверено
+1. Запустите Valheim через менеджер модов.
+2. В настройках игры выберите русский язык.
+3. Откройте окно или предмет одного из переводимых модов: текст должен быть на
+   русском.
 
-Сборка и 167 NUnit-тестов прошли с библиотеками игры, BepInEx 5.4.23 и Harmony из
-профиля. Все 37 привязок сверены с установленными DLL модов. Запуск в игре на всех
-экранах пока не выполнялся; план приёмки — [docs/RUNTIME-CHECKLIST.md](docs/RUNTIME-CHECKLIST.md),
-результаты проверок — [docs/VALIDATION.md](docs/VALIDATION.md).
+После запуска в папке профиля появляются два файла:
+
+- `BepInEx/config/muratovnik.tolmach.cfg` — настройки. Параметры описаны в
+  [описании пакета](package/README.md#настройки); изменения применяются после
+  перезапуска игры.
+- `BepInEx/config/Tolmach.runtime.txt` — отчёт. Строка `Russian active: True`
+  означает, что перевод включён. Ниже — строка по каждому найденному моду и причина
+  пропуска для модов, которых нет в профиле.
 
 ## Документация
 
-- [docs/BUILD.md](docs/BUILD.md) — сборка, проверка пакета, выпуск, ручные команды.
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — устройство плагина и границы интеграции.
-- [docs/COVERAGE.md](docs/COVERAGE.md) — что переведено для каждого мода.
-- [docs/VALIDATION.md](docs/VALIDATION.md) — выполненные проверки и их границы.
-- [docs/RUNTIME-CHECKLIST.md](docs/RUNTIME-CHECKLIST.md) — приёмка в игре.
-- [docs/REUSE-DECISIONS.md](docs/REUSE-DECISIONS.md) — готовые решения вместо своих механизмов.
-- [docs/SOURCES.md](docs/SOURCES.md) — первичные источники.
-- [CHANGELOG.md](CHANGELOG.md), [LICENSE](LICENSE) (MIT; оригинальные строки модов
-  принадлежат их авторам).
+- [package/README.md](package/README.md) — описание пакета, которое показывает менеджер
+  модов: список модов и версий, настройки, удаление.
+- [docs/COVERAGE.md](docs/COVERAGE.md) — что переведено в каждом моде.
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — как плагин находит и подменяет текст.
+- [docs/BUILD.md](docs/BUILD.md) — сборка, изменение переводов и выпуск версий.
+- [docs/VALIDATION.md](docs/VALIDATION.md) — что проверено и что нет.
+- [docs/RUNTIME-CHECKLIST.md](docs/RUNTIME-CHECKLIST.md) — план проверки в игре.
+- [CHANGELOG.md](CHANGELOG.md) — изменения по версиям.
+
+## Ограничения
+
+- Не переводятся: команды и вывод консоли, окно настроек F1, пользовательские
+  конфиги и имена, которые вводит игрок.
+- Перехват экранного текста привязан к версиям модов из списка. Если у мода другая
+  версия, словарные переводы продолжают работать, а экранные по умолчанию
+  отключаются. Включить их можно параметром `Compatibility.AllowOtherVersions`, но
+  работа с другими версиями не проверялась.
+- Ошибки самих модов пакет не исправляет.
+
+## Участие в разработке
+
+О непереведённой строке сообщайте в [issues](https://github.com/Muratovnik/Tolmach/issues).
+Укажите точную английскую строку, мод и его версию, экран, где она видна, и строки
+этого мода из `Tolmach.runtime.txt`. Сборка, правка переводов и выпуск описаны в
+[docs/BUILD.md](docs/BUILD.md).
+
+## Лицензия
+
+[MIT](LICENSE) — для кода пакета и новых русских переводов. Оригинальные английские
+строки, названия и идентификаторы модов принадлежат их авторам.
