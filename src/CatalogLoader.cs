@@ -74,6 +74,51 @@ namespace Tolmach
                     throw new InvalidDataException("Invalid literal adapter.");
             foreach (PrefabSpec r in m.prefabs)
                 if (r == null || r.fields == null || r.fields.Values.Any(String.IsNullOrEmpty)) throw new InvalidDataException("Invalid display fallback.");
+            if (m.cllc != null) ValidateCllc(m.cllc);
+        }
+        // CLLC parses its nameplate templates itself: {name} once, and optional [...] groups with one
+        // of the other placeholders each. On anything else it logs an error and shows the prefab name.
+        private static readonly Regex CllcPlaceholder = new Regex(@"\{([^{}]*)\}", RegexOptions.CultureInvariant);
+        private static readonly string[] CllcTemplateWords = { "name", "effect", "infusion", "affix" };
+        private static void ValidateCllc(CllcLanguage t)
+        {
+            if (t.creatureGender == null || t.genderedCreatureTranslations == null || t.genderedTranslations == null ||
+                t.translations == null || t.enumTranslations == null || t.settingGroups == null || t.settings == null)
+                throw new InvalidDataException("CLLC tables must not be null.");
+            if (!t.creatureGender.ContainsKey("default") ||
+                t.creatureGender.Values.Any(delegate(string g) { return g == null || !t.genderedCreatureTranslations.ContainsKey(g); }))
+                throw new InvalidDataException("Every CLLC gender, including the default one, needs a nameplate template.");
+            foreach (string template in t.genderedCreatureTranslations.Values) ValidateCllcTemplate(template);
+            if (t.genderedTranslations.Any(delegate(KeyValuePair<string, Dictionary<string, string>> g) { return g.Value == null || !t.genderedCreatureTranslations.ContainsKey(g.Key); }))
+                throw new InvalidDataException("CLLC gendered words for a gender without a template.");
+            foreach (Dictionary<string, string> table in new[] { t.creatureGender, t.genderedCreatureTranslations, t.translations, t.settingGroups }
+                .Concat(t.genderedTranslations.Values).Concat(t.enumTranslations.Values))
+                if (table == null || table.Any(delegate(KeyValuePair<string, string> p) { return String.IsNullOrEmpty(p.Key) || String.IsNullOrEmpty(p.Value); }))
+                    throw new InvalidDataException("Empty CLLC key/value.");
+            if (t.settings.Any(delegate(KeyValuePair<string, CllcSetting> p) { return String.IsNullOrEmpty(p.Key) || p.Value == null || String.IsNullOrEmpty(p.Value.display) || String.IsNullOrEmpty(p.Value.desc); }))
+                throw new InvalidDataException("A CLLC setting needs a name and a description.");
+        }
+        private static void ValidateCllcTemplate(string template)
+        {
+            // group: -1 outside [...], 0 inside before its placeholder, 1 inside after it.
+            int names = 0, group = -1;
+            bool valid = template.Length != 0;
+            for (int i = 0; valid && i < template.Length; i++)
+            {
+                char c = template[i];
+                if (c == '[') { valid = group < 0; group = 0; }
+                else if (c == ']') { valid = group == 1; group = -1; }
+                else if (c == '}') valid = false;
+                else if (c == '{')
+                {
+                    Match p = CllcPlaceholder.Match(template, i);
+                    string word = p.Success && p.Index == i ? p.Groups[1].Value : null;
+                    if (word == "name") { valid = group < 0; names++; }
+                    else { valid = group == 0 && Array.IndexOf(CllcTemplateWords, word) >= 0; group = 1; }
+                    i += p.Length - 1;
+                }
+            }
+            if (!valid || group >= 0 || names != 1) throw new InvalidDataException("Invalid CLLC nameplate template: " + template);
         }
         private static void ValidatePattern(Module m, PatternSpec p, params string[] semantics)
         {

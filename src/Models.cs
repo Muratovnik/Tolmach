@@ -30,6 +30,23 @@ namespace Tolmach
         public string kind = "";
         public Dictionary<string, string> fields = new Dictionary<string, string>();
     }
+    // Creature Level & Loot Control's own language schema (its LocalizationWrapper): creature
+    // genders, a nameplate template per gender, gendered and plain words, config window texts.
+    public sealed class CllcSetting
+    {
+        public string display = "";
+        public string desc = "";
+    }
+    public sealed class CllcLanguage
+    {
+        public Dictionary<string, string> creatureGender = new Dictionary<string, string>();
+        public Dictionary<string, string> genderedCreatureTranslations = new Dictionary<string, string>();
+        public Dictionary<string, Dictionary<string, string>> genderedTranslations = new Dictionary<string, Dictionary<string, string>>();
+        public Dictionary<string, string> translations = new Dictionary<string, string>();
+        public Dictionary<string, Dictionary<string, string>> enumTranslations = new Dictionary<string, Dictionary<string, string>>();
+        public Dictionary<string, string> settingGroups = new Dictionary<string, string>();
+        public Dictionary<string, CllcSetting> settings = new Dictionary<string, CllcSetting>();
+    }
     public sealed class PatchEvidence
     {
         public string method;
@@ -63,6 +80,8 @@ namespace Tolmach
         public List<PatternSpec> rawPatterns = new List<PatternSpec>();
         // Named vocabularies for "term:<name>" pattern arguments; a pattern applies only if every term is known.
         public Dictionary<string, Dictionary<string, string>> terms = new Dictionary<string, Dictionary<string, string>>();
+        // Russian table for Creature Level & Loot Control, which does not use the game's Localization.
+        public CllcLanguage cllc;
         [JsonIgnore] public Assembly RuntimeAssembly;
         [JsonIgnore] public TextTable Table;
         [JsonIgnore] public TextTable RawTable;

@@ -46,6 +46,8 @@ namespace Tolmach
                     catch (Exception e) { m.Warn("LocalizeKey adapter: " + e.GetType().Name); }
                     try { AddJotunnScope(m); }
                     catch (Exception e) { m.Warn("Jotunn adapter: " + e.GetType().Name); }
+                    try { CllcAdapter.Refresh(m); }
+                    catch (Exception e) { m.Warn("CLLC language adapter: " + e.GetType().Name); }
                 }
                 LocalizationBridge.Rebuild();
                 LocalizationBridge.InjectMain();

@@ -84,10 +84,11 @@ namespace Tolmach
     [BepInDependency("Azumatt_and_ValheimPlusDevs.PerfectPlacement", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("nickpappas.locationplacementaccelerator", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("Azumatt.AzuWorkbenchTweaks", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("org.bepinex.plugins.creaturelevelcontrol", BepInDependency.DependencyFlags.SoftDependency)]
     public sealed class Plugin : BaseUnityPlugin
     {
         public const string PluginId = "muratovnik.tolmach";
-        public const string PluginVersion = "0.4.0";
+        public const string PluginVersion = "0.5.0";
         private static ManualLogSource Log;
         private static readonly List<string> Notes = new List<string>();
         private Harmony harmony;

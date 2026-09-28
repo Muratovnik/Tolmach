@@ -264,3 +264,89 @@ public static class GlobalFixture
     [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
     public static string Label() { return "Global literal"; }
 }
+
+namespace CreatureLevelControl
+{
+    // Same member shape as the language table of Creature Level & Loot Control 4.6.4: a private
+    // static current table and private language, public dictionaries, a static English table and
+    // static lookups that fall back to English. Only a small English table stands in for its YAML.
+    public class LocalizationWrapper
+    {
+        public struct SettingTexts { public string display; public string desc; }
+        private string language;
+        public Dictionary<string, string> creatureGender;
+        public Dictionary<string, string> genderedCreatureTranslations;
+        public Dictionary<string, Dictionary<string, string>> genderedTranslations;
+        public Dictionary<string, string> translations;
+        public Dictionary<string, Dictionary<string, string>> enumTranslations;
+        public Dictionary<string, string> settingGroups;
+        public Dictionary<string, SettingTexts> settings;
+        private static LocalizationWrapper instance = new LocalizationWrapper();
+        private static LocalizationWrapper english;
+        // A Russian.yml that a user put next to the mod's DLL.
+        internal static LocalizationWrapper UserFile;
+        internal static LocalizationWrapper Current { get { return instance; } }
+        internal string Language { get { return language; } }
+        public static LocalizationWrapper English { get { return english ?? (english = loadLanguage("English")); } }
+        public static void LoadLanguage(string language) { instance = loadLanguage(language); }
+        private static LocalizationWrapper loadLanguage(string language)
+        {
+            if (language == "Russian" && UserFile != null) { UserFile.language = language; return UserFile; }
+            return new LocalizationWrapper
+            {
+                language = "English",
+                creatureGender = new Dictionary<string, string> { { "default", "n" } },
+                genderedCreatureTranslations = new Dictionary<string, string> { { "n", "[{effect} ][{infusion}-Infused ]{name}[ the {affix}]" } },
+                translations = new Dictionary<string, string> { { "Aggressive", "Aggressive" }, { "MinimapSectorLevel", "Sector Level: {level}" }, { "ConfigEditorSave", "Save and Apply" } },
+                enumTranslations = new Dictionary<string, Dictionary<string, string>>
+                {
+                    { "Toggle", new Dictionary<string, string> { { "On", "On" }, { "Off", "Off" } } },
+                    { "CreatureSectorWorldLevel", new Dictionary<string, string> { { "Six", "Six" } } },
+                },
+                settingGroups = new Dictionary<string, string> { { "General", "General" }, { "Creature Affix chances", "Creature Affix chances" } },
+                settings = new Dictionary<string, SettingTexts>
+                {
+                    { "Lock Configuration", new SettingTexts { desc = "The configuration is locked and may not be changed by clients." } },
+                    { "Chance for {effect} effect to spawn (percentage)", new SettingTexts { desc = "Chance for {effect} effect creatures to spawn (percentage)." } },
+                },
+            };
+        }
+        public static string getTranslation(string textEnglish) { return instance.getTranslationInternal(textEnglish) ?? textEnglish; }
+        public string getTranslationInternal(string textEnglish)
+        {
+            string value;
+            Dictionary<string, string> forms;
+            if (genderedTranslations != null && genderedTranslations.TryGetValue(creatureGender["default"], out forms) && forms.TryGetValue(textEnglish, out value)) return value;
+            if (translations.TryGetValue(textEnglish, out value)) return value;
+            return this == English ? null : English.getTranslationInternal(textEnglish);
+        }
+        public static SettingTexts getSettingTranslation(string textEnglish) { return instance.SettingTranslation(textEnglish); }
+        public SettingTexts SettingTranslation(string textEnglish)
+        {
+            SettingTexts texts;
+            if (!settings.TryGetValue(textEnglish, out texts))
+            {
+                if (this == English) throw new InvalidOperationException("Missing settings entry in English for " + textEnglish);
+                texts = English.SettingTranslation(textEnglish);
+            }
+            if (texts.display == null) texts.display = textEnglish;
+            return texts;
+        }
+        public static string getSettingGroupTranslation(string textEnglish)
+        {
+            string value;
+            if (instance.settingGroups.TryGetValue(textEnglish, out value)) return value;
+            if (instance == English) throw new InvalidOperationException("Missing settings group in English for " + textEnglish);
+            return English.settingGroups[textEnglish];
+        }
+        internal static void ResetForTests() { instance = new LocalizationWrapper(); english = null; UserFile = null; }
+    }
+    public class ConfigurationManagerAttributes
+    {
+        public bool? Browsable;
+        public string Category;
+        public string Description;
+        public string DispName;
+        public int? Order;
+    }
+}
