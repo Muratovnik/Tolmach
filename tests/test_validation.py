@@ -33,7 +33,9 @@ def test_unmodified_data_passes():
 ])
 def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
     root = tmp_path / 'subject'
-    shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('bin', 'obj', 'artifacts', 'evidence', '__pycache__', '.pytest_cache'))
+    # .git and .cache hold release-kit state; its temporary directory, and so tmp_path,
+    # can be inside .git, which would make the copy contain itself.
+    shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.git', '.cache', 'bin', 'obj', 'artifacts', 'evidence', '__pycache__', '.pytest_cache'))
     name = 'BetterArchery' if mutation == 'markup' else 'StructureTweaks'
     if mutation == 'missing_key':
         name = 'Warfare'
