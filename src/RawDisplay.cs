@@ -35,17 +35,16 @@ namespace Tolmach
                     }
                 IEnumerable<PatternSpec> patterns = m.id == CreatureNameDisplay.ModuleId ? Enumerable.Empty<PatternSpec>() : m.rawPatterns;
                 if (exact.Count == 0 && !patterns.Any()) continue;
-                foreach (KeyValuePair<string, string> entry in exact.ToArray())
+                foreach (KeyValuePair<string, string> entry in exact)
                 {
                     string earlier;
-                    // Remove duplicates as well as warning: even an identity translation from the
-                    // first owner must not expose a later conflicting value.
                     if (seen.TryGetValue(entry.Key, out earlier))
                     {
                         if (earlier != entry.Value) m.Warn("Conflicting raw display text ignored: " + entry.Key);
-                        exact.Remove(entry.Key);
                     }
                     else seen[entry.Key] = entry.Value;
+                    // Keep every owner's vocabulary: its declared 'text' arguments resolve in
+                    // its own table, even when another owner wins a standalone raw-text conflict.
                 }
                 m.RawTable = new TextTable(exact, patterns, new Dictionary<string, string>(), m.terms);
                 Owners.Add(m);
