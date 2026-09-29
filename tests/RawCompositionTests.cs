@@ -63,6 +63,21 @@ namespace Tolmach.Tests
         }
 
         [Test]
+        public void StandaloneConflictDoesNotEraseTheTemplatesOwnTextVocabulary()
+        {
+            Add("a", "Blade", "Клинок");
+            Module b = FixtureModule("b", "FixturePlugin");
+            b.rawTexts["Blade"] = "Лезвие";
+            b.rawPatterns.Add(new PatternSpec { source = "Weapon: {0}", target = "Оружие: {0}",
+                arguments = new Dictionary<string, string> { { "0", "text" } } });
+            Activate(b);
+            RawDisplay.Initialize();
+            Assert.That(RawDisplay.Translate("Blade"), Is.EqualTo("Клинок"));
+            Assert.That(RawDisplay.Translate("Blade\nWeapon: Blade"), Is.EqualTo("Клинок\nОружие: Лезвие"));
+            Assert.That(b.Warnings, Has.Some.Contains("Conflicting raw display text"));
+        }
+
+        [Test]
         public void ReinitializationDropsCachedResultsForRemovedModules()
         {
             Add("a", "Alpha", "Альфа");
