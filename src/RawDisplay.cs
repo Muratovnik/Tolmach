@@ -4,10 +4,9 @@ using System.Linq;
 
 namespace Tolmach
 {
-    // Raw display strings: text stored in game objects (item, piece and status names,
-    // descriptions, Compendium entries, composed creature names) that the game passes
-    // through Localization.Localize unchanged. Translated on display only: SharedData.m_name,
-    // ZDO and save files keep the original text.
+    // Exact raw display strings and bounded catalog templates. Creature variant-name templates
+    // require object provenance and are applied separately by CreatureNameDisplay.
+    // Stored object fields and save files always retain their original values.
     internal static class RawDisplay
     {
         private const int CacheLimit = 4096;
@@ -34,29 +33,41 @@ namespace Tolmach
                         string russian;
                         if (!exact.ContainsKey(english) && m.texts.TryGetValue(english, out russian)) exact[english] = russian;
                     }
-                if (exact.Count == 0 && m.rawPatterns.Count == 0) continue;
-                foreach (KeyValuePair<string, string> entry in exact)
+                IEnumerable<PatternSpec> patterns = m.id == CreatureNameDisplay.ModuleId ? Enumerable.Empty<PatternSpec>() : m.rawPatterns;
+                if (exact.Count == 0 && !patterns.Any()) continue;
+                foreach (KeyValuePair<string, string> entry in exact.ToArray())
                 {
                     string earlier;
-                    // The first module in ID order wins; the later value is never reached.
-                    if (seen.TryGetValue(entry.Key, out earlier) && earlier != entry.Value) m.Warn("Conflicting raw display text ignored: " + entry.Key);
+                    // Remove duplicates as well as warning: even an identity translation from the
+                    // first owner must not expose a later conflicting value.
+                    if (seen.TryGetValue(entry.Key, out earlier))
+                    {
+                        if (earlier != entry.Value) m.Warn("Conflicting raw display text ignored: " + entry.Key);
+                        exact.Remove(entry.Key);
+                    }
                     else seen[entry.Key] = entry.Value;
                 }
-                m.RawTable = new TextTable(exact, m.rawPatterns, new Dictionary<string, string>(), m.terms);
+                m.RawTable = new TextTable(exact, patterns, new Dictionary<string, string>(), m.terms);
                 Owners.Add(m);
             }
+        }
+        private static string TranslateWhole(string value)
+        {
+            foreach (Module m in Owners)
+            {
+                string translated = m.RawTable.TranslateWhole(value);
+                if (translated != value) return translated;
+            }
+            return value;
         }
         internal static string Translate(string value)
         {
             if (String.IsNullOrEmpty(value) || value.Length > 32768 || Owners.Count == 0) return value;
             string result;
             lock (Cache) { if (Cache.TryGetValue(value, out result)) return result; }
-            result = value;
-            foreach (Module m in Owners)
-            {
-                string translated = m.RawTable.TranslateRaw(value);
-                if (translated != value) { result = translated; break; }
-            }
+            // Try whole-message matches across all owners before splitting the original text.
+            // Each original line/span then gets its own owner; output is never translated again.
+            result = TextTable.TranslateRaw(value, TranslateWhole);
             lock (Cache)
             {
                 if (Cache.Count >= CacheLimit) Cache.Clear();
