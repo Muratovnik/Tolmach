@@ -58,6 +58,7 @@ function Bytes-Sha256([byte[]]$Bytes) {
 # outside plugins/ are flattened, so everything the plugin loads must be under plugins/.
 function Test-Package([string]$Zip, [string]$Version, [string]$DllHash, $CatalogHashes) {
     Add-Type -AssemblyName System.IO.Compression.FileSystem
+    Add-Type -AssemblyName System.Drawing
     $archive = [IO.Compression.ZipFile]::OpenRead($Zip)
     try {
         $entries = @{}
@@ -83,13 +84,16 @@ function Test-Package([string]$Zip, [string]$Version, [string]$DllHash, $Catalog
         foreach ($dependency in @($manifest.dependencies)) {
             if ($dependency -notmatch '^[A-Za-z0-9_]+-[A-Za-z0-9_]+-\d+\.\d+\.\d+$') { throw "Invalid dependency: $dependency" }
         }
-        $icon = Entry-Bytes $entries['icon.png']
-        $signature = [byte[]](0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A)
-        for ($i = 0; $i -lt 8; $i++) { if ($icon[$i] -ne $signature[$i]) { throw 'icon.png is not a PNG file.' } }
-        # PNG IHDR: big-endian width and height at bytes 16..23 (widen bytes before shifting).
-        $width = ([int]$icon[16] -shl 24) -bor ([int]$icon[17] -shl 16) -bor ([int]$icon[18] -shl 8) -bor [int]$icon[19]
-        $height = ([int]$icon[20] -shl 24) -bor ([int]$icon[21] -shl 16) -bor ([int]$icon[22] -shl 8) -bor [int]$icon[23]
-        if ($width -ne 256 -or $height -ne 256) { throw "icon.png must be 256x256, found ${width}x${height}." }
+        # System.Drawing decodes the whole image, so a PNG signature on other data does not pass.
+        $iconBytes = Entry-Bytes $entries['icon.png']
+        $iconStream = New-Object IO.MemoryStream -ArgumentList (,$iconBytes)
+        try {
+            try { $image = [Drawing.Image]::FromStream($iconStream) } catch { throw 'icon.png is not an image.' }
+            try {
+                if (-not $image.RawFormat.Equals([Drawing.Imaging.ImageFormat]::Png)) { throw 'icon.png is not a PNG file.' }
+                if ($image.Width -ne 256 -or $image.Height -ne 256) { throw "icon.png must be 256x256, found $($image.Width)x$($image.Height)." }
+            } finally { $image.Dispose() }
+        } finally { $iconStream.Dispose() }
         [void]$strict.GetString((Entry-Bytes $entries['README.md']))
         [void]$strict.GetString((Entry-Bytes $entries['CHANGELOG.md']))
         if ((Bytes-Sha256 (Entry-Bytes $entries['plugins/Tolmach.dll'])) -ne $DllHash) { throw 'Packaged DLL differs from the tested DLL.' }

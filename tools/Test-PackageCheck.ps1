@@ -32,6 +32,7 @@ $cases = [ordered]@{
     'catalog outside plugins/ (Gale would flatten it)' = Variant { param($f) foreach ($k in @($f.Keys | Where-Object { $_ -like 'plugins/catalog/*' })) { $f[$k.Substring(8)] = $f[$k]; $f.Remove($k) } }
     'manifest with UTF-8 BOM' = Variant { param($f) $f['manifest.json'] = [byte[]](0xEF, 0xBB, 0xBF) + $f['manifest.json'] }
     'icon 128x128' = Variant { param($f) $b = New-Object Drawing.Bitmap 128, 128; $m = New-Object IO.MemoryStream; $b.Save($m, [Drawing.Imaging.ImageFormat]::Png); $f['icon.png'] = $m.ToArray() }
+    'icon is a JPEG 256x256' = Variant { param($f) $b = New-Object Drawing.Bitmap 256, 256; $m = New-Object IO.MemoryStream; $b.Save($m, [Drawing.Imaging.ImageFormat]::Jpeg); $f['icon.png'] = $m.ToArray() }
     'description over 250 characters' = Variant { param($f) $j = [Text.Encoding]::UTF8.GetString($f['manifest.json']) | ConvertFrom-Json; $j.description = 'x' * 251; $f['manifest.json'] = (New-Object Text.UTF8Encoding($false)).GetBytes(($j | ConvertTo-Json)) }
     'DLL differs from tested one' = Variant { param($f) $d = [byte[]]$f['plugins/Tolmach.dll'].Clone(); $d[$d.Length - 1] = $d[$d.Length - 1] -bxor 1; $f['plugins/Tolmach.dll'] = $d }
     'missing README.md' = Variant { param($f) $f.Remove('README.md') }
