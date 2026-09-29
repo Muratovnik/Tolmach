@@ -217,6 +217,16 @@ namespace FixturePlugin
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static string Pick(int count) { return "Other " + count; }
     }
+    // Same shape as TakeAllCooked's CookingStationHoverTextPatch.Postfix: the hover line ends with a
+    // config value, ConfigEntry<string>.Value, not with a literal.
+    public static class Configured
+    {
+        public static BepInEx.Configuration.ConfigEntry<string> HoverText;
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void Postfix(ref string __result) { __result = __result + "\n[<color=yellow><b>E</b></color>] " + HoverText.Value; }
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static string Constant() { return "Take all cooked"; }
+    }
     // Same public shape as the LocalizeKey embedded by Blaxxun's Item/Piece/Creature/SkillManager.
     internal sealed class LocalizeKey
     {

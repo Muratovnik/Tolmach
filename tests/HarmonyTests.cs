@@ -114,6 +114,56 @@ namespace Tolmach.Tests
             Assert.That(m.Warnings, Is.EqualTo(new[] { "Literal not found in IL: FixturePlugin.Overloads.Pick :: \\nGone literal" }));
         }
         [Test]
+        public void ConfigTextReplacesOnlyTheUnchangedDefault()
+        {
+            string path = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "tolmach-tests-" + Guid.NewGuid().ToString("N"), "hover.cfg");
+            try
+            {
+                var config = new BepInEx.Configuration.ConfigFile(path, false) { SaveOnConfigSet = false };
+                FixturePlugin.Configured.HoverText = config.Bind("UI", "HoverText", "Take all cooked", "Text shown in the cooking station hover prompt.");
+                Module m = FixtureModule("configured", "FixturePlugin");
+                m.configTexts.Add(new LiteralSpec { type = "FixturePlugin.Configured", method = "Postfix",
+                    values = new Dictionary<string, string> { { "Take all cooked", "Взять все готовое" } } });
+                DisplayPatches.Install(Patcher, Activate(m));
+                string hover = "Стойка для готовки";
+                FixturePlugin.Configured.Postfix(ref hover);
+                Assert.That(hover, Is.EqualTo("Стойка для готовки\n[<color=yellow><b>E</b></color>] Взять все готовое"));
+                // A player's own text is shown as typed.
+                FixturePlugin.Configured.HoverText.Value = "Grab it all";
+                hover = ""; FixturePlugin.Configured.Postfix(ref hover);
+                Assert.That(hover, Does.EndWith("] Grab it all"));
+                FixturePlugin.Configured.HoverText.Value = "Take all cooked";
+                TextEngine.IsRussian = false;
+                hover = ""; FixturePlugin.Configured.Postfix(ref hover);
+                Assert.That(hover, Does.EndWith("] Take all cooked"));
+                Assert.That(FixturePlugin.Configured.HoverText.Value, Is.EqualTo("Take all cooked"), "the stored value never changes");
+                Assert.That(m.PatchedMethods, Is.EqualTo(1));
+                Assert.That(m.Patches.Values.Sum(x => x.configTexts), Is.EqualTo(1));
+                Assert.That(m.Warnings, Is.Empty);
+            }
+            finally
+            {
+                // Saving is off, so the file exists only if a test binding wrote it.
+                string folder = System.IO.Path.GetDirectoryName(path);
+                if (System.IO.Directory.Exists(folder)) System.IO.Directory.Delete(folder, true);
+            }
+        }
+        [Test]
+        public void ConfigTextRuleWithoutAConfigReadIsReported()
+        {
+            Module m = FixtureModule("configured", "FixturePlugin");
+            var values = new Dictionary<string, string> { { "Take all cooked", "Взять все готовое" } };
+            m.configTexts.Add(new LiteralSpec { type = "FixturePlugin.Configured", method = "Constant", values = values });
+            m.configTexts.Add(new LiteralSpec { type = "FixturePlugin.Configured", method = "Gone", values = values });
+            DisplayPatches.Install(Patcher, Activate(m));
+            // A literal equal to the default is not a config read: it stays, and nothing is patched.
+            Assert.That(FixturePlugin.Configured.Constant(), Is.EqualTo("Take all cooked"));
+            Assert.That(m.PatchedMethods, Is.Zero);
+            Assert.That(m.Warnings, Is.EquivalentTo(new[] {
+                "Config value read not found in IL: FixturePlugin.Configured.Constant",
+                "Expected config text adapter not found: FixturePlugin.Configured.Gone" }));
+        }
+        [Test]
         public void MethodWithExceptionFilterIsLeftUnpatched()
         {
             // The reason for the skip: this Harmony cannot rebuild such a method even unchanged.

@@ -48,7 +48,8 @@ namespace Tolmach
             if (!Version.TryParse(m.version, out parsed) || !Version.TryParse(m.pluginVersion, out parsed))
                 throw new InvalidDataException("Package version and BepInPlugin version must both be declared.");
             if (m.words == null || m.englishWords == null || m.texts == null || m.mapLabels == null || m.patterns == null ||
-                m.returns == null || m.literals == null || m.prefabs == null || m.rawTexts == null || m.rawPatterns == null || m.terms == null)
+                m.returns == null || m.literals == null || m.configTexts == null || m.prefabs == null || m.rawTexts == null ||
+                m.rawPatterns == null || m.terms == null)
                 throw new InvalidDataException("Catalog collections must not be null.");
             // IL adapters are confined to the plugin's namespaces; a dictionary-only module has none.
             if (m.namespaces.Count == 0 && m.NeedsIlAdapters) throw new InvalidDataException("Scoped adapters need plugin namespaces.");
@@ -68,10 +69,10 @@ namespace Tolmach
             }
             foreach (MethodSpec r in m.returns)
                 if (r == null || String.IsNullOrEmpty(r.type) || String.IsNullOrEmpty(r.method)) throw new InvalidDataException("Invalid return adapter.");
-            foreach (LiteralSpec r in m.literals)
-                if (r == null || String.IsNullOrEmpty(r.type) || String.IsNullOrEmpty(r.method) || r.values == null ||
+            foreach (LiteralSpec r in m.literals.Concat(m.configTexts))
+                if (r == null || String.IsNullOrEmpty(r.type) || String.IsNullOrEmpty(r.method) || r.values == null || r.values.Count == 0 ||
                     r.values.Any(delegate(KeyValuePair<string, string> p) { return String.IsNullOrEmpty(p.Key) || String.IsNullOrEmpty(p.Value); }))
-                    throw new InvalidDataException("Invalid literal adapter.");
+                    throw new InvalidDataException("Invalid literal or config text adapter.");
             foreach (PrefabSpec r in m.prefabs)
                 if (r == null || r.fields == null || r.fields.Values.Any(String.IsNullOrEmpty)) throw new InvalidDataException("Invalid display fallback.");
             if (m.cllc != null) ValidateCllc(m.cllc);

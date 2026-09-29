@@ -88,7 +88,7 @@ namespace Tolmach
     public sealed class Plugin : BaseUnityPlugin
     {
         public const string PluginId = "muratovnik.tolmach";
-        public const string PluginVersion = "0.5.1";
+        public const string PluginVersion = "0.5.2";
         private static ManualLogSource Log;
         private static readonly List<string> Notes = new List<string>();
         private Harmony harmony;
@@ -197,7 +197,7 @@ namespace Tolmach
                         " | keys=" + m.words.Count + " | nativeKeysAdded=" + m.NativeWords + " | methods inspected=" + m.ScannedMethods + " | UI methods patched=" + m.PatchedMethods);
                     foreach (PatchEvidence p in m.Patches.Values.OrderBy(delegate(PatchEvidence x) { return x.method; }))
                         s.AppendLine("  " + p.method + " | displayCalls=" + p.displayCalls + " | displayFields=" + p.displayFields +
-                            " | literals=" + p.literals + " | return=" + p.returnAdapter + " | skippedEH=" + p.skippedBoundaries);
+                            " | literals=" + p.literals + " | config=" + p.configTexts + " | return=" + p.returnAdapter + " | skippedEH=" + p.skippedBoundaries);
                     foreach (string w in m.Warnings) s.AppendLine("  WARNING: " + w);
                 }
                 foreach (string note in Notes) s.AppendLine(note);

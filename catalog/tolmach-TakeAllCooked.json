@@ -24,6 +24,15 @@
       }
     }
   ],
+  "configTexts": [
+    {
+      "type": "TakeAllCooked.Patches.CookingStationHoverTextPatch",
+      "method": "Postfix",
+      "values": {
+        "Take all cooked": "Взять все готовое"
+      }
+    }
+  ],
   "prefabs": [],
   "sourceFiles": [
     "source-evidence/stage-b/hoskope-TakeAllCooked-1.1.0/TakeAllCooked/Plugin.cs",
@@ -32,6 +41,7 @@
     "source-evidence/stage-b/hoskope-TakeAllCooked-1.1.0/TakeAllCooked.ldstr.il"
   ],
   "notes": [
-    "Stage B: hoskope-TakeAllCooked 1.1.0 from Thunderstore"
+    "Stage B: hoskope-TakeAllCooked 1.1.0 from Thunderstore",
+    "configTexts: the hover prompt is the value of the mod's config entry UI/HoverText; it is translated only while it equals the default \"Take all cooked\", a player's own text stays as typed."
   ]
 }

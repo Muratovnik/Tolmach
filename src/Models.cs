@@ -53,6 +53,7 @@ namespace Tolmach
         public int displayCalls;
         public int displayFields;
         public int literals;
+        public int configTexts;
         public int skippedBoundaries;
         public bool returnAdapter;
         public readonly HashSet<string> matchedLiterals = new HashSet<string>(StringComparer.Ordinal);
@@ -73,6 +74,9 @@ namespace Tolmach
         public List<PatternSpec> patterns = new List<PatternSpec>();
         public List<MethodSpec> returns = new List<MethodSpec>();
         public List<LiteralSpec> literals = new List<LiteralSpec>();
+        // Display text a mod keeps in its config (ConfigEntry<string>): replaced where the named method
+        // reads the value, and only while it is still the English default. A player's own text stays.
+        public List<LiteralSpec> configTexts = new List<LiteralSpec>();
         public List<PrefabSpec> prefabs = new List<PrefabSpec>();
         // Raw strings stored in game objects (item, piece and status names, descriptions,
         // Compendium entries) that Localization.Localize returns unchanged. Display only.
@@ -89,7 +93,7 @@ namespace Tolmach
         [JsonIgnore] public int PatchedMethods;
         [JsonIgnore] public int ScannedMethods;
         [JsonIgnore] public bool HasDisplayText { get { return texts.Count != 0 || patterns.Count != 0; } }
-        [JsonIgnore] public bool NeedsIlAdapters { get { return HasDisplayText || literals.Count != 0 || returns.Count != 0; } }
+        [JsonIgnore] public bool NeedsIlAdapters { get { return HasDisplayText || literals.Count != 0 || configTexts.Count != 0 || returns.Count != 0; } }
         [JsonIgnore] public int NativeWords;
         [JsonIgnore] public bool UiAllowed;
         [JsonIgnore] public readonly Dictionary<string, PatchEvidence> Patches = new Dictionary<string, PatchEvidence>();

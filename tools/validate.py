@@ -194,7 +194,7 @@ def evidence_checks(evidence: Path, modules: list[dict]) -> None:
     # Check the exact explicit literal replacements against the selected decompilations.
     roots = {m['id']: evidence / m['source_root'] for m in provenance['modules']}
     for m in modules:
-        if not m.get('literals'):
+        if not m.get('literals') and not m.get('configTexts'):
             continue
         # IL dumps back literals that a decompiler shows as string interpolation.
         text = '\n'.join(p.read_text(encoding='utf-8-sig') for pattern in ('*.cs', '*.il') for p in roots[m['id']].rglob(pattern))
@@ -202,6 +202,10 @@ def evidence_checks(evidence: Path, modules: list[dict]) -> None:
             for en in rule['values']:
                 literal = json.dumps(en, ensure_ascii=False)
                 check(literal in text, m['id'] + ': explicit literal not found in evidence: ' + repr(en))
+        # A config text rule replaces a config entry's default, which the plugin binds as a literal.
+        for rule in m.get('configTexts', []):
+            for en in rule['values']:
+                check(json.dumps(en, ensure_ascii=False) in text, m['id'] + ': config default not found in evidence: ' + repr(en))
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -231,10 +235,10 @@ def main() -> int:
         terms = m.get('terms', {})
         check(bool(re.fullmatch(r'\d+\.\d+(?:\.\d+){0,2}', m.get('pluginVersion', ''))), name + ': invalid pluginVersion')
         check(bool(re.fullmatch(r'[A-Za-z0-9_.]+', name)), name + ': invalid module ID')
-        scoped = any(m.get(k) for k in ('texts', 'patterns', 'literals', 'returns'))
+        scoped = any(m.get(k) for k in ('texts', 'patterns', 'literals', 'configTexts', 'returns'))
         check(bool(m['guids']) and (bool(m['namespaces']) or not scoped), name + ': missing GUID/namespace')
         check(set(m['words']) == set(m['englishWords']), name + ': mismatched English/Russian key sets')
-        check(sum(len(m.get(k, [])) for k in ('words', 'texts', 'patterns', 'literals', 'rawTexts', 'rawPatterns')) > 0, name + ': empty module')
+        check(sum(len(m.get(k, [])) for k in ('words', 'texts', 'patterns', 'literals', 'configTexts', 'rawTexts', 'rawPatterns')) > 0, name + ': empty module')
         counts.update({key: len(m.get(key, [])) for key in ('words', 'texts', 'patterns', 'rawTexts', 'rawPatterns')})
         for key in m['words']:
             check(bool(re.fullmatch(r'[A-Za-z0-9_]+', key)), name + ': unsafe token ' + key)
@@ -244,8 +248,9 @@ def main() -> int:
         pairs += list(m.get('mapLabels', {}).items()) + list(m.get('rawTexts', {}).items())
         pairs += [pair for table in terms.values() for pair in table.items()]
         pairs += [(p['source'], p['target']) for p in m['patterns'] + m.get('rawPatterns', [])]
-        pairs += [p for rule in m.get('literals', []) for p in rule['values'].items()]
+        pairs += [p for rule in m.get('literals', []) + m.get('configTexts', []) for p in rule['values'].items()]
         counts['explicit_literals'] += sum(len(rule['values']) for rule in m.get('literals', []))
+        counts['config_texts'] += sum(len(rule['values']) for rule in m.get('configTexts', []))
         for en, ru in pairs:
             check(isinstance(en, str) and isinstance(ru, str) and bool(en) and bool(ru), name + ': empty/non-string translation')
             check(collections.Counter(TOKEN.findall(en)) == collections.Counter(TOKEN.findall(ru)), name + ': placeholder/markup mismatch: ' + repr(en))

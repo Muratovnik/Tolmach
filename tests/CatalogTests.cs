@@ -69,6 +69,25 @@ namespace Tolmach.Tests
             Module missing = valid(); missing.rawTexts = null;
             Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(missing));
         }
+        [Test]
+        public void InvalidConfigTextRulesAreRejected()
+        {
+            Func<Module> valid = () =>
+            {
+                Module m = CatalogLoader.Read(Catalog("TakeAllCooked"));
+                Assert.That(m.configTexts, Is.Not.Empty, "TakeAllCooked carries the config text rule");
+                return m;
+            };
+            Assert.DoesNotThrow(() => CatalogLoader.Validate(valid()));
+            Module empty = valid(); empty.configTexts[0].values.Clear();
+            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(empty), "A rule without values replaces nothing.");
+            Module blank = valid(); blank.configTexts[0].values["Take all cooked"] = "";
+            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(blank));
+            Module unnamed = valid(); unnamed.configTexts[0].method = "";
+            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(unnamed));
+            Module missing = valid(); missing.configTexts = null;
+            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(missing));
+        }
         [TestCaseSource("Modules")]
         public void ActualBinderAcceptsSnapshotIdentity(string id)
         {

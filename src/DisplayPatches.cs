@@ -13,6 +13,7 @@ namespace Tolmach
         private static readonly MethodInfo Display = typeof(TextEngine).GetMethod("Display");
         private static readonly MethodInfo DisplayArray = typeof(TextEngine).GetMethod("DisplayArray");
         private static readonly MethodInfo Literal = typeof(TextEngine).GetMethod("Literal");
+        private static readonly MethodInfo ConfigText = typeof(TextEngine).GetMethod("ConfigText");
         private static readonly HashSet<string> GuiMethods = new HashSet<string>(new string[] {
             "Label", "Button", "RepeatButton", "Toggle", "Box", "Window", "ModalWindow", "Toolbar", "SelectionGrid"
         });
@@ -56,8 +57,24 @@ namespace Tolmach
                     if (!seen.Contains(LiteralKey(expected, value)))
                         module.Warn("Literal not found in IL: " + expected.type + "." + expected.method + " :: " + Shown(value));
             }
+            foreach (LiteralSpec expected in module.configTexts)
+            {
+                if (!Declares(module, expected.type, expected.method))
+                { module.Warn("Expected config text adapter not found: " + expected.type + "." + expected.method); continue; }
+                if (!seen.Contains(ConfigKey(expected)))
+                    module.Warn("Config value read not found in IL: " + expected.type + "." + expected.method);
+            }
         }
         private static string LiteralKey(LiteralSpec spec, string value) { return spec.type + "\n" + spec.method + "\n" + value; }
+        private static string ConfigKey(LiteralSpec spec) { return "config\n" + spec.type + "\n" + spec.method; }
+        // The getter of ConfigEntry<string>.Value: the only config read a config text rule replaces.
+        private static bool ConfigRead(CodeInstruction instruction)
+        {
+            MethodInfo getter = instruction.operand as MethodInfo;
+            return getter != null && (instruction.opcode == OpCodes.Call || instruction.opcode == OpCodes.Callvirt) &&
+                   getter.Name == "get_Value" && getter.ReturnType == typeof(string) && getter.DeclaringType != null &&
+                   getter.DeclaringType.IsGenericType && getter.DeclaringType.GetGenericTypeDefinition() == typeof(BepInEx.Configuration.ConfigEntry<>);
+        }
         // A literal may start with a line break; warnings show control characters escaped.
         private static string Shown(string value) { return value.Replace("\r", "\\r").Replace("\n", "\\n").Replace("\t", "\\t"); }
         private static void InstallMethod(Harmony harmony, Module module, Type type, MethodBase method, HashSet<string> seen)
@@ -65,11 +82,12 @@ namespace Tolmach
             if (!RuntimeAccess.ManagedBody(method)) return;
             module.ScannedMethods++;
             LiteralSpec[] specs = module.literals.Where(delegate(LiteralSpec p) { return p.type == type.FullName && p.method == method.Name; }).ToArray();
+            LiteralSpec[] configs = module.configTexts.Where(delegate(LiteralSpec p) { return p.type == type.FullName && p.method == method.Name; }).ToArray();
             MethodInfo function = method as MethodInfo;
             bool result = function != null && function.ReturnType == typeof(string) &&
                 module.returns.Any(delegate(MethodSpec p) { return p.type == type.FullName && p.method == method.Name; });
-            if (specs.Length == 0 && !result && !module.HasDisplayText) return;
-            bool literal = false, sink = false;
+            if (specs.Length == 0 && configs.Length == 0 && !result && !module.HasDisplayText) return;
+            bool literal = false, sink = false, config = false;
             try
             {
                 List<CodeInstruction> original = PatchProcessor.GetOriginalInstructions(method, null);
@@ -83,6 +101,9 @@ namespace Tolmach
                         if (spec.values.ContainsKey(text)) { literal = true; seen.Add(LiteralKey(spec, text)); }
                 }
                 sink = module.HasDisplayText && original.Any(delegate(CodeInstruction instruction) { return Relevant(instruction, module); });
+                // Like a literal rule, a config text rule patches only the overload that reads a string config value.
+                config = configs.Length != 0 && original.Any(ConfigRead);
+                if (config) foreach (LiteralSpec spec in configs) seen.Add(ConfigKey(spec));
             }
             catch (Exception e)
             {
@@ -90,8 +111,10 @@ namespace Tolmach
                 // Without the body the rule cannot be narrowed to an overload: try it as named.
                 literal = specs.Length != 0;
                 foreach (LiteralSpec spec in specs) foreach (string value in spec.values.Keys) seen.Add(LiteralKey(spec, value));
+                config = configs.Length != 0;
+                foreach (LiteralSpec spec in configs) seen.Add(ConfigKey(spec));
             }
-            if (!literal && !result && !sink) return;
+            if (!literal && !result && !sink && !config) return;
             // HarmonyX 2.9 cannot rebuild two kinds of exception blocks: it never marks the handler of an
             // exception filter (catch ... when), and it ends a fault handler (iterators with try/finally)
             // with leave instead of endfinally. Any patch of such a method fails to compile or yields
@@ -104,7 +127,7 @@ namespace Tolmach
             Owners[key] = module;
             try
             {
-                HarmonyMethod tr = literal || sink ? new HarmonyMethod(typeof(DisplayPatches).GetMethod("Transpile", AccessTools.all)) : null;
+                HarmonyMethod tr = literal || sink || config ? new HarmonyMethod(typeof(DisplayPatches).GetMethod("Transpile", AccessTools.all)) : null;
                 HarmonyMethod post = result ? new HarmonyMethod(typeof(DisplayPatches).GetMethod("TranslateReturn", AccessTools.all)) : null;
                 if (tr != null) tr.priority = Priority.Last;
                 if (post != null) post.priority = Priority.Last;
@@ -208,8 +231,10 @@ namespace Tolmach
                 module.Patches[methodKey] = evidence;
             }
             // Harmony may regenerate this transpiler more than once. Record the last plan, not inflated totals.
-            evidence.displayCalls = evidence.displayFields = evidence.literals = evidence.skippedBoundaries = 0;
+            evidence.displayCalls = evidence.displayFields = evidence.literals = evidence.configTexts = evidence.skippedBoundaries = 0;
             evidence.matchedLiterals.Clear();
+            string declaring = __originalMethod.DeclaringType.FullName;
+            bool configRule = module.configTexts.Any(delegate(LiteralSpec p) { return p.type == declaring && p.method == __originalMethod.Name; });
             for (int index = 0; index < input.Count; index++)
             {
                 CodeInstruction current = input[index];
@@ -233,6 +258,17 @@ namespace Tolmach
                         output.Add(new CodeInstruction(OpCodes.Call, Literal));
                         continue;
                     }
+                }
+                if (configRule && ConfigRead(current))
+                {
+                    // The value stays on the stack: the call returns it translated or unchanged.
+                    evidence.configTexts++;
+                    output.Add(current);
+                    output.Add(new CodeInstruction(OpCodes.Ldstr, module.id));
+                    output.Add(new CodeInstruction(OpCodes.Ldstr, declaring));
+                    output.Add(new CodeInstruction(OpCodes.Ldstr, __originalMethod.Name));
+                    output.Add(new CodeInstruction(OpCodes.Call, ConfigText));
+                    continue;
                 }
                 FieldInfo field = current.operand as FieldInfo;
                 if (module.HasDisplayText && current.opcode == OpCodes.Stfld && field != null && DisplayField(field, module))
@@ -280,7 +316,9 @@ namespace Tolmach
                     // Another overload may hold the value; only a value left in this body is a miss.
                     if (present.Contains(value) && !evidence.matchedLiterals.Contains(value))
                         module.Warn("Literal not replaced: " + owner + " :: " + Shown(value));
-            if (evidence.displayCalls + evidence.displayFields + evidence.literals == 0)
+            if (configRule && evidence.configTexts == 0 && input.Any(ConfigRead))
+                module.Warn("Config value read not replaced: " + owner);
+            if (evidence.displayCalls + evidence.displayFields + evidence.literals + evidence.configTexts == 0)
                 module.Warn("Transpiler installed but no display site changed: " + owner);
             return output;
         }

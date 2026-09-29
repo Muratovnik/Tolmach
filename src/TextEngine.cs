@@ -179,10 +179,19 @@ namespace Tolmach
         }
         public static string Literal(string value, string moduleId, string typeName, string methodName)
         {
+            return FromRules(value, moduleId, delegate(Module m) { return m.literals; }, typeName, methodName);
+        }
+        // A config value read in the named method: only the unchanged English default is replaced.
+        public static string ConfigText(string value, string moduleId, string typeName, string methodName)
+        {
+            return FromRules(value, moduleId, delegate(Module m) { return m.configTexts; }, typeName, methodName);
+        }
+        private static string FromRules(string value, string moduleId, Func<Module, List<LiteralSpec>> rules, string typeName, string methodName)
+        {
             if (!IsRussian || value == null || moduleId == null) return value;
             Module module;
             if (!Modules.TryGetValue(moduleId, out module)) return value;
-            foreach (LiteralSpec spec in module.literals)
+            foreach (LiteralSpec spec in rules(module))
             {
                 string translated;
                 if (spec.type == typeName && spec.method == methodName && spec.values.TryGetValue(value, out translated))
