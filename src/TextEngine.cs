@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Tolmach
 {
-    // No global word replacement. Every table is confined to one identified plugin.
+    // Tables retain their owner's patterns and vocabularies; composition selects an owner per source fragment.
     public sealed class TextTable
     {
         private sealed class Template
@@ -127,12 +127,20 @@ namespace Tolmach
             }
             return value;
         }
-        // Raw display text: the whole string, then each line of each span between markup tags.
-        // Uncached: RawDisplay keeps one bounded cache in front of every raw table.
+        internal string TranslateWhole(string value)
+        {
+            return String.IsNullOrEmpty(value) || value.Length > 32768 ? value : Whole(value, 0);
+        }
+        // One traversal for both a single table and the cross-module display path. The callback
+        // receives only original text: a translation must never become another table's input.
         public string TranslateRaw(string value)
         {
+            return TranslateRaw(value, TranslateWhole);
+        }
+        internal static string TranslateRaw(string value, Func<string, string> translateWhole)
+        {
             if (String.IsNullOrEmpty(value) || value.Length > 32768) return value;
-            string result = Whole(value, 0);
+            string result = translateWhole(value);
             if (result != value || (value.IndexOf('\n') < 0 && value.IndexOf('<') < 0)) return result;
             string[] spans = Tags.Split(value);
             bool changed = false;
@@ -142,7 +150,7 @@ namespace Tolmach
                 string[] lines = spans[i].Split('\n');
                 for (int j = 0; j < lines.Length; j++)
                 {
-                    string translated = Whole(lines[j], 0);
+                    string translated = translateWhole(lines[j]);
                     if (translated == lines[j]) continue;
                     lines[j] = translated;
                     changed = true;
