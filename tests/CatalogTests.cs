@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using Tolmach;
 using Module = Tolmach.Module;
@@ -66,8 +67,6 @@ namespace Tolmach.Tests
             Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(empty));
             Module blank = valid(); blank.rawTexts["Bleeding"] = "";
             Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(blank));
-            Module missing = valid(); missing.rawTexts = null;
-            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(missing));
         }
         [Test]
         public void InvalidConfigTextRulesAreRejected()
@@ -85,8 +84,32 @@ namespace Tolmach.Tests
             Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(blank));
             Module unnamed = valid(); unnamed.configTexts[0].method = "";
             Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(unnamed));
-            Module missing = valid(); missing.configTexts = null;
-            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(missing));
+        }
+        [Test]
+        public void CatalogShapeIsEnforcedWhileReading()
+        {
+            string unchanged = Rewritten("TakeAllCooked", d => { });
+            try { Assert.DoesNotThrow(() => CatalogLoader.Read(unchanged), "The rewritten but unchanged catalog loads."); }
+            finally { File.Delete(unchanged); }
+            AssertRejected("TakeAllCooked", d => d["patterns"] = JValue.CreateNull(), "A section may be absent, never null.");
+            AssertRejected("TakeAllCooked", d => d["configTexts"][0]["values"] = JValue.CreateNull(), "Nor a member of a rule.");
+            AssertRejected("TakeAllCooked", d => d["rawText"] = new JObject(), "A misspelt section would drop its translations.");
+            AssertRejected("TakeAllCooked", d => d["configTexts"][0]["value"] = new JObject(), "Members of a rule are checked too.");
+            AssertRejected("CreatureLevelControl", d => d["cllc"]["settings"].First.First["tooltip"] = "x", "And those of the CLLC table.");
+        }
+        private static string Rewritten(string id, Action<JObject> edit)
+        {
+            JObject data = JObject.Parse(File.ReadAllText(Catalog(id)));
+            edit(data);
+            string scratch = Path.GetTempFileName();
+            File.WriteAllText(scratch, data.ToString());
+            return scratch;
+        }
+        private static void AssertRejected(string id, Action<JObject> edit, string because)
+        {
+            string scratch = Rewritten(id, edit);
+            try { Assert.Throws<JsonSerializationException>(() => CatalogLoader.Read(scratch), because); }
+            finally { File.Delete(scratch); }
         }
         [TestCaseSource("Modules")]
         public void ActualBinderAcceptsSnapshotIdentity(string id)
@@ -148,9 +171,7 @@ namespace Tolmach.Tests
         [Test]
         public void InvalidCatalogDataIsRejectedByProductionLoader()
         {
-            Module m = CatalogLoader.Read(Catalog("StructureTweaks")); m.patterns = null;
-            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(m));
-            m = CatalogLoader.Read(Catalog("StructureTweaks"));
+            Module m = CatalogLoader.Read(Catalog("StructureTweaks"));
             m.patterns.Add(new PatternSpec { source = "Hi {0}", target = "Hi {0}", arguments = new Dictionary<string, string> { { "0", "arbitrary" } } });
             Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(m));
             string scratch = Path.GetTempFileName();

@@ -24,6 +24,8 @@ namespace Tolmach
     internal static class CatalogLoader
     {
         private static readonly Regex Hole = new Regex(@"\{(\d+)\}", RegexOptions.CultureInvariant);
+        // The catalog types declare their shape (Models.cs); an undeclared member is an error.
+        private static readonly JsonSerializer Serializer = JsonSerializer.Create(new JsonSerializerSettings { MissingMemberHandling = MissingMemberHandling.Error });
         internal static Module Read(string path)
         {
             if (new FileInfo(path).Length > 2 * 1024 * 1024)
@@ -33,7 +35,7 @@ namespace Tolmach
             {
                 JObject data = JObject.Load(reader, new JsonLoadSettings { DuplicatePropertyNameHandling = DuplicatePropertyNameHandling.Error });
                 if (reader.Read()) throw new InvalidDataException("Unexpected data after catalog object.");
-                Module module = data.ToObject<Module>();
+                Module module = data.ToObject<Module>(Serializer);
                 Validate(module);
                 return module;
             }
@@ -41,16 +43,12 @@ namespace Tolmach
         internal static void Validate(Module m)
         {
             if (m == null || String.IsNullOrEmpty(m.id) || !Regex.IsMatch(m.id, @"\A[A-Za-z0-9_.]+\z") ||
-                String.IsNullOrEmpty(m.assembly) || m.guids == null || m.guids.Count == 0 || m.namespaces == null ||
+                String.IsNullOrEmpty(m.assembly) || m.guids.Count == 0 ||
                 m.guids.Any(String.IsNullOrWhiteSpace) || m.namespaces.Any(String.IsNullOrWhiteSpace))
                 throw new InvalidDataException("Missing or invalid module identity.");
             Version parsed;
             if (!Version.TryParse(m.version, out parsed) || !Version.TryParse(m.pluginVersion, out parsed))
                 throw new InvalidDataException("Package version and BepInPlugin version must both be declared.");
-            if (m.words == null || m.englishWords == null || m.texts == null || m.mapLabels == null || m.patterns == null ||
-                m.returns == null || m.literals == null || m.configTexts == null || m.prefabs == null || m.rawTexts == null ||
-                m.rawPatterns == null || m.terms == null)
-                throw new InvalidDataException("Catalog collections must not be null.");
             // IL adapters are confined to the plugin's namespaces; a dictionary-only module has none.
             if (m.namespaces.Count == 0 && m.NeedsIlAdapters) throw new InvalidDataException("Scoped adapters need plugin namespaces.");
             if (!new HashSet<string>(m.words.Keys).SetEquals(m.englishWords.Keys))
@@ -70,11 +68,11 @@ namespace Tolmach
             foreach (MethodSpec r in m.returns)
                 if (r == null || String.IsNullOrEmpty(r.type) || String.IsNullOrEmpty(r.method)) throw new InvalidDataException("Invalid return adapter.");
             foreach (LiteralSpec r in m.literals.Concat(m.configTexts))
-                if (r == null || String.IsNullOrEmpty(r.type) || String.IsNullOrEmpty(r.method) || r.values == null || r.values.Count == 0 ||
+                if (r == null || String.IsNullOrEmpty(r.type) || String.IsNullOrEmpty(r.method) || r.values.Count == 0 ||
                     r.values.Any(delegate(KeyValuePair<string, string> p) { return String.IsNullOrEmpty(p.Key) || String.IsNullOrEmpty(p.Value); }))
                     throw new InvalidDataException("Invalid literal or config text adapter.");
             foreach (PrefabSpec r in m.prefabs)
-                if (r == null || r.fields == null || r.fields.Values.Any(String.IsNullOrEmpty)) throw new InvalidDataException("Invalid display fallback.");
+                if (r == null || r.fields.Values.Any(String.IsNullOrEmpty)) throw new InvalidDataException("Invalid display fallback.");
             if (m.cllc != null) ValidateCllc(m.cllc);
         }
         // CLLC parses its nameplate templates itself: {name} once, and optional [...] groups with one
@@ -83,9 +81,6 @@ namespace Tolmach
         private static readonly string[] CllcTemplateWords = { "name", "effect", "infusion", "affix" };
         private static void ValidateCllc(CllcLanguage t)
         {
-            if (t.creatureGender == null || t.genderedCreatureTranslations == null || t.genderedTranslations == null ||
-                t.translations == null || t.enumTranslations == null || t.settingGroups == null || t.settings == null)
-                throw new InvalidDataException("CLLC tables must not be null.");
             if (!t.creatureGender.ContainsKey("default") ||
                 t.creatureGender.Values.Any(delegate(string g) { return g == null || !t.genderedCreatureTranslations.ContainsKey(g); }))
                 throw new InvalidDataException("Every CLLC gender, including the default one, needs a nameplate template.");
@@ -123,7 +118,7 @@ namespace Tolmach
         }
         private static void ValidatePattern(Module m, PatternSpec p, params string[] semantics)
         {
-            if (p == null || String.IsNullOrEmpty(p.source) || String.IsNullOrEmpty(p.target) || p.numeric == null || p.arguments == null)
+            if (p == null || String.IsNullOrEmpty(p.source) || String.IsNullOrEmpty(p.target))
                 throw new InvalidDataException("Invalid pattern.");
             HashSet<string> holes = new HashSet<string>(Hole.Matches(p.source).Cast<Match>().Select(delegate(Match h) { return h.Groups[1].Value; }));
             if (!holes.SetEquals(Hole.Matches(p.target).Cast<Match>().Select(delegate(Match h) { return h.Groups[1].Value; })))

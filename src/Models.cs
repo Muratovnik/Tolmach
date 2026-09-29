@@ -5,6 +5,9 @@ using Newtonsoft.Json;
 
 namespace Tolmach
 {
+    // Json.NET holds catalogs to these types: a member may be absent but never null, and a member the
+    // type does not declare (a misspelt section) fails the load instead of dropping its translations.
+    [JsonObject(ItemRequired = Required.DisallowNull)]
     public sealed class PatternSpec
     {
         public string source = "";
@@ -13,17 +16,20 @@ namespace Tolmach
         // Only explicitly declared semantic arguments may be translated. Others stay verbatim.
         public Dictionary<string, string> arguments = new Dictionary<string, string>();
     }
+    [JsonObject(ItemRequired = Required.DisallowNull)]
     public sealed class MethodSpec
     {
         public string type = "";
         public string method = "";
     }
+    [JsonObject(ItemRequired = Required.DisallowNull)]
     public sealed class LiteralSpec
     {
         public string type = "";
         public string method = "";
         public Dictionary<string, string> values = new Dictionary<string, string>();
     }
+    [JsonObject(ItemRequired = Required.DisallowNull)]
     public sealed class PrefabSpec
     {
         public string name = "";
@@ -32,11 +38,13 @@ namespace Tolmach
     }
     // Creature Level & Loot Control's own language schema (its LocalizationWrapper): creature
     // genders, a nameplate template per gender, gendered and plain words, config window texts.
+    [JsonObject(ItemRequired = Required.DisallowNull)]
     public sealed class CllcSetting
     {
         public string display = "";
         public string desc = "";
     }
+    [JsonObject(ItemRequired = Required.DisallowNull)]
     public sealed class CllcLanguage
     {
         public Dictionary<string, string> creatureGender = new Dictionary<string, string>();
@@ -58,6 +66,7 @@ namespace Tolmach
         public bool returnAdapter;
         public readonly HashSet<string> matchedLiterals = new HashSet<string>(StringComparer.Ordinal);
     }
+    [JsonObject(ItemRequired = Required.DisallowNull)]
     public sealed class Module
     {
         public string id = "";
@@ -86,6 +95,9 @@ namespace Tolmach
         public Dictionary<string, Dictionary<string, string>> terms = new Dictionary<string, Dictionary<string, string>>();
         // Russian table for Creature Level & Loot Control, which does not use the game's Localization.
         public CllcLanguage cllc;
+        // For readers of the catalog: the evidence it was made from and notes. Not used at runtime.
+        public List<string> sourceFiles = new List<string>();
+        public List<string> notes = new List<string>();
         [JsonIgnore] public Assembly RuntimeAssembly;
         [JsonIgnore] public TextTable Table;
         [JsonIgnore] public TextTable RawTable;
