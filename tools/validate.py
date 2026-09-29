@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Validate translation data and snapshot metadata. Does NOT parse or execute C#.
 
-Python 3.10+. No dependency for the base checks. With --evidence, PyYAML enables
-additional comparisons against English/Russian resources in the supplied archive.
+Python 3.10+ with jsonschema: every catalog must match tools/catalog.schema.json, and the
+checks here cover what a schema cannot express. With --evidence, PyYAML enables additional
+comparisons against English/Russian resources in the supplied archive.
+    uv run --no-project --with jsonschema==4.26.0 python tools/validate.py
 """
 from __future__ import annotations
 import argparse
@@ -13,6 +15,8 @@ import json
 import re
 import sys
 from pathlib import Path
+
+from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[1]
 # Valheim itself has no BepInEx plugin record; game modules bind to this reserved GUID.
@@ -80,31 +84,22 @@ def binding_checks(modules: list[dict], evidence: Path | None) -> None:
                     check(row['assembly'] in names, m['id'] + ': AssemblyName contradicts snapshot')
 
 
-CLLC_SECTIONS = {'creatureGender', 'genderedCreatureTranslations', 'genderedTranslations', 'translations', 'enumTranslations', 'settingGroups', 'settings'}
 CLLC_PLACEHOLDER = re.compile(r'\{[^{}]+\}')
 
-def cllc_template_ok(template: str) -> bool:
-    """CLLC's nameplate syntax: {name} once outside groups; each [...] group holds one other placeholder."""
-    rest = re.sub(r'\[[^\[\]{}]*\{(?:effect|infusion|affix)\}[^\[\]{}]*\]', '', template)
-    return rest.count('{name}') == 1 and not re.search(r'[\[\]{}]', rest.replace('{name}', ''))
-
 def cllc_checks(m: dict, counts: collections.Counter) -> None:
-    """Creature Level & Loot Control's own language schema (LocalizationWrapper), kept in section cllc."""
+    """Creature Level & Loot Control's own language schema (LocalizationWrapper), kept in section cllc.
+    The catalog schema checks its sections, entries and nameplate syntax; these are the cross-references."""
     t, name = m.get('cllc'), m['id']
     if t is None:
         return
-    check(set(t) == CLLC_SECTIONS, name + ': CLLC table sections differ from the mod schema')
     genders, templates, forms = t.get('creatureGender', {}), t.get('genderedCreatureTranslations', {}), t.get('genderedTranslations', {})
     check('default' in genders and set(genders.values()) <= set(templates), name + ': CLLC gender without a nameplate template')
-    for template in templates.values():
-        check(isinstance(template, str) and cllc_template_ok(template), name + ': invalid CLLC nameplate template: ' + repr(template))
     check(set(forms) <= set(templates), name + ': CLLC gendered words for a gender without a template')
     check(len({frozenset(table) for table in forms.values()}) <= 1 and all(k in t.get('translations', {}) for table in forms.values() for k in table),
           name + ': CLLC genders have different word sets')
     values = list(genders.values()) + list(templates.values()) + list(t.get('translations', {}).values()) + list(t.get('settingGroups', {}).values())
     values += [v for table in list(forms.values()) + list(t.get('enumTranslations', {}).values()) for v in table.values()]
     values += [s.get(k) for s in t.get('settings', {}).values() for k in ('display', 'desc')]
-    check(all(isinstance(v, str) and v for v in values), name + ': empty CLLC entry')
     counts['cllc_entries'] += len(values)
 
 def cllc_evidence_checks(m: dict, english: dict) -> None:
@@ -213,7 +208,17 @@ def main() -> int:
     parser.add_argument('--report', type=Path)
     args = parser.parse_args()
     paths = sorted((ROOT / 'catalog').glob('*.json'))
-    modules = [load(p) for p in paths]
+    schema = load(ROOT / 'tools/catalog.schema.json')
+    Draft202012Validator.check_schema(schema)
+    shape = Draft202012Validator(schema)
+    loaded = [(p, load(p)) for p in paths]
+    # A catalog of the wrong shape is reported by the schema alone; the checks below assume the shape.
+    for path, m in loaded:
+        problems = sorted(shape.iter_errors(m), key=lambda e: e.json_path)
+        check(not problems, path.name + ': does not match tools/catalog.schema.json')
+        errors.extend(f'{path.name}: {e.json_path}: {e.message}' for e in problems)
+    loaded = [(p, m) for p, m in loaded if shape.is_valid(m)]
+    paths, modules = [p for p, _ in loaded], [m for _, m in loaded]
     check(bool(modules), 'No modules')
     # LocalizationManager in many mods reads every "<plugin name>.*" file under BepInEx as its own translation.
     for path, m in zip(paths, modules):
@@ -233,17 +238,11 @@ def main() -> int:
     for m in modules:
         name = m['id']
         terms = m.get('terms', {})
-        check(bool(re.fullmatch(r'\d+\.\d+(?:\.\d+){0,2}', m.get('pluginVersion', ''))), name + ': invalid pluginVersion')
-        check(bool(re.fullmatch(r'[A-Za-z0-9_.]+', name)), name + ': invalid module ID')
         scoped = any(m.get(k) for k in ('texts', 'patterns', 'literals', 'configTexts', 'returns'))
-        check(bool(m['guids']) and (bool(m['namespaces']) or not scoped), name + ': missing GUID/namespace')
+        check(bool(m['namespaces']) or not scoped, name + ': scoped adapters need plugin namespaces')
         check(set(m['words']) == set(m['englishWords']), name + ': mismatched English/Russian key sets')
         check(sum(len(m.get(k, [])) for k in ('words', 'texts', 'patterns', 'literals', 'configTexts', 'rawTexts', 'rawPatterns')) > 0, name + ': empty module')
         counts.update({key: len(m.get(key, [])) for key in ('words', 'texts', 'patterns', 'rawTexts', 'rawPatterns')})
-        for key in m['words']:
-            check(bool(re.fullmatch(r'[A-Za-z0-9_]+', key)), name + ': unsafe token ' + key)
-        for vocabulary, table in terms.items():
-            check(bool(re.fullmatch(r'[A-Za-z0-9_]+', vocabulary)) and bool(table), name + ': invalid term vocabulary ' + vocabulary)
         pairs = [(m['englishWords'][k], ru) for k, ru in m['words'].items()] + list(m['texts'].items())
         pairs += list(m.get('mapLabels', {}).items()) + list(m.get('rawTexts', {}).items())
         pairs += [pair for table in terms.values() for pair in table.items()]
@@ -252,16 +251,15 @@ def main() -> int:
         counts['explicit_literals'] += sum(len(rule['values']) for rule in m.get('literals', []))
         counts['config_texts'] += sum(len(rule['values']) for rule in m.get('configTexts', []))
         for en, ru in pairs:
-            check(isinstance(en, str) and isinstance(ru, str) and bool(en) and bool(ru), name + ': empty/non-string translation')
             check(collections.Counter(TOKEN.findall(en)) == collections.Counter(TOKEN.findall(ru)), name + ': placeholder/markup mismatch: ' + repr(en))
             check(re.findall(r'</?[^>\n]+>', en) == re.findall(r'</?[^>\n]+>', ru), name + ': markup order mismatch: ' + repr(en))
-        for p, allowed in [(p, ('text', 'message', 'mapLabel')) for p in m['patterns']] + [(p, ('text',)) for p in m.get('rawPatterns', [])]:
+        for p in m['patterns'] + m.get('rawPatterns', []):
             holes = set(HOLE.findall(p['source']))
             check(holes == set(HOLE.findall(p['target'])), name + ': pattern placeholders differ: ' + repr(p['source']))
             check(set(p.get('numeric', [])) <= {int(h) for h in holes}, name + ': invalid numeric placeholder')
+            # The schema limits the kinds of argument; a term argument must name a vocabulary of this module.
             for key, semantic in p.get('arguments', {}).items():
-                known = semantic in allowed or (semantic.startswith('term:') and semantic[5:] in terms)
-                check(key in holes and known, name + ': invalid semantic argument')
+                check(key in holes and (not semantic.startswith('term:') or semantic[5:] in terms), name + ': invalid semantic argument')
                 check(int(key) not in p.get('numeric', []), name + ': conflicting numeric/semantic argument')
         for p in m.get('rawPatterns', []):
             check(HOLE.sub('', p['source']).strip() != '', name + ': raw pattern without fixed text: ' + repr(p['source']))
@@ -277,7 +275,7 @@ def main() -> int:
     report = {
         'status': 'passed' if not errors else 'failed', 'python_assertions': checks,
         'counts': dict(counts), 'errors': errors, 'skipped': skipped,
-        'scope': 'Data only: JSON, placeholder/tag preservation, fixture references, independent snapshot binding metadata and optional source-resource comparisons. No C# parser or alternate translation engine.',
+        'scope': 'Data only: the catalog schema, placeholder/tag preservation, fixture references, independent snapshot binding metadata and optional source-resource comparisons. No C# parser or alternate translation engine.',
         # This script checks data only. Build.ps1 compiles and runs the NUnit/Harmony tests
         # and validates the Thunderstore package; the game itself is checked by hand.
         'not_performed_by_this_validator': ['csharp_compilation', 'csharp_execution', 'harmony_runtime', 'package_build', 'valheim_runtime']

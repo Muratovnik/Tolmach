@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using BepInEx.Configuration;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using Tolmach;
 using Attributes = CreatureLevelControl.ConfigurationManagerAttributes;
@@ -180,6 +181,16 @@ namespace Tolmach.Tests
             Module m = CllcModule();
             m.cllc.genderedCreatureTranslations["m"] = template;
             Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(m));
+        }
+
+        [Test]
+        public void NameplateGrammarIsTheCatalogSchemaOne()
+        {
+            // tools/validate.py checks the same syntax through the schema before a catalog ships.
+            JObject schema = JObject.Parse(File.ReadAllText(Path.Combine(Root, "catalog.schema.json")));
+            string pattern = (string)schema["$defs"]["nameplate"]["pattern"];
+            Assert.That(pattern.StartsWith("^") && pattern.EndsWith("$"), Is.True, pattern);
+            Assert.That(CatalogLoader.CllcNameplate.ToString(), Is.EqualTo(@"\A" + pattern.Substring(1, pattern.Length - 2) + @"\z"));
         }
 
         [Test]

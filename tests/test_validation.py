@@ -30,8 +30,12 @@ def test_unmodified_data_passes():
     ('version', 'wrong/missing BepInPlugin version'),
     ('markup', 'markup'),
     ('missing_key', 'mismatched English/Russian key sets'),
-    ('cllc_template', 'invalid CLLC nameplate template'),
+    ('cllc_template', '$.cllc.genderedCreatureTranslations.m'),
     ('cllc_gender', 'CLLC gender without a nameplate template'),
+    # Caught by tools/catalog.schema.json: before it, a misspelt section silently dropped its texts.
+    ('unknown_section', "'rawText' was unexpected"),
+    ('null_section', '$.texts'),
+    ('empty_value', 'should be non-empty'),
 ])
 def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
     root = tmp_path / 'subject'
@@ -39,7 +43,7 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
     # can be inside .git, which would make the copy contain itself.
     shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.git', '.cache', 'bin', 'obj', 'artifacts', 'evidence', '__pycache__', '.pytest_cache'))
     name = 'BetterArchery' if mutation == 'markup' else 'StructureTweaks'
-    if mutation == 'missing_key':
+    if mutation in ('missing_key', 'empty_value'):
         name = 'Warfare'
     elif mutation.startswith('cllc'):
         name = 'CreatureLevelControl'
@@ -60,6 +64,12 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
         data['cllc']['genderedCreatureTranslations']['m'] = '{name}[ ]'
     elif mutation == 'cllc_gender':
         data['cllc']['creatureGender']['Troll'] = 'x'
+    elif mutation == 'unknown_section':
+        data['rawText'] = {}
+    elif mutation == 'null_section':
+        data['texts'] = None
+    elif mutation == 'empty_value':
+        data['words'][next(iter(data['words']))] = ''
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
     process, report = run_validator(root)
     assert process.returncode == 1, process.stderr + process.stdout

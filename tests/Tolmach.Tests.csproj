@@ -20,6 +20,7 @@
     <Reference Include="UnityEngine.AudioModule"><HintPath>$(GamePath)/valheim_Data/Managed/UnityEngine.AudioModule.dll</HintPath><Private>false</Private></Reference>
     <None Update="fixtures/**/*.json" CopyToOutputDirectory="PreserveNewest" />
     <None Include="../catalog/*.json" Link="catalog/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../tools/catalog.schema.json" Link="catalog.schema.json" CopyToOutputDirectory="PreserveNewest" />
     <!-- Dependencies of the profile's Harmony build, only beside the test host. -->
     <None Include="$(BepInExCorePath)/Mono*.dll" Link="%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
