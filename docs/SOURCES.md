@@ -38,6 +38,31 @@ ilspycmd; английские ресурсы и код этих версий; I
 `UsefulRunestones.yml` профиля. CraftyCartsRemake заново декомпилирован в установленной версии 3.2.4.
 Названия локаций для меток карты взяты из переводов ExpertExplorer этого же пакета.
 
+Источники 0.5.1: английский перечень строк другого пакета перевода, сверенный со всеми каталогами;
+у ключей без английского текста проверялось только, пусто ли там значение. Amazing Nature 1.4.0,
+Arsenal Reborn 0.1.6, Furniture Reborn 1.2.9 и Culinary Horizons 1.0.42 заново скачаны с Thunderstore
+(хеши DLL совпали с манифестом этапа B), их asset bundle прочитаны UnityPy: так найдены префабы,
+которые показывают ключи без английского текста. Надпись у мифического алтаря написана по
+`DOCUMENTATION/data/special_altars.csv` Amazing Nature и названиям предметов мода, описание трофея
+лесного тролля взято из локализации игры 1.0.16. Литералы Huginn 1.0.5, Location Placement
+Accelerator 1.0.24 и BossAdd 1.2.0 сверены с IL их DLL.
+
+Источники 0.5.2: русская локализация игры 1.0.16 (`localization`, `localization_captions` из
+`resources.assets`) — написание без «ё», неразрывный пробел перед единицами и термины (Feasts —
+«Пиры», Crafting station — «Ремесленная стойка», Recipes — «Чертежи», Coin Pile — «Гора монет»,
+Copper Deposit — «Залежи меди»). Подсказка TakeAllCooked 1.1.0: значение по умолчанию из
+`Plugin.Awake`, чтение `HoverText` в IL `CookingStationHoverTextPatch.Postfix`; адаптер проверен на
+DLL мода с HarmonyX профиля вне игры.
+
+Источники 0.5.3: для каждой правки термина 0.5.2 — код или ресурс мода, где виден сам предмет.
+VNEI 0.17.6 заново скачан и декомпилирован (`RecipeInfo`, `CraftingStationList.FilterRecipes`,
+`StationOrder`); asset bundle Shipyard (префаб `tar_ladder` с компонентом `Ladder`) и Amazing Nature
+1.4.0 (префаб `piece_silknest_bal` с компонентом `Beehive`; DLL взята из пакета на CDN
+Thunderstore частичными запросами `remotezip`, её хеш совпал с манифестом этапа B) прочитаны UnityPy;
+`Viking.cs` VikingNPC Continued 0.4.1 из архива этапа A; OdinsSteelworks 0.4.1 заново скачан и
+декомпилирован (`CWS_Slack_Tub` — пристройка `CWS_Forge`, плавильня для окисленной и готовой стали).
+Игровые термины — из той же локализации игры 1.0.16.
+
 ## Первичная документация
 
 - Jötunn: Localization — https://valheim-modding.github.io/Jotunn/tutorials/localization.html

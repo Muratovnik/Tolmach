@@ -1272,5 +1272,52 @@
       "rebound": "CraftyCartsRemake 3.2.3 -> 3.2.4 installed in the profile; evidence source-evidence/profile-updates/OdinPlus-CraftyCartsRemake-3.2.4 (decompiled plugin, English resource, cart names read from its asset bundle)",
       "sources": "Strings seen untranslated in the 0.4.0 game session, located in the installed mods' code, config defaults, asset bundle and the Default profile's UsefulRunestones.yml; location names reuse this pack's ExpertExplorer translations."
     }
+  },
+  "revision_0_5_1": {
+    "base": "Tolmach 0.5.0 (feat/cllc 1c07c57)",
+    "catalogs_changed": true,
+    "new_modules": [],
+    "coverage_audit": "Every catalog was reconciled with the English target list of the other translation pack (5284 records: keys, code literals, adapter strings). For keys without English text only the presence of a non-empty value on its side was tested; no Russian text of it was read. No losses in the 11 profile mods.",
+    "fixed": {
+      "cause": "Stage B task preparation dropped a value listed as 'keep' from every channel, although 'keep' forbade replacing it in one place only.",
+      "restored": {
+        "MoveBuildPieces": "texts: Move lock was lost",
+        "Huginn": "literal Huginn.Names.Leaf: Portal; literals of PinCleanup+LookingAtCommand.Run for MineRock and MineRock5",
+        "LocationPlacementAccelerator": "literal LPA.GenerationProgress.BuildModeName: Vanilla",
+        "BalrondAmazingNature": "rawTexts: TauntAttack, Flint Pickaxe",
+        "BalrondArsenalReborn": "rawTexts: OdinBlessing"
+      },
+      "written_from_context": {
+        "BalrondAmazingNature": "six rock names with empty English (tag_*_frac_bal), tag_trophy_foresttroll_bal_description, tag_lore_mythic_bal",
+        "BalrondArsenalReborn": "tag_thswordchitin_bal_description",
+        "VNEI": "vnei_all_stations"
+      },
+      "BossAdd": "the colour of the mini Bonemass in the kill-order message is translated by a raw pattern with a colour vocabulary; the literal that left the colour in Korean was removed"
+    },
+    "english_sources": "Amazing Nature 1.4.0, Arsenal Reborn 0.1.6, Furniture Reborn 1.2.9, Culinary Horizons 1.0.42, Huginn 1.0.5, Location Placement Accelerator 1.0.24 and BossAdd 1.2.0 downloaded again from Thunderstore; DLL hashes equal the stage B manifest. Their asset bundles were read with UnityPy to find the prefabs that show keys without English text; the mythic altar inscription follows Amazing Nature's DOCUMENTATION/data/special_altars.csv and the mod's item names; the forest troll trophy description comes from the game's localization 1.0.16.",
+    "not_translated": "Keys the current versions never show: 13 placeholder banquets of Culinary Horizons 1.0.42 (no item or status effect), tag_planter of Furniture Reborn and tag_cliff_deepnorth_frac_bal of Amazing Nature (no prefab), the skill tome template of More World Locations, the Ashlands unidentified gear name of Epic Loot (replaced at runtime).",
+    "csharp_tests": "368 NUnit tests passed with Valheim 1.0.16, BepInEx 5.4.23.5 and HarmonyX 2.9 from the Default Gale profile",
+    "game_test": "not run; the changed modules are not in the Default profile"
+  },
+  "revision_0_5_2": {
+    "base": "Tolmach 0.5.1 (fix/coverage-audit, uncommitted)",
+    "catalogs_changed": true,
+    "code_changed": "configTexts: a transpiler after ConfigEntry<string>.Value reads in a named method replaces only the unchanged English default (DisplayPatches, TextEngine.ConfigText, CatalogLoader, Models).",
+    "style": "Russian values follow the game's localization 1.0.16: no «ё» except in proper names (the game keeps it in 8 of 5862 strings, all names), a no-break space between a number and its unit; 436 lines in 45 catalogs (.private tools/apply_style_0_5_2.py).",
+    "terms_fixed": "28 values where a catalog used a word the game does not: Culinary Horizons Banquets -> Пиры, crafting station -> Ремесленная стойка (VNEI, Amazing Nature), Recipes -> Чертежи (VNEI), deposits -> Залежи (OreMines), Coin Pile -> Гора монет (GoldBars), Rune Forge -> Рунная кузница and Check -> Посмотреть (Amazing Nature), Wood Ladder -> стремянка (Shipyard), Owner -> Владелец (VikingNPC), On/Off -> Вкл./Выкл. (Lightkeeper), Очки вдохновения (Magic Supremacy), OdinsSteelworks slack tub description.",
+    "new_translation": "TakeAllCooked 1.1.0 hover prompt UI/HoverText: Take all cooked -> Взять все готовое (configTexts).",
+    "english_sources": "The game's own Russian and English localization tables (vanilla glossary); TakeAllCooked 1.1.0 downloaded again from Thunderstore (DLL hash equals the stage B manifest), Plugin.Awake default and the IL of CookingStationHoverTextPatch.Postfix.",
+    "offline_mod_check": "With the real TakeAllCooked.dll and the profile's HarmonyX outside the game: both patches compiled without warnings, ConfigText is called right after the HoverText read and only there, the Unbound literal goes through Literal.",
+    "csharp_tests": "371 NUnit tests passed with Valheim 1.0.16, BepInEx 5.4.23.5 and HarmonyX 2.9 from the Default Gale profile",
+    "game_test": "not run"
+  },
+  "revision_0_5_3": {
+    "base": "Tolmach 0.5.2 (fix/coverage-audit, uncommitted)",
+    "catalogs_changed": true,
+    "meaning_fixed": "7 values where 0.5.2 took the game's term for a different object, restored after checking the mod's code or asset: GoldBars Small Coin Pile -> Небольшая кучка монет (2), VNEI Recipes -> Рецепты and vnei_all_stations -> Все станции, Shipyard Tarred Wood Ladder 2m -> Просмоленная лестница 2 м (Ladder component), Amazing Nature silk nest Check -> Проверить (Beehive component), VikingNPC Owner -> Хозяин (.private tools/apply_meaning_0_5_3.py). The other 21 term fixes of 0.5.2 were checked the same way and kept.",
+    "english_sources": "VNEI 0.17.6 downloaded again from Thunderstore and decompiled (RecipeInfo, CraftingStationList, StationOrder); Shipyard asset bundle (tar_ladder); Amazing Nature 1.4.0 DLL fetched from the Thunderstore CDN with remotezip, hash equal to the stage B manifest, bundle read with UnityPy (piece_silknest_bal); VikingNPC Continued 0.4.1 Viking.cs from the stage A archive; OdinsSteelworks 0.4.1 downloaded again and decompiled.",
+    "code_changed": "CatalogLoader reads catalogs through a Json.NET contract (MissingMemberHandling.Error, ItemRequired = DisallowNull on the catalog types; Module declares sourceFiles and notes) instead of hand-written null checks; the CLLC nameplate grammar is one regular expression shared with tools/catalog.schema.json instead of a character loop. No change to what is translated at runtime.",
+    "tooling_changed": "tools/validate.py checks every catalog against tools/catalog.schema.json with jsonschema 4.26.0 before its own cross-checks; Build.ps1 decodes the package icon with System.Drawing; tools/Test-PackageCheck.ps1 has an eighth control (a JPEG icon).",
+    "checks": "docs/evidence/0.5.3/checks-0.5.3.json"
   }
 }

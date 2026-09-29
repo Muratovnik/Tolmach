@@ -1,0 +1,65 @@
+{
+  "date": "2026-09-28",
+  "package": {
+    "file": "Muratovnik-Tolmach-0.5.1.zip",
+    "sha256": "53adabbd7aec267ac74e8f95b1269d1b2e7357851f78dbfa74cebdcf08e85d20",
+    "entries": 76,
+    "manifest": {
+      "name": "Tolmach",
+      "version_number": "0.5.1",
+      "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.2351",
+        "ValheimModding-JsonDotNET-13.0.4"
+      ],
+      "website_url": "https://github.com/Muratovnik/Tolmach"
+    }
+  },
+  "build": {
+    "nunit_passed": 368,
+    "sdk": "9.0.318",
+    "plugin_sha256": "81dda0fb22e46f0667ec4add21f71b7f134a0b89865dd2e4b4aff14ad7da3370"
+  },
+  "catalogs": {
+    "modules": 69,
+    "changed": [
+      "BalrondAmazingNature",
+      "BalrondArsenalReborn",
+      "BossAdd",
+      "Huginn",
+      "LocationPlacementAccelerator",
+      "MoveBuildPieces",
+      "VNEI"
+    ]
+  },
+  "validator": {
+    "assertions": 18361,
+    "errors": 0,
+    "report": "validation.json"
+  },
+  "package_gate_controls": "7 of 7 (valid package accepted, six broken copies rejected)",
+  "pytest_data_controls": "8 passed",
+  "literals_in_il": {
+    "method": "ilspycmd 9.1 -il written to UTF-8 files; package DLLs downloaded again from Thunderstore, hashes equal the stage B manifest",
+    "modules": [
+      "Huginn 1.0.5",
+      "LocationPlacementAccelerator 1.0.24",
+      "BossAdd 1.2.0"
+    ],
+    "values_checked": 69,
+    "problems": 0,
+    "not_rechecked": "Literals of the other modules: unchanged since 0.5.0"
+  },
+  "coverage_audit": {
+    "records": 5284,
+    "covered_by_catalogs": 2320,
+    "mods_own_russian": 2364,
+    "absent_in_current_versions": 173,
+    "empty_in_mod_and_other_pack": 339,
+    "identifiers_commands_files_or_no_words": 52,
+    "not_displayed": 33,
+    "not_translated_by_decision": 3,
+    "losses": 0,
+    "keys_without_english_checked_in": "asset bundles of Amazing Nature 1.4.0, Arsenal Reborn 0.1.6, Furniture Reborn 1.2.9 and Culinary Horizons 1.0.42 (UnityPy)"
+  },
+  "game_test": "not run: the changed modules are not in the Default profile; the profile acceptance of 0.5.0 still applies"
+}

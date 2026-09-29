@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "python_assertions": 12695,
+  "counts": {
+    "modules": 69,
+    "words": 1726,
+    "texts": 714,
+    "patterns": 43,
+    "rawTexts": 344,
+    "rawPatterns": 56,
+    "explicit_literals": 665,
+    "config_texts": 1,
+    "cllc_entries": 320
+  },
+  "errors": [],
+  "skipped": [],
+  "scope": "Data only: the catalog schema, placeholder/tag preservation, fixture references, independent snapshot binding metadata and optional source-resource comparisons. No C# parser or alternate translation engine.",
+  "not_performed_by_this_validator": [
+    "csharp_compilation",
+    "csharp_execution",
+    "harmony_runtime",
+    "package_build",
+    "valheim_runtime"
+  ]
+}

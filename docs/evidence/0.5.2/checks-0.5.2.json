@@ -1,0 +1,61 @@
+{
+  "date": "2026-09-28",
+  "package": {
+    "file": "Muratovnik-Tolmach-0.5.2.zip",
+    "sha256": "59bc7c29513559497ab306f69deccfc885621bcb41cc2773f136386eb24ea405",
+    "entries": 76,
+    "manifest": {
+      "name": "Tolmach",
+      "version_number": "0.5.2",
+      "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.2351",
+        "ValheimModding-JsonDotNET-13.0.4"
+      ],
+      "website_url": "https://github.com/Muratovnik/Tolmach"
+    }
+  },
+  "build": {
+    "nunit_passed": 371,
+    "sdk": "9.0.318",
+    "plugin_sha256": "7f222b53a1eb131e1aa72b0ca20685eb72fce288170c5c1dcc48877048c06fac"
+  },
+  "catalogs": {
+    "modules": 69,
+    "style_normalized": 45,
+    "term_fixes": 28,
+    "new_config_texts": [
+      "TakeAllCooked"
+    ]
+  },
+  "validator": {
+    "assertions": 18365,
+    "errors": 0,
+    "report": "validation.json"
+  },
+  "package_gate_controls": "7 of 7 (valid package accepted, six broken copies rejected)",
+  "pytest_data_controls": "8 passed",
+  "literals_in_il": {
+    "modules": [
+      "TakeAllCooked 1.1.0",
+      "Huginn 1.0.5",
+      "LocationPlacementAccelerator 1.0.24",
+      "BossAdd 1.2.0"
+    ],
+    "values_checked": 70,
+    "problems": 0,
+    "not_rechecked": "English keys of the other catalogs did not change; only Russian values did"
+  },
+  "takeallcooked_dll_check": {
+    "dll": "TakeAllCooked.dll 1.1.0 from Thunderstore, hash equals the stage B manifest",
+    "result": "With the profile's HarmonyX outside the game both patches compiled without warnings; ConfigText is called right after the HoverText read (ConfigEntry<string>.get_Value) and only there, the bool EnableMod read is untouched, the Unbound literal goes through Literal; the default text is translated, a player's own text and the English game are left as they are (9 of 9 checks)."
+  },
+  "style_check": {
+    "reference": "The game's Russian localization 1.0.16: «ё» in 8 of 5862 strings, all proper names; no-break space between a number and its unit in most strings; em dash, «» quotes and three dots dominate, as in Tolmach",
+    "applied": "«ё» -> «е» except proper names (436 lines, 45 catalogs), no-break space before units (34 values), 28 term fixes"
+  },
+  "coverage_audit": {
+    "records": 5284,
+    "losses": 0
+  },
+  "game_test": "not run"
+}

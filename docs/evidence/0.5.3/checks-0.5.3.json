@@ -1,0 +1,53 @@
+{
+  "date": "2026-09-29",
+  "package": {
+    "file": "Muratovnik-Tolmach-0.5.3.zip",
+    "sha256": "42ba1ab7945e933f65844b60ee7dec24422a787302c2e8588c7f2a0be9856da3",
+    "entries": 76,
+    "manifest": {
+      "name": "Tolmach",
+      "version_number": "0.5.3",
+      "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.2351",
+        "ValheimModding-JsonDotNET-13.0.4"
+      ],
+      "website_url": "https://github.com/Muratovnik/Tolmach"
+    }
+  },
+  "build": {
+    "nunit_passed": 373,
+    "sdk": "9.0.318",
+    "plugin_sha256": "a5cf7f3e6cb22c802cb8d9d486db5a64df70bc19a496b45671c76f4a5d06244e"
+  },
+  "catalogs": {
+    "modules": 69,
+    "meaning_fixes": 7,
+    "evidence": "Each of the 28 term fixes of 0.5.2 was checked against the mod's code or asset: VNEI 0.17.6 decompiled, Shipyard and Amazing Nature 1.4.0 bundles read with UnityPy, VikingNPC Viking.cs, OdinsSteelworks 0.4.1 decompiled; 7 restored, 21 kept"
+  },
+  "catalog_shape": {
+    "schema": "tools/catalog.schema.json (JSON Schema 2020-12), checked with jsonschema 4.26.0",
+    "loader": "Json.NET contract on the catalog types: MissingMemberHandling.Error, ItemRequired = DisallowNull",
+    "catalogs_matching_schema": 69
+  },
+  "validator": {
+    "assertions": 12695,
+    "errors": 0,
+    "report": "validation.json",
+    "why_fewer_than_0_5_2": "About 5700 per-entry checks (types, empty values, key names) are now the schema's, one assertion per catalog"
+  },
+  "package_gate_controls": "8 of 8 (valid package accepted, seven broken copies rejected, new: a JPEG icon of 256x256)",
+  "pytest_data_controls": "11 passed (new: misspelt section, null section, empty value)",
+  "literals_in_il": {
+    "tool": "check_literals_il.py on dnfile 0.18.0 and dncil 1.0.2 (was: regular expressions over ilspycmd IL text)",
+    "values_checked": 437,
+    "problems": 0,
+    "dlls_available": 48,
+    "parity": "On all 48 DLLs the old and new tools read the same set of ldstr strings and give the same verdict for all 437 catalog values; they differ only in keys of generic, anonymous and nested types, which the old text parser named wrongly",
+    "not_rechecked": "19 stage B DLLs are no longer on disk; their literals have not changed since 0.4.0"
+  },
+  "coverage_audit": {
+    "records": 5284,
+    "losses": 0
+  },
+  "game_test": "not run"
+}

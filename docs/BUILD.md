@@ -92,13 +92,16 @@ CLI (`tcli`) 0.2.4 как локальный dotnet-tool (`.config/dotnet-tools.
 После правки каталога проверьте данные и соберите пакет:
 
 ```powershell
-python tools\validate.py
+uv run --no-project --with jsonschema==4.26.0 python tools\validate.py
 .\Build.cmd
 ```
 
-`validate.py` печатает JSON-отчёт и завершается с кодом 0, если ошибок нет. Он
-проверяет плейсхолдеры, разметку, ключи и привязки, но не исполняет и не имитирует
-C#-переводчик: поведение перевода проверяют NUnit-тесты внутри сборки. С
+`validate.py` печатает JSON-отчёт и завершается с кодом 0, если ошибок нет. Сначала он
+сверяет каждый каталог со схемой [tools/catalog.schema.json](../tools/catalog.schema.json)
+(библиотека jsonschema): разделы, типы, обязательные поля, непустые значения, синтаксис
+шаблонов CLLC. Ту же схему можно подключить в редакторе JSON. Затем он проверяет то, что схема
+не выражает: плейсхолдеры, разметку, согласованность ключей между каталогами и привязки. Он не исполняет и
+не имитирует C#-переводчик: поведение перевода проверяют NUnit-тесты внутри сборки. С
 `--evidence <папка>` валидатор дополнительно сверяет каталоги с распакованным исходным
 архивом переводов; для этого нужен PyYAML. Без этого параметра сверка помечается
 пропущенной.
@@ -107,7 +110,7 @@ C#-переводчик: поведение перевода проверяют 
 Запустить их можно без глобальной установки pytest:
 
 ```powershell
-uv run --no-project --python 3.11 --with pytest==9.1.1 python -m pytest tests/test_validation.py -q -p no:cacheprovider
+uv run --no-project --python 3.11 --with pytest==9.1.1 --with jsonschema==4.26.0 python -m pytest tests/test_validation.py -q -p no:cacheprovider
 ```
 
 ## Проверки
@@ -116,7 +119,8 @@ uv run --no-project --python 3.11 --with pytest==9.1.1 python -m pytest tests/te
 
 `Build.ps1` отклоняет ZIP, который нарушает правила Thunderstore:
 
-- в корне должны быть `manifest.json`, `icon.png` и `README.md`, иконка — PNG 256×256;
+- в корне должны быть `manifest.json`, `icon.png` и `README.md`, иконка — PNG 256×256 (картинку
+  декодирует System.Drawing, одной сигнатуры PNG мало);
 - манифест — в UTF-8 без BOM;
 - `name` состоит из `[A-Za-z0-9_]`, `version_number` вида `Major.Minor.Patch` совпадает
   с версией сборки;
