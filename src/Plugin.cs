@@ -3,14 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using BepInEx;
 using BepInEx.Bootstrap;
-using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
-using Newtonsoft.Json;
 
 namespace Tolmach
 {
@@ -110,6 +106,7 @@ namespace Tolmach
         public const string PluginVersion = "0.6.0";
         private static ManualLogSource Log;
         private static readonly List<string> Notes = new List<string>();
+        private static RuntimeReport report;
         private Harmony harmony;
         private bool started;
 
@@ -117,16 +114,47 @@ namespace Tolmach
         {
             Log = Logger;
             Notes.Clear();
+            report = new RuntimeReport();
             DisplayPatches.Reset();
+            CreatureNameDisplay.Reset();
+            TextEngine.IsRussian = false;
+            Logger.LogInfo("Runtime report session: " + report.SessionId);
+            WriteReport(); // Invalidate a previous successful report before configuration or I/O can fail.
+            try { Initialize(); }
+            catch (Exception e)
+            {
+                report.Status = RuntimeStatus.Failed;
+                Notes.Add("Initialization failed: " + e.GetType().Name + ". See the current BepInEx log.");
+                Logger.LogError("Initialization failed: " + e);
+                WriteReport(); // Preserve module warnings before cleanup clears runtime state.
+                Cleanup();
+            }
+        }
+
+        private void Initialize()
+        {
             bool enabled = Config.Bind("General", "Enabled", true, "Enable Russian translations. Restart the game after changing this setting.").Value;
-            if (!enabled) { Logger.LogInfo("Disabled in configuration."); return; }
+            if (!enabled)
+            {
+                report.Status = RuntimeStatus.Disabled;
+                Logger.LogInfo("Disabled in configuration.");
+                WriteReport();
+                return;
+            }
             // Replaces AllowOtherVersions (default false), whose saved value would have kept the old behavior.
             bool onlyAudited = Config.Bind("Compatibility", "OnlyAuditedVersions", false,
-                "Apply code and screen adapters only to the mod versions the catalogs were checked against. Off: for another version Tolmach translates the strings it still finds; the log and Tolmach.runtime.txt list the ones it did not find. Native dictionaries work either way.").Value;
+                "Apply code and screen adapters only to the catalog's checked mod versions. Off: try known strings on other versions. Warnings describe missing known adapter targets, not every untranslated string. Native dictionaries work either way.").Value;
             PersistentUi.StandardMapLabels = Config.Bind("Display", "TranslateStandardMapLabels", true,
                 "Translate exact standard map labels on screen only; stored names remain unchanged. A custom name identical to a standard label is displayed translated too. Disable to keep all map names as entered. Restart required.").Value;
             string directory = Path.Combine(Path.GetDirectoryName(Info.Location), "catalog");
-            if (!Directory.Exists(directory)) { Logger.LogError("Missing catalog directory next to plugin DLL."); return; }
+            if (!Directory.Exists(directory))
+            {
+                report.Status = RuntimeStatus.MissingCatalog;
+                Notes.Add("Missing catalog directory next to plugin DLL. Reinstall the complete package.");
+                Logger.LogError("Missing catalog directory next to plugin DLL.");
+                WriteReport();
+                return;
+            }
             foreach (string path in Directory.GetFiles(directory, CatalogLoader.FilePrefix + "*.json").OrderBy(delegate(string s) { return s; }, StringComparer.Ordinal))
             {
                 try
@@ -145,39 +173,33 @@ namespace Tolmach
                     if (!loaded) continue;
                     TextEngine.Modules.Add(module.id, module);
                 }
-                catch (Exception e) { Warn(Path.GetFileName(path) + ": catalog skipped: " + e.GetType().Name + " " + e.Message); }
-            }
-            try
-            {
-                harmony = new Harmony(PluginId);
-                RawDisplay.Initialize();
-                // Fallback only: once the game's Localization exists, its GetSelectedLanguage decides.
-                LocalizationBridge.Install(harmony, RuntimeAccess.ExactType("Localization"), delegate { return UnityEngine.PlayerPrefs.GetString("language", "English"); });
-                foreach (Module m in TextEngine.Modules.Values)
+                catch (Exception e)
                 {
-                    try { DisplayPatches.Install(harmony, m); }
-                    catch (Exception e) { m.Warn("UI adapter initialization: " + e.GetType().Name); }
+                    string warning = Path.GetFileName(path) + ": catalog skipped: " + e.GetType().Name;
+                    Notes.Add(warning);
+                    Warn(warning + " " + e.Message);
                 }
-                ExtraHooks.Install(harmony);
-                PersistentUi.Install(harmony);
-                NativeAdapters.Subscribe();
-                NativeAdapters.Refresh();
-                started = true;
-                Logger.LogInfo("Loaded " + TextEngine.Modules.Count + " translation modules. Runtime coverage report: Tolmach.runtime.txt in BepInEx/config.");
-                WriteReport();
             }
-            catch (Exception e)
+            harmony = new Harmony(PluginId);
+            RawDisplay.Initialize();
+            // Fallback only: once the game's Localization exists, its GetSelectedLanguage decides.
+            LocalizationBridge.Install(harmony, RuntimeAccess.ExactType("Localization"), delegate { return UnityEngine.PlayerPrefs.GetString("language", "English"); });
+            CreatureNameDisplay.Install(harmony, RuntimeAccess.ExactType("Character"));
+            foreach (Module m in TextEngine.Modules.Values)
             {
-                Logger.LogError("Initialization failed: " + e);
-                NativeAdapters.Unsubscribe();
-                if (harmony != null) harmony.UnpatchSelf();
-                PersistentUi.Reset();
-                LocalizationBridge.Reset();
-                RawDisplay.Reset();
-                DisplayPatches.Reset();
-                TextEngine.Modules.Clear();
+                try { DisplayPatches.Install(harmony, m); }
+                catch (Exception e) { m.Warn("UI adapter initialization: " + e.GetType().Name); }
             }
+            ExtraHooks.Install(harmony);
+            PersistentUi.Install(harmony);
+            NativeAdapters.Subscribe();
+            NativeAdapters.Refresh();
+            started = true;
+            report.Status = RuntimeStatus.Active;
+            Logger.LogInfo("Loaded " + TextEngine.Modules.Count + " translation modules. Runtime coverage report: Tolmach.runtime.txt in BepInEx/config.");
+            WriteReport();
         }
+
         private IEnumerator Start()
         {
             if (!started) yield break;
@@ -188,11 +210,18 @@ namespace Tolmach
         private void OnDestroy()
         {
             if (!started) return;
+            report.Status = RuntimeStatus.Stopped;
+            WriteReport();
+            Cleanup();
+        }
+        private void Cleanup()
+        {
             NativeAdapters.Unsubscribe();
             if (harmony != null) harmony.UnpatchSelf();
             PersistentUi.Reset();
             LocalizationBridge.Reset();
             RawDisplay.Reset();
+            CreatureNameDisplay.Reset();
             DisplayPatches.Reset();
             GameItems.Reset();
             TextEngine.Modules.Clear();
@@ -204,33 +233,12 @@ namespace Tolmach
         }
         internal static void WriteReport()
         {
+            if (report == null) return;
             try
             {
-                StringBuilder s = new StringBuilder();
-                s.AppendLine("Tolmach " + PluginVersion);
-                s.AppendLine("UTC: " + DateTime.UtcNow.ToString("u"));
-                s.AppendLine("Russian active: " + TextEngine.IsRussian);
-                s.AppendLine("Installed adapters are NOT proof of every in-game screen being tested.");
-                s.AppendLine("No network requests; no player names, account IDs or save contents are collected.");
-                foreach (Module m in TextEngine.Modules.Values.OrderBy(delegate(Module x) { return x.id; }))
-                {
-                    s.AppendLine(m.id + " | package=" + m.version + " | plugin=" + m.pluginVersion + " | exactVersion=" + m.ExactVersion +
-                        " | keys=" + m.words.Count + " | nativeKeysAdded=" + m.NativeWords + " | methods inspected=" + m.ScannedMethods + " | UI methods patched=" + m.PatchedMethods);
-                    foreach (PatchEvidence p in m.Patches.Values.OrderBy(delegate(PatchEvidence x) { return x.method; }))
-                    {
-                        if (p.notPatched != null)
-                            s.AppendLine("  " + p.method + " | notPatched=" + p.notPatched + " | callSites=" + Listed(p.callSites) + " | leftAsIs=" + Listed(p.leftAsIs));
-                        else
-                            s.AppendLine("  " + p.method + " | displayCalls=" + p.displayCalls + " | displayFields=" + p.displayFields +
-                                " | literals=" + p.literals + " | config=" + p.configTexts + " | return=" + p.returnAdapter + " | skippedEH=" + p.skippedBoundaries);
-                    }
-                    foreach (string w in m.Warnings) s.AppendLine("  WARNING: " + w);
-                }
-                foreach (string note in Notes) s.AppendLine(note);
-                File.WriteAllText(Path.Combine(Paths.ConfigPath, "Tolmach.runtime.txt"), s.ToString(), new UTF8Encoding(false));
+                report.Write(Path.Combine(Paths.ConfigPath, "Tolmach.runtime.txt"), TextEngine.IsRussian, TextEngine.Modules.Values, Notes);
             }
             catch (Exception e) { Warn("Could not write runtime report: " + e.GetType().Name); }
         }
-        private static string Listed(List<string> names) { return names.Count == 0 ? "none" : String.Join(",", names.ToArray()); }
     }
 }
