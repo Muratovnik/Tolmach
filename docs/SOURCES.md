@@ -1,152 +1,63 @@
-# Основания реализации
+# Источники текстов и правила перевода
 
-## Входные данные
+Состав пакета и исходные строки опираются на конкретные версии модов, а не на произвольные последние релизы. Актуальные версии и результат для игрока приведены в [покрытии](COVERAGE.md). Этот документ объясняет происхождение текстов и границы воспроизводимости.
 
-Единственный источник состава и конкретных игровых строк — предоставленный
-архив `valheim-handoff-2026-09-27-2300.zip`, а не произвольные последние версии
-модов из сети. Хеш архива и список источников находятся в `PROVENANCE.json`.
+## Исходная база и последующие дополнения
 
-Использованы `localization/coverage.json`, `localization/UNTRANSLATED.md`,
-`inventory/current.json`, `inventory/binary-identities.json`, английские ресурсы
-из `packages/`, активные текстовые конфиги и декомпиляции из `source-evidence/`.
-Поле `sourceFiles` каждого каталога указывает основные относительные пути внутри
-входного архива. Оно не означает, что каждая строка встретилась именно в
-главном Plugin.cs: для игровых сообщений также изучались вспомогательные классы.
+Первоначальная база — архив `valheim-handoff-2026-09-27-2300.zip`. Его хеш и сведения об источниках сохранены в [PROVENANCE.json](../PROVENANCE.json). Использовались перечень установленного, аудит локализации, английские ресурсы, активные текстовые конфиги и декомпиляции из архива.
 
-Перевод сделан с английских оригиналов модов. Модифицированные сборки исходных модов
-не распространяются.
+Архив **не является единственным источником всех последующих переводов**. При расширении пакета использовались отдельно полученные версии с Thunderstore, DLL установленного профиля, встроенные ресурсы модов и локализация игры. Относительные `sourceFiles` каталогов относятся к соответствующему набору исходных материалов; не все эти наборы доступны внутри первоначального архива или публичного репозитория.
 
-Источники 0.3.0: декомпиляции Jotunn 2.30.2, AdventureBackpacks 2.2.1 (из профиля),
-AzuAreaRepair 1.1.8, PlantEasily 2.2.2 и Humanoid Randomizer 1.6.0; встроенные asset
-bundle Shipyard и Humanoid Randomizer, прочитанные UnityPy; таблица
-`localization_captions` и `Version.cs` игры 1.0.16. Термины сверены с русской
-локализацией игры из `resources.assets`.
+| Набор материалов | Что из него получено |
+|---|---|
+| Исходный handoff | Состав раннего профиля, пропуски перевода, ресурсы и декомпиляции первых каталогов. |
+| Дополнения 0.3.0 | Jötunn 2.30.2, Adventure Backpacks 2.2.1, Azu Area Repair 1.1.8, Plant Easily 2.2.2, Humanoid Randomizer 1.6.0; ресурсы Shipyard и Humanoid Randomizer. |
+| Дополнения 0.4.0 | Версии модов, полученные 28 сентября 2026 с Thunderstore, их код, IL и английские ресурсы; собственный русский использовался для определения пропусков и согласования названий. |
+| CLLC 0.5.0 | Creature Level and Loot Control 4.6.4: `English.yml`, `LocalizationWrapper`, привязка настроек, код табличек, сектора, консоли и ServerSync. |
+| Исправления по контексту 0.5.1–0.5.3 | Код и ресурсы Amazing Nature, Arsenal Reborn, Furniture Reborn, Culinary Horizons, VNEI, Shipyard, Viking NPC и Odin's Steelworks; значения по умолчанию Take All Cooked. |
+| Дополнения 0.5.4 | Social System 1.0.1 из профиля: английская таблица, справка команд, код окон; Adventure Backpacks 2.2.2, More World Locations 5.1.5 и Wacky's Database 2.5.36. |
+| Дополнения 0.6.0 | Разбор модов без каталогов: DLL, IL, ресурсы и asset bundles, включая Armory, Smelter Upgrades и Missing Pieces; `Functions.CustomSetTooltip` Recipe Description Expansion 1.1.9. |
+| Valheim 1.0.16 | `localization` и `localization_captions` из `resources.assets`, версия игры, игровые названия и терминология. |
 
-Источники 0.4.0: последние версии 28 модов на Thunderstore (28 сентября 2026), декомпилированные
-ilspycmd; английские ресурсы и код этих версий; IL-дампы для строк, которые декомпилятор показывает
-интерполяцией. У модов со своим русским переводом его файлы использовались только для списка уже
-переведённых ключей и для единства названий предметов этих модов.
+Для извлечения использовались ILSpy/ilspycmd, dnfile и UnityPy. Это инструменты чтения исходных данных, не собственные реализации декомпилятора или формата Unity. Модифицированные DLL сторонних модов не распространяются вместе с Tolmach.
 
-Источники 0.5.0: Creature Level and Loot Control 4.6.4 с Thunderstore — декомпиляция `LocalizationWrapper`,
-кода привязки настроек, табличек и консоли, `CreatureSector`, `ServerSync.VersionCheck`, встроенный
-`English.yml` и IL-строки сборки. Немецкая, французская и китайская таблицы мода прочитаны только для
-того, чтобы понять устройство шаблонов с родом. Род существ определён по русским названиям из
-локализации игры 1.0.16. Адаптер и таблица проверены на DLL самого мода вне игры.
+Русские тексты подготовлены по оригиналам модов. Английский — основной исходный язык, но не единственный: например, сообщения BossAdd переводились с корейского. Перечень строк ObeliskRU помогал искать пробелы; его русский перевод не является источником для копирования.
 
-Исправления 0.5.0 после первой проверки в игре: строки, оставшиеся английскими, найдены в коде
-установленных модов, значениях их конфигов по умолчанию, asset bundle CraftyCartsRemake 3.2.4 и
-`UsefulRunestones.yml` профиля. CraftyCartsRemake заново декомпилирован в установленной версии 3.2.4.
-Названия локаций для меток карты взяты из переводов ExpertExplorer этого же пакета.
+Подробная история версий, файлов и терминологических решений сохранена в [прежней редакции источников](https://github.com/Muratovnik/Tolmach/blob/446be1f93ca2137f7d64ee0ab6686666418b9992/docs/SOURCES.md). Промежуточное решение в этой истории может быть исправлено более поздним этапом.
 
-Источники 0.5.1: английский перечень строк другого пакета перевода, сверенный со всеми каталогами;
-у ключей без английского текста проверялось только, пусто ли там значение. Amazing Nature 1.4.0,
-Arsenal Reborn 0.1.6, Furniture Reborn 1.2.9 и Culinary Horizons 1.0.42 заново скачаны с Thunderstore
-(хеши DLL совпали с манифестом этапа B), их asset bundle прочитаны UnityPy: так найдены префабы,
-которые показывают ключи без английского текста. Надпись у мифического алтаря написана по
-`DOCUMENTATION/data/special_altars.csv` Amazing Nature и названиям предметов мода, описание трофея
-лесного тролля взято из локализации игры 1.0.16. Литералы Huginn 1.0.5, Location Placement
-Accelerator 1.0.24 и BossAdd 1.2.0 сверены с IL их DLL.
+## Правила редакторской работы
 
-Источники 0.5.2: русская локализация игры 1.0.16 (`localization`, `localization_captions` из
-`resources.assets`) — написание без «ё», неразрывный пробел перед единицами и термины (Feasts —
-«Пиры», Crafting station — «Ремесленная стойка», Recipes — «Чертежи», Coin Pile — «Гора монет»,
-Copper Deposit — «Залежи меди»). Подсказка TakeAllCooked 1.1.0: значение по умолчанию из
-`Plugin.Awake`, чтение `HoverText` в IL `CookingStationHoverTextPatch.Postfix`; адаптер проверен на
-DLL мода с HarmonyX профиля вне игры.
+Сначала устанавливается место показа и смысл, затем подбирается русский текст. Одинаковое английское слово не обязывает использовать один перевод для разных предметов: вкладка VNEI содержит не только ремесленные чертежи, а лестница Shipyard имеет поведение корабельной лестницы. Термины проверяются по объекту, ресурсу или функции мода.
 
-Источники 0.5.3: для каждой правки термина 0.5.2 — код или ресурс мода, где виден сам предмет.
-VNEI 0.17.6 заново скачан и декомпилирован (`RecipeInfo`, `CraftingStationList.FilterRecipes`,
-`StationOrder`); asset bundle Shipyard (префаб `tar_ladder` с компонентом `Ladder`) и Amazing Nature
-1.4.0 (префаб `piece_silknest_bal` с компонентом `Beehive`; DLL взята из пакета на CDN
-Thunderstore частичными запросами `remotezip`, её хеш совпал с манифестом этапа B) прочитаны UnityPy;
-`Viking.cs` VikingNPC Continued 0.4.1 из архива этапа A; OdinsSteelworks 0.4.1 заново скачан и
-декомпилирован (`CWS_Slack_Tub` — пристройка `CWS_Forge`, плавильня для окисленной и готовой стали).
-Игровые термины — из той же локализации игры 1.0.16.
+Короткая подпись должна объяснять действие или измеряемую величину. Счётчик действий нельзя переименовывать в длительность, пока не проверено, что именно он считает. Неоднозначные варианты вроде `Vanguard` требуют сведений о роли существа; словарного соответствия недостаточно.
 
-Источники 0.5.4: SocialSystem 1.0.1, DLL из профиля Default, декомпилирована ILSpy 9.1:
-`SocialTexts.English` (сверена с IL `SocialTexts::.cctor`), `SocialLocalization`, справки команд
-`DirectMessageCommand`, `ReplyCommand`, `PartyChatCommand`, размеры окон `SocialUiFactory` и
-`*WindowView`. Немецкая таблица мода прочитана только для сверки набора ключей. Jotunn 2.30.2:
-`CustomLocalization.TryTranslate` и `AddTranslation`, `CommandManager` (когда читается справка
-команды). AdventureBackpacks 2.2.2, More_World_Locations_AIO 5.1.5 и WackysDatabase 2.5.36 — DLL из
-профиля, декомпилированы и сверены с прежними версиями: литералы каталогов в методах, словари,
-обучающие тексты.
+Плейсхолдеры, игровые токены, теги, переносы и непрозрачные идентификаторы сохраняются. Опечатка или нестандартный пробел в исходной строке сопоставления могут быть необходимы для нахождения текста; исправляется перевод, а не ключ поиска, если сам мод не изменился.
 
-Источники 0.6.0: 48 модов без каталога Tolmach. DLL декомпилированы ILSpy 9.1 (C# и
-IL); встроенные ресурсы прочитаны dnfile 0.18.0, бандлы Armory, SmelterUpgrades, Mining_Caves и
-MissingPieces — UnityPy по typetree; конфиги профиля — только для чтения. Английский — из самих модов:
-таблица `Armory.translations.English.yml`, таблица Jotunn SmelterUpgrades, литералы и места вывода в
-коде. Собственный русский Transmog, Quick Stack Store и MissingPieces прочитан, чтобы найти пробелы;
-Tolmach его не заменяет, кроме трех строк MissingPieces с ошибками. Блок комплекта Recipe Description Expansion —
-`Functions.CustomSetTooltip`, `FormatSetName` и патч `ItemData.GetTooltip` в декомпиляции 1.1.9. Термины — локализация
-игры 1.0.16 (`tools/glossary.py`).
+Написание в каталогах согласовано с русской локализацией игры: обычно «е», а «ё» сохраняется в соответствующих именах собственных; перед единицей измерения — неразрывный пробел. Это редакторская договорённость пакета, не основание автоматически заменять буквы в произвольных пользовательских данных.
+
+В сообщениях учитываются неизвестное имя и пол игрока. Для сообщений о чужом действии подходит конструкция «Игрок {0}…». Длину проверяют в реальном окне с обычным масштабом интерфейса; число символов само по себе не доказывает, что строка помещается.
+
+## Какие проверки можно повторить
+
+| Проверка | Что доступно | Что дополнительно нужно |
+|---|---|---|
+| Форма каталогов, плейсхолдеры, привязки и конфликты | `tools/validate.py`, JSON Schema и тестовые фикстуры в репозитории | Python и зависимости из [руководства по сборке](BUILD.md). |
+| Поведение кода и Harmony-патчей | Production-проект и NUnit-тесты | Windows/.NET Framework и библиотеки Valheim, BepInEx, Harmony, Json.NET из собственного профиля. |
+| Структура и содержимое готового ZIP | `Build.ps1`, `tools/Test-PackageCheck.ps1` | Собранный пакет и среда PowerShell; для полной сборки — предыдущая строка таблицы. |
+| Расширенная сверка `validate.py --evidence` | Сам валидатор опубликован | Соответствующий набор ресурсов и декомпиляций с ожидаемой структурой, PyYAML. Начального архива может быть недостаточно для поздних каталогов. |
+| Исторические `check_draft.py`, `glossary.py`, `check_po`, выгрузка/загрузка PO | В сохранённых протоколах есть результаты | Эти инструменты не входят в публичное дерево. Их имена в старом отчёте не являются рабочими командами текущего checkout. |
+| Игровые экраны и совместимость | [План приёмки](RUNTIME-CHECKLIST.md) | Реальная игра, нужные версии модов и окончательный проверяемый ZIP. |
+
+Сохранённый отчёт частной проверки не делает её воспроизводимой без инструмента и входных материалов. Он также не заменяет новый запуск проверок после изменения кода.
+
+При добавлении источника укажите пакет и версию, имя и хеш DLL или ресурса, способ извлечения и место использования текста. При обновлении версии сравнивайте реальные исходные строки и точки показа. Не подменяйте отсутствующую DLL динамической сборкой и не называйте такую проверку игровой.
 
 ## Первичная документация
 
-- Jötunn: Localization — https://valheim-modding.github.io/Jotunn/tutorials/localization.html
-  Собственные CustomLocalization по GUID, ключи категорий, событие OnLocalizationAdded.
-- BepInEx: Creating a new plugin project — https://docs.bepinex.dev/v5.4.16/articles/dev_guide/plugin_tutorial/2_plugin_start.html
-  Метаданные, мягкие зависимости, ссылки на библиотеки. Учтено предупреждение
-  не подмешивать системные DLL игры к стандартной библиотеке компилятора.
-- Harmony: Transpiler — https://harmony.pardeike.net/v2/articles/patching-transpiler.html
-  Ограниченные изменения IL и совместимость с другими транспайлерами.
+- [Jötunn: локализация](https://valheim-modding.github.io/Jotunn/tutorials/localization.html) — словари, области локализации и события.
+- [BepInEx 5: создание плагина](https://docs.bepinex.dev/v5.4.16/articles/dev_guide/plugin_tutorial/2_plugin_start.html) — метаданные, зависимости и ссылки на библиотеки.
+- [Harmony: транспайлеры](https://harmony.pardeike.net/v2/articles/patching-transpiler.html), [AccessTools](https://harmony.pardeike.net/v2/api/HarmonyLib.AccessTools.html) и [PatchProcessor](https://harmony.pardeike.net/v2/api/HarmonyLib.PatchProcessor.html) — работа с методами и инструкциями.
+- [Thunderstore: формат пакета](https://wiki.thunderstore.io/mods/creating-a-package) и [CLI 0.2.4](https://github.com/thunderstore-io/thunderstore-cli/tree/0.2.4) — README, манифест и упаковка.
+- [Gale 1.22.3: импорт](https://github.com/Kesomannen/gale/blob/1.22.3/src-tauri/src/profile/import/local.rs) и [раскладка подпапок](https://github.com/Kesomannen/gale/blob/1.22.3/src-tauri/src/profile/install/installers/subdir.rs) — основание структуры `plugins/catalog` в пакете.
 
-Документация использована для проектирования, но не заменяет проверку реального
-исполнения на версиях библиотеки и игры из пользовательского профиля.
-
-## Исправления 0.1.1 и метод ревью
-
-Assay использован на зафиксированной ревизии, без выполнения evals и без изменения самого репозитория:
-
-- https://github.com/Muratovnik/assay/blob/171a951c71eced1a9a99dd769bc78ae85db421eb/skills/code-change/SKILL.md
-- https://github.com/Muratovnik/assay/blob/171a951c71eced1a9a99dd769bc78ae85db421eb/skills/test-writing/SKILL.md
-- https://github.com/Muratovnik/assay/blob/171a951c71eced1a9a99dd769bc78ae85db421eb/skills/independent-audit/SKILL.md
-- Harmony PatchProcessor / GetOriginalInstructions: https://harmony.pardeike.net/v2/api/HarmonyLib.PatchProcessor.html
-- Jötunn: https://valheim-modding.github.io/Jotunn/tutorials/localization.html
-- BepInEx 5: https://docs.bepinex.dev/articles/dev_guide/plugin_tutorial/1_setup.html
-
-Точные привязки модов основаны на пользовательском handoff, не на текущих релизах
-в интернете. Снимок метаданных: tests/fixtures/snapshot-bindings.json. Идентичность
-проверяемого источника позволяет повторить сверку, но не подтверждает загрузку DLL.
-
-
-## Переиспользование 0.1.2
-
-Источники просмотрены 28 сентября 2026. Не подменяют проверку конкретного бинарника.
-
-- Assay reuse: https://github.com/Muratovnik/assay/blob/171a951c71eced1a9a99dd769bc78ae85db421eb/skills/code-change/references/reuse-and-migration.md
-- Assay reuse review: https://github.com/Muratovnik/assay/blob/171a951c71eced1a9a99dd769bc78ae85db421eb/skills/independent-audit/references/solution-choices-and-reuse.md
-- Harmony AccessTools: https://harmony.pardeike.net/v2/api/HarmonyLib.AccessTools.html
-- Harmony label extensions: https://harmony.pardeike.net/v2/api/HarmonyLib.CodeInstructionExtensions.html
-- MSBuild GetFileHash: https://learn.microsoft.com/en-us/visualstudio/msbuild/getfilehash-task
-- MSBuild assembly attributes: https://learn.microsoft.com/en-us/visualstudio/msbuild/writecodefragment-task
-- NUnit: https://docs.nunit.org/articles/nunit/getting-started/installation.html
-- Fixed packages: https://www.nuget.org/packages/NUnit/3.14.0 ; https://www.nuget.org/packages/NUnit3TestAdapter/4.6.0 ; https://www.nuget.org/packages/Microsoft.NET.Test.Sdk/17.11.1 ; https://www.nuget.org/packages/Microsoft.NETFramework.ReferenceAssemblies/1.0.3
-- XUnity.AutoTranslator manual translations/API/Mono hooks: https://github.com/bbepis/XUnity.AutoTranslator
-
-Фактические сигнатуры Jötunn (`in string`) дополнительно проверены по приложенным
-`Jotunn.Entities/CustomLocalization.cs` и `Jotunn.Managers/LocalizationManager.cs`
-в `source-evidence/localization/a/ValheimModding-Jotunn/`.
-
-## Пакет и установка 0.1.3
-
-Источники просмотрены 28 сентября 2026.
-
-- Thunderstore, формат пакета (иконка 256×256, README.md, manifest.json, ограничения полей):
-  https://wiki.thunderstore.io/mods/creating-a-package
-- Thunderstore CLI 0.2.4 (сборка по `thunderstore.toml`, `--package-version`, приоритет
-  параметров CLI): https://github.com/thunderstore-io/thunderstore-cli/tree/0.2.4 ,
-  https://www.nuget.org/packages/tcli/0.2.4
-- Категории сообщества Valheim: https://thunderstore.io/api/experimental/community/valheim/category/
-- Gale 1.22.3, импорт локального мода и установщик BepInEx-пакетов (раскладка `plugins/`,
-  плоское размещение прочих файлов, имя папки по `manifest.name`):
-  https://github.com/Kesomannen/gale/blob/1.22.3/src-tauri/src/profile/import/local.rs ,
-  https://github.com/Kesomannen/gale/blob/1.22.3/src-tauri/src/profile/install/installers/subdir.rs ,
-  https://github.com/Kesomannen/gale/blob/1.22.3/src-tauri/src/game/mod_loader.rs
-- Названия пунктов меню Gale: https://github.com/Kesomannen/gale/blob/1.22.3/messages/ru-RU.json
-
-Сигнатуры игры (`Localization` в `assembly_guiutils.dll`, `Terminal.AddString`,
-`Chat.OnNewChatMessage`, `Minimap.CreateMapNamePin`, `PlatformPrefs`) проверены
-декомпиляцией установленной Valheim 1.0.16. Jötunn 2.30.2, LocalizationCache 0.3.0
-и встроенные LocalizeKey модов — по их DLL из профиля. Декомпиляции
-в поставку не включены.
+Документация библиотек помогает выбрать механизм, но не подтверждает его исполнение в конкретной сборке Unity/Mono. Проверка интерфейса Thunderstore также выполняется в его предпросмотре: Markdown GitHub и Thunderstore не обязан выглядеть одинаково.
