@@ -1,0 +1,62 @@
+{
+  "id": "QuickStackStore",
+  "package": "Goldenrevolver-Quick_Stack_Store_Sort_Trash_Restock",
+  "version": "1.4.15",
+  "pluginVersion": "1.4.15",
+  "assembly": "QuickStackStore",
+  "guids": [
+    "goldenrevolver.quick_stack_store"
+  ],
+  "namespaces": [
+    "ServerSync"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/Goldenrevolver-Quick_Stack_Store_Sort_Trash_Restock-1.4.15/QuickStackStore/QuickStackStore/LocalizationLoader.cs",
+    "source-evidence/profile-updates/Goldenrevolver-Quick_Stack_Store_Sort_Trash_Restock-1.4.15/QuickStackStore/QuickStackStore/LocalizationConfig.cs",
+    "source-evidence/profile-updates/Goldenrevolver-Quick_Stack_Store_Sort_Trash_Restock-1.4.15/QuickStackStore/QuickStackStore/QSSConfig.cs",
+    "source-evidence/profile-updates/Goldenrevolver-Quick_Stack_Store_Sort_Trash_Restock-1.4.15/QuickStackStore/ServerSync/VersionCheck.cs",
+    "source-evidence/profile-updates/Goldenrevolver-Quick_Stack_Store_Sort_Trash_Restock-1.4.15/resources/QuickStackStore.Translations.QuickStackStore.English.json",
+    "source-evidence/profile-updates/Goldenrevolver-Quick_Stack_Store_Sort_Trash_Restock-1.4.15/resources/QuickStackStore.Translations.QuickStackStore.Russian.json",
+    "source-evidence/profile-updates/Goldenrevolver-Quick_Stack_Store_Sort_Trash_Restock-1.4.15/QuickStackStore.ldstr.il"
+  ],
+  "notes": [
+    "The mod loads QuickStackStore.Russian.json (package file, identical to the embedded resource) via Localization.AddWord with the quickstackstore_ prefix; all 30 English keys have Russian, so no words are filled.",
+    "Only gap: the bundled ServerSync copy (ConfigSync with MinimumRequiredVersion 1.4.15) shows English version-mismatch messages; literals match tolmach-AzuAutoStore.json."
+  ]
+}

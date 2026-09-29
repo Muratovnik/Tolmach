@@ -1,0 +1,86 @@
+{
+  "id": "ServerDevcommands",
+  "package": "JereKuusela-Server_devcommands",
+  "version": "1.115.0",
+  "pluginVersion": "1.115",
+  "assembly": "ServerDevcommands",
+  "guids": [
+    "server_devcommands"
+  ],
+  "namespaces": [
+    "ServerDevcommands",
+    "Service"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "literals": [
+    {
+      "type": "ServerDevcommands.Helper",
+      "method": "AddError",
+      "values": {
+        "Error: ": "Ошибка: "
+      }
+    },
+    {
+      "type": "ServerDevcommands.UndoManager",
+      "method": "Undo",
+      "values": {
+        "Nothing to undo.": "Нечего отменять."
+      }
+    },
+    {
+      "type": "ServerDevcommands.UndoManager",
+      "method": "Redo",
+      "values": {
+        "Nothing to redo.": "Нечего повторять."
+      }
+    },
+    {
+      "type": "ServerDevcommands.Minimap_ShowPos",
+      "method": "GetText",
+      "values": {
+        "zone: ": "зона: ",
+        "\ndistance: {0:F0}": "\nрасстояние: {0:F0}"
+      }
+    },
+    {
+      "type": "Service.Selector",
+      "method": "GetHovered",
+      "values": {
+        "No valid prefabs found.": "Подходящие объекты не найдены."
+      }
+    },
+    {
+      "type": "Service.Selector",
+      "method": "GetNearby",
+      "values": {
+        "No valid prefabs found.": "Подходящие объекты не найдены.",
+        "Nothing is nearby.": "Рядом ничего нет."
+      }
+    },
+    {
+      "type": "Service.Selector",
+      "method": "GetConnected",
+      "values": {
+        "Connected doesn't work for this object.": "Для этого объекта нельзя выбрать всю постройку."
+      }
+    }
+  ],
+  "sourceFiles": [
+    "source-evidence/profile-updates/JereKuusela-Server_devcommands-1.115.0/ServerDevcommands/ServerDevcommands/ServerDevcommands.cs",
+    "source-evidence/profile-updates/JereKuusela-Server_devcommands-1.115.0/ServerDevcommands/ServerDevcommands/Helper.cs",
+    "source-evidence/profile-updates/JereKuusela-Server_devcommands-1.115.0/ServerDevcommands/ServerDevcommands/UndoManager.cs",
+    "source-evidence/profile-updates/JereKuusela-Server_devcommands-1.115.0/ServerDevcommands/ServerDevcommands/Minimap_ShowPos.cs",
+    "source-evidence/profile-updates/JereKuusela-Server_devcommands-1.115.0/ServerDevcommands/ServerDevcommands/Admin.cs",
+    "source-evidence/profile-updates/JereKuusela-Server_devcommands-1.115.0/ServerDevcommands/Service/Selector.cs",
+    "source-evidence/profile-updates/JereKuusela-Server_devcommands-1.115.0/ServerDevcommands.ldstr.il"
+  ],
+  "notes": [
+    "English is hard-coded in ServerDevcommands.dll. Helper.AddMessage/AddError show command results as center-screen messages; the literals cover the error prefix, undo/redo messages of the Infinity Hammer undo keys, selector errors of hammer selection and the zone/distance lines added to the large map.",
+    "Console help and console-only output of the admin commands are left in English in this pass."
+  ]
+}

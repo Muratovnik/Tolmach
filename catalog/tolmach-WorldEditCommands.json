@@ -1,0 +1,80 @@
+{
+  "id": "WorldEditCommands",
+  "package": "JereKuusela-World_Edit_Commands",
+  "version": "1.78.0",
+  "pluginVersion": "1.78",
+  "assembly": "WorldEditCommands",
+  "guids": [
+    "world_edit_commands"
+  ],
+  "namespaces": [
+    "WorldEditCommands"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "literals": [
+    {
+      "type": "WorldEditCommands.UndoAction",
+      "method": "CreateMessage",
+      "values": {
+        "Changed ": "Изменено: ",
+        " + terrain": " + ландшафт",
+        "Changed terrain": "Изменен ландшафт",
+        "Changed": "Изменено"
+      }
+    },
+    {
+      "type": "WorldEditCommands.UndoHelper",
+      "method": "Print",
+      "values": {
+        " objects {0}x": " несколько объектов ({0})"
+      }
+    },
+    {
+      "type": "WorldEditCommands.ObjectCommand",
+      "method": "Execute",
+      "values": {
+        "Entity ¤ destroyed.": "Объект ¤ уничтожен."
+      }
+    },
+    {
+      "type": "WorldEditCommands.ObjectCommand",
+      "method": "MakeTame",
+      "values": {
+        "¤ made tame.": "Приручено: ¤.",
+        "Skipped: ¤ is not a creature.": "Пропущено: ¤ — не существо."
+      }
+    },
+    {
+      "type": "WorldEditCommands.ObjectCommand",
+      "method": "MakeWild",
+      "values": {
+        "¤ made wild.": "Снова дикое: ¤.",
+        "Skipped: ¤ is not a creature.": "Пропущено: ¤ — не существо."
+      }
+    },
+    {
+      "type": "WorldEditCommands.TerrainCommand",
+      "method": "GetCompilers",
+      "values": {
+        "Unable to select any terrain": "Не удалось выбрать ландшафт"
+      }
+    }
+  ],
+  "sourceFiles": [
+    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.78.0/WorldEditCommands/WorldEditCommands/WorldEditCommands.cs",
+    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.78.0/WorldEditCommands/WorldEditCommands/UndoAction.cs",
+    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.78.0/WorldEditCommands/WorldEditCommands/UndoHelper.cs",
+    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.78.0/WorldEditCommands/WorldEditCommands/ObjectCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.78.0/WorldEditCommands/WorldEditCommands/TerrainCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.78.0/WorldEditCommands.ldstr.il"
+  ],
+  "notes": [
+    "English is hard-coded in WorldEditCommands.dll. Infinity Hammer undo/redo keys and its default hoe tools (terrain, object remove/tame) run these commands, and single-object results reach the screen through Server Devcommands Helper.AddMessage; the literals cover those messages.",
+    "Console help and console-only output of the world edit commands are left in English in this pass."
+  ]
+}

@@ -108,6 +108,9 @@ namespace Tolmach
                     string translated;
                     if (semantic == "text") return exact.TryGetValue(captured, out translated) ? translated : captured;
                     if (semantic == "mapLabel") return MapLabel(captured);
+                    // A game object printed by its identifier: shown under the game's own name for it.
+                    if (semantic == "item") return GameItems.ItemName(captured) ?? captured;
+                    if (semantic == "itemSet") return GameItems.SetName(captured) ?? captured;
                     Dictionary<string, string> vocabulary;
                     if (semantic.StartsWith("term:", StringComparison.Ordinal))
                     {

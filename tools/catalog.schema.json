@@ -16,6 +16,8 @@
     "namespaces": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/name"}, "description": "<global> marks types outside any namespace."},
     "words": {"$ref": "#/$defs/keyTable"},
     "englishWords": {"$ref": "#/$defs/keyTable", "description": "englishWords[k] == k marks a key the mod uses without English text."},
+    "replaceNative": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1},
+                      "description": "Keys of words whose Russian replaces the mod's own Russian (an owner's decision); every other key is fill-only."},
     "texts": {"$ref": "#/$defs/table"},
     "mapLabels": {"$ref": "#/$defs/table"},
     "rawTexts": {"$ref": "#/$defs/table"},
@@ -85,7 +87,7 @@
         "arguments": {
           "type": "object",
           "propertyNames": {"pattern": "^[0-9]+$"},
-          "additionalProperties": {"type": "string", "pattern": "^(?:text|message|mapLabel|term:[A-Za-z0-9_]+)$"}
+          "additionalProperties": {"type": "string", "pattern": "^(?:text|message|mapLabel|item|itemSet|term:[A-Za-z0-9_]+)$"}
         }
       }
     },

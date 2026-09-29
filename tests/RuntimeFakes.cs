@@ -13,6 +13,8 @@ namespace UnityEngine
         public static string LastText;
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static void Label(string text) { LastText = text; }
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static int Window(int id, string text) { LastText = text; return id; }
     }
 }
 // These types are fixtures, not game or mod DLL replacements. Never distribute them in BepInEx/plugins.
@@ -150,6 +152,19 @@ public sealed class Chat : Terminal
     private void AddInworldText(object go, long senderID, object position, int type, object user, string text) { WorldTexts.Add(text); }
 }
 public class StatusEffect { public string m_name = ""; }
+public sealed class MessageHud { public enum MessageType { TopLeft = 1, Center = 2 } }
+// The game's Character.Message is virtual and does nothing; Player overrides it to show the text.
+public class Character
+{
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public virtual void Message(MessageHud.MessageType type, string msg, int amount = 0) { }
+}
+public sealed class Player : Character
+{
+    internal string LastMessage;
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    public override void Message(MessageHud.MessageType type, string msg, int amount = 0) { LastMessage = msg; }
+}
 
 namespace FixturePlugin
 {
@@ -366,5 +381,55 @@ namespace CreatureLevelControl
         public string Description;
         public string DispName;
         public int? Order;
+    }
+}
+// Methods this Harmony cannot rebuild, with display calls: their text is translated where it arrives.
+namespace FixtureCallSites
+{
+    // Same shape as TradersExtended's ConfigEditor.OnGUI: a window title drawn in a body with catch ... when.
+    public static class FilteredWindow
+    {
+        public static bool Fail;
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void Draw()
+        {
+            try { UnityEngine.GUI.Window(1, "Price"); if (Fail) throw new InvalidOperationException(); }
+            catch (InvalidOperationException) when (Fail) { Fail = false; }
+        }
+    }
+    // Same shape as MWL's Port.RunWhenReady: a coroutine with try/finally messages the player.
+    public static class FaultedMessage
+    {
+        public static bool Done;
+        public static IEnumerable<int> Run(Character user)
+        {
+            try { user.Message(MessageHud.MessageType.Center, "Price"); yield return 0; }
+            finally { Done = true; }
+        }
+    }
+}
+// Another mod drawing the same text.
+namespace FixtureOther
+{
+    public static class Window
+    {
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void Draw() { UnityEngine.GUI.Window(2, "Price"); }
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void Message(Character user) { user.Message(MessageHud.MessageType.Center, "Price"); }
+    }
+}
+// Same shape as MyLittleUI's StationRepair.RepairOnHold: the text goes through Localize, which is left as is.
+namespace FixtureLeftAsIs
+{
+    public static class Filtered
+    {
+        public static bool Fail;
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static string Draw()
+        {
+            try { return Localization.instance.Localize("Price"); }
+            catch (InvalidOperationException) when (Fail) { return ""; }
+        }
     }
 }

@@ -1,7 +1,7 @@
 {
   "id": "WackysDatabase",
   "package": "WackyMole-WackysDatabase",
-  "version": "2.5.35",
+  "version": "2.5.36",
   "assembly": "WackysDatabase",
   "guids": [
     "WackyMole.WackysDatabase"
@@ -35,7 +35,7 @@
     }
   ],
   "sourceFiles": [
-    "source-evidence/localization/d/WackyMole-WackysDatabase-proj/wackydatabase/WMRecipeCust.cs"
+    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.36/wackydatabase/WMRecipeCust.cs"
   ],
   "notes": [
     "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
@@ -43,5 +43,5 @@
   "namespaces": [
     "wackydatabase"
   ],
-  "pluginVersion": "2.5.35"
+  "pluginVersion": "2.5.36"
 }

@@ -146,7 +146,7 @@ namespace Tolmach.Tests
             Assert.That(CatalogLoader.SameVersion(new Version(expected), new Version(actual)), Is.EqualTo(same));
         }
         [Test]
-        public void IdentityAndVersionFailuresCannotSilentlyEnableAdapters()
+        public void IdentityFailuresRejectTheModuleAndAnotherVersionIsReported()
         {
             Identity id = Fixture<List<Identity>>("snapshot-bindings.json").Single(x => x.id == "StructureTweaks");
             Func<string, PluginIdentity> registry = guid => guid == id.guid ? Installed(id) : null;
@@ -154,15 +154,18 @@ namespace Tolmach.Tests
             Module absent = CatalogLoader.Read(Catalog(id.id));
             Assert.That(CatalogLoader.TryBind(absent, guid => null, false, out reason), Is.False);
             Module wrongGuid = CatalogLoader.Read(Catalog(id.id)); wrongGuid.guids[0] = "missing.guid";
-            Assert.That(CatalogLoader.TryBind(wrongGuid, registry, true, out reason), Is.False);
+            Assert.That(CatalogLoader.TryBind(wrongGuid, registry, false, out reason), Is.False);
             Module wrongAssembly = CatalogLoader.Read(Catalog(id.id)); wrongAssembly.assembly = "Unrelated.Assembly";
-            Assert.That(CatalogLoader.TryBind(wrongAssembly, registry, true, out reason), Is.False);
+            Assert.That(CatalogLoader.TryBind(wrongAssembly, registry, false, out reason), Is.False);
             Module changed = CatalogLoader.Read(Catalog(id.id)); changed.pluginVersion = "1.99.0";
             Assert.That(CatalogLoader.TryBind(changed, registry, false, out reason), Is.True);
-            Assert.That(changed.UiAllowed, Is.False);
+            Assert.That(changed.UiAllowed, Is.True, "Another version keeps its adapters by default.");
+            Assert.That(changed.ExactVersion, Is.False);
+            Assert.That(changed.Warnings, Has.Some.StartsWith("Expected plugin 1.99.0"));
+            Assert.That(reason, Does.StartWith("loaded; different plugin version"));
             Assert.That(CatalogLoader.TryBind(changed, registry, true, out reason), Is.True);
-            Assert.That(changed.UiAllowed, Is.True);
-            Assert.That(CatalogLoader.TryBind(changed, guid => null, true, out reason), Is.False);
+            Assert.That(changed.UiAllowed, Is.False, "OnlyAuditedVersions keeps native dictionaries only.");
+            Assert.That(CatalogLoader.TryBind(changed, guid => null, false, out reason), Is.False);
             Assert.That(changed.RuntimeAssembly, Is.Null, "Failed rebind must not retain the old target.");
             Assert.That(changed.Table, Is.Null);
             Assert.That(changed.UiAllowed, Is.False);
@@ -174,6 +177,10 @@ namespace Tolmach.Tests
             Module m = CatalogLoader.Read(Catalog("StructureTweaks"));
             m.patterns.Add(new PatternSpec { source = "Hi {0}", target = "Hi {0}", arguments = new Dictionary<string, string> { { "0", "arbitrary" } } });
             Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(m));
+            Module replacing = CatalogLoader.Read(Catalog("MissingPieces"));
+            Assert.That(replacing.replaceNative, Is.Not.Empty);
+            replacing.replaceNative.Add("not_a_word");
+            Assert.Throws<InvalidDataException>(() => CatalogLoader.Validate(replacing), "A replaceNative key must be one of the words.");
             string scratch = Path.GetTempFileName();
             try
             {

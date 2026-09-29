@@ -1,0 +1,206 @@
+{
+  "id": "MyLittleUI",
+  "package": "shudnal-MyLittleUI",
+  "version": "1.2.26",
+  "pluginVersion": "1.2.26",
+  "assembly": "MyLittleUI",
+  "guids": [
+    "shudnal.MyLittleUI"
+  ],
+  "namespaces": [
+    "MyLittleUI"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Midnight": "Полночь",
+    "Early Morning": "Раннее утро",
+    "Before Dawn": "Перед рассветом",
+    "Dawn": "Рассвет",
+    "Morning": "Утро",
+    "Late Morning": "Позднее утро",
+    "Midday": "Полдень",
+    "Early Afternoon": "После полудня",
+    "Afternoon": "День",
+    "Evening": "Вечер",
+    "Night": "Ночь",
+    "Late Night": "Поздняя ночь",
+    "PING": "МЕТКА"
+  },
+  "patterns": [
+    {
+      "source": "Kills: {0}",
+      "target": "Убийства: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Deaths: {0}",
+      "target": "Смерти: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Crafts: {0}",
+      "target": "Создано: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Builds: {0}",
+      "target": "Построено: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Player Hits: {0}",
+      "target": "Удары по игрокам: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Player Kills: {0}",
+      "target": "Убито игроков: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Boss Kills: {0}",
+      "target": "Убито боссов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Use Guardian Power: {0}",
+      "target": "Применено сил Павших: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Jumps: {0}",
+      "target": "Прыжки: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Cheats: {0}",
+      "target": "Читы: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Sleep: {0}",
+      "target": "Сон: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Food Eaten: {0}",
+      "target": "Съедено еды: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree: {0}",
+      "target": "Срублено деревьев: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Logs: {0}",
+      "target": "Разрублено бревен: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Mines: {0}",
+      "target": "Разбито залежей: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Bees Harvested: {0}",
+      "target": "Собрано меда: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Sap Harvested: {0}",
+      "target": "Собрано живицы: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Creature Tamed: {0}",
+      "target": "Приручено существ: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Skeleton Summons: {0}",
+      "target": "Призвано скелетов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Portals Used: {0}",
+      "target": "Перемещений через порталы: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Arrows Shot: {0}",
+      "target": "Выпущено стрел: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tombstones Opened Own: {0}",
+      "target": "Открыто своих могил: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tombstones Opened Other: {0}",
+      "target": "Открыто чужих могил: {0}",
+      "numeric": [
+        0
+      ]
+    }
+  ],
+  "returns": [],
+  "literals": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/shudnal-MyLittleUI-1.2.26/MyLittleUI/MyLittleUI/MyLittleUI.cs",
+    "source-evidence/profile-updates/shudnal-MyLittleUI-1.2.26/MyLittleUI/MyLittleUI/InfoBlocks.cs",
+    "source-evidence/profile-updates/shudnal-MyLittleUI-1.2.26/MyLittleUI.ldstr.il"
+  ],
+  "notes": [
+    "Almost all player text is vanilla $tokens passed to Localization.Localize; only the mod's own English is here.",
+    "texts: default fuzzy clock words (config Info - Clock/Time fuzzy words, shown via TMP_Text.SetText when Time type = Fuzzy) and the default in-world ping text passed to Localize.",
+    "patterns: main-menu character stats lines \"<name>: <number>\" set on FejdStartup.m_csSourceInfo.text; names are the literals Kills/Crafts and PlayerStatType enum names split by capitals (default and advanced sets)."
+  ]
+}

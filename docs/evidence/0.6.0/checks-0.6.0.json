@@ -1,0 +1,52 @@
+{
+ "date": "2026-09-29",
+ "package": {
+  "file": "Muratovnik-Tolmach-0.6.0.zip",
+  "sha256": "8ae206789ac6554e351708cdf87f1c6a37354292d055cfb8e4cea62c287cc2bc",
+  "entries": 95,
+  "manifest": {
+   "name": "Tolmach",
+   "version_number": "0.6.0",
+   "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2351",
+    "ValheimModding-JsonDotNET-13.0.4"
+   ],
+   "website_url": "https://github.com/Muratovnik/Tolmach"
+  }
+ },
+ "build": {
+  "nunit_passed": 457,
+  "sdk": "9.0.318",
+  "plugin_sha256": "9396605a52585ade7f22caf16769fe298f42502d7f11d2288adfffc7e2c4e55e"
+ },
+ "catalogs": {
+  "modules": 88,
+  "new_modules": 18,
+  "stage_c": "48 mods without a catalog, outside the other pack's list: 18 catalogs (MissingPieces with 3 corrections of its own Russian, Recipe Description Expansion through the item/itemSet pattern arguments), 25 without text of their own, 4 not translated (libraries, patcher, F1 window), ConditionalConfigSync not translated by the owner's decision"
+ },
+ "validator": {
+  "assertions": 15055,
+  "errors": 0,
+  "report": "validation.json"
+ },
+ "draft_oracle": "tools/check_draft.py on all 18 drafts: schema, identity against the installed DLL, every literal in the IL of its method, check_po",
+ "translation_checks": {
+  "po_roundtrip": "88 catalogs, 4785 units, 0 changes",
+  "check_po": "0 findings on the 9 reviewed modules",
+  "meaning_review": "R-C-1 and R-C-2 (tolmach-worker) on 437 strings: 4 changed",
+  "private_tool_tests": "124 passed"
+ },
+ "package_gate_controls": "8 of 8",
+ "pytest_data_controls": "11 passed",
+ "literals_in_il": {
+  "values_checked": 588,
+  "problems": 0,
+  "not_rechecked": "19 stage B DLLs are no longer on disk; their literals have not changed since 0.4.0"
+ },
+ "coverage_audit": {
+  "records": 5284,
+  "losses": 0
+ },
+ "game_test": "not run",
+ "call_sites": "Methods Harmony cannot rebuild (4 in a 0.6.0 launch): their display calls are translated in GUI.Window, Character.Message/Player.Message and MessageHud.ShowMessage for calls from that method; game sink methods checked by IL to have no filter or fault handlers"
+}

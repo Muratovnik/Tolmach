@@ -53,12 +53,15 @@ namespace Tolmach
             if (m.namespaces.Count == 0 && m.NeedsIlAdapters) throw new InvalidDataException("Scoped adapters need plugin namespaces.");
             if (!new HashSet<string>(m.words.Keys).SetEquals(m.englishWords.Keys))
                 throw new InvalidDataException("English/Russian localization keys differ.");
+            if (m.replaceNative.Any(delegate(string key) { return key == null || !m.words.ContainsKey(key); }) ||
+                m.replaceNative.Distinct().Count() != m.replaceNative.Count)
+                throw new InvalidDataException("A replaceNative key is not one of the module's words.");
             if (m.terms.Any(delegate(KeyValuePair<string, Dictionary<string, string>> t) { return !Regex.IsMatch(t.Key, @"\A[A-Za-z0-9_]+\z") || t.Value == null || t.Value.Count == 0; }))
                 throw new InvalidDataException("Invalid term vocabulary.");
             foreach (Dictionary<string, string> table in new[] { m.words, m.englishWords, m.texts, m.mapLabels, m.rawTexts }.Concat(m.terms.Values))
                 if (table.Any(delegate(KeyValuePair<string, string> p) { return String.IsNullOrEmpty(p.Key) || String.IsNullOrEmpty(p.Value); }))
                     throw new InvalidDataException("Empty translation key/value.");
-            foreach (PatternSpec p in m.patterns) ValidatePattern(m, p, "text", "message", "mapLabel");
+            foreach (PatternSpec p in m.patterns) ValidatePattern(m, p, "text", "message", "mapLabel", "item", "itemSet");
             foreach (PatternSpec p in m.rawPatterns)
             {
                 ValidatePattern(m, p, "text");
@@ -135,7 +138,7 @@ namespace Tolmach
                 Math.Max(0, expected.Build) == Math.Max(0, actual.Build) &&
                 Math.Max(0, expected.Revision) == Math.Max(0, actual.Revision);
         }
-        internal static bool TryBind(Module module, Func<string, PluginIdentity> lookup, bool allowOtherVersions, out string reason)
+        internal static bool TryBind(Module module, Func<string, PluginIdentity> lookup, bool onlyAuditedVersions, out string reason)
         {
             // A failed rebind must not leave the previous plugin's assembly/permissions live.
             module.RuntimeAssembly = null;
@@ -154,11 +157,15 @@ namespace Tolmach
             { reason = "GUID/assembly identity mismatch; skipped"; return false; }
             module.RuntimeAssembly = installed.Assembly;
             module.ExactVersion = SameVersion(new Version(module.pluginVersion), installed.Version);
-            module.UiAllowed = module.ExactVersion || allowOtherVersions;
+            // Every adapter matches exact catalog strings in named methods, so another version gets the
+            // strings it still has and a warning for the rest; a minor update must not drop the module.
+            module.UiAllowed = module.ExactVersion || !onlyAuditedVersions;
             if (!module.ExactVersion)
                 module.Warn("Expected plugin " + module.pluginVersion + " (package " + module.version + "), loaded " + installed.Version + ".");
             module.Table = new TextTable(module);
-            reason = module.UiAllowed ? "loaded" : "native dictionaries only; different plugin version";
+            reason = module.ExactVersion ? "loaded" : module.UiAllowed
+                ? "loaded; different plugin version, adapters apply where the catalog strings are found"
+                : "native dictionaries only; different plugin version";
             return true;
         }
     }

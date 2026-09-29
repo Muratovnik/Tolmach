@@ -1,0 +1,50 @@
+{
+  "id": "ValheimInfiniteFire",
+  "package": "MidnightMods-ValheimInfiniteFire",
+  "version": "1.4.0",
+  "pluginVersion": "1.4.0",
+  "assembly": "ValheimInfiniteFire",
+  "guids": [
+    "MidnightsFX.InfiniteFire"
+  ],
+  "namespaces": [
+    "ValheimInfiniteFire"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/MidnightMods-ValheimInfiniteFire-1.4.0/ValheimInfiniteFire/ValheimInfiniteFire/Patches.cs",
+    "source-evidence/profile-updates/MidnightMods-ValheimInfiniteFire-1.4.0/ValheimInfiniteFire/ValheimInfiniteFire/FireSchedule.cs",
+    "source-evidence/profile-updates/MidnightMods-ValheimInfiniteFire-1.4.0/ValheimInfiniteFire.ldstr.il"
+  ],
+  "notes": [
+    "Hover postfixes on CookingStation.OnHoverFuelSwitch and Smelter.OnHoverAddFuel replace the result with a literal; Fireplace.GetHoverText gets a literal fragment followed by a HH:mm time from FireSchedule.FormatHour."
+  ],
+  "literals": [
+    {
+      "type": "ValheimInfiniteFire.Patches+OnHoverDisplayNoFuelRequirementCookingStation",
+      "method": "Postfix",
+      "values": {
+        "No Fuel Needed.": "Топливо не нужно."
+      }
+    },
+    {
+      "type": "ValheimInfiniteFire.Patches+OnHoverDisplayNoFuelRequirementSmelter",
+      "method": "Postfix",
+      "values": {
+        "No Fuel Needed.": "Топливо не нужно."
+      }
+    },
+    {
+      "type": "ValheimInfiniteFire.Patches+FireplaceScheduleHover",
+      "method": "Postfix",
+      "values": {
+        "\nScheduled off until ": "\nПо расписанию не горит до "
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "NetworkPerformanceSystem",
+  "package": "MidnightMods-NetworkPerformanceSystem",
+  "version": "1.11.0",
+  "pluginVersion": "1.11.0",
+  "assembly": "NetworkPerformanceSystem",
+  "guids": [
+    "MidnightsFX.NetworkPerformanceSystem"
+  ],
+  "namespaces": [
+    "NetworkPerformanceSystem.Runtime"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "NetworkPerformanceSystem.Runtime.GhostWatchdog",
+      "method": "Warn",
+      "values": {
+        "Lost contact with the server - reconnecting ({0:F0}s)": "Потеряна связь с сервером — переподключение ({0:F0} с)"
+      }
+    },
+    {
+      "type": "NetworkPerformanceSystem.Runtime.GhostWatchdog",
+      "method": "Recover",
+      "values": {
+        "Contact with the server restored": "Связь с сервером восстановлена"
+      }
+    },
+    {
+      "type": "NetworkPerformanceSystem.Runtime.GhostWatchdog",
+      "method": "Trip",
+      "values": {
+        "Lost connection to the server.\n\nYou were returned to the menu rather than left playing a world the server is no longer part of. Progress made after contact was lost did not reach it.": "Соединение с сервером потеряно.\n\nВас вернуло в меню, чтобы вы не играли в мире, от которого сервер уже отключился. Сделанное после потери связи на сервер не попало.",
+        "Lost connection to the server - returning to the menu": "Соединение с сервером потеряно — возврат в меню"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.0/NetworkPerformanceSystem/NetworkPerformanceSystem.Runtime/GhostWatchdog.cs",
+    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.0/NetworkPerformanceSystem/NetworkPerformanceSystem.Patches/GhostWatchdogPatches.cs",
+    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.0/NetworkPerformanceSystem.ldstr.il"
+  ],
+  "notes": [
+    "English is hard-coded in GhostWatchdog: Warn, Recover and Trip show center MessageHud messages, and Trip stores PendingReason, which GhostWatchdogPatches writes into FejdStartup.m_connectionFailedError.",
+    "Log lines in the same methods, the debug overlay (OnGUI) and the nps_stats console diagnostics stay English."
+  ]
+}

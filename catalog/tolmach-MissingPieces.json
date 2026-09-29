@@ -1,0 +1,39 @@
+{
+  "id": "MissingPieces",
+  "package": "BentoG-MissingPieces",
+  "version": "2.3.2",
+  "pluginVersion": "2.3.2",
+  "assembly": "MissingPieces",
+  "guids": [
+    "com.Bento.MissingPieces"
+  ],
+  "namespaces": [],
+  "words": {
+    "piece_woodwallquarterupper": "Деревянная стена 1x1",
+    "piece_woodwallhalfupper_description": "Точная противоположность.",
+    "piece_woodwallquarterupper_description": "Точная противоположность, только меньше."
+  },
+  "englishWords": {
+    "piece_woodwallquarterupper": "Wood Wall Quarter Upper",
+    "piece_woodwallhalfupper_description": "A perfect opposite.",
+    "piece_woodwallquarterupper_description": "A smaller perfect opposite."
+  },
+  "replaceNative": [
+    "piece_woodwallquarterupper",
+    "piece_woodwallhalfupper_description",
+    "piece_woodwallquarterupper_description"
+  ],
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/BentoG-MissingPieces-2.3.2/MissingPieces/MissingPieces/MissingPiecesPlugin.cs",
+    "source-evidence/profile-updates/BentoG-MissingPieces-2.3.2/resources/MissingPieces.Localization.English.json",
+    "source-evidence/profile-updates/BentoG-MissingPieces-2.3.2/resources/MissingPieces.Localization.Russian.json"
+  ],
+  "notes": [
+    "Profile mod: BentoG-MissingPieces 2.3.2 from Thunderstore, decompiled from the installed DLL on 2026-09-29",
+    "The mod ships complete Russian through Jotunn; by the owner's decision of 2026-09-29 three of its values are replaced (replaceNative): a Cyrillic x in 1x1 and one description copied onto two different walls"
+  ]
+}

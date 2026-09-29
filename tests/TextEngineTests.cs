@@ -54,7 +54,7 @@ namespace Tolmach.Tests
                 Assert.That(RawDisplay.Translate(pair.Key), Is.EqualTo(pair.Value), pair.Key);
             foreach (PatternSpec pattern in m.rawPatterns)
             {
-                // A known term for each term argument, an opaque name otherwise.
+                // A known term for each term argument, a number for a numeric one, an opaque name otherwise.
                 Func<Match, bool, string> fill = (h, russian) =>
                 {
                     string semantic;
@@ -63,11 +63,40 @@ namespace Tolmach.Tests
                         var term = m.terms[semantic.Substring(5)].OrderBy(t => t.Key, StringComparer.Ordinal).First();
                         return russian ? term.Value : term.Key;
                     }
-                    return "Zq" + h.Groups[1].Value;
+                    int index = Int32.Parse(h.Groups[1].Value, CultureInfo.InvariantCulture);
+                    return pattern.numeric.Contains(index) ? (17 + index).ToString(CultureInfo.InvariantCulture) : "Zq" + h.Groups[1].Value;
                 };
                 string source = Regex.Replace(pattern.source, @"\{(\d+)\}", h => fill(h, false));
                 Assert.That(RawDisplay.Translate(source), Is.EqualTo(Regex.Replace(pattern.target, @"\{(\d+)\}", h => fill(h, true))), pattern.source);
             }
+        }
+        [Test]
+        public void ItemAndSetArgumentsShowTheGameNamesOfObjectsAModPrintsByIdentifier()
+        {
+            // The set block of Recipe Description Expansion: the set by its capitalized m_setName, parts by prefab name.
+            Localization.SelectedLanguage = "Russian";
+            Localization.Resources["Russian"] = new Dictionary<string, string> {
+                { "item_helmet_trollleather", "Кожаный шлем тролля" }, { "se_trollseteffect_name", "Скрытный" }, { "hunter_Bronze", "Охотник" } };
+            LocalizationBridge.Install(Patcher, typeof(Localization), () => "Russian");
+            Assert.That(Localization.instance, Is.Not.Null);
+            GameItems.ItemToken = prefab => prefab == "HelmetTrollLeather" ? "$item_helmet_trollleather" : null;
+            GameItems.SetToken = shown => shown.Equals("troll", StringComparison.OrdinalIgnoreCase) ? "$se_trollseteffect_name"
+                : shown.Equals("$hunter_Bronze", StringComparison.OrdinalIgnoreCase) ? "$hunter_Bronze" : null;
+            Module m = FixtureModule("sets", "FixturePlugin");
+            string part = "<color=#008000ff>{0}</color>\t├> <color={1}>{2}</color>";
+            m.patterns.Add(new PatternSpec { source = part, target = part, arguments = { { "2", "item" } } });
+            m.patterns.Add(new PatternSpec { source = "<color={0}>{1} ({2}/{3}):</color>", target = "<color={0}>{1} ({2} из {3}):</color>",
+                                             arguments = { { "1", "itemSet" } }, numeric = { 2, 3 } });
+            Activate(m);
+            string block = "\n\n<color=#96d4fd>Troll (1/4):</color>\n<color=#008000ff>✔️</color>\t├> <color=#FDFD96>HelmetTrollLeather</color>\n" +
+                           "<color=#008000ff>❌</color>\t├> <color=#808080ff>CapeTrollHide</color>\n";
+            Assert.That(TextEngine.Display(block, "sets"), Is.EqualTo(
+                "\n\n<color=#96d4fd>Скрытный (1 из 4):</color>\n<color=#008000ff>✔️</color>\t├> <color=#FDFD96>Кожаный шлем тролля</color>\n" +
+                "<color=#008000ff>❌</color>\t├> <color=#808080ff>CapeTrollHide</color>\n"), "An unknown prefab keeps its identifier.");
+            Assert.That(TextEngine.Display("<color=#808080ff>$hunter_bronze (0/4):</color>", "sets"),
+                Is.EqualTo("<color=#808080ff>Охотник (0 из 4):</color>"), "A lowercased set key is found again.");
+            TextEngine.IsRussian = false;
+            Assert.That(TextEngine.Display(block, "sets"), Is.EqualTo(block));
         }
         [TestCaseSource("Regressions")]
         public void VerifiedRealStrings(string module, string source, string expected)

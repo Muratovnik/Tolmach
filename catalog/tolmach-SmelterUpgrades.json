@@ -1,0 +1,74 @@
+{
+  "id": "SmelterUpgrades",
+  "package": "OverDrive-SmelterUpgrades",
+  "version": "1.1.5",
+  "pluginVersion": "1.1.5",
+  "assembly": "SmelterUpgrades",
+  "guids": [
+    "zl.smelterupgrades"
+  ],
+  "namespaces": [],
+  "words": {
+    "smx_level": "Уровень",
+    "smx_speed": "к скорости",
+    "smx_capacity": "к вместимости",
+    "smx_fuel": "топлива",
+    "smx_fuel_per_item": "топлива на изделие",
+    "smx_core_boost": "Пламя ядер",
+    "smx_locked_to": "Принимает только:",
+    "smx_unlocked": "Без ограничения — принимает любую руду",
+    "smx_hint_lock": "Закрепить тип руды",
+    "smx_feeder_name": "Сундук истопника",
+    "smx_feeder_desc": "Сам подает топливо и руду в ближайшие плавильни и печи.",
+    "smx_feeder_range": "Подает",
+    "smx_feeder_idle": "Простаивает"
+  },
+  "englishWords": {
+    "smx_level": "Level",
+    "smx_speed": "speed",
+    "smx_capacity": "capacity",
+    "smx_fuel": "fuel",
+    "smx_fuel_per_item": "fuel per item",
+    "smx_core_boost": "Core fire",
+    "smx_locked_to": "Locked to",
+    "smx_unlocked": "Unlocked - accepts any ore",
+    "smx_hint_lock": "Lock ore type",
+    "smx_feeder_name": "Stoker's Chest",
+    "smx_feeder_desc": "Feeds fuel and ore to nearby smelters and kilns on its own.",
+    "smx_feeder_range": "Feeding",
+    "smx_feeder_idle": "Idle"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/OverDrive-SmelterUpgrades-1.1.5/SmelterUpgrades/SmelterUpgrades/Plugin.cs",
+    "source-evidence/profile-updates/OverDrive-SmelterUpgrades-1.1.5/SmelterUpgrades/SmelterUpgrades/ModLocalization.cs",
+    "source-evidence/profile-updates/OverDrive-SmelterUpgrades-1.1.5/SmelterUpgrades/SmelterUpgrades/ModConfig.cs",
+    "source-evidence/profile-updates/OverDrive-SmelterUpgrades-1.1.5/SmelterUpgrades/SmelterUpgrades/Pieces.cs",
+    "source-evidence/profile-updates/OverDrive-SmelterUpgrades-1.1.5/SmelterUpgrades/SmelterUpgrades/SmelterStation.cs",
+    "source-evidence/profile-updates/OverDrive-SmelterUpgrades-1.1.5/SmelterUpgrades/SmelterUpgrades/Smelter_OnHoverAddFuel_Patch.cs",
+    "source-evidence/profile-updates/OverDrive-SmelterUpgrades-1.1.5/SmelterUpgrades/SmelterUpgrades/Smelter_OnHoverAddOre_Patch.cs",
+    "source-evidence/profile-updates/OverDrive-SmelterUpgrades-1.1.5/SmelterUpgrades/SmelterUpgrades/Smelter_OnAddOre_Patch.cs",
+    "source-evidence/profile-updates/OverDrive-SmelterUpgrades-1.1.5/SmelterUpgrades/SmelterUpgrades/HotkeyWatcher.cs"
+  ],
+  "notes": [
+    "Keys come from Jotunn CustomLocalization.AddTranslation in ModLocalization.Register; hover lines in SmelterStation.GetUpgradeHoverText and Smelter_OnHoverAddFuel_Patch glue a number before the key, so the Russian words carry the preposition or genitive.",
+    "Upgrade piece names and descriptions are plain English in the ModConfig static UpgradeDef table, passed as Jotunn PieceConfig Name/Description, so they go through rawTexts. smx_feeder_range and smx_feeder_idle are registered but not used by 1.1.5 code."
+  ],
+  "rawTexts": {
+    "Kiln Vents": "Поддувало печи",
+    "Feeds air to a charcoal kiln, burning it down faster.": "Подает воздух в углевыжигательную печь, и древесина выгорает быстрее.",
+    "Wood Rack": "Поленница",
+    "Stacked wood within arm's reach of the kiln, so it can hold more.": "Дрова сложены прямо у печи, и в нее помещается больше.",
+    "Smelter Bellows": "Меха плавильни",
+    "A hotter, cleaner burn: the smelter works faster on less coal.": "Жар сильнее, горение чище: плавильня работает быстрее и тратит меньше угля.",
+    "Ore Hopper": "Бункер для руды",
+    "Holds a deeper stack of ore and a bigger bed of coal.": "Вмещает больше руды и больше угля.",
+    "Furnace Tuyeres": "Фурмы доменной печи",
+    "A stoked firebox blowing three tuyeres into the furnace: it runs hotter, and burns one coal a bar instead of two.": "Растопленная топка дует в печь через три фурмы: жар сильнее, а на слиток уходит один уголь вместо двух.",
+    "Charging Ramp": "Загрузочный помост",
+    "A barrow ramp up to a tipping bin, so the furnace can be charged deeper before it needs you again.": "Помост для тачки к опрокидному бункеру: печь можно загрузить больше, и она дольше обходится без вас."
+  }
+}

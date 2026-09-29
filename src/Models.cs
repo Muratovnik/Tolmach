@@ -65,6 +65,10 @@ namespace Tolmach
         public int skippedBoundaries;
         public bool returnAdapter;
         public readonly HashSet<string> matchedLiterals = new HashSet<string>(StringComparer.Ordinal);
+        // A method left unpatched (the reason) whose display calls are translated where they arrive.
+        public string notPatched;
+        public readonly List<string> callSites = new List<string>();
+        public readonly List<string> leftAsIs = new List<string>();
     }
     [JsonObject(ItemRequired = Required.DisallowNull)]
     public sealed class Module
@@ -78,6 +82,9 @@ namespace Tolmach
         public List<string> namespaces = new List<string>();
         public Dictionary<string, string> words = new Dictionary<string, string>();
         public Dictionary<string, string> englishWords = new Dictionary<string, string>();
+        // Keys of `words` whose Russian replaces the mod's own Russian: an owner's decision for a mistake in it.
+        // Every other key is fill-only.
+        public List<string> replaceNative = new List<string>();
         public Dictionary<string, string> texts = new Dictionary<string, string>();
         public Dictionary<string, string> mapLabels = new Dictionary<string, string>();
         public List<PatternSpec> patterns = new List<PatternSpec>();

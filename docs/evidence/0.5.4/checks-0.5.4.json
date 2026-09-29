@@ -1,0 +1,67 @@
+{
+ "date": "2026-09-29",
+ "package": {
+  "file": "Muratovnik-Tolmach-0.5.4.zip",
+  "sha256": "9df15319e32be66e63064da265eefb19f2d5ed52f929580ae1478d8ec816aaa5",
+  "entries": 77,
+  "manifest": {
+   "name": "Tolmach",
+   "version_number": "0.5.4",
+   "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2351",
+    "ValheimModding-JsonDotNET-13.0.4"
+   ],
+   "website_url": "https://github.com/Muratovnik/Tolmach"
+  }
+ },
+ "build": {
+  "nunit_passed": 380,
+  "sdk": "9.0.318",
+  "plugin_sha256": "eced2a11bc2d0bc98083020180bbd9dfaa9890a775baccb5371b8fb894d31916"
+ },
+ "catalogs": {
+  "modules": 70,
+  "new_modules": ["SocialSystem"],
+  "rebound_modules": {
+   "AdventureBackpacks": "2.2.1 -> 2.2.2",
+   "More_World_Locations_AIO": "5.1.4 -> 5.1.5",
+   "WackysDatabase": "2.5.35 -> 2.5.36"
+  },
+  "evidence": "SocialSystem 1.0.1 decompiled from the profile: 97 English keys of SocialTexts.English, equal to the IL of SocialTexts::.cctor, to its key constants and to the key set of its German table; 3 console help literals. The three rebound mods: new DLLs from the profile decompiled and compared with the bound versions"
+ },
+ "catalog_shape": {
+  "schema": "tools/catalog.schema.json (JSON Schema 2020-12), checked with jsonschema 4.26.0",
+  "catalogs_matching_schema": 70
+ },
+ "validator": {
+  "assertions": 13019,
+  "errors": 0,
+  "report": "validation.json"
+ },
+ "translation_checks": {
+  "check_po": "SocialSystem exported to PO: 100 units (97 words, 3 literals), 0 findings",
+  "all_translate_toolkit_tests": "simplecaps 10 (the added «Игрок {0}» that lets the verb agree with any name) and acronyms 2 (DM -> ЛС); both deliberate",
+  "meaning_review": "tolmach-worker packet R-SOC-1 on the same PO: 99 of 100 kept; the friends header became «Друзья (в сети: {0}/{1})», because the left-aligned 260 px header leaves 232 px before the + button at 18 pt",
+  "po_roundtrip": "70 catalogs, 4273 units, 0 changes",
+  "private_tool_tests": "105 passed"
+ },
+ "package_gate_controls": "8 of 8 (valid package accepted, seven broken copies rejected)",
+ "pytest_data_controls": "11 passed",
+ "literals_in_il": {
+  "tool": "check_literals_il.py on dnfile 0.18.0 and dncil 1.0.2",
+  "values_checked": 440,
+  "problems": 0,
+  "modules_checked": 22,
+  "not_rechecked": "19 stage B DLLs are no longer on disk; their literals have not changed since 0.4.0"
+ },
+ "rebinding_check": {
+  "AdventureBackpacks": "4 of 4 catalog literals in the same methods; embedded English table byte-identical; the only English key without Russian in the mod is still the one the catalog adds; new code strings are internal manager names",
+  "More_World_Locations_AIO": "146 of 146 catalog literals in the same methods; localization YAML and the six port tutorials byte-identical; new code strings are prefab and component names, a log line and the version-check text",
+  "WackysDatabase": "no literal rules; the set of code strings is unchanged"
+ },
+ "coverage_audit": {
+  "records": 5284,
+  "losses": 0
+ },
+ "game_test": "not run"
+}

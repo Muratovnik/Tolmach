@@ -16,6 +16,8 @@ namespace Tolmach
         private static ConditionalWeakTable<object, LanguageState> Languages = new ConditionalWeakTable<object, LanguageState>();
         private static readonly Dictionary<string, string> Russian = new Dictionary<string, string>(StringComparer.Ordinal);
         private static readonly Dictionary<string, string> English = new Dictionary<string, string>(StringComparer.Ordinal);
+        // Keys a catalog declares in replaceNative: our Russian replaces a mod's own Russian for them.
+        private static readonly HashSet<string> Replacing = new HashSet<string>(StringComparer.Ordinal);
         private static Type gameType;
         private static MethodInfo translate;
         private static MethodInfo addWord;
@@ -64,7 +66,7 @@ namespace Tolmach
         }
         internal static void Rebuild()
         {
-            Russian.Clear(); English.Clear();
+            Russian.Clear(); English.Clear(); Replacing.Clear();
             foreach (Module m in TextEngine.Modules.Values)
                 foreach (KeyValuePair<string, string> word in m.words)
                 {
@@ -73,7 +75,13 @@ namespace Tolmach
                     if (Russian.ContainsKey(word.Key) && (Russian[word.Key] != word.Value || English[word.Key] != en))
                     { m.Warn("Conflicting localization key skipped: " + word.Key); continue; }
                     Russian[word.Key] = word.Value; English[word.Key] = en;
+                    if (m.replaceNative.Contains(word.Key)) Replacing.Add(word.Key);
                 }
+        }
+        // Fill-only, except for a replaceNative key, which takes our value over any other.
+        private static bool Fills(string current, string key)
+        {
+            return Replacing.Contains(key) ? current != Russian[key] : ShouldFill(current, English[key], key);
         }
         private static void SetLanguage(object instance, string language)
         {
@@ -132,9 +140,11 @@ namespace Tolmach
             string ru, en;
             if (!Russian.TryGetValue(__0, out ru) || !English.TryGetValue(__0, out en)) return;
             string current = CurrentWord(__instance, __0);
+            // A replaceNative key always takes our value: the mod's own Russian for it is a known mistake.
+            if (Replacing.Contains(__0)) __1 = ru;
             // Native scope registration can feed our Russian value back into AddWord.
             // It must not replace an existing third-party Russian translation.
-            if (__1 == ru || ShouldFill(__1, en, __0)) __1 = ShouldFill(current, en, __0) ? ru : current;
+            else if (__1 == ru || ShouldFill(__1, en, __0)) __1 = ShouldFill(current, en, __0) ? ru : current;
             __state = !injecting && current != __1;
         }
         private static void AfterAddWord(object __instance, bool __state)
@@ -174,7 +184,7 @@ namespace Tolmach
             try
             {
                 foreach (KeyValuePair<string, string> entry in English)
-                    if (ShouldFill(CurrentWord(instance, entry.Key), entry.Value, entry.Key))
+                    if (Fills(CurrentWord(instance, entry.Key), entry.Key))
                     {
                         addWord.Invoke(instance, new object[] { entry.Key, Russian[entry.Key] });
                         changed = true;
@@ -213,7 +223,7 @@ namespace Tolmach
         }
         internal static void Reset()
         {
-            Russian.Clear(); English.Clear();
+            Russian.Clear(); English.Clear(); Replacing.Clear();
             Languages = new ConditionalWeakTable<object, LanguageState>();
             gameType = null; translate = null; addWord = null; selectedLanguage = null; readPreference = null;
             injecting = warnedCache = false;

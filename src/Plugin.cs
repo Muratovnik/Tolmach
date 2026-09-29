@@ -85,10 +85,29 @@ namespace Tolmach
     [BepInDependency("nickpappas.locationplacementaccelerator", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("Azumatt.AzuWorkbenchTweaks", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("org.bepinex.plugins.creaturelevelcontrol", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("M2Valheim.SocialSystem", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("maxfoxgaming.betterbeehives", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("shudnal.MyLittleUI", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("MidnightsFX.NetworkPerformanceSystem", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("goldenrevolver.quick_stack_store", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("elg.QuickTeleport", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("zl.smelterupgrades", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("org.bepinex.plugins.solid-hitboxes", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("org.bepinex.plugins.spearfishing", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("blacks7ar.TorchesAreFires", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Transmog", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("MidnightsFX.InfiniteFire", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("blacks7ar.WieldEquipmentWhileSwimming", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Therzie.Armory", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("infinity_hammer", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("server_devcommands", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("world_edit_commands", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.Bento.MissingPieces", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Azumatt.RecipeDescriptionExpansion", BepInDependency.DependencyFlags.SoftDependency)]
     public sealed class Plugin : BaseUnityPlugin
     {
         public const string PluginId = "muratovnik.tolmach";
-        public const string PluginVersion = "0.5.3";
+        public const string PluginVersion = "0.6.0";
         private static ManualLogSource Log;
         private static readonly List<string> Notes = new List<string>();
         private Harmony harmony;
@@ -101,8 +120,9 @@ namespace Tolmach
             DisplayPatches.Reset();
             bool enabled = Config.Bind("General", "Enabled", true, "Enable Russian translations. Restart the game after changing this setting.").Value;
             if (!enabled) { Logger.LogInfo("Disabled in configuration."); return; }
-            bool allowVersion = Config.Bind("Compatibility", "AllowOtherVersions", false,
-                "Allow scoped UI adapters on mod versions different from the audited snapshot. Unverified; use at your own risk. Native dictionaries do not require this option.").Value;
+            // Replaces AllowOtherVersions (default false), whose saved value would have kept the old behavior.
+            bool onlyAudited = Config.Bind("Compatibility", "OnlyAuditedVersions", false,
+                "Apply code and screen adapters only to the mod versions the catalogs were checked against. Off: for another version Tolmach translates the strings it still finds; the log and Tolmach.runtime.txt list the ones it did not find. Native dictionaries work either way.").Value;
             PersistentUi.StandardMapLabels = Config.Bind("Display", "TranslateStandardMapLabels", true,
                 "Translate exact standard map labels on screen only; stored names remain unchanged. A custom name identical to a standard label is displayed translated too. Disable to keep all map names as entered. Restart required.").Value;
             string directory = Path.Combine(Path.GetDirectoryName(Info.Location), "catalog");
@@ -120,7 +140,7 @@ namespace Tolmach
                         PluginInfo info;
                         if (!Chainloader.PluginInfos.TryGetValue(guid, out info) || info.Instance == null) return null;
                         return new PluginIdentity(info.Metadata.GUID, info.Instance.GetType().Assembly, info.Metadata.Version);
-                    }, allowVersion, out reason);
+                    }, onlyAudited, out reason);
                     Notes.Add(module.id + ": " + reason);
                     if (!loaded) continue;
                     TextEngine.Modules.Add(module.id, module);
@@ -174,6 +194,7 @@ namespace Tolmach
             LocalizationBridge.Reset();
             RawDisplay.Reset();
             DisplayPatches.Reset();
+            GameItems.Reset();
             TextEngine.Modules.Clear();
             started = false;
         }
@@ -196,8 +217,13 @@ namespace Tolmach
                     s.AppendLine(m.id + " | package=" + m.version + " | plugin=" + m.pluginVersion + " | exactVersion=" + m.ExactVersion +
                         " | keys=" + m.words.Count + " | nativeKeysAdded=" + m.NativeWords + " | methods inspected=" + m.ScannedMethods + " | UI methods patched=" + m.PatchedMethods);
                     foreach (PatchEvidence p in m.Patches.Values.OrderBy(delegate(PatchEvidence x) { return x.method; }))
-                        s.AppendLine("  " + p.method + " | displayCalls=" + p.displayCalls + " | displayFields=" + p.displayFields +
-                            " | literals=" + p.literals + " | config=" + p.configTexts + " | return=" + p.returnAdapter + " | skippedEH=" + p.skippedBoundaries);
+                    {
+                        if (p.notPatched != null)
+                            s.AppendLine("  " + p.method + " | notPatched=" + p.notPatched + " | callSites=" + Listed(p.callSites) + " | leftAsIs=" + Listed(p.leftAsIs));
+                        else
+                            s.AppendLine("  " + p.method + " | displayCalls=" + p.displayCalls + " | displayFields=" + p.displayFields +
+                                " | literals=" + p.literals + " | config=" + p.configTexts + " | return=" + p.returnAdapter + " | skippedEH=" + p.skippedBoundaries);
+                    }
                     foreach (string w in m.Warnings) s.AppendLine("  WARNING: " + w);
                 }
                 foreach (string note in Notes) s.AppendLine(note);
@@ -205,5 +231,6 @@ namespace Tolmach
             }
             catch (Exception e) { Warn("Could not write runtime report: " + e.GetType().Name); }
         }
+        private static string Listed(List<string> names) { return names.Count == 0 ? "none" : String.Join(",", names.ToArray()); }
     }
 }

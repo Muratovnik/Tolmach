@@ -1,0 +1,57 @@
+{
+  "id": "TorchesAreFires",
+  "package": "blacks7ar-TorchesAreFires",
+  "version": "1.1.0",
+  "pluginVersion": "1.1.0",
+  "assembly": "TorchesAreFires",
+  "guids": [
+    "blacks7ar.TorchesAreFires"
+  ],
+  "namespaces": [
+    "ServerSync"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/blacks7ar-TorchesAreFires-1.1.0/TorchesAreFires/TorchesAreFires/Plugin.cs",
+    "source-evidence/profile-updates/blacks7ar-TorchesAreFires-1.1.0/TorchesAreFires/ServerSync/VersionCheck.cs",
+    "source-evidence/profile-updates/blacks7ar-TorchesAreFires-1.1.0/TorchesAreFires.ldstr.il"
+  ],
+  "notes": [
+    "The mod's own code shows no player text of its own (logs, config and vanilla tokens only); the only on-screen English is the embedded ServerSync version-mismatch message, translated through literals of ServerSync.VersionCheck."
+  ],
+  "literals": [
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "id": "More_World_Locations_AIO",
   "package": "warpalicious-More_World_Locations_AIO",
-  "version": "5.1.4",
+  "version": "5.1.5",
   "assembly": "More_World_Locations_AIO",
   "guids": [
     "warpalicious.More_World_Locations_AIO"
@@ -302,25 +302,25 @@
     }
   ],
   "sourceFiles": [
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/More_World_Locations_AIOPlugin.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/ServerSync/VersionCheck.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/PortInit.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Shrines/Shrine.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Shrines/ShrineDB.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Shrines/StatusEffectDB.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Waystones/Waystone.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Traders/BlacksmithStone_SE.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Traders/BlacksmithStoneCanConsumeItemPatch.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Traders/SkillBook_SE.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/PortUI.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/Forbidden_Catacombs/AltarDoor.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/Common/LootManager.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/Commands.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/MWLCommands.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Utils/UpgradeWorldCommands.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Waystones/WaystoneDB.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Waystones/WaystoneUtils.cs",
-    "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.Shrines/ShrineUtils.cs"
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO/More_World_Locations_AIOPlugin.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/ServerSync/VersionCheck.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO/PortInit.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.Shrines/Shrine.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.Shrines/ShrineDB.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.Shrines/StatusEffectDB.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.Waystones/Waystone.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.Traders/BlacksmithStone_SE.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.Traders/BlacksmithStoneCanConsumeItemPatch.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.Traders/SkillBook_SE.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO/PortUI.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/Forbidden_Catacombs/AltarDoor.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/Common/LootManager.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO/Commands.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO/MWLCommands.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.Utils/UpgradeWorldCommands.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.Waystones/WaystoneDB.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.Waystones/WaystoneUtils.cs",
+    "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.Shrines/ShrineUtils.cs"
   ],
   "notes": [
     "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
@@ -331,7 +331,7 @@
     "Forbidden_Catacombs",
     "Common"
   ],
-  "pluginVersion": "5.1.4",
+  "pluginVersion": "5.1.5",
   "literals": [
     {
       "type": "ServerSync.VersionCheck",

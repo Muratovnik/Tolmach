@@ -121,6 +121,30 @@ namespace Tolmach.Tests
             Assert.That(unsupported.WasWritten, Is.False, "No blind write if existing translations cannot be read.");
             Assert.That(m.Warnings, Has.Count.EqualTo(1));
         }
+        [Test]
+        public void JotunnScopeTakesAReplaceNativeWordOverTheModsOwnRussian()
+        {
+            Module m = new Module { id = "scope" };
+            m.words["existing"] = "Наш перевод"; m.englishWords["existing"] = "English";
+            m.replaceNative.Add("existing");
+            InScope scope = new InScope();
+            NativeAdapters.FillJotunnScope(scope, m);
+            Assert.That(scope.Values["existing"], Is.EqualTo("Наш перевод"));
+            NativeAdapters.FillJotunnScope(scope, m);
+            Assert.That(scope.Writes, Is.EqualTo(1), "Registration is idempotent.");
+        }
+        [Test]
+        public void SocialSystemGetsEveryWordInItsOwnJotunnTable()
+        {
+            // SocialSystem 1.0.1 ships English and German only; its windows read words from this table.
+            Module m = LoadModule("SocialSystem");
+            InScope scope = new InScope();
+            scope.Values.Clear();
+            NativeAdapters.FillJotunnScope(scope, m);
+            Assert.That(scope.Values, Is.EquivalentTo(m.words));
+            Assert.That(scope.Values["socialsystem_ui_friends_header"], Is.EqualTo("Друзья (в сети: {0}/{1})"));
+            Assert.That(scope.Writes, Is.EqualTo(1));
+        }
     }
 }
 namespace FixtureShadow { public sealed class OnlyShortName { } }

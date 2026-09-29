@@ -63,6 +63,24 @@ Thunderstore частичными запросами `remotezip`, её хеш с
 декомпилирован (`CWS_Slack_Tub` — пристройка `CWS_Forge`, плавильня для окисленной и готовой стали).
 Игровые термины — из той же локализации игры 1.0.16.
 
+Источники 0.5.4: SocialSystem 1.0.1, DLL из профиля Default, декомпилирована ILSpy 9.1:
+`SocialTexts.English` (сверена с IL `SocialTexts::.cctor`), `SocialLocalization`, справки команд
+`DirectMessageCommand`, `ReplyCommand`, `PartyChatCommand`, размеры окон `SocialUiFactory` и
+`*WindowView`. Немецкая таблица мода прочитана только для сверки набора ключей. Jotunn 2.30.2:
+`CustomLocalization.TryTranslate` и `AddTranslation`, `CommandManager` (когда читается справка
+команды). AdventureBackpacks 2.2.2, More_World_Locations_AIO 5.1.5 и WackysDatabase 2.5.36 — DLL из
+профиля, декомпилированы и сверены с прежними версиями: литералы каталогов в методах, словари,
+обучающие тексты.
+
+Источники 0.6.0: 48 модов без каталога Tolmach. DLL декомпилированы ILSpy 9.1 (C# и
+IL); встроенные ресурсы прочитаны dnfile 0.18.0, бандлы Armory, SmelterUpgrades, Mining_Caves и
+MissingPieces — UnityPy по typetree; конфиги профиля — только для чтения. Английский — из самих модов:
+таблица `Armory.translations.English.yml`, таблица Jotunn SmelterUpgrades, литералы и места вывода в
+коде. Собственный русский Transmog, Quick Stack Store и MissingPieces прочитан, чтобы найти пробелы;
+Tolmach его не заменяет, кроме трех строк MissingPieces с ошибками. Блок комплекта Recipe Description Expansion —
+`Functions.CustomSetTooltip`, `FormatSetName` и патч `ItemData.GetTooltip` в декомпиляции 1.1.9. Термины — локализация
+игры 1.0.16 (`tools/glossary.py`).
+
 ## Первичная документация
 
 - Jötunn: Localization — https://valheim-modding.github.io/Jotunn/tutorials/localization.html

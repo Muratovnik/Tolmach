@@ -61,7 +61,7 @@ namespace Tolmach.Tests
             previousCulture = Thread.CurrentThread.CurrentCulture;
             Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
             TextEngine.Modules.Clear();
-            DisplayPatches.Reset(); LocalizationBridge.Reset(); RawDisplay.Reset(); PersistentUi.Reset();
+            DisplayPatches.Reset(); LocalizationBridge.Reset(); RawDisplay.Reset(); PersistentUi.Reset(); GameItems.Reset();
             ResetGameFakes();
             PersistentUi.StandardMapLabels = true;
             TextEngine.IsRussian = true;
@@ -75,7 +75,7 @@ namespace Tolmach.Tests
             {
                 NativeAdapters.Unsubscribe();
                 TextEngine.Modules.Clear();
-                DisplayPatches.Reset(); LocalizationBridge.Reset(); RawDisplay.Reset(); PersistentUi.Reset();
+                DisplayPatches.Reset(); LocalizationBridge.Reset(); RawDisplay.Reset(); PersistentUi.Reset(); GameItems.Reset();
                 ResetGameFakes();
                 Thread.CurrentThread.CurrentCulture = previousCulture;
             }

@@ -124,7 +124,9 @@ namespace Tolmach
             {
                 string current, en;
                 existing.TryGetValue(word.Key, out current);
-                if (m.englishWords.TryGetValue(word.Key, out en) && LocalizationBridge.ShouldFill(current, en, word.Key))
+                // Fill-only, except for a replaceNative key: the mod's own Russian for it is a known mistake.
+                bool replace = m.replaceNative.Contains(word.Key) && current != word.Value;
+                if (m.englishWords.TryGetValue(word.Key, out en) && (replace || LocalizationBridge.ShouldFill(current, en, word.Key)))
                     additions[word.Key] = word.Value;
             }
             if (additions.Count != 0) add.Invoke(scope, new object[] { "Russian", additions });

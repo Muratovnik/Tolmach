@@ -2,15 +2,15 @@
   {
     "id": "AdventureBackpacks",
     "guid": "vapok.mods.adventurebackpacks",
-    "pluginVersion": "2.2.1",
+    "pluginVersion": "2.2.2",
     "assembly": "AdventureBackpacks",
     "sources": [
       {
-        "path": "source-evidence/localization/e/Vapok-AdventureBackpacks-2.2.1/AdventureBackpacks/AdventureBackpacks.cs",
-        "sha256": "53b201f08fe420ccf47be5da6043a615c57e9c0e81b0c30536ca2f3b88e7c4ba"
+        "path": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.2/AdventureBackpacks/AdventureBackpacks.cs",
+        "sha256": "ea9c1e6e69402f8a119777bec09dccdcb5b4f69363f8f8877dd59c973888436d"
       },
       {
-        "path": "source-evidence/localization/e/Vapok-AdventureBackpacks-2.2.1/AdventureBackpacks.csproj",
+        "path": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.2/AdventureBackpacks.csproj",
         "sha256": "86e6448f9f95927100a8b0a0676c2fcf510f51fb80fb4adc27be8c4072d7ff35"
       }
     ]
@@ -44,6 +44,22 @@
       {
         "path": "source-evidence/localization/c/40/AirAnimals.csproj",
         "sha256": "605fde68de5e901cb33591450a158a6252900def69e2ee225ec77079e3da6137"
+      }
+    ]
+  },
+  {
+    "id": "Armory",
+    "guid": "Therzie.Armory",
+    "pluginVersion": "1.4.2",
+    "assembly": "Armory",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/Therzie-Armory-1.4.2/Armory/Armory/ArmoryPlugin.cs",
+        "sha256": "c920f0144f2633e1c91883a44aabece41958d98062bce087c42e263816dcf978"
+      },
+      {
+        "path": "source-evidence/profile-updates/Therzie-Armory-1.4.2/Armory/Armory.csproj",
+        "sha256": "f5df27ea99893ec752afe5b2ffed970d2ba7678288b1d167fbfbba819f1d9db9"
       }
     ]
   },
@@ -236,6 +252,22 @@
       {
         "path": "source-evidence/localization/c/47/BetterArchery.csproj",
         "sha256": "a8cac5663210dd811c32a453e8d2b9bef899db1f3942a903ff8d75aeb04f677f"
+      }
+    ]
+  },
+  {
+    "id": "BetterBeehives",
+    "guid": "maxfoxgaming.betterbeehives",
+    "pluginVersion": "1.3.0",
+    "assembly": "BetterBeehives",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/MaxFoxGaming-Better_Beehives-1.3.0/BetterBeehives/BetterBeehives/Main.cs",
+        "sha256": "df9858697d22b657bb47478314e0e994a4c74c794b594424dcc4e41cda5eac34"
+      },
+      {
+        "path": "source-evidence/profile-updates/MaxFoxGaming-Better_Beehives-1.3.0/BetterBeehives/BetterBeehives.csproj",
+        "sha256": "2d5a5254531710312cd1e5c81dde237730cd4a6e90e2887184b5cb2b1a3febce"
       }
     ]
   },
@@ -592,6 +624,22 @@
     ]
   },
   {
+    "id": "InfinityHammer",
+    "guid": "infinity_hammer",
+    "pluginVersion": "1.85",
+    "assembly": "InfinityHammer",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/InfinityHammer.cs",
+        "sha256": "0b5186a7b0f06c5176cd286a68491fe696e669cd1688b3b6e7e2d44e282612af"
+      },
+      {
+        "path": "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer.csproj",
+        "sha256": "c2d2cdcbd27a8f75d101c61fa374a2129d422dd260b3d5a67c63b2a39f3ec26d"
+      }
+    ]
+  },
+  {
     "id": "InventorySlots",
     "guid": "sighsorry.InventorySlots",
     "pluginVersion": "1.5.15",
@@ -672,18 +720,34 @@
     ]
   },
   {
+    "id": "MissingPieces",
+    "guid": "com.Bento.MissingPieces",
+    "pluginVersion": "2.3.2",
+    "assembly": "MissingPieces",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/BentoG-MissingPieces-2.3.2/MissingPieces/MissingPieces/MissingPiecesPlugin.cs",
+        "sha256": "b89f3d46a7535b9cb491f6bb5ce397af7fb599f71835ece41ac80029a4ca005c"
+      },
+      {
+        "path": "source-evidence/profile-updates/BentoG-MissingPieces-2.3.2/MissingPieces/MissingPieces.csproj",
+        "sha256": "1a484f4fbee8f78c3c93f5faf649c8e76f56afec5711166d8a7ed590ad06a6d6"
+      }
+    ]
+  },
+  {
     "id": "More_World_Locations_AIO",
     "guid": "warpalicious.More_World_Locations_AIO",
-    "pluginVersion": "5.1.4",
+    "pluginVersion": "5.1.5",
     "assembly": "More_World_Locations_AIO",
     "sources": [
       {
-        "path": "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO/More_World_Locations_AIOPlugin.cs",
-        "sha256": "36a75c26ac8dda377cd91f29a34986ac59dbd5dfd8ce5d254f79200b248b89da"
+        "path": "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO/More_World_Locations_AIOPlugin.cs",
+        "sha256": "dacd5355e5242ba950cca29be7e505a7054c996d2192523fa913c5a3b83e5245"
       },
       {
-        "path": "source-evidence/localization/b/37-warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.csproj",
-        "sha256": "7f5fcfd61a8d8eb30bfbd96272ea6d3ddc9bd289c76925dfd27e92f3aa21c488"
+        "path": "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.csproj",
+        "sha256": "8af9befcf59a67bf7468b7bf913912845abf8e4bf2968255f3f4b44a7bf3c4e2"
       }
     ]
   },
@@ -700,6 +764,38 @@
       {
         "path": "source-evidence/stage-b/DragonMotion-MoveBuildPieces-1.1.1/MoveBuildPieces.csproj",
         "sha256": "5f6f9a6cdb5b1a1ebc1c9187211c8ceb58292ee18434cf733d162efe9ce27293"
+      }
+    ]
+  },
+  {
+    "id": "MyLittleUI",
+    "guid": "shudnal.MyLittleUI",
+    "pluginVersion": "1.2.26",
+    "assembly": "MyLittleUI",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/shudnal-MyLittleUI-1.2.26/MyLittleUI/MyLittleUI/MyLittleUI.cs",
+        "sha256": "2e0ae055e7bcb2e37a8c9a333a3d1b74099afd3df75aa589cb91551ea21c072c"
+      },
+      {
+        "path": "source-evidence/profile-updates/shudnal-MyLittleUI-1.2.26/MyLittleUI/MyLittleUI.csproj",
+        "sha256": "4d0dd65cb24eb2fdc990229a73a0e1b40ef0b15a4b6d646ecf14a89255f33735"
+      }
+    ]
+  },
+  {
+    "id": "NetworkPerformanceSystem",
+    "guid": "MidnightsFX.NetworkPerformanceSystem",
+    "pluginVersion": "1.11.0",
+    "assembly": "NetworkPerformanceSystem",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.0/NetworkPerformanceSystem/NetworkPerformanceSystem/NetworkPerformanceSystem.cs",
+        "sha256": "c0f1dcae727d8688ca4c525a34d268e8c5a81b6e46f6639df375e3c86a09ae0f"
+      },
+      {
+        "path": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.0/NetworkPerformanceSystem/NetworkPerformanceSystem.csproj",
+        "sha256": "62affaf15448476b5ceb6864c29542c0ec1ec529b517a0cc26652d5fbac28cd8"
       }
     ]
   },
@@ -816,6 +912,54 @@
     ]
   },
   {
+    "id": "QuickStackStore",
+    "guid": "goldenrevolver.quick_stack_store",
+    "pluginVersion": "1.4.15",
+    "assembly": "QuickStackStore",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/Goldenrevolver-Quick_Stack_Store_Sort_Trash_Restock-1.4.15/QuickStackStore/QuickStackStore/QuickStackStorePlugin.cs",
+        "sha256": "156727ee0a5bc3622b754b19264ad59b555a10da5c7a3a14ed08b412b2705e7b"
+      },
+      {
+        "path": "source-evidence/profile-updates/Goldenrevolver-Quick_Stack_Store_Sort_Trash_Restock-1.4.15/QuickStackStore/QuickStackStore.csproj",
+        "sha256": "9ff4cb170c0514e4f05cadeb8754a5f52f82df265932f77d52e952bd054f0991"
+      }
+    ]
+  },
+  {
+    "id": "QuickTeleport",
+    "guid": "elg.QuickTeleport",
+    "pluginVersion": "2.0.4",
+    "assembly": "QuickTeleport",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/OdinPlus-QuickTeleport-2.0.4/QuickTeleport/QuickTeleport/QuickTeleportPlugin.cs",
+        "sha256": "016fd242a522482c0d80495b5b23f6bd8a02f1c027ac53bd9c0bab80c6b2060b"
+      },
+      {
+        "path": "source-evidence/profile-updates/OdinPlus-QuickTeleport-2.0.4/QuickTeleport/QuickTeleport.csproj",
+        "sha256": "a719ecd501b44790c0fc91c0dcf5da6cd04fc7d74859b5b51da35e7542e51041"
+      }
+    ]
+  },
+  {
+    "id": "RecipeDescriptionExpansion",
+    "guid": "Azumatt.RecipeDescriptionExpansion",
+    "pluginVersion": "1.1.9",
+    "assembly": "RecipeDescriptionExpansion",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/Azumatt-Recipe_Description_Expansion-1.1.9/RecipeDescriptionExpansion/RecipeDescriptionExpansion/RecipeDescriptionExpansionPlugin.cs",
+        "sha256": "2e0c71c1eccfe9d11037ed207549d0ad31cbff2c42056594469614898f0f71e0"
+      },
+      {
+        "path": "source-evidence/profile-updates/Azumatt-Recipe_Description_Expansion-1.1.9/RecipeDescriptionExpansion/RecipeDescriptionExpansion.csproj",
+        "sha256": "32a349bff38448f715127e071c1296f335dc24143df9af8407a2912eaf34c273"
+      }
+    ]
+  },
+  {
     "id": "Recycle_N_Reclaim",
     "guid": "Azumatt.Recycle_N_Reclaim",
     "pluginVersion": "1.4.5",
@@ -896,6 +1040,22 @@
     ]
   },
   {
+    "id": "ServerDevcommands",
+    "guid": "server_devcommands",
+    "pluginVersion": "1.115",
+    "assembly": "ServerDevcommands",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/JereKuusela-Server_devcommands-1.115.0/ServerDevcommands/ServerDevcommands/ServerDevcommands.cs",
+        "sha256": "8d89c0f1f2ee549c6df297c28b4d373ed13975ec51545524f86b0e6f9f7eb347"
+      },
+      {
+        "path": "source-evidence/profile-updates/JereKuusela-Server_devcommands-1.115.0/ServerDevcommands/ServerDevcommands.csproj",
+        "sha256": "8a3e3b6b83422d4919fdcc6e8ac4bbc66cbc40db10558fdb242d78a654ddee1c"
+      }
+    ]
+  },
+  {
     "id": "SleepSkip",
     "guid": "Azumatt.SleepSkip",
     "pluginVersion": "1.3.2",
@@ -908,6 +1068,70 @@
       {
         "path": "source-evidence/localization/d/Azumatt-SleepSkip-proj/SleepSkip.csproj",
         "sha256": "40b5071b05d000debea989b1e33834b3df001ef9497bc37e95a1a27bfb85bee1"
+      }
+    ]
+  },
+  {
+    "id": "SmelterUpgrades",
+    "guid": "zl.smelterupgrades",
+    "pluginVersion": "1.1.5",
+    "assembly": "SmelterUpgrades",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/OverDrive-SmelterUpgrades-1.1.5/SmelterUpgrades/SmelterUpgrades/Plugin.cs",
+        "sha256": "1b1275ba24bc1e17d20d4777b58efd3a51feb1a384897e786b3be0cf773a276c"
+      },
+      {
+        "path": "source-evidence/profile-updates/OverDrive-SmelterUpgrades-1.1.5/SmelterUpgrades/SmelterUpgrades.csproj",
+        "sha256": "bd4efc00b9f233d874d54df4609419966b83399e5032c5b5734ba9e9f108ee83"
+      }
+    ]
+  },
+  {
+    "id": "SocialSystem",
+    "guid": "M2Valheim.SocialSystem",
+    "pluginVersion": "1.0.1",
+    "assembly": "SocialSystem",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1/SocialSystem/Plugin.cs",
+        "sha256": "641e83211d6c8082b741195243e2898e104778c1f373f8fc744f083f7d428a1f"
+      },
+      {
+        "path": "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1/SocialSystem.csproj",
+        "sha256": "b506ea6d4b90c02dfa72e9f81b38b06dd4e2638534a4ef07abe63a66d931dddf"
+      }
+    ]
+  },
+  {
+    "id": "SolidHitboxes",
+    "guid": "org.bepinex.plugins.solid-hitboxes",
+    "pluginVersion": "1.0.8",
+    "assembly": "SolidHitboxes",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/Korppis-SolidHitboxes-1.0.8/SolidHitboxes/SolidHitboxes/Plugin.cs",
+        "sha256": "e2ebff51c1e29a2402bfc16605c258d7b7e3e0543b6f1c06503095fe330134bd"
+      },
+      {
+        "path": "source-evidence/profile-updates/Korppis-SolidHitboxes-1.0.8/SolidHitboxes/SolidHitboxes.csproj",
+        "sha256": "9f7720e1d092993064c222ae9f2a1bd7812258271ecbf7d902ee99a3eb8be716"
+      }
+    ]
+  },
+  {
+    "id": "Spearfishing",
+    "guid": "org.bepinex.plugins.spearfishing",
+    "pluginVersion": "1.0.5",
+    "assembly": "Spearfishing",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/Korppis-Spearfishing-1.0.5/Spearfishing/Spearfishing/Plugin.cs",
+        "sha256": "835175cd1518fe7d98207fb9f9dd2d77ee7ac7a4ecf0e1ab4083bcfc39700ad1"
+      },
+      {
+        "path": "source-evidence/profile-updates/Korppis-Spearfishing-1.0.5/Spearfishing/Spearfishing.csproj",
+        "sha256": "4ccd01e4409ca08815462d224968ad8c99f28111371256bfdaa77629cfd0560a"
       }
     ]
   },
@@ -960,6 +1184,22 @@
     ]
   },
   {
+    "id": "TorchesAreFires",
+    "guid": "blacks7ar.TorchesAreFires",
+    "pluginVersion": "1.1.0",
+    "assembly": "TorchesAreFires",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/blacks7ar-TorchesAreFires-1.1.0/TorchesAreFires/TorchesAreFires/Plugin.cs",
+        "sha256": "cbd3b505619ef7520fed97ad515e19e7a14f3d89477e0e2db8d29aaef15f99d3"
+      },
+      {
+        "path": "source-evidence/profile-updates/blacks7ar-TorchesAreFires-1.1.0/TorchesAreFires/TorchesAreFires.csproj",
+        "sha256": "1e76df3127687d082990e618408c5df3bcc8ec53a29c0d29bcd73ff962fb7f64"
+      }
+    ]
+  },
+  {
     "id": "TradersExtended",
     "guid": "shudnal.TradersExtended",
     "pluginVersion": "2.0.4",
@@ -972,6 +1212,22 @@
       {
         "path": "source-evidence/localization/c/59/TradersExtended.csproj",
         "sha256": "2e0fc39f0272c90e56d40fc9448fe1e49ec0f371d2ec53dd2705b0a1b107d1a0"
+      }
+    ]
+  },
+  {
+    "id": "Transmog",
+    "guid": "Transmog",
+    "pluginVersion": "3.2.0",
+    "assembly": "Transmog",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/Alpus-Transmog-3.2.0/Transmog/Transmog/Transmog.cs",
+        "sha256": "a90ec9ab11cd03da02dffce5c92439f097a8f220fdc8b4872b348372f259a88c"
+      },
+      {
+        "path": "source-evidence/profile-updates/Alpus-Transmog-3.2.0/Transmog/Transmog.csproj",
+        "sha256": "786e09cfb8f8a02e94cb83d8fa8f04078abdca4184a630963df55ee66cf7e405"
       }
     ]
   },
@@ -1020,6 +1276,22 @@
     ]
   },
   {
+    "id": "ValheimInfiniteFire",
+    "guid": "MidnightsFX.InfiniteFire",
+    "pluginVersion": "1.4.0",
+    "assembly": "ValheimInfiniteFire",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/MidnightMods-ValheimInfiniteFire-1.4.0/ValheimInfiniteFire/ValheimInfiniteFire/ValheimInfiniteFire.cs",
+        "sha256": "a9c3313467113e8e3ef98424d6e3699f5e448179ba7350070be0ba6574c4e279"
+      },
+      {
+        "path": "source-evidence/profile-updates/MidnightMods-ValheimInfiniteFire-1.4.0/ValheimInfiniteFire/ValheimInfiniteFire.csproj",
+        "sha256": "8166a8d9248aa5179af9587d7c4c2b92bb95a6ea4adcd904325611dd1b747932"
+      }
+    ]
+  },
+  {
     "id": "ValheimVisualEnhanced",
     "guid": "dev.local.valheimvisualenhanced",
     "pluginVersion": "0.5.18",
@@ -1038,15 +1310,15 @@
   {
     "id": "WackysDatabase",
     "guid": "WackyMole.WackysDatabase",
-    "pluginVersion": "2.5.35",
+    "pluginVersion": "2.5.36",
     "assembly": "WackysDatabase",
     "sources": [
       {
-        "path": "source-evidence/localization/d/WackyMole-WackysDatabase-proj/wackydatabase/WMRecipeCust.cs",
-        "sha256": "8bb7d05a575252e7e3f9db4a9566f681d040fea83110440e932dd54f9b3641f6"
+        "path": "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.36/wackydatabase/WMRecipeCust.cs",
+        "sha256": "2bafef890984bb039a77e3366cddd9676eaca0deb511e65b2327fd2a0b77493e"
       },
       {
-        "path": "source-evidence/localization/d/WackyMole-WackysDatabase-proj/WackysDatabase.csproj",
+        "path": "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.36/WackysDatabase.csproj",
         "sha256": "3c3ea85b94de6ee961dc3f09876e594092a7fb02ac6594e11c9eb0cc14ffed6a"
       }
     ]
@@ -1064,6 +1336,38 @@
       {
         "path": "source-evidence/localization/a/Therzie-Warfare/Warfare.csproj",
         "sha256": "566e7bfef37189678409295052de643aa80918b3ad8536a25ff7e04801a02f91"
+      }
+    ]
+  },
+  {
+    "id": "WieldEquipmentWhileSwimming",
+    "guid": "blacks7ar.WieldEquipmentWhileSwimming",
+    "pluginVersion": "1.1.4",
+    "assembly": "WieldEquipmentWhileSwimming",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/blacks7ar-WieldEquipmentWhileSwimming-1.1.4/WieldEquipmentWhileSwimming/WieldEquipmentWhileSwimming/Plugin.cs",
+        "sha256": "fe495d7ebdb3c200797a41e7d80540ec50b40831e1aa2335fdd8cd85b5c0f61b"
+      },
+      {
+        "path": "source-evidence/profile-updates/blacks7ar-WieldEquipmentWhileSwimming-1.1.4/WieldEquipmentWhileSwimming/WieldEquipmentWhileSwimming.csproj",
+        "sha256": "32f40208febe8f2202bc4b81a9b98eefc200760b42095fe053de3c90254ba183"
+      }
+    ]
+  },
+  {
+    "id": "WorldEditCommands",
+    "guid": "world_edit_commands",
+    "pluginVersion": "1.78",
+    "assembly": "WorldEditCommands",
+    "sources": [
+      {
+        "path": "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.78.0/WorldEditCommands/WorldEditCommands/WorldEditCommands.cs",
+        "sha256": "e1d091d33d1eb510dabf730597ef40b488387dfca90c6cc721b3103bbbcaded2"
+      },
+      {
+        "path": "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.78.0/WorldEditCommands/WorldEditCommands.csproj",
+        "sha256": "c6cbe95fe730289bac8521bad91a1519c25ad533be4a54aa6149aee2cfdf4915"
       }
     ]
   },

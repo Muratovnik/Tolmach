@@ -1,0 +1,54 @@
+{
+  "id": "RecipeDescriptionExpansion",
+  "package": "Azumatt-Recipe_Description_Expansion",
+  "version": "1.1.9",
+  "pluginVersion": "1.1.9",
+  "assembly": "RecipeDescriptionExpansion",
+  "guids": [
+    "Azumatt.RecipeDescriptionExpansion"
+  ],
+  "namespaces": [
+    "RecipeDescriptionExpansion"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [
+    {
+      "source": "<color={0}>{1} ({2}/{3}):</color>",
+      "target": "<color={0}>{1} ({2}/{3}):</color>",
+      "numeric": [
+        2,
+        3
+      ],
+      "arguments": {
+        "1": "itemSet"
+      }
+    },
+    {
+      "source": "<color=#008000ff>{0}</color>\t├> <color={1}>{2}</color>",
+      "target": "<color=#008000ff>{0}</color>\t├> <color={1}>{2}</color>",
+      "arguments": {
+        "2": "item"
+      }
+    }
+  ],
+  "returns": [
+    {
+      "type": "RecipeDescriptionExpansion.Functions",
+      "method": "CustomSetTooltip"
+    }
+  ],
+  "literals": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/Azumatt-Recipe_Description_Expansion-1.1.9/RecipeDescriptionExpansion/RecipeDescriptionExpansion/Functions.cs",
+    "source-evidence/profile-updates/Azumatt-Recipe_Description_Expansion-1.1.9/RecipeDescriptionExpansion/RecipeDescriptionExpansion/ItemDropItemDataPatch.cs",
+    "source-evidence/profile-updates/Azumatt-Recipe_Description_Expansion-1.1.9/RecipeDescriptionExpansion/RecipeDescriptionExpansion/GrabItemsFromDBObjectDBAwakePatch.cs",
+    "source-evidence/profile-updates/Azumatt-Recipe_Description_Expansion-1.1.9/RecipeDescriptionExpansion/RecipeDescriptionExpansion/RecipeDescriptionExpansionPlugin.cs"
+  ],
+  "notes": [
+    "Profile mod: Azumatt-Recipe_Description_Expansion 1.1.9 from Thunderstore, decompiled from the installed DLL on 2026-09-29",
+    "Functions.CustomSetTooltip replaces the game's set block and prints the set by its capitalized m_setName and the parts by prefab name; the item and itemSet arguments show them under the game's own names"
+  ]
+}

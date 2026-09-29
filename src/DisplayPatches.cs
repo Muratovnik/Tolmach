@@ -23,7 +23,9 @@ namespace Tolmach
             // display table is not a reason to inspect or detour a plugin's methods.
             if (!module.NeedsIlAdapters) return;
             if (!module.UiAllowed)
-            { module.Warn("Version differs from snapshot; scoped IL/return adapters skipped. Native key adapters remain enabled."); return; }
+            { module.Warn("Version differs from snapshot and OnlyAuditedVersions is on; scoped IL/return adapters skipped. Native key adapters remain enabled."); return; }
+            if (!module.ExactVersion)
+                module.Warn("Version differs from snapshot; adapters apply where the catalog strings are found. Strings not found are listed below and stay in English.");
             // Literal values found in the original IL of their methods, over all overloads of the name.
             HashSet<string> seen = new HashSet<string>(StringComparer.Ordinal);
             // A type, signature or body referring to an absent optional dependency throws on
@@ -88,9 +90,10 @@ namespace Tolmach
                 module.returns.Any(delegate(MethodSpec p) { return p.type == type.FullName && p.method == method.Name; });
             if (specs.Length == 0 && configs.Length == 0 && !result && !module.HasDisplayText) return;
             bool literal = false, sink = false, config = false;
+            List<CodeInstruction> original = null;
             try
             {
-                List<CodeInstruction> original = PatchProcessor.GetOriginalInstructions(method, null);
+                original = PatchProcessor.GetOriginalInstructions(method, null);
                 // A literal rule names a method, and overloads share the name: only a body that holds
                 // one of its values gets the literal transpiler, so the others are neither patched nor reported.
                 foreach (CodeInstruction instruction in original)
@@ -119,10 +122,16 @@ namespace Tolmach
             // exception filter (catch ... when), and it ends a fault handler (iterators with try/finally)
             // with leave instead of endfinally. Any patch of such a method fails to compile or yields
             // invalid IL. A mod that delays patching (StartupAccelerator) applies it after this try/catch
-            // has returned, and the failure stops the game instead.
+            // has returned, and the failure stops the game instead. Its display calls are translated in
+            // the display methods it calls; literal, config and return rules need its own body.
             string unsupported = UnsupportedHandler(method);
             if (unsupported != null)
-            { module.Warn("UI patch skipped " + type.FullName + "." + method.Name + ": " + unsupported); return; }
+            {
+                string owner = type.FullName + "." + method.Name;
+                if (sink) CallSites.Cover(harmony, module, owner, method, original, unsupported);
+                if (literal || config || result) module.Warn("UI patch skipped " + owner + ": " + unsupported);
+                return;
+            }
             string key = RuntimeAccess.MethodKey(method);
             Owners[key] = module;
             try
@@ -157,7 +166,7 @@ namespace Tolmach
             }
             catch (Exception) { return false; }
         }
-        internal static void Reset() { Owners.Clear(); }
+        internal static void Reset() { Owners.Clear(); CallSites.Reset(); }
         private static bool Relevant(CodeInstruction instruction, Module module)
         {
             MethodBase call = instruction.operand as MethodBase;
@@ -166,14 +175,14 @@ namespace Tolmach
             FieldInfo field = instruction.operand as FieldInfo;
             return field != null && instruction.opcode == OpCodes.Stfld && DisplayField(field, module);
         }
-        private static bool DisplayField(FieldInfo f, Module m)
+        internal static bool DisplayField(FieldInfo f, Module m)
         {
             if (f.FieldType != typeof(string) || f.DeclaringType == null) return false;
             string type = f.DeclaringType.FullName;
             return (m.id == "ExpertExplorer" && type == "MessageHud+UnlockMsg" && (f.Name == "m_topic" || f.Name == "m_description")) ||
                    (m.id == "SpeedyPaths" && type == "StatusEffect" && f.Name == "m_name");
         }
-        private static bool[] StringSink(MethodBase method)
+        internal static bool[] StringSink(MethodBase method)
         {
             ParameterInfo[] parameters = method.GetParameters();
             bool[] selected = new bool[parameters.Length];
@@ -205,7 +214,7 @@ namespace Tolmach
             }
             return selected;
         }
-        private static bool LocalizedReturn(MethodBase method)
+        internal static bool LocalizedReturn(MethodBase method)
         {
             MethodInfo m = method as MethodInfo;
             if (m == null || m.ReturnType != typeof(string) || m.DeclaringType == null) return false;
@@ -322,7 +331,7 @@ namespace Tolmach
                 module.Warn("Transpiler installed but no display site changed: " + owner);
             return output;
         }
-        private static string UnsupportedHandler(MethodBase method)
+        internal static string UnsupportedHandler(MethodBase method)
         {
             MethodBody body = method.GetMethodBody();
             if (body == null) return null;

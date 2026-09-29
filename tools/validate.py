@@ -241,6 +241,7 @@ def main() -> int:
         scoped = any(m.get(k) for k in ('texts', 'patterns', 'literals', 'configTexts', 'returns'))
         check(bool(m['namespaces']) or not scoped, name + ': scoped adapters need plugin namespaces')
         check(set(m['words']) == set(m['englishWords']), name + ': mismatched English/Russian key sets')
+        check(set(m.get('replaceNative', [])) <= set(m['words']), name + ': a replaceNative key is not one of the words')
         check(sum(len(m.get(k, [])) for k in ('words', 'texts', 'patterns', 'literals', 'configTexts', 'rawTexts', 'rawPatterns')) > 0, name + ': empty module')
         counts.update({key: len(m.get(key, [])) for key in ('words', 'texts', 'patterns', 'rawTexts', 'rawPatterns')})
         pairs = [(m['englishWords'][k], ru) for k, ru in m['words'].items()] + list(m['texts'].items())

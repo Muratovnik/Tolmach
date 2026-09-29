@@ -1,0 +1,40 @@
+{
+  "id": "Transmog",
+  "package": "Alpus-Transmog",
+  "version": "3.2.0",
+  "pluginVersion": "3.2.0",
+  "assembly": "Transmog",
+  "guids": [
+    "Transmog"
+  ],
+  "namespaces": [
+    "Transmog"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "Transmog.Transmog+Player_Update_Patch",
+      "method": "Postfix",
+      "values": {
+        "Transmog = {0}.": "Изменение внешнего вида {0}.",
+        "on": "включено",
+        "off": "выключено"
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/Alpus-Transmog-3.2.0/Transmog/Transmog/Transmog.cs",
+    "source-evidence/profile-updates/Alpus-Transmog-3.2.0/Transmog/Transmog/TransmogUI.cs",
+    "source-evidence/profile-updates/Alpus-Transmog-3.2.0/Transmog/Transmog/Helper.cs",
+    "source-evidence/profile-updates/Alpus-Transmog-3.2.0/Transmog.ldstr.il"
+  ],
+  "notes": [
+    "The mod ships RU-Transmog.json next to the DLL; Jotunn does not find it outside Translations/<Language>/, so the mod's own fallback loads it as Russian into its CustomLocalization (confirmed in LogOutput.log). All 28 keys have Russian, so no words are filled.",
+    "Only gap: the toggle hotkey message is a string.Format literal shown through Character.Message; its on/off arguments are separate literals of the same method."
+  ]
+}

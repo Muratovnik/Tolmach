@@ -1,0 +1,268 @@
+{
+  "id": "InfinityHammer",
+  "package": "JereKuusela-Infinity_Hammer",
+  "version": "1.85.0",
+  "pluginVersion": "1.85",
+  "assembly": "InfinityHammer",
+  "guids": [
+    "infinity_hammer"
+  ],
+  "namespaces": [
+    "InfinityHammer",
+    "InfinityTools"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "rawPatterns": [
+    {
+      "source": "Multiple ({0})",
+      "target": "Несколько объектов ({0})",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Center: {0}",
+      "target": "Центр: {0}",
+      "numeric": []
+    },
+    {
+      "source": "Terrain height radius: {0}",
+      "target": "Радиус высоты ландшафта: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Terrain paint radius: {0}",
+      "target": "Радиус окраски ландшафта: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "{0} other types: {1}",
+      "target": "Других типов: {0}, объектов: {1}",
+      "numeric": [
+        0,
+        1
+      ]
+    }
+  ],
+  "literals": [
+    {
+      "type": "InfinityHammer.Position",
+      "method": "Print",
+      "values": {
+        "Offset set to forward: ": "Смещение: вперед ",
+        ", up: ": ", вверх ",
+        ", right: ": ", вправо "
+      }
+    },
+    {
+      "type": "InfinityHammer.ScalingData",
+      "method": "Print",
+      "values": {
+        "Scale set to X: {0:P0}, Z: {1:P0}, Y: {2:P0}.": "Масштаб: X {0:P0}, Z {1:P0}, Y {2:P0}.",
+        "Scale set to {0:P0}.": "Масштаб: {0:P0}."
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerGridCommand+<>c",
+      "method": "<.ctor>b__0_1",
+      "values": {
+        "Grid disabled.": "Сетка выключена.",
+        "Grid {0} enabled.": "Сетка с шагом {0} включена."
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerSelect",
+      "method": "PrintSelected",
+      "values": {
+        "Selected {0} (size {1:P0}).": "Выбрано: {0} (размер {1:P0}).",
+        "Selected {0} (scale {1:F2}).": "Выбрано: {0} (масштаб {1:F2}).",
+        "Selected ": "Выбрано: "
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerBlueprintCommand",
+      "method": "PrintSelected",
+      "values": {
+        "Selected ": "Выбрано: "
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerLocationCommand",
+      "method": "PrintSelected",
+      "values": {
+        "Selected ": "Выбрано: "
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerRoomCommand",
+      "method": "PrintSelected",
+      "values": {
+        "Selected ": "Выбрано: "
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerSelect+<>c",
+      "method": "<.ctor>b__4_1",
+      "values": {
+        "Object not found.": "Объект не найден.",
+        "Nothing is being hovered.": "Курсор не наведен на объект.",
+        "Including {0} marked pieces in selection.": "В выделение добавлены отмеченные постройки: {0}."
+      }
+    },
+    {
+      "type": "InfinityTools.ToolSelection",
+      "method": "HandleCommand",
+      "values": {
+        "Nothing is being hovered.": "Курсор не наведен на объект."
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerZoomCommand+<>c",
+      "method": "<Command>b__2_1",
+      "values": {
+        "Selected object doesn't support scaling.": "Выбранный объект нельзя масштабировать."
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerZoomCommand+<>c__DisplayClass1_0",
+      "method": "<CommandAxis>b__1",
+      "values": {
+        "Selected object doesn't support scaling.": "Выбранный объект нельзя масштабировать."
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerScaleCommand+<>c",
+      "method": "<Command>b__2_1",
+      "values": {
+        "Selected object doesn't support scaling.": "Выбранный объект нельзя масштабировать."
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerScaleCommand+<>c__DisplayClass1_0",
+      "method": "<CommandAxis>b__1",
+      "values": {
+        "Selected object doesn't support scaling.": "Выбранный объект нельзя масштабировать."
+      }
+    },
+    {
+      "type": "InfinityTools.ToolShapeCommand+<>c",
+      "method": "<.ctor>b__0_1",
+      "values": {
+        "Selection shape set to {0}.": "Форма выделения: {0}."
+      }
+    },
+    {
+      "type": "InfinityTools.ToolCommand",
+      "method": "Execute",
+      "values": {
+        "Selected tool ": "Выбран инструмент: "
+      }
+    },
+    {
+      "type": "InfinityTools.ToolCmdCommand",
+      "method": "Execute",
+      "values": {
+        "Selected command ": "Выбрана команда: "
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerHelper",
+      "method": "GetPlacementGhost",
+      "values": {
+        "Not currently placing anything.": "Сейчас ничего не размещается."
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerHelper",
+      "method": "ParseSize",
+      "values": {
+        "No placement ghost.": "Нет объекта для размещения.",
+        "Missing object dimensions. Try placing the object to fix the issue.": "Размеры объекта неизвестны. Поставьте объект, чтобы это исправить."
+      }
+    },
+    {
+      "type": "InfinityHammer.HammerHelper",
+      "method": "EnabledCheck",
+      "values": {
+        "Infinity Hammer is disabled.": "Infinity Hammer отключен."
+      }
+    },
+    {
+      "type": "InfinityHammer.Hammer",
+      "method": "Equip",
+      "values": {
+        "Unable to find the hammer.": "Не удалось найти молот."
+      }
+    },
+    {
+      "type": "InfinityHammer.Hammer",
+      "method": "EquipInfinityHammer",
+      "values": {
+        "Unable to add the hammer to inventory.": "Не удалось положить молот в инвентарь.",
+        "Unable to find the hammer in inventory.": "Молот не найден в инвентаре."
+      }
+    },
+    {
+      "type": "InfinityHammer.ObjectSelection",
+      "method": ".ctor",
+      "values": {
+        "Players are not valid objects.": "Игроков выбирать нельзя.",
+        "Warning: ": "Внимание: ",
+        "Prefab ": "Префаб ",
+        " not found.": " не найден."
+      }
+    },
+    {
+      "type": "InfinityHammer.LocationSelection",
+      "method": ".ctor",
+      "values": {
+        "Location not found.": "Локация не найдена."
+      }
+    },
+    {
+      "type": "InfinityHammer.RoomSelection",
+      "method": ".ctor",
+      "values": {
+        "Room not found.": "Комната не найдена."
+      }
+    }
+  ],
+  "sourceFiles": [
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/InfinityHammer.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/HammerHelper.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/Configuration.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/Position.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/ScalingData.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/HammerGridCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/HammerSelect.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/HammerBlueprintCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/HammerLocationCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/HammerRoomCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/HammerZoomCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/HammerScaleCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/Hammer.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/ObjectSelection.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/LocationSelection.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/RoomSelection.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityTools/ToolSelection.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityTools/ToolShapeCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityTools/ToolCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityTools/ToolCmdCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityTools/InitialData.cs",
+    "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer.ldstr.il"
+  ],
+  "notes": [
+    "English is hard-coded in InfinityHammer.dll; HammerHelper.Message and thrown InvalidOperationException messages go through Server Devcommands Helper.AddMessage/AddError, which prints to the console and as a center-screen Character.Message, so the literals cover messages of commands bound to building keys (select, move, zoom, grid, shape, tool).",
+    "Selection piece name and description (Multiple, Center, terrain radius, other types) are stored in Piece.m_name/m_description and localized by Hud, so they use rawPatterns and are not persisted translated.",
+    "Console help and pure console output (AddString) are left in English in this pass."
+  ]
+}

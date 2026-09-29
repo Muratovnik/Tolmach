@@ -4,7 +4,7 @@
 
 # Tolmach
 
-Русский перевод для 68 модов Valheim и субтитров самой игры.
+Русский перевод для 87 модов Valheim и субтитров самой игры.
 
 [![Release](https://img.shields.io/github/v/release/Muratovnik/Tolmach?style=flat-square&color=blue)](https://github.com/Muratovnik/Tolmach/releases)
 [![Downloads](https://img.shields.io/github/downloads/Muratovnik/Tolmach/total?style=flat-square&color=blue)](https://github.com/Muratovnik/Tolmach/releases)
@@ -12,7 +12,7 @@
 
 [![Valheim 1.0.16](https://img.shields.io/badge/Valheim-1.0.16-2f6f9f?style=flat-square&logo=steam)](docs/VALIDATION.md)
 [![BepInEx 5.4.2351](https://img.shields.io/badge/BepInEx-5.4.2351-6f42c1?style=flat-square)](https://thunderstore.io/c/valheim/p/denikson/BepInExPack_Valheim/)
-[![68 mods](https://img.shields.io/badge/mods-68-8b5a2b?style=flat-square)](package/README.md#переводимые-моды)
+[![87 mods](https://img.shields.io/badge/mods-87-8b5a2b?style=flat-square)](package/README.md#переводимые-моды)
 
 [Установка](#установка) · [Первый запуск](#первый-запуск) · [Документация](#документация) · [Сообщить о непереведённой строке](https://github.com/Muratovnik/Tolmach/issues/new)
 
@@ -25,12 +25,13 @@ Tolmach — плагин BepInEx, названный по старинному �
 
 ## Возможности
 
-- **68 модов и субтитры игры.** Список с версиями — в
+- **87 модов и субтитры игры.** Список с версиями — в
   [описании пакета](package/README.md#переводимые-моды), что именно переведено в каждом
   моде — в [docs/COVERAGE.md](docs/COVERAGE.md). Другие пакеты перевода не нужны.
 - **Не перезаписывает чужой перевод.** Tolmach заполняет только отсутствующие и
   английские строки; русский текст самого мода или другого пакета перевода остаётся как
-  есть.
+  есть. Исключение — явно отмеченные в каталоге исправления ошибок в русском самого мода
+  (сейчас три строки MissingPieces).
 - **Только текст на экране.** Сохранения, рецепты, предметы и конфиги модов не
   затрагиваются. Мод нужен только на клиенте: серверу и другим игрокам его ставить не
   нужно.
@@ -52,6 +53,10 @@ Tolmach — плагин BepInEx, названный по старинному �
 - BepInExPack_Valheim и JsonDotNET — это зависимости пакета. Gale доустанавливает их
   при импорте, если их нет в профиле.
 
+Пакет опубликован на [Thunderstore](https://thunderstore.io/c/valheim/p/Muratovnik/Tolmach/):
+в Gale или r2modman найдите Tolmach в списке модов и установите, как любой мод Thunderstore.
+Установить ZIP из релиза на GitHub можно так:
+
 1. Скачайте `Muratovnik-Tolmach-<версия>.zip` из
    [последнего релиза](https://github.com/Muratovnik/Tolmach/releases/latest). Рядом
    лежит `SHA256SUMS`. Чтобы сверить хеш, выполните в папке загрузки
@@ -71,8 +76,6 @@ Tolmach — плагин BepInEx, названный по старинному �
    - **r2modman:** Settings → Import local mod. Этот путь не проверялся.
    - **Вручную:** скопируйте содержимое папки `plugins` из архива в
      `BepInEx/plugins/Tolmach/` так, чтобы `Tolmach.dll` и папка `catalog` лежали рядом.
-
-На thunderstore.io пакет пока не опубликован.
 
 ## Первый запуск
 
@@ -110,10 +113,11 @@ Tolmach — плагин BepInEx, названный по старинному �
 - Часть строк мод создаёт при запуске игры (описания улучшений кораблей, названия
   святилищ). Они появляются на языке, выбранном при запуске; после смены языка в
   настройках их обновит перезапуск игры.
-- Перехват экранного текста привязан к версиям модов из списка. Если у мода другая
-  версия, словарные переводы продолжают работать, а экранные по умолчанию
-  отключаются. Включить их можно параметром `Compatibility.AllowOtherVersions`, но
-  работа с другими версиями не проверялась.
+- Каталоги сверены с версиями модов из списка. Если у мода другая версия, Tolmach
+  переводит строки, которые в ней находит, а новые строки мода остаются английскими.
+  Предупреждение о версии и ненайденные строки видны в журнале и в
+  `Tolmach.runtime.txt`. Параметр `Compatibility.OnlyAuditedVersions` оставляет для
+  других версий только словарные переводы.
 - Ошибки самих модов пакет не исправляет.
 
 ## Участие в разработке

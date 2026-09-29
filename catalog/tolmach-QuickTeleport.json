@@ -1,0 +1,58 @@
+{
+  "id": "QuickTeleport",
+  "package": "OdinPlus-QuickTeleport",
+  "version": "2.0.4",
+  "pluginVersion": "2.0.4",
+  "assembly": "QuickTeleport",
+  "guids": [
+    "elg.QuickTeleport"
+  ],
+  "namespaces": [
+    "ServerSync"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorServer",
+      "values": {
+        "Disconnect: The client (": "Отключение: у клиента (",
+        ") doesn't have the correct ": ") неподходящая версия ",
+        " version ": " — нужна версия "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ErrorClient",
+      "values": {
+        " is not installed on the server.": " не установлен на сервере.",
+        " needs to be at least version ": " — нужна версия не ниже ",
+        ". You have version ": ". У вас версия ",
+        " may not be higher than version ": " — версия должна быть не выше "
+      }
+    },
+    {
+      "type": "ServerSync.VersionCheck",
+      "method": "ShowConnectionError",
+      "values": {
+        "\nServer expects you to have ": "\nСервер требует установить ",
+        " (Version: ": " (версия: ",
+        ") installed.": ")."
+      }
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/OdinPlus-QuickTeleport-2.0.4/QuickTeleport/ServerSync/VersionCheck.cs",
+    "source-evidence/profile-updates/OdinPlus-QuickTeleport-2.0.4/QuickTeleport/QuickTeleport/QuickTeleportPlugin.cs",
+    "source-evidence/profile-updates/OdinPlus-QuickTeleport-2.0.4/QuickTeleport.ldstr.il"
+  ],
+  "notes": [
+    "The mod only shortens portal and dungeon teleport timing; its own strings are config texts and log lines.",
+    "literals: the embedded ServerSync version-mismatch messages shown on connection, same Russian as AzuAutoStore."
+  ]
+}

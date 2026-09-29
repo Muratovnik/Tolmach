@@ -1,8 +1,8 @@
 {
   "id": "AdventureBackpacks",
   "package": "Vapok-AdventureBackpacks",
-  "version": "2.2.1",
-  "pluginVersion": "2.2.1",
+  "version": "2.2.2",
+  "pluginVersion": "2.2.2",
   "assembly": "AdventureBackpacks",
   "guids": [
     "vapok.mods.adventurebackpacks"
@@ -39,7 +39,7 @@
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/localization/e/Vapok-AdventureBackpacks-2.2.1/Vapok.Common.Managers.Skill/Skill.cs"
+    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.2/Vapok.Common.Managers.Skill/Skill.cs"
   ],
   "notes": [
     "Английский текст взят из кода и ресурсов этой версии мода; русский перевод собственный.",

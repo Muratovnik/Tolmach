@@ -104,6 +104,27 @@ namespace Tolmach.Tests
             Assert.That(m.Warnings, Is.Empty, "The overload without the literal is neither patched nor reported.");
         }
         [Test]
+        public void AnotherPluginVersionTranslatesTheLiteralsStillThereAndReportsTheRest()
+        {
+            Module m = FixtureModule("other", "FixturePlugin"); m.ExactVersion = false;
+            m.literals.Add(new LiteralSpec { type = "FixturePlugin.View", method = "Literal", values = new Dictionary<string, string> { { "Literal", "Литерал" } } });
+            m.literals.Add(new LiteralSpec { type = "FixturePlugin.Overloads", method = "Pick", values = new Dictionary<string, string> { { "Gone literal", "Пропавший литерал" } } });
+            Activate(m);
+            DisplayPatches.Install(Patcher, m);
+            Assert.That(FixturePlugin.View.Literal(), Is.EqualTo("Литерал"));
+            Assert.That(m.Warnings, Has.Some.StartsWith("Version differs from snapshot; adapters apply"));
+            Assert.That(m.Warnings, Has.Some.EqualTo("Literal not found in IL: FixturePlugin.Overloads.Pick :: Gone literal"));
+        }
+        [Test]
+        public void OnlyAuditedVersionsLeavesAnotherVersionUnpatched()
+        {
+            Module m = ViewModule(); m.ExactVersion = false; m.UiAllowed = false;
+            DisplayPatches.Install(Patcher, m);
+            Assert.That(FixturePlugin.View.Literal(), Is.EqualTo("Literal"));
+            Assert.That(Patcher.GetPatchedMethods(), Is.Empty);
+            Assert.That(m.Warnings, Has.Some.StartsWith("Version differs from snapshot and OnlyAuditedVersions is on"));
+        }
+        [Test]
         public void LiteralMissingFromEveryOverloadIsReportedOnce()
         {
             Module m = FixtureModule("missing", "FixturePlugin");
@@ -198,6 +219,53 @@ namespace Tolmach.Tests
         }
         private static IEnumerable<HarmonyLib.CodeInstruction> Unchanged(IEnumerable<HarmonyLib.CodeInstruction> instructions) { return instructions; }
         [Test]
+        public void UnpatchableMethodHasItsTextTranslatedInTheDisplayMethodsItCalls()
+        {
+            Module m = FixtureModule("callsites", "FixtureCallSites");
+            m.texts["Price"] = "Цена";
+            DisplayPatches.Install(Patcher, Activate(m));
+            FixtureCallSites.FilteredWindow.Draw();
+            Assert.That(UnityEngine.GUI.LastText, Is.EqualTo("Цена"));
+            // The same text drawn by another mod stays as it is.
+            FixtureOther.Window.Draw();
+            Assert.That(UnityEngine.GUI.LastText, Is.EqualTo("Price"));
+            Player player = new Player();
+            FixtureCallSites.FaultedMessage.Run(player).ToList();
+            Assert.That(player.LastMessage, Is.EqualTo("Цена"), "A call to Character.Message reaches the Player override.");
+            Assert.That(FixtureCallSites.FaultedMessage.Done, Is.True);
+            FixtureOther.Window.Message(player);
+            Assert.That(player.LastMessage, Is.EqualTo("Price"));
+            TextEngine.IsRussian = false;
+            FixtureCallSites.FilteredWindow.Draw();
+            Assert.That(UnityEngine.GUI.LastText, Is.EqualTo("Price"));
+            Assert.That(m.Warnings, Is.Empty, "Nothing from the catalog is lost, so nothing is reported.");
+            Assert.That(m.PatchedMethods, Is.Zero, "The methods themselves stay unpatched.");
+            PatchEvidence window = m.Patches.Values.Single(p => p.method == "FixtureCallSites.FilteredWindow.Draw");
+            Assert.That(window.notPatched, Is.EqualTo("exception filter"));
+            Assert.That(window.callSites, Is.EqualTo(new[] { "GUI.Window" }));
+            PatchEvidence coroutine = m.Patches.Values.Single(p => p.method.EndsWith(".MoveNext"));
+            Assert.That(coroutine.notPatched, Is.EqualTo("fault block"));
+            Assert.That(coroutine.callSites, Is.EquivalentTo(new[] { "Character.Message", "Player.Message" }));
+            Assert.That(coroutine.leftAsIs, Is.Empty);
+        }
+        [Test]
+        public void UnpatchableMethodWarnsAboutACallLeftAsIsOnlyWhenItsBodyHoldsCatalogText()
+        {
+            Module quiet = FixtureModule("quiet", "FixtureLeftAsIs");
+            quiet.texts["Other"] = "Другое";
+            DisplayPatches.Install(Patcher, Activate(quiet));
+            Assert.That(quiet.Warnings, Is.Empty);
+            PatchEvidence evidence = quiet.Patches.Values.Single();
+            Assert.That(evidence.leftAsIs, Is.EqualTo(new[] { "Localization.Localize" }));
+            Assert.That(evidence.callSites, Is.Empty);
+            Module loud = FixtureModule("loud", "FixtureLeftAsIs");
+            loud.texts["Price"] = "Цена";
+            DisplayPatches.Install(Patcher, Activate(loud));
+            Assert.That(loud.Warnings, Is.EqualTo(new[] {
+                "UI patch skipped FixtureLeftAsIs.Filtered.Draw: exception filter; left untranslated: Localization.Localize" }));
+            Assert.That(FixtureLeftAsIs.Filtered.Draw(), Is.EqualTo("Price"));
+        }
+        [Test]
         public void LiteralInATypeWithoutNamespaceIsTranslated()
         {
             Module m = FixtureModule("global", Module.GlobalNamespace);
@@ -288,6 +356,25 @@ namespace Tolmach.Tests
             NativeAdapters.Refresh();
             Assert.That(TextEngine.IsRussian, Is.True);
             Assert.That(main.Translate("first_key"), Is.EqualTo("Первый запуск"));
+        }
+        [Test]
+        public void ReplaceNativeWordTakesOverTheModsOwnRussianAndOtherKeysStayFillOnly()
+        {
+            Module m = FixtureModule("mistakes", "FixturePlugin");
+            m.words["wall_quarter"] = "Деревянная стена 1x1"; m.englishWords["wall_quarter"] = "Wood Wall Quarter Upper";
+            m.words["wall_half"] = "Верхняя половина стены"; m.englishWords["wall_half"] = "Wood Wall Half Upper";
+            m.replaceNative.Add("wall_quarter");
+            Activate(m);
+            Localization.SelectedLanguage = "Russian";
+            Localization main = Localization.instance;
+            InstallBridge(() => "Russian");
+            main.AddWord("wall_quarter", "Деревянная стена 1х1");
+            main.AddWord("wall_half", "Деревянная стена (половина)");
+            LocalizationBridge.InjectMain();
+            Assert.That(main.Translate("wall_quarter"), Is.EqualTo("Деревянная стена 1x1"));
+            Assert.That(main.Translate("wall_half"), Is.EqualTo("Деревянная стена (половина)"), "Every other key stays fill-only.");
+            main.AddWord("wall_quarter", "Деревянная стена 1х1");
+            Assert.That(main.Translate("wall_quarter"), Is.EqualTo("Деревянная стена 1x1"), "A later registration by the mod does not bring the mistake back.");
         }
         [Test]
         public void NativeLocalizeKeyKeepsExistingThirdPartyRussian()
