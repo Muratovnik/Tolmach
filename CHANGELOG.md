@@ -1,6 +1,14 @@
 # Изменения
 
-## 0.6.0 — еще 18 модов
+## [0.6.0](https://github.com/Muratovnik/Tolmach/compare/v0.2.0...v0.6.0) (2026-09-29)
+
+### Highlights
+
+Первый выпуск после 0.2.0 и первый на Thunderstore. Tolmach работает сам, без другого пакета
+русского перевода: 87 модов и субтитры игры, перевод с оригинального английского текста модов.
+Ниже изменения по этапам, от новых к старым.
+
+#### Еще 18 модов
 
 - Переведены 16 модов:
   - Armory от Therzie: названия и описания доспехов, плаща и пояса, оружейная станция,
@@ -35,7 +43,7 @@
   - имена инструментов Infinity Hammer из его файла данных.
 - Проверки: 455 тестов NUnit, валидатор данных со схемой каталога, проверка пакета.
 
-## 0.5.4 — SocialSystem и новые версии модов
+#### SocialSystem и новые версии модов
 
 - Переведен SocialSystem 1.0.1: друзья, группы и личные сообщения.
   - Окна «Общение» и «Группа», статусы («В сети», «Отошел», «Невидимый», «Не в сети»),
@@ -59,7 +67,7 @@
   `muratovnik.tolmach.cfg` можно удалить.
 - Проверки: 380 тестов NUnit, валидатор данных со схемой каталога, проверка пакета.
 
-## 0.5.3 — по смыслу, а не по совпадению слов
+#### По смыслу, а не по совпадению слов
 
 - Исправлены названия, которые 0.5.2 взял из игры только потому, что английское слово то же,
   хотя предмет у мода другой:
@@ -77,7 +85,7 @@
   английскими.
 - Проверки: 373 теста NUnit, валидатор данных со схемой каталога, проверка пакета.
 
-## 0.5.2 — как в игре
+#### Как в игре
 
 - Переводы сверены с русской локализацией игры:
   - «ё» больше не пишется, как и в самой игре: «Черный лес», «Кремневая кирка». Имена собственные
@@ -97,7 +105,7 @@
   конфига; если вы поменяли этот текст сами, он останется как есть.
 - Проверки: 371 тест NUnit, валидатор данных, подсказка TakeAllCooked на DLL самого мода вне игры.
 
-## 0.5.1 — сверка покрытия
+#### Сверка покрытия
 
 - Все 68 модов сверены с перечнем строк, которые переводил другой пакет перевода. В части модов
   строки выпали при подготовке 0.4.0: строку, которую нельзя было заменять в одном месте, не
@@ -118,7 +126,7 @@
 - Проверки: 368 тестов NUnit, валидатор данных, сверка новых литералов с IL модов. В игре эти
   изменения не проверялись.
 
-## 0.5.0 — Creature Level and Loot Control
+#### Creature Level and Loot Control
 
 - Переведён Creature Level and Loot Control: таблички существ с эффектами, стихиями и
   особенностями боссов в роде существа («Огненная Летучая мышь», «Эйктюр Отражающий»),
@@ -144,7 +152,7 @@
   настройки CLLC проверены на DLL самого мода вне игры, патчи остальных модов — на их DLL. В игре
   CLLC не проверялся.
 
-## 0.4.0 — ещё 25 модов
+#### Ещё 25 модов
 
 - Переведены еще 25 модов, которые поддерживал другой пакет перевода: Balrond Amazing Nature, Arsenal Reborn, Constructions, Furniture Reborn, Dual
   Mastery и Lightkeeper, Passive Powers, OdinsSteelworks, Epic Loot, VNEI, Inventory Slots,
@@ -161,7 +169,7 @@
 - Проверки: 341 тест NUnit, валидатор данных, сверка всех 630 литералов с IL самих DLL. В игре
   моды этой версии ещё не проверялись.
 
-## 0.3.0 — самостоятельный пакет: 42 мода и субтитры игры
+#### Самостоятельный пакет: 42 мода и субтитры игры
 
 - Tolmach работает сам по себе: другие пакеты русского перевода не нужны. Если такой
   пакет установлен, его строки по-прежнему не перезаписываются.
@@ -193,6 +201,36 @@
   replaced»: проверка выполняется, когда транспайлер действительно отработал.
 - Проверки: 237 тестов NUnit, валидатор данных и сверка всех 318 литералов с IL
   установленных DLL. В самой игре пакет ещё не проверялся.
+
+### Features
+
+* translate SocialSystem and 18 more mods, correct three MissingPieces strings and show game names in the Recipe Description Expansion set block ([ea3e9ac](https://github.com/Muratovnik/Tolmach/commit/ea3e9acb683610cc2a08d3ba6ac0f09e4394291e))
+* keep a mod's adapters when its version differs from the audited one ([ea3e9ac](https://github.com/Muratovnik/Tolmach/commit/ea3e9acb683610cc2a08d3ba6ac0f09e4394291e))
+* reject catalogs that do not match their types ([f48a3d5](https://github.com/Muratovnik/Tolmach/commit/f48a3d5871023cd5a67846e5694375b3efebd2c8))
+* translate config texts that a mod reads in a named method ([7c8df24](https://github.com/Muratovnik/Tolmach/commit/7c8df24445da7e62202011e8af17ce923e6abe56))
+* apply Creature Level and Loot Control's own language table ([a445acb](https://github.com/Muratovnik/Tolmach/commit/a445acb859b9be2d236c1a50f3268b345969c7c2))
+* allow literals in types without a namespace ([f6a913f](https://github.com/Muratovnik/Tolmach/commit/f6a913f7e4a781bfaa8d30d8de3ed5ae72bef39a))
+* translate stored display text, add five mods and the game's captions ([66b5328](https://github.com/Muratovnik/Tolmach/commit/66b5328288b0237753a84558834e0280c67df57f))
+* **catalog:** translate Creature Level and Loot Control ([ae58edd](https://github.com/Muratovnik/Tolmach/commit/ae58edd507d8ecfc5cc8ab9280b6c62ff34acb22))
+* **catalog:** translate 25 more mods ([09ab47d](https://github.com/Muratovnik/Tolmach/commit/09ab47d2a158376cbf1beac7a5e796624ed34ed7))
+* **package:** replace the package icon with the book artwork ([f98cb6b](https://github.com/Muratovnik/Tolmach/commit/f98cb6b00ae381aa41c370f0a774204d6c0c5ef7))
+* **validation:** check catalogs against a JSON Schema ([01b098c](https://github.com/Muratovnik/Tolmach/commit/01b098cd200e9cb702fe3dd99c636cf4eb42c154))
+* **validation:** check the CLLC language table ([a419d92](https://github.com/Muratovnik/Tolmach/commit/a419d9214a316fd5296b1493e3997c3be30807f1))
+* **validation:** require one translation per key across catalogs ([87813bd](https://github.com/Muratovnik/Tolmach/commit/87813bd7bdf52ecf8ce9328a61fc519415db18eb))
+
+### Bug Fixes
+
+* translate display calls of methods Harmony cannot rebuild ([ea3e9ac](https://github.com/Muratovnik/Tolmach/commit/ea3e9acb683610cc2a08d3ba6ac0f09e4394291e))
+* patch only the overload that holds a literal ([5145688](https://github.com/Muratovnik/Tolmach/commit/5145688530e0f4967f8e63facf61a1c245ac49fa))
+* leave methods with fault blocks unpatched ([7e9c49c](https://github.com/Muratovnik/Tolmach/commit/7e9c49cedbb10968338601ff3268f2689c7d49c1))
+* leave methods with exception filters unpatched ([3a35f8e](https://github.com/Muratovnik/Tolmach/commit/3a35f8e47ecbfca6fd85fd953e04e3bebc6b71a2))
+* **build:** decode the package icon instead of reading its header ([d585efd](https://github.com/Muratovnik/Tolmach/commit/d585efd9b33d247c00728506826e54aeae0f7752))
+* **catalog:** name seven objects by what they are in the mod ([c1ecc3b](https://github.com/Muratovnik/Tolmach/commit/c1ecc3b939bcc7e4fdac4ecb3666d5f6cf8c88d5))
+* **catalog:** follow the game's spelling, spacing and terms ([8d73a7f](https://github.com/Muratovnik/Tolmach/commit/8d73a7f22609e6c1df0ffeb62da142526ce7e5a4))
+* **catalog:** add the strings found by the coverage audit ([0a2c5df](https://github.com/Muratovnik/Tolmach/commit/0a2c5dffac0c6d047a94108bc97527b717c2c41a))
+* **catalog:** strings left English in the first 0.4.0 game session ([22cb6a4](https://github.com/Muratovnik/Tolmach/commit/22cb6a480f91d3c721def5739b8108553c62749f))
+* **catalog:** name catalogs `tolmach-<id>.json` ([69dd148](https://github.com/Muratovnik/Tolmach/commit/69dd148e8130679c27329439d7659aed4ce74500))
+* **catalog:** use the game's Russian terms in 17 catalogs ([8d0de49](https://github.com/Muratovnik/Tolmach/commit/8d0de492ddbd876d6dccf9cbedb92a2619b9fbbd))
 
 ## 0.2.0 — новое имя: Tolmach
 
