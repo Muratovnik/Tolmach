@@ -21,7 +21,7 @@
       "method": "GroupLabel",
       "values": {
         "Meadows": "Луга",
-        "Black Forest": "Чёрный лес",
+        "Black Forest": "Черный лес",
         "Swamp": "Болото",
         "Mountain": "Гора",
         "Plains": "Равнины",
@@ -54,15 +54,15 @@
       "type": "Huginn.PinFilterUI",
       "method": "BuildSkeleton",
       "values": {
-        "Show all": "Показать всё",
-        "Hide all": "Скрыть всё"
+        "Show all": "Показать все",
+        "Hide all": "Скрыть все"
       }
     },
     {
       "type": "Huginn.PinFilterUI",
       "method": "BuildGroup",
       "values": {
-        "Toggle all ": "Переключить всё: "
+        "Toggle all ": "Переключить все: "
       }
     },
     {
@@ -93,8 +93,8 @@
       "values": {
         "Huginn: no map loaded.": "Huginn: карта не загружена.",
         "Usage: huginn.clearpins <radius>   e.g. huginn.clearpins 50": "Использование: huginn.clearpins <radius>   например, huginn.clearpins 50",
-        "Huginn: no removable pins within {0:0}m.": "Huginn: в радиусе {0:0} м нет меток, которые можно удалить.",
-        "Huginn: removed {0} pin(s) within {1:0}m.": "Huginn: удалено меток в радиусе {1:0} м: {0}."
+        "Huginn: no removable pins within {0:0}m.": "Huginn: в радиусе {0:0} м нет меток, которые можно удалить.",
+        "Huginn: removed {0} pin(s) within {1:0}m.": "Huginn: удалено меток в радиусе {1:0} м: {0}."
       }
     },
     {
@@ -108,7 +108,7 @@
       "type": "Huginn.PinCleanup+LocationsCommand",
       "method": "Run",
       "values": {
-        "Huginn: ZoneSystem not ready.": "Huginn: ZoneSystem ещё не готова.",
+        "Huginn: ZoneSystem not ready.": "Huginn: ZoneSystem еще не готова.",
         "Huginn: logged {0} locations to LogOutput.log.": "Huginn: записано локаций в LogOutput.log: {0}."
       }
     },
@@ -127,8 +127,8 @@
         " [components: ": " [компоненты: ",
         "none": "нет",
         "Huginn: looking at '": "Huginn: вы смотрите на '",
-        " [MineRock, removeWhenDestroyed={0}, allDestroyed={1}]": " [MineRock, удалять при разрушении={0}, всё разрушено={1}]",
-        " [MineRock5, allDestroyed={0}]": " [MineRock5, всё разрушено={0}]"
+        " [MineRock, removeWhenDestroyed={0}, allDestroyed={1}]": " [MineRock, удалять при разрушении={0}, все разрушено={1}]",
+        " [MineRock5, allDestroyed={0}]": " [MineRock5, все разрушено={0}]"
       }
     },
     {
@@ -145,7 +145,7 @@
         "Huginn: no map loaded.": "Huginn: карта не загружена.",
         "Huginn: {0} pins across {1} type(s):": "Huginn: меток — {0}, типов — {1}:",
         "(unnamed)": "(без названия)",
-        "  PinType {0}: {1} pins (foreign={2}, saved={3}) e.g. [{4}]": "  PinType {0}: меток — {1} (чужих={2}, сохранённых={3}), например [{4}]"
+        "  PinType {0}: {1} pins (foreign={2}, saved={3}) e.g. [{4}]": "  PinType {0}: меток — {1} (чужих={2}, сохраненных={3}), например [{4}]"
       }
     }
   ],

@@ -21,7 +21,7 @@
     "StoneHenge4": "Погребальные камни",
     "StoneHenge5": "Каменный путевой знак",
     "Mistlands_DvergrTownEntrance1": "Разрушенные шахты двергов",
-    "Mistlands_DvergrTownEntrance2": "Заражённые шахты",
+    "Mistlands_DvergrTownEntrance2": "Зараженные шахты",
     "Mistlands_Excavation1": "Место раскопок",
     "Mistlands_Excavation2": "Место раскопок",
     "Mistlands_Excavation3": "Место раскопок",
@@ -37,7 +37,7 @@
     },
     {
       "source": "Buff Cooldown {0}s",
-      "target": "До следующего усиления: {0} с"
+      "target": "До следующего усиления: {0} с"
     },
     {
       "source": "Already active {0}",
@@ -67,7 +67,7 @@
     "StoneHenge4": "Погребальные камни",
     "StoneHenge5": "Каменный путевой знак",
     "Mistlands_DvergrTownEntrance1": "Разрушенные шахты двергов",
-    "Mistlands_DvergrTownEntrance2": "Заражённые шахты",
+    "Mistlands_DvergrTownEntrance2": "Зараженные шахты",
     "Mistlands_Excavation1": "Место раскопок",
     "Mistlands_Excavation2": "Место раскопок",
     "Mistlands_Excavation3": "Место раскопок",

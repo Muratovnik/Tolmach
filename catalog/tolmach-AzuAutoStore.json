@@ -127,8 +127,8 @@
     }
   ],
   "rawTexts": {
-    "Item is favorited and won't be stored": "Предмет в избранном и не будет перенесён в контейнеры",
-    "Slot is favorited and won't be stored": "Ячейка в избранном, её предмет не будет перенесён в контейнеры",
-    "Item & Slot are favorited and won't be stored": "Предмет и ячейка в избранном, предмет не будет перенесён в контейнеры"
+    "Item is favorited and won't be stored": "Предмет в избранном и не будет перенесен в контейнеры",
+    "Slot is favorited and won't be stored": "Ячейка в избранном, ее предмет не будет перенесен в контейнеры",
+    "Item & Slot are favorited and won't be stored": "Предмет и ячейка в избранном, предмет не будет перенесен в контейнеры"
   }
 }

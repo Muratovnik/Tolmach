@@ -72,7 +72,7 @@
   {
     "module": "CarturFeedingTrough",
     "source": "17s",
-    "expected": "17 с"
+    "expected": "17\u00a0с"
   },
   {
     "module": "CarturFeedingTrough",

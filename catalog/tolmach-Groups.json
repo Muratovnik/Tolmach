@@ -25,7 +25,7 @@
     "groups_group_chat_toggle_hint": "/p Переключить чат группы",
     "groups_player_joined": "$1 присоединяется к группе.",
     "groups_player_left": "$1 покидает группу.",
-    "groups_player_removed": "Игрок $1 исключён из группы.",
+    "groups_player_removed": "Игрок $1 исключен из группы.",
     "groups_self_removed": "Вас исключили из группы.",
     "groups_player_promoted": "$1 — новый лидер группы."
   },

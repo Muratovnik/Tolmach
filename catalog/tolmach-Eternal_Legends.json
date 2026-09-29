@@ -13,7 +13,7 @@
   ],
   "words": {
     "caption_swing": "рассекает воздух",
-    "config_update_line_1_DO": "Мод {0} обновлён до версии {1}.",
+    "config_update_line_1_DO": "Мод {0} обновлен до версии {1}.",
     "config_update_line_2_DO": "В этом обновлении появились новые параметры настроек.",
     "config_update_line_3_DO": "Сбросить настройки к новым значениям по умолчанию?",
     "config_update_line_4_DO": "- ДА - применить рекомендуемые значения по умолчанию.",
@@ -21,7 +21,7 @@
     "config_update_title_DO": "Обновление {0}",
     "horus_set": "Комплект доспехов",
     "horus_set_1": "пробуждается",
-    "piecemanager_cat_distantorigins": "Далёкие истоки",
+    "piecemanager_cat_distantorigins": "Далекие истоки",
     "thanatos_set": "Комплект доспехов",
     "thanatos_set_1": "пробуждается"
   },

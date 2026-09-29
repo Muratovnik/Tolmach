@@ -127,7 +127,8 @@ namespace Tolmach.Tests
             Assert.That(TextEngine.Display("Price", "unbound"), Is.EqualTo("Price"));
         }
         [TestCase("Animals", "Animals")]
-        [TestCase("3m 8s", "3 мин 8 с")]
+        // A no-break space between a number and its unit, as in the game's own strings.
+        [TestCase("3m 8s", "3\u00a0мин 8\u00a0с")]
         public void NumericTimeTemplatesDoNotTranslateArbitraryWords(string source, string expected)
         {
             LoadModule("CarturFeedingTrough");

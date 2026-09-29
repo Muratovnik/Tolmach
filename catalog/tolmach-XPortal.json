@@ -33,8 +33,8 @@
       "type": "XPortal.UI.PortalConfigurationPanel",
       "method": "PopulateDropdown",
       "values": {
-        "{0:0.0} km": "{0:0.0} км",
-        "{0} m": "{0} м"
+        "{0:0.0} km": "{0:0.0} км",
+        "{0} m": "{0} м"
       }
     },
     {

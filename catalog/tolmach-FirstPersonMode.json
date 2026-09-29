@@ -21,7 +21,7 @@
       "type": "FirstPersonMode.Util.Functions",
       "method": "HandleFirstPersonMode",
       "values": {
-        "Changed fov to: {0}": "Угол обзора изменён: {0}"
+        "Changed fov to: {0}": "Угол обзора изменен: {0}"
       }
     },
     {

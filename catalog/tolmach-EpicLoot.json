@@ -13,7 +13,7 @@
   ],
   "words": {
     "mod_epicloot_adventure_locatefailed": "Не удалось найти подходящее место в биоме «$1».",
-    "mod_epicloot_adventure_locateunavailable": "Карта мира ещё составляется — повторите попытку чуть позже.",
+    "mod_epicloot_adventure_locateunavailable": "Карта мира еще составляется — повторите попытку чуть позже.",
     "mod_epicloot_enchanting_identifycategory": "Изменить категорию",
     "mod_epicloot_identify_progressgated": "<color=yellow>(зависит от прогресса)</color>",
     "mod_epicloot_shardupgrade": "Улучшить",

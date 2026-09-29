@@ -14,10 +14,10 @@
     "tag_helmetwolf_bal_description": "Шлем, сделанный из головы волка.",
     "tag_helmetwolfhead_bal": "Шлем из волчьей головы",
     "tag_sledgetemplar_bal": "Кувалда храмовника",
-    "tag_sledgetemplar_bal_description": "Тяжёлая кувалда воина-храмовника.",
+    "tag_sledgetemplar_bal_description": "Тяжелая кувалда воина-храмовника.",
     "tag_swordroot_bal": "Корневой меч",
-    "tag_swordroot_bal_description": "Меч, выращенный из переплетённых корней.",
-    "tag_thswordchitin_bal_description": "Тяжёлый клинок из глубинного хитина, весь в острых шипах."
+    "tag_swordroot_bal_description": "Меч, выращенный из переплетенных корней.",
+    "tag_thswordchitin_bal_description": "Тяжелый клинок из глубинного хитина, весь в острых шипах."
   },
   "englishWords": {
     "tag_helmetwolf_bal_description": "tag_helmetwolf_bal_description",
@@ -36,7 +36,7 @@
       "type": "BalrondArsenalReborn.ItemEdits",
       "method": "editWolfFang",
       "values": {
-        "Bone Spear": "Костяное копьё",
+        "Bone Spear": "Костяное копье",
         "A clever usage of boar tusk": "Хитроумное применение кабаньего клыка"
       }
     }
@@ -57,7 +57,7 @@
     "Berserker": "Берсерк",
     "Better stronger deadlier": "Лучше, крепче, смертоноснее",
     "Blood boil": "Кровь кипит",
-    "Bone Spear": "Костяное копьё",
+    "Bone Spear": "Костяное копье",
     "Burn the heretics !": "Сжечь еретиков!",
     "Death to the scourge and death to the living!": "Смерть скверне и смерть живым!",
     "Do nto defy the Lord": "Не смей перечить Владыке",
@@ -66,7 +66,7 @@
     "Exoskeleton": "Экзоскелет",
     "For whom the bell tolls": "По ком звонит колокол",
     "Forgotten Power lies within you": "В вас дремлет забытая сила",
-    "Geared up for first challange": "Снаряжён для первого испытания",
+    "Geared up for first challange": "Снаряжен для первого испытания",
     "In the name of Holy": "Во имя святого",
     "Increase your skill in Blood Magic and doubles your health regeneration.": "Повышает навык «Магия крови» и удваивает восстановление здоровья.",
     "Increase your skill with axes and woodcutting": "Повышает навыки «Топоры» и «Рубка древесины»",
@@ -75,7 +75,7 @@
     "Jormuntide": "Ёрмунтайд",
     "Juggernaut's Might": "Мощь джаггернаута",
     "Kromium": "Кромий",
-    "LIght yet guarded": "Легко, но надёжно",
+    "LIght yet guarded": "Легко, но надежно",
     "Medium Lighting Resistance": "Среднее сопротивление молнии",
     "Nature responds to your calls": "Природа откликается на ваш зов",
     "One who sung in name of the gods.": "Тот, кто пел во имя богов.",
@@ -83,10 +83,10 @@
     "Protector": "Защитник",
     "Proven as true lord of the Sea": "Признанный повелитель моря",
     "Ragged Survivor": "Выживший в лохмотьях",
-    "Raiders of the storm": "Налётчики бури",
+    "Raiders of the storm": "Налетчики бури",
     "Reinforced": "Усиленный",
     "Reinforced Troll Armor": "Усиленная тролльская броня",
-    "Reinforced to fight evil in name of the gods": "Закалён для битвы со злом во имя богов",
+    "Reinforced to fight evil in name of the gods": "Закален для битвы со злом во имя богов",
     "Ride with me....": "Скачи со мной....",
     "Serpents Slayer": "Убийца змеев",
     "Sklad's Song": "Песнь скальда",
@@ -101,7 +101,7 @@
     "Unbreakable": "Несокрушимость",
     "You fear not waters": "Вам не страшны воды",
     "You feel strange tingling eating this. Increase Reistance against lighting damage.": "Съев это, вы чувствуете странное покалывание. Повышает сопротивление урону от молнии.",
-    "You lead i follow": "Ты ведёшь — я следую",
+    "You lead i follow": "Ты ведешь — я следую",
     "You move swiftly thru forest": "Вы быстро передвигаетесь по лесу",
     "OdinBlessing": "Благословение Одина"
   }

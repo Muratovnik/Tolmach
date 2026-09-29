@@ -41,7 +41,7 @@
     "Bow": "Лук",
     "Club": "Дубина",
     "DraugrHeal": "Лечение драугра",
-    "Flint spear": "Кремнёвое копьё",
+    "Flint spear": "Кремневое копье",
     "GoblinHeal": "Лечение фулинга",
     "Iron Bastard Sword": "Железный полуторный меч",
     "Sailor's saber": "Сабля моряка",
@@ -69,8 +69,8 @@
     "fireball": "Огненный шар",
     "frostbolt": "Ледяная стрела",
     "heal": "Лечение",
-    "ice_hand_left": "Лёд (левая рука)",
-    "ice_hand_right": "Лёд (правая рука)",
+    "ice_hand_left": "Лед (левая рука)",
+    "ice_hand_right": "Лед (правая рука)",
     "kick": "Удар ногой",
     "left special": "Особый удар левой",
     "left_blade": "Удар клинком левой",
@@ -244,14 +244,14 @@
     },
     {
       "source": "{0} Marauder",
-      "target": "{0}-мародёр",
+      "target": "{0}-мародер",
       "arguments": {
         "0": "text"
       }
     },
     {
       "source": "{0} Mercenary",
-      "target": "{0}-наёмник",
+      "target": "{0}-наемник",
       "arguments": {
         "0": "text"
       }

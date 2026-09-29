@@ -9,7 +9,7 @@
   "words": {
     "azumatt_recycle_n_reclaim_tooltip_yield_header": "Ресурсы после разборки:",
     "azumatt_recycle_n_reclaim_undo_success": "Разборка отменена.",
-    "azumatt_recycle_n_reclaim_undo_failed": "Нельзя отменить разборку: возвращённых ресурсов больше нет в инвентаре.",
+    "azumatt_recycle_n_reclaim_undo_failed": "Нельзя отменить разборку: возвращенных ресурсов больше нет в инвентаре.",
     "azumatt_recycle_n_reclaim_undo_expired": "Время для отмены разборки истекло."
   },
   "englishWords": {

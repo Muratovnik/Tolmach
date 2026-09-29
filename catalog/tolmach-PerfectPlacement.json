@@ -80,7 +80,7 @@
       "type": "PerfectPlacement.Patches.GridAlignment",
       "method": "Postfix",
       "values": {
-        "Default grid alignment set to ": "Шаг сетки по умолчанию изменён на ",
+        "Default grid alignment set to ": "Шаг сетки по умолчанию изменен на ",
         "Grid alignment by default ": "Выравнивание по сетке по умолчанию ",
         "enabled": "включено",
         "disabled": "выключено"

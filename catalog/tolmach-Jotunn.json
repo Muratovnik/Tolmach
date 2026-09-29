@@ -13,7 +13,7 @@
   ],
   "words": {
     "mod_compat_header_failed_connection": "Ошибка подключения:",
-    "mod_compat_header_remote_version": "Удалённая версия (сервер):",
+    "mod_compat_header_remote_version": "Удаленная версия (сервер):",
     "mod_compat_header_local_version": "Локальная версия (эта игра):",
     "mod_compat_header_valheim_version": "Ошибка версии Valheim:",
     "mod_compat_header_missing_mods": "Отсутствующие моды:",
