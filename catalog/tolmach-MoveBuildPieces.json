@@ -19,6 +19,7 @@
     "Move cancelled because the selected build piece changed": "Перемещение отменено: выбрана другая постройка",
     "The object has no network owner yet": "У объекта пока нет сетевого владельца",
     "Requesting move lock": "Запрос блокировки для перемещения",
+    "Move lock was lost": "Блокировка для перемещения потеряна",
     "MoveBuildPieces server protocol stopped responding": "Серверная часть MoveBuildPieces перестала отвечать",
     "Move cancelled": "Перемещение отменено",
     "Waiting for server confirmation": "Ожидание подтверждения сервера",

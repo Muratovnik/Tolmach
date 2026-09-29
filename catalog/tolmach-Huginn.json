@@ -38,6 +38,7 @@
       "method": "Leaf",
       "values": {
         "Unknown": "Неизвестно",
+        "Portal": "Портал",
         "Boat": "Лодка",
         "Location": "Место"
       }
@@ -125,7 +126,9 @@
         "Huginn: not looking at anything (aim at it and try again).": "Huginn: вы ни на что не смотрите (наведите прицел на объект и повторите).",
         " [components: ": " [компоненты: ",
         "none": "нет",
-        "Huginn: looking at '": "Huginn: вы смотрите на '"
+        "Huginn: looking at '": "Huginn: вы смотрите на '",
+        " [MineRock, removeWhenDestroyed={0}, allDestroyed={1}]": " [MineRock, удалять при разрушении={0}, всё разрушено={1}]",
+        " [MineRock5, allDestroyed={0}]": " [MineRock5, всё разрушено={0}]"
       }
     },
     {

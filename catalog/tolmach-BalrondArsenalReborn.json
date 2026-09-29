@@ -16,7 +16,8 @@
     "tag_sledgetemplar_bal": "Кувалда храмовника",
     "tag_sledgetemplar_bal_description": "Тяжёлая кувалда воина-храмовника.",
     "tag_swordroot_bal": "Корневой меч",
-    "tag_swordroot_bal_description": "Меч, выращенный из переплетённых корней."
+    "tag_swordroot_bal_description": "Меч, выращенный из переплетённых корней.",
+    "tag_thswordchitin_bal_description": "Тяжёлый клинок из глубинного хитина, весь в острых шипах."
   },
   "englishWords": {
     "tag_helmetwolf_bal_description": "tag_helmetwolf_bal_description",
@@ -24,7 +25,8 @@
     "tag_sledgetemplar_bal": "tag_sledgetemplar_bal",
     "tag_sledgetemplar_bal_description": "tag_sledgetemplar_bal_description",
     "tag_swordroot_bal": "tag_swordroot_bal",
-    "tag_swordroot_bal_description": "tag_swordroot_bal_description"
+    "tag_swordroot_bal_description": "tag_swordroot_bal_description",
+    "tag_thswordchitin_bal_description": "tag_thswordchitin_bal_description"
   },
   "texts": {},
   "patterns": [],
@@ -100,6 +102,7 @@
     "You fear not waters": "Вам не страшны воды",
     "You feel strange tingling eating this. Increase Reistance against lighting damage.": "Съев это, вы чувствуете странное покалывание. Повышает сопротивление урону от молнии.",
     "You lead i follow": "Ты ведёшь — я следую",
-    "You move swiftly thru forest": "Вы быстро передвигаетесь по лесу"
+    "You move swiftly thru forest": "Вы быстро передвигаетесь по лесу",
+    "OdinBlessing": "Благословение Одина"
   }
 }

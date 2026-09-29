@@ -38,13 +38,6 @@
       "values": {
         "분열된 본매스를 모두 처치하라!": "Уничтожьте все части Массы костей!"
       }
-    },
-    {
-      "type": "bossadd.Patches.MiniBonemassOrderDamageBlockPatch",
-      "method": "Prefix",
-      "values": {
-        "]색 본매스를 먼저 처치하라!": "] — сначала убейте Массу костей этого цвета!"
-      }
     }
   ],
   "prefabs": [],
@@ -57,5 +50,23 @@
   ],
   "notes": [
     "Stage B: LJS-BossAdd 1.2.0 from Thunderstore"
+  ],
+  "terms": {
+    "color": {
+      "빨강": "красную",
+      "주황": "оранжевую",
+      "노랑": "жёлтую",
+      "초록": "зелёную",
+      "파랑": "синюю"
+    }
+  },
+  "rawPatterns": [
+    {
+      "source": "[{0}]색 본매스를 먼저 처치하라!",
+      "target": "Сначала убейте [{0}] Массу костей!",
+      "arguments": {
+        "0": "term:color"
+      }
+    }
   ]
 }
