@@ -34,28 +34,46 @@ namespace Tolmach
             Module module;
             if (!TextEngine.Modules.TryGetValue(ModuleId, out module) || !module.UiAllowed || module.rawPatterns.Count == 0) return;
             owner = module;
-            markerType = module.RuntimeAssembly == null ? null : module.RuntimeAssembly.GetType("BalrondHumanoidRandomizer.HumanoidExtend");
-            nameField = characterType == null ? null : AccessTools.Field(characterType, "m_name");
-            getComponent = characterType == null ? null : AccessTools.Method(characterType, "GetComponent", new[] { typeof(Type) });
-            isPlayer = characterType == null ? null : AccessTools.Method(characterType, "IsPlayer", Type.EmptyTypes);
-            if (markerType == null || nameField == null || nameField.IsStatic || nameField.FieldType != typeof(string) ||
-                getComponent == null || getComponent.IsStatic || getComponent.ReturnType == typeof(void) ||
-                isPlayer == null || isPlayer.IsStatic || isPlayer.ReturnType != typeof(bool))
+            try
             {
-                module.Warn("Creature-name display API unavailable; variant names are left unchanged. No global name-template fallback is used.");
+                markerType = module.RuntimeAssembly == null ? null : module.RuntimeAssembly.GetType("BalrondHumanoidRandomizer.HumanoidExtend");
+                nameField = characterType == null ? null : AccessTools.Field(characterType, "m_name");
+                getComponent = characterType == null ? null : AccessTools.Method(characterType, "GetComponent", new[] { typeof(Type) });
+                isPlayer = characterType == null ? null : AccessTools.Method(characterType, "IsPlayer", Type.EmptyTypes);
+                if (markerType == null || nameField == null || nameField.IsStatic || nameField.FieldType != typeof(string) ||
+                    getComponent == null || getComponent.IsStatic || !getComponent.ReturnType.IsAssignableFrom(markerType) ||
+                    isPlayer == null || isPlayer.IsStatic || isPlayer.ReturnType != typeof(bool))
+                {
+                    module.Warn("Creature-name display API unavailable; variant names are left unchanged. No global name-template fallback is used.");
+                    return;
+                }
+                table = new TextTable(module.rawTexts, module.rawPatterns, new Dictionary<string, string>(), module.terms);
+            }
+            catch (Exception e)
+            {
+                module.Warn("Creature-name display initialization: " + e.GetType().Name + "; original names retained, other adapters remain available.");
+                Reset();
                 return;
             }
-            table = new TextTable(module.rawTexts, module.rawPatterns, new Dictionary<string, string>(), module.terms);
             foreach (string methodName in new[] { "GetHoverName", "GetHoverText" })
             {
-                MethodInfo method = AccessTools.Method(characterType, methodName, Type.EmptyTypes);
-                if (method == null || method.IsStatic || method.ReturnType != typeof(string) || method.GetMethodBody() == null)
-                {
-                    module.Warn("Creature-name display target unavailable: " + methodName);
-                    continue;
-                }
                 try
                 {
+                    MethodInfo method = AccessTools.Method(characterType, methodName, Type.EmptyTypes);
+                    if (method == null || method.IsStatic || method.ReturnType != typeof(string) || !RuntimeAccess.ManagedBody(method))
+                    {
+                        module.Warn("Creature-name display target unavailable: " + methodName);
+                        continue;
+                    }
+                    // Reuse the existing guard: deferred Harmony patching can otherwise make a
+                    // filter/fault failure escape the local catch and interrupt game startup.
+                    string unsupported = DisplayPatches.UnsupportedHandler(method);
+                    if (unsupported != null)
+                    {
+                        Record(method, 0, unsupported + "; no global fallback");
+                        module.Warn("Creature-name display target skipped " + methodName + ": " + unsupported);
+                        continue;
+                    }
                     harmony.Patch(method, transpiler: new HarmonyMethod(AccessTools.Method(typeof(CreatureNameDisplay), "Transpile")));
                 }
                 catch (Exception e) { module.Warn("Creature-name display target " + methodName + ": " + e.GetType().Name); }
@@ -79,17 +97,19 @@ namespace Tolmach
                 yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CreatureNameDisplay), "Display"));
                 fields++;
             }
-            if (owner == null) yield break;
-            string key = __originalMethod.DeclaringType.FullName + "." + __originalMethod.Name + " [creature name]";
+            Record(__originalMethod, fields, fields == 0 ? "no safe this.m_name read; no global fallback" : null);
+            if (owner != null && fields == 0) owner.Warn("No safe creature-name field read in " + __originalMethod.Name + "; that method was left unchanged.");
+        }
+
+        private static void Record(MethodBase method, int fields, string reason)
+        {
+            if (owner == null) return;
+            string key = method.DeclaringType.FullName + "." + method.Name + " [creature name]";
             PatchEvidence previous;
             if (!owner.Patches.TryGetValue(key, out previous)) owner.ScannedMethods++;
             if (previous != null && previous.displayFields > 0) owner.PatchedMethods--;
             if (fields > 0) owner.PatchedMethods++;
-            owner.Patches[key] = new PatchEvidence {
-                method = key, displayFields = fields,
-                notPatched = fields == 0 ? "no safe this.m_name read; no global fallback" : null
-            };
-            if (fields == 0) owner.Warn("No safe creature-name field read in " + __originalMethod.Name + "; that method was left unchanged.");
+            owner.Patches[key] = new PatchEvidence { method = key, displayFields = fields, notPatched = reason };
         }
 
         public static string Display(string value, object character)
