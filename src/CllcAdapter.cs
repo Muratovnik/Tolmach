@@ -119,16 +119,23 @@ namespace Tolmach
             {
                 object en = english[setting.Key];
                 if (en == null) { unknown++; continue; }
+                string enDisplay = display.GetValue(en) as string ?? setting.Key;
                 string enDesc = desc.GetValue(en) as string ?? "";
-                // The mod substitutes the name's placeholder in both texts; English display is the name itself.
-                if (!SamePlaceholders(setting.Key, setting.Value.display) || !SamePlaceholders(enDesc, setting.Value.desc))
+                if (!SamePlaceholders(enDisplay, setting.Value.display) || !SamePlaceholders(enDesc, setting.Value.desc))
                 { m.Warn("CLLC setting skipped, placeholders differ from English: " + setting.Key); continue; }
                 object existing = target[setting.Key];
-                if (existing != null && !LocalizationBridge.ShouldFill(desc.GetValue(existing) as string, enDesc, setting.Key)) continue;
-                object value = Activator.CreateInstance(texts);
-                display.SetValue(value, setting.Value.display);
-                desc.SetValue(value, setting.Value.desc);
-                target[setting.Key] = value;
+                // A partially translated setting has two independent gaps. An English description
+                // must not authorize replacing a Russian name (or prevent filling an English name).
+                bool fillDisplay = LocalizationBridge.ShouldFill(existing == null ? null : display.GetValue(existing) as string, enDisplay, setting.Key);
+                bool fillDesc = LocalizationBridge.ShouldFill(existing == null ? null : desc.GetValue(existing) as string, enDesc, setting.Key);
+                if (!fillDisplay && !fillDesc) continue;
+                object value = existing ?? Activator.CreateInstance(texts);
+                // A third-party table can share its fallback entry with English. Copy on write in
+                // that case only, preserving any other fields without mutating the fallback object.
+                if (ReferenceEquals(value, en)) value = AccessTools.Method(typeof(object), "MemberwiseClone").Invoke(value, null);
+                if (fillDisplay) display.SetValue(value, setting.Value.display);
+                if (fillDesc) desc.SetValue(value, setting.Value.desc);
+                target[setting.Key] = value; // Also writes back boxed SettingTexts value types.
                 filled++;
             }
             return filled;
