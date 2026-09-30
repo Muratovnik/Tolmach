@@ -50,6 +50,13 @@ namespace Tolmach.Tests
         {
             Module m = LoadModule(id);
             RawDisplay.Initialize();
+            bool creatureNames = id == CreatureNameDisplay.ModuleId;
+            if (creatureNames)
+            {
+                // The binding fixture is metadata-only; supply the executable mod API fixture.
+                m.RuntimeAssembly = typeof(NameCharacter).Assembly;
+                CreatureNameDisplay.Install(Patcher, typeof(NameCharacter), typeof(NameTameable), typeof(NameScene));
+            }
             foreach (var pair in m.rawTexts)
                 Assert.That(RawDisplay.Translate(pair.Key), Is.EqualTo(pair.Value), pair.Key);
             foreach (PatternSpec pattern in m.rawPatterns)
@@ -67,7 +74,20 @@ namespace Tolmach.Tests
                     return pattern.numeric.Contains(index) ? (17 + index).ToString(CultureInfo.InvariantCulture) : "Zq" + h.Groups[1].Value;
                 };
                 string source = Regex.Replace(pattern.source, @"\{(\d+)\}", h => fill(h, false));
-                Assert.That(RawDisplay.Translate(source), Is.EqualTo(Regex.Replace(pattern.target, @"\{(\d+)\}", h => fill(h, true))), pattern.source);
+                string expected = Regex.Replace(pattern.target, @"\{(\d+)\}", h => fill(h, true));
+                if (creatureNames)
+                {
+                    NameCharacter marked = CreatureNameDisplayTests.Marked(source);
+                    NameCharacter clone = CreatureNameDisplayTests.RegisteredClone(source);
+                    Assert.That(marked.GetHoverName(), Is.EqualTo(expected), pattern.source);
+                    Assert.That(clone.GetHoverName(), Is.EqualTo(expected), pattern.source);
+                    Assert.That(RawDisplay.Translate(source), Is.EqualTo(source), "Global: " + pattern.source);
+                    Assert.That(new NameCharacter { m_name = source }.GetHoverName(), Is.EqualTo(source), "Unrelated: " + pattern.source);
+                    TextEngine.IsRussian = false;
+                    Assert.That(marked.GetHoverName(), Is.EqualTo(source), "English: " + pattern.source);
+                    TextEngine.IsRussian = true;
+                }
+                else Assert.That(RawDisplay.Translate(source), Is.EqualTo(expected), pattern.source);
             }
         }
         [Test]

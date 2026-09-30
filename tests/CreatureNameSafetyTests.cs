@@ -31,15 +31,18 @@ namespace Tolmach.Tests
             var target = typeof(FilteredNameCharacter).GetMethod("GetHoverName");
             Assert.That(DisplayPatches.UnsupportedHandler(target), Is.EqualTo("exception filter"));
 
-            CreatureNameDisplay.Install(Patcher, typeof(FilteredNameCharacter));
+            CreatureNameDisplay.Install(Patcher, typeof(FilteredNameCharacter), typeof(NameTameable), typeof(NameScene));
 
             Assert.That(Harmony.GetPatchInfo(target), Is.Null, "Do not queue an unsafe patch for a deferred patcher either.");
             Assert.That(module.Warnings, Has.Some.Contains("exception filter"));
             Assert.That(module.Patches[typeof(FilteredNameCharacter).FullName + ".GetHoverName [creature name]"].notPatched,
                 Does.Contain("exception filter"));
-            var character = new FilteredNameCharacter { m_name = "Alice Guardian" };
+            Assert.That(module.Patches[typeof(NameTameable).FullName + ".GetName [creature name]"].displayFields,
+                Is.EqualTo(1), String.Join("; ", module.Warnings));
+            var character = new FilteredNameCharacter { m_name = "Alice Guardian", Marker = new BalrondHumanoidRandomizer.HumanoidRandomizer() };
+            character.Tameable = new NameTameable { m_character = character };
             Assert.That(character.GetHoverName(), Is.EqualTo("Alice Guardian"));
-            Assert.That(character.GetHoverText(), Is.EqualTo("Alice-страж"));
+            Assert.That(character.GetHoverText(), Is.EqualTo("Alice-страж (wild)"));
             Assert.That(RawDisplay.Translate("Alice Guardian"), Is.EqualTo("Alice Guardian"));
         }
 
@@ -53,14 +56,11 @@ namespace Tolmach.Tests
         }
     }
 
-    public sealed class FilteredNameCharacter
+    public sealed class FilteredNameCharacter : NameCharacter
     {
-        public string m_name;
         public bool Throw;
-        public bool IsPlayer() { return false; }
-        public object GetComponent(Type type) { return new BalrondHumanoidRandomizer.HumanoidExtend(); }
         [MethodImpl(MethodImplOptions.NoInlining)]
-        public string GetHoverName()
+        public override string GetHoverName()
         {
             try
             {
@@ -69,8 +69,6 @@ namespace Tolmach.Tests
             }
             catch (InvalidOperationException e) when (e.Message == "fixture") { return m_name; }
         }
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        public string GetHoverText() { return m_name; }
     }
 
     public sealed class IncompatibleNameCharacter

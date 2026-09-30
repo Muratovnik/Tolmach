@@ -82,6 +82,9 @@ namespace Tolmach.Tests
         }
         private static void ResetGameFakes()
         {
+            CreatureNameDisplay.Reset();
+            NameScene.instance = null;
+            BalrondHumanoidRandomizer.Launch.itemSetBuilder = new BalrondHumanoidRandomizer.ItemSetBuilder();
             Localization.ResetForTests(); Minimap.ResetForTests(); FixturePlugin.LocalizeKey.ResetForTests();
         }
         // A test plugin whose code lives in the given namespace of this assembly.

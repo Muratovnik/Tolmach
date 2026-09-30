@@ -184,7 +184,7 @@ namespace Tolmach
             RawDisplay.Initialize();
             // Fallback only: once the game's Localization exists, its GetSelectedLanguage decides.
             LocalizationBridge.Install(harmony, RuntimeAccess.ExactType("Localization"), delegate { return UnityEngine.PlayerPrefs.GetString("language", "English"); });
-            CreatureNameDisplay.Install(harmony, RuntimeAccess.ExactType("Character"));
+            CreatureNameDisplay.Install(harmony, RuntimeAccess.ExactType("Character"), RuntimeAccess.ExactType("Tameable"), RuntimeAccess.ExactType("ZNetScene"));
             foreach (Module m in TextEngine.Modules.Values)
             {
                 try { DisplayPatches.Install(harmony, m); }

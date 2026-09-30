@@ -13,22 +13,20 @@ namespace Tolmach
         internal const string ModuleId = "HumanoidRandomizer";
         private static Module owner;
         private static TextTable table;
-        private static Type markerType;
+        private static CreatureNameOwner provenance;
         private static FieldInfo nameField;
-        private static MethodInfo getComponent;
-        private static MethodInfo isPlayer;
+        private static FieldInfo tameableCharacter;
 
         internal static void Reset()
         {
             owner = null;
             table = null;
-            markerType = null;
+            provenance = null;
             nameField = null;
-            getComponent = null;
-            isPlayer = null;
+            tameableCharacter = null;
         }
 
-        internal static void Install(Harmony harmony, Type characterType)
+        internal static void Install(Harmony harmony, Type characterType, Type tameableType = null, Type sceneType = null)
         {
             Reset();
             Module module;
@@ -36,17 +34,16 @@ namespace Tolmach
             owner = module;
             try
             {
-                markerType = module.RuntimeAssembly == null ? null : module.RuntimeAssembly.GetType("BalrondHumanoidRandomizer.HumanoidExtend");
                 nameField = characterType == null ? null : AccessTools.Field(characterType, "m_name");
-                getComponent = characterType == null ? null : AccessTools.Method(characterType, "GetComponent", new[] { typeof(Type) });
-                isPlayer = characterType == null ? null : AccessTools.Method(characterType, "IsPlayer", Type.EmptyTypes);
-                if (markerType == null || nameField == null || nameField.IsStatic || nameField.FieldType != typeof(string) ||
-                    getComponent == null || getComponent.IsStatic || !getComponent.ReturnType.IsAssignableFrom(markerType) ||
-                    isPlayer == null || isPlayer.IsStatic || isPlayer.ReturnType != typeof(bool))
+                // Normalize inherited fields to the declaring type used by IL operands.
+                if (nameField != null) nameField = AccessTools.DeclaredField(nameField.DeclaringType, nameField.Name);
+                provenance = new CreatureNameOwner(module, characterType);
+                if (nameField == null || nameField.IsStatic || nameField.FieldType != typeof(string) || !provenance.Available)
                 {
                     module.Warn("Creature-name display API unavailable; variant names are left unchanged. No global name-template fallback is used.");
                     return;
                 }
+                provenance.BindClones(module, characterType, sceneType);
                 table = new TextTable(module.rawTexts, module.rawPatterns, new Dictionary<string, string>(), module.terms);
             }
             catch (Exception e)
@@ -55,29 +52,38 @@ namespace Tolmach
                 Reset();
                 return;
             }
-            foreach (string methodName in new[] { "GetHoverName", "GetHoverText" })
+            Patch(harmony, characterType, "GetHoverName");
+            tameableCharacter = tameableType == null ? null : AccessTools.Field(tameableType, "m_character");
+            if (tameableCharacter == null || tameableCharacter.IsStatic || !nameField.DeclaringType.IsAssignableFrom(tameableCharacter.FieldType))
             {
-                try
-                {
-                    MethodInfo method = AccessTools.Method(characterType, methodName, Type.EmptyTypes);
-                    if (method == null || method.IsStatic || method.ReturnType != typeof(string) || !RuntimeAccess.ManagedBody(method))
-                    {
-                        module.Warn("Creature-name display target unavailable: " + methodName);
-                        continue;
-                    }
-                    // Reuse the existing guard: deferred Harmony patching can otherwise make a
-                    // filter/fault failure escape the local catch and interrupt game startup.
-                    string unsupported = DisplayPatches.UnsupportedHandler(method);
-                    if (unsupported != null)
-                    {
-                        Record(method, 0, unsupported + "; no global fallback");
-                        module.Warn("Creature-name display target skipped " + methodName + ": " + unsupported);
-                        continue;
-                    }
-                    harmony.Patch(method, transpiler: new HarmonyMethod(AccessTools.Method(typeof(CreatureNameDisplay), "Transpile")));
-                }
-                catch (Exception e) { module.Warn("Creature-name display target " + methodName + ": " + e.GetType().Name); }
+                module.Warn("Creature-name Tameable API unavailable; tameable default names are left unchanged.");
+                return;
             }
+            Patch(harmony, tameableType, "GetName");
+        }
+
+        private static void Patch(Harmony harmony, Type type, string methodName)
+        {
+            try
+            {
+                MethodInfo method = AccessTools.Method(type, methodName, Type.EmptyTypes);
+                if (method == null || method.IsStatic || method.ReturnType != typeof(string) || !RuntimeAccess.ManagedBody(method))
+                {
+                    owner.Warn("Creature-name display target unavailable: " + type.FullName + "." + methodName);
+                    return;
+                }
+                // Deferred Harmony patching can otherwise make a filter/fault failure
+                // escape the local catch and interrupt game startup.
+                string unsupported = DisplayPatches.UnsupportedHandler(method);
+                if (unsupported != null)
+                {
+                    Record(method, 0, unsupported + "; no global fallback");
+                    owner.Warn("Creature-name display target skipped " + methodName + ": " + unsupported);
+                    return;
+                }
+                harmony.Patch(method, transpiler: new HarmonyMethod(AccessTools.Method(typeof(CreatureNameDisplay), "Transpile")));
+            }
+            catch (Exception e) { owner.Warn("Creature-name display target " + methodName + ": " + e.GetType().Name); }
         }
 
         private static IEnumerable<CodeInstruction> Transpile(IEnumerable<CodeInstruction> instructions, MethodBase __originalMethod)
@@ -88,16 +94,22 @@ namespace Tolmach
             {
                 CodeInstruction instruction = code[i];
                 yield return instruction;
-                // Restrict the read to this.m_name, before any Localization.Localize call.
+                // Restrict the read to this.m_name or this.m_character.m_name,
+                // before Localization.Localize. Custom names never use these reads.
                 // A branch into ldfld or an exception boundary is not a proven safe insertion.
-                if (i == 0 || code[i - 1].opcode != OpCodes.Ldarg_0 || instruction.opcode != OpCodes.Ldfld ||
+                if (i == 0 || instruction.opcode != OpCodes.Ldfld ||
                     !Equals(instruction.operand, nameField) || instruction.labels.Count != 0 ||
                     instruction.blocks.Count != 0 || code[i - 1].blocks.Count != 0) continue;
+                bool direct = code[i - 1].opcode == OpCodes.Ldarg_0;
+                bool tameable = i >= 2 && code[i - 2].opcode == OpCodes.Ldarg_0 && code[i - 1].opcode == OpCodes.Ldfld &&
+                    Equals(code[i - 1].operand, tameableCharacter) && code[i - 1].labels.Count == 0 && code[i - 2].blocks.Count == 0;
+                if (!direct && !tameable) continue;
                 yield return new CodeInstruction(OpCodes.Ldarg_0);
+                if (tameable) yield return new CodeInstruction(OpCodes.Ldfld, tameableCharacter);
                 yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CreatureNameDisplay), "Display"));
                 fields++;
             }
-            Record(__originalMethod, fields, fields == 0 ? "no safe this.m_name read; no global fallback" : null);
+            Record(__originalMethod, fields, fields == 0 ? "no safe creature-name read; no global fallback" : null);
             if (owner != null && fields == 0) owner.Warn("No safe creature-name field read in " + __originalMethod.Name + "; that method was left unchanged.");
         }
 
@@ -119,10 +131,8 @@ namespace Tolmach
             if (!TextEngine.Modules.TryGetValue(ModuleId, out current) || !ReferenceEquals(owner, current)) return value;
             try
             {
-                if ((bool)isPlayer.Invoke(character, null)) return value;
-                object marker = getComponent.Invoke(character, new object[] { markerType });
-                if (marker == null || !markerType.IsInstanceOfType(marker)) return value;
-                return table.TranslateWhole(value);
+                string translated = table.TranslateWhole(value);
+                return translated != value && provenance.Owns(character) ? translated : value;
             }
             catch (Exception e)
             {
