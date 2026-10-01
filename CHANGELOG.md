@@ -1,5 +1,18 @@
 # Изменения
 
+## [0.7.0](https://github.com/Muratovnik/Tolmach/compare/v0.6.2...v0.7.0) (2026-10-01)
+
+### Highlights
+
+Добавлен перевод интерфейса Configuration Manager, причин отказа подключения Conditional Config Sync и уведомления Async Save. Новые строки Social System, More World Locations и Wacky's Database переведены по текущим версиям. Пакет содержит переводы и дополнения для 90 модов.
+
+### Features
+
+- **Настройки:** переведены поиск, редактор значений и файлов, кнопки, подсказки синхронизации и кнопка главного меню Configuration Manager 1.1.22; сохранённые значения конфигурации не меняются. ([53a71b2](https://github.com/Muratovnik/Tolmach/commit/53a71b25015b97e8eab3a956b267e9dfe621675a))
+- **Подключение:** переведены причины отказа Conditional Config Sync 1.0.9 и рекомендации по восстановлению подключения; несколько причин обрабатываются построчно с сохранением имён модов и версий. ([53a71b2](https://github.com/Muratovnik/Tolmach/commit/53a71b25015b97e8eab3a956b267e9dfe621675a))
+- **Сообщения:** добавлены уведомление Async Save 0.6.0, сообщения синхронизации ресурсов и ошибки подключения Wacky's Database 2.5.38, заголовки раскрытия данных Adventure Backpacks 2.2.5. ([53a71b2](https://github.com/Muratovnik/Tolmach/commit/53a71b25015b97e8eab3a956b267e9dfe621675a))
+- **Совместимость:** каталоги обновлены для Social System 1.0.2, More World Locations AIO 5.1.7, Wacky's Database 2.5.38, Network Performance System 1.13.0 и Adventure Backpacks 2.2.5. Список поддерживаемых пакетов и версий согласован с каталогами. ([53a71b2](https://github.com/Muratovnik/Tolmach/commit/53a71b25015b97e8eab3a956b267e9dfe621675a))
+
 ## [0.6.2](https://github.com/Muratovnik/Tolmach/compare/v0.6.1...v0.6.2) (2026-10-01)
 
 ### Highlights
