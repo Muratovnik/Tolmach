@@ -15,7 +15,7 @@
 
 ### Bug Fixes
 
-- **Подключение:** имена модов в сообщениях Conditional Config Sync сохраняются целиком, даже если содержат двоеточия или начало известной фразы ошибки. Причины без однозначных данных об имени остаются исходными. ([2e8d8ae](https://github.com/Muratovnik/Tolmach/commit/2e8d8ae2c013605a7314ebbebca85bc068a9b9c4))
+- **Подключение:** имена модов в сообщениях Conditional Config Sync сохраняются целиком, даже если содержат двоеточия или начало известной фразы ошибки. Данные предыдущего отказа не используются после замены отчёта или сброса сессии. Причины без однозначной структуры остаются исходными. ([2e8d8ae](https://github.com/Muratovnik/Tolmach/commit/2e8d8ae2c013605a7314ebbebca85bc068a9b9c4)) ([2461c46](https://github.com/Muratovnik/Tolmach/commit/2461c4605722ce5ea05334223f1c3c0e2d6b4adf))
 
 ## [0.6.2](https://github.com/Muratovnik/Tolmach/compare/v0.6.1...v0.6.2) (2026-10-01)
 
