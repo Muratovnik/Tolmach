@@ -42,34 +42,48 @@ namespace Tolmach.Tests
         {
             Module m = CatalogLoader.Read(Catalog("ConditionalConfigSync"));
             m.RuntimeAssembly = typeof(TextEngine).Assembly;
-            m.RuntimeCodeAssembly = typeof(FixtureConditionalConfigSync.VersionCheck).Assembly;
-            m.namespaces.Clear(); m.namespaces.Add("FixtureConditionalConfigSync");
+            m.RuntimeCodeAssembly = typeof(ConditionalConfigSync.VersionCheck).Assembly;
             m.ExactVersion = true; m.UiAllowed = true; Activate(m);
             DisplayPatches.Install(Patcher, m);
-            string report = ("Conditional Config Sync rejected this connection.\n\nThe following synchronization checks failed:\n" +
-                "- Untranslated Mod: The client has version 1.2.3, but the server requires at least 1.4.0.\n" +
-                "- Opaque: Mod Name: The server reported version v-invalid, but this client did not process that mod's Conditional Config Sync handshake.\n" +
-                "- Third Mod: an unknown reason containing RPC_ID\n" +
-                "Legacy Mod: the server requires at least version 2.0.0, but this client has 1.0.0.").Replace("\n", newline);
+            string[] names = { "My: The client has version 1", "Again: The client has version 1: The client has version 1", "Opaque: Mod Name", "Unknown: The client has version 9", "", "Rich<b>Conditional Config Sync rejected this connection.</b>Name" };
+            string[] messages = {
+                "The client has version 1.2.3, but the server requires at least 1.4.0.",
+                "The client has version 1.2.3, but the server requires at least 1.4.0.",
+                "The server reported version v-invalid, but this client did not process that mod's Conditional Config Sync handshake.",
+                "an unknown reason containing RPC_ID",
+                "No version handshake was received from the server.", "The client reported an invalid mod version or minimum version." };
+            string report = ConditionalConfigSync.VersionCheck.PrepareReport(names, messages, newline) + newline +
+                "Legacy Mod: the server requires at least version 2.0.0, but this client has 1.0.0.";
             string expected = "Vanilla failure\n\n" + ("Conditional Config Sync отклонил подключение.\n\nНе пройдены следующие проверки синхронизации:\n" +
-                "- Untranslated Mod: Клиент имеет версию 1.2.3, но сервер требует не ниже 1.4.0.\n" +
+                "- My: The client has version 1: Клиент имеет версию 1.2.3, но сервер требует не ниже 1.4.0.\n" +
+                "- Again: The client has version 1: The client has version 1: Клиент имеет версию 1.2.3, но сервер требует не ниже 1.4.0.\n" +
                 "- Opaque: Mod Name: Сервер сообщил версию v-invalid, но клиент не обработал обмен данными Conditional Config Sync для этого мода.\n" +
-                "- Third Mod: an unknown reason containing RPC_ID\n" +
-                "Legacy Mod: сервер требует версию не ниже 2.0.0, но клиент имеет 1.0.0.").Replace("\n", newline);
+                "- Unknown: The client has version 9: an unknown reason containing RPC_ID\n" +
+                "- Сервер не прислал данные для проверки версий.\n" +
+                "- Rich<b>Conditional Config Sync rejected this connection.</b>Name: Клиент сообщил некорректную версию мода или минимальную версию.\n" +
+                "Legacy Mod: the server requires at least version 2.0.0, but this client has 1.0.0.").Replace("\n", newline);
             var label = new TMPro.TMP_Text { text = "Vanilla failure" };
-            FixtureConditionalConfigSync.VersionCheck.ShowConnectionError(label, report);
+            ConditionalConfigSync.VersionCheck.ShowConnectionError(label, report);
             Assert.That(label.text, Is.EqualTo(expected));
-            Assert.That(FixtureConditionalConfigSync.VersionCheck.RpcPayload, Is.EqualTo(report));
-            Assert.That(FixtureConditionalConfigSync.VersionCheck.LogPayload, Is.EqualTo(report));
-            Assert.That(FixtureConditionalConfigSync.VersionCheck.PendingReport, Is.EqualTo(report));
+            Assert.That(ConditionalConfigSync.VersionCheck.RpcPayload, Is.EqualTo(report));
+            Assert.That(ConditionalConfigSync.VersionCheck.LogPayload, Is.EqualTo(report));
+            Assert.That(ConditionalConfigSync.VersionCheck.PendingReport, Is.EqualTo(report));
+            Array raw = ConditionalConfigSync.VersionCheck.NormalizedReasons;
+            for (int i = 0; i < raw.Length; i++)
+            {
+                object reason = raw.GetValue(i);
+                Assert.That(reason.GetType().GetField("ModName", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(reason), Is.EqualTo(names[i]));
+                Assert.That(reason.GetType().GetField("Message", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(reason), Is.EqualTo(messages[i]));
+            }
             Assert.That(m.Patches.Values.Sum(p => p.displayCalls), Is.EqualTo(1));
             Assert.That(m.Patches.Values.Sum(p => p.literals), Is.Zero);
-            Assert.That(m.Patches.Values.All(p => p.method.StartsWith("FixtureConditionalConfigSync.")), Is.True);
+            Assert.That(ConditionalConfigSync.VersionCheck.EnumeratedReasons, Is.EqualTo(names.Length), "The source is enumerated only by normalization, never by the observer.");
+            Assert.That(m.Patches.Values.All(p => p.method.StartsWith("ConditionalConfigSync.")), Is.True);
             var outside = new TMPro.TMP_Text { text = "Conditional Config Sync rejected this connection." };
             Assert.That(outside.text, Is.EqualTo("Conditional Config Sync rejected this connection."), "No global TMP setter patch.");
             TextEngine.IsRussian = false;
             label.text = "Vanilla failure";
-            FixtureConditionalConfigSync.VersionCheck.ShowConnectionError(label, report);
+            ConditionalConfigSync.VersionCheck.ShowConnectionError(label, report);
             Assert.That(label.text, Is.EqualTo("Vanilla failure\n\n" + report));
         }
         [Test]
@@ -79,6 +93,70 @@ namespace Tolmach.Tests
             DisplayPatches.Install(Patcher, m);
             Assert.That(m.ScannedMethods, Is.Zero); Assert.That(m.PatchedMethods, Is.Zero);
             FixturePlugin.View.Draw(); Assert.That(UnityEngine.GUI.LastText, Is.EqualTo("Price"));
+        }
+        private Module StructuredCcsModule(bool install = true)
+        {
+            Module m = CatalogLoader.Read(Catalog("ConditionalConfigSync"));
+            m.RuntimeAssembly = typeof(TextEngine).Assembly;
+            m.RuntimeCodeAssembly = typeof(ConditionalConfigSync.VersionCheck).Assembly;
+            m.ExactVersion = true; m.UiAllowed = true; Activate(m);
+            if (install) DisplayPatches.Install(Patcher, m);
+            return m;
+        }
+        [Test]
+        public void CcsMetadataReplacesThePreviousReportAndResetClearsItsBoundary()
+        {
+            Module m = StructuredCcsModule();
+            const string reason = "The client has version 1.2.3, but the server requires at least 1.4.0.";
+            const string line = "- My: The client has version 1: " + reason;
+            ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "My: The client has version 1" }, new[] { reason }, "\n");
+            Assert.That(TextEngine.Display(line, m.id), Is.EqualTo("- My: The client has version 1: Клиент имеет версию 1.2.3, но сервер требует не ниже 1.4.0."));
+            ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "Other" }, new[] { "Unknown reason: RPC_ID" }, "\n");
+            Assert.That(TextEngine.Display(line, m.id), Is.EqualTo(line), "Metadata of the previous report cannot parse later legacy input.");
+            ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "My: The client has version 1" }, new[] { reason }, "\n");
+            DisplayPatches.Reset();
+            Assert.That(TextEngine.Display(line, m.id), Is.EqualTo(line));
+        }
+        [Test]
+        public void CcsUnstructuredTaggedNameCannotTranslateItsHeaderLookingFragment()
+        {
+            Module m = StructuredCcsModule();
+            const string line = "- Unknown<b>Conditional Config Sync rejected this connection.</b>Name: arbitrary RPC_ID";
+            Assert.That(TextEngine.Display(line, m.id), Is.EqualTo(line));
+            Assert.That(TextEngine.Display("Conditional Config Sync rejected this connection.\n" + line, m.id),
+                Is.EqualTo("Conditional Config Sync отклонил подключение.\n" + line));
+        }
+        [Test]
+        public void CcsCollidingRenderedLinesWithDifferentStructuralBoundariesStayUnchanged()
+        {
+            Module m = StructuredCcsModule();
+            const string reason = "The client has version 1.2.3, but the server requires at least 1.4.0.";
+            const string line = "- My: The client has version 1: " + reason;
+            ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "My: The client has version 1", "My" }, new[] { reason, "The client has version 1: " + reason }, "\n");
+            Assert.That(TextEngine.Display(line, m.id), Is.EqualTo(line));
+        }
+        [TestCase(true)]
+        [TestCase(false)]
+        public void CcsMissingHelperAndDisallowedVersionInstallNoHooks(bool missingHelper)
+        {
+            Module m = StructuredCcsModule(false);
+            if (missingHelper) m.RuntimeCodeAssembly = null;
+            else { m.ExactVersion = false; m.UiAllowed = false; }
+            DisplayPatches.Install(Patcher, m);
+            const string line = "- Name: The client reported an invalid mod version or minimum version.";
+            ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "Name" }, new[] { "The client reported an invalid mod version or minimum version." }, "\n");
+            Assert.That(TextEngine.Display(line, m.id), Is.EqualTo(line));
+            Assert.That(TextEngine.Display("Conditional Config Sync rejected this connection.", m.id), Is.EqualTo("Conditional Config Sync rejected this connection."));
+            Assert.That(Patcher.GetPatchedMethods(), Is.Empty);
+        }
+        [Test]
+        public void CcsApiDriftAllowsOnlyKnownHeadersAndPreservesUnstructuredReasons()
+        {
+            Module m = StructuredCcsModule(false); m.RuntimeCodeAssembly = typeof(TextEngine).Assembly;
+            DisplayPatches.Install(Patcher, m);
+            Assert.That(m.Warnings, Has.Some.StartsWith("CCS structured rejection display unavailable:"));
+            const string value = "Conditional Config Sync rejected this connection.\n- My: The client has version 1: The client has version 1.2.3, but the server requires at least 1.4.0.";
+            Assert.That(TextEngine.Display(value, m.id), Is.EqualTo("Conditional Config Sync отклонил подключение.\n- My: The client has version 1: The client has version 1.2.3, but the server requires at least 1.4.0."));
         }
         [TestCase("No version handshake was received from the server.", "Сервер не прислал данные для проверки версий.")]
         [TestCase("The version handshake was rejected for an unknown compatibility reason.", "Обмен данными для проверки версий отклонен по неизвестной причине несовместимости.")]
@@ -487,11 +565,31 @@ namespace TMPro
         }
     }
 }
-namespace FixtureConditionalConfigSync
+namespace ConditionalConfigSync
 {
     public static class VersionCheck
     {
         public static string RpcPayload, LogPayload, PendingReport;
+        public static Array NormalizedReasons;
+        public static int EnumeratedReasons;
+        private sealed class DisconnectReasonItem
+        {
+            internal string ModName, Message;
+        }
+        [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+        private static DisconnectReasonItem[] NormalizeDisconnectReasons(IEnumerable<DisconnectReasonItem> reasons)
+        { return reasons.ToArray(); }
+        public static string PrepareReport(string[] names, string[] messages, string newline)
+        {
+            EnumeratedReasons = 0;
+            var reasons = NormalizeDisconnectReasons(names.Select((name, index) => {
+                if (++EnumeratedReasons > names.Length) throw new InvalidOperationException("Source reasons were enumerated again.");
+                return new DisconnectReasonItem { ModName = name, Message = messages[index] };
+            }));
+            NormalizedReasons = reasons;
+            return "Conditional Config Sync rejected this connection." + newline + newline + "The following synchronization checks failed:" + newline +
+                String.Join(newline, reasons.Select(reason => "- " + (String.IsNullOrWhiteSpace(reason.ModName) ? "" : reason.ModName + ": ") + reason.Message));
+        }
         [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
         public static void ShowConnectionError(TMPro.TMP_Text label, string report)
         {

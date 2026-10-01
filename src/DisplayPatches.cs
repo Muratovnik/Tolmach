@@ -33,6 +33,7 @@ namespace Tolmach
             { module.Warn("Scoped code assembly is unavailable; IL/return adapters skipped."); return; }
             if (!module.ExactVersion)
                 module.Warn("Version differs from snapshot; adapters apply where the catalog strings are found. Strings not found are listed below and stay in English.");
+            CcsDisplay.Install(harmony, module);
             // Literal values found in the original IL of their methods, over all overloads of the name.
             HashSet<string> seen = new HashSet<string>(StringComparer.Ordinal);
             // A type, signature or body referring to an absent optional dependency throws on
@@ -173,7 +174,7 @@ namespace Tolmach
             }
             catch (Exception) { return false; }
         }
-        internal static void Reset() { Owners.Clear(); CallSites.Reset(); }
+        internal static void Reset() { Owners.Clear(); CallSites.Reset(); CcsDisplay.Reset(); }
         private static bool Relevant(CodeInstruction instruction, Module module)
         {
             MethodBase call = instruction.operand as MethodBase;

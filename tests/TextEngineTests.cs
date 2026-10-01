@@ -36,13 +36,13 @@ namespace Tolmach.Tests
             foreach (var pair in m.texts)
             {
                 TextEngine.IsRussian = true;
-                Assert.That(TextEngine.Display(pair.Key, id), Is.EqualTo(pair.Value), pair.Key);
+                Assert.That(id == "ConditionalConfigSync" ? m.Table.Translate(pair.Key) : TextEngine.Display(pair.Key, id), Is.EqualTo(pair.Value), pair.Key);
                 TextEngine.IsRussian = false;
                 Assert.That(TextEngine.Display(pair.Key, id), Is.EqualTo(pair.Key), "English: " + pair.Key);
             }
             TextEngine.IsRussian = true;
             foreach (PatternSpec pattern in m.patterns)
-                Assert.That(TextEngine.Display(Fill(pattern.source, pattern, m, false), id), Is.EqualTo(Fill(pattern.target, pattern, m, true)), pattern.source);
+                Assert.That(id == "ConditionalConfigSync" ? m.Table.Translate(Fill(pattern.source, pattern, m, false)) : TextEngine.Display(Fill(pattern.source, pattern, m, false), id), Is.EqualTo(Fill(pattern.target, pattern, m, true)), pattern.source);
             foreach (LiteralSpec rule in m.literals)
                 foreach (var pair in rule.values)
                 {

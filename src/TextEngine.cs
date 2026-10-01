@@ -144,10 +144,14 @@ namespace Tolmach
         }
         internal static string TranslateRaw(string value, Func<string, string> translateWhole)
         {
+            return TranslateRaw(value, translateWhole, true);
+        }
+        internal static string TranslateRaw(string value, Func<string, string> translateWhole, bool splitMarkup)
+        {
             if (String.IsNullOrEmpty(value) || value.Length > 32768) return value;
             string result = translateWhole(value);
             if (result != value || (value.IndexOf('\n') < 0 && value.IndexOf('<') < 0)) return result;
-            string[] spans = Tags.Split(value);
+            string[] spans = splitMarkup ? Tags.Split(value) : new[] { value };
             bool changed = false;
             for (int i = 0; i < spans.Length; i += 2)
             {
@@ -184,6 +188,7 @@ namespace Tolmach
             if (!IsRussian || text == null || moduleId == null) return text;
             Module module;
             if (!Modules.TryGetValue(moduleId, out module) || module.Table == null) return text;
+            if (module.id == "ConditionalConfigSync") return CcsDisplay.Translate(module, text);
             return module.Table.Translate(text);
         }
         public static string[] DisplayArray(string[] texts, string moduleId)
