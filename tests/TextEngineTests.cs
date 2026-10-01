@@ -64,6 +64,17 @@ namespace Tolmach.Tests
             Assert.That(new TextTable(m).Translate("Name first\r\nsecond."), Is.EqualTo("Name first\r\nsecond."));
             Assert.That(new TextTable(m).Translate("Name first.\r\nName second."), Is.EqualTo("Имя first.\r\nИмя second."));
         }
+        [Test]
+        public void CcsCaptureAmbiguityGuardLeavesOtherModulesAndTheFourArgumentConstructorUnchanged()
+        {
+            const string value = "The client has version 1, but the server requires at least 2, but the server requires at least 3.";
+            Module m = CatalogLoader.Read(Catalog("ConditionalConfigSync"));
+            Assert.That(new TextTable(m).Translate(value), Is.EqualTo(value));
+            const string prior = "Клиент имеет версию 1, но сервер требует не ниже 2, but the server requires at least 3.";
+            Assert.That(new TextTable(m.texts, m.patterns, m.mapLabels, m.terms).Translate(value), Is.EqualTo(prior));
+            m.id = "ordinary";
+            Assert.That(new TextTable(m).Translate(value), Is.EqualTo(prior));
+        }
         [TestCaseSource("Modules")]
         public void RawCatalogEntriesTranslateOnDisplay(string id)
         {

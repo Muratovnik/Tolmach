@@ -52,18 +52,16 @@ namespace Tolmach.Tests
                 "The server reported version v-invalid, but this client did not process that mod's Conditional Config Sync handshake.",
                 "an unknown reason containing RPC_ID",
                 "No version handshake was received from the server.", "The client reported an invalid mod version or minimum version." };
-            string report = ConditionalConfigSync.VersionCheck.PrepareReport(names, messages, newline) + newline +
-                "Legacy Mod: the server requires at least version 2.0.0, but this client has 1.0.0.";
+            string report = ConditionalConfigSync.VersionCheck.PrepareReport(names, messages, newline);
             string expected = "Vanilla failure\n\n" + ("Conditional Config Sync отклонил подключение.\n\nНе пройдены следующие проверки синхронизации:\n" +
                 "- My: The client has version 1: Клиент имеет версию 1.2.3, но сервер требует не ниже 1.4.0.\n" +
                 "- Again: The client has version 1: The client has version 1: Клиент имеет версию 1.2.3, но сервер требует не ниже 1.4.0.\n" +
                 "- Opaque: Mod Name: Сервер сообщил версию v-invalid, но клиент не обработал обмен данными Conditional Config Sync для этого мода.\n" +
                 "- Unknown: The client has version 9: an unknown reason containing RPC_ID\n" +
                 "- Сервер не прислал данные для проверки версий.\n" +
-                "- Rich<b>Conditional Config Sync rejected this connection.</b>Name: Клиент сообщил некорректную версию мода или минимальную версию.\n" +
-                "Legacy Mod: the server requires at least version 2.0.0, but this client has 1.0.0.").Replace("\n", newline);
+                "- Rich<b>Conditional Config Sync rejected this connection.</b>Name: Клиент сообщил некорректную версию мода или минимальную версию.").Replace("\n", newline);
             var label = new TMPro.TMP_Text { text = "Vanilla failure" };
-            ConditionalConfigSync.VersionCheck.ShowConnectionError(label, report);
+            ConditionalConfigSync.VersionCheck.ShowConnectionError(label);
             Assert.That(label.text, Is.EqualTo(expected));
             Assert.That(ConditionalConfigSync.VersionCheck.RpcPayload, Is.EqualTo(report));
             Assert.That(ConditionalConfigSync.VersionCheck.LogPayload, Is.EqualTo(report));
@@ -83,7 +81,8 @@ namespace Tolmach.Tests
             Assert.That(outside.text, Is.EqualTo("Conditional Config Sync rejected this connection."), "No global TMP setter patch.");
             TextEngine.IsRussian = false;
             label.text = "Vanilla failure";
-            ConditionalConfigSync.VersionCheck.ShowConnectionError(label, report);
+            ConditionalConfigSync.VersionCheck.PrepareReport(names, messages, newline);
+            ConditionalConfigSync.VersionCheck.ShowConnectionError(label);
             Assert.That(label.text, Is.EqualTo("Vanilla failure\n\n" + report));
         }
         [Test]
@@ -160,7 +159,8 @@ namespace Tolmach.Tests
         }
         [TestCase("No version handshake was received from the server.", "Сервер не прислал данные для проверки версий.")]
         [TestCase("The version handshake was rejected for an unknown compatibility reason.", "Обмен данными для проверки версий отклонен по неизвестной причине несовместимости.")]
-        [TestCase("The server did not receive the required synchronization handshake. The server requires Third-party Mod 1.0.0 or newer and Conditional Config Sync protocol 1.", "Сервер не получил обязательные данные синхронизации. Требуется Third-party Mod 1.0.0 или новее и протокол Conditional Config Sync 1.")]
+        [TestCase("The server did not receive the required synchronization handshake. The server requires ThirdPartyMod 1.0.0 or newer and Conditional Config Sync protocol 1.", "Сервер не получил обязательные данные синхронизации. Требуется ThirdPartyMod 1.0.0 или новее и протокол Conditional Config Sync 1.")]
+        [TestCase("The server did not receive the required synchronization handshake. The server requires Third-party Mod 1.0.0 or newer and Conditional Config Sync protocol 1.", "The server did not receive the required synchronization handshake. The server requires Third-party Mod 1.0.0 or newer and Conditional Config Sync protocol 1.")]
         [TestCase("The client sent a legacy or incomplete handshake without Conditional Config Sync protocol metadata. The server requires protocol 1.", "Клиент прислал устаревшие или неполные данные обмена без версии протокола Conditional Config Sync. Сервер требует протокол 1.")]
         [TestCase("The server reported Conditional Config Sync protocol 0, but the client requires protocol 1.", "Сервер сообщил протокол Conditional Config Sync 0, но клиент требует протокол 1.")]
         [TestCase("The client reported an invalid mod version or minimum version.", "Клиент сообщил некорректную версию мода или минимальную версию.")]
@@ -172,6 +172,85 @@ namespace Tolmach.Tests
         {
             Module m = CatalogLoader.Read(Catalog("ConditionalConfigSync"));
             Assert.That(new TextTable(m).Translate(source), Is.EqualTo(expected));
+        }
+        private const string StructuredVersion = "The server reported version v-invalid: detail, but this client did not process that mod's Conditional Config Sync handshake.";
+        private const string CollidingLine = "- My: " + StructuredVersion;
+        [TestCase(false)]
+        [TestCase(true)]
+        public void CcsLegacyReplacementCannotReuseMetadataFromThePreviousSessionOrReport(bool reset)
+        {
+            StructuredCcsModule();
+            ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "My" }, new[] { StructuredVersion }, "\n");
+            if (reset) ConditionalConfigSync.VersionCheck.ResetSessionState(false);
+            ConditionalConfigSync.VersionCheck.PrepareLegacyReport(CollidingLine);
+            var label = new TMPro.TMP_Text { text = "Vanilla failure" };
+            ConditionalConfigSync.VersionCheck.ShowConnectionError(label);
+            Assert.That(label.text, Is.EqualTo("Vanilla failure\n\n" + CollidingLine));
+            Assert.That(ConditionalConfigSync.VersionCheck.PendingReport, Is.EqualTo(CollidingLine));
+        }
+        [Test]
+        public void CcsPreservedPendingReportKeepsItsOwnMetadataUntilTheSinkClearsIt()
+        {
+            Module m = StructuredCcsModule();
+            ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "My" }, new[] { StructuredVersion }, "\n");
+            object report = ConditionalConfigSync.VersionCheck.CurrentPending;
+            ConditionalConfigSync.VersionCheck.ResetSessionState(true);
+            Assert.That(ConditionalConfigSync.VersionCheck.CurrentPending, Is.SameAs(report));
+            var label = new TMPro.TMP_Text { text = "" };
+            ConditionalConfigSync.VersionCheck.ShowConnectionError(label);
+            Assert.That(label.text, Does.Contain("- My: Сервер сообщил версию v-invalid: detail, но клиент не обработал обмен данными Conditional Config Sync для этого мода."));
+            Assert.That(ConditionalConfigSync.VersionCheck.CurrentPending, Is.Null);
+            Assert.That(TextEngine.Display(CollidingLine, m.id), Is.EqualTo(CollidingLine), "Upstream clearing pending state expires its metadata.");
+        }
+        [Test]
+        public void CcsUnrelatedNormalizationDoesNotReplaceTheActiveReportMetadata()
+        {
+            StructuredCcsModule();
+            ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "My" }, new[] { StructuredVersion }, "\n");
+            ConditionalConfigSync.VersionCheck.NormalizeUnrelated(new[] { "My: The server reported version v-invalid" },
+                new[] { "detail, but this client did not process that mod's Conditional Config Sync handshake." });
+            var label = new TMPro.TMP_Text { text = "" };
+            ConditionalConfigSync.VersionCheck.ShowConnectionError(label);
+            Assert.That(label.text, Does.Contain("- My: Сервер сообщил версию v-invalid: detail, но клиент не обработал обмен данными Conditional Config Sync для этого мода."));
+        }
+        [Test]
+        public void CcsStructuredReplacementWithEqualRenderedLineUsesTheNewReportBoundary()
+        {
+            StructuredCcsModule();
+            ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "My" }, new[] { StructuredVersion }, "\n");
+            object before = ConditionalConfigSync.VersionCheck.CurrentPending;
+            ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "My: The server reported version v-invalid" },
+                new[] { "detail, but this client did not process that mod's Conditional Config Sync handshake." }, "\n");
+            Assert.That(ConditionalConfigSync.VersionCheck.CurrentPending, Is.Not.SameAs(before));
+            var label = new TMPro.TMP_Text { text = "" };
+            ConditionalConfigSync.VersionCheck.ShowConnectionError(label);
+            Assert.That(label.text, Does.Contain(CollidingLine));
+        }
+        [Test]
+        public void CcsFailedSetterClearsCaptureContextAndKeepsThePreviousPendingIdentity()
+        {
+            StructuredCcsModule();
+            ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "My" }, new[] { StructuredVersion }, "\n");
+            object before = ConditionalConfigSync.VersionCheck.CurrentPending;
+            ConditionalConfigSync.VersionCheck.FailNextSetter = true;
+            Assert.Throws<InvalidOperationException>(() => ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "Fail" }, new[] { "Unknown reason" }, "\n"));
+            Assert.That(ConditionalConfigSync.VersionCheck.CurrentPending, Is.SameAs(before));
+            ConditionalConfigSync.VersionCheck.NormalizeUnrelated(new[] { "My: The server reported version v-invalid" },
+                new[] { "detail, but this client did not process that mod's Conditional Config Sync handshake." });
+            var label = new TMPro.TMP_Text { text = "" };
+            ConditionalConfigSync.VersionCheck.ShowConnectionError(label);
+            Assert.That(label.text, Does.Contain("- My: Сервер сообщил версию v-invalid: detail, но клиент не обработал обмен данными Conditional Config Sync для этого мода."));
+        }
+        [Test]
+        public void CcsAmbiguousVersionDelimiterStaysEnglishInTheFinalReport()
+        {
+            StructuredCcsModule();
+            const string reason = "The client has version 1, but the server requires at least 2, but the server requires at least 3.";
+            ConditionalConfigSync.VersionCheck.PrepareReport(new[] { "Opaque Mod" }, new[] { reason }, "\n");
+            var label = new TMPro.TMP_Text { text = "" };
+            ConditionalConfigSync.VersionCheck.ShowConnectionError(label);
+            Assert.That(label.text, Does.Contain("- Opaque Mod: " + reason));
+            Assert.That(ConditionalConfigSync.VersionCheck.RpcPayload, Does.Contain(reason));
         }
         [Test]
         public void LiteralOnlyModuleDoesNotPatchUnrelatedDisplayCalls()
@@ -572,6 +651,14 @@ namespace ConditionalConfigSync
         public static string RpcPayload, LogPayload, PendingReport;
         public static Array NormalizedReasons;
         public static int EnumeratedReasons;
+        public static bool FailNextSetter;
+        private static string nextNewline = "\n";
+        private sealed class PendingDisconnectReport
+        {
+            internal string Message;
+        }
+        private static PendingDisconnectReport pendingDisconnectReport;
+        public static object CurrentPending { get { return pendingDisconnectReport; } }
         private sealed class DisconnectReasonItem
         {
             internal string ModName, Message;
@@ -582,19 +669,44 @@ namespace ConditionalConfigSync
         public static string PrepareReport(string[] names, string[] messages, string newline)
         {
             EnumeratedReasons = 0;
-            var reasons = NormalizeDisconnectReasons(names.Select((name, index) => {
+            nextNewline = newline;
+            SetPendingDisconnectReport(1, "structured", names.Select((name, index) => {
                 if (++EnumeratedReasons > names.Length) throw new InvalidOperationException("Source reasons were enumerated again.");
                 return new DisconnectReasonItem { ModName = name, Message = messages[index] };
             }));
-            NormalizedReasons = reasons;
-            return "Conditional Config Sync rejected this connection." + newline + newline + "The following synchronization checks failed:" + newline +
-                String.Join(newline, reasons.Select(reason => "- " + (String.IsNullOrWhiteSpace(reason.ModName) ? "" : reason.ModName + ": ") + reason.Message));
+            return pendingDisconnectReport.Message;
         }
         [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-        public static void ShowConnectionError(TMPro.TMP_Text label, string report)
+        private static void SetPendingDisconnectReport(long connectionGeneration, string reportId, IEnumerable<DisconnectReasonItem> source)
         {
+            var reasons = NormalizeDisconnectReasons(source);
+            NormalizedReasons = reasons;
+            if (FailNextSetter) { FailNextSetter = false; throw new InvalidOperationException("Setter failed after normalization."); }
+            pendingDisconnectReport = new PendingDisconnectReport { Message =
+                "Conditional Config Sync rejected this connection." + nextNewline + nextNewline + "The following synchronization checks failed:" + nextNewline +
+                String.Join(nextNewline, reasons.Select(reason => "- " + (String.IsNullOrWhiteSpace(reason.ModName) ? "" : reason.ModName + ": ") + reason.Message)) };
+        }
+        public static void NormalizeUnrelated(string[] names, string[] messages)
+        {
+            NormalizeDisconnectReasons(names.Select((name, index) => new DisconnectReasonItem { ModName = name, Message = messages[index] }));
+        }
+        public static void PrepareLegacyReport(string text)
+        {
+            pendingDisconnectReport = new PendingDisconnectReport { Message = text };
+        }
+        public static void ResetSessionState(bool preserveConnectionError)
+        {
+            if (!preserveConnectionError) pendingDisconnectReport = null;
+        }
+        [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+        public static void ShowConnectionError(TMPro.TMP_Text label)
+        {
+            var current = pendingDisconnectReport;
+            if (current == null) return;
+            string report = current.Message;
             RpcPayload = report; LogPayload = report; PendingReport = report;
             label.text = label.text + "\n\n" + report;
+            pendingDisconnectReport = null;
         }
     }
 }

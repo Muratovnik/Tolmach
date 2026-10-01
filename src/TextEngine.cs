@@ -11,6 +11,8 @@ namespace Tolmach
         private sealed class Template
         {
             public Regex Matcher;
+            public Regex GreedyMatcher;
+            public string[] Groups;
             public string Target;
             public string RequiredFragment;
             public Dictionary<string, string> Arguments;
@@ -25,9 +27,12 @@ namespace Tolmach
         private static readonly Regex Hole = new Regex(@"\{(\d+)\}", RegexOptions.CultureInvariant);
         private static readonly Regex Tags = new Regex("(<[^>]+>)", RegexOptions.CultureInvariant);
 
-        public TextTable(Module module) : this(module.texts, module.patterns, module.mapLabels, module.terms) { }
+        public TextTable(Module module) : this(module.texts, module.patterns, module.mapLabels, module.terms, module.id == "ConditionalConfigSync") { }
         public TextTable(Dictionary<string, string> texts, IEnumerable<PatternSpec> patterns, Dictionary<string, string> labels,
                          Dictionary<string, Dictionary<string, string>> vocabularies)
+            : this(texts, patterns, labels, vocabularies, false) { }
+        private TextTable(Dictionary<string, string> texts, IEnumerable<PatternSpec> patterns, Dictionary<string, string> labels,
+                         Dictionary<string, Dictionary<string, string>> vocabularies, bool rejectAmbiguousCaptures)
         {
             exact = new Dictionary<string, string>(texts, StringComparer.Ordinal);
             mapLabels = new Dictionary<string, string>(labels, StringComparer.Ordinal);
@@ -38,20 +43,30 @@ namespace Tolmach
             {
                 MatchCollection holes = Hole.Matches(p.source);
                 StringBuilder expression = new StringBuilder(@"\A");
+                StringBuilder greedy = new StringBuilder(@"\A");
                 HashSet<string> seen = new HashSet<string>();
                 int offset = 0;
                 foreach (Match h in holes)
                 {
-                    expression.Append(Regex.Escape(p.source.Substring(offset, h.Index - offset)));
+                    string fixedText = Regex.Escape(p.source.Substring(offset, h.Index - offset));
+                    expression.Append(fixedText); greedy.Append(fixedText);
                     string group = "p" + h.Groups[1].Value;
-                    string body = p.numeric.Contains(Int32.Parse(h.Groups[1].Value)) ? @"[0-9]+(?:[.,][0-9]+)?" : p.singleLine ? @"[^\r\n]*?" : ".*?";
-                    expression.Append(seen.Add(group) ? "(?<" + group + ">" + body + ")" : @"\k<" + group + ">");
+                    bool numeric = p.numeric.Contains(Int32.Parse(h.Groups[1].Value));
+                    string body = numeric ? @"[0-9]+(?:[.,][0-9]+)?" : p.singleLine ? @"[^\r\n]*?" : ".*?";
+                    bool first = seen.Add(group);
+                    expression.Append(first ? "(?<" + group + ">" + body + ")" : @"\k<" + group + ">");
+                    string greedyBody = numeric ? body : p.singleLine ? @"[^\r\n]*" : ".*";
+                    greedy.Append(first ? "(?<" + group + ">" + greedyBody + ")" : @"\k<" + group + ">");
                     offset = h.Index + h.Length;
                 }
-                expression.Append(Regex.Escape(p.source.Substring(offset))).Append(@"\z");
+                string suffix = Regex.Escape(p.source.Substring(offset));
+                expression.Append(suffix).Append(@"\z"); greedy.Append(suffix).Append(@"\z");
+                string[] groups = new string[seen.Count]; seen.CopyTo(groups);
                 templates.Add(new Template {
                     Matcher = new Regex(expression.ToString(), RegexOptions.Singleline | RegexOptions.CultureInvariant,
                                         TimeSpan.FromMilliseconds(20)),
+                    GreedyMatcher = rejectAmbiguousCaptures ? new Regex(greedy.ToString(), RegexOptions.Singleline | RegexOptions.CultureInvariant, TimeSpan.FromMilliseconds(20)) : null,
+                    Groups = groups,
                     Target = p.target,
                     RequiredFragment = LongestFragment(p.source),
                     Arguments = new Dictionary<string, string>(p.arguments, StringComparer.Ordinal)
@@ -103,8 +118,17 @@ namespace Tolmach
                 if (p.RequiredFragment.Length > 0 && value.IndexOf(p.RequiredFragment, StringComparison.Ordinal) < 0) continue;
                 Match match;
                 try { match = p.Matcher.Match(value); }
-                catch (RegexMatchTimeoutException) { continue; }
+                catch (RegexMatchTimeoutException) { if (p.GreedyMatcher != null) return value; continue; }
                 if (!match.Success) continue;
+                if (p.GreedyMatcher != null)
+                {
+                    Match alternate;
+                    try { alternate = p.GreedyMatcher.Match(value); }
+                    catch (RegexMatchTimeoutException) { return value; }
+                    if (!alternate.Success) return value;
+                    foreach (string group in p.Groups)
+                        if (match.Groups[group].Value != alternate.Groups[group].Value) return value;
+                }
                 bool unknownTerm = false;
                 string output = Hole.Replace(p.Target, delegate(Match h) {
                     string captured = match.Groups["p" + h.Groups[1].Value].Value;

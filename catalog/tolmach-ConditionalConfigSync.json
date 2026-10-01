@@ -120,7 +120,8 @@
   ],
   "notes": [
     "ConditionalConfigSync.Plugin owns the BepInEx identity; its directly referenced ConditionalConfigSync helper owns VersionCheck.ShowConnectionError.",
-    "A read-only postfix observes the finalized NormalizeDisconnectReasons array. Only the final scoped TMP display uses its exact line-to-field metadata to translate Message while preserving ModName. RPC packages, pending reports and diagnostic logs remain unchanged.",
-    "Known headers and guidance translate without metadata; unstructured legacy reasons and ambiguous normalized lines remain unchanged. Names, versions, malformed-payload diagnostics and unknown rejection reasons stay opaque. No global raw text rules or literal/return adapters are used."
+    "Read-only hooks capture the finalized NormalizeDisconnectReasons array only inside SetPendingDisconnectReport. Metadata binds to the newly created pendingDisconnectReport object and its original Message; final scoped TMP display preserves ModName while translating the isolated reason. RPC packages, pending reports and diagnostic logs remain unchanged.",
+    "Legacy replacement, cleared pending state and a different report object cannot reuse prior metadata. Preserving the same pending report keeps its translations available until display clears upstream state. Known headers and guidance translate without structured metadata; unknown reasons and ambiguous normalized lines remain unchanged.",
+    "CCS pattern captures must agree between lazy and greedy matching. Repeated version delimiters and ambiguous adjacent name/version fields (including multiword display names in missing-handshake reasons) stay in English. Names, versions and malformed-payload diagnostics remain opaque; there are no global raw rules or literal/return adapters."
   ]
 }
