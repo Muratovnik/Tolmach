@@ -1,0 +1,39 @@
+{
+  "id": "AsyncSave",
+  "package": "MidnightMods-AsyncSave",
+  "version": "0.6.0",
+  "pluginVersion": "0.6.0",
+  "assembly": "AsyncSave",
+  "guids": [
+    "MidnightsFX.AsyncSave"
+  ],
+  "namespaces": [
+    "AsyncSave.Patches"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "literals": [
+    {
+      "type": "AsyncSave.Patches.FinalSave",
+      "method": "ShowNotice",
+      "values": {
+        "Saving world...": "Сохранение мира..."
+      }
+    }
+  ],
+  "configTexts": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/current-profile/MidnightMods-AsyncSave-0.6.0/AsyncSave/AsyncSave/AsyncSavePlugin.cs",
+    "source-evidence/current-profile/MidnightMods-AsyncSave-0.6.0/AsyncSave/AsyncSave.Patches/FinalSave.cs",
+    "source-evidence/current-profile/MidnightMods-AsyncSave-0.6.0/AsyncSave/AsyncSave.Config/Settings.cs",
+    "source-evidence/current-profile/MidnightMods-AsyncSave-0.6.0/AsyncSave/AsyncSave.csproj"
+  ],
+  "notes": [
+    "Checked against MidnightMods-AsyncSave 0.6.0; AsyncSave.dll SHA-256: 24249babfc7d0f09ac8e8877e42fc5497cc8596576843cc7cbbb8165b0f63920. Game rendering was not tested.",
+    "The notice is shown by MessageHud only while the optional Async final save setting permits the upstream logout/quit hold; its default is false. This literal translation does not enable it or change saving/shutdown behavior. Log strings and technical configuration identifiers remain unchanged."
+  ]
+}

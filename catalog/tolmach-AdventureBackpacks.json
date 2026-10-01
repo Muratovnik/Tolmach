@@ -1,14 +1,15 @@
 {
   "id": "AdventureBackpacks",
   "package": "Vapok-AdventureBackpacks",
-  "version": "2.2.4",
-  "pluginVersion": "2.2.4",
+  "version": "2.2.5",
+  "pluginVersion": "2.2.5",
   "assembly": "AdventureBackpacks",
   "guids": [
     "vapok.mods.adventurebackpacks"
   ],
   "namespaces": [
-    "Vapok.Common.Managers.Skill"
+    "Vapok.Common.Managers.Skill",
+    "Vapok.Common.Managers.Splash"
   ],
   "words": {
     "item_friendlyskeletonwand_spectralshroud_backpack": "Призрачный саван хранения"
@@ -35,15 +36,34 @@
         "Skill ": "Навык ",
         " reset": " сброшен"
       }
+    },
+    {
+      "type": "Vapok.Common.Managers.Splash.CyberTooltipTrigger",
+      "method": "ShowTooltip",
+      "values": {
+        "<color=#64f0fc><b>[ ! ] DATA DISCLOSURE:</b></color>\n<color=#c8dbee>": "<color=#64f0fc><b>[ ! ] СБОР ДАННЫХ:</b></color>\n<color=#c8dbee>"
+      }
+    },
+    {
+      "type": "Vapok.Common.Managers.Splash.SplashModalComponent",
+      "method": "ShowPrivacyOverlay",
+      "values": {
+        "</b></color> <color=#64f0fc>[ vapok.io/privacy-policy ]</color>  <color=#48607a>|</color>  <color=#ffffff><b>DOC:</b></color> <color=#64f0fc>[ PRIVACY ]</color>": "</b></color> <color=#64f0fc>[ vapok.io/privacy-policy ]</color>  <color=#48607a>|</color>  <color=#ffffff><b>ДОКУМЕНТ:</b></color> <color=#64f0fc>[ КОНФИДЕНЦИАЛЬНОСТЬ ]</color>",
+        "VIEW: [ <color=#00f59b>TERMINAL</color> ]": "ВИД: [ <color=#00f59b>ТЕРМИНАЛ</color> ]"
+      }
     }
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.4/Vapok.Common.Managers.Skill/Skill.cs",
-    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.4/AdventureBackpacks.Translations.English.json"
+    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5/Vapok.Common.Managers.Skill/Skill.cs",
+    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5/AdventureBackpacks.Translations.English.json",
+    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5/Vapok.Common.Managers.Splash/CyberTooltipTrigger.cs",
+    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5/Vapok.Common.Managers.Splash/SplashModalComponent.cs",
+    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5/ldstr.json"
   ],
   "notes": [
     "Английский текст взят из кода и ресурсов этой версии мода; русский перевод собственный.",
-    "Собственный русский перевод мода сохраняется; добавлен только недостающий ключ и консольные сообщения."
+    "Собственный русский перевод мода сохраняется; добавлен только недостающий ключ и консольные сообщения.",
+    "The 32 native gameplay keys keep the mod's Russian table. Three hard-coded privacy UI headers are translated in their exact display methods; optional ChebsNecromancy content absent from the checked installation is not added."
   ]
 }

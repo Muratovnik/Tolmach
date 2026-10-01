@@ -1,8 +1,8 @@
 {
   "id": "SocialSystem",
   "package": "M2Valheim-SocialSystem",
-  "version": "1.0.1",
-  "pluginVersion": "1.0.1",
+  "version": "1.0.2",
+  "pluginVersion": "1.0.2",
   "assembly": "SocialSystem",
   "guids": [
     "M2Valheim.SocialSystem"
@@ -107,7 +107,9 @@
     "socialsystem_msg_reply_nobody": "Вам еще никто не писал.",
     "socialsystem_msg_reply_usage": "Использование: /r <message>",
     "socialsystem_msg_party_chat_usage": "Использование: /p <message>",
-    "socialsystem_msg_close_social_windows_first": "Сначала закройте окно общения или группы."
+    "socialsystem_msg_close_social_windows_first": "Сначала закройте окно общения или группы.",
+    "socialsystem_ui_nobody_online": "Больше никого нет в сети.",
+    "socialsystem_ui_message_to": "Сообщение для {0}"
   },
   "englishWords": {
     "socialsystem_ui_title": "Social",
@@ -206,7 +208,9 @@
     "socialsystem_msg_reply_nobody": "Nobody has messaged you yet.",
     "socialsystem_msg_reply_usage": "Usage: /r <message>",
     "socialsystem_msg_party_chat_usage": "Usage: /p <message>",
-    "socialsystem_msg_close_social_windows_first": "Close the social/party window first."
+    "socialsystem_msg_close_social_windows_first": "Close the social/party window first.",
+    "socialsystem_ui_nobody_online": "Nobody else is online.",
+    "socialsystem_ui_message_to": "Message to {0}"
   },
   "texts": {},
   "patterns": [],
@@ -236,17 +240,19 @@
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1/SocialSystem/Plugin.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1/SocialSystem.csproj",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1/SocialSystem.Localization/SocialTexts.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1/SocialSystem.Localization/SocialLocalization.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1/SocialSystem.Client/DirectMessageCommand.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1/SocialSystem.Client/ReplyCommand.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1/SocialSystem.Client/PartyChatCommand.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1/SocialSystem.ldstr.il"
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem/Plugin.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.csproj",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.Localization/SocialTexts.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.Localization/SocialLocalization.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.Client/DirectMessageCommand.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.Client/ReplyCommand.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.Client/PartyChatCommand.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/ldstr.json",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.UI/SocialWindow.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.UI/SocialListRenderer.cs"
   ],
   "notes": [
-    "Profile mod: M2Valheim-SocialSystem 1.0.1 from Thunderstore, decompiled from the installed DLL on 2026-09-29",
+    "Profile mod: M2Valheim-SocialSystem 1.0.2 from Thunderstore, decompiled from the installed DLL on 2026-10-01",
     "The mod's own Jotunn table has English and German; Russian is added to it (fill-only)",
     "Not translated: the cheat test command socialsystem_fake and its output, and log lines"
   ]

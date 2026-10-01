@@ -100,10 +100,13 @@ namespace Tolmach
     [BepInDependency("world_edit_commands", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.Bento.MissingPieces", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("Azumatt.RecipeDescriptionExpansion", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("_shudnal.ConfigurationManager", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("_shudnal.ConditionalConfigSync", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("MidnightsFX.AsyncSave", BepInDependency.DependencyFlags.SoftDependency)]
     public sealed class Plugin : BaseUnityPlugin
     {
         public const string PluginId = "muratovnik.tolmach";
-        public const string PluginVersion = "0.6.2";
+        public const string PluginVersion = "0.7.0";
         private static ManualLogSource Log;
         private static readonly List<string> Notes = new List<string>();
         private static RuntimeReport report;

@@ -1,0 +1,277 @@
+{
+  "id": "ConditionalConfigSync",
+  "package": "shudnal-ConditionalConfigSync",
+  "version": "1.0.9",
+  "pluginVersion": "1.0.9",
+  "assembly": "ConditionalConfigSync.Plugin",
+  "codeAssembly": "ConditionalConfigSync",
+  "guids": [
+    "_shudnal.ConditionalConfigSync"
+  ],
+  "namespaces": [
+    "ConditionalConfigSync"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "Conditional Config Sync rejected this connection.": "Conditional Config Sync отклонил подключение.",
+    "The following synchronization checks failed:": "Не пройдены следующие проверки синхронизации:",
+    "A missing handshake can mean that the mod is missing or disabled, an older pre-CCS build is installed, Conditional Config Sync did not load, or duplicate or outdated DLL files are present.": "Отсутствие обмена данными может означать, что мод отсутствует или отключен, установлена старая сборка без поддержки CCS, Conditional Config Sync не загрузился либо присутствуют дублирующиеся или устаревшие DLL.",
+    "Check that the listed mods and Conditional Config Sync are installed, enabled, and up to date. Remove duplicate or outdated DLL files, then fully restart the game.": "Убедитесь, что перечисленные моды и Conditional Config Sync установлены, включены и обновлены. Удалите дублирующиеся или устаревшие DLL и полностью перезапустите игру.",
+    "The server rejected the connection because a required synchronization check failed, but no detailed reason was provided.": "Сервер отклонил подключение: обязательная проверка синхронизации не пройдена, но подробная причина не указана.",
+    "No version handshake was received from the server.": "Сервер не прислал данные для проверки версий.",
+    "The version handshake was rejected for an unknown compatibility reason.": "Обмен данными для проверки версий отклонен по неизвестной причине несовместимости."
+  },
+  "terms": {
+    "peer": {
+      "client": "клиент",
+      "server": "сервер"
+    },
+    "peerSubject": {
+      "client": "Клиент",
+      "server": "Сервер"
+    }
+  },
+  "patterns": [
+    {
+      "source": "- {0}",
+      "target": "- {0}",
+      "arguments": {
+        "0": "message"
+      },
+      "singleLine": true
+    },
+    {
+      "source": "The server did not receive the required synchronization handshake. The server requires {0} {1} or newer and Conditional Config Sync protocol {2}.",
+      "target": "Сервер не получил обязательные данные синхронизации. Требуется {0} {1} или новее и протокол Conditional Config Sync {2}.",
+      "numeric": [
+        2
+      ],
+      "singleLine": true
+    },
+    {
+      "source": "The {0} sent a legacy or incomplete handshake without Conditional Config Sync protocol metadata. The {1} requires protocol {2}.",
+      "target": "{0} прислал устаревшие или неполные данные обмена без версии протокола Conditional Config Sync. {1} требует протокол {2}.",
+      "numeric": [
+        2
+      ],
+      "arguments": {
+        "0": "term:peerSubject",
+        "1": "term:peerSubject"
+      },
+      "singleLine": true
+    },
+    {
+      "source": "The {0} reported Conditional Config Sync protocol {1}, but the {2} requires protocol {3}.",
+      "target": "{0} сообщил протокол Conditional Config Sync {1}, но {2} требует протокол {3}.",
+      "numeric": [
+        1,
+        3
+      ],
+      "arguments": {
+        "0": "term:peerSubject",
+        "2": "term:peer"
+      },
+      "singleLine": true
+    },
+    {
+      "source": "The {0} reported an invalid mod version or minimum version.",
+      "target": "{0} сообщил некорректную версию мода или минимальную версию.",
+      "arguments": {
+        "0": "term:peerSubject"
+      },
+      "singleLine": true
+    },
+    {
+      "source": "The {0} has an invalid local version requirement and could not validate the connection.",
+      "target": "{0} имеет некорректное локальное требование к версии и не смог проверить подключение.",
+      "arguments": {
+        "0": "term:peerSubject"
+      },
+      "singleLine": true
+    },
+    {
+      "source": "The {0} has version {1}, but the {2} requires at least {3}.",
+      "target": "{0} имеет версию {1}, но {2} требует не ниже {3}.",
+      "arguments": {
+        "0": "term:peerSubject",
+        "2": "term:peer"
+      },
+      "singleLine": true
+    },
+    {
+      "source": "The {0} requires at least version {1}, but the {2} has {3}.",
+      "target": "{0} требует версию не ниже {1}, но {2} имеет {3}.",
+      "arguments": {
+        "0": "term:peerSubject",
+        "2": "term:peer"
+      },
+      "singleLine": true
+    },
+    {
+      "source": "The server sent a malformed version-handshake package: {0}",
+      "target": "Сервер прислал некорректный пакет проверки версий: {0}",
+      "singleLine": true
+    },
+    {
+      "source": "The server reported version {0}, but this client did not process that mod's Conditional Config Sync handshake.",
+      "target": "Сервер сообщил версию {0}, но клиент не обработал обмен данными Conditional Config Sync для этого мода.",
+      "singleLine": true
+    },
+    {
+      "source": "{0}: no version handshake was received from the server.",
+      "target": "{0}: сервер не прислал данные для проверки версий.",
+      "singleLine": true
+    },
+    {
+      "source": "{0}: the server sent a legacy or incomplete ConditionalConfigSync handshake without protocol metadata. This client requires protocol {1}.",
+      "target": "{0}: сервер прислал устаревшие или неполные данные ConditionalConfigSync без версии протокола. Клиент требует протокол {1}.",
+      "numeric": [
+        1
+      ],
+      "singleLine": true
+    },
+    {
+      "source": "{0}: the server uses ConditionalConfigSync protocol {1}, but this client requires protocol {2}.",
+      "target": "{0}: сервер использует протокол ConditionalConfigSync {1}, но клиент требует протокол {2}.",
+      "numeric": [
+        1,
+        2
+      ],
+      "singleLine": true
+    },
+    {
+      "source": "{0}: the server reported an invalid mod version or minimum version (version '{1}', minimum '{2}').",
+      "target": "{0}: сервер сообщил некорректную версию мода или минимальную версию (версия '{1}', минимум '{2}').",
+      "singleLine": true
+    },
+    {
+      "source": "{0}: this client has an invalid local version requirement (version '{1}', minimum '{2}').",
+      "target": "{0}: у клиента некорректное локальное требование к версии (версия '{1}', минимум '{2}').",
+      "singleLine": true
+    },
+    {
+      "source": "{0}: the server has version {1}, but this client requires at least {2}.",
+      "target": "{0}: сервер имеет версию {1}, но клиент требует не ниже {2}.",
+      "singleLine": true
+    },
+    {
+      "source": "{0}: the server requires at least version {1}, but this client has {2}.",
+      "target": "{0}: сервер требует версию не ниже {1}, но клиент имеет {2}.",
+      "singleLine": true
+    },
+    {
+      "source": "{0}: the version handshake was rejected for an unknown compatibility reason.",
+      "target": "{0}: обмен данными для проверки версий отклонен по неизвестной причине несовместимости.",
+      "singleLine": true
+    },
+    {
+      "source": "{0}: The server did not receive the required synchronization handshake. The server requires {1} {2} or newer and Conditional Config Sync protocol {3}.",
+      "target": "{0}: Сервер не получил обязательные данные синхронизации. Требуется {1} {2} или новее и протокол Conditional Config Sync {3}.",
+      "numeric": [
+        3
+      ],
+      "singleLine": true,
+      "arguments": {}
+    },
+    {
+      "source": "{0}: The {1} sent a legacy or incomplete handshake without Conditional Config Sync protocol metadata. The {2} requires protocol {3}.",
+      "target": "{0}: {1} прислал устаревшие или неполные данные обмена без версии протокола Conditional Config Sync. {2} требует протокол {3}.",
+      "numeric": [
+        3
+      ],
+      "arguments": {
+        "1": "term:peerSubject",
+        "2": "term:peerSubject"
+      },
+      "singleLine": true
+    },
+    {
+      "source": "{0}: The {1} reported Conditional Config Sync protocol {2}, but the {3} requires protocol {4}.",
+      "target": "{0}: {1} сообщил протокол Conditional Config Sync {2}, но {3} требует протокол {4}.",
+      "numeric": [
+        2,
+        4
+      ],
+      "arguments": {
+        "1": "term:peerSubject",
+        "3": "term:peer"
+      },
+      "singleLine": true
+    },
+    {
+      "source": "{0}: The {1} reported an invalid mod version or minimum version.",
+      "target": "{0}: {1} сообщил некорректную версию мода или минимальную версию.",
+      "arguments": {
+        "1": "term:peerSubject"
+      },
+      "singleLine": true,
+      "numeric": []
+    },
+    {
+      "source": "{0}: The {1} has an invalid local version requirement and could not validate the connection.",
+      "target": "{0}: {1} имеет некорректное локальное требование к версии и не смог проверить подключение.",
+      "arguments": {
+        "1": "term:peerSubject"
+      },
+      "singleLine": true,
+      "numeric": []
+    },
+    {
+      "source": "{0}: The {1} has version {2}, but the {3} requires at least {4}.",
+      "target": "{0}: {1} имеет версию {2}, но {3} требует не ниже {4}.",
+      "arguments": {
+        "1": "term:peerSubject",
+        "3": "term:peer"
+      },
+      "singleLine": true,
+      "numeric": []
+    },
+    {
+      "source": "{0}: The {1} requires at least version {2}, but the {3} has {4}.",
+      "target": "{0}: {1} требует версию не ниже {2}, но {3} имеет {4}.",
+      "arguments": {
+        "1": "term:peerSubject",
+        "3": "term:peer"
+      },
+      "singleLine": true,
+      "numeric": []
+    },
+    {
+      "source": "{0}: The server sent a malformed version-handshake package: {1}",
+      "target": "{0}: Сервер прислал некорректный пакет проверки версий: {1}",
+      "singleLine": true,
+      "numeric": [],
+      "arguments": {}
+    },
+    {
+      "source": "{0}: The server reported version {1}, but this client did not process that mod's Conditional Config Sync handshake.",
+      "target": "{0}: Сервер сообщил версию {1}, но клиент не обработал обмен данными Conditional Config Sync для этого мода.",
+      "singleLine": true,
+      "numeric": [],
+      "arguments": {}
+    },
+    {
+      "source": "{0}: No version handshake was received from the server.",
+      "target": "{0}: Сервер не прислал данные для проверки версий.",
+      "singleLine": true
+    },
+    {
+      "source": "{0}: The version handshake was rejected for an unknown compatibility reason.",
+      "target": "{0}: Обмен данными для проверки версий отклонен по неизвестной причине несовместимости.",
+      "singleLine": true
+    }
+  ],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/current-profile/shudnal-ConditionalConfigSync-1.0.9/ConditionalConfigSync/ConditionalConfigSync/VersionCheck.cs",
+    "source-evidence/current-profile/shudnal-ConditionalConfigSync-1.0.9/ConditionalConfigSync.Plugin/ConditionalConfigSync/ConditionalConfigSyncPlugin.cs",
+    "source-evidence/current-profile/shudnal-ConditionalConfigSync-1.0.9/ConditionalConfigSync.Plugin/ConditionalConfigSync.Plugin.csproj"
+  ],
+  "notes": [
+    "ConditionalConfigSync.Plugin owns the BepInEx identity; its directly referenced ConditionalConfigSync helper owns VersionCheck.ShowConnectionError.",
+    "Only the final scoped TMP display call translates rejection reports, including English reasons received from another peer. RPC packages, pending reports and diagnostic logs remain unchanged.",
+    "Names, versions, malformed-payload diagnostics and unknown rejection reasons remain opaque. Role terms accept only client and server. No global raw text rules or literal/return adapters are used."
+  ]
+}

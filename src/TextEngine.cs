@@ -44,7 +44,7 @@ namespace Tolmach
                 {
                     expression.Append(Regex.Escape(p.source.Substring(offset, h.Index - offset)));
                     string group = "p" + h.Groups[1].Value;
-                    string body = p.numeric.Contains(Int32.Parse(h.Groups[1].Value)) ? @"[0-9]+(?:[.,][0-9]+)?" : ".*?";
+                    string body = p.numeric.Contains(Int32.Parse(h.Groups[1].Value)) ? @"[0-9]+(?:[.,][0-9]+)?" : p.singleLine ? @"[^\r\n]*?" : ".*?";
                     expression.Append(seen.Add(group) ? "(?<" + group + ">" + body + ")" : @"\k<" + group + ">");
                     offset = h.Index + h.Length;
                 }

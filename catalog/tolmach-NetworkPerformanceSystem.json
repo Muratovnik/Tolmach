@@ -1,8 +1,8 @@
 {
   "id": "NetworkPerformanceSystem",
   "package": "MidnightMods-NetworkPerformanceSystem",
-  "version": "1.11.1",
-  "pluginVersion": "1.11.1",
+  "version": "1.13.0",
+  "pluginVersion": "1.13.0",
   "assembly": "NetworkPerformanceSystem",
   "guids": [
     "MidnightsFX.NetworkPerformanceSystem"
@@ -41,9 +41,9 @@
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.1/NetworkPerformanceSystem.Runtime/GhostWatchdog.cs",
-    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.1/NetworkPerformanceSystem.Patches/GhostWatchdogPatches.cs",
-    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.1/NetworkPerformanceSystem.ldstr.il"
+    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.13.0/NetworkPerformanceSystem.Runtime/GhostWatchdog.cs",
+    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.13.0/NetworkPerformanceSystem.Patches/GhostWatchdogPatches.cs",
+    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.13.0/ldstr.json"
   ],
   "notes": [
     "English is hard-coded in GhostWatchdog: Warn, Recover and Trip show center MessageHud messages, and Trip stores PendingReason, which GhostWatchdogPatches writes into FejdStartup.m_connectionFailedError.",

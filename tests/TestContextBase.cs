@@ -17,7 +17,7 @@ namespace Tolmach.Tests
     public abstract class TestContextBase
     {
         // Populated by Json.NET from snapshot-bindings.json.
-        internal sealed class Identity { public string id = null; public string guid = null; public string assembly = null; public string pluginVersion = null; }
+        internal sealed class Identity { public string id = null; public string guid = null; public string assembly = null; public string pluginVersion = null; public string codeAssembly = null; }
         protected sealed class Regression { public string module; public string source; public string expected; }
         protected sealed class Part { public string method; public string literal; public string opaque; }
         protected sealed class Composition { public string name; public List<Part> parts; public string expected; }
@@ -46,12 +46,19 @@ namespace Tolmach.Tests
             }
             return new PluginIdentity(id.guid, assembly, new Version(id.pluginVersion));
         }
+        private static IEnumerable<AssemblyName> SnapshotReferences(Identity snapshot)
+        {
+            if (String.IsNullOrEmpty(snapshot.codeAssembly)) return new AssemblyName[0];
+            PluginIdentity helper = Installed(new Identity { assembly = snapshot.codeAssembly, guid = snapshot.guid, pluginVersion = snapshot.pluginVersion });
+            return new[] { helper.Assembly.GetName() };
+        }
         protected static Module LoadModule(string id)
         {
             Module m = CatalogLoader.Read(Catalog(id));
             Identity snapshot = Fixture<List<Identity>>("snapshot-bindings.json").Single(x => x.id == id);
             string reason;
-            Assert.That(CatalogLoader.TryBind(m, guid => guid == snapshot.guid ? Installed(snapshot) : null, false, out reason), Is.True, reason);
+            Assert.That(CatalogLoader.TryBind(m, guid => guid == snapshot.guid ? Installed(snapshot) : null, false,
+                assembly => SnapshotReferences(snapshot), () => AppDomain.CurrentDomain.GetAssemblies(), out reason), Is.True, reason);
             TextEngine.Modules.Add(m.id, m);
             return m;
         }

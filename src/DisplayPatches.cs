@@ -23,14 +23,21 @@ namespace Tolmach
             // display table is not a reason to inspect or detour a plugin's methods.
             if (!module.NeedsIlAdapters) return;
             if (!module.UiAllowed)
-            { module.Warn("Version differs from snapshot and OnlyAuditedVersions is on; scoped IL/return adapters skipped. Native key adapters remain enabled."); return; }
+            {
+                if (module.codeAssembly.Length == 0 || module.RuntimeCodeAssembly != null)
+                    module.Warn("Version differs from snapshot and OnlyAuditedVersions is on; scoped IL/return adapters skipped. Native key adapters remain enabled.");
+                return;
+            }
+            Assembly codeAssembly = module.RuntimeCodeAssembly ?? module.RuntimeAssembly;
+            if (codeAssembly == null || (module.codeAssembly.Length != 0 && module.RuntimeCodeAssembly == null))
+            { module.Warn("Scoped code assembly is unavailable; IL/return adapters skipped."); return; }
             if (!module.ExactVersion)
                 module.Warn("Version differs from snapshot; adapters apply where the catalog strings are found. Strings not found are listed below and stay in English.");
             // Literal values found in the original IL of their methods, over all overloads of the name.
             HashSet<string> seen = new HashSet<string>(StringComparer.Ordinal);
             // A type, signature or body referring to an absent optional dependency throws on
             // reflection. Skip only that type or method; the rest of the module stays patched.
-            foreach (Type type in AccessTools.GetTypesFromAssembly(module.RuntimeAssembly))
+            foreach (Type type in AccessTools.GetTypesFromAssembly(codeAssembly))
             {
                 List<MethodBase> methods;
                 try
@@ -160,7 +167,7 @@ namespace Tolmach
         {
             try
             {
-                Type t = module.RuntimeAssembly.GetType(typeName, false);
+                Type t = (module.RuntimeCodeAssembly ?? module.RuntimeAssembly).GetType(typeName, false);
                 if (t != null && methodName == ".ctor") return AccessTools.GetDeclaredConstructors(t, false).Count != 0;
                 return t != null && t.GetMethods(AccessTools.allDeclared).Any(delegate(MethodInfo m) { return m.Name == methodName; });
             }

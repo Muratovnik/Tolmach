@@ -2,15 +2,15 @@
   {
     "id": "AdventureBackpacks",
     "guid": "vapok.mods.adventurebackpacks",
-    "pluginVersion": "2.2.4",
+    "pluginVersion": "2.2.5",
     "assembly": "AdventureBackpacks",
     "sources": [
       {
-        "path": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.4/AdventureBackpacks/AdventureBackpacks.cs",
-        "sha256": "06a5c25c35b3a33f5ab5cb161738d1297ec603759a8daf8a01a0110598ee373a"
+        "path": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5/AdventureBackpacks/AdventureBackpacks.cs",
+        "sha256": "ecc77f45b53719c65bfbefa15cda3d62bac672a134c3f87b777d35435a794d55"
       },
       {
-        "path": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.4/AdventureBackpacks.csproj",
+        "path": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5/AdventureBackpacks.csproj",
         "sha256": "86e6448f9f95927100a8b0a0676c2fcf510f51fb80fb4adc27be8c4072d7ff35"
       }
     ]
@@ -60,6 +60,22 @@
       {
         "path": "source-evidence/profile-updates/Therzie-Armory-1.4.2/Armory/Armory.csproj",
         "sha256": "f5df27ea99893ec752afe5b2ffed970d2ba7678288b1d167fbfbba819f1d9db9"
+      }
+    ]
+  },
+  {
+    "id": "AsyncSave",
+    "guid": "MidnightsFX.AsyncSave",
+    "pluginVersion": "0.6.0",
+    "assembly": "AsyncSave",
+    "sources": [
+      {
+        "path": "source-evidence/current-profile/MidnightMods-AsyncSave-0.6.0/AsyncSave/AsyncSave/AsyncSavePlugin.cs",
+        "sha256": "4dcb70c4ace2c8ff865d0f6bbdb462420f4785b88d91150195adc30962da1191"
+      },
+      {
+        "path": "source-evidence/current-profile/MidnightMods-AsyncSave-0.6.0/AsyncSave/AsyncSave.csproj",
+        "sha256": "4255636945e51470e0b8d32cdfa4b5f8906cfcdc8d3b33b42cf51ca8aa935a8a"
       }
     ]
   },
@@ -332,6 +348,39 @@
       {
         "path": "source-evidence/localization/d/Smoothbrain-ComfortTweaks-proj/ComfortTweaks.csproj",
         "sha256": "0ee7e35779c2d98409fbbb93268b8f2d55a48e2c85340c9fc5c5f59dda2ef6bb"
+      }
+    ]
+  },
+  {
+    "id": "ConditionalConfigSync",
+    "guid": "_shudnal.ConditionalConfigSync",
+    "pluginVersion": "1.0.9",
+    "assembly": "ConditionalConfigSync.Plugin",
+    "sources": [
+      {
+        "path": "source-evidence/current-profile/shudnal-ConditionalConfigSync-1.0.9/ConditionalConfigSync.Plugin/ConditionalConfigSync/ConditionalConfigSyncPlugin.cs",
+        "sha256": "a36149018467e9be27f42da1979079b8148775913d229eb964c00f4a0b05a94a"
+      },
+      {
+        "path": "source-evidence/current-profile/shudnal-ConditionalConfigSync-1.0.9/ConditionalConfigSync.Plugin/ConditionalConfigSync.Plugin.csproj",
+        "sha256": "a828c5ac6abd14f3f80c3f75b42d39d65f39053c2a10545dcbf2aa87cb8caf30"
+      }
+    ],
+    "codeAssembly": "ConditionalConfigSync"
+  },
+  {
+    "id": "ConfigurationManager",
+    "guid": "_shudnal.ConfigurationManager",
+    "pluginVersion": "1.1.22",
+    "assembly": "ConfigurationManager",
+    "sources": [
+      {
+        "path": "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager/ConfigurationManager.cs",
+        "sha256": "e109b44ec6c3905055c9b285873962d3eebd436a12ea852a3d904f43f8fdcd62"
+      },
+      {
+        "path": "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager.csproj",
+        "sha256": "0f521df2bddf69ccd9a9fdbccc06a150677a70bb73ad1d659c0e0ec6122237c8"
       }
     ]
   },
@@ -738,16 +787,16 @@
   {
     "id": "More_World_Locations_AIO",
     "guid": "warpalicious.More_World_Locations_AIO",
-    "pluginVersion": "5.1.5",
+    "pluginVersion": "5.1.7",
     "assembly": "More_World_Locations_AIO",
     "sources": [
       {
-        "path": "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO/More_World_Locations_AIOPlugin.cs",
-        "sha256": "dacd5355e5242ba950cca29be7e505a7054c996d2192523fa913c5a3b83e5245"
+        "path": "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.7/More_World_Locations_AIO/More_World_Locations_AIOPlugin.cs",
+        "sha256": "2d62ec53eb751e872e62e098313a4fd3959d1202d5633a58802b9c1b14da4d68"
       },
       {
-        "path": "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5/More_World_Locations_AIO.csproj",
-        "sha256": "8af9befcf59a67bf7468b7bf913912845abf8e4bf2968255f3f4b44a7bf3c4e2"
+        "path": "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.7/More_World_Locations_AIO.csproj",
+        "sha256": "41d6a0994ce5dd8ac2e2635c22e79e1c62b7f5417650a111aea1767ff56c31b2"
       }
     ]
   },
@@ -786,15 +835,15 @@
   {
     "id": "NetworkPerformanceSystem",
     "guid": "MidnightsFX.NetworkPerformanceSystem",
-    "pluginVersion": "1.11.1",
+    "pluginVersion": "1.13.0",
     "assembly": "NetworkPerformanceSystem",
     "sources": [
       {
-        "path": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.1/NetworkPerformanceSystem/NetworkPerformanceSystem.cs",
-        "sha256": "e88474c26fdcf3209d6dfe8ba9bcba2d1d1049afe28cde5f696e9dcf8155e035"
+        "path": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.13.0/NetworkPerformanceSystem/NetworkPerformanceSystem.cs",
+        "sha256": "dab062e0adaa8339e0f1f898c147e6b0c19f9c938a2e29f2ac591c448df6186c"
       },
       {
-        "path": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.1/NetworkPerformanceSystem.csproj",
+        "path": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.13.0/NetworkPerformanceSystem.csproj",
         "sha256": "62affaf15448476b5ceb6864c29542c0ec1ec529b517a0cc26652d5fbac28cd8"
       }
     ]
@@ -1090,16 +1139,16 @@
   {
     "id": "SocialSystem",
     "guid": "M2Valheim.SocialSystem",
-    "pluginVersion": "1.0.1",
+    "pluginVersion": "1.0.2",
     "assembly": "SocialSystem",
     "sources": [
       {
-        "path": "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1/SocialSystem/Plugin.cs",
-        "sha256": "641e83211d6c8082b741195243e2898e104778c1f373f8fc744f083f7d428a1f"
+        "path": "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem/Plugin.cs",
+        "sha256": "0a4f7663493d6dcf72618a0c1b9b9dbf1ec001838208a3e04980be3bacf358d2"
       },
       {
-        "path": "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1/SocialSystem.csproj",
-        "sha256": "b506ea6d4b90c02dfa72e9f81b38b06dd4e2638534a4ef07abe63a66d931dddf"
+        "path": "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.csproj",
+        "sha256": "cb2c10ad40fe8e670433115e36935932bf06239376bf46c8572908e4c0e156f8"
       }
     ]
   },
@@ -1310,15 +1359,15 @@
   {
     "id": "WackysDatabase",
     "guid": "WackyMole.WackysDatabase",
-    "pluginVersion": "2.5.36",
+    "pluginVersion": "2.5.38",
     "assembly": "WackysDatabase",
     "sources": [
       {
-        "path": "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.36/wackydatabase/WMRecipeCust.cs",
-        "sha256": "2bafef890984bb039a77e3366cddd9676eaca0deb511e65b2327fd2a0b77493e"
+        "path": "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38/wackydatabase/WMRecipeCust.cs",
+        "sha256": "fc40496241f1189f79a6ac998a86a3c824031f87793f3d2848109b4a60f97ff8"
       },
       {
-        "path": "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.36/WackysDatabase.csproj",
+        "path": "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38/WackysDatabase.csproj",
         "sha256": "3c3ea85b94de6ee961dc3f09876e594092a7fb02ac6594e11c9eb0cc14ffed6a"
       }
     ]

@@ -1,7 +1,7 @@
 {
   "id": "WackysDatabase",
   "package": "WackyMole-WackysDatabase",
-  "version": "2.5.36",
+  "version": "2.5.38",
   "assembly": "WackysDatabase",
   "guids": [
     "WackyMole.WackysDatabase"
@@ -12,9 +12,44 @@
     "Lumberjack Axe": "Топор лесоруба",
     "A axe designed for cutting down trees not enemies.": "Топор для рубки деревьев, а не врагов.",
     "Harden Lumberjack Axe": "Закаленный топор лесоруба",
-    "A hardened axe designed for cutting down trees not enemies.": "Закаленный топор для рубки деревьев, а не врагов."
+    "A hardened axe designed for cutting down trees not enemies.": "Закаленный топор для рубки деревьев, а не врагов.",
+    "WackyDB: Asset sync failed. Logout and reconnect to retry.": "WackyDB: Не удалось синхронизировать ресурсы. Выйдите из мира и подключитесь снова.",
+    "WackyDB: Asset sync failed during transfer. Please reconnect or install server assets manually.": "WackyDB: Сбой передачи ресурсов. Подключитесь снова или установите ресурсы сервера вручную.",
+    "WackyDB: Server finished sending requested assets. Waiting for client to save them...": "WackyDB: Сервер передал запрошенные ресурсы. Ожидание сохранения на клиенте...",
+    "WackyDB: Reloading downloaded assets...": "WackyDB: Перезагрузка загруженных ресурсов...",
+    "WackysDatabase You started a Local Game before Multiplayer. That is Not allowed. -Restart Game": "WackysDatabase: Нельзя подключиться к серверу после запуска локальной игры. Перезапустите игру.",
+    "WackysDatabase You started a Local Game before Multiplayer. That is Not allowed. -Restart Game 0.0.1": "WackysDatabase: Нельзя подключиться к серверу после запуска локальной игры. Перезапустите игру. 0.0.1",
+    "WackysDatabase is not installed on the server.": "WackysDatabase не установлен на сервере."
   },
-  "patterns": [],
+  "patterns": [
+    {
+      "source": "WackyDB: Unknown requested asset type '{0}' for '{1}'. Aborting asset sync for peer {2}.",
+      "target": "WackyDB: Неизвестный тип ресурса '{0}' для '{1}'. Синхронизация ресурсов для участника {2} прервана."
+    },
+    {
+      "source": "WackyDB: Asset sync failed safely. '{0}' is too large ({1} MB). Please install server assets manually.",
+      "target": "WackyDB: Синхронизация ресурсов безопасно остановлена. Размер '{0}' слишком велик ({1} МБ). Установите ресурсы сервера вручную.",
+      "numeric": [
+        1
+      ]
+    },
+    {
+      "source": "WackyDB: Server could not find requested asset '{0}' of type '{1}'. Aborting asset sync for peer {2}.",
+      "target": "WackyDB: Сервер не нашел запрошенный ресурс '{0}' типа '{1}'. Синхронизация ресурсов для участника {2} прервана."
+    },
+    {
+      "source": "WackysDatabase needs to be at least version {0}. You have version {1}.",
+      "target": "Для WackysDatabase требуется версия {0} или новее. У вас версия {1}."
+    },
+    {
+      "source": "WackysDatabase may not be higher than version {0}. You have version {1}.",
+      "target": "Версия WackysDatabase не должна быть выше {0}. У вас версия {1}."
+    },
+    {
+      "source": "Server expects you to have {0} (Version: {1}) installed.",
+      "target": "Для подключения к серверу требуется {0} (версия: {1})."
+    }
+  ],
   "returns": [],
   "prefabs": [
     {
@@ -35,13 +70,19 @@
     }
   ],
   "sourceFiles": [
-    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.36/wackydatabase/WMRecipeCust.cs"
+    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38/wackydatabase/WMRecipeCust.cs",
+    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38/wackydatabase.OBJimporter/HandleData.cs",
+    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38/ServerSync/VersionCheck.cs",
+    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38/wackydatabase.Startup/Startup.cs",
+    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38/ldstr.json"
   ],
   "notes": [
-    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен.",
+    "AssetSync HUD messages and connection errors are translated only at display boundaries. RPC payloads, ClientMSG control checks, logs, commands, arbitrary user YAML and configuration descriptions retain upstream text. Captured names, paths, versions and peer IDs stay opaque."
   ],
   "namespaces": [
-    "wackydatabase"
+    "wackydatabase",
+    "ServerSync"
   ],
-  "pluginVersion": "2.5.36"
+  "pluginVersion": "2.5.38"
 }

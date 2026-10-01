@@ -65,6 +65,8 @@ def binding_checks(modules: list[dict], evidence: Path | None) -> None:
         check(GAME_GUID not in m['guids'] or (m['guids'] == [GAME_GUID] and m['assembly'] == GAME_ASSEMBLY),
               m['id'] + ': game GUID must stand alone and bind the game assembly')
         check(m['assembly'] == row['assembly'], m['id'] + ': wrong assembly identity')
+        check(m.get('codeAssembly') == row.get('codeAssembly'), m['id'] + ': wrong display helper identity')
+        check('codeAssembly' not in m or m['codeAssembly'] != m['assembly'], m['id'] + ': display helper must differ from plugin assembly')
         check(m.get('pluginVersion') == row['pluginVersion'], m['id'] + ': wrong/missing BepInPlugin version')
         if evidence is not None:
             for source in row['sources']:
@@ -255,6 +257,7 @@ def main() -> int:
             check(collections.Counter(TOKEN.findall(en)) == collections.Counter(TOKEN.findall(ru)), name + ': placeholder/markup mismatch: ' + repr(en))
             check(re.findall(r'</?[^>\n]+>', en) == re.findall(r'</?[^>\n]+>', ru), name + ': markup order mismatch: ' + repr(en))
         for p in m['patterns'] + m.get('rawPatterns', []):
+            check(not p.get('singleLine') or not any(c in p['source'] + p['target'] for c in '\r\n'), name + ': single-line pattern contains line breaks')
             holes = set(HOLE.findall(p['source']))
             check(holes == set(HOLE.findall(p['target'])), name + ': pattern placeholders differ: ' + repr(p['source']))
             check(set(p.get('numeric', [])) <= {int(h) for h in holes}, name + ': invalid numeric placeholder')

@@ -28,6 +28,11 @@ def test_unmodified_data_passes():
     ('guid', 'wrong catalog GUID'),
     ('assembly', 'wrong assembly identity'),
     ('version', 'wrong/missing BepInPlugin version'),
+    ('helper', 'wrong display helper identity'),
+    ('helper_null', '$.codeAssembly'),
+    ('helper_empty', '$.codeAssembly'),
+    ('single_line_type', '$.patterns[0].singleLine'),
+    ('single_line_break', 'single-line pattern contains line breaks'),
     ('markup', 'markup'),
     ('missing_key', 'mismatched English/Russian key sets'),
     ('cllc_template', '$.cllc.genderedCreatureTranslations.m'),
@@ -47,6 +52,8 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
         name = 'Warfare'
     elif mutation.startswith('cllc'):
         name = 'CreatureLevelControl'
+    elif mutation.startswith('helper') or mutation.startswith('single_line'):
+        name = 'ConditionalConfigSync'
     path = root / 'catalog' / ('tolmach-' + name + '.json')
     data = json.loads(path.read_text(encoding='utf-8'))
     if mutation == 'guid':
@@ -55,6 +62,16 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
         data['assembly'] = 'Deliberately.Wrong.Assembly'
     elif mutation == 'version':
         data['pluginVersion'] = '99.0.0'
+    elif mutation == 'helper':
+        data['codeAssembly'] = 'Deliberately.Wrong.Helper'
+    elif mutation == 'helper_null':
+        data['codeAssembly'] = None
+    elif mutation == 'helper_empty':
+        data['codeAssembly'] = ''
+    elif mutation == 'single_line_type':
+        data['patterns'][0]['singleLine'] = 'true'
+    elif mutation == 'single_line_break':
+        data['patterns'][0]['source'] += '\n'
     elif mutation == 'markup':
         pattern = next(p for p in data['patterns'] if '</size>' in p['target'])
         pattern['target'] = pattern['target'].replace('</size>', '', 1)

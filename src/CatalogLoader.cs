@@ -36,6 +36,13 @@ namespace Tolmach
                 JObject data = JObject.Load(reader, new JsonLoadSettings { DuplicatePropertyNameHandling = DuplicatePropertyNameHandling.Error });
                 if (reader.Read()) throw new InvalidDataException("Unexpected data after catalog object.");
                 Module module = data.ToObject<Module>(Serializer);
+                if (data.Property("codeAssembly") != null && module.codeAssembly.Length == 0)
+                    throw new InvalidDataException("codeAssembly cannot be empty when declared.");
+                foreach (string section in new[] { "patterns", "rawPatterns" })
+                    if (data[section] is JArray)
+                        foreach (JToken pattern in data[section])
+                            if (pattern["singleLine"] != null && pattern["singleLine"].Type != JTokenType.Boolean)
+                                throw new InvalidDataException("singleLine must be a boolean.");
                 Validate(module);
                 return module;
             }
@@ -46,6 +53,8 @@ namespace Tolmach
                 String.IsNullOrEmpty(m.assembly) || m.guids.Count == 0 ||
                 m.guids.Any(String.IsNullOrWhiteSpace) || m.namespaces.Any(String.IsNullOrWhiteSpace))
                 throw new InvalidDataException("Missing or invalid module identity.");
+            if (m.codeAssembly.Length != 0 && (!Regex.IsMatch(m.codeAssembly, @"\A[A-Za-z0-9_.-]+\z") || m.codeAssembly == m.assembly))
+                throw new InvalidDataException("codeAssembly must name a distinct helper assembly.");
             Version parsed;
             if (!Version.TryParse(m.version, out parsed) || !Version.TryParse(m.pluginVersion, out parsed))
                 throw new InvalidDataException("Package version and BepInPlugin version must both be declared.");
@@ -103,6 +112,8 @@ namespace Tolmach
         {
             if (p == null || String.IsNullOrEmpty(p.source) || String.IsNullOrEmpty(p.target))
                 throw new InvalidDataException("Invalid pattern.");
+            if (p.singleLine && (p.source.IndexOfAny(new[] { '\r', '\n' }) >= 0 || p.target.IndexOfAny(new[] { '\r', '\n' }) >= 0))
+                throw new InvalidDataException("A single-line pattern cannot contain line breaks.");
             HashSet<string> holes = new HashSet<string>(Hole.Matches(p.source).Cast<Match>().Select(delegate(Match h) { return h.Groups[1].Value; }));
             if (!holes.SetEquals(Hole.Matches(p.target).Cast<Match>().Select(delegate(Match h) { return h.Groups[1].Value; })))
                 throw new InvalidDataException("Pattern placeholders differ.");
@@ -140,8 +151,15 @@ namespace Tolmach
         }
         internal static bool TryBind(Module module, Func<string, PluginIdentity> lookup, bool onlyAuditedVersions, out string reason)
         {
+            return TryBind(module, lookup, onlyAuditedVersions,
+                assembly => assembly.GetReferencedAssemblies(), () => AppDomain.CurrentDomain.GetAssemblies(), out reason);
+        }
+        internal static bool TryBind(Module module, Func<string, PluginIdentity> lookup, bool onlyAuditedVersions,
+            Func<Assembly, IEnumerable<AssemblyName>> references, Func<IEnumerable<Assembly>> loadedAssemblies, out string reason)
+        {
             // A failed rebind must not leave the previous plugin's assembly/permissions live.
             module.RuntimeAssembly = null;
+            module.RuntimeCodeAssembly = null;
             module.Table = null;
             module.ExactVersion = false;
             module.UiAllowed = false;
@@ -160,10 +178,32 @@ namespace Tolmach
             // Every adapter matches exact catalog strings in named methods, so another version gets the
             // strings it still has and a warning for the rest; a minor update must not drop the module.
             module.UiAllowed = module.ExactVersion || !onlyAuditedVersions;
+            if (module.codeAssembly.Length != 0)
+            {
+                string helperFailure = null;
+                try
+                {
+                    AssemblyName[] direct = references(installed.Assembly).Where(name => name.Name == module.codeAssembly).ToArray();
+                    if (direct.Length != 1) helperFailure = "helper is not a unique direct plugin reference";
+                    else
+                    {
+                        Assembly[] candidates = loadedAssemblies().Where(assembly => assembly.GetName().FullName == direct[0].FullName).ToArray();
+                        if (candidates.Length != 1) helperFailure = "helper exact identity is not uniquely loaded";
+                        else module.RuntimeCodeAssembly = candidates[0];
+                    }
+                }
+                catch (Exception e) { helperFailure = "helper resolution failed: " + e.GetType().Name; }
+                if (helperFailure != null)
+                {
+                    module.UiAllowed = false;
+                    module.Warn("Scoped display helper " + module.codeAssembly + " unavailable: " + helperFailure + "; native dictionaries only.");
+                }
+            }
             if (!module.ExactVersion)
                 module.Warn("Expected plugin " + module.pluginVersion + " (package " + module.version + "), loaded " + installed.Version + ".");
             module.Table = new TextTable(module);
-            reason = module.ExactVersion ? "loaded" : module.UiAllowed
+            reason = !module.UiAllowed && module.codeAssembly.Length != 0 && module.RuntimeCodeAssembly == null
+                ? "native dictionaries only; display helper unavailable" : module.ExactVersion ? "loaded" : module.UiAllowed
                 ? "loaded; different plugin version, adapters apply where the catalog strings are found"
                 : "native dictionaries only; different plugin version";
             return true;

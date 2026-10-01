@@ -12,6 +12,7 @@ namespace Tolmach
     {
         public string source = "";
         public string target = "";
+        public bool singleLine;
         public List<int> numeric = new List<int>();
         // Only explicitly declared semantic arguments may be translated. Others stay verbatim.
         public Dictionary<string, string> arguments = new Dictionary<string, string>();
@@ -78,6 +79,7 @@ namespace Tolmach
         public string version = "";
         public string pluginVersion = "";
         public string assembly = "";
+        public string codeAssembly = "";
         public List<string> guids = new List<string>();
         public List<string> namespaces = new List<string>();
         public Dictionary<string, string> words = new Dictionary<string, string>();
@@ -106,6 +108,7 @@ namespace Tolmach
         public List<string> sourceFiles = new List<string>();
         public List<string> notes = new List<string>();
         [JsonIgnore] public Assembly RuntimeAssembly;
+        [JsonIgnore] public Assembly RuntimeCodeAssembly;
         [JsonIgnore] public TextTable Table;
         [JsonIgnore] public TextTable RawTable;
         [JsonIgnore] public bool ExactVersion;

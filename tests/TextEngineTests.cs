@@ -17,9 +17,17 @@ namespace Tolmach.Tests
         {
             get { return Fixture<List<Regression>>("regressions.json").Select(r => new TestCaseData(r.module, r.source, r.expected).SetName("RealString: " + r.module + " / " + r.source)); }
         }
-        private static string Fill(string text)
+        private static string Fill(string text, PatternSpec pattern, Module module, bool russian)
         {
-            return Regex.Replace(text, @"\{(\d+)\}", m => (17 + Int32.Parse(m.Groups[1].Value)).ToString(CultureInfo.InvariantCulture));
+            return Regex.Replace(text, @"\{(\d+)\}", m => {
+                string semantic;
+                if (pattern.arguments.TryGetValue(m.Groups[1].Value, out semantic) && semantic.StartsWith("term:", StringComparison.Ordinal))
+                {
+                    var term = module.terms[semantic.Substring(5)].OrderBy(t => t.Key, StringComparer.Ordinal).First();
+                    return russian ? term.Value : term.Key;
+                }
+                return (17 + Int32.Parse(m.Groups[1].Value)).ToString(CultureInfo.InvariantCulture);
+            });
         }
         [TestCaseSource("Modules")]
         public void CatalogLookupAndLanguageSwitchUseProductionAssembly(string id)
@@ -34,7 +42,7 @@ namespace Tolmach.Tests
             }
             TextEngine.IsRussian = true;
             foreach (PatternSpec pattern in m.patterns)
-                Assert.That(TextEngine.Display(Fill(pattern.source), id), Is.EqualTo(Fill(pattern.target)), pattern.source);
+                Assert.That(TextEngine.Display(Fill(pattern.source, pattern, m, false), id), Is.EqualTo(Fill(pattern.target, pattern, m, true)), pattern.source);
             foreach (LiteralSpec rule in m.literals)
                 foreach (var pair in rule.values)
                 {
@@ -44,6 +52,17 @@ namespace Tolmach.Tests
             Assert.That(TextEngine.Display("__UNKNOWN_IDENTIFIER__", id), Is.EqualTo("__UNKNOWN_IDENTIFIER__"));
             Assert.That(TextEngine.Display("LumberAxe", id), Is.EqualTo("LumberAxe"));
             Assert.That(TextEngine.Display(null, id), Is.Null);
+        }
+        [Test]
+        public void SingleLinePatternsCannotAbsorbAnotherLineAndExistingPatternsStillCan()
+        {
+            Module m = new Module();
+            m.patterns.Add(new PatternSpec { source = "Name {0}.", target = "Имя {0}." });
+            Assert.That(new TextTable(m).Translate("Name first\nsecond."), Is.EqualTo("Имя first\nsecond."), "Absent flag preserves existing multiline contracts.");
+            m.patterns[0].singleLine = true;
+            Assert.That(new TextTable(m).Translate("Name first\nsecond."), Is.EqualTo("Name first\nsecond."));
+            Assert.That(new TextTable(m).Translate("Name first\r\nsecond."), Is.EqualTo("Name first\r\nsecond."));
+            Assert.That(new TextTable(m).Translate("Name first.\r\nName second."), Is.EqualTo("Имя first.\r\nИмя second."));
         }
         [TestCaseSource("Modules")]
         public void RawCatalogEntriesTranslateOnDisplay(string id)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -92,6 +93,8 @@ namespace Tolmach.Tests
             try { Assert.DoesNotThrow(() => CatalogLoader.Read(unchanged), "The rewritten but unchanged catalog loads."); }
             finally { File.Delete(unchanged); }
             AssertRejected("TakeAllCooked", d => d["patterns"] = JValue.CreateNull(), "A section may be absent, never null.");
+            AssertRejected("TakeAllCooked", d => d["codeAssembly"] = JValue.CreateNull(), "An optional helper name cannot be null.");
+            AssertRejected("ConditionalConfigSync", d => d["patterns"][0]["singleLine"] = JValue.CreateNull(), "A boolean flag cannot be null.");
             AssertRejected("TakeAllCooked", d => d["configTexts"][0]["values"] = JValue.CreateNull(), "Nor a member of a rule.");
             AssertRejected("TakeAllCooked", d => d["rawText"] = new JObject(), "A misspelt section would drop its translations.");
             AssertRejected("TakeAllCooked", d => d["configTexts"][0]["value"] = new JObject(), "Members of a rule are checked too.");
@@ -118,6 +121,67 @@ namespace Tolmach.Tests
             Assert.That(m.ExactVersion, Is.True);
             Assert.That(m.UiAllowed, Is.True);
             Assert.That(m.RuntimeAssembly.GetName().Name, Is.EqualTo(m.assembly));
+            if (m.codeAssembly.Length != 0) Assert.That(m.RuntimeCodeAssembly.GetName().Name, Is.EqualTo(m.codeAssembly));
+        }
+        private static Module HelperModule()
+        {
+            Module m = new Module { id = "helper", assembly = typeof(CatalogTests).Assembly.GetName().Name,
+                codeAssembly = typeof(TextEngine).Assembly.GetName().Name, pluginVersion = "1.0.0", version = "1.0.0" };
+            m.guids.Add("fixture.helper"); m.namespaces.Add("Tolmach"); m.texts["Example"] = "Пример";
+            return m;
+        }
+        private static PluginIdentity HelperPlugin()
+        { return new PluginIdentity("fixture.helper", typeof(CatalogTests).Assembly, new Version(1, 0, 0)); }
+        [Test]
+        public void DisplayHelperRequiresARealDirectReferenceAndKeepsPluginIdentity()
+        {
+            Module m = HelperModule(); string reason;
+            Assert.That(typeof(CatalogTests).Assembly.GetReferencedAssemblies().Select(n => n.FullName),
+                Does.Contain(typeof(TextEngine).Assembly.GetName().FullName), "Fixture uses a real compile-time plugin-to-helper reference.");
+            Assert.That(CatalogLoader.TryBind(m, guid => HelperPlugin(), false, out reason), Is.True, reason);
+            Assert.That(m.RuntimeAssembly, Is.SameAs(typeof(CatalogTests).Assembly));
+            Assert.That(m.RuntimeCodeAssembly, Is.SameAs(typeof(TextEngine).Assembly));
+            Assert.That(m.UiAllowed, Is.True);
+            m.codeAssembly = typeof(CatalogTests).Assembly.GetName().Name;
+            Assert.That(CatalogLoader.TryBind(m, guid => HelperPlugin(), false, out reason), Is.True);
+            Assert.That(m.RuntimeCodeAssembly, Is.Null, "Loaded assemblies are insufficient without a direct reference.");
+            Assert.That(m.UiAllowed, Is.False);
+            Assert.That(m.RuntimeAssembly, Is.SameAs(typeof(CatalogTests).Assembly));
+            Assert.That(m.Table.Translate("Example"), Is.EqualTo("Пример"), "The native dictionary remains usable.");
+        }
+        [Test]
+        public void MissingMismatchedAndAmbiguousLoadedHelpersFailClosed()
+        {
+            Module m = HelperModule(); string reason;
+            Func<IEnumerable<Assembly>> missing = () => new[] { typeof(CatalogTests).Assembly };
+            Assert.That(CatalogLoader.TryBind(m, guid => HelperPlugin(), false, a => a.GetReferencedAssemblies(), missing, out reason), Is.True);
+            Assert.That(m.UiAllowed, Is.False); Assert.That(m.RuntimeCodeAssembly, Is.Null);
+            AssemblyName expected = typeof(TextEngine).Assembly.GetName();
+            AssemblyName different = new AssemblyName(expected.FullName) { Version = new Version(99, 0, 0, 0) };
+            Assembly wrong = AppDomain.CurrentDomain.DefineDynamicAssembly(different, AssemblyBuilderAccess.Run);
+            Assert.That(CatalogLoader.TryBind(m, guid => HelperPlugin(), false, a => a.GetReferencedAssemblies(), () => new[] { wrong }, out reason), Is.True);
+            Assert.That(m.UiAllowed, Is.False, "A matching simple name with another full identity is insufficient.");
+            Assembly duplicate = AppDomain.CurrentDomain.DefineDynamicAssembly(new AssemblyName(expected.FullName), AssemblyBuilderAccess.Run);
+            Assert.That(CatalogLoader.TryBind(m, guid => HelperPlugin(), false, a => a.GetReferencedAssemblies(),
+                () => new[] { typeof(TextEngine).Assembly, duplicate }, out reason), Is.True);
+            Assert.That(m.UiAllowed, Is.False); Assert.That(m.RuntimeCodeAssembly, Is.Null);
+        }
+        [Test]
+        public void HelperBindingHonorsVersionPolicyAndClearsBothAssembliesOnFailedRebind()
+        {
+            Module m = HelperModule(); m.pluginVersion = "1.1.0"; string reason;
+            Func<IEnumerable<Assembly>> loaded = () => new[] { typeof(TextEngine).Assembly };
+            Assert.That(CatalogLoader.TryBind(m, guid => HelperPlugin(), false, a => a.GetReferencedAssemblies(), loaded, out reason), Is.True);
+            Assert.That(m.UiAllowed, Is.True); Assert.That(m.ExactVersion, Is.False);
+            Assert.That(CatalogLoader.TryBind(m, guid => HelperPlugin(), true, a => a.GetReferencedAssemblies(), loaded, out reason), Is.True);
+            Assert.That(m.UiAllowed, Is.False); Assert.That(m.RuntimeCodeAssembly, Is.Not.Null);
+            Assert.That(CatalogLoader.TryBind(m, guid => null, false, out reason), Is.False);
+            Assert.That(m.RuntimeAssembly, Is.Null); Assert.That(m.RuntimeCodeAssembly, Is.Null);
+            Assert.That(m.Table, Is.Null); Assert.That(m.ExactVersion, Is.False); Assert.That(m.UiAllowed, Is.False);
+            Module ordinary = HelperModule(); ordinary.codeAssembly = "";
+            Assert.That(CatalogLoader.TryBind(ordinary, guid => HelperPlugin(), false,
+                a => { throw new InvalidOperationException("Ordinary modules need no helper resolution."); }, loaded, out reason), Is.True);
+            Assert.That(ordinary.UiAllowed, Is.True); Assert.That(ordinary.RuntimeCodeAssembly, Is.Null);
         }
         [TestCaseSource("Modules")]
         public void PlaceholderAndMarkupPreservation(string id)
@@ -167,6 +231,7 @@ namespace Tolmach.Tests
             Assert.That(changed.UiAllowed, Is.False, "OnlyAuditedVersions keeps native dictionaries only.");
             Assert.That(CatalogLoader.TryBind(changed, guid => null, false, out reason), Is.False);
             Assert.That(changed.RuntimeAssembly, Is.Null, "Failed rebind must not retain the old target.");
+            Assert.That(changed.RuntimeCodeAssembly, Is.Null);
             Assert.That(changed.Table, Is.Null);
             Assert.That(changed.UiAllowed, Is.False);
             Assert.That(changed.ExactVersion, Is.False);

@@ -6,19 +6,19 @@
     {
       "id": "AdventureBackpacks",
       "package": "Vapok-AdventureBackpacks",
-      "version": "2.2.4",
-      "status_in_archive": "Installed profile update; current DLL and targeted English sources audited on 2026-09-30. Original archive remains historical evidence.",
-      "source_root": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.4",
+      "version": "2.2.5",
+      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
+      "source_root": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5",
       "binary_identities": [
         {
-          "mod": "Vapok-AdventureBackpacks-2.2.4",
+          "mod": "Vapok-AdventureBackpacks-2.2.5",
           "enabled": true,
           "profile_path": "BepInEx/plugins/Vapok-AdventureBackpacks/AdventureBackpacks.dll",
-          "size": 48926208,
-          "sha256": "1d330d6837d7df5f4dbb7167bbb4f2e7bda99b6688a9388ed39e950c24206c1b"
+          "size": 48925696,
+          "sha256": "9c9827059ee4d65e6b693f15e834e6508445df8700c4c39f52d52484fd845f9e"
         }
       ],
-      "previous_version": "2.2.2"
+      "previous_version": "2.2.4"
     },
     {
       "id": "Advize_PlantEverything",
@@ -65,6 +65,22 @@
           "profile_path": "BepInEx/plugins/Therzie-Armory/Armory.dll",
           "size": 46128640,
           "sha256": "37f31edcfdf44250b9819be998322794eb2b82d00d14e5bbc18b41483181dc2b"
+        }
+      ]
+    },
+    {
+      "id": "AsyncSave",
+      "package": "MidnightMods-AsyncSave",
+      "version": "0.6.0",
+      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
+      "source_root": "source-evidence/current-profile/MidnightMods-AsyncSave-0.6.0",
+      "binary_identities": [
+        {
+          "mod": "MidnightMods-AsyncSave-0.6.0",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/MidnightMods-AsyncSave/AsyncSave.dll",
+          "size": 85504,
+          "sha256": "24249babfc7d0f09ac8e8877e42fc5497cc8596576843cc7cbbb8165b0f63920"
         }
       ]
     },
@@ -345,6 +361,46 @@
           "profile_path": "BepInEx/plugins/Smoothbrain-ComfortTweaks/ComfortTweaks.dll",
           "size": 2011648,
           "sha256": "ab6e31f25c37bbb4da04401f1310619fdd5dfbdbd40f6e852a47c35dab5183b6"
+        }
+      ]
+    },
+    {
+      "id": "ConditionalConfigSync",
+      "package": "shudnal-ConditionalConfigSync",
+      "version": "1.0.9",
+      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
+      "source_root": "source-evidence/current-profile/shudnal-ConditionalConfigSync-1.0.9",
+      "binary_identities": [
+        {
+          "mod": "shudnal-ConditionalConfigSync-1.0.9",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/shudnal-ConditionalConfigSync/ConditionalConfigSync.dll",
+          "size": 250368,
+          "sha256": "29fb07271c4f58f3f22c5b0d6db8aa13445b94abd3a92ee46c280283ca2b87a9"
+        },
+        {
+          "mod": "shudnal-ConditionalConfigSync-1.0.9",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/shudnal-ConditionalConfigSync/ConditionalConfigSync.Plugin.dll",
+          "size": 7680,
+          "sha256": "537d7185dc3d00b5715a9f9f09727fc15884a4f01c0700bbc661f0045fafde2a"
+        }
+      ],
+      "codeAssembly": "ConditionalConfigSync"
+    },
+    {
+      "id": "ConfigurationManager",
+      "package": "shudnal-ConfigurationManager",
+      "version": "1.1.22",
+      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
+      "source_root": "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22",
+      "binary_identities": [
+        {
+          "mod": "shudnal-ConfigurationManager-1.1.22",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/shudnal-ConfigurationManager/ConfigurationManager.dll",
+          "size": 182784,
+          "sha256": "86a93c9838686ba4c0bab22e23bd728af68a84fa89cc6b0daf32f9578179aa33"
         }
       ]
     },
@@ -765,19 +821,20 @@
     {
       "id": "More_World_Locations_AIO",
       "package": "warpalicious-More_World_Locations_AIO",
-      "version": "5.1.5",
-      "status_in_archive": "partial",
-      "source_root": "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.5",
+      "version": "5.1.7",
+      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
+      "source_root": "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.7",
       "binary_identities": [
         {
-          "mod": "warpalicious-More_World_Locations_AIO-5.1.5",
+          "mod": "warpalicious-More_World_Locations_AIO-5.1.7",
           "enabled": true,
           "profile_path": "BepInEx/plugins/warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.dll",
-          "size": 60847616,
-          "sha256": "553e2a6e226bbf2a13a1390f3829bcec8ef5bf9dbae0c11688d8eb007fd813e2"
+          "size": 60850688,
+          "sha256": "5aad6c697f43e944cf61c154a8957d5c3836eb26a16973803903c86857911ae4"
         }
       ],
-      "archived_version": "5.1.4"
+      "archived_version": "5.1.4",
+      "previous_version": "5.1.5"
     },
     {
       "id": "MoveBuildPieces",
@@ -815,19 +872,19 @@
     {
       "id": "NetworkPerformanceSystem",
       "package": "MidnightMods-NetworkPerformanceSystem",
-      "version": "1.11.1",
-      "status_in_archive": "Installed profile update; current DLL and targeted English sources audited on 2026-09-30. Original archive remains historical evidence.",
-      "source_root": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.1",
+      "version": "1.13.0",
+      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
+      "source_root": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.13.0",
       "binary_identities": [
         {
-          "mod": "MidnightMods-NetworkPerformanceSystem-1.11.1",
+          "mod": "MidnightMods-NetworkPerformanceSystem-1.13.0",
           "enabled": true,
           "profile_path": "BepInEx/plugins/MidnightMods-NetworkPerformanceSystem/NetworkPerformanceSystem.dll",
-          "size": 313344,
-          "sha256": "44e1fdb76c1d08874eddd7285e70d53fb90c30ff22d06e9e5f7a14ccc01985b0"
+          "size": 343040,
+          "sha256": "d87e12ac132c172dd874c114cfd9e7eb8edc9d19aceaf2c801154a4a61972241"
         }
       ],
-      "previous_version": "1.11.0"
+      "previous_version": "1.11.1"
     },
     {
       "id": "Norsemen",
@@ -1123,18 +1180,19 @@
     {
       "id": "SocialSystem",
       "package": "M2Valheim-SocialSystem",
-      "version": "1.0.1",
-      "status_in_archive": "not in archive (installed on 2026-09-28, after the snapshot); 1.0.1 decompiled from the profile",
-      "source_root": "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.1",
+      "version": "1.0.2",
+      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
+      "source_root": "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2",
       "binary_identities": [
         {
-          "mod": "M2Valheim-SocialSystem-1.0.1",
+          "mod": "M2Valheim-SocialSystem-1.0.2",
           "enabled": true,
           "profile_path": "BepInEx/plugins/M2Valheim-SocialSystem/SocialSystem.dll",
-          "size": 202752,
-          "sha256": "285185ae993de96d99cda4e988f7272752cb29f112f326f6a27224df7b71d00a"
+          "size": 230400,
+          "sha256": "afe670b37e327a7cef45ca4e5c00cb2815399b1932e386e3d22bc904acb6ba27"
         }
-      ]
+      ],
+      "previous_version": "1.0.1"
     },
     {
       "id": "SolidHitboxes",
@@ -1349,19 +1407,20 @@
     {
       "id": "WackysDatabase",
       "package": "WackyMole-WackysDatabase",
-      "version": "2.5.36",
-      "status_in_archive": "missing",
-      "source_root": "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.36",
+      "version": "2.5.38",
+      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
+      "source_root": "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38",
       "binary_identities": [
         {
-          "mod": "WackyMole-WackysDatabase-2.5.36",
+          "mod": "WackyMole-WackysDatabase-2.5.38",
           "enabled": true,
           "profile_path": "BepInEx/plugins/WackyMole-WackysDatabase/WackysDatabase.dll",
           "size": 1380352,
-          "sha256": "7bbeb01039f47259b932308c159c82076cb53898fea0d757ee467657ecb390bb"
+          "sha256": "0a9f9928eae88b4b15c32190f3b6c6809d83642c016a4ebc34a2b8342532e707"
         }
       ],
-      "archived_version": "2.5.35"
+      "archived_version": "2.5.35",
+      "previous_version": "2.5.36"
     },
     {
       "id": "Warfare",
@@ -1691,5 +1750,22 @@
     "literal_values_checked": 57,
     "result": "Existing translated English strings and targeted signatures retained. HumanoidRandomizer embedded monster bundle equals 1.6.0; AdventureBackpacks English JSON equals 2.2.2. New or removed strings were not found in the checked translation scope.",
     "runtime_scope": "Static source and IL verification; Unity gameplay acceptance is separate."
+  },
+  "profile_update_2026_10_01": {
+    "basis": "Exact installed DLLs, targeted ILSpy sources/resources, display sinks and config reads audited on 2026-10-01 against Valheim 1.0.16. No source mod binaries shipped.",
+    "updated_modules": [
+      "SocialSystem",
+      "NetworkPerformanceSystem",
+      "AdventureBackpacks",
+      "WackysDatabase",
+      "More_World_Locations_AIO"
+    ],
+    "new_modules": [
+      "ConfigurationManager",
+      "ConditionalConfigSync",
+      "AsyncSave"
+    ],
+    "scope": "Gameplay/UI translations. RPC payloads, source synchronization state, persisted settings and logs remain unchanged. Developer consoles, technical IDs and optional all-stat labels are outside this update.",
+    "runtime_validation": "not_run"
   }
 }

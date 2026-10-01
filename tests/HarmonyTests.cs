@@ -36,6 +36,65 @@ namespace Tolmach.Tests
             Assert.That(m.PatchedMethods, Is.Zero);
             Assert.That(Patcher.GetPatchedMethods(), Is.Empty);
         }
+        [TestCase("\n")]
+        [TestCase("\r\n")]
+        public void HelperDisplayTranslatesFinalRemoteReportWithoutChangingWireLogsOrState(string newline)
+        {
+            Module m = CatalogLoader.Read(Catalog("ConditionalConfigSync"));
+            m.RuntimeAssembly = typeof(TextEngine).Assembly;
+            m.RuntimeCodeAssembly = typeof(FixtureConditionalConfigSync.VersionCheck).Assembly;
+            m.namespaces.Clear(); m.namespaces.Add("FixtureConditionalConfigSync");
+            m.ExactVersion = true; m.UiAllowed = true; Activate(m);
+            DisplayPatches.Install(Patcher, m);
+            string report = ("Conditional Config Sync rejected this connection.\n\nThe following synchronization checks failed:\n" +
+                "- Untranslated Mod: The client has version 1.2.3, but the server requires at least 1.4.0.\n" +
+                "- Opaque: Mod Name: The server reported version v-invalid, but this client did not process that mod's Conditional Config Sync handshake.\n" +
+                "- Third Mod: an unknown reason containing RPC_ID\n" +
+                "Legacy Mod: the server requires at least version 2.0.0, but this client has 1.0.0.").Replace("\n", newline);
+            string expected = "Vanilla failure\n\n" + ("Conditional Config Sync отклонил подключение.\n\nНе пройдены следующие проверки синхронизации:\n" +
+                "- Untranslated Mod: Клиент имеет версию 1.2.3, но сервер требует не ниже 1.4.0.\n" +
+                "- Opaque: Mod Name: Сервер сообщил версию v-invalid, но клиент не обработал обмен данными Conditional Config Sync для этого мода.\n" +
+                "- Third Mod: an unknown reason containing RPC_ID\n" +
+                "Legacy Mod: сервер требует версию не ниже 2.0.0, но клиент имеет 1.0.0.").Replace("\n", newline);
+            var label = new TMPro.TMP_Text { text = "Vanilla failure" };
+            FixtureConditionalConfigSync.VersionCheck.ShowConnectionError(label, report);
+            Assert.That(label.text, Is.EqualTo(expected));
+            Assert.That(FixtureConditionalConfigSync.VersionCheck.RpcPayload, Is.EqualTo(report));
+            Assert.That(FixtureConditionalConfigSync.VersionCheck.LogPayload, Is.EqualTo(report));
+            Assert.That(FixtureConditionalConfigSync.VersionCheck.PendingReport, Is.EqualTo(report));
+            Assert.That(m.Patches.Values.Sum(p => p.displayCalls), Is.EqualTo(1));
+            Assert.That(m.Patches.Values.Sum(p => p.literals), Is.Zero);
+            Assert.That(m.Patches.Values.All(p => p.method.StartsWith("FixtureConditionalConfigSync.")), Is.True);
+            var outside = new TMPro.TMP_Text { text = "Conditional Config Sync rejected this connection." };
+            Assert.That(outside.text, Is.EqualTo("Conditional Config Sync rejected this connection."), "No global TMP setter patch.");
+            TextEngine.IsRussian = false;
+            label.text = "Vanilla failure";
+            FixtureConditionalConfigSync.VersionCheck.ShowConnectionError(label, report);
+            Assert.That(label.text, Is.EqualTo("Vanilla failure\n\n" + report));
+        }
+        [Test]
+        public void MissingHelperCannotFallBackToPatchingThePluginAssembly()
+        {
+            Module m = ViewModule(); m.codeAssembly = "unavailable.helper"; m.RuntimeCodeAssembly = null;
+            DisplayPatches.Install(Patcher, m);
+            Assert.That(m.ScannedMethods, Is.Zero); Assert.That(m.PatchedMethods, Is.Zero);
+            FixturePlugin.View.Draw(); Assert.That(UnityEngine.GUI.LastText, Is.EqualTo("Price"));
+        }
+        [TestCase("No version handshake was received from the server.", "Сервер не прислал данные для проверки версий.")]
+        [TestCase("The version handshake was rejected for an unknown compatibility reason.", "Обмен данными для проверки версий отклонен по неизвестной причине несовместимости.")]
+        [TestCase("The server did not receive the required synchronization handshake. The server requires Third-party Mod 1.0.0 or newer and Conditional Config Sync protocol 1.", "Сервер не получил обязательные данные синхронизации. Требуется Third-party Mod 1.0.0 или новее и протокол Conditional Config Sync 1.")]
+        [TestCase("The client sent a legacy or incomplete handshake without Conditional Config Sync protocol metadata. The server requires protocol 1.", "Клиент прислал устаревшие или неполные данные обмена без версии протокола Conditional Config Sync. Сервер требует протокол 1.")]
+        [TestCase("The server reported Conditional Config Sync protocol 0, but the client requires protocol 1.", "Сервер сообщил протокол Conditional Config Sync 0, но клиент требует протокол 1.")]
+        [TestCase("The client reported an invalid mod version or minimum version.", "Клиент сообщил некорректную версию мода или минимальную версию.")]
+        [TestCase("The server has an invalid local version requirement and could not validate the connection.", "Сервер имеет некорректное локальное требование к версии и не смог проверить подключение.")]
+        [TestCase("The server requires at least version 1.3.0, but the client has 1.0.0.", "Сервер требует версию не ниже 1.3.0, но клиент имеет 1.0.0.")]
+        [TestCase("The server sent a malformed version-handshake package: wire_GUID", "Сервер прислал некорректный пакет проверки версий: wire_GUID")]
+        [TestCase("The mystery reported an invalid mod version or minimum version.", "The mystery reported an invalid mod version or minimum version.")]
+        public void KnownCcsReasonsTranslateAndUnknownRolesStayOpaque(string source, string expected)
+        {
+            Module m = CatalogLoader.Read(Catalog("ConditionalConfigSync"));
+            Assert.That(new TextTable(m).Translate(source), Is.EqualTo(expected));
+        }
         [Test]
         public void LiteralOnlyModuleDoesNotPatchUnrelatedDisplayCalls()
         {
@@ -410,6 +469,34 @@ namespace Tolmach.Tests
             TextEngine.IsRussian = false;
             chat.OnNewChatMessage(null, 1, null, 2, null, "Mines have been reset!");
             Assert.That(chat.Lines.Last(), Is.EqualTo("Viking: Mines have been reset!"));
+        }
+    }
+}
+
+namespace TMPro
+{
+    public sealed class TMP_Text
+    {
+        private string value;
+        public string text
+        {
+            [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+            get { return value; }
+            [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+            set { this.value = value; }
+        }
+    }
+}
+namespace FixtureConditionalConfigSync
+{
+    public static class VersionCheck
+    {
+        public static string RpcPayload, LogPayload, PendingReport;
+        [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
+        public static void ShowConnectionError(TMPro.TMP_Text label, string report)
+        {
+            RpcPayload = report; LogPayload = report; PendingReport = report;
+            label.text = label.text + "\n\n" + report;
         }
     }
 }
