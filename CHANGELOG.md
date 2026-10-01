@@ -1,5 +1,17 @@
 # Изменения
 
+## [0.6.2](https://github.com/Muratovnik/Tolmach/compare/v0.6.1...v0.6.2) (2026-10-01)
+
+### Highlights
+
+Уменьшена задержка при первом выборе рецепта брони с бонусом комплекта. В описаниях Recipe Description Expansion части комплектов показывают игровые русские названия и при переносах строк Windows. Обновлены каталоги для пяти новых версий модов.
+
+### Bug Fixes
+
+- **Крафт:** уменьшена стоимость первого поиска названий предметов и комплектов; после регистрации новых предметов описания обновляются. ([e369f86](https://github.com/Muratovnik/Tolmach/commit/e369f86345102c71f9c097556370c6c2bb241f8e))
+- **Комплекты:** исправлен перевод частей в описаниях Recipe Description Expansion с переносами строк LF и CRLF; цвета, отметки и переносы сохраняются. ([e369f86](https://github.com/Muratovnik/Tolmach/commit/e369f86345102c71f9c097556370c6c2bb241f8e))
+- **Совместимость:** каталоги сверены с Humanoid Randomizer 1.6.1, Infinity Hammer 1.86.0, World Edit Commands 1.79.0, Network Performance System 1.11.1 и Adventure Backpacks 2.2.4. ([e369f86](https://github.com/Muratovnik/Tolmach/commit/e369f86345102c71f9c097556370c6c2bb241f8e))
+
 ## [0.6.1](https://github.com/Muratovnik/Tolmach/compare/v0.6.0...v0.6.1) (2026-09-30)
 
 ### Highlights
