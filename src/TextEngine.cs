@@ -75,7 +75,12 @@ namespace Tolmach
             if (result == value && value.IndexOf('\n') >= 0)
             {
                 string[] lines = value.Split('\n');
-                for (int i = 0; i < lines.Length; i++) lines[i] = Whole(lines[i], 0);
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    bool carriageReturn = i < lines.Length - 1 && lines[i].EndsWith("\r", StringComparison.Ordinal);
+                    string content = carriageReturn ? lines[i].Substring(0, lines[i].Length - 1) : lines[i];
+                    lines[i] = Whole(content, 0) + (carriageReturn ? "\r" : "");
+                }
                 result = String.Join("\n", lines);
             }
             // Do not retain names/dialogue/player text that did not match a translation.

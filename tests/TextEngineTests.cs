@@ -118,6 +118,48 @@ namespace Tolmach.Tests
             TextEngine.IsRussian = false;
             Assert.That(TextEngine.Display(block, "sets"), Is.EqualTo(block));
         }
+        [TestCase("\n")]
+        [TestCase("\r\n")]
+        public void RecipeSetTooltipsTranslateEveryPartAndPreserveTheirLineEndings(string partEnding)
+        {
+            Localization.SelectedLanguage = "Russian";
+            Localization.Resources["Russian"] = new Dictionary<string, string> {
+                { "item_armor_berserkerchest", "Медвежья повязка" },
+                { "item_armor_berserkerlegs", "Медвежьи штаны" },
+                { "item_armor_berserkerhood", "Медвежий капюшон" },
+                { "item_helmet_trollleather", "Кожаный шлем тролля" },
+                { "se_berserkerset_name", "Берсерк" }, { "se_trollseteffect_name", "Скрытный" }
+            };
+            LocalizationBridge.Install(Patcher, typeof(Localization), () => "Russian");
+            Assert.That(Localization.instance, Is.Not.Null);
+            Dictionary<string, string> itemTokens = new Dictionary<string, string> {
+                { "ArmorBerserkerChest", "$item_armor_berserkerchest" },
+                { "ArmorBerserkerLegs", "$item_armor_berserkerlegs" },
+                { "ArmorBerserkerHood", "$item_armor_berserkerhood" },
+                { "HelmetTrollLeather", "$item_helmet_trollleather" }
+            };
+            GameItems.ItemToken = prefab => itemTokens.ContainsKey(prefab) ? itemTokens[prefab] : null;
+            GameItems.SetToken = shown => shown.Equals("berserker", StringComparison.OrdinalIgnoreCase) ? "$se_berserkerset_name"
+                : shown.Equals("troll", StringComparison.OrdinalIgnoreCase) ? "$se_trollseteffect_name" : null;
+            LoadModule("RecipeDescriptionExpansion");
+            string block = "\n\n<color=#96d4fd>Berserker (2/3):</color>\n" +
+                "<color=#008000ff>✔️</color>\t├> <color=#FDFD96>ArmorBerserkerChest</color>" + partEnding +
+                "<color=#008000ff>✔️</color>\t├> <color=#FDFD96>ArmorBerserkerLegs</color>" + partEnding +
+                "<color=#008000ff>❌</color>\t├> <color=#808080ff>ArmorBerserkerHood</color>" + partEnding +
+                "\n<color=#96d4fd>Troll (1/4):</color>\n" +
+                "<color=#008000ff>✔️</color>\t├> <color=#FDFD96>HelmetTrollLeather</color>" + partEnding +
+                "<color=#008000ff>❌</color>\t├> <color=#808080ff>UnknownSetPart</color>" + partEnding;
+            string expected = "\n\n<color=#96d4fd>Берсерк (2/3):</color>\n" +
+                "<color=#008000ff>✔️</color>\t├> <color=#FDFD96>Медвежья повязка</color>" + partEnding +
+                "<color=#008000ff>✔️</color>\t├> <color=#FDFD96>Медвежьи штаны</color>" + partEnding +
+                "<color=#008000ff>❌</color>\t├> <color=#808080ff>Медвежий капюшон</color>" + partEnding +
+                "\n<color=#96d4fd>Скрытный (1/4):</color>\n" +
+                "<color=#008000ff>✔️</color>\t├> <color=#FDFD96>Кожаный шлем тролля</color>" + partEnding +
+                "<color=#008000ff>❌</color>\t├> <color=#808080ff>UnknownSetPart</color>" + partEnding;
+            Assert.That(TextEngine.Display(block, "RecipeDescriptionExpansion"), Is.EqualTo(expected));
+            TextEngine.IsRussian = false;
+            Assert.That(TextEngine.Display(block, "RecipeDescriptionExpansion"), Is.EqualTo(block));
+        }
         [TestCaseSource("Regressions")]
         public void VerifiedRealStrings(string module, string source, string expected)
         {

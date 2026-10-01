@@ -1,0 +1,63 @@
+{
+  "version": "0.6.2",
+  "date": "2026-09-30",
+  "delivery": "local package; not published",
+  "source_base_commit": "a6fb7ed",
+  "source_has_working_tree_changes": true,
+  "zip": "Muratovnik-Tolmach-0.6.2.zip",
+  "zip_sha256": "63b942d5f421123caf8f8993e3d53c19d083920229665925974e5c4e86753d59",
+  "plugin_sha256": "9c5cd5e6862e13027db4feee0b905e0275439151881de851effaadaf69e54607",
+  "sdk": "9.0.318",
+  "game_version": "1.0.16",
+  "steam_build": "25527674",
+  "validation": {
+    "nunit_passed": 510,
+    "nunit_failed": 0,
+    "nunit_skipped": 0,
+    "pytest_passed": 11,
+    "catalog_assertions_passed": 13182,
+    "package_controls_passed": 8,
+    "archive_cross_check": "not run; no --evidence supplied",
+    "scope": "Compiled production plugin and actual profile Harmony against managed endpoints; package bytes verified against tested output."
+  },
+  "source_audit": {
+    "updated_mods": 5,
+    "literal_specs": 36,
+    "literal_values": 57,
+    "result": "All targets and values found in current IL; checked English resources unchanged."
+  },
+  "managed_probe": {
+    "lf_translated": true,
+    "crlf_translated": true,
+    "installed_0_6_1_crlf_translated": false,
+    "items": 300,
+    "old_per_item_type_discovery_ms": 911.20,
+    "new_cold_index_ms": 123.72,
+    "new_warm_1000_lookups_ms": 0.23,
+    "new_type_discoveries": 2,
+    "new_component_reads": 300,
+    "runtime": "4.0.30319.42000",
+    "loaded_assemblies": 52,
+    "scope": "Real game type discovery with managed item/component fixtures; includes JIT, not Unity gameplay or FPS measurement."
+  },
+  "runtime_load": {
+    "status": "loaded through Gale in Default",
+    "started_utc": "2026-09-30T19:23:31.1249567Z",
+    "session": "27b9527fb58b4ee8966f349dd7e77792",
+    "loaded_modules": 61,
+    "russian_selected": true,
+    "russian_active": true,
+    "updated_five_modules_exact_version": true,
+    "tolmach_warnings_in_fresh_log": 0,
+    "installed_plugin_hash_matches_tested": true,
+    "scope": "Fresh BepInEx log and runtime report; not proof of crafting UI gameplay acceptance."
+  },
+  "gameplay_acceptance": {
+    "reported_date": "2026-09-30",
+    "source": "User reported that everything works after installing 0.6.2; attached crafting screenshot shows Russian set item names.",
+    "recipe_selection": "confirmed by user report; no gameplay timing measured",
+    "set_item_names": "confirmed by user report and crafting screenshot",
+    "world_reload": "not separately confirmed",
+    "scope": "Confirmation covers the reported crafting problem, not all translated screens or mod integrations."
+  }
+}

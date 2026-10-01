@@ -103,7 +103,7 @@ namespace Tolmach
     public sealed class Plugin : BaseUnityPlugin
     {
         public const string PluginId = "muratovnik.tolmach";
-        public const string PluginVersion = "0.6.1";
+        public const string PluginVersion = "0.6.2";
         private static ManualLogSource Log;
         private static readonly List<string> Notes = new List<string>();
         private static RuntimeReport report;
@@ -181,6 +181,7 @@ namespace Tolmach
                 }
             }
             harmony = new Harmony(PluginId);
+            GameItems.Install(harmony);
             RawDisplay.Initialize();
             // Fallback only: once the game's Localization exists, its GetSelectedLanguage decides.
             LocalizationBridge.Install(harmony, RuntimeAccess.ExactType("Localization"), delegate { return UnityEngine.PlayerPrefs.GetString("language", "English"); });

@@ -40,6 +40,7 @@ namespace Tolmach
             busy = true;
             try
             {
+                GameItems.Invalidate();
                 foreach (Module m in TextEngine.Modules.Values)
                 {
                     try { AddManagerKeys(m); }

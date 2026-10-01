@@ -2,15 +2,15 @@
   {
     "id": "AdventureBackpacks",
     "guid": "vapok.mods.adventurebackpacks",
-    "pluginVersion": "2.2.2",
+    "pluginVersion": "2.2.4",
     "assembly": "AdventureBackpacks",
     "sources": [
       {
-        "path": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.2/AdventureBackpacks/AdventureBackpacks.cs",
-        "sha256": "ea9c1e6e69402f8a119777bec09dccdcb5b4f69363f8f8877dd59c973888436d"
+        "path": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.4/AdventureBackpacks/AdventureBackpacks.cs",
+        "sha256": "06a5c25c35b3a33f5ab5cb161738d1297ec603759a8daf8a01a0110598ee373a"
       },
       {
-        "path": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.2/AdventureBackpacks.csproj",
+        "path": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.4/AdventureBackpacks.csproj",
         "sha256": "86e6448f9f95927100a8b0a0676c2fcf510f51fb80fb4adc27be8c4072d7ff35"
       }
     ]
@@ -594,15 +594,15 @@
   {
     "id": "HumanoidRandomizer",
     "guid": "balrond.astafaraios.BalrondHumanoidRandomizer",
-    "pluginVersion": "1.6.0",
+    "pluginVersion": "1.6.1",
     "assembly": "BalrondHumanoidRandomizer.merged",
     "sources": [
       {
-        "path": "source-evidence/localization/c/42/BalrondHumanoidRandomizer/Launch.cs",
-        "sha256": "063f4086af85490def6b4799cd95f89b7baf5a0d371d6503825f7dea2c604010"
+        "path": "source-evidence/profile-updates/Balrond-balrond_humanoidRandomizer-1.6.1/BalrondHumanoidRandomizer/Launch.cs",
+        "sha256": "9d59ce0d325aeae41c6d53609d01316162138fb35a06594aca455fb57a91988d"
       },
       {
-        "path": "source-evidence/localization/c/42/BalrondHumanoidRandomizer.csproj",
+        "path": "source-evidence/profile-updates/Balrond-balrond_humanoidRandomizer-1.6.1/BalrondHumanoidRandomizer.csproj",
         "sha256": "e5e5080e639d187025c19aec5e9c8b5ee17929c6bc587802a4d8ec698c86aa7a"
       }
     ]
@@ -626,15 +626,15 @@
   {
     "id": "InfinityHammer",
     "guid": "infinity_hammer",
-    "pluginVersion": "1.85",
+    "pluginVersion": "1.86",
     "assembly": "InfinityHammer",
     "sources": [
       {
-        "path": "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer/InfinityHammer.cs",
-        "sha256": "0b5186a7b0f06c5176cd286a68491fe696e669cd1688b3b6e7e2d44e282612af"
+        "path": "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.86.0/InfinityHammer/InfinityHammer.cs",
+        "sha256": "e5cfa02e95adeeb12eb91b0da138e5e61591dd060010a76e1c9628a6195c8eb3"
       },
       {
-        "path": "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0/InfinityHammer/InfinityHammer.csproj",
+        "path": "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.86.0/InfinityHammer.csproj",
         "sha256": "c2d2cdcbd27a8f75d101c61fa374a2129d422dd260b3d5a67c63b2a39f3ec26d"
       }
     ]
@@ -786,15 +786,15 @@
   {
     "id": "NetworkPerformanceSystem",
     "guid": "MidnightsFX.NetworkPerformanceSystem",
-    "pluginVersion": "1.11.0",
+    "pluginVersion": "1.11.1",
     "assembly": "NetworkPerformanceSystem",
     "sources": [
       {
-        "path": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.0/NetworkPerformanceSystem/NetworkPerformanceSystem/NetworkPerformanceSystem.cs",
-        "sha256": "c0f1dcae727d8688ca4c525a34d268e8c5a81b6e46f6639df375e3c86a09ae0f"
+        "path": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.1/NetworkPerformanceSystem/NetworkPerformanceSystem.cs",
+        "sha256": "e88474c26fdcf3209d6dfe8ba9bcba2d1d1049afe28cde5f696e9dcf8155e035"
       },
       {
-        "path": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.0/NetworkPerformanceSystem/NetworkPerformanceSystem.csproj",
+        "path": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.1/NetworkPerformanceSystem.csproj",
         "sha256": "62affaf15448476b5ceb6864c29542c0ec1ec529b517a0cc26652d5fbac28cd8"
       }
     ]
@@ -1358,15 +1358,15 @@
   {
     "id": "WorldEditCommands",
     "guid": "world_edit_commands",
-    "pluginVersion": "1.78",
+    "pluginVersion": "1.79",
     "assembly": "WorldEditCommands",
     "sources": [
       {
-        "path": "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.78.0/WorldEditCommands/WorldEditCommands/WorldEditCommands.cs",
-        "sha256": "e1d091d33d1eb510dabf730597ef40b488387dfca90c6cc721b3103bbbcaded2"
+        "path": "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.79.0/WorldEditCommands/WorldEditCommands.cs",
+        "sha256": "cc07c40a4ed37a2217d746a7f50ea89c5c23c6ac2f575b153ecd0e2b2249463b"
       },
       {
-        "path": "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.78.0/WorldEditCommands/WorldEditCommands.csproj",
+        "path": "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.79.0/WorldEditCommands.csproj",
         "sha256": "c6cbe95fe730289bac8521bad91a1519c25ad533be4a54aa6149aee2cfdf4915"
       }
     ]

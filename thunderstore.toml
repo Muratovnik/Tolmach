@@ -1,6 +1,7 @@
 # Thunderstore package definition, built by Thunderstore CLI (tcli, .config/dotnet-tools.json).
 # Use Build.cmd / Build.ps1: it compiles, runs every test, stages the tested files into
-# artifacts/stage and passes --package-version from Tolmach.csproj <Version>.
+# a temporary stage and passes --package-version from Tolmach.csproj <Version>.
+# Build.ps1 relocates these staging paths in a temporary copy of this definition.
 [config]
 schemaVersion = "0.0.1"
 

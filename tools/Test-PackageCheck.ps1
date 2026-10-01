@@ -3,12 +3,14 @@
 # controls exercise the same code. Run after Build.ps1:
 #   powershell -NoProfile -ExecutionPolicy Bypass -File tools\Test-PackageCheck.ps1
 # Broken copies are written to a temporary directory and removed afterwards.
-param([string]$Package)
+param([string]$Package, [string]$WorkDirectory)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
 $BuildScript = Join-Path $root 'Build.ps1'
 if (-not $Package) { $Package = @(Get-ChildItem -LiteralPath (Join-Path $root 'artifacts') -File -Filter '*-Tolmach-*.zip' | Sort-Object LastWriteTime -Descending)[0].FullName }
-$Work = Join-Path ([IO.Path]::GetTempPath()) ('Tolmach-package-check-' + [Guid]::NewGuid().ToString('N'))
+if (-not $WorkDirectory) { $WorkDirectory = Join-Path ([IO.Path]::GetTempPath()) ('codex\tolmach-package-check\' + [Guid]::NewGuid().ToString('N')) }
+$Work = [IO.Path]::GetFullPath($WorkDirectory)
+if (Test-Path -LiteralPath $Work) { throw "Working directory already exists: $Work" }
 [IO.Directory]::CreateDirectory($Work) | Out-Null
 $ast = [Management.Automation.Language.Parser]::ParseFile($BuildScript, [ref]$null, [ref]$null)
 foreach ($f in $ast.FindAll({ param($n) $n -is [Management.Automation.Language.FunctionDefinitionAst] }, $true)) { . ([scriptblock]::Create($f.Extent.Text)) }
@@ -48,5 +50,8 @@ try {
         $verdict = if ($accepted -eq $expected) { 'ok  ' } else { 'FAIL' }
         if ($accepted) { "$verdict ACCEPTED $name" } else { "$verdict REJECTED $name :: $reason" }
     }
-} finally { Remove-Item -LiteralPath $Work -Recurse -Force -ErrorAction Continue }
+} finally {
+    foreach ($file in @(Get-ChildItem -LiteralPath $Work -File)) { Remove-Item -LiteralPath $file.FullName }
+    Remove-Item -LiteralPath $Work
+}
 if ($failed) { Write-Error "$failed package-check control(s) behaved unexpectedly."; exit 1 }

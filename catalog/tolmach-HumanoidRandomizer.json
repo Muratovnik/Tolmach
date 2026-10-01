@@ -1,8 +1,8 @@
 {
   "id": "HumanoidRandomizer",
   "package": "Balrond-balrond_humanoidRandomizer",
-  "version": "1.6.0",
-  "pluginVersion": "1.6.0",
+  "version": "1.6.1",
+  "pluginVersion": "1.6.1",
   "assembly": "BalrondHumanoidRandomizer.merged",
   "guids": [
     "balrond.astafaraios.BalrondHumanoidRandomizer"
@@ -26,12 +26,17 @@
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/localization/c/42/BalrondHumanoidRandomizer/HumanoidExtend.cs"
+    "source-evidence/profile-updates/Balrond-balrond_humanoidRandomizer-1.6.1/BalrondHumanoidRandomizer/HumanoidExtend.cs",
+    "source-evidence/profile-updates/Balrond-balrond_humanoidRandomizer-1.6.1/BalrondHumanoidRandomizer/Launch.cs",
+    "source-evidence/profile-updates/Balrond-balrond_humanoidRandomizer-1.6.1/BalrondHumanoidRandomizer.Monsters/ItemSetBuilder.cs",
+    "source-evidence/profile-updates/Balrond-balrond_humanoidRandomizer-1.6.1/BalrondHumanoidRandomizer/StatusEffectBuilder.cs",
+    "source-evidence/profile-updates/Balrond-balrond_humanoidRandomizer-1.6.1/BalrondHumanoidRandomizer/ItemEdits.cs",
+    "source-evidence/profile-updates/Balrond-balrond_humanoidRandomizer-1.6.1/BalrondHumanoidRandomizer.monsterrandomizer"
   ],
   "notes": [
     "Английский текст взят из кода и ресурсов этой версии мода; русский перевод собственный.",
     "rawTexts переводятся при показе через Localization.Localize; сохранённые данные не меняются. Точное совпадение с пользовательским текстом может изменить его отображение.",
-    "rawPatterns имён исключены из глобального перевода. CreatureNameDisplay применяет их при чтении Character.m_name для показа, только у неигрового персонажа с компонентом HumanoidExtend. При неизвестном API оригинал сохраняется без глобального запасного пути.",
+    "rawPatterns имён исключены из глобального перевода. CreatureNameDisplay применяет их при чтении Character.m_name для показа, только у неигрового персонажа с компонентом HumanoidRandomizer или префабом из живого реестра Launch.itemSetBuilder.prefabs. При неизвестном API оригинал сохраняется без глобального запасного пути.",
     "Имя варианта: мод хранит «<m_name прототипа> <вариант>»; шаблон «{0} <вариант>» даёт «{0}-<существительное>»."
   ],
   "rawTexts": {

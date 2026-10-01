@@ -12,7 +12,7 @@ Tolmach содержит переводы и дополнения для **87 м
 
 | Мод | Версия | Что переведено |
 |---|---|---|
-| [Adventure Backpacks](https://thunderstore.io/c/valheim/p/Vapok/AdventureBackpacks/) | 2.2.2 | Название рюкзака Spectral Shroud of Holding и сообщения команд навыков; дополняет собственный русский перевод. |
+| [Adventure Backpacks](https://thunderstore.io/c/valheim/p/Vapok/AdventureBackpacks/) | 2.2.4 | Название рюкзака Spectral Shroud of Holding и сообщения команд навыков; дополняет собственный русский перевод. |
 | [Air Animals](https://thunderstore.io/c/valheim/p/Marlthon/AirAnimals/) | 0.3.2 | Названия птиц; существующие русские названия предметов сохраняются. |
 | [Armory (Therzie)](https://thunderstore.io/c/valheim/p/Therzie/Armory/) | 1.4.2 | Доспехи, плащ, пояс, оружейная станция, бонусы комплектов и вкладка молота. Это не Valheim Armory от MidnightMods. |
 | [Azu Area Repair](https://thunderstore.io/c/valheim/p/Azumatt/AzuAreaRepair/) | 1.1.8 | Только сообщения о несовпадении версий при подключении к серверу. |
@@ -24,7 +24,7 @@ Tolmach содержит переводы и дополнения для **87 м
 | [Balrond Constructions](https://thunderstore.io/c/valheim/p/Balrond/balrond_constructions/) | 1.4.5 | Недостающие строительные детали, пепельные крыши, изогнутые элементы, окна и двери. |
 | [Balrond Dual Mastery](https://thunderstore.io/c/valheim/p/Balrond/balrond_DualMastery/) | 0.2.7 | Навык «Парное оружие», его подсказка и сообщение команды. |
 | [Balrond Furniture Reborn](https://thunderstore.io/c/valheim/p/Balrond/balrond_furniture_reborn/) | 1.2.9 | Новые предметы мебели, цепи, колокола, флаги, мельница, флюгер и подсказки полок. |
-| [Balrond Humanoid Randomizer](https://thunderstore.io/c/valheim/p/Balrond/balrond_humanoidRandomizer/) | 1.6.0 | Варианты имён существ, эффекты, атаки, оружие и сообщение о краже. Шаблоны имён применяются только к чтению имени существа с компонентом этого мода, не к произвольному тексту. |
+| [Balrond Humanoid Randomizer](https://thunderstore.io/c/valheim/p/Balrond/balrond_humanoidRandomizer/) | 1.6.1 | Варианты имён существ, эффекты, атаки, оружие и сообщение о краже. Шаблоны имён применяются только к чтению имени существа с компонентом этого мода или подтверждённым префабом его варианта; пользовательские имена сохраняются. |
 | [Balrond Lightkeeper](https://thunderstore.io/c/valheim/p/Balrond/balrond_lightkeeper/) | 1.0.2 | Подсказки и сообщения маяка. |
 | [Balrond Shipyard](https://thunderstore.io/c/valheim/p/Balrond/balrond_shipyard/) | 1.7.3 | Верфь, улучшения кораблей, чертежи, якорь, сеть-ловушка, покраска щитов, предметы и записи справочника. Сохранённое имя корабля не редактируется. |
 | [Better Archery](https://thunderstore.io/c/valheim/p/ishid4/BetterArchery/) | 2.0.2 | Интерфейс колчана и стрел, сообщение о получении опыта. |
@@ -49,7 +49,7 @@ Tolmach содержит переводы и дополнения для **87 м
 | [HammerTime](https://thunderstore.io/c/valheim/p/MSchmoecker/HammerTime/) | 0.3.11 | Названия категорий строительства. |
 | [Huginn Map](https://thunderstore.io/c/valheim/p/NightOfGames/Huginn_Map/) | 1.0.5 | Панель фильтров карты, группа порталов, вывод и справка команд поиска. |
 | [Hunter Legacy](https://thunderstore.io/c/valheim/p/Dreanegade/Hunter_Legacy/) | 1.1.4 | Вкладка «Далекие истоки», недостающие субтитры и сообщения о версиях. |
-| [Infinity Hammer](https://thunderstore.io/c/valheim/p/JereKuusela/Infinity_Hammer/) | 1.85.0 | Сообщения и подсказки молота: выбор, смещение, масштаб и сетка. Справка консоли и технические имена инструментов остаются английскими. |
+| [Infinity Hammer](https://thunderstore.io/c/valheim/p/JereKuusela/Infinity_Hammer/) | 1.86.0 | Сообщения и подсказки молота: выбор, смещение, масштаб и сетка. Справка консоли и технические имена инструментов остаются английскими. |
 | [Inventory Slots](https://thunderstore.io/c/valheim/p/sighsorry/InventorySlots/) | 1.5.15 | Дополнительные ячейки, корзина, стандартные подписи слотов, кнопки сундука и подсказки. |
 | [Jötunn](https://thunderstore.io/c/valheim/p/ValheimModding/Jotunn/) | 2.30.2 | Окно несовместимости модов при подключении, сообщения о версии, сбросе навыка, отмене и повторе строительства. |
 | [Location Placement Accelerator](https://thunderstore.io/c/valheim/p/NickPappas/Location_Placement_Accelerator/) | 1.0.24 | Экран и сообщения расстановки локаций при создании мира, включая режим «Ванильный». |
@@ -60,7 +60,7 @@ Tolmach содержит переводы и дополнения для **87 м
 | [More World Locations AIO](https://thunderstore.io/c/valheim/p/warpalicious/More_World_Locations_AIO/) | 5.1.5 | Локации, порты и обучение в порту, святилища, благословения, путевые камни, торговцы и книги навыков. Имена портов в сохранениях не меняются. |
 | [Move Build Pieces](https://thunderstore.io/c/valheim/p/DragonMotion/MoveBuildPieces/) | 1.1.1 | Вкладка и сообщения перемещения построек. |
 | [My Little UI](https://thunderstore.io/c/valheim/p/shudnal/MyLittleUI/) | 1.2.26 | Обычная статистика персонажа в главном меню, нечеткие часы и метка PING. Расширенный режим Show all stats in main menu не переведён. |
-| [Network Performance System](https://thunderstore.io/c/valheim/p/MidnightMods/NetworkPerformanceSystem/) | 1.11.0 | Сообщения об обрыве связи и ошибка подключения. Отладочный оверлей и консольная диагностика не переводятся. |
+| [Network Performance System](https://thunderstore.io/c/valheim/p/MidnightMods/NetworkPerformanceSystem/) | 1.11.1 | Сообщения об обрыве связи и ошибка подключения. Отладочный оверлей и консольная диагностика не переводятся. |
 | [Odin's Steelworks](https://thunderstore.io/c/valheim/p/OdinPlus/OdinsSteelworks/) | 0.4.1 | Постройки и материалы сталеварения, оружие, щиты, болты и подсказки плавильных построек. |
 | [Ore Mines](https://thunderstore.io/c/valheim/p/blacks7ar/OreMines/) | 1.2.1 | Шахты, предметы, подсказки и уведомление о сбросе шахт в чате. |
 | [Passive Powers](https://thunderstore.io/c/valheim/p/Smoothbrain/PassivePowers/) | 1.1.5 | Пассивные силы боссов, перезарядка, истощение и сообщения о версиях. |
@@ -97,7 +97,7 @@ Tolmach содержит переводы и дополнения для **87 м
 | [Wacky's Database](https://thunderstore.io/c/valheim/p/WackyMole/WackysDatabase/) | 2.5.36 | Названия и описания двух топоров из исходного профиля. Произвольные рецепты и предметы пользователя не входят в перевод. |
 | [Warfare](https://thunderstore.io/c/valheim/p/Therzie/Warfare/) | 1.9.4 | Три недостающие строки; это дополнение к собственному русскому переводу, а не перевод всей Warfare заново. |
 | [Wield Equipment While Swimming](https://thunderstore.io/c/valheim/p/blacks7ar/WieldEquipmentWhileSwimming/) | 1.1.4 | Только сообщения о несовпадении версий при подключении к серверу. |
-| [World Edit Commands](https://thunderstore.io/c/valheim/p/JereKuusela/World_Edit_Commands/) | 1.78.0 | Сообщения отмены и повтора, результаты удаления и приручения инструментами мотыги. Консольная справка и вывод команд не переводятся. |
+| [World Edit Commands](https://thunderstore.io/c/valheim/p/JereKuusela/World_Edit_Commands/) | 1.79.0 | Сообщения отмены и повтора, результаты удаления и приручения инструментами мотыги. Консольная справка и вывод команд не переводятся. |
 | [XPortal](https://thunderstore.io/c/valheim/p/SpikeHimself/XPortal/) | 1.2.25 | Цель по умолчанию, расстояния и подсказки портала. |
 
 ## Субтитры игры

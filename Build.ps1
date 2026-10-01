@@ -5,13 +5,15 @@
 # TOLMACH_BEPINEX_CORE_PATH and TOLMACH_NEWTONSOFT_JSON_PATH, then asked for interactively.
 # -OutputDirectory (used by release-kit) receives the package and its SHA256SUMS instead
 # of artifacts/; the directory must not exist yet.
+# Intermediate files and validation logs use a fresh OS temporary directory, or -WorkDirectory.
 [CmdletBinding()]
 param(
     [string]$GamePath = $env:TOLMACH_GAME_PATH,
     [string]$ProfilePath = $env:TOLMACH_PROFILE_PATH,
     [string]$BepInExCorePath = $env:TOLMACH_BEPINEX_CORE_PATH,
     [string]$NewtonsoftJsonPath = $env:TOLMACH_NEWTONSOFT_JSON_PATH,
-    [string]$OutputDirectory
+    [string]$OutputDirectory,
+    [string]$WorkDirectory
 )
 Set-StrictMode -Version 2.0
 $ErrorActionPreference = 'Stop'
@@ -113,6 +115,13 @@ try {
         $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
         if (Test-Path -LiteralPath $OutputDirectory) { throw "Output directory already exists: $OutputDirectory" }
     }
+    if (-not $WorkDirectory) {
+        $WorkDirectory = Join-Path ([IO.Path]::GetTempPath()) ('codex\tolmach-build\' + [Guid]::NewGuid().ToString('N'))
+    }
+    $WorkDirectory = [IO.Path]::GetFullPath($WorkDirectory)
+    if (Test-Path -LiteralPath $WorkDirectory) { throw "Working directory already exists: $WorkDirectory" }
+    if ($WorkDirectory -match '[;,%\r\n]') { throw 'Working directory must not contain MSBuild separators or newlines.' }
+    [IO.Directory]::CreateDirectory($WorkDirectory) | Out-Null
     $GamePath = Existing-Folder $GamePath 'Valheim installation directory'
     $ProfilePath = Existing-Folder $ProfilePath 'Mod-manager profile directory (or its BepInEx directory)'
     if ((Split-Path $ProfilePath -Leaf) -ieq 'BepInEx') { $ProfilePath = Split-Path $ProfilePath -Parent }
@@ -139,11 +148,8 @@ try {
     $version = [string](@($project.Project.PropertyGroup | ForEach-Object { $_.Version } | Where-Object { $_ })[0])
     if ($version -notmatch '^\d+\.\d+\.\d+$') { throw "Tolmach.csproj <Version> must be Major.Minor.Patch, found '$version'." }
     $artifacts = Join-Path $Root 'artifacts'
-    $stage = Join-Path $artifacts 'stage'
-    $stagePackage = Join-Path $artifacts 'stage-package'
-    foreach ($directory in @($stage, $stagePackage)) {
-        if (Test-Path -LiteralPath $directory) { Remove-Item -LiteralPath $directory -Recurse -Force }
-    }
+    $stage = Join-Path $WorkDirectory 'stage'
+    $stagePackage = Join-Path $WorkDirectory 'stage-package'
     # An earlier package must not be mistaken for this attempt's result.
     $previousDir = Join-Path $artifacts 'previous'
     foreach ($old in @(Get-ChildItem -LiteralPath $artifacts -File -Filter "*-Tolmach-$version.zip" -ErrorAction SilentlyContinue)) {
@@ -152,12 +158,13 @@ try {
         Move-Item -LiteralPath $old.FullName -Destination $moved
         Write-Host "Previous package preserved: $moved"
     }
-    $run = Join-Path $artifacts ('run-' + [Guid]::NewGuid().ToString('N'))
+    $run = Join-Path $WorkDirectory 'results'
     [IO.Directory]::CreateDirectory($run) | Out-Null
+    $dotnetArtifacts = Join-Path $WorkDirectory 'dotnet'
     # No test filter/skip switch. Compiler errors and genuine Harmony test failures
     # block packaging. NuGet may download pinned DEVELOPMENT dependencies on restore.
     Run-Dotnet (@('test', (Join-Path $Root 'tests\Tolmach.Tests.csproj'), '-c', 'Release',
-        '--logger', 'trx;LogFileName=tests.trx', '--results-directory', $run, '--verbosity', 'minimal') + $props) (Join-Path $run 'dotnet-test.log')
+        '--artifacts-path', $dotnetArtifacts, '--logger', 'trx;LogFileName=tests.trx', '--results-directory', $run, '--verbosity', 'minimal') + $props) (Join-Path $run 'dotnet-test.log')
     $trxPath = Join-Path $run 'tests.trx'
     if (-not (Test-Path -LiteralPath $trxPath -PathType Leaf)) { throw 'No VSTest result file. Nothing will be packaged.' }
     [xml]$trx = Get-Content -LiteralPath $trxPath -Raw
@@ -166,12 +173,12 @@ try {
         [int]$counters.passed -ne [int]$counters.total -or [int]$counters.executed -ne [int]$counters.total) {
         throw 'Tests were not all executed and passed. Empty discovery, failures and skipped tests block packaging.'
     }
-    $dll = Join-Path $Root 'bin\Release\net48\Tolmach.dll'
+    $dll = Join-Path $dotnetArtifacts 'bin\Tolmach\release\Tolmach.dll'
     $identity = [Reflection.AssemblyName]::GetAssemblyName($dll)
     if ($identity.Name -ne 'Tolmach' -or $identity.Version.ToString() -ne ($version + '.0')) { throw 'Built assembly does not match the project version.' }
-    $inputHashes = Join-Path $Root 'obj\Release\net48\reference-hashes.txt'
+    $inputHashes = Join-Path $dotnetArtifacts 'obj\Tolmach\release\reference-hashes.txt'
     if (-not (Test-Path -LiteralPath $inputHashes)) { throw 'MSBuild reference-hash report is missing.' }
-    $testOutput = Join-Path $Root 'tests\bin\Release\net48'
+    $testOutput = Join-Path $dotnetArtifacts 'bin\Tolmach.Tests\release'
     $testedDll = Join-Path $testOutput 'Tolmach.dll'
     $dllHash = Sha256 $dll
     if ((Sha256 $testedDll) -ne $dllHash) { throw 'Tested DLL differs from the plugin build output.' }
@@ -205,11 +212,21 @@ try {
     $receiptJson = $receipt | ConvertTo-Json -Depth 4
     [IO.File]::WriteAllText((Join-Path $stage 'build-receipt.json'), $receiptJson, (New-Object Text.UTF8Encoding($false)))
     [IO.File]::WriteAllText((Join-Path $run 'build-receipt.json'), $receiptJson, (New-Object Text.UTF8Encoding($false)))
+    # TCLI resolves inputs relative to its config directory; stage the four package documents there.
+    $packageConfig = [IO.File]::ReadAllText((Join-Path $Root 'thunderstore.toml'))
+    $packageConfig = $packageConfig.Replace('./artifacts/stage-package', './stage-package')
+    $packageConfig = $packageConfig.Replace('./artifacts/stage', './stage')
+    [IO.Directory]::CreateDirectory((Join-Path $WorkDirectory 'package')) | Out-Null
+    foreach ($relative in @('package/icon.png', 'package/README.md', 'CHANGELOG.md', 'LICENSE')) {
+        Copy-Item -LiteralPath (Join-Path $Root $relative) -Destination (Join-Path $WorkDirectory $relative)
+    }
+    $packageConfigPath = Join-Path $WorkDirectory 'thunderstore.toml'
+    [IO.File]::WriteAllText($packageConfigPath, $packageConfig, (New-Object Text.UTF8Encoding($false)))
     # Thunderstore CLI writes manifest.json from thunderstore.toml and assembles the ZIP.
     Push-Location $Root
     try {
         Run-Dotnet @('tool', 'restore') (Join-Path $run 'tool-restore.log')
-        Run-Dotnet @('tool', 'run', 'tcli', '--', 'build', '--config-path', (Join-Path $Root 'thunderstore.toml'), '--package-version', $version) (Join-Path $run 'tcli-build.log')
+        Run-Dotnet @('tool', 'run', 'tcli', '--', 'build', '--config-path', $packageConfigPath, '--package-version', $version) (Join-Path $run 'tcli-build.log')
     } finally { Pop-Location }
     $built = @(Get-ChildItem -LiteralPath $stagePackage -File -Filter '*.zip')
     if ($built.Count -ne 1) { throw "Expected one package from tcli, found $($built.Count)." }
@@ -221,6 +238,7 @@ try {
         $sums = "$(Sha256 $package)  $($built[0].Name)`n"
         [IO.File]::WriteAllText((Join-Path $OutputDirectory 'SHA256SUMS'), $sums, (New-Object Text.UTF8Encoding($false)))
     } else {
+        [IO.Directory]::CreateDirectory($artifacts) | Out-Null
         $package = Join-Path $artifacts $built[0].Name
         Move-Item -LiteralPath $built[0].FullName -Destination $package
     }
@@ -232,8 +250,4 @@ try {
 } catch {
     Write-Error $_ -ErrorAction Continue
     exit 1
-} finally {
-    foreach ($directory in @($stage, $stagePackage)) {
-        if ($directory -and (Test-Path -LiteralPath $directory)) { Remove-Item -LiteralPath $directory -Recurse -Force -ErrorAction Continue }
-    }
 }

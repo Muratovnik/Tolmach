@@ -1,23 +1,24 @@
 {
   "input_archive": "valheim-handoff-2026-09-27-2300.zip",
   "input_archive_sha256": "cacddf56723856451edd2a1a78533bfae9be8856bcea24d1bf16a2716cb9f683",
-  "basis": "User-provided snapshot; no upgrade of source mods is implied. Binary hashes are evidence metadata, not a claim that DLLs were shipped or runtime-verified.",
+  "basis": "User-provided snapshot plus the dated installed-profile updates recorded below. Binary hashes are evidence metadata, not a claim that DLLs were shipped or runtime-verified.",
   "modules": [
     {
       "id": "AdventureBackpacks",
       "package": "Vapok-AdventureBackpacks",
-      "version": "2.2.2",
-      "status_in_archive": "not in archive (archive had 2.2.0: ru_present); 2.2.1 and 2.2.2 decompiled from the profile",
-      "source_root": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.2",
+      "version": "2.2.4",
+      "status_in_archive": "Installed profile update; current DLL and targeted English sources audited on 2026-09-30. Original archive remains historical evidence.",
+      "source_root": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.4",
       "binary_identities": [
         {
-          "mod": "Vapok-AdventureBackpacks-2.2.2",
+          "mod": "Vapok-AdventureBackpacks-2.2.4",
           "enabled": true,
           "profile_path": "BepInEx/plugins/Vapok-AdventureBackpacks/AdventureBackpacks.dll",
-          "size": 48914944,
-          "sha256": "456f452bfb481aa31fe0dc270a3f28cac38ce6ec6d5341dc32bdecd67ecc29ad"
+          "size": 48926208,
+          "sha256": "1d330d6837d7df5f4dbb7167bbb4f2e7bda99b6688a9388ed39e950c24206c1b"
         }
-      ]
+      ],
+      "previous_version": "2.2.2"
     },
     {
       "id": "Advize_PlantEverything",
@@ -614,18 +615,19 @@
     {
       "id": "HumanoidRandomizer",
       "package": "Balrond-balrond_humanoidRandomizer",
-      "version": "1.6.0",
-      "status_in_archive": "ru_present",
-      "source_root": "source-evidence/localization/c/42",
+      "version": "1.6.1",
+      "status_in_archive": "Installed profile update; current DLL and targeted English sources audited on 2026-09-30. Original archive remains historical evidence.",
+      "source_root": "source-evidence/profile-updates/Balrond-balrond_humanoidRandomizer-1.6.1",
       "binary_identities": [
         {
-          "mod": "Balrond-balrond_humanoidRandomizer-1.6.0",
+          "mod": "Balrond-balrond_humanoidRandomizer-1.6.1",
           "enabled": true,
           "profile_path": "BepInEx/plugins/Balrond-balrond_humanoidRandomizer/BalrondHumanoidRandomizer.dll",
-          "size": 19048960,
-          "sha256": "b9553a604bc1f33ef12c472add5480f86b10c9b28b0307a60680dbb55908b568"
+          "size": 19053568,
+          "sha256": "69ea1a6489b7383533d077eab17a7d9994128a4d48b899858cfea9fb905bcf46"
         }
-      ]
+      ],
+      "previous_version": "1.6.0"
     },
     {
       "id": "Hunter_Legacy",
@@ -647,18 +649,19 @@
     {
       "id": "InfinityHammer",
       "package": "JereKuusela-Infinity_Hammer",
-      "version": "1.85.0",
-      "status_in_archive": "not in archive (a profile mod outside the other pack's list); 1.85.0 decompiled from the profile on 2026-09-29",
-      "source_root": "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.85.0",
+      "version": "1.86.0",
+      "status_in_archive": "Installed profile update; current DLL and targeted English sources audited on 2026-09-30. Original archive remains historical evidence.",
+      "source_root": "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.86.0",
       "binary_identities": [
         {
-          "mod": "JereKuusela-Infinity_Hammer-1.85.0",
+          "mod": "JereKuusela-Infinity_Hammer-1.86.0",
           "enabled": true,
           "profile_path": "BepInEx/plugins/JereKuusela-Infinity_Hammer/InfinityHammer.dll",
-          "size": 386048,
-          "sha256": "b55a1307c5a37e127ac419d940eddfbac2c50f1d73bea38d6bf46cf253c613f0"
+          "size": 386560,
+          "sha256": "a86af80d7f50814d1ee988aabcf217e95b1cb7a1d10dd7e1703e5d4bd44dadc4"
         }
-      ]
+      ],
+      "previous_version": "1.85.0"
     },
     {
       "id": "InventorySlots",
@@ -812,18 +815,19 @@
     {
       "id": "NetworkPerformanceSystem",
       "package": "MidnightMods-NetworkPerformanceSystem",
-      "version": "1.11.0",
-      "status_in_archive": "not in archive (a profile mod outside the other pack's list); 1.11.0 decompiled from the profile on 2026-09-29",
-      "source_root": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.0",
+      "version": "1.11.1",
+      "status_in_archive": "Installed profile update; current DLL and targeted English sources audited on 2026-09-30. Original archive remains historical evidence.",
+      "source_root": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.11.1",
       "binary_identities": [
         {
-          "mod": "MidnightMods-NetworkPerformanceSystem-1.11.0",
+          "mod": "MidnightMods-NetworkPerformanceSystem-1.11.1",
           "enabled": true,
           "profile_path": "BepInEx/plugins/MidnightMods-NetworkPerformanceSystem/NetworkPerformanceSystem.dll",
-          "size": 312320,
-          "sha256": "660dc64886fae996acfe33f2b5ef80d2619a77ee4f2dd6d18e9463d042a9f74b"
+          "size": 313344,
+          "sha256": "44e1fdb76c1d08874eddd7285e70d53fb90c30ff22d06e9e5f7a14ccc01985b0"
         }
-      ]
+      ],
+      "previous_version": "1.11.0"
     },
     {
       "id": "Norsemen",
@@ -1394,18 +1398,19 @@
     {
       "id": "WorldEditCommands",
       "package": "JereKuusela-World_Edit_Commands",
-      "version": "1.78.0",
-      "status_in_archive": "not in archive (a profile mod outside the other pack's list); 1.78.0 decompiled from the profile on 2026-09-29",
-      "source_root": "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.78.0",
+      "version": "1.79.0",
+      "status_in_archive": "Installed profile update; current DLL and targeted English sources audited on 2026-09-30. Original archive remains historical evidence.",
+      "source_root": "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.79.0",
       "binary_identities": [
         {
-          "mod": "JereKuusela-World_Edit_Commands-1.78.0",
+          "mod": "JereKuusela-World_Edit_Commands-1.79.0",
           "enabled": true,
           "profile_path": "BepInEx/plugins/JereKuusela-World_Edit_Commands/WorldEditCommands.dll",
           "size": 304128,
-          "sha256": "9a8b70a5ea1f95ee918ae20c078a65ad9cbffd1c6ccfac840bba3c38654bc69c"
+          "sha256": "bef94c1e91bf5f1ad678b24dd4dbbcc648d11a07d2768fb0c50fceec1cc68a64"
         }
-      ]
+      ],
+      "previous_version": "1.78.0"
     },
     {
       "id": "XPortal",
@@ -1672,5 +1677,19 @@
     "not_translated": "By the owner's decision: console help and output of JereKuusela's admin tools and the ConditionalConfigSync rejection window. Infinity Hammer tool names from its data file.",
     "code_changed": "Pattern arguments item and itemSet (GameItems): a game object a mod prints by its identifier is shown under the game's own localized name, read from ObjectDB; used for the set block of Recipe Description Expansion. Catalog field replaceNative: keys whose Russian replaces the mod's own Russian (owner's decision, MissingPieces), in the Jotunn scope, the AddWord guard and the injection of the game table; every other key stays fill-only. check_po no longer reports 'unchanged' for units without letters outside tokens. Test RawCatalogEntriesTranslateOnDisplay fills numeric placeholders of raw patterns with numbers. CallSites: a method Harmony cannot rebuild (exception filter, fault block) keeps its body; the display methods it calls (GUI.Window, Character.Message and the Player.Message override, MessageHud.ShowMessage) translate their text argument with that mod's catalog when the direct caller is that method, which returns the window titles of the Traders Extended configuration editor.",
     "owner_decisions": "2026-09-29: console of JereKuusela's tools - not needed; Recipe Description Expansion - improve; ConditionalConfigSync - not needed; MissingPieces mistakes - fix."
+  },
+  "profile_update_2026_09_30": {
+    "basis": "Five updated installed DLLs, decompiled with ILSpy 9.1.0.7988; literal signatures and display sinks compared with Valheim 1.0.16. No source mod binaries are shipped.",
+    "modules": [
+      "HumanoidRandomizer",
+      "InfinityHammer",
+      "WorldEditCommands",
+      "NetworkPerformanceSystem",
+      "AdventureBackpacks"
+    ],
+    "literal_specs_checked": 36,
+    "literal_values_checked": 57,
+    "result": "Existing translated English strings and targeted signatures retained. HumanoidRandomizer embedded monster bundle equals 1.6.0; AdventureBackpacks English JSON equals 2.2.2. New or removed strings were not found in the checked translation scope.",
+    "runtime_scope": "Static source and IL verification; Unity gameplay acceptance is separate."
   }
 }
