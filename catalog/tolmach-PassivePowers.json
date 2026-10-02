@@ -26,7 +26,7 @@
     "powers_additional_slash_damage": "Наносит дополнительно $1% рассекающего урона.",
     "powers_additional_spirit_damage": "Наносит дополнительно $1% урона духом.",
     "powers_additional_spirit_defense": "Повышает сопротивление духу на $1%.",
-    "powers_adrenaline_bonus": "Увеличивает получение адреналина на $1%.",
+    "powers_adrenaline_bonus": "Увеличивает прирост адреналина на $1%.",
     "powers_block_stamina_return": "Возвращает ровно $1 ед. выносливости при блокировании.",
     "powers_block_stamina_usage": "Снижает расход выносливости при блокировании на $1%.",
     "powers_carry_weight": "Увеличивает максимальный переносимый вес на $1.",
@@ -57,7 +57,7 @@
     "powers_tree_damage": "Увеличивает урон по деревьям на $1%.",
     "powers_type_active": "Активный",
     "powers_type_passive": "Пассивный",
-    "powers_wind_modifier": "Меняет силу ветра под парусом на величину до $1%."
+    "powers_wind_modifier": "При плавании под парусом меняет силу ветра на величину до $1%."
   },
   "englishWords": {
     "powers_activation_hint": "Can be activated every $1 to gain the following effect for $2",

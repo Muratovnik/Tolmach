@@ -97,6 +97,7 @@ namespace Tolmach.Tests
             AssertRejected("ConditionalConfigSync", d => d["patterns"][0]["singleLine"] = JValue.CreateNull(), "A boolean flag cannot be null.");
             AssertRejected("TakeAllCooked", d => d["configTexts"][0]["values"] = JValue.CreateNull(), "Nor a member of a rule.");
             AssertRejected("TakeAllCooked", d => d["rawText"] = new JObject(), "A misspelt section would drop its translations.");
+            AssertRejected("Valheim", d => d["nameAliases"] = JValue.CreateNull(), "A name alias table cannot be null.");
             AssertRejected("TakeAllCooked", d => d["configTexts"][0]["value"] = new JObject(), "Members of a rule are checked too.");
             AssertRejected("CreatureLevelControl", d => d["cllc"]["settings"].First.First["tooltip"] = "x", "And those of the CLLC table.");
         }

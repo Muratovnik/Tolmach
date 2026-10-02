@@ -150,7 +150,23 @@
     "sfx_bird_death": "Птица погибает",
     "caption_bow": "Лук",
     "caption_creaking": "скрипит",
-    "sfx_crow_idle": "Ворона каркает"
+    "sfx_crow_idle": "Ворона каркает",
+    "tolmach_idol_0_weapon": "Боевой идол из дерева",
+    "tolmach_idol_0_armor": "Защитный идол из дерева",
+    "tolmach_idol_1_weapon": "Боевой идол из бронзы",
+    "tolmach_idol_1_armor": "Защитный идол из бронзы",
+    "tolmach_idol_2_weapon": "Боевой идол из железа",
+    "tolmach_idol_2_armor": "Защитный идол из железа",
+    "tolmach_idol_3_weapon": "Боевой идол из серебра",
+    "tolmach_idol_3_armor": "Защитный идол из серебра",
+    "tolmach_idol_4_weapon": "Боевой идол из черного металла",
+    "tolmach_idol_4_armor": "Защитный идол из черного металла",
+    "tolmach_idol_5_weapon": "Боевой идол из черного мрамора",
+    "tolmach_idol_5_armor": "Защитный идол из черного мрамора",
+    "tolmach_idol_6_weapon": "Боевой идол из огнеметалла",
+    "tolmach_idol_6_armor": "Защитный идол из огнеметалла",
+    "tolmach_idol_7_weapon": "Боевой идол из кровавого золота",
+    "tolmach_idol_7_armor": "Защитный идол из кровавого золота"
   },
   "englishWords": {
     "caption_alerted": "alerted",
@@ -294,7 +310,23 @@
     "sfx_bird_death": "Bird dying",
     "caption_bow": "Bow",
     "caption_creaking": "creaking",
-    "sfx_crow_idle": "Crow cawing"
+    "sfx_crow_idle": "Crow cawing",
+    "tolmach_idol_0_weapon": "Wooden Battle Idol",
+    "tolmach_idol_0_armor": "Wooden Protection Idol",
+    "tolmach_idol_1_weapon": "Bronze Battle Idol",
+    "tolmach_idol_1_armor": "Bronze Protection Idol",
+    "tolmach_idol_2_weapon": "Iron Battle Idol",
+    "tolmach_idol_2_armor": "Iron Protection Idol",
+    "tolmach_idol_3_weapon": "Silver Battle Idol",
+    "tolmach_idol_3_armor": "Silver Protection Idol",
+    "tolmach_idol_4_weapon": "Black Metal Battle Idol",
+    "tolmach_idol_4_armor": "Black Metal Protection Idol",
+    "tolmach_idol_5_weapon": "Black Marble Battle Idol",
+    "tolmach_idol_5_armor": "Black Marble Protection Idol",
+    "tolmach_idol_6_weapon": "Flametal Battle Idol",
+    "tolmach_idol_6_armor": "Flametal Protection Idol",
+    "tolmach_idol_7_weapon": "Bloodgold Battle Idol",
+    "tolmach_idol_7_armor": "Bloodgold Protection Idol"
   },
   "texts": {},
   "patterns": [],
@@ -302,9 +334,29 @@
   "literals": [],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/game/valheim-1.0.16/localization_captions.csv"
+    "source-evidence/game/valheim-1.0.16/localization_captions.csv",
+    "source-evidence/game/valheim-1.0.16/idol-names.json"
   ],
   "notes": [
-    "Субтитры игры (localization_captions): в русской локализации Valheim 1.0.16 их нет. Модуль привязан к игре (GUID valheim) и заполняет только пустые или английские значения."
-  ]
+    "Субтитры игры (localization_captions): в русской локализации Valheim 1.0.16 их нет. Модуль привязан к игре (GUID valheim) и заполняет только пустые или английские значения.",
+    "Идолы Valheim 1.0.16: 16 точных составных названий отображаются через отдельные полные ключи Tolmach; исходные поля, префабы и отдельные штатные слова не меняются."
+  ],
+  "nameAliases": {
+    "$item_upgrader_tier0 $item_upgrader_weapon $item_upgrader_name": "$tolmach_idol_0_weapon",
+    "$item_upgrader_tier0 $item_upgrader_armor $item_upgrader_name": "$tolmach_idol_0_armor",
+    "$item_upgrader_tier1 $item_upgrader_weapon $item_upgrader_name": "$tolmach_idol_1_weapon",
+    "$item_upgrader_tier1 $item_upgrader_armor $item_upgrader_name": "$tolmach_idol_1_armor",
+    "$item_upgrader_tier2 $item_upgrader_weapon $item_upgrader_name": "$tolmach_idol_2_weapon",
+    "$item_upgrader_tier2 $item_upgrader_armor $item_upgrader_name": "$tolmach_idol_2_armor",
+    "$item_upgrader_tier3 $item_upgrader_weapon $item_upgrader_name": "$tolmach_idol_3_weapon",
+    "$item_upgrader_tier3 $item_upgrader_armor $item_upgrader_name": "$tolmach_idol_3_armor",
+    "$item_upgrader_tier4 $item_upgrader_weapon $item_upgrader_name": "$tolmach_idol_4_weapon",
+    "$item_upgrader_tier4 $item_upgrader_armor $item_upgrader_name": "$tolmach_idol_4_armor",
+    "$item_upgrader_tier5 $item_upgrader_weapon $item_upgrader_name": "$tolmach_idol_5_weapon",
+    "$item_upgrader_tier5 $item_upgrader_armor $item_upgrader_name": "$tolmach_idol_5_armor",
+    "$item_upgrader_tier6 $item_upgrader_weapon $item_upgrader_name": "$tolmach_idol_6_weapon",
+    "$item_upgrader_tier6 $item_upgrader_armor $item_upgrader_name": "$tolmach_idol_6_armor",
+    "$item_upgrader_tier7 $item_upgrader_weapon $item_upgrader_name": "$tolmach_idol_7_weapon",
+    "$item_upgrader_tier7 $item_upgrader_armor $item_upgrader_name": "$tolmach_idol_7_armor"
+  }
 }

@@ -80,6 +80,22 @@
     ]
   },
   {
+    "id": "AzuAntiArthriticCrafting",
+    "guid": "Azumatt.AzuAntiArthriticCrafting",
+    "pluginVersion": "2.1.11",
+    "assembly": "AzuAntiArthriticCrafting",
+    "sources": [
+      {
+        "path": "source-evidence/profile-20261002/utilities/AAA/AzuAntiArthriticCrafting/AzuAntiArthriticCraftingPlugin.cs",
+        "sha256": "74ae66a54a920610fe8dcf002d9c18489ff7dd969f6a523ed2ff98cb578680e1"
+      },
+      {
+        "path": "source-evidence/profile-20261002/utilities/AAA/AzuAntiArthriticCrafting.csproj",
+        "sha256": "2b6badf6c7c820b9002979a1d2f0bb2e297cbbed8e693bd8617f5a44a405e78b"
+      }
+    ]
+  },
+  {
     "id": "AzuAreaRepair",
     "guid": "Azumatt.AzuAreaRepair",
     "pluginVersion": "1.1.8",
@@ -114,15 +130,15 @@
   {
     "id": "AzuCraftyBoxes",
     "guid": "Azumatt.AzuCraftyBoxes",
-    "pluginVersion": "1.8.26",
+    "pluginVersion": "1.8.27",
     "assembly": "AzuCraftyBoxes",
     "sources": [
       {
-        "path": "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/AzuCraftyBoxes/AzuCraftyBoxesPlugin.cs",
-        "sha256": "f8d2a12d7b1bd66cee165184b8c80615c577eecf83968430958e8adce8efff3f"
+        "path": "source-evidence/profile-20261002/updates/Azumatt-AzuCraftyBoxes-1.8.27/AzuCraftyBoxes/AzuCraftyBoxes/AzuCraftyBoxesPlugin.cs",
+        "sha256": "1d5fb8b761a6b3eb8a7e584c64b42329c36921e32ad3722f4c9288d7e395b540"
       },
       {
-        "path": "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes/AzuCraftyBoxes.csproj",
+        "path": "source-evidence/profile-20261002/updates/Azumatt-AzuCraftyBoxes-1.8.27/AzuCraftyBoxes/AzuCraftyBoxes.csproj",
         "sha256": "a336019e41bd8bbb8eb761fffb21d933a04f1f2785d0e761dabf8a733fe08551"
       }
     ]
@@ -371,15 +387,15 @@
   {
     "id": "ConfigurationManager",
     "guid": "_shudnal.ConfigurationManager",
-    "pluginVersion": "1.1.22",
+    "pluginVersion": "1.1.23",
     "assembly": "ConfigurationManager",
     "sources": [
       {
-        "path": "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager/ConfigurationManager.cs",
-        "sha256": "e109b44ec6c3905055c9b285873962d3eebd436a12ea852a3d904f43f8fdcd62"
+        "path": "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager/ConfigurationManager/ConfigurationManager.cs",
+        "sha256": "9de807100fd5e706559ddc579c7a9171d0c92cbab422c6746344032dd5405b2d"
       },
       {
-        "path": "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager.csproj",
+        "path": "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager/ConfigurationManager.csproj",
         "sha256": "0f521df2bddf69ccd9a9fdbccc06a150677a70bb73ad1d659c0e0ec6122237c8"
       }
     ]
@@ -445,6 +461,70 @@
       {
         "path": "source-evidence/localization/b/36-Digitalroot-Digitalroots_GoldBars/Digitalroot.Valheim.GoldBars.csproj",
         "sha256": "195508309369a3f033b2c2e1ff8f8f476618ceff9c516f1c32e9cbe7bb3acebb"
+      }
+    ]
+  },
+  {
+    "id": "DynamicStorageAmmunitionPiles",
+    "guid": "com.muji.DynamicStorageAmmunitionPiles",
+    "pluginVersion": "1.0.2",
+    "assembly": "DynamicStorageAmmunitionPiles",
+    "sources": [
+      {
+        "path": "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPilesPlugin.cs",
+        "sha256": "aecd94931aaa2906e5d7e23fee64f880be6063f2022332cd422abc708c1aa1f8"
+      },
+      {
+        "path": "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles.csproj",
+        "sha256": "d889fff22971b3d6da1a4b479897fbaaf988f152769d0fcce446d02a1365868b"
+      }
+    ]
+  },
+  {
+    "id": "DynamicStorageButchersHall",
+    "guid": "com.muji.DynamicStorageMeatRack",
+    "pluginVersion": "1.0.0",
+    "assembly": "DynamicStorageMeatRack",
+    "sources": [
+      {
+        "path": "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/DynamicStorageMeatRackPlugin.cs",
+        "sha256": "4f9ec6ab069cb90b62df2ec0207c16e98443d997c52e96032fb7cc537945837f"
+      },
+      {
+        "path": "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageButchersHall.csproj",
+        "sha256": "3affd3d9baaf86398706ebeed204a351b6f7c518cb5ef6efdb308b34e398b8ae"
+      }
+    ]
+  },
+  {
+    "id": "DynamicStorageForge",
+    "guid": "com.modularvalheim.DynamicStorageForge",
+    "pluginVersion": "1.0.2",
+    "assembly": "DynamicStorageForge",
+    "sources": [
+      {
+        "path": "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/DynamicStorageForgePlugin.cs",
+        "sha256": "3269a95fb3e20c1cd017b0a2f0dd0bb852afd383152e160ddd6326083b240890"
+      },
+      {
+        "path": "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge.csproj",
+        "sha256": "7872d58bffc775ab5654a85716660bac9d8626afc9bb7f09f04c48ce526b1bbf"
+      }
+    ]
+  },
+  {
+    "id": "DynamicStorageMaterials",
+    "guid": "com.muji.DynamicStorageMaterials",
+    "pluginVersion": "1.0.2",
+    "assembly": "DynamicStorageMaterials",
+    "sources": [
+      {
+        "path": "source-evidence/profile-additions/Muji-DynamicStorageMaterials-1.0.2/DynamicStorageMaterials/DynamicStorageMaterials/DynamicStorageMaterialsPlugin.cs",
+        "sha256": "28ba67c9647839f4bdcd343dcd41b57ed57ca65baaa7e54c30e61fb1876dea03"
+      },
+      {
+        "path": "source-evidence/profile-additions/Muji-DynamicStorageMaterials-1.0.2/DynamicStorageMaterials/DynamicStorageMaterials.csproj",
+        "sha256": "b03164994af2d69e41fb233e544e0baee9c8c6bdc46c4cc36baa750784529227"
       }
     ]
   },
@@ -1009,6 +1089,22 @@
     ]
   },
   {
+    "id": "RecipeSync",
+    "guid": "Rock3t.RecipeSync",
+    "pluginVersion": "1.0.0",
+    "assembly": "RecipeSync",
+    "sources": [
+      {
+        "path": "source-evidence/profile-20261002/utilities/RecipeSync/RecipeSync/RecipeSyncPlugin.cs",
+        "sha256": "e4b3b43c640cc609134091e9d53cfcd4c72d91bd2691e044760d6a785677d765"
+      },
+      {
+        "path": "source-evidence/profile-20261002/utilities/RecipeSync/RecipeSync.csproj",
+        "sha256": "15821548fee22f8b5093be567430b9e168e3e4f3d48620cca5d8c59e9dc14059"
+      }
+    ]
+  },
+  {
     "id": "Recycle_N_Reclaim",
     "guid": "Azumatt.Recycle_N_Reclaim",
     "pluginVersion": "1.4.5",
@@ -1117,6 +1213,22 @@
       {
         "path": "source-evidence/localization/d/Azumatt-SleepSkip-proj/SleepSkip.csproj",
         "sha256": "40b5071b05d000debea989b1e33834b3df001ef9497bc37e95a1a27bfb85bee1"
+      }
+    ]
+  },
+  {
+    "id": "SmartWishbone",
+    "guid": "goldenrevolver.SmartWishbone",
+    "pluginVersion": "1.0.6",
+    "assembly": "SmartWishbone",
+    "sources": [
+      {
+        "path": "source-evidence/profile-20261002/utilities/SmartWishbone/SmartWishbone/SmartWishbonePlugin.cs",
+        "sha256": "1c063f33bbdfbd7aa17c8c7fbbf8fcb59d04d9f471ee45eba39e38b3ee14d562"
+      },
+      {
+        "path": "source-evidence/profile-20261002/utilities/SmartWishbone/SmartWishbone.csproj",
+        "sha256": "922bc9a2c625cdea36e20ec3056736e59c973b07ed5142186d5ed6a81a09a16f"
       }
     ]
   },

@@ -11,6 +11,13 @@ using HarmonyLib;
 namespace Tolmach
 {
     [BepInPlugin(PluginId, "Tolmach", PluginVersion)]
+    [BepInDependency("goldenrevolver.SmartWishbone", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Rock3t.RecipeSync", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("Azumatt.AzuAntiArthriticCrafting", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.muji.DynamicStorageAmmunitionPiles", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.modularvalheim.DynamicStorageForge", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.muji.DynamicStorageMaterials", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.muji.DynamicStorageMeatRack", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.ValheimModding.NewtonsoftJsonDetector")]
     [BepInDependency("com.jotunn.jotunn", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("obelisk.ru.localization", BepInDependency.DependencyFlags.SoftDependency)]

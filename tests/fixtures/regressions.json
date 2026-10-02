@@ -72,7 +72,7 @@
   {
     "module": "CarturFeedingTrough",
     "source": "17s",
-    "expected": "17\u00a0с"
+    "expected": "17 с"
   },
   {
     "module": "CarturFeedingTrough",
@@ -88,5 +88,110 @@
     "module": "BalrondShipyard",
     "source": "Upgrade failed",
     "expected": "Улучшение не удалось"
+  },
+  {
+    "module": "RecipeSync",
+    "source": "Shared recipe log: +3 recipes/pieces",
+    "expected": "Из общего журнала: рецепты и постройки +3"
+  },
+  {
+    "module": "RecipeSync",
+    "source": "Shared recipe log: +2 items",
+    "expected": "Из общего журнала: предметы +2"
+  },
+  {
+    "module": "RecipeSync",
+    "source": "Shared recipe log: +3 recipes/pieces, 2 items",
+    "expected": "Из общего журнала: рецепты и постройки +3, предметы +2"
+  },
+  {
+    "module": "RecipeSync",
+    "source": "Shared recipe log: +5 stations",
+    "expected": "Из общего журнала: станции +5"
+  },
+  {
+    "module": "RecipeSync",
+    "source": "Shared recipe log: +3 recipes/pieces, 5 stations",
+    "expected": "Из общего журнала: рецепты и постройки +3, станции +5"
+  },
+  {
+    "module": "RecipeSync",
+    "source": "Shared recipe log: +2 items, 5 stations",
+    "expected": "Из общего журнала: предметы +2, станции +5"
+  },
+  {
+    "module": "RecipeSync",
+    "source": "Shared recipe log: +3 recipes/pieces, 2 items, 5 stations",
+    "expected": "Из общего журнала: рецепты и постройки +3, предметы +2, станции +5"
+  },
+  {
+    "module": "RecipeSync",
+    "source": "9 recipesV2",
+    "expected": "9 recipesV2"
+  },
+  {
+    "module": "RecipeSync",
+    "source": "Shared recipe log: +9 recipesV2",
+    "expected": "Из общего журнала: 9 recipesV2"
+  },
+  {
+    "module": "AzuAntiArthriticCrafting",
+    "source": "$aaa_itemtype_button: <color=#d3d3d3>Material</color>",
+    "expected": "$aaa_itemtype_button: <color=#d3d3d3>Материалы</color>"
+  },
+  {
+    "module": "AzuAntiArthriticCrafting",
+    "source": "$aaa_itemtype_button: <color=#d3d3d3>FutureType</color>",
+    "expected": "$aaa_itemtype_button: <color=#d3d3d3>FutureType</color>"
+  },
+  {
+    "module": "MyLittleUI",
+    "source": "Enemy Hits: Alice",
+    "expected": "Enemy Hits: Alice"
+  },
+  {
+    "module": "MyLittleUI",
+    "source": "Future Stat: 17",
+    "expected": "Future Stat: 17"
+  },
+  {
+    "module": "MyLittleUI",
+    "source": "None: 17",
+    "expected": "None: 17"
+  },
+  {
+    "module": "AzuCraftyBoxes",
+    "source": "Pull from containers? <color=green>Да</color>",
+    "expected": "Брать из сундуков? <color=green>Да</color>"
+  },
+  {
+    "module": "AzuCraftyBoxes",
+    "source": "Pull from containers? <color=yellow>Только из моих</color>",
+    "expected": "Брать из сундуков? <color=yellow>Только из моих</color>"
+  },
+  {
+    "module": "AzuCraftyBoxes",
+    "source": "Pull from containers? <color=red>Нет</color>",
+    "expected": "Брать из сундуков? <color=red>Нет</color>"
+  },
+  {
+    "module": "AzuCraftyBoxes",
+    "source": "<size=30><color=#ffffff>Pull from containers?</color></size>\n<size=25><color=green>Да</color></size>",
+    "expected": "<size=30><color=#ffffff>Брать из сундуков?</color></size>\n<size=25><color=green>Да</color></size>"
+  },
+  {
+    "module": "AzuCraftyBoxes",
+    "source": "<size=30><color=#ffffff>Pull from containers?</color></size>\n<size=25><color=yellow>Только из моих</color></size>",
+    "expected": "<size=30><color=#ffffff>Брать из сундуков?</color></size>\n<size=25><color=yellow>Только из моих</color></size>"
+  },
+  {
+    "module": "AzuCraftyBoxes",
+    "source": "<size=30><color=#ffffff>Pull from containers?</color></size>\n<size=25><color=red>Нет</color></size>",
+    "expected": "<size=30><color=#ffffff>Брать из сундуков?</color></size>\n<size=25><color=red>Нет</color></size>"
+  },
+  {
+    "module": "AzuCraftyBoxes",
+    "source": "<size=30><color=#ffffff>Pull from containers?</color></size>\r\n<size=25><color=green>Да</color></size>",
+    "expected": "<size=30><color=#ffffff>Брать из сундуков?</color></size>\r\n<size=25><color=green>Да</color></size>"
   }
 ]

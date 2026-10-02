@@ -1,0 +1,52 @@
+{
+  "id": "RecipeSync",
+  "package": "Rock3t-RecipeSync",
+  "version": "1.0.0",
+  "pluginVersion": "1.0.0",
+  "assembly": "RecipeSync",
+  "guids": ["Rock3t.RecipeSync"],
+  "namespaces": ["RecipeSync"],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [
+    {
+      "source": "Shared recipe log: +{0}",
+      "target": "Из общего журнала: {0}",
+      "singleLine": true,
+      "arguments": {"0": "message"}
+    },
+    {
+      "source": "{0}, {1}",
+      "target": "{0}, {1}",
+      "singleLine": true,
+      "arguments": {"0": "message", "1": "message"}
+    },
+    {
+      "source": "{0} {1}",
+      "target": "{1} +{0}",
+      "singleLine": true,
+      "numeric": [0],
+      "arguments": {"1": "term:entryKind"}
+    }
+  ],
+  "terms": {
+    "entryKind": {
+      "recipe/piece": "рецепты и постройки",
+      "recipes/pieces": "рецепты и постройки",
+      "item": "предметы",
+      "items": "предметы",
+      "station": "станции",
+      "stations": "станции"
+    }
+  },
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-20261002/utilities/RecipeSync/RecipeSync/RecipeSyncPlugin.cs"
+  ],
+  "notes": [
+    "Точная установленная DLL 1.0.0 проверена; нативных ключей локализации нет. Игровой запуск не выполнен.",
+    "Перевод применяется к Character.Message в ShowMessage. Describe используется и журналом: его результат, записи player/server logs, имена RPC и полезная нагрузка остаются исходными. Закрытый словарь различает шесть upstream форм счетчиков; вложенное сообщение обрабатывает все семь непустых сочетаний категорий."
+  ]
+}

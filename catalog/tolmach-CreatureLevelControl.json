@@ -55,7 +55,7 @@
         "Current world level: ": "Текущий уровень мира: ",
         "Kills in the current sector: ": "Убийств в текущем секторе: ",
         "Reset all nearby creature sectors": "Сброшены все ближайшие секторы существ",
-        "Current star chances": "Текущие шансы звезд",
+        "Current star chances": "Текущие вероятности по числу звезд",
         " for ": " — ",
         " star: ": " зв.: ",
         " is not a creature": " — не существо",
@@ -67,7 +67,7 @@
         "worldlevel - displays the current world level": "worldlevel — показывает текущий уровень мира",
         "sectorkills - displays the creatures killed in the current sector": "sectorkills — показывает, сколько существ убито в текущем секторе",
         "resetsector - resets all nearby creature sectors": "resetsector — сбрасывает все ближайшие секторы существ",
-        "starchance [creature] - displays the current star chances. Optionally for a specific creature.": "starchance [creature] — показывает текущие шансы звезд. Можно указать конкретное существо.",
+        "starchance [creature] - displays the current star chances. Optionally for a specific creature.": "starchance [creature] — показывает текущие вероятности по числу звезд. Можно указать конкретное существо.",
         "spawn [creature] [level] [affix] [extraeffect] [infusion] - spawns a creature with the provided properties.": "spawn [creature] [level] [affix] [extraeffect] [infusion] — создает существо с заданными свойствами.",
         "You are not allowed to use this command on this server.": "Вам нельзя использовать эту команду на этом сервере."
       }
@@ -298,7 +298,7 @@
       "Bosses": "Боссы",
       "Distance from Spawn": "Расстояние от точки появления",
       "Age of world": "Возраст мира",
-      "Custom level chances": "Пользовательские шансы уровней",
+      "Custom level chances": "Пользовательские вероятности по числу звезд",
       "Creature Affix chances": "Шансы эффектов существ",
       "Creature Infusion chances": "Шансы стихийного насыщения",
       "Boss Affix chances": "Шансы особенностей боссов",
@@ -506,12 +506,12 @@
         "desc": "Боссы могут появляться с особыми эффектами, из-за которых их гораздо труднее убить."
       },
       "Use creature level chances for bosses": {
-        "display": "Шансы уровней существ для боссов",
-        "desc": "«Вкл.» — шансы повышения уровня существ используются и для боссов. Иначе используются пользовательские шансы уровней для боссов."
+        "display": "Вероятности числа звезд у существ для боссов",
+        "desc": "«Вкл.» — для боссов используются те же вероятности числа звезд, что и для обычных существ. Иначе используются пользовательские вероятности для боссов."
       },
       "Star chances for bosses (percentages)": {
-        "display": "Шансы звезд для боссов (%)",
-        "desc": "Шансы уровней для боссов. Начните с 1 звезды и перечисляйте слева направо сколько угодно звезд. Шанс 0 звезд вычисляется автоматически из остатка."
+        "display": "Вероятности по числу звезд у боссов (%)",
+        "desc": "Вероятности появления боссов с разным числом звезд. Перечисляйте значения слева направо, начиная с 1 звезды; можно задать любое число значений. Вероятность появления босса без звезд вычисляется автоматически из остатка."
       },
       "Boss size increase per star (percentage)": {
         "display": "Увеличение размера боссов за звезду (%)",
@@ -534,8 +534,8 @@
         "desc": "Расстояние от точки появления, с которого начинается уровень {level}. Радиус мира по умолчанию — 10500."
       },
       "Chances for stars at world level {level} (percent)": {
-        "display": "Шансы звезд на уровне мира {level} (%)",
-        "desc": "Шансы звезд на уровне мира {level} в процентах. Перечисляйте через запятую слева направо сколько угодно звезд, начиная с 1 звезды. Шанс 0 звезд вычисляется автоматически из остатка. Пример: 30, 5.5, 2.25, 5, 10, 10, 3"
+        "display": "Вероятности по числу звезд на уровне мира {level} (%)",
+        "desc": "Вероятности появления существ с разным числом звезд на уровне мира {level} в процентах. Перечисляйте значения через запятую слева направо, начиная с 1 звезды; можно задать любое число значений. Вероятность появления существа без звезд вычисляется автоматически из остатка. Пример: 30, 5.5, 2.25, 5, 10, 10, 3"
       },
       "Chance for {effect} effect to spawn (percentage)": {
         "display": "Шанс эффекта «{effect}» (%)",

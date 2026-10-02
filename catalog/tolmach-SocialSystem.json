@@ -27,7 +27,7 @@
     "socialsystem_ui_remove_friend_title": "Удалить из друзей",
     "socialsystem_ui_remove_friend_text": "Удалить {0} из друзей?",
     "socialsystem_ui_status_online": "В сети",
-    "socialsystem_ui_status_away": "Отошел",
+    "socialsystem_ui_status_away": "Нет на месте",
     "socialsystem_ui_status_invisible": "Невидимый",
     "socialsystem_ui_status_offline": "Не в сети",
     "socialsystem_ui_location_unknown": "Место неизвестно",

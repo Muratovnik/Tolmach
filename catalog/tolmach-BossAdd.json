@@ -16,8 +16,8 @@
     "bossadd_yagluth_curse_tooltip": "Вас поразило проклятие Яглута, и вы обессилены. Силы покидают тело — бегать нельзя, можно лишь медленно идти.",
     "bossadd_yagluth_head_name": "Взор Яглута",
     "bossadd_yagluth_wrongenervate_name": "Бессилие",
-    "bossadd_yagluth_wrongenervate_startmsg": "Убийство неверной головы лишило ваше тело сил",
-    "bossadd_yagluth_wrongenervate_tooltip": "Вы убили неверную голову и обессилены. Силы покидают тело — бегать нельзя, можно лишь медленно идти."
+    "bossadd_yagluth_wrongenervate_startmsg": "Убийство не той головы лишило ваше тело сил",
+    "bossadd_yagluth_wrongenervate_tooltip": "Вы убили не ту голову и обессилели. Силы покидают тело — бегать нельзя, можно лишь медленно идти."
   },
   "englishWords": {
     "bossadd_yagluth_curse_name": "Enervated",

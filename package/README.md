@@ -2,7 +2,7 @@
 
 ![Книга рун «Толмач» у фьорда с драккаром](https://raw.githubusercontent.com/Muratovnik/Tolmach/main/docs/images/banner.jpg)
 
-**Русский перевод для модов Valheim:** интерфейс, предметы, существа, навыки, подсказки и сообщения. В пакете — переводы и дополнения для 90 модов, а также звуковые субтитры игры.
+**Русский перевод для модов Valheim:** интерфейс, предметы, существа, навыки, подсказки и сообщения. В пакете — переводы и дополнения для 97 модов, а также звуковые субтитры игры и исправленные названия всех 16 идолов.
 
 Устанавливается у игрока: серверу и остальным участникам Tolmach не нужен. Работает самостоятельно, без обязательной установки другого русификатора.
 
@@ -28,7 +28,7 @@ ZIP из GitHub и ручная установка описаны [ниже](#у
 
 ## Переводимые моды
 
-В одних модах переведены основные окна и предметы, в других — дополнены отдельные строки или только сообщения о несовпадении версий. Число 90 не означает одинаковую полноту перевода каждого мода.
+В одних модах переведены основные окна и предметы, в других — дополнены отдельные строки или только сообщения о несовпадении версий. Число 97 не означает одинаковую полноту перевода каждого мода.
 
 Ниже указаны версии, с которыми сверялись каталоги. Другие версии обрабатываются по совпадающим строкам, но их совместимость не считается проверенной. Моды, которых нет в профиле, пропускаются.
 
@@ -36,13 +36,14 @@ ZIP из GitHub и ручная установка описаны [ниже](#у
 
 | Мод | Версия |
 |---|---|
+| [AAA Crafting](https://thunderstore.io/c/valheim/p/Azumatt/AAA_Crafting/) | 2.1.11 |
 | [Adventure Backpacks](https://thunderstore.io/c/valheim/p/Vapok/AdventureBackpacks/) | 2.2.5  |
 | [Air Animals](https://thunderstore.io/c/valheim/p/Marlthon/AirAnimals/) | 0.3.2  |
 | [Armory (Therzie)](https://thunderstore.io/c/valheim/p/Therzie/Armory/) | 1.4.2  |
 | [Async Save](https://thunderstore.io/c/valheim/p/MidnightMods/AsyncSave/) | 0.6.0 |
 | [Azu Area Repair](https://thunderstore.io/c/valheim/p/Azumatt/AzuAreaRepair/) | 1.1.8  |
 | [Azu Auto Store](https://thunderstore.io/c/valheim/p/Azumatt/AzuAutoStore/) | 3.1.6  |
-| [Azu Crafty Boxes](https://thunderstore.io/c/valheim/p/Azumatt/AzuCraftyBoxes/) | 1.8.26  |
+| [Azu Crafty Boxes](https://thunderstore.io/c/valheim/p/Azumatt/AzuCraftyBoxes/) | 1.8.27  |
 | [Azu Workbench Tweaks](https://thunderstore.io/c/valheim/p/Azumatt/AzuWorkbenchTweaks/) | 1.0.7  |
 | [Balrond Amazing Nature](https://thunderstore.io/c/valheim/p/Balrond/balrond_amazing_nature/) | 1.4.0  |
 | [Balrond Arsenal Reborn](https://thunderstore.io/c/valheim/p/Balrond/balrond_arsenal_reborn/) | 0.1.6  |
@@ -59,11 +60,15 @@ ZIP из GitHub и ручная установка описаны [ниже](#у
 | [Cartur's Feeding Trough](https://thunderstore.io/c/valheim/p/Cartur/Carturs_Feeding_Trough/) | 1.0.0  |
 | [Comfort Tweaks](https://thunderstore.io/c/valheim/p/Smoothbrain/ComfortTweaks/) | 3.3.11  |
 | [Conditional Config Sync](https://thunderstore.io/c/valheim/p/shudnal/ConditionalConfigSync/) | 1.0.9 |
-| [Configuration Manager](https://thunderstore.io/c/valheim/p/shudnal/ConfigurationManager/) | 1.1.22 |
+| [Configuration Manager](https://thunderstore.io/c/valheim/p/shudnal/ConfigurationManager/) | 1.1.23 |
 | [Crafty Carts Remake](https://thunderstore.io/c/valheim/p/OdinPlus/CraftyCartsRemake/) | 3.2.4  |
 | [Creature Level and Loot Control](https://thunderstore.io/c/valheim/p/Smoothbrain/CreatureLevelAndLootControl/) | 4.6.4  |
 | [Culinary Horizons](https://thunderstore.io/c/valheim/p/lnsanity/Culinary_Horizons/) | 1.0.42  |
 | [Digitalroot's Gold Bars](https://thunderstore.io/c/valheim/p/Digitalroot/Digitalroots_GoldBars/) | 1.2.34  |
+| [Dynamic Storage Ammunition Piles](https://thunderstore.io/c/valheim/p/Muji/DynamicStorage_Ammunition_Piles/) | 1.0.3 |
+| [Dynamic Storage Butcher’s Hall](https://thunderstore.io/c/valheim/p/Muji/DynamicStorage_Butchers_Hall/) | 1.0.0 |
+| [Dynamic Storage Forge](https://thunderstore.io/c/valheim/p/Muji/DynamicStorageForge/) | 1.0.2 |
+| [Dynamic Storage Materials](https://thunderstore.io/c/valheim/p/Muji/DynamicStorageMaterials/) | 1.0.2 |
 | [Dynamic Storage Piles](https://thunderstore.io/c/valheim/p/MSchmoecker/DynamicStoragePiles/) | 0.8.1  |
 | [Epic Loot](https://thunderstore.io/c/valheim/p/RandyKnapp/EpicLoot/) | 0.14.13  |
 | [Equipment and Quick Slots](https://thunderstore.io/c/valheim/p/RandyKnapp/EquipmentAndQuickSlots/) | 3.1.3  |
@@ -98,12 +103,14 @@ ZIP из GitHub и ручная установка описаны [ниже](#у
 | [Quick Stack Store Sort Trash Restock](https://thunderstore.io/c/valheim/p/Goldenrevolver/Quick_Stack_Store_Sort_Trash_Restock/) | 1.4.15  |
 | [Quick Teleport](https://thunderstore.io/c/valheim/p/OdinPlus/QuickTeleport/) | 2.0.4  |
 | [Recipe Description Expansion](https://thunderstore.io/c/valheim/p/Azumatt/Recipe_Description_Expansion/) | 1.1.9  |
+| [Recipe Sync](https://thunderstore.io/c/valheim/p/Rock3t/RecipeSync/) | 1.0.0 |
 | [Recycle N Reclaim](https://thunderstore.io/c/valheim/p/Azumatt/Recycle_N_Reclaim/) | 1.4.5  |
 | [Renegade Vikings](https://thunderstore.io/c/valheim/p/blacks7ar/RenegadeVikings/) | 1.4.2  |
 | [Sea Animals](https://thunderstore.io/c/valheim/p/Marlthon/SeaAnimals/) | 0.3.9  |
 | [Seed Bed](https://thunderstore.io/c/valheim/p/blacks7ar/SeedBed/) | 1.2.9  |
 | [Server devcommands](https://thunderstore.io/c/valheim/p/JereKuusela/Server_devcommands/) | 1.115.0  |
 | [Sleep Skip](https://thunderstore.io/c/valheim/p/Azumatt/SleepSkip/) | 1.3.2  |
+| [Smart Wishbone Updated](https://thunderstore.io/c/valheim/p/VerdantsAscent/SmartWishboneUpdated/) | 1.0.6 |
 | [Smelter Upgrades](https://thunderstore.io/c/valheim/p/OverDrive/SmelterUpgrades/) | 1.1.5  |
 | [SNEAKer](https://thunderstore.io/c/valheim/p/blacks7ar/SNEAKer/) | 1.1.8  |
 | [Social System](https://thunderstore.io/c/valheim/p/M2Valheim/SocialSystem/) | 1.0.2  |

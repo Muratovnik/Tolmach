@@ -1,0 +1,295 @@
+{
+  "id": "DynamicStorageAmmunitionPiles",
+  "package": "Muji-DynamicStorage_Ammunition_Piles",
+  "version": "1.0.3",
+  "assembly": "DynamicStorageAmmunitionPiles",
+  "guids": [
+    "com.muji.DynamicStorageAmmunitionPiles"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "<color=#FF5555><b>STORAGE SAFETY WARNING</b></color>": "<color=#FF5555><b>ПРЕДУПРЕЖДЕНИЕ О СОХРАННОСТИ ПРЕДМЕТОВ</b></color>",
+    "<color=#FFAAAA>Automatic recovery will move them into visible slots only after a fully validated layout is available and the barrel is closed. If this warning persists, enable Advanced Debug -> Show Storage Debug Tooltip and check Last safety action.</color>": "<color=#FFAAAA>Автоматическое восстановление переместит их в видимые ячейки после полной проверки размещения и закрытия хранилища. Если предупреждение остается, включите Advanced Debug -> Show Storage Debug Tooltip и проверьте строку «Последнее защитное действие».</color>",
+    "<color=#8FD3FF><b>AMMO BARREL STORAGE DEBUG</b></color>": "<color=#8FD3FF><b>ДИАГНОСТИКА ХРАНИЛИЩА</b></color>",
+    "None": "Нет",
+    "Unknown": "Неизвестно",
+    "Yes": "Да",
+    "No": "Нет",
+    "True": "Да",
+    "False": "Нет",
+    "Grid stable": "Сетка стабильна",
+    "Fail-closed: capacity load protection unavailable": "Операция запрещена: защита загрузки емкости недоступна",
+    "Waiting for positive inventory observation": "Ожидание подтвержденного состояния инвентаря",
+    "Deferred: more than 80 stacks require the recovery envelope": "Отложено: более 80 стопок требуют расширенной сетки восстановления",
+    "Holding larger grid because stack count exceeds requested capacity": "Сетка увеличена: число стопок превышает заданную емкость",
+    "Deferred: could not prove container is closed": "Отложено: закрытие хранилища не подтверждено",
+    "Deferred while container is open": "Отложено, пока хранилище открыто",
+    "Deferred: could not snapshot inventory": "Отложено: не удалось получить снимок инвентаря",
+    "Deferred: no validated destination for every stack": "Отложено: проверенное размещение найдено не для всех стопок",
+    "Deferred relocation: waiting for authoritative owner": "Перемещение отложено: ожидание владельца объекта",
+    "Deferred: persistence callback unavailable": "Отложено: сохранение недоступно",
+    "Rollback: validation failed before persistence": "Откат: проверка перед сохранением не пройдена",
+    "Rollback: could not persist relocated coordinates": "Откат: не удалось сохранить новые координаты",
+    "Rollback: post-persistence validation failed": "Откат: проверка после сохранения не пройдена",
+    "Cannot apply: this client is not the ZDO owner.": "Нельзя применить: этот клиент не владеет объектом ZDO.",
+    "This barrel already contains a different ammunition type.": "В бочке уже лежит другой вид боеприпасов.",
+    "Placed barrel has no writable ZDO.": "Для установленной бочки недоступна запись ZDO.",
+    "<color=#5EC8FF><b>BARREL APPEARANCE EDITOR</b></color>": "<color=#5EC8FF><b>РЕДАКТОР ВНЕШНЕГО ВИДА БОЧКИ</b></color>",
+    "<color=#AAB4BC>ARROW BARREL</color>": "<color=#AAB4BC>БОЧКА ДЛЯ СТРЕЛ</color>",
+    "<color=#AAB4BC>BOLT BARREL</color>": "<color=#AAB4BC>БОЧКА ДЛЯ АРБАЛЕТНЫХ БОЛТОВ</color>",
+    "<color=#AAB4BC>MISSILE BARREL</color>": "<color=#AAB4BC>БОЧКА ДЛЯ СНАРЯДОВ БАЛЛИСТЫ</color>"
+  },
+  "patterns": [
+    {
+      "source": "<color=#FF7777>{0} stored stack(s) are currently inaccessible in the container UI. The items are still present.</color>",
+      "target": "<color=#FF7777>Недоступных в окне хранилища стопок: {0}. Предметы по-прежнему на месте.</color>",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "<color=#FFAAAA>Remove at least {0} stack(s) so every item can be restored to visible slots safely.</color>",
+      "target": "<color=#FFAAAA>Уберите стопки (не менее {0}), чтобы все предметы можно было безопасно вернуть в видимые ячейки.</color>",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "<color=#B8E3FF>Desired:</color> <color=#FFFFFF>{0} slots</color>",
+      "target": "<color=#B8E3FF>Требуемое число ячеек:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Inventory grid:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Сетка инвентаря:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Container grid:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Сетка хранилища:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Stacks:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Стопок:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Occupied bounds:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Занятая область:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Outside live grid:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Вне действующей сетки:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Authoritative owner:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Владелец объекта:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "<color=#B8E3FF>Container open:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Хранилище открыто:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "<color=#B8E3FF>Inventory ID:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>ID инвентаря:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Last safety action:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Последнее защитное действие:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "<color=#FF8E8E>Inaccessible in current UI:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#FF8E8E>Недоступно в текущем окне:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "Refused non-UI-safe target width {0}",
+      "target": "Операция запрещена: ширина {0} несовместима с окном хранилища",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Restored {0} stack(s); committed {1}x{2}",
+      "target": "Восстановлено стопок: {0}; сохранена сетка {1}x{2}",
+      "numeric": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "source": "Committed UI-safe grid {0}x{1}",
+      "target": "Сохранена совместимая с окном сетка {0}x{1}",
+      "numeric": [
+        0,
+        1
+      ]
+    },
+    {
+      "source": "This barrel only accepts {0}.",
+      "target": "Эта бочка принимает только: {0}.",
+      "arguments": {
+        "0": "term:families"
+      }
+    },
+    {
+      "source": "This barrel can only hold {0}.",
+      "target": "Эта бочка принимает только: {0}.",
+      "arguments": {
+        "0": "term:ammo"
+      }
+    },
+    {
+      "source": "Applied current {0} barrel appearance configuration.",
+      "target": "Применены текущие настройки внешнего вида бочки: {0}.",
+      "arguments": {
+        "0": "term:families"
+      }
+    },
+    {
+      "source": "<color=#8AD7FF>Barrel scale:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#8AD7FF>Масштаб бочки:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#8AD7FF>Ammo model:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#8AD7FF>Модель боеприпаса:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#8AD7FF>Height offset:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#8AD7FF>Смещение по высоте:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#8AD7FF>Server capacity:</color> <color=#FFFFFF>{0} slots</color>",
+      "target": "<color=#8AD7FF>Число ячеек на сервере:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#8AD7FF>Visual fill:</color> <color=#FFFFFF>{0} · {1}</color>",
+      "target": "<color=#8AD7FF>Визуальное заполнение:</color> <color=#FFFFFF>{0} · {1}</color>",
+      "arguments": {
+        "0": "term:fill",
+        "1": "term:fill"
+      }
+    },
+    {
+      "source": "<color=#FFD166><b>[R]</b></color> <color=#AAB4BC>Apply current {0} config</color>",
+      "target": "<color=#FFD166><b>[R]</b></color> <color=#AAB4BC>Применить текущие настройки: {0}</color>",
+      "arguments": {
+        "0": "term:barrels"
+      }
+    },
+    {
+      "source": "New build piece: {0}",
+      "target": "Новая постройка: {0}",
+      "arguments": {
+        "0": "term:pieces"
+      }
+    }
+  ],
+  "returns": [
+    {
+      "type": "DynamicStorageAmmunitionPiles.AmmunitionBarrelCapacity",
+      "method": "get_SafetyWarning"
+    },
+    {
+      "type": "DynamicStorageAmmunitionPiles.AmmunitionBarrelCapacity",
+      "method": "get_DebugStatus"
+    },
+    {
+      "type": "DynamicStorageAmmunitionPiles.AmmunitionBarrelAppearanceEditorPatches",
+      "method": "BuildEditorHoverText"
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionBarrelAppearance.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionBarrelAppearanceEditorPatches.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionBarrelCapacity.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionBarrelCapacityPatches.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionBarrelFamily.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionBarrelInventoryPatches.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionBarrelPlacementPatches.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionBarrelStorage.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionBarrelUnlocks.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionBarrelVisual.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionCatalog.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionDefinition.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/AmmunitionKind.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/BarrelAppearanceTemplate.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/ConfigurationManagerAttributes.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPilesPlugin.cs"
+  ],
+  "notes": [
+    "Проверено по установленной DLL. Русская нативная локализация отсутствует. Имена и описания переводятся при показе; идентификаторы, сохраненные настройки, RPC и журналы не изменяются. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "DynamicStorageAmmunitionPiles"
+  ],
+  "pluginVersion": "1.0.2",
+  "rawTexts": {
+    "Arrow Barrel": "Бочка для стрел",
+    "Bolt Barrel": "Бочка для арбалетных болтов",
+    "Missile Barrel": "Бочка для снарядов баллисты",
+    "Stores one arrow type at a time. Revealed after discovering any arrow.": "Хранит один вид стрел. Открывается после обнаружения любых стрел.",
+    "Stores one crossbow bolt type at a time. Revealed after discovering any crossbow bolt.": "Хранит один вид арбалетных болтов. Открывается после обнаружения любых арбалетных болтов.",
+    "Stores one Ballista missile type at a time. Revealed after discovering any Ballista missile.": "Хранит один вид снарядов баллисты. Открывается после обнаружения любых снарядов баллисты."
+  },
+  "terms": {
+    "families": {
+      "arrows": "стрелы",
+      "crossbow bolts": "арбалетные болты",
+      "Ballista missiles": "снаряды баллисты"
+    },
+    "ammo": {
+      "Wood arrow": "Деревянная стрела",
+      "Flinthead arrow": "Стрела с кремневым наконечником",
+      "Bronzehead arrow": "Стрела с бронзовым наконечником",
+      "Fire arrow": "Огненная стрела",
+      "Ironhead arrow": "Стрела с железным наконечником",
+      "Poison arrow": "Отравленная стрела",
+      "Obsidian arrow": "Обсидиановая стрела",
+      "Frost arrow": "Ледяная стрела",
+      "Silver arrow": "Серебряная стрела",
+      "Needle arrow": "Игольная стрела",
+      "Carapace arrow": "Панцирная стрела",
+      "Charred arrow": "Обугленная стрела",
+      "Bloodgold arrow": "Стрела из кровавого золота",
+      "Bone bolt": "Костяной болт",
+      "Iron bolt": "Железный болт",
+      "Black metal bolt": "Болт из черного металла",
+      "Carapace bolt": "Панцирный болт",
+      "Charred bolt": "Обугленный болт",
+      "Bloodgold bolt": "Болт из кровавого золота",
+      "Wooden missile": "Деревянный снаряд",
+      "Black metal missile": "Снаряд из черного металла",
+      "Flametal missile": "Огнеметаллический снаряд",
+      "Bloodgold missile": "Снаряд из кровавого золота",
+      "Bone missile": "Костяной снаряд"
+    },
+    "barrels": {
+      "Arrow Barrel": "Бочка для стрел",
+      "Bolt Barrel": "Бочка для арбалетных болтов",
+      "Missile Barrel": "Бочка для снарядов баллисты"
+    },
+    "fill": {
+      "Occupied Slots": "Занятые ячейки",
+      "Storage Capacity": "Емкость хранилища",
+      "Always Full": "Всегда полная",
+      "25%": "25%",
+      "50%": "50%",
+      "75%": "75%",
+      "100%": "100%"
+    },
+    "pieces": {
+      "Arrow Barrel": "Бочка для стрел",
+      "Bolt Barrel": "Бочка для арбалетных болтов",
+      "Missile Barrel": "Бочка для снарядов баллисты"
+    }
+  }
+}

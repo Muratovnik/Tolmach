@@ -26,6 +26,7 @@ namespace Tolmach
             foreach (Module m in TextEngine.Modules.Values.Where(delegate(Module item) { return item.UiAllowed; }).OrderBy(delegate(Module item) { return item.id; }, StringComparer.Ordinal))
             {
                 Dictionary<string, string> exact = new Dictionary<string, string>(m.rawTexts, StringComparer.Ordinal);
+                foreach (KeyValuePair<string, string> alias in m.nameAliases) exact.Add(alias.Key, m.words[alias.Value.Substring(1)]);
                 // Older catalogs list raw prefab fields whose display translation lives in texts.
                 foreach (PrefabSpec prefab in m.prefabs)
                     foreach (string english in prefab.fields.Values)

@@ -8,14 +8,14 @@
 
 [![Release](https://img.shields.io/github/v/release/Muratovnik/Tolmach?style=flat-square&color=blue)](https://github.com/Muratovnik/Tolmach/releases)
 [![GitHub downloads](https://img.shields.io/github/downloads/Muratovnik/Tolmach/total?style=flat-square&color=blue&label=GitHub%20downloads)](https://github.com/Muratovnik/Tolmach/releases)
-[![90 mods](https://img.shields.io/badge/mods-90-8b5a2b?style=flat-square)](docs/COVERAGE.md)
+[![97 mods](https://img.shields.io/badge/mods-97-8b5a2b?style=flat-square)](docs/COVERAGE.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 
 [Моды](package/README.md#переводимые-моды) · [Установка](#установка) · [Документация](#документация) · [Сообщить об ошибке](https://github.com/Muratovnik/Tolmach/issues/new)
 
 </div>
 
-Tolmach переводит подписи интерфейса, подсказки, сообщения, названия предметов, существ и навыков. В пакете — переводы и дополнения для **90 модов**, а также звуковые субтитры Valheim 1.0.16. В одних модах переведены основные окна и предметы, в других — только недостающие строки или сообщения о версиях: [подробное покрытие](docs/COVERAGE.md).
+Tolmach переводит подписи интерфейса, подсказки, сообщения, названия предметов, существ и навыков. В пакете — переводы и дополнения для **97 модов**, а также звуковые субтитры и исправленные названия идолов Valheim 1.0.16. В одних модах переведены основные окна и предметы, в других — только недостающие строки или сообщения о версиях: [подробное покрытие](docs/COVERAGE.md).
 
 Пакет работает самостоятельно и устанавливается только у игрока. Серверу и другим участникам Tolmach не нужен.
 

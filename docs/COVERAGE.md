@@ -1,6 +1,6 @@
 # Что переведено в каждом моде
 
-Tolmach содержит переводы и дополнения для **90 модов**, а также звуковые субтитры Valheim **1.0.16**. Здесь описан результат для игрока, а не количество ключей или внутренних патчей.
+Tolmach содержит переводы и дополнения для **97 модов**, а также звуковые субтитры и исправленные названия идолов Valheim **1.0.16**. Здесь описан результат для игрока, а не количество ключей или внутренних патчей.
 
 Таблица относится к каталогам в этой ветке репозитория. Версии модов — те, с которыми сверялись исходные строки. Наличие каталога не означает одинаковую полноту перевода или игровую проверку каждого экрана. На других версиях перевод применяется по совпадениям; новые или изменённые фразы могут остаться без перевода.
 
@@ -12,13 +12,14 @@ Tolmach содержит переводы и дополнения для **90 м
 
 | Мод | Версия | Что переведено |
 |---|---|---|
+| [AAA Crafting](https://thunderstore.io/c/valheim/p/Azumatt/AAA_Crafting/) | 2.1.11 | Обучение сетке рецептов, поиску и созданию нескольких предметов, типы предметов, подсказки станции и клавиш; дополняет встроенный русский. |
 | [Adventure Backpacks](https://thunderstore.io/c/valheim/p/Vapok/AdventureBackpacks/) | 2.2.5  | Название рюкзака Spectral Shroud of Holding, сообщения команд навыков и заголовки окна раскрытия данных; дополняет собственный русский перевод. |
 | [Air Animals](https://thunderstore.io/c/valheim/p/Marlthon/AirAnimals/) | 0.3.2  | Названия птиц; существующие русские названия предметов сохраняются. |
 | [Armory (Therzie)](https://thunderstore.io/c/valheim/p/Therzie/Armory/) | 1.4.2  | Доспехи, плащ, пояс, оружейная станция, бонусы комплектов и вкладка молота. Это не Valheim Armory от MidnightMods. |
 | [Async Save](https://thunderstore.io/c/valheim/p/MidnightMods/AsyncSave/) | 0.6.0 | Уведомление о сохранении мира в дополнительном режиме асинхронного финального сохранения. Сам режим не включается переводчиком. |
 | [Azu Area Repair](https://thunderstore.io/c/valheim/p/Azumatt/AzuAreaRepair/) | 1.1.8  | Только сообщения о несовпадении версий при подключении к серверу. |
 | [Azu Auto Store](https://thunderstore.io/c/valheim/p/Azumatt/AzuAutoStore/) | 3.1.6  | Сообщения складывания, подсказки рюкзака, избранных предметов и ячеек, вывод поиска и сообщения о версиях. Личные настройки хранения не меняются. |
-| [Azu Crafty Boxes](https://thunderstore.io/c/valheim/p/Azumatt/AzuCraftyBoxes/) | 1.8.26  | Режимы, подсказки топлива и руды, рюкзака, подписи у печей и других построек, эффект «Не брать из сундуков». |
+| [Azu Crafty Boxes](https://thunderstore.io/c/valheim/p/Azumatt/AzuCraftyBoxes/) | 1.8.27  | Режимы, подсказки топлива и руды, рюкзака, подписи у печей и других построек, эффект «Не брать из сундуков». |
 | [Azu Workbench Tweaks](https://thunderstore.io/c/valheim/p/Azumatt/AzuWorkbenchTweaks/) | 1.0.7  | Только сообщения о несовпадении версий мода и сервера. |
 | [Balrond Amazing Nature](https://thunderstore.io/c/valheim/p/Balrond/balrond_amazing_nature/) | 1.4.0  | Недостающие предметы, станции, скалы, эффекты, обучение, ремонт и износ; дополняет собственный русский перевод. |
 | [Balrond Arsenal Reborn](https://thunderstore.io/c/valheim/p/Balrond/balrond_arsenal_reborn/) | 0.1.6  | Дополнения к названиям оружия, комплектных эффектов и статусов, включая «Благословение Одина» и описание «Глубинного клеймора». |
@@ -35,11 +36,15 @@ Tolmach содержит переводы и дополнения для **90 м
 | [Cartur's Feeding Trough](https://thunderstore.io/c/valheim/p/Cartur/Carturs_Feeding_Trough/) | 1.0.0  | Название и описание кормушки, подсказки и оставшееся время приручения. |
 | [Comfort Tweaks](https://thunderstore.io/c/valheim/p/Smoothbrain/ComfortTweaks/) | 3.3.11  | Подписи комфорта и интерфейса. |
 | [Conditional Config Sync](https://thunderstore.io/c/valheim/p/shudnal/ConditionalConfigSync/) | 1.0.9 | Причины отказа подключения, несовместимости версий и синхронизации, пояснения и рекомендации в окне ошибки. Имена модов сохраняются по структуре текущего отчёта. Причины без структуры или с неоднозначным разделением динамических значений остаются исходными. Сетевые сообщения и журналы не меняются. |
-| [Configuration Manager](https://thunderstore.io/c/valheim/p/shudnal/ConfigurationManager/) | 1.1.22 | Интерфейс настроек, поиск, редактор значений и файлов, подсказки синхронизации, кнопка главного меню. Названия разделов и параметров других модов, технические типы и произвольные ошибки не переводятся. |
+| [Configuration Manager](https://thunderstore.io/c/valheim/p/shudnal/ConfigurationManager/) | 1.1.23 | Интерфейс настроек, поиск, редактор значений и файлов, подсказки синхронизации, кнопка главного меню. Названия разделов и параметров других модов, технические типы и произвольные ошибки не переводятся. |
 | [Crafty Carts Remake](https://thunderstore.io/c/valheim/p/OdinPlus/CraftyCartsRemake/) | 3.2.4  | Тележки, категория строительства, повозки со станциями и названия их хранилищ. |
 | [Creature Level and Loot Control](https://thunderstore.io/c/valheim/p/Smoothbrain/CreatureLevelAndLootControl/) | 4.6.4  | Имена существ с эффектами и стихиями, особенности боссов, сообщения и уровень сектора, редактор YAML, списки и настройки F1 с описаниями. После смены языка требуется перезапуск. |
 | [Culinary Horizons](https://thunderstore.io/c/valheim/p/lnsanity/Culinary_Horizons/) | 1.0.42  | Недостающие вкладки строительства, субтитры и сообщения о версиях; дополняет собственный русский перевод. |
 | [Digitalroot's Gold Bars](https://thunderstore.io/c/valheim/p/Digitalroot/Digitalroots_GoldBars/) | 1.2.34  | Названия и описания золотых слитков и монет. |
+| [Dynamic Storage Ammunition Piles](https://thunderstore.io/c/valheim/p/Muji/DynamicStorage_Ammunition_Piles/) | 1.0.3 | Названия и описания запасов стрел и болтов, подсказки, предупреждения о сохранности, сообщения и редактор размещения. Настройки F1 и часть технической диагностики остаются исходными. |
+| [Dynamic Storage Butcher’s Hall](https://thunderstore.io/c/valheim/p/Muji/DynamicStorage_Butchers_Hall/) | 1.0.0 | Название и описание стойки для мяса, предупреждения о сохранности, сообщения взаимодействия и подписи редактора размещения. Настройки F1 и часть технической диагностики остаются исходными. |
+| [Dynamic Storage Forge](https://thunderstore.io/c/valheim/p/Muji/DynamicStorageForge/) | 1.0.2 | Названия и описания хранилищ металлов и руды, подсказки, предупреждения о сохранности, сообщения и редактор размещения. Настройки F1 и часть технической диагностики остаются исходными. |
+| [Dynamic Storage Materials](https://thunderstore.io/c/valheim/p/Muji/DynamicStorageMaterials/) | 1.0.2 | Названия и описания хранилищ материалов, подсказки, предупреждения о сохранности, сообщения и редактор размещения. Настройки F1 и часть технической диагностики остаются исходными. |
 | [Dynamic Storage Piles](https://thunderstore.io/c/valheim/p/MSchmoecker/DynamicStoragePiles/) | 0.8.1  | Сообщение о добавленных предметах. Подставляемые названия предметов сохраняются. |
 | [Epic Loot](https://thunderstore.io/c/valheim/p/RandyKnapp/EpicLoot/) | 0.14.13  | Недостающие строки и справка консольных команд; существующий русский перевод мода сохраняется. |
 | [Equipment and Quick Slots](https://thunderstore.io/c/valheim/p/RandyKnapp/EquipmentAndQuickSlots/) | 3.1.3  | Названия слотов экипировки и быстрого доступа, включая «Плечи» и «Оберег». |
@@ -62,7 +67,7 @@ Tolmach содержит переводы и дополнения для **90 м
 | [Missing Pieces](https://thunderstore.io/c/valheim/p/BentoG/MissingPieces/) | 2.3.2  | Три исправления в собственном русском переводе: название стены 1x1 и два описания верхних стен. Остальные строки сохраняются. |
 | [More World Locations AIO](https://thunderstore.io/c/valheim/p/warpalicious/More_World_Locations_AIO/) | 5.1.7  | Локации, порты и обучение в порту, избранные порты, святилища, благословения, путевые камни, торговцы и книги навыков. Имена портов в сохранениях не меняются. |
 | [Move Build Pieces](https://thunderstore.io/c/valheim/p/DragonMotion/MoveBuildPieces/) | 1.1.1  | Вкладка и сообщения перемещения построек. |
-| [My Little UI](https://thunderstore.io/c/valheim/p/shudnal/MyLittleUI/) | 1.2.26  | Обычная статистика персонажа в главном меню, нечеткие часы и метка PING. Расширенный режим Show all stats in main menu не переведён. |
+| [My Little UI](https://thunderstore.io/c/valheim/p/shudnal/MyLittleUI/) | 1.2.26  | Обычная и расширенная статистика персонажа в главном меню, включая 205 счетчиков Valheim 1.0.16, нечеткие часы и метка PING. Настройка показа всей статистики не включается переводом. |
 | [Network Performance System](https://thunderstore.io/c/valheim/p/MidnightMods/NetworkPerformanceSystem/) | 1.13.0  | Сообщения об обрыве связи и ошибка подключения. Отладочный оверлей и консольная диагностика не переводятся. |
 | [Odin's Steelworks](https://thunderstore.io/c/valheim/p/OdinPlus/OdinsSteelworks/) | 0.4.1  | Постройки и материалы сталеварения, оружие, щиты, болты и подсказки плавильных построек. |
 | [Ore Mines](https://thunderstore.io/c/valheim/p/blacks7ar/OreMines/) | 1.2.1  | Шахты, предметы, подсказки и уведомление о сбросе шахт в чате. |
@@ -74,12 +79,14 @@ Tolmach содержит переводы и дополнения для **90 м
 | [Quick Stack Store Sort Trash Restock](https://thunderstore.io/c/valheim/p/Goldenrevolver/Quick_Stack_Store_Sort_Trash_Restock/) | 1.4.15  | Только сообщения о несовпадении версий. Основной интерфейс уже переведён самим модом. |
 | [Quick Teleport](https://thunderstore.io/c/valheim/p/OdinPlus/QuickTeleport/) | 2.0.4  | Только сообщения о несовпадении версий при подключении к серверу. |
 | [Recipe Description Expansion](https://thunderstore.io/c/valheim/p/Azumatt/Recipe_Description_Expansion/) | 1.1.9  | Названия комплектов и их частей в подсказках: игровые названия вместо внутренних идентификаторов предметов. |
+| [Recipe Sync](https://thunderstore.io/c/valheim/p/Rock3t/RecipeSync/) | 1.0.0 | Уведомление об общем журнале рецептов, предметов и станций. Сетевые записи и журналы сохраняют исходный текст. |
 | [Recycle N Reclaim](https://thunderstore.io/c/valheim/p/Azumatt/Recycle_N_Reclaim/) | 1.4.5  | Четыре недостающие строки; имеющийся русский перевод сохраняется. |
 | [Renegade Vikings](https://thunderstore.io/c/valheim/p/blacks7ar/RenegadeVikings/) | 1.4.2  | Названия и описания существ, предметов и трофеев. |
 | [Sea Animals](https://thunderstore.io/c/valheim/p/Marlthon/SeaAnimals/) | 0.3.9  | Морские существа, предметы, мясо, сёдла и их описания. |
 | [Seed Bed](https://thunderstore.io/c/valheim/p/blacks7ar/SeedBed/) | 1.2.9  | Грядки и подсказки. |
 | [Server devcommands](https://thunderstore.io/c/valheim/p/JereKuusela/Server_devcommands/) | 1.115.0  | Ошибки, отмена и повтор, выбор объектов, зона и расстояние на карте. Консольная справка и вывод команд не переводятся. |
 | [Sleep Skip](https://thunderstore.io/c/valheim/p/Azumatt/SleepSkip/) | 1.3.2  | Недостающие сообщения пропуска сна. |
+| [Smart Wishbone Updated](https://thunderstore.io/c/valheim/p/VerdantsAscent/SmartWishboneUpdated/) | 1.0.6 | Сообщение начала поиска и стандартное название скрытых объектов. Пользовательские названия целей сохраняются. |
 | [Smelter Upgrades](https://thunderstore.io/c/valheim/p/OverDrive/SmelterUpgrades/) | 1.1.5  | Подсказки плавильни и печей, сундук истопника, названия и описания улучшений в меню молота. |
 | [SNEAKer](https://thunderstore.io/c/valheim/p/blacks7ar/SNEAKer/) | 1.1.8  | Сообщения о получении опыта; штатное название навыка сохраняется. |
 | [Social System](https://thunderstore.io/c/valheim/p/M2Valheim/SocialSystem/) | 1.0.2  | Окна «Общение» и «Группа», статусы, заявки в друзья, приглашения, проверка готовности, сообщения и справка команд личного и группового чата. |
@@ -106,6 +113,10 @@ Tolmach содержит переводы и дополнения для **90 м
 ## Субтитры игры
 
 Для Valheim 1.0.16 подготовлены 142 звуковых субтитра из таблицы игры: они не зависят от установки одного из перечисленных модов.
+
+### Названия идолов
+
+Исправлены все 16 названий боевых и защитных идолов из восьми материалов. Например, «Дерево Сражение Идол» отображается как «Боевой идол из дерева», а защитный вариант — как «Защитный идол из дерева». Названия переводятся целиком при показе; исходные ключи игры и сохраненные предметы не меняются.
 
 ## Исключения и ограничения
 

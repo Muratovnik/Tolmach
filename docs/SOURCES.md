@@ -18,7 +18,7 @@
 | Дополнения 0.5.4 | Social System 1.0.1 из профиля: английская таблица, справка команд, код окон; Adventure Backpacks 2.2.2, More World Locations 5.1.5 и Wacky's Database 2.5.36. |
 | Дополнения 0.6.0 | Разбор модов без каталогов: DLL, IL, ресурсы и asset bundles, включая Armory, Smelter Upgrades и Missing Pieces; `Functions.CustomSetTooltip` Recipe Description Expansion 1.1.9. |
 | Дополнения 0.7.0 | DLL установленного профиля: Social System 1.0.2, More World Locations 5.1.7, Wacky's Database 2.5.38, Network Performance System 1.13.0, Adventure Backpacks 2.2.5, Configuration Manager 1.1.22, Conditional Config Sync 1.0.9 и Async Save 0.6.0. Английские ресурсы, адреса чтения настроек, места вывода сообщений и идентичность вспомогательной сборки сверены с этими версиями. |
-| Valheim 1.0.16 | `localization` и `localization_captions` из `resources.assets`, версия игры, игровые названия и терминология. |
+| Valheim 1.0.16 | `localization` и `localization_captions` из `resources.assets`, версия игры, игровые названия и терминология. Для исправления имен идолов также сверены 16 сериализованных составных имен префабов Upgrader и их записи в `manifest_extended`; полные русские названия составлены по назначению и материалу. |
 
 Для извлечения использовались ILSpy/ilspycmd, dnfile и UnityPy. Это инструменты чтения исходных данных, не собственные реализации декомпилятора или формата Unity. Модифицированные DLL сторонних модов не распространяются вместе с Tolmach.
 

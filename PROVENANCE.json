@@ -85,6 +85,27 @@
       ]
     },
     {
+      "id": "AzuAntiArthriticCrafting",
+      "package": "Azumatt-AAA_Crafting",
+      "version": "2.1.11",
+      "status_in_archive": "Installed profile audited on 2026-10-02; exact DLL and targeted display/resource sources. No upstream binaries shipped.",
+      "source_root": "source-evidence/profile-20261002/utilities/AAA",
+      "binary_identities": [
+        {
+          "mod": "Azumatt-AAA_Crafting-2.1.11",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Azumatt-AAA_Crafting/AzuAntiArthriticCrafting.dll",
+          "size": 2545152,
+          "sha256": "316c5b47b449b8172627bd48c12830429e38bbd21a704746f86d1053d38d4830"
+        }
+      ],
+      "license": {
+        "status": "not_identified",
+        "source": null
+      },
+      "runtime_validation": "not_run"
+    },
+    {
       "id": "AzuAreaRepair",
       "package": "Azumatt-AzuAreaRepair",
       "version": "1.1.8",
@@ -119,18 +140,27 @@
     {
       "id": "AzuCraftyBoxes",
       "package": "Azumatt-AzuCraftyBoxes",
-      "version": "1.8.26",
-      "status_in_archive": "partial",
-      "source_root": "source-evidence/localization/b/33-Azumatt-AzuCraftyBoxes",
+      "version": "1.8.27",
+      "status_in_archive": "Installed profile audited on 2026-10-02; exact DLL and targeted display/resource sources. No upstream binaries shipped.",
+      "source_root": "source-evidence/profile-20261002/updates/Azumatt-AzuCraftyBoxes-1.8.27/AzuCraftyBoxes",
       "binary_identities": [
         {
-          "mod": "Azumatt-AzuCraftyBoxes-1.8.26",
+          "mod": "Azumatt-AzuCraftyBoxes-1.8.27",
           "enabled": true,
           "profile_path": "BepInEx/plugins/Azumatt-AzuCraftyBoxes/AzuCraftyBoxes.dll",
-          "size": 698880,
-          "sha256": "35e726e43f0dd395a327fe5a536cb6a7d6b5405b8aa2f5d2033058a8c280575a"
+          "size": 701440,
+          "sha256": "432285a08aa0d43bbd89b36330bedc19cb6ea93aed439e493d0287edaecedeb4"
         }
-      ]
+      ],
+      "previous_version": "1.8.26",
+      "license": {
+        "status": "not_available",
+        "package_license_file": null,
+        "upstream_url": "https://github.com/AzumattDev/AzuCraftyBoxes",
+        "upstream_fetch_result": "404",
+        "source_code_reused": false
+      },
+      "runtime_validation": "not_run"
     },
     {
       "id": "AzuWorkbenchTweaks",
@@ -391,18 +421,32 @@
     {
       "id": "ConfigurationManager",
       "package": "shudnal-ConfigurationManager",
-      "version": "1.1.22",
-      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
-      "source_root": "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22",
+      "version": "1.1.23",
+      "status_in_archive": "Installed profile audited on 2026-10-02; exact DLL and targeted display/resource sources. No upstream binaries shipped.",
+      "source_root": "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager",
       "binary_identities": [
         {
-          "mod": "shudnal-ConfigurationManager-1.1.22",
+          "mod": "shudnal-ConfigurationManager-1.1.23",
           "enabled": true,
           "profile_path": "BepInEx/plugins/shudnal-ConfigurationManager/ConfigurationManager.dll",
           "size": 182784,
-          "sha256": "86a93c9838686ba4c0bab22e23bd728af68a84fa89cc6b0daf32f9578179aa33"
+          "sha256": "4ae08b4de3cd80b67bef2ab0e1cdf8405aa65a94dd8e061d0f267ffbe1af671f"
         }
-      ]
+      ],
+      "previous_version": "1.1.22",
+      "license": {
+        "package_readme": "GPLv3 stated in exact installed README",
+        "package_readme_source": {
+          "path": "BepInEx/plugins/shudnal-ConfigurationManager/README.md",
+          "sha256": "7d9adf73ecab3099d1d0a339d2b40db0e22ab21357e713cbb5d681c7ee9caa6e",
+          "line": 3,
+          "text": "GPLv3"
+        },
+        "current_upstream_license": "LGPL-3.0 text; disagreement with packaged README",
+        "source_url": "https://raw.githubusercontent.com/shudnal/ConfigurationManager/master/LICENSE.txt",
+        "source_pinned_to_dll": false
+      },
+      "runtime_validation": "not_run"
     },
     {
       "id": "CraftyCartsRemake",
@@ -470,6 +514,80 @@
           "sha256": "e9378ff63a0de7ab410430d42fb706c88721b2cb3e85ccb5f0eedee4c5aa88db"
         }
       ]
+    },
+    {
+      "id": "DynamicStorageAmmunitionPiles",
+      "package": "Muji-DynamicStorage_Ammunition_Piles",
+      "version": "1.0.3",
+      "status_in_archive": "Installed profile audited on 2026-10-02; exact DLL and targeted display/resource sources. No upstream binaries shipped.",
+      "source_root": "source-evidence/profile-additions/Muji-DynamicStorage_Ammunition_Piles-1.0.3/DynamicStorageAmmunitionPiles",
+      "binary_identities": [
+        {
+          "mod": "Muji-DynamicStorage_Ammunition_Piles-1.0.3",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Muji-DynamicStorage_Ammunition_Piles/DynamicStorageAmmunitionPiles/DynamicStorageAmmunitionPiles.dll",
+          "size": 72192,
+          "sha256": "263d524b56f359e1a3e906ca60182b31499454e0b22747869c86713e1373c369"
+        }
+      ],
+      "license": "MIT",
+      "runtime_validation": "not_run"
+    },
+    {
+      "id": "DynamicStorageButchersHall",
+      "package": "Muji-DynamicStorage_Butchers_Hall",
+      "version": "1.0.0",
+      "status_in_archive": "Installed profile audited on 2026-10-02; exact DLL and targeted display/resource sources. No upstream binaries shipped.",
+      "source_root": "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall",
+      "binary_identities": [
+        {
+          "mod": "Muji-DynamicStorage_Butchers_Hall-1.0.0",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Muji-DynamicStorage_Butchers_Hall/DynamicStorageButchersHall/DynamicStorageButchersHall.dll",
+          "size": 115712,
+          "sha256": "ee1273246cc9db0c919f72a9061e4e742342df19732963fc7c3d2654b06e9786"
+        }
+      ],
+      "license": "MIT",
+      "runtime_validation": "not_run",
+      "assembly": "DynamicStorageMeatRack",
+      "pluginVersion": "1.0.0"
+    },
+    {
+      "id": "DynamicStorageForge",
+      "package": "Muji-DynamicStorageForge",
+      "version": "1.0.2",
+      "status_in_archive": "Installed profile audited on 2026-10-02; exact DLL and targeted display/resource sources. No upstream binaries shipped.",
+      "source_root": "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge",
+      "binary_identities": [
+        {
+          "mod": "Muji-DynamicStorageForge-1.0.2",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Muji-DynamicStorageForge/DynamicStorageForge/DynamicStorageForge.dll",
+          "size": 157184,
+          "sha256": "81f540a7e8f8c74ca0f7b7890da98b49d486c85bbe02be274aeda740c91978b9"
+        }
+      ],
+      "license": "MIT",
+      "runtime_validation": "not_run"
+    },
+    {
+      "id": "DynamicStorageMaterials",
+      "package": "Muji-DynamicStorageMaterials",
+      "version": "1.0.2",
+      "status_in_archive": "Installed profile audited on 2026-10-02; exact DLL and targeted display/resource sources. No upstream binaries shipped.",
+      "source_root": "source-evidence/profile-additions/Muji-DynamicStorageMaterials-1.0.2/DynamicStorageMaterials",
+      "binary_identities": [
+        {
+          "mod": "Muji-DynamicStorageMaterials-1.0.2",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Muji-DynamicStorageMaterials/DynamicStorageMaterials/DynamicStorageMaterials.dll",
+          "size": 158208,
+          "sha256": "da445961aec2dd947ebb5c33038176a62b78afa5cfd9410073353b34b975561b"
+        }
+      ],
+      "license": "MIT",
+      "runtime_validation": "not_run"
     },
     {
       "id": "DynamicStoragePiles",
@@ -1050,6 +1168,27 @@
       ]
     },
     {
+      "id": "RecipeSync",
+      "package": "Rock3t-RecipeSync",
+      "version": "1.0.0",
+      "status_in_archive": "Installed profile audited on 2026-10-02; exact DLL and targeted display/resource sources. No upstream binaries shipped.",
+      "source_root": "source-evidence/profile-20261002/utilities/RecipeSync",
+      "binary_identities": [
+        {
+          "mod": "Rock3t-RecipeSync-1.0.0",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Rock3t-RecipeSync/RecipeSync.dll",
+          "size": 23040,
+          "sha256": "92979fee2d60ea52577abcf6d9a0bfae933023823b6bd03b8f2d67d6d60c50dc"
+        }
+      ],
+      "license": {
+        "status": "not_identified",
+        "source": null
+      },
+      "runtime_validation": "not_run"
+    },
+    {
       "id": "Recycle_N_Reclaim",
       "package": "Azumatt-Recycle_N_Reclaim",
       "version": "1.4.5",
@@ -1160,6 +1299,30 @@
           "sha256": "6450b44aad39bdfc63eed958815cdca9a326e1b0d730fcbbaf6b889dad32de5f"
         }
       ]
+    },
+    {
+      "id": "SmartWishbone",
+      "package": "VerdantsAscent-SmartWishboneUpdated",
+      "version": "1.0.6",
+      "status_in_archive": "Installed profile audited on 2026-10-02; exact DLL and targeted display/resource sources. No upstream binaries shipped.",
+      "source_root": "source-evidence/profile-20261002/utilities/SmartWishbone",
+      "binary_identities": [
+        {
+          "mod": "VerdantsAscent-SmartWishboneUpdated-1.0.6",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/VerdantsAscent-SmartWishboneUpdated/SmartWishbone.dll",
+          "size": 306688,
+          "sha256": "a10c71f504097a198a03205fe38b34dde06cb50c85df9272ae0f73d7b90fd88b"
+        }
+      ],
+      "license": {
+        "status": "MIT",
+        "source": {
+          "path": "packages/VerdantsAscent-SmartWishboneUpdated/LICENSE",
+          "sha256": "37ff4c39eb5d19144c83032e39402caa48ae3b33b709318e75e8bf325f2458ce"
+        }
+      },
+      "runtime_validation": "not_run"
     },
     {
       "id": "SmelterUpgrades",
@@ -1360,7 +1523,7 @@
       "id": "Valheim",
       "package": "Valheim",
       "version": "1.0.16",
-      "status_in_archive": "game: localization_captions has no Russian column values",
+      "status_in_archive": "game: localization_captions has no Russian column values; 16 native composite idol names checked against Valheim 1.0.16 resources on 2026-10-02",
       "source_root": "source-evidence/game/valheim-1.0.16",
       "binary_identities": [
         {
@@ -1766,6 +1929,30 @@
       "AsyncSave"
     ],
     "scope": "Gameplay/UI translations. RPC payloads, source synchronization state, persisted settings and logs remain unchanged. Developer consoles, technical IDs and optional all-stat labels are outside this update.",
+    "runtime_validation": "not_run"
+  },
+  "profile_update_2026_10_02": {
+    "basis": "Gale Default SQLite read-only snapshot: 104 enabled packages. Exact installed DLLs, resources, IL and display paths audited against Valheim 1.0.16.",
+    "updated_modules": [
+      "ConfigurationManager",
+      "AzuCraftyBoxes",
+      "MyLittleUI"
+    ],
+    "new_modules": [
+      "DynamicStorageButchersHall",
+      "DynamicStorageMaterials",
+      "DynamicStorageForge",
+      "DynamicStorageAmmunitionPiles",
+      "AzuAntiArthriticCrafting",
+      "RecipeSync",
+      "SmartWishbone"
+    ],
+    "scope": "Gameplay/UI, native dictionary gaps, storage labels/tooltips, recipe sharing and all 205 current player statistics. Original RPC/state/config/log data is not rewritten.",
+    "verified_no_catalog_needed": [
+      "Ivvty-SteadyFrame-1.0.3",
+      "L4zerShark_Team-AzuAutoStorePerformance-1.0.8"
+    ],
+    "limits": "General F1 parameter descriptions, administrator consoles, arbitrary user text and partial optional storage diagnostics are outside coverage. Runtime game validation not run.",
     "runtime_validation": "not_run"
   }
 }

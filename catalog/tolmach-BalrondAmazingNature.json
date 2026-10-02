@@ -393,7 +393,7 @@
       "method": "OnHoverAddFuel",
       "values": {
         "Fuel": "Топливо",
-        "\n[<color=yellow><b>$KEY_Use</b></color>] Add ": "\n[<color=yellow><b>$KEY_Use</b></color>] Добавить ",
+        "\n[<color=yellow><b>$KEY_Use</b></color>] Add ": "\n[<color=yellow><b>$KEY_Use</b></color>] Добавить: ",
         "Fuel: {0}/{1} units (+{2} per {3})": "Топливо: {0}/{1} ед. (+{2} за 1 шт. «{3}»)",
         "\nProcessing: ": "\nОбработка: ",
         "\nNext: {0} (cost {1} units)": "\nДалее: {0} (стоимость: {1} ед.)",
@@ -466,7 +466,7 @@
       "type": "BalrondNature.Launch+ZNetScene_Awake_Patch",
       "method": "Prefix",
       "values": {
-        "Challange his rule. Hunt his kin. Carve the skulls.": "Оспорь его власть. Охоться на его род. Вырезай черепа."
+        "Challange his rule. Hunt his kin. Carve the skulls.": "Оспорь его власть. Охоться на его сородичей. Вырезай черепа."
       }
     },
     {
@@ -512,7 +512,7 @@
       "values": {
         "\nTreatment duration: <color=orange>{0:0}</color>s": "\nДлительность лечения: <color=orange>{0:0}</color> с",
         "\nTick interval: <color=orange>{0:0.#}</color>s": "\nИнтервал: <color=orange>{0:0.#}</color> с",
-        "\nRemoves <color=orange>{0:0.#}</color>s from injuries per tick": "\nСокращает травмы на <color=orange>{0:0.#}</color> с за такт"
+        "\nRemoves <color=orange>{0:0.#}</color>s from injuries per tick": "\nСокращает длительность травм на <color=orange>{0:0.#}</color> с за такт"
       }
     },
     {
@@ -604,7 +604,7 @@
     "Rest": "Отдых",
     "Mark of Betrayer": "Метка предателя",
     "The Dvergr remember your betrayal.": "Дверги помнят ваше предательство.",
-    "Challange his rule. Hunt his kin. Carve the skulls.": "Оспорь его власть. Охоться на его род. Вырезай черепа.",
+    "Challange his rule. Hunt his kin. Carve the skulls.": "Оспорь его власть. Охоться на его сородичей. Вырезай черепа.",
     "Scrap does not go into Furnace/Smelter.  Can be only converted in Smeltworks station": "Металлолом не принимают плавильня и доменная печь. Переработать его можно только в плавильном цехе",
     "Stonebound Kiln accepts all items that Kiln does but requires fuel": "Каменная обжиговая печь принимает все то же, что и углевыжигательная печь, но ей нужно топливо",
     "BAN-eitrrefinery": "Машина для переработки эйтра",

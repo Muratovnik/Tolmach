@@ -1,0 +1,125 @@
+{
+  "id": "AzuAntiArthriticCrafting",
+  "package": "Azumatt-AAA_Crafting",
+  "version": "2.1.11",
+  "pluginVersion": "2.1.11",
+  "assembly": "AzuAntiArthriticCrafting",
+  "guids": ["Azumatt.AzuAntiArthriticCrafting"],
+  "namespaces": ["AzuAntiArthriticCrafting", "ServerSync"],
+  "words": {
+    "aaa_craftinggrid_title": "Сетка рецептов",
+    "aaa_searchfilters_title": "Поиск и фильтры",
+    "aaa_searchfilters_message": "Используйте строку поиска, чтобы находить рецепты по названию.\n\n<color=#d4aa00>Специальные префиксы:</color>\n  !медь — рецепты, для которых нужна медь\n  @modname — рецепты из указанного мода\n\nКнопки фильтров ниже выбирают категории. Нажмите правой кнопкой мыши, чтобы оставить только один фильтр.",
+    "aaa_multicrafting_title": "Создание нескольких предметов",
+    "aaa_multicrafting_message": "Задайте количество предметов в поле ввода, кнопками +/- или колесом мыши.\n\n<color=#d4aa00>Сочетания клавиш:</color>\n  SHIFT + колесо — шаг 10\n  CTRL + колесо — максимум доступного\n\nПоле <color=#d4aa00>Макс</color> показывает, сколько предметов можно создать."
+  },
+  "englishWords": {
+    "aaa_craftinggrid_title": "Recipe Grid",
+    "aaa_searchfilters_title": "Search & Filters",
+    "aaa_searchfilters_message": "Use the search bar to find recipes by name.\n\n<color=#d4aa00>Special prefixes:</color>\n  !copper - find recipes requiring copper\n  @modname - find recipes from a specific mod\n\nThe filter buttons below sort by category. Right-click to isolate one filter.",
+    "aaa_multicrafting_title": "Multi-Crafting",
+    "aaa_multicrafting_message": "Set how many to craft using the input field, +/- buttons, or scroll wheel.\n\n<color=#d4aa00>Shortcuts:</color>\n  SHIFT + scroll = change by 10\n  CTRL + scroll = jump to max craftable\n\nThe <color=#d4aa00>Max</color> display shows how many you can make."
+  },
+  "texts": {
+    "Required Station": "Требуемая станция",
+    "Space": "Пробел",
+    "Backspace": "Удалить символ",
+    "None": "Без типа",
+    "Material": "Материалы",
+    "Consumable": "Расходуемые предметы",
+    "OneHandedWeapon": "Одноручное оружие",
+    "Bow": "Луки",
+    "Shield": "Щиты",
+    "Helmet": "Шлемы",
+    "Chest": "Нагрудники",
+    "Ammo": "Боеприпасы",
+    "Customization": "Внешний вид",
+    "Legs": "Поножи",
+    "Hands": "Перчатки",
+    "Trophy": "Трофеи",
+    "TwoHandedWeapon": "Двуручное оружие",
+    "Torch": "Факелы",
+    "Misc": "Прочее",
+    "Shoulder": "Плащи",
+    "Utility": "Полезные предметы",
+    "Tool": "Инструменты",
+    "Attach_Atgeir": "Атгейры",
+    "Fish": "Рыба",
+    "TwoHandedWeaponLeft": "Двуручное оружие в левой руке",
+    "AmmoNonEquipable": "Боеприпасы без экипировки",
+    "Trinket": "Аксессуары"
+  },
+  "patterns": [
+    {
+      "source": "$aaa_itemtype_button: <color=#d3d3d3>{0}</color>",
+      "target": "$aaa_itemtype_button: <color=#d3d3d3>{0}</color>",
+      "arguments": {"0": "term:itemType"}
+    },
+    {
+      "source": "{0} is not installed on the server.",
+      "target": "{0} не установлен на сервере.",
+      "singleLine": true
+    },
+    {
+      "source": "{0} needs to be at least version {1}. You have version {2}.",
+      "target": "{0}: нужна версия не ниже {1}. У вас версия {2}.",
+      "singleLine": true
+    },
+    {
+      "source": "{0} may not be higher than version {1}. You have version {2}.",
+      "target": "{0}: версия должна быть не выше {1}. У вас версия {2}.",
+      "singleLine": true
+    },
+    {
+      "source": "Server expects you to have {0} (Version: {1}) installed.",
+      "target": "Сервер требует установить {0} (версия: {1}).",
+      "singleLine": true
+    }
+  ],
+  "terms": {
+    "itemType": {
+      "None": "Без типа",
+      "Material": "Материалы",
+      "Consumable": "Расходуемые предметы",
+      "OneHandedWeapon": "Одноручное оружие",
+      "Bow": "Луки",
+      "Shield": "Щиты",
+      "Helmet": "Шлемы",
+      "Chest": "Нагрудники",
+      "Ammo": "Боеприпасы",
+      "Customization": "Внешний вид",
+      "Legs": "Поножи",
+      "Hands": "Перчатки",
+      "Trophy": "Трофеи",
+      "TwoHandedWeapon": "Двуручное оружие",
+      "Torch": "Факелы",
+      "Misc": "Прочее",
+      "Shoulder": "Плащи",
+      "Utility": "Полезные предметы",
+      "Tool": "Инструменты",
+      "Attach_Atgeir": "Атгейры",
+      "Fish": "Рыба",
+      "TwoHandedWeaponLeft": "Двуручное оружие в левой руке",
+      "AmmoNonEquipable": "Боеприпасы без экипировки",
+      "Trinket": "Аксессуары"
+    }
+  },
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-20261002/utilities/AAA/AzuAntiArthriticCrafting/AzuAntiArthriticCraftingPlugin.cs",
+    "source-evidence/profile-20261002/utilities/AAA/LocalizationManager/Localizer.cs",
+    "source-evidence/profile-20261002/utilities/AAA/TutorialOverlay.cs",
+    "source-evidence/profile-20261002/utilities/AAA/AzuAntiArthriticCrafting.translations.English.yml",
+    "source-evidence/profile-20261002/utilities/AAA/AzuAntiArthriticCrafting.translations.Russian.yml",
+    "source-evidence/profile-20261002/utilities/AAA/AzuAntiArthriticCrafting.Patches.Filtering/AdvancedFiltersOverlay.cs",
+    "source-evidence/profile-20261002/utilities/AAA/AzuAntiArthriticCrafting.Handlers/RecipeHoverTooltip.cs",
+    "source-evidence/profile-20261002/utilities/AAA/AzuAntiArthriticCrafting.Patches/InventoryGuiPatches.cs",
+    "source-evidence/profile-20261002/utilities/AAA/ServerSync/VersionCheck.cs"
+  ],
+  "notes": [
+    "Точная установленная DLL 2.1.11 проверена. Встроенный Russian YAML сохраняется; words дополняет пять отсутствующих в нем ключей текущего обучения. Игровой запуск не выполнен.",
+    "Английские подписи типов предметов, Required Station и Space/Backspace переводятся только при выводе в UI выбранной сборки. Enum names, ключи виртуальной клавиатуры и фильтры не переписываются; составной заголовок типа переводится на вызове Localization.Localize перед разрешением токена.",
+    "ServerSync ошибки переводятся на TMP_Text.set_text в ShowConnectionError. ErrorClient и ErrorServer, записи журнала и передаваемые данные остаются исходными. Редактируемые значения конфигов не переводятся."
+  ]
+}

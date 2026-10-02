@@ -24,6 +24,7 @@ GAME_GUID = 'valheim'
 GAME_ASSEMBLY = 'assembly_valheim'
 HOLE = re.compile(r'\{(\d+)\}')
 TOKEN = re.compile(r'\{\d+[^{}]*\}|\$\d+|\$[A-Za-z_]\w*|</?[^>\n]+>')
+IDOL_NAME = re.compile(r'\$item_upgrader_tier([0-7]) \$item_upgrader_(weapon|armor) \$item_upgrader_name')
 checks = 0
 errors: list[str] = []
 skipped: list[str] = []
@@ -237,6 +238,8 @@ def main() -> int:
             check(seen_words.setdefault(key, pair) == pair, m['id'] + ': word key conflicts with another module: ' + key)
         for en, ru in m.get('rawTexts', {}).items():
             check(seen_raw.setdefault(en, ru) == ru, m['id'] + ': raw text conflicts with another module: ' + en)
+        for source, target in m.get('nameAliases', {}).items():
+            check(seen_raw.setdefault(source, target) == target, m['id'] + ': name alias conflicts with raw text: ' + source)
     for m in modules:
         name = m['id']
         terms = m.get('terms', {})
@@ -244,8 +247,24 @@ def main() -> int:
         check(bool(m['namespaces']) or not scoped, name + ': scoped adapters need plugin namespaces')
         check(set(m['words']) == set(m['englishWords']), name + ': mismatched English/Russian key sets')
         check(set(m.get('replaceNative', [])) <= set(m['words']), name + ': a replaceNative key is not one of the words')
+        aliases = m.get('nameAliases', {})
+        if aliases:
+            check(name == 'Valheim' and m['assembly'] == GAME_ASSEMBLY and m['guids'] == [GAME_GUID],
+                  name + ': name aliases belong to the Valheim game catalog')
+        for source, target in aliases.items():
+            match = IDOL_NAME.fullmatch(source)
+            check(match is not None, name + ': unsupported native idol name')
+            if match is None:
+                continue
+            key = f'tolmach_idol_{match[1]}_{match[2]}'
+            check(target == '$' + key, name + ': name alias must use its corresponding full-name key')
+            check(key in m['words'] and key in m['englishWords'], name + ': name alias has no full-name words')
+            check(source not in m.get('rawTexts', {}), name + ': name alias duplicates raw text')
+            check(key not in m.get('replaceNative', []), name + ': name alias keys must be fill-only')
+            check(not re.search(r'[$<>{}]', m['words'].get(key, '') + m['englishWords'].get(key, '')),
+                  name + ': name alias words must be plain full names')
         check(sum(len(m.get(k, [])) for k in ('words', 'texts', 'patterns', 'literals', 'configTexts', 'rawTexts', 'rawPatterns')) > 0, name + ': empty module')
-        counts.update({key: len(m.get(key, [])) for key in ('words', 'texts', 'patterns', 'rawTexts', 'rawPatterns')})
+        counts.update({key: len(m.get(key, [])) for key in ('words', 'texts', 'patterns', 'rawTexts', 'nameAliases', 'rawPatterns')})
         pairs = [(m['englishWords'][k], ru) for k, ru in m['words'].items()] + list(m['texts'].items())
         pairs += list(m.get('mapLabels', {}).items()) + list(m.get('rawTexts', {}).items())
         pairs += [pair for table in terms.values() for pair in table.items()]

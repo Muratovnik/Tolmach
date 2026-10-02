@@ -53,7 +53,7 @@
       "type": "WorldEditCommands.ObjectCommand",
       "method": "MakeWild",
       "values": {
-        "¤ made wild.": "Снова дикое: ¤.",
+        "¤ made wild.": "Приручение отменено: ¤.",
         "Skipped: ¤ is not a creature.": "Пропущено: ¤ — не существо."
       }
     },

@@ -24,6 +24,7 @@ namespace Tolmach
     internal static class CatalogLoader
     {
         private static readonly Regex Hole = new Regex(@"\{(\d+)\}", RegexOptions.CultureInvariant);
+        private static readonly Regex IdolName = new Regex(@"\A\$item_upgrader_tier([0-7]) \$item_upgrader_(weapon|armor) \$item_upgrader_name\z", RegexOptions.CultureInvariant);
         // The catalog types declare their shape (Models.cs); an undeclared member is an error.
         private static readonly JsonSerializer Serializer = JsonSerializer.Create(new JsonSerializerSettings { MissingMemberHandling = MissingMemberHandling.Error });
         internal static Module Read(string path)
@@ -70,6 +71,20 @@ namespace Tolmach
             foreach (Dictionary<string, string> table in new[] { m.words, m.englishWords, m.texts, m.mapLabels, m.rawTexts }.Concat(m.terms.Values))
                 if (table.Any(delegate(KeyValuePair<string, string> p) { return String.IsNullOrEmpty(p.Key) || String.IsNullOrEmpty(p.Value); }))
                     throw new InvalidDataException("Empty translation key/value.");
+            foreach (KeyValuePair<string, string> alias in m.nameAliases)
+            {
+                Match name = IdolName.Match(alias.Key);
+                if (m.id != "Valheim" || m.assembly != "assembly_valheim" || !m.guids.SequenceEqual(new[] { GameGuid }) ||
+                    !name.Success)
+                    throw new InvalidDataException("Invalid native idol name alias.");
+                string key = "tolmach_idol_" + name.Groups[1].Value + "_" + name.Groups[2].Value;
+                if (alias.Value != "$" + key || !m.words.ContainsKey(key) || !m.englishWords.ContainsKey(key) ||
+                    m.rawTexts.ContainsKey(alias.Key))
+                    throw new InvalidDataException("Invalid native idol name alias.");
+                // These keys contain a complete name, never another alias, placeholder or markup.
+                if (Regex.IsMatch(m.words[key] + m.englishWords[key], @"[$<>{}]") || m.replaceNative.Contains(key))
+                    throw new InvalidDataException("An idol name alias needs plain full-name words.");
+            }
             foreach (PatternSpec p in m.patterns) ValidatePattern(m, p, "text", "message", "mapLabel", "item", "itemSet");
             foreach (PatternSpec p in m.rawPatterns)
             {

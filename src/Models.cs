@@ -99,6 +99,9 @@ namespace Tolmach
         // Raw strings stored in game objects (item, piece and status names, descriptions,
         // Compendium entries) that Localization.Localize returns unchanged. Display only.
         public Dictionary<string, string> rawTexts = new Dictionary<string, string>();
+        // Exact native idol names resolve through our full-name keys in Russian. Native words
+        // and stored names stay unchanged; CatalogLoader restricts this to the 16 known names.
+        public Dictionary<string, string> nameAliases = new Dictionary<string, string>();
         public List<PatternSpec> rawPatterns = new List<PatternSpec>();
         // Named vocabularies for "term:<name>" pattern arguments; a pattern applies only if every term is known.
         public Dictionary<string, Dictionary<string, string>> terms = new Dictionary<string, Dictionary<string, string>>();

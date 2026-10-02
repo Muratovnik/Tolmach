@@ -22,6 +22,12 @@
     "texts": {"$ref": "#/$defs/table"},
     "mapLabels": {"$ref": "#/$defs/table"},
     "rawTexts": {"$ref": "#/$defs/table"},
+    "nameAliases": {
+      "type": "object", "maxProperties": 16,
+      "propertyNames": {"pattern": "^\\$item_upgrader_tier[0-7] \\$item_upgrader_(weapon|armor) \\$item_upgrader_name$"},
+      "additionalProperties": {"type": "string", "pattern": "^\\$tolmach_idol_[0-7]_(weapon|armor)$"},
+      "description": "Valheim's 16 exact composite idol names mapped to this catalog's own complete-name keys. No ordinary token-preservation exception."
+    },
     "patterns": {"type": "array", "items": {"$ref": "#/$defs/pattern"}},
     "rawPatterns": {"type": "array", "items": {"$ref": "#/$defs/rawPattern"}},
     "returns": {"type": "array", "items": {"$ref": "#/$defs/method"}},

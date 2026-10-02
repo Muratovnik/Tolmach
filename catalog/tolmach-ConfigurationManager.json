@@ -1,8 +1,8 @@
 {
   "id": "ConfigurationManager",
   "package": "shudnal-ConfigurationManager",
-  "version": "1.1.22",
-  "pluginVersion": "1.1.22",
+  "version": "1.1.23",
+  "pluginVersion": "1.1.23",
   "assembly": "ConfigurationManager",
   "guids": [
     "_shudnal.ConfigurationManager"
@@ -375,24 +375,25 @@
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager/ConfigurationManager.cs",
-    "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager/ConfigFilesEditor.cs",
-    "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager/SettingEditWindow.cs",
-    "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager/SettingFieldDrawer.cs",
-    "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager/ConfigSettingEntry.cs",
-    "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager.csproj",
-    "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager/ConfigSynchronizationInfo.cs",
-    "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager/ConfigSynchronizationState.cs",
-    "source-evidence/current-profile/shudnal-ConfigurationManager-1.1.22/ConfigurationManager/ConfigurationManager.ldstr.il"
+    "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager/ConfigurationManager/ConfigurationManager.cs",
+    "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager/ConfigurationManager/ConfigFilesEditor.cs",
+    "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager/ConfigurationManager/SettingEditWindow.cs",
+    "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager/ConfigurationManager/SettingFieldDrawer.cs",
+    "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager/ConfigurationManager/ConfigSettingEntry.cs",
+    "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager/ConfigurationManager.csproj",
+    "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager/ConfigurationManager/ConfigSynchronizationInfo.cs",
+    "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager/ConfigurationManager/ConfigSynchronizationState.cs",
+    "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager/ConfigurationManager.il"
   ],
   "notes": [
-    "Checked against shudnal-ConfigurationManager 1.1.22; ConfigurationManager.dll SHA-256: 86a93c9838686ba4c0bab22e23bd728af68a84fa89cc6b0daf32f9578179aa33. Game rendering was not tested.",
+    "Checked against shudnal-ConfigurationManager 1.1.23; ConfigurationManager.dll SHA-256: 4ae08b4de3cd80b67bef2ab0e1cdf8405aa65a94dd8e061d0f267ffbe1af671f. Game rendering was not tested.",
     "configTexts translates unchanged English interface defaults at ConfigEntry<string>.Value reads in named consumers. Custom values differing from those defaults remain unchanged at this adapter; config files, Bind defaults, ConfigDefinition sections/keys and setting IDs are not modified.",
     "Main-menu caption Mods settings is read by SetupMainMenuButton, not by the menu-start patches. The button is created by the upstream mod; an existing button may need recreation after a language change.",
-    "Normal is declared as a Text - Menu default but has no Value consumer in 1.1.22. Files: is translated at its GUI label; DrawFilters also reads and writes the editable extension list, so it has no configTexts rule.",
+    "Normal is declared as a Text - Menu default but has no Value consumer in 1.1.23. Files: is translated at its GUI label; DrawFilters also reads and writes the editable extension list, so it has no configTexts rule.",
     "The UI text table translates labels, color/type display names and synchronization tooltips at GUI consumers. Matching custom captions can display translated text too, while their stored values remain unchanged. TextField/TextArea input is not translated; RGB/HSL identifiers remain English for the upstream branch comparisons.",
     "Reset is read by compiler-generated local functions <DrawDefaultButton>g__DrawResetButton|69_0 and |65_0, confirmed in the exact DLL IL rather than their decompiled containing methods.",
-    "Synchronization tooltips are translated on GUIContent.tooltip assignment in ConfigSettingEntry.GetSynchronizationContent, leaving cached source states, provider IDs, synchronization modes and policy values unchanged. Upstream exception details remain as supplied by the exception."
+    "Synchronization tooltips are translated on GUIContent.tooltip assignment in ConfigSettingEntry.GetSynchronizationContent, leaving cached source states, provider IDs, synchronization modes and policy values unchanged. Upstream exception details remain as supplied by the exception.",
+    "The 1.1.23 source differs from 1.1.22 only in version constants and KeyCode recognition in the keybind filter. Existing UI/default texts and both compiler-generated Reset consumers are unchanged; exact string reads and literal methods were checked against the installed DLL."
   ],
   "terms": {
     "ownership": {

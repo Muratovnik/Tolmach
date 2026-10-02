@@ -1,0 +1,591 @@
+{
+  "id": "DynamicStorageForge",
+  "package": "Muji-DynamicStorageForge",
+  "version": "1.0.2",
+  "assembly": "DynamicStorageForge",
+  "guids": [
+    "com.modularvalheim.DynamicStorageForge"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "<color=#FF5555><b>STORAGE SAFETY WARNING</b></color>": "<color=#FF5555><b>ПРЕДУПРЕЖДЕНИЕ О СОХРАННОСТИ ПРЕДМЕТОВ</b></color>",
+    "<color=#FFAAAA>Automatic recovery will move them into visible slots only after a fully validated layout is available and the pile is closed. If this warning persists, enable Advanced Debug -> Show Storage Debug Tooltip and check Last safety action.</color>": "<color=#FFAAAA>Автоматическое восстановление переместит их в видимые ячейки после полной проверки размещения и закрытия хранилища. Если предупреждение остается, включите Advanced Debug -> Show Storage Debug Tooltip и проверьте строку «Последнее защитное действие».</color>",
+    "<color=#8FD3FF><b>FORGE STORAGE DEBUG</b></color>": "<color=#8FD3FF><b>ДИАГНОСТИКА ХРАНИЛИЩА</b></color>",
+    "None": "Нет",
+    "Unknown": "Неизвестно",
+    "Yes": "Да",
+    "No": "Нет",
+    "True": "Да",
+    "False": "Нет",
+    "Grid stable": "Сетка стабильна",
+    "Fail-closed: capacity load protection unavailable": "Операция запрещена: защита загрузки емкости недоступна",
+    "Waiting for positive inventory observation": "Ожидание подтвержденного состояния инвентаря",
+    "Deferred: more than 80 stacks require the recovery envelope": "Отложено: более 80 стопок требуют расширенной сетки восстановления",
+    "Holding larger grid because stack count exceeds requested capacity": "Сетка увеличена: число стопок превышает заданную емкость",
+    "Deferred: could not prove container is closed": "Отложено: закрытие хранилища не подтверждено",
+    "Deferred while container is open": "Отложено, пока хранилище открыто",
+    "Deferred: could not snapshot inventory": "Отложено: не удалось получить снимок инвентаря",
+    "Deferred: no validated destination for every stack": "Отложено: проверенное размещение найдено не для всех стопок",
+    "Deferred relocation: waiting for authoritative owner": "Перемещение отложено: ожидание владельца объекта",
+    "Deferred: persistence callback unavailable": "Отложено: сохранение недоступно",
+    "Rollback: validation failed before persistence": "Откат: проверка перед сохранением не пройдена",
+    "Rollback: could not persist relocated coordinates": "Откат: не удалось сохранить новые координаты",
+    "Rollback: post-persistence validation failed": "Откат: проверка после сохранения не пройдена",
+    "Cannot apply: this client is not the ZDO owner.": "Нельзя применить: этот клиент не владеет объектом ZDO.",
+    "No config section is registered for this piece.": "Для этой постройки не зарегистрирован раздел настроек.",
+    "Placed piece has no writable ZDO.": "Для установленной постройки недоступна запись ZDO.",
+    "<color=#5EC8FF><b>PILE APPEARANCE EDITOR</b></color>": "<color=#5EC8FF><b>РЕДАКТОР ВНЕШНЕГО ВИДА ГРУДЫ</b></color>",
+    "<color=#AAB4BC>BAR STACK</color>": "<color=#AAB4BC>СТОПКА СЛИТКОВ</color>",
+    "<color=#AAB4BC>ORE / RESOURCE PILE</color>": "<color=#AAB4BC>ГРУДА РУДЫ / РЕСУРСОВ</color>",
+    "<color=#FFB86C>Saved appearance unavailable</color>": "<color=#FFB86C>Сохраненный внешний вид недоступен</color>",
+    "<color=#FF6B6B>Saved appearance snapshot missing</color>": "<color=#FF6B6B>Снимок сохраненного внешнего вида отсутствует</color>",
+    "<color=#AAB4BC>Placed appearance is saved on this piece and shared with other clients.</color>": "<color=#AAB4BC>Внешний вид сохраняется у этой постройки и передается другим клиентам.</color>",
+    "<color=#FFB86C>No Forge visual stages available</color>": "<color=#FFB86C>Нет стадий отображения Forge</color>",
+    "<color=#AAB4BC>Slot-count change clears lock + overrides</color>": "<color=#AAB4BC>Изменение числа занятых ячеек сбрасывает фиксацию и переопределения</color>",
+    "←/→ Select | ↑ Show | ↓ Hide | RCtrl Lock": "←/→ Выбрать | ↑ Показать | ↓ Скрыть | RCtrl Закрепить",
+    "[ / ] Sequence | ←/→ Layer | ↑ Lock ON | ↓ Hide | RCtrl Reset": "[ / ] Стадия | ←/→ Слой | ↑ Закрепить | ↓ Скрыть | RCtrl Сбросить",
+    "<color=#FFB86C>No Materials visual stages available</color>": "<color=#FFB86C>Нет стадий отображения материалов</color>",
+    "<color=#AAB4BC>Layer overrides are stored separately for each debug sequence.</color>": "<color=#AAB4BC>Переопределения слоев хранятся отдельно для каждой диагностической стадии.</color>",
+    "<color=#8AD7FF>DSF TECHNICAL</color>": "<color=#8AD7FF>ТЕХНИЧЕСКАЯ ДИАГНОСТИКА DSF</color>",
+    "<color=#8AD7FF>DSM TECHNICAL</color>": "<color=#8AD7FF>ТЕХНИЧЕСКАЯ ДИАГНОСТИКА DSM</color>",
+    "Snapshot: <color=#FFB86C>unavailable</color> | ZDO: unavailable": "Снимок: <color=#FFB86C>недоступен</color> | ZDO: недоступно",
+    "Snapshot: <color=#FF6B6B>MISSING</color> | ZDO: <color=#7CFC98>Owner</color>": "Снимок: <color=#FF6B6B>ОТСУТСТВУЕТ</color> | ZDO: <color=#7CFC98>Владелец</color>",
+    "Snapshot: <color=#FF6B6B>MISSING</color> | ZDO: Remote": "Снимок: <color=#FF6B6B>ОТСУТСТВУЕТ</color> | ZDO: Удаленный",
+    "Not applied on this client": "Не применено на этом клиенте",
+    "Unavailable (no Forge visual stages)": "Недоступно (нет стадий отображения Forge)",
+    "Bars (native fallback; generated layout unavailable)": "Слитки (исходная модель; созданная схема недоступна)"
+  },
+  "patterns": [
+    {
+      "source": "<color=#FF7777>{0} stored stack(s) are currently inaccessible in the container UI. The items are still present.</color>",
+      "target": "<color=#FF7777>Недоступных в окне хранилища стопок: {0}. Предметы по-прежнему на месте.</color>",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "<color=#FFAAAA>Remove at least {0} stack(s) so every item can be restored to visible slots safely.</color>",
+      "target": "<color=#FFAAAA>Уберите стопки (не менее {0}), чтобы все предметы можно было безопасно вернуть в видимые ячейки.</color>",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "<color=#B8E3FF>Desired:</color> <color=#FFFFFF>{0} slots</color>",
+      "target": "<color=#B8E3FF>Требуемое число ячеек:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Inventory grid:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Сетка инвентаря:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Container grid:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Сетка хранилища:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Stacks:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Стопок:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Occupied bounds:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Занятая область:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Outside live grid:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Вне действующей сетки:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Authoritative owner:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Владелец объекта:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "<color=#B8E3FF>Container open:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Хранилище открыто:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "<color=#B8E3FF>Inventory ID:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>ID инвентаря:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Last safety action:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Последнее защитное действие:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "<color=#FF8E8E>Inaccessible in current UI:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#FF8E8E>Недоступно в текущем окне:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "Refused non-UI-safe target width {0}",
+      "target": "Операция запрещена: ширина {0} несовместима с окном хранилища",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Restored {0} stack(s); committed {1}x{2}",
+      "target": "Восстановлено стопок: {0}; сохранена сетка {1}x{2}",
+      "numeric": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "source": "Committed UI-safe grid {0}x{1}",
+      "target": "Сохранена совместимая с окном сетка {0}x{1}",
+      "numeric": [
+        0,
+        1
+      ]
+    },
+    {
+      "source": "Applied current {0} configuration.",
+      "target": "Применены текущие настройки: {0}.",
+      "arguments": {
+        "0": "term:pieces"
+      }
+    },
+    {
+      "source": "<color=#8AD7FF>Arrangement:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#8AD7FF>Расположение:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "term:appearance"
+      }
+    },
+    {
+      "source": "<color=#8AD7FF>Preset:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#8AD7FF>Предустановка:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "term:appearance"
+      }
+    },
+    {
+      "source": "<color=#8AD7FF>Vertical offset:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#8AD7FF>Смещение по высоте:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#8AD7FF>Dimensions:</color> <color=#FFFFFF>{0} across × {1} deep × {2} high</color> <color=#AAB4BC>({3} visual bars)</color>",
+      "target": "<color=#8AD7FF>Размеры:</color> <color=#FFFFFF>{0} в ширину × {1} в глубину × {2} в высоту</color> <color=#AAB4BC>(видимых слитков: {3})</color>",
+      "numeric": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "source": "<color=#8AD7FF>Visual fill:</color> <color=#FFFFFF>{0} · Full at {1}</color>",
+      "target": "<color=#8AD7FF>Визуальное заполнение:</color> <color=#FFFFFF>{0} · Полное заполнение: {1}</color>",
+      "arguments": {
+        "0": "term:appearance",
+        "1": "term:appearance"
+      }
+    },
+    {
+      "source": "<color=#8AD7FF>Visual fill:</color> <color=#FFFFFF>Full at {0}</color>",
+      "target": "<color=#8AD7FF>Визуальное заполнение:</color> <color=#FFFFFF>Полное заполнение: {0}</color>",
+      "arguments": {
+        "0": "term:appearance"
+      }
+    },
+    {
+      "source": "<color=#8AD7FF>Layout:</color> <color=#FFFFFF>{0}</color> <color=#AAB4BC>· Model:</color> {1}",
+      "target": "<color=#8AD7FF>Форма:</color> <color=#FFFFFF>{0}</color> <color=#AAB4BC>· Модель:</color> {1}",
+      "arguments": {
+        "0": "term:appearance",
+        "1": "term:appearance"
+      }
+    },
+    {
+      "source": "<color=#8AD7FF>Scale:</color> <color=#FFFFFF>{0} layout · {1} height · {2} model</color>",
+      "target": "<color=#8AD7FF>Масштаб:</color> <color=#FFFFFF>форма: {0} · высота: {1} · модель: {2}</color>"
+    },
+    {
+      "source": "<color=#AAB4BC>Material:</color> {0} <color=#AAB4BC>· Finish:</color> {1}",
+      "target": "<color=#AAB4BC>Материал:</color> {0} <color=#AAB4BC>· Поверхность:</color> {1}",
+      "arguments": {
+        "0": "term:appearance",
+        "1": "term:appearance"
+      }
+    },
+    {
+      "source": "<color=#FFD166><b>R</b></color> <color=#FFFFFF>Apply current {0} config to this placed piece</color>",
+      "target": "<color=#FFD166><b>R</b></color> <color=#FFFFFF>Применить текущие настройки «{0}» к этой постройке</color>",
+      "arguments": {
+        "0": "term:pieces"
+      }
+    },
+    {
+      "source": "<color=#7CFC98><b>{0}</b></color>",
+      "target": "<color=#7CFC98><b>{0}</b></color>",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "<color=#FF8A72><b>{0}</b></color>",
+      "target": "<color=#FF8A72><b>{0}</b></color>",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "<color=#8AD7FF>MESH DEBUG — {0}</color>",
+      "target": "<color=#8AD7FF>ДИАГНОСТИКА МОДЕЛИ — {0}</color>"
+    },
+    {
+      "source": "Source: <color=#D8E2EA>{0} | {1} | {2} verts</color>",
+      "target": "Источник: <color=#D8E2EA>{0} | {1} | вершин: {2}</color>"
+    },
+    {
+      "source": "Yaw: <color=#FFD166>{0}°</color>",
+      "target": "Поворот: <color=#FFD166>{0}°</color>"
+    },
+    {
+      "source": "Overrides: <color=#7CFC98>+ {0}</color> | <color=#FF8A72>- {1}</color>",
+      "target": "Переопределения: <color=#7CFC98>+ {0}</color> | <color=#FF8A72>- {1}</color>"
+    },
+    {
+      "source": "This sequence overrides: <color=#7CFC98>+ {0}</color> | <color=#FF8A72>- {1}</color>",
+      "target": "Переопределения этой стадии: <color=#7CFC98>+ {0}</color> | <color=#FF8A72>- {1}</color>"
+    },
+    {
+      "source": "Selected: <color=#FFD166>{0}/{1}</color> <color=#7CFC98>[FORCED ON]</color>",
+      "target": "Выбрано: <color=#FFD166>{0}/{1}</color> <color=#7CFC98>[ВКЛ. ПРИНУДИТЕЛЬНО]</color>",
+      "numeric": [
+        0,
+        1
+      ]
+    },
+    {
+      "source": "Selected: <color=#FFD166>{0}/{1}</color> <color=#FF8A72>[FORCED OFF]</color>",
+      "target": "Выбрано: <color=#FFD166>{0}/{1}</color> <color=#FF8A72>[ВЫКЛ. ПРИНУДИТЕЛЬНО]</color>",
+      "numeric": [
+        0,
+        1
+      ]
+    },
+    {
+      "source": "Selected: <color=#FFD166>{0}/{1}</color> <color=#D8E2EA>[ON]</color>",
+      "target": "Выбрано: <color=#FFD166>{0}/{1}</color> <color=#D8E2EA>[ВКЛ.]</color>",
+      "numeric": [
+        0,
+        1
+      ]
+    },
+    {
+      "source": "Selected: <color=#FFD166>{0}/{1}</color> <color=#AAB4BC>[OFF]</color>",
+      "target": "Выбрано: <color=#FFD166>{0}/{1}</color> <color=#AAB4BC>[ВЫКЛ.]</color>",
+      "numeric": [
+        0,
+        1
+      ]
+    },
+    {
+      "source": "Fill: Normal {0}/{1} | Locked stage: <color=#FFD166>{2}/{1}</color>",
+      "target": "Заполнение: обычное {0}/{1} | Закрепленная стадия: <color=#FFD166>{2}/{1}</color>",
+      "numeric": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "source": "Fill: Normal {0}/{1} | Locked stage: —",
+      "target": "Заполнение: обычное {0}/{1} | Закрепленная стадия: —",
+      "numeric": [
+        0,
+        1
+      ]
+    },
+    {
+      "source": "Snapshot: <color=#7CFC98>OK (v{0})</color> | ZDO: <color=#7CFC98>Owner</color>",
+      "target": "Снимок: <color=#7CFC98>OK (v{0})</color> | ZDO: <color=#7CFC98>Владелец</color>"
+    },
+    {
+      "source": "Snapshot: <color=#7CFC98>OK (v{0})</color> | ZDO: Remote",
+      "target": "Снимок: <color=#7CFC98>OK (v{0})</color> | ZDO: Удаленный"
+    },
+    {
+      "source": "Snapshot: <color=#FFB86C>v{0}</color> | ZDO: <color=#7CFC98>Owner</color>",
+      "target": "Снимок: <color=#FFB86C>v{0}</color> | ZDO: <color=#7CFC98>Владелец</color>"
+    },
+    {
+      "source": "Snapshot: <color=#FFB86C>v{0}</color> | ZDO: Remote",
+      "target": "Снимок: <color=#FFB86C>v{0}</color> | ZDO: Удаленный"
+    },
+    {
+      "source": "Visual: {0}",
+      "target": "Визуальное состояние: {0}",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "Default ({0} stages)",
+      "target": "По умолчанию (стадий: {0})",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "{0} layout | {1} model (native, {2} stages)",
+      "target": "Форма: {0} | модель: {1} (исходная; стадий: {2})",
+      "arguments": {
+        "0": "term:appearance",
+        "1": "term:appearance"
+      },
+      "numeric": [
+        2
+      ]
+    },
+    {
+      "source": "{0} layout | {1} model ({2} stages from {3})",
+      "target": "Форма: {0} | модель: {1} (стадий: {2}; источник: {3})",
+      "arguments": {
+        "0": "term:appearance",
+        "1": "term:appearance"
+      },
+      "numeric": [
+        2
+      ]
+    },
+    {
+      "source": "Default ({0} / {1} unavailable: {2})",
+      "target": "По умолчанию ({0} / {1} недоступно: {2})",
+      "arguments": {
+        "0": "term:appearance",
+        "1": "term:appearance"
+      }
+    },
+    {
+      "source": "Bars ({0}, {1}x{2}x{3}, {4} stages)",
+      "target": "Слитки ({0}, {1}x{2}x{3}, стадий: {4})",
+      "arguments": {
+        "0": "term:appearance"
+      },
+      "numeric": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "source": "Dropped-world reference @ 1.0: {0} × {1} × {2} m",
+      "target": "Размер предмета в мире при масштабе 1.0: {0} × {1} × {2} м"
+    }
+  ],
+  "returns": [
+    {
+      "type": "DynamicStorageForge.ForgeStorageCapacity",
+      "method": "get_SafetyWarning"
+    },
+    {
+      "type": "DynamicStorageForge.ForgeStorageCapacity",
+      "method": "get_DebugStatus"
+    },
+    {
+      "type": "DynamicStorageForge.PlacedAppearance",
+      "method": "GetDebugHoverText"
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/AppearanceSettings.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/AppearanceSnapshot.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/ConfigurationManagerAttributes.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/DynamicStorageForgePlugin.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/ForgeInventoryRestrictionPatches.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/ForgeItemRestriction.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/ForgePileCollisionProxy.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/ForgePileStageDefinitions.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/ForgeRestrictionRegistry.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/ForgeStorageCapacity.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/ForgeStorageCapacityPatches.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/ForgeVisualStack.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/MeshDebugMetadata.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/PileAppearancePreset.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorageForge-1.0.2/DynamicStorageForge/DynamicStorageForge/PlacedAppearance.cs"
+  ],
+  "notes": [
+    "Проверено по установленной DLL. Русская нативная локализация отсутствует. Имена и описания переводятся при показе; идентификаторы, сохраненные настройки, RPC и журналы не изменяются. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "DynamicStorageForge"
+  ],
+  "pluginVersion": "1.0.2",
+  "rawTexts": {
+    "Storage for Copper. Hold E to quickly stack matching items.": "Хранилище для меди. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Bronze. Hold E to quickly stack matching items.": "Хранилище для бронзы. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Iron. Hold E to quickly stack matching items.": "Хранилище для железа. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Silver. Hold E to quickly stack matching items.": "Хранилище для серебра. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Black Metal. Hold E to quickly stack matching items.": "Хранилище для черного металла. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Flametal. Hold E to quickly stack matching items.": "Хранилище для огнеметалла. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Ancient Metal. Hold E to quickly stack matching items.": "Хранилище для древнего металла. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Bloodgold. Hold E to quickly stack matching items.": "Хранилище для кровавого золота. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Tin. Hold E to quickly stack matching items.": "Хранилище для олова. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Copper Ore. Hold E to quickly stack matching items.": "Хранилище для медной руды. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Copper Scrap. Hold E to quickly stack matching items.": "Хранилище для медного лома. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Tin Ore. Hold E to quickly stack matching items.": "Хранилище для оловянной руды. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Bronze Scrap. Hold E to quickly stack matching items.": "Хранилище для бронзового лома. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Scrap Bronze. Hold E to quickly stack matching items.": "Хранилище для бронзового лома. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Iron Ore. Hold E to quickly stack matching items.": "Хранилище для железной руды. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Iron Scrap. Hold E to quickly stack matching items.": "Хранилище для железного лома. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Scrap Iron. Hold E to quickly stack matching items.": "Хранилище для железного лома. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Silver Ore. Hold E to quickly stack matching items.": "Хранилище для серебряной руды. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Black Metal Scrap. Hold E to quickly stack matching items.": "Хранилище для лома черного металла. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Flametal Ore. Hold E to quickly stack matching items.": "Хранилище для огнеметаллической руды. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Petrified Tissue. Hold E to quickly stack matching items.": "Хранилище для окаменевшей ткани. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Copper Stack (Storage)": "Стопка слитков меди (хранилище)",
+    "Bronze Stack (Storage)": "Стопка слитков бронзы (хранилище)",
+    "Iron Stack (Storage)": "Стопка слитков железа (хранилище)",
+    "Silver Stack (Storage)": "Стопка слитков серебра (хранилище)",
+    "Black Metal Stack (Storage)": "Стопка слитков черного металла (хранилище)",
+    "Flametal Stack (Storage)": "Стопка слитков огнеметалла (хранилище)",
+    "Ancient Metal Stack (Storage)": "Стопка слитков древнего металла (хранилище)",
+    "Bloodgold Stack (Storage)": "Стопка слитков кровавого золота (хранилище)",
+    "Tin Stack (Storage)": "Стопка слитков олова (хранилище)",
+    "Copper Ore Pile (Storage)": "Груда медной руды (хранилище)",
+    "Copper Scrap Pile (Storage)": "Груда медного лома (хранилище)",
+    "Tin Ore Pile (Storage)": "Груда оловянной руды (хранилище)",
+    "Bronze Scrap Pile (Storage)": "Груда бронзового лома (хранилище)",
+    "Scrap Bronze Pile (Storage)": "Груда бронзового лома (хранилище)",
+    "Iron Ore Pile (Storage)": "Груда железной руды (хранилище)",
+    "Iron Scrap Pile (Storage)": "Груда железного лома (хранилище)",
+    "Scrap Iron Pile (Storage)": "Груда железного лома (хранилище)",
+    "Silver Ore Pile (Storage)": "Груда серебряной руды (хранилище)",
+    "Black Metal Scrap Pile (Storage)": "Груда лома черного металла (хранилище)",
+    "Flametal Ore Pile (Storage)": "Груда огнеметаллической руды (хранилище)",
+    "Petrified Tissue Pile (Storage)": "Груда окаменевшей ткани (хранилище)"
+  },
+  "terms": {
+    "pieces": {
+      "Copper Stack (Storage)": "Стопка слитков меди (хранилище)",
+      "Bronze Stack (Storage)": "Стопка слитков бронзы (хранилище)",
+      "Iron Stack (Storage)": "Стопка слитков железа (хранилище)",
+      "Silver Stack (Storage)": "Стопка слитков серебра (хранилище)",
+      "Black Metal Stack (Storage)": "Стопка слитков черного металла (хранилище)",
+      "Flametal Stack (Storage)": "Стопка слитков огнеметалла (хранилище)",
+      "Ancient Metal Stack (Storage)": "Стопка слитков древнего металла (хранилище)",
+      "Bloodgold Stack (Storage)": "Стопка слитков кровавого золота (хранилище)",
+      "Tin Stack (Storage)": "Стопка слитков олова (хранилище)",
+      "Copper Ore Pile (Storage)": "Груда медной руды (хранилище)",
+      "Copper Scrap Pile (Storage)": "Груда медного лома (хранилище)",
+      "Tin Ore Pile (Storage)": "Груда оловянной руды (хранилище)",
+      "Bronze Scrap Pile (Storage)": "Груда бронзового лома (хранилище)",
+      "Scrap Bronze Pile (Storage)": "Груда бронзового лома (хранилище)",
+      "Iron Ore Pile (Storage)": "Груда железной руды (хранилище)",
+      "Iron Scrap Pile (Storage)": "Груда железного лома (хранилище)",
+      "Scrap Iron Pile (Storage)": "Груда железного лома (хранилище)",
+      "Silver Ore Pile (Storage)": "Груда серебряной руды (хранилище)",
+      "Black Metal Scrap Pile (Storage)": "Груда лома черного металла (хранилище)",
+      "Flametal Ore Pile (Storage)": "Груда огнеметаллической руды (хранилище)",
+      "Petrified Tissue Pile (Storage)": "Груда окаменевшей ткани (хранилище)"
+    },
+    "appearance": {
+      "Flint": "Кремень",
+      "Obsidian": "Обсидиан",
+      "Resin": "Смола",
+      "Greydwarf Eye": "Глаз грейдворфа",
+      "Surtling Core": "Ядро суртлинга",
+      "Crystal": "Кристалл",
+      "Freeze Gland": "Морозная железа",
+      "Needle": "Игла",
+      "Soft Tissue": "Мягкие ткани",
+      "Black Core": "Черное ядро",
+      "Sulfur": "Сера",
+      "Ice": "Лед",
+      "Frostcore": "Ледяное ядро",
+      "Copper": "Медь",
+      "Bronze": "Бронза",
+      "Iron": "Железо",
+      "Silver": "Серебро",
+      "Black Metal": "Черный металл",
+      "Flametal": "Огнеметалл",
+      "Ancient Metal": "Древний металл",
+      "Bloodgold": "Кровавое золото",
+      "Tin": "Олово",
+      "Copper Ore": "Медная руда",
+      "Copper Scrap": "Медный лом",
+      "Tin Ore": "Оловянная руда",
+      "Bronze Scrap": "Бронзовый лом",
+      "Scrap Bronze": "Бронзовый лом",
+      "Iron Ore": "Железная руда",
+      "Iron Scrap": "Железный лом",
+      "Scrap Iron": "Железный лом",
+      "Silver Ore": "Серебряная руда",
+      "Black Metal Scrap": "Лом черного металла",
+      "Flametal Ore": "Огнеметаллическая руда",
+      "Petrified Tissue": "Окаменевшая ткань",
+      "Coal": "Уголь",
+      "Stone": "Камень",
+      "Black Marble": "Черный мрамор",
+      "Grausten": "Граустен",
+      "Flint - Experimental": "Кремень — экспериментально",
+      "Obsidian - Experimental": "Обсидиан — экспериментально",
+      "Pyramid": "Пирамида",
+      "Default": "По умолчанию",
+      "Model Default": "Исходная модель",
+      "Custom": "Своя",
+      "Vanilla Cross-Stacked": "Исходная перекрестная укладка",
+      "Misaligned Cross-Stacked": "Неровная перекрестная укладка",
+      "Parallel Rows": "Параллельные ряды",
+      "Misaligned Parallel Rows": "Неровные параллельные ряды",
+      "Brick Stacked": "Кирпичная укладка",
+      "Misaligned Brick Stacked": "Неровная кирпичная укладка",
+      "Brick Stacked Sideways": "Кирпичная укладка поперек",
+      "Misaligned Brick Stacked Sideways": "Неровная кирпичная укладка поперек",
+      "Occupied Slots": "Занятые ячейки",
+      "Stored Bar Count": "Число слитков",
+      "Always Full": "Всегда полная",
+      "Match Storage Capacity": "При полной емкости",
+      "As Material": "Как у материала",
+      "Matte": "Матовая",
+      "Satin": "Полуматовая",
+      "Glossy": "Глянцевая",
+      "Metallic": "Металлическая",
+      "Polished Metal": "Полированный металл",
+      "Debug Emissive": "Свечение для диагностики",
+      "10%": "10%",
+      "25%": "25%",
+      "50%": "50%",
+      "75%": "75%",
+      "100%": "100%",
+      "10 slots": "10 ячеек",
+      "20 slots": "20 ячеек",
+      "40 slots": "40 ячеек",
+      "60 slots": "60 ячеек",
+      "Default (Coal)": "По умолчанию (Уголь)",
+      "Default (Stone)": "По умолчанию (Камень)",
+      "Default (Black Marble)": "По умолчанию (Черный мрамор)",
+      "Default (Grausten)": "По умолчанию (Граустен)",
+      "Default (Flint - Experimental)": "По умолчанию (Кремень — экспериментально)",
+      "Default (Obsidian - Experimental)": "По умолчанию (Обсидиан — экспериментально)",
+      "Stone (Ore Model)": "Камень (модель руды)",
+      "Stone (Glowing Model)": "Камень (светящаяся модель)",
+      "Glowing Metal Ore": "Светящаяся металлическая руда"
+    }
+  },
+  "literals": [
+    {
+      "type": "DynamicStorageForge.DynamicStorageForgePlugin",
+      "method": "AddDroppedModelDebugHover",
+      "values": {
+        "\n<color=#8AD7FF>DSF DROPPED MODEL DEBUG — ": "\n<color=#8AD7FF>DSF ДИАГНОСТИКА МОДЕЛИ ПРЕДМЕТА — ",
+        "\nDropped rendered size: ": "\nОтображаемый размер предмета: ",
+        "\nForge Model Scale 1.0: ": "\nМасштаб модели Forge 1.0: "
+      }
+    }
+  ]
+}

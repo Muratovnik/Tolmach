@@ -1,0 +1,32 @@
+{
+  "id": "SmartWishbone",
+  "package": "VerdantsAscent-SmartWishboneUpdated",
+  "version": "1.0.6",
+  "pluginVersion": "1.0.6",
+  "assembly": "SmartWishbone",
+  "guids": ["goldenrevolver.SmartWishbone"],
+  "namespaces": [],
+  "words": {
+    "smartwishbone_wishbonestartmessage": "Начат поиск: {0}",
+    "smartwishbone_wishbonestartmessagedefault": "скрытые объекты"
+  },
+  "englishWords": {
+    "smartwishbone_wishbonestartmessage": "Started searching for {0}",
+    "smartwishbone_wishbonestartmessagedefault": "hidden objects"
+  },
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-20261002/utilities/SmartWishbone/SmartWishbone/SmartWishbonePlugin.cs",
+    "source-evidence/profile-20261002/utilities/SmartWishbone/SmartWishbone/LocalizationLoader.cs",
+    "source-evidence/profile-20261002/utilities/SmartWishbone/SmartWishbone/SE_CustomFinder.cs",
+    "source-evidence/profile-20261002/utilities/SmartWishbone/SmartWishbone/TrackableData.cs",
+    "source-evidence/profile-20261002/utilities/SmartWishbone/SmartWishbone.Translations.SmartWishbone.English.json"
+  ],
+  "notes": [
+    "Точные установленная DLL и встроенный English JSON проверены для пакета 1.0.6; собственного русского словаря в DLL нет. Игровой запуск не выполнен.",
+    "Нативные ключи дополнены через Localization.AddWord. Название выбранной цели остается аргументом мода: игровые предметы и токены уже локализуются upstream, пользовательские displayItem, targetName и PlayerPrefs не меняются."
+  ]
+}

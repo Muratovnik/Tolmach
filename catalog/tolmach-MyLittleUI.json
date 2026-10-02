@@ -188,6 +188,1287 @@
       "numeric": [
         0
       ]
+    },
+    {
+      "source": "Crafts Or Upgrades: {0}",
+      "target": "Создано и улучшено: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Enemy Hits: {0}",
+      "target": "Удары по врагам: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Enemy Kills: {0}",
+      "target": "Убито врагов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Enemy Kills Last Hits: {0}",
+      "target": "Добито врагов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Hits Taken Enemies: {0}",
+      "target": "Получено ударов от врагов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Hits Taken Players: {0}",
+      "target": "Получено ударов от игроков: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Items Picked Up: {0}",
+      "target": "Подобрано предметов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Upgrades: {0}",
+      "target": "Улучшено предметов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Distance Traveled: {0}",
+      "target": "Пройденное расстояние: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Distance Walk: {0}",
+      "target": "Пройдено пешком: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Distance Run: {0}",
+      "target": "Пройдено бегом: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Distance Sail: {0}",
+      "target": "Пройдено на корабле: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Distance Air: {0}",
+      "target": "Пройдено по воздуху: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Time In Base: {0}",
+      "target": "Время на базе: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Time Out Of Base: {0}",
+      "target": "Время вне базы: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Item Stand Uses: {0}",
+      "target": "Использовано подставок для предметов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Armor Stand Uses: {0}",
+      "target": "Использовано стоек для брони: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "World Loads: {0}",
+      "target": "Загрузки мира: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Chops: {0}",
+      "target": "Удары по деревьям: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Tier0: {0}",
+      "target": "Срублено деревьев уровня 0: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Tier1: {0}",
+      "target": "Срублено деревьев уровня 1: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Tier2: {0}",
+      "target": "Срублено деревьев уровня 2: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Tier3: {0}",
+      "target": "Срублено деревьев уровня 3: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Tier4: {0}",
+      "target": "Срублено деревьев уровня 4: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Tier5: {0}",
+      "target": "Срублено деревьев уровня 5: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Log Chops: {0}",
+      "target": "Удары по бревнам: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Mine Hits: {0}",
+      "target": "Удары по залежам: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Mine Tier0: {0}",
+      "target": "Разбито залежей уровня 0: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Mine Tier1: {0}",
+      "target": "Разбито залежей уровня 1: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Mine Tier2: {0}",
+      "target": "Разбито залежей уровня 2: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Mine Tier3: {0}",
+      "target": "Разбито залежей уровня 3: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Mine Tier4: {0}",
+      "target": "Разбито залежей уровня 4: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Mine Tier5: {0}",
+      "target": "Разбито залежей уровня 5: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Raven Hits: {0}",
+      "target": "Удары по ворону: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Raven Talk: {0}",
+      "target": "Разговоры с вороном: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Raven Appear: {0}",
+      "target": "Появления ворона: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tombstones Fit: {0}",
+      "target": "Свои могилы, забранные целиком: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Undefined: {0}",
+      "target": "Смерти по неизвестной причине: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Enemy Hit: {0}",
+      "target": "Смерти от ударов врагов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Player Hit: {0}",
+      "target": "Смерти от ударов игроков: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Fall: {0}",
+      "target": "Смерти от падения: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Drowning: {0}",
+      "target": "Смерти от утопления: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Burning: {0}",
+      "target": "Смерти от огня: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Freezing: {0}",
+      "target": "Смерти от холода: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Poisoned: {0}",
+      "target": "Смерти от яда: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Smoke: {0}",
+      "target": "Смерти от дыма: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Water: {0}",
+      "target": "Смерти от воды: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Edge Of World: {0}",
+      "target": "Смерти на краю мира: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Impact: {0}",
+      "target": "Смерти от столкновения: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Cart: {0}",
+      "target": "Смерти от повозок: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Tree: {0}",
+      "target": "Смерти от деревьев: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Self: {0}",
+      "target": "Смерти от собственного урона: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Structural: {0}",
+      "target": "Смерти от конструкций: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Turret: {0}",
+      "target": "Смерти от баллисты: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Boat: {0}",
+      "target": "Смерти от кораблей: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Stalagtite: {0}",
+      "target": "Смерти от сталактитов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Doors Opened: {0}",
+      "target": "Открыто дверей: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Doors Closed: {0}",
+      "target": "Закрыто дверей: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Turret Ammo Added: {0}",
+      "target": "Заряжено боеприпасов в баллисту: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Turret Trophy Set: {0}",
+      "target": "Установлено трофеев на баллисту: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Trap Armed: {0}",
+      "target": "Взведено ловушек: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Trap Triggered: {0}",
+      "target": "Срабатывания ловушек: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Place Stacks: {0}",
+      "target": "Перекладывания стопок: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Portal Dungeon In: {0}",
+      "target": "Входы в подземелья: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Portal Dungeon Out: {0}",
+      "target": "Выходы из подземелий: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Boss Last Hits: {0}",
+      "target": "Добито боссов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Set Guardian Power: {0}",
+      "target": "Смены силы Павших: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Set Power Eikthyr: {0}",
+      "target": "Выбрана сила Эйктюра: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Set Power Elder: {0}",
+      "target": "Выбрана сила Древнего: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Set Power Bonemass: {0}",
+      "target": "Выбрана сила Массы костей: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Set Power Moder: {0}",
+      "target": "Выбрана сила Матери: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Set Power Yagluth: {0}",
+      "target": "Выбрана сила Яглута: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Set Power Queen: {0}",
+      "target": "Выбрана сила Королевы: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Set Power Ashlands: {0}",
+      "target": "Выбрана сила Пепельных земель: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Set Power Deep North: {0}",
+      "target": "Выбрана сила Дальнего севера: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Use Power Eikthyr: {0}",
+      "target": "Применена сила Эйктюра: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Use Power Elder: {0}",
+      "target": "Применена сила Древнего: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Use Power Bonemass: {0}",
+      "target": "Применена сила Массы костей: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Use Power Moder: {0}",
+      "target": "Применена сила Матери: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Use Power Yagluth: {0}",
+      "target": "Применена сила Яглута: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Use Power Queen: {0}",
+      "target": "Применена сила Королевы: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Use Power Ashlands: {0}",
+      "target": "Применена сила Пепельных земель: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Use Power Deep North: {0}",
+      "target": "Применена сила Дальнего севера: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Catapult: {0}",
+      "target": "Смерти от катапульты: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Cinder Fire: {0}",
+      "target": "Смерти от тлеющего огня: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Ashlands Ocean: {0}",
+      "target": "Смерти от океана Пепельных земель: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Incinerator: {0}",
+      "target": "Смерти от мусоросжигателя: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Food: {0}",
+      "target": "Приготовлено еды: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Food Bonus: {0}",
+      "target": "Бонусы при приготовлении еды: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Grill: {0}",
+      "target": "Приготовлено еды на огне: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Grill Burnt: {0}",
+      "target": "Сожжено еды на огне: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Grill Bonus: {0}",
+      "target": "Бонусы при готовке на огне: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Weapon: {0}",
+      "target": "Создано оружия: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Armor: {0}",
+      "target": "Создано брони: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Trinket: {0}",
+      "target": "Создано оберегов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Ammo: {0}",
+      "target": "Создано боеприпасов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Material: {0}",
+      "target": "Создано материалов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Tool: {0}",
+      "target": "Создано инструментов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Torch: {0}",
+      "target": "Создано факелов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Bait: {0}",
+      "target": "Создано наживки: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Craft Other: {0}",
+      "target": "Создано прочих предметов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Harvest Crop: {0}",
+      "target": "Собрано урожая: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Harvest Berry: {0}",
+      "target": "Собрано ягод: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Harvest Mushroom: {0}",
+      "target": "Собрано грибов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Harvest Vine: {0}",
+      "target": "Сборы с лозы: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Harvest Bonus: {0}",
+      "target": "Бонусы при сборе урожая: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Consecutive Days Survived: {0}",
+      "target": "Дней подряд без смерти: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Consecutive Days Survived Max: {0}",
+      "target": "Рекорд дней подряд без смерти: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Max Building Height: {0}",
+      "target": "Максимальная высота постройки над землей: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Max Building Height World: {0}",
+      "target": "Максимальная высота постройки в мире: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Max Comfort: {0}",
+      "target": "Максимальный комфорт: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Treasure Buried Found: {0}",
+      "target": "Найдено зарытых сокровищ: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Treasure Dungeon Found: {0}",
+      "target": "Найдено сокровищ в подземельях: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Treasure Location Found: {0}",
+      "target": "Найдено сокровищ в локациях: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Leviathan Sink: {0}",
+      "target": "Погружения левиафана: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Lava Leviathan Sink: {0}",
+      "target": "Погружения лавового левиафана: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Explore North: {0}",
+      "target": "Время на северной окраине мира: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Explore South: {0}",
+      "target": "Время на южной окраине мира: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Explore East: {0}",
+      "target": "Время на восточной окраине мира: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Explore West: {0}",
+      "target": "Время на западной окраине мира: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Explore North No Map: {0}",
+      "target": "Время на северной окраине мира без карты: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Explore South No Map: {0}",
+      "target": "Время на южной окраине мира без карты: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Explore East No Map: {0}",
+      "target": "Время на восточной окраине мира без карты: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Explore West No Map: {0}",
+      "target": "Время на западной окраине мира без карты: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Boss Kill Multiplayer: {0}",
+      "target": "Убито боссов вместе с другими игроками: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Boss Kill Solo: {0}",
+      "target": "Убито боссов в одиночку: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Village Points Max: {0}",
+      "target": "Максимум очков деревни: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Deepest Dungeon: {0}",
+      "target": "Самое глубокое подземелье: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Distance Sail Helm: {0}",
+      "target": "Пройдено за штурвалом: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Player Spawn: {0}",
+      "target": "Появления персонажа: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Tree Tier0: {0}",
+      "target": "Смерти от деревьев уровня 0: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Tree Tier1: {0}",
+      "target": "Смерти от деревьев уровня 1: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Tree Tier2: {0}",
+      "target": "Смерти от деревьев уровня 2: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Tree Tier3: {0}",
+      "target": "Смерти от деревьев уровня 3: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Tree Tier4: {0}",
+      "target": "Смерти от деревьев уровня 4: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Tree Tier5: {0}",
+      "target": "Смерти от деревьев уровня 5: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Fish Hooked: {0}",
+      "target": "Рыбы на крючке: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Fish Lost: {0}",
+      "target": "Сорвалось рыб: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Fish Caught: {0}",
+      "target": "Поймано рыб: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Fish Caught Tier0: {0}",
+      "target": "Поймано рыб качества 0: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Fish Caught Tier1: {0}",
+      "target": "Поймано рыб качества 1: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Fish Caught Tier2: {0}",
+      "target": "Поймано рыб качества 2: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Fish Caught Tier3: {0}",
+      "target": "Поймано рыб качества 3: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Fish Caught Tier4: {0}",
+      "target": "Поймано рыб качества 4: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Fish Caught Tier5: {0}",
+      "target": "Поймано рыб качества 5: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Fish Caught Tier6: {0}",
+      "target": "Поймано рыб качества 6: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Built Pieces: {0}",
+      "target": "Построено элементов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Built Pieces No Debt: {0}",
+      "target": "Построено элементов с опытом навыка: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Pieces Removed: {0}",
+      "target": "Разобрано элементов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Misc: {0}",
+      "target": "Максимум своих прочих элементов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Crafting: {0}",
+      "target": "Максимум своих элементов для ремесла: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Building: {0}",
+      "target": "Максимум своих строительных элементов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Floor: {0}",
+      "target": "Максимум своих полов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Wall: {0}",
+      "target": "Максимум своих стен: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Roof: {0}",
+      "target": "Максимум своих крыш: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Architecture: {0}",
+      "target": "Максимум своих архитектурных элементов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Furniture: {0}",
+      "target": "Максимум своих предметов мебели: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Lighting: {0}",
+      "target": "Максимум своих источников света: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Decor: {0}",
+      "target": "Максимум своих украшений: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Storage: {0}",
+      "target": "Максимум своих хранилищ: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Transport: {0}",
+      "target": "Максимум своих транспортных средств: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Food: {0}",
+      "target": "Максимум своих элементов для еды: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Meads: {0}",
+      "target": "Максимум своих элементов для медовухи: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Feasts: {0}",
+      "target": "Максимум своих элементов для пиров: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Defense: {0}",
+      "target": "Максимум своих защитных элементов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Stacks: {0}",
+      "target": "Максимум своих куч и стопок: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Stairs: {0}",
+      "target": "Максимум своих лестниц: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Doors: {0}",
+      "target": "Максимум своих дверей: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Build Cluster Seasonal: {0}",
+      "target": "Максимум своих сезонных элементов: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tamed Petting: {0}",
+      "target": "Поглаживания прирученных существ: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tamed Command: {0}",
+      "target": "Команды прирученным существам: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Fir: {0}",
+      "target": "Смерти от пихты: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Oak: {0}",
+      "target": "Смерти от дуба: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Pine: {0}",
+      "target": "Смерти от сосны: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Ashlands: {0}",
+      "target": "Смерти от дерева Пепельных земель: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Yggdrasil Shoot: {0}",
+      "target": "Смерти от ветви Иггдрасиля: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Swamp: {0}",
+      "target": "Смерти от болотного дерева: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Beech: {0}",
+      "target": "Смерти от бука: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Birch: {0}",
+      "target": "Смерти от березы: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Snow Fir: {0}",
+      "target": "Смерти от снежной пихты: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Tree Snow Pine: {0}",
+      "target": "Смерти от снежной сосны: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Draw Bridge: {0}",
+      "target": "Смерти от подъемного моста: {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Death By Ashlands Lava: {0}",
+      "target": "Смерти от лавы Пепельных земель: {0}",
+      "numeric": [
+        0
+      ]
     }
   ],
   "returns": [],
@@ -201,6 +1482,6 @@
   "notes": [
     "Almost all player text is vanilla $tokens passed to Localization.Localize; only the mod's own English is here.",
     "texts: default fuzzy clock words (config Info - Clock/Time fuzzy words, shown via TMP_Text.SetText when Time type = Fuzzy) and the default in-world ping text passed to Localize.",
-    "patterns: main-menu character stats lines \"<name>: <number>\" set on FejdStartup.m_csSourceInfo.text; names are the literals Kills/Crafts and PlayerStatType enum names split by capitals (default and advanced sets)."
+    "patterns: main-menu character stats lines \"<name>: <number>\" set on FejdStartup.m_csSourceInfo.text; covers the Kills/Crafts aliases and all 205 PlayerStatType counters in Valheim 1.0.16 (enum names split before every capital). Count/None are sentinel values absent from PlayerProfile stats. Numeric values remain opaque; no enum-name substitution or config change."
   ]
 }

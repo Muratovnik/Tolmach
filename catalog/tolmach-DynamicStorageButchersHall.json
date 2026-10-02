@@ -1,0 +1,422 @@
+{
+  "id": "DynamicStorageButchersHall",
+  "package": "Muji-DynamicStorage_Butchers_Hall",
+  "version": "1.0.0",
+  "assembly": "DynamicStorageMeatRack",
+  "guids": [
+    "com.muji.DynamicStorageMeatRack"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "<color=#FF5555><b>STORAGE SAFETY WARNING</b></color>": "<color=#FF5555><b>ПРЕДУПРЕЖДЕНИЕ О СОХРАННОСТИ ПРЕДМЕТОВ</b></color>",
+    "<color=#FFAAAA>Automatic recovery will move them into visible slots only after a fully validated layout is available and the rack is closed. If this warning persists, enable Advanced Debug -> Show Storage Debug Tooltip and check Last safety action.</color>": "<color=#FFAAAA>Автоматическое восстановление переместит их в видимые ячейки после полной проверки размещения и закрытия хранилища. Если предупреждение остается, включите Advanced Debug -> Show Storage Debug Tooltip и проверьте строку «Последнее защитное действие».</color>",
+    "<color=#8FD3FF><b>MEAT RACK STORAGE DEBUG</b></color>": "<color=#8FD3FF><b>ДИАГНОСТИКА ХРАНИЛИЩА</b></color>",
+    "None": "Нет",
+    "Unknown": "Неизвестно",
+    "Yes": "Да",
+    "No": "Нет",
+    "True": "Да",
+    "False": "Нет",
+    "Grid stable": "Сетка стабильна",
+    "Fail-closed: capacity load protection unavailable": "Операция запрещена: защита загрузки емкости недоступна",
+    "Waiting for positive inventory observation": "Ожидание подтвержденного состояния инвентаря",
+    "Deferred: more than 80 stacks require the recovery envelope": "Отложено: более 80 стопок требуют расширенной сетки восстановления",
+    "Holding larger grid because stack count exceeds requested capacity": "Сетка увеличена: число стопок превышает заданную емкость",
+    "Deferred: could not prove container is closed": "Отложено: закрытие хранилища не подтверждено",
+    "Deferred while container is open": "Отложено, пока хранилище открыто",
+    "Deferred: could not snapshot inventory": "Отложено: не удалось получить снимок инвентаря",
+    "Deferred: no validated destination for every stack": "Отложено: проверенное размещение найдено не для всех стопок",
+    "Deferred relocation: waiting for authoritative owner": "Перемещение отложено: ожидание владельца объекта",
+    "Deferred: persistence callback unavailable": "Отложено: сохранение недоступно",
+    "Rollback: validation failed before persistence": "Откат: проверка перед сохранением не пройдена",
+    "Rollback: could not persist relocated coordinates": "Откат: не удалось сохранить новые координаты",
+    "Rollback: post-persistence validation failed": "Откат: проверка после сохранения не пройдена",
+    "Cannot apply: this client is not the ZDO owner.": "Нельзя применить: этот клиент не владеет объектом ZDO.",
+    "That meat prefab is not available in this running Valheim build.": "Этот вид мяса недоступен в запущенной сборке Valheim.",
+    "This rack only accepts supported raw or cooked meat.": "Эта стойка принимает только поддерживаемое сырое или приготовленное мясо.",
+    "This Single Meat rack already contains a different meat type.": "В стойке для одного вида мяса уже лежит другой вид.",
+    "This rack rejected the item.": "Стойка не принимает этот предмет.",
+    "Placed Meat Rack has no writable ZDO.": "Для установленной стойки недоступна запись ZDO.",
+    "Applied current Meat Rack template and visual calibration snapshot.": "Применены текущий шаблон стойки и снимок настройки внешнего вида.",
+    "Meat Rack hook calibration is unavailable.": "Настройка крюков стойки недоступна.",
+    "Enable Advanced Debug -> Hook Anchor Calibration Tools first.": "Сначала включите Advanced Debug -> Hook Anchor Calibration Tools.",
+    "Hook anchor orb: OFF": "Индикатор точки крепления крюка: выкл.",
+    "Hook anchor orb: ON": "Индикатор точки крепления крюка: вкл.",
+    "<color=#D66B5D><b>MEAT RACK CALIBRATION</b></color>": "<color=#D66B5D><b>НАСТРОЙКА СТОЙКИ ДЛЯ МЯСА</b></color>",
+    "<color=#AAB4BC>Advanced meat/hook calibration is live while Calibration Tools are enabled; [R] snapshots it onto this rack.</color>": "<color=#AAB4BC>Расширенные настройки мяса и крюков действуют, пока включены Calibration Tools; [R] сохраняет их снимок для этой стойки.</color>",
+    "<color=#FFD166><b>[ / ]</b></color> <color=#AAB4BC>Cycle selected meat-hook anchor</color>": "<color=#FFD166><b>[ / ]</b></color> <color=#AAB4BC>Выбрать следующую точку крепления крюка</color>",
+    "<color=#FFD166><b>Right Ctrl</b></color> <color=#AAB4BC>Toggle bright anchor orb</color>": "<color=#FFD166><b>Right Ctrl</b></color> <color=#AAB4BC>Переключить яркий индикатор точки крепления</color>",
+    "<color=#FFD166><b>[R]</b></color> <color=#AAB4BC>Apply current rack template/behaviour to this placed rack</color>": "<color=#FFD166><b>[R]</b></color> <color=#AAB4BC>Применить текущий шаблон и режим к установленной стойке</color>",
+    "Unavailable": "Недоступно"
+  },
+  "patterns": [
+    {
+      "source": "<color=#FF7777>{0} stored stack(s) are currently inaccessible in the container UI. The items are still present.</color>",
+      "target": "<color=#FF7777>Недоступных в окне хранилища стопок: {0}. Предметы по-прежнему на месте.</color>",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "<color=#FFAAAA>Remove at least {0} stack(s) so every item can be restored to visible slots safely.</color>",
+      "target": "<color=#FFAAAA>Уберите стопки (не менее {0}), чтобы все предметы можно было безопасно вернуть в видимые ячейки.</color>",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "<color=#B8E3FF>Desired:</color> <color=#FFFFFF>{0} slots</color>",
+      "target": "<color=#B8E3FF>Требуемое число ячеек:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Inventory grid:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Сетка инвентаря:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Container grid:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Сетка хранилища:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Stacks:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Стопок:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Occupied bounds:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Занятая область:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Outside live grid:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Вне действующей сетки:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Authoritative owner:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Владелец объекта:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "<color=#B8E3FF>Container open:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Хранилище открыто:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "<color=#B8E3FF>Inventory ID:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>ID инвентаря:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#B8E3FF>Last safety action:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#B8E3FF>Последнее защитное действие:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "<color=#FF8E8E>Inaccessible in current UI:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#FF8E8E>Недоступно в текущем окне:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "Refused non-UI-safe target width {0}",
+      "target": "Операция запрещена: ширина {0} несовместима с окном хранилища",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Restored {0} stack(s); committed {1}x{2}",
+      "target": "Восстановлено стопок: {0}; сохранена сетка {1}x{2}",
+      "numeric": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "source": "Committed UI-safe grid {0}x{1}",
+      "target": "Сохранена совместимая с окном сетка {0}x{1}",
+      "numeric": [
+        0,
+        1
+      ]
+    },
+    {
+      "source": "This rack currently stores {0} and cannot mix raw and cooked meat.",
+      "target": "На стойке сейчас {0}; смешивать сырое и приготовленное мясо нельзя.",
+      "arguments": {
+        "0": "term:classes"
+      }
+    },
+    {
+      "source": "This Single Meat rack can only hold {0}.",
+      "target": "Эта стойка для одного вида мяса принимает только: {0}.",
+      "arguments": {
+        "0": "term:meat"
+      }
+    },
+    {
+      "source": "<color=#F0C8BE>Behaviour:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#F0C8BE>Режим:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "term:modes"
+      }
+    },
+    {
+      "source": "<color=#F0C8BE>Storage class:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#F0C8BE>Тип мяса:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "term:classes"
+      }
+    },
+    {
+      "source": "<color=#F0C8BE>Assigned (Single only):</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#F0C8BE>Выбранное мясо (один вид):</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "term:assigned"
+      }
+    },
+    {
+      "source": "<color=#F0C8BE>Rack scale:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#F0C8BE>Масштаб стойки:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#F0C8BE>Rack visual height:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#F0C8BE>Высота модели стойки:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#F0C8BE>Scale meat with rack:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#F0C8BE>Масштабировать мясо со стойкой:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "term:modes"
+      }
+    },
+    {
+      "source": "<color=#F0C8BE>Looks full at (single):</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#F0C8BE>Полное заполнение (один вид):</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "term:modes"
+      }
+    },
+    {
+      "source": "<color=#F0C8BE>Effective capacity:</color> <color=#FFFFFF>{0} slots</color>",
+      "target": "<color=#F0C8BE>Фактическое число ячеек:</color> <color=#FFFFFF>{0}</color>"
+    },
+    {
+      "source": "<color=#F0C8BE>Hook calibration:</color> <color=#FFFFFF>{0}</color>",
+      "target": "<color=#F0C8BE>Настройка крюка:</color> <color=#FFFFFF>{0}</color>",
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "<color=#F0C8BE>Stored meat:</color> <color=#FFFFFF>{0} across {1} type(s)</color>",
+      "target": "<color=#F0C8BE>Мяса в хранилище:</color> <color=#FFFFFF>{0}; видов: {1}</color>",
+      "numeric": [
+        0,
+        1
+      ]
+    },
+    {
+      "source": "Hook {0} selected; anchor position is not available yet.",
+      "target": "Выбран крюк {0}; положение точки крепления пока недоступно.",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Meat Rack Hook {0} anchor local={1} calibrationOffset={2}",
+      "target": "Крюк стойки {0}: локальная точка={1}, смещение настройки={2}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Hook anchor orb: ON. Meat Rack Hook {0} anchor local={1} calibrationOffset={2}",
+      "target": "Индикатор точки крепления: вкл. Крюк стойки {0}: локальная точка={1}, смещение настройки={2}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Orb ON, Hook {0}",
+      "target": "Индикатор вкл., крюк {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Orb ON, Hook {0} @ {1}",
+      "target": "Индикатор вкл., крюк {0} @ {1}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Orb OFF, Hook {0}",
+      "target": "Индикатор выкл., крюк {0}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "Orb OFF, Hook {0} @ {1}",
+      "target": "Индикатор выкл., крюк {0} @ {1}",
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "New build piece: {0}",
+      "target": "Новая постройка: {0}",
+      "arguments": {
+        "0": "term:pieces"
+      }
+    }
+  ],
+  "returns": [
+    {
+      "type": "DynamicStorageMeatRack.MeatRackCapacity",
+      "method": "get_SafetyWarning"
+    },
+    {
+      "type": "DynamicStorageMeatRack.MeatRackCapacity",
+      "method": "get_DebugStatus"
+    },
+    {
+      "type": "DynamicStorageMeatRack.MeatRackAppearanceEditorPatches",
+      "method": "BuildEditorHoverText"
+    }
+  ],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/ConfigurationManagerAttributes.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/DynamicStorageMeatRackPlugin.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/LooksFullAtMode.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatCatalog.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatCountEntry.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatDefinition.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatDisplaySlot.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackAppearance.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackAppearanceEditorPatches.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackAppearanceTemplate.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackBehaviour.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackCapacity.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackCapacityPatches.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackInventoryPatches.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackPlacementPatches.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackStorage.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackUnlocks.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackVisual.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackVisualProfile.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatStorageClass.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatVisualTuning.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/RackColliderReconstructor.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/RackVisualPart.cs",
+    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/RackVisualReconstructor.cs"
+  ],
+  "notes": [
+    "Проверено по установленной DLL. Русская нативная локализация отсутствует. Имена и описания переводятся при показе; идентификаторы, сохраненные настройки, RPC и журналы не изменяются. Игровой запуск не выполнен."
+  ],
+  "namespaces": [
+    "DynamicStorageMeatRack"
+  ],
+  "pluginVersion": "1.0.0",
+  "rawTexts": {
+    "Meat Rack": "Стойка для мяса",
+    "Dynamic raw or cooked meat storage. The first meat class inserted locks the rack to raw or cooked until it is emptied; raw and cooked meat can never be mixed.": "Динамическое хранилище сырого или приготовленного мяса. Первая порция определяет тип мяса до полного опустошения стойки; смешивать сырое и приготовленное мясо нельзя."
+  },
+  "terms": {
+    "meat": {
+      "Boar Meat": "Кабанина",
+      "Deer Meat": "Оленина",
+      "Neck Tail": "Хвост никса",
+      "Bear Meat": "Медвежье мясо",
+      "Serpent Meat": "Мясо змея",
+      "Wolf Meat": "Волчатина",
+      "Lox Meat": "Мясо быкоящера",
+      "Chicken Meat": "Курятина",
+      "Hare Meat": "Зайчатина",
+      "Seeker Meat": "Мясо искателя",
+      "Asksvin Tail": "Хвост пеплозавра",
+      "Volture Meat": "Мясо стервулканника",
+      "Bonemaw Meat": "Мясо Костепасти",
+      "Moose Meat": "Мясо лося",
+      "Seal Blubber": "Жир тюленя",
+      "Cooked Boar Meat": "Приготовленная кабанина",
+      "Cooked Deer Meat": "Приготовленная оленина",
+      "Grilled Neck Tail": "Жареный хвост никса",
+      "Cooked Bear Meat": "Приготовленное медвежье мясо",
+      "Cooked Serpent Meat": "Приготовленное мясо змея",
+      "Cooked Wolf Meat": "Приготовленная волчатина",
+      "Cooked Lox Meat": "Приготовленное мясо быкоящера",
+      "Cooked Chicken Meat": "Приготовленная курятина",
+      "Cooked Hare Meat": "Приготовленная зайчатина",
+      "Cooked Seeker Meat": "Приготовленное мясо искателя",
+      "Cooked Asksvin Tail": "Жареный хвост пеплозавра",
+      "Cooked Volture Meat": "Приготовленное мясо стервулканника",
+      "Cooked Bonemaw Meat": "Приготовленное мясо Костепасти",
+      "Cooked Moose Meat": "Приготовленное мясо лося",
+      "Cooked Seal Blubber": "Приготовленный тюлений жир"
+    },
+    "classes": {
+      "raw meat": "сырое мясо",
+      "cooked meat": "приготовленное мясо",
+      "unassigned": "не выбран"
+    },
+    "modes": {
+      "Auto": "Автоматически",
+      "SingleMeat": "Один вид мяса",
+      "MixedMeat": "Разные виды мяса",
+      "On": "Вкл.",
+      "Off": "Выкл.",
+      "Always full": "Всегда полная",
+      "25% occupied slots": "25% занятых ячеек",
+      "50% occupied slots": "50% занятых ячеек",
+      "75% occupied slots": "75% занятых ячеек",
+      "100% occupied slots": "100% занятых ячеек",
+      "10 meat": "10 порций мяса",
+      "20 meat": "20 порций мяса",
+      "40 meat": "40 порций мяса",
+      "60 meat": "60 порций мяса",
+      "100 meat": "100 порций мяса"
+    },
+    "assigned": {
+      "Boar Meat": "Кабанина",
+      "Deer Meat": "Оленина",
+      "Neck Tail": "Хвост никса",
+      "Bear Meat": "Медвежье мясо",
+      "Serpent Meat": "Мясо змея",
+      "Wolf Meat": "Волчатина",
+      "Lox Meat": "Мясо быкоящера",
+      "Chicken Meat": "Курятина",
+      "Hare Meat": "Зайчатина",
+      "Seeker Meat": "Мясо искателя",
+      "Asksvin Tail": "Хвост пеплозавра",
+      "Volture Meat": "Мясо стервулканника",
+      "Bonemaw Meat": "Мясо Костепасти",
+      "Moose Meat": "Мясо лося",
+      "Seal Blubber": "Жир тюленя",
+      "Cooked Boar Meat": "Приготовленная кабанина",
+      "Cooked Deer Meat": "Приготовленная оленина",
+      "Grilled Neck Tail": "Жареный хвост никса",
+      "Cooked Bear Meat": "Приготовленное медвежье мясо",
+      "Cooked Serpent Meat": "Приготовленное мясо змея",
+      "Cooked Wolf Meat": "Приготовленная волчатина",
+      "Cooked Lox Meat": "Приготовленное мясо быкоящера",
+      "Cooked Chicken Meat": "Приготовленная курятина",
+      "Cooked Hare Meat": "Приготовленная зайчатина",
+      "Cooked Seeker Meat": "Приготовленное мясо искателя",
+      "Cooked Asksvin Tail": "Жареный хвост пеплозавра",
+      "Cooked Volture Meat": "Приготовленное мясо стервулканника",
+      "Cooked Bonemaw Meat": "Приготовленное мясо Костепасти",
+      "Cooked Moose Meat": "Приготовленное мясо лося",
+      "Cooked Seal Blubber": "Приготовленный тюлений жир",
+      "None": "Нет"
+    },
+    "pieces": {
+      "Meat Rack": "Стойка для мяса"
+    }
+  }
+}

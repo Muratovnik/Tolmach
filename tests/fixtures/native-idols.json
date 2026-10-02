@@ -1,0 +1,128 @@
+{
+  "russian": {
+    "item_upgrader_name": "Идол",
+    "item_upgrader_armor": "Защита",
+    "item_upgrader_weapon": "Сражение",
+    "item_upgrader_tier0": "Дерево",
+    "item_upgrader_tier1": "Бронза",
+    "item_upgrader_tier2": "Железо",
+    "item_upgrader_tier3": "Серебро",
+    "item_upgrader_tier4": "Черный металл",
+    "item_upgrader_tier5": "Черный мрамор",
+    "item_upgrader_tier6": "Огнеметалл",
+    "item_upgrader_tier7": "Кровавое золото",
+    "item_upgrader_description": "В этом таинственном идоле заключена сила богов. Он может даровать могущественное благословение или требовать великой жертвы."
+  },
+  "english": {
+    "item_upgrader_name": "Idol",
+    "item_upgrader_armor": "Protection",
+    "item_upgrader_weapon": "Battle",
+    "item_upgrader_tier0": "Wooden",
+    "item_upgrader_tier1": "Bronze",
+    "item_upgrader_tier2": "Iron",
+    "item_upgrader_tier3": "Silver",
+    "item_upgrader_tier4": "Black Metal",
+    "item_upgrader_tier5": "Black Marble",
+    "item_upgrader_tier6": "Flametal",
+    "item_upgrader_tier7": "Bloodgold",
+    "item_upgrader_description": "This mysterious idol is brimming with the potential of the gods. It could grant a powerful boon, or demand a great sacrifice."
+  },
+  "idols": [
+    {
+      "source": "$item_upgrader_tier0 $item_upgrader_weapon $item_upgrader_name",
+      "nativeRussian": "Дерево Сражение Идол",
+      "english": "Wooden Battle Idol",
+      "expected": "Боевой идол из дерева"
+    },
+    {
+      "source": "$item_upgrader_tier0 $item_upgrader_armor $item_upgrader_name",
+      "nativeRussian": "Дерево Защита Идол",
+      "english": "Wooden Protection Idol",
+      "expected": "Защитный идол из дерева"
+    },
+    {
+      "source": "$item_upgrader_tier1 $item_upgrader_weapon $item_upgrader_name",
+      "nativeRussian": "Бронза Сражение Идол",
+      "english": "Bronze Battle Idol",
+      "expected": "Боевой идол из бронзы"
+    },
+    {
+      "source": "$item_upgrader_tier1 $item_upgrader_armor $item_upgrader_name",
+      "nativeRussian": "Бронза Защита Идол",
+      "english": "Bronze Protection Idol",
+      "expected": "Защитный идол из бронзы"
+    },
+    {
+      "source": "$item_upgrader_tier2 $item_upgrader_weapon $item_upgrader_name",
+      "nativeRussian": "Железо Сражение Идол",
+      "english": "Iron Battle Idol",
+      "expected": "Боевой идол из железа"
+    },
+    {
+      "source": "$item_upgrader_tier2 $item_upgrader_armor $item_upgrader_name",
+      "nativeRussian": "Железо Защита Идол",
+      "english": "Iron Protection Idol",
+      "expected": "Защитный идол из железа"
+    },
+    {
+      "source": "$item_upgrader_tier3 $item_upgrader_weapon $item_upgrader_name",
+      "nativeRussian": "Серебро Сражение Идол",
+      "english": "Silver Battle Idol",
+      "expected": "Боевой идол из серебра"
+    },
+    {
+      "source": "$item_upgrader_tier3 $item_upgrader_armor $item_upgrader_name",
+      "nativeRussian": "Серебро Защита Идол",
+      "english": "Silver Protection Idol",
+      "expected": "Защитный идол из серебра"
+    },
+    {
+      "source": "$item_upgrader_tier4 $item_upgrader_weapon $item_upgrader_name",
+      "nativeRussian": "Черный металл Сражение Идол",
+      "english": "Black Metal Battle Idol",
+      "expected": "Боевой идол из черного металла"
+    },
+    {
+      "source": "$item_upgrader_tier4 $item_upgrader_armor $item_upgrader_name",
+      "nativeRussian": "Черный металл Защита Идол",
+      "english": "Black Metal Protection Idol",
+      "expected": "Защитный идол из черного металла"
+    },
+    {
+      "source": "$item_upgrader_tier5 $item_upgrader_weapon $item_upgrader_name",
+      "nativeRussian": "Черный мрамор Сражение Идол",
+      "english": "Black Marble Battle Idol",
+      "expected": "Боевой идол из черного мрамора"
+    },
+    {
+      "source": "$item_upgrader_tier5 $item_upgrader_armor $item_upgrader_name",
+      "nativeRussian": "Черный мрамор Защита Идол",
+      "english": "Black Marble Protection Idol",
+      "expected": "Защитный идол из черного мрамора"
+    },
+    {
+      "source": "$item_upgrader_tier6 $item_upgrader_weapon $item_upgrader_name",
+      "nativeRussian": "Огнеметалл Сражение Идол",
+      "english": "Flametal Battle Idol",
+      "expected": "Боевой идол из огнеметалла"
+    },
+    {
+      "source": "$item_upgrader_tier6 $item_upgrader_armor $item_upgrader_name",
+      "nativeRussian": "Огнеметалл Защита Идол",
+      "english": "Flametal Protection Idol",
+      "expected": "Защитный идол из огнеметалла"
+    },
+    {
+      "source": "$item_upgrader_tier7 $item_upgrader_weapon $item_upgrader_name",
+      "nativeRussian": "Кровавое золото Сражение Идол",
+      "english": "Bloodgold Battle Idol",
+      "expected": "Боевой идол из кровавого золота"
+    },
+    {
+      "source": "$item_upgrader_tier7 $item_upgrader_armor $item_upgrader_name",
+      "nativeRussian": "Кровавое золото Защита Идол",
+      "english": "Bloodgold Protection Idol",
+      "expected": "Защитный идол из кровавого золота"
+    }
+  ]
+}

@@ -371,21 +371,21 @@
       "type": "More_World_Locations_AIO.PortInit+<>c",
       "method": "<SetupManifests>b__13_0",
       "values": {
-        "Wooden Shipment": "Деревянный груз"
+        "Wooden Shipment": "Деревянный грузовой сундук"
       }
     },
     {
       "type": "More_World_Locations_AIO.PortInit+<>c",
       "method": "<SetupManifests>b__13_1",
       "values": {
-        "Barrel Shipment": "Бочковой груз"
+        "Barrel Shipment": "Грузовая бочка"
       }
     },
     {
       "type": "More_World_Locations_AIO.PortInit+<>c",
       "method": "<SetupManifests>b__13_2",
       "values": {
-        "Fine Shipment": "Ценный груз"
+        "Fine Shipment": "Грузовой сундук из качественной древесины"
       }
     },
     {
