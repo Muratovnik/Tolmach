@@ -1,5 +1,23 @@
 # Изменения
 
+## [0.8.0](https://github.com/Muratovnik/Tolmach/compare/v0.7.0...v0.8.0) (2026-10-02)
+
+### Highlights
+
+Пакет расширен до **97 модов**: добавлены четыре хранилища Muji, AAA Crafting, Recipe Sync и Smart Wishbone Updated. Переведены все 205 текущих счетчиков расширенной статистики MyLittleUI. Исправлены 47 строк каталогов и все 16 названий идолов Valheim: «Дерево Сражение Идол» теперь отображается как «Боевой идол из дерева».
+
+### Features
+
+- **Новые моды:** добавлены переводы Dynamic Storage Ammunition Piles, Butchers Hall, Forge и Materials, AAA Crafting, Recipe Sync и Smart Wishbone Updated. Список поддерживаемых пакетов и их версий согласован с каталогами. ([448144a](https://github.com/Muratovnik/Tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
+- **Статистика:** переведены подписи всех 205 текущих счетчиков MyLittleUI для Valheim 1.0.16; настройка их показа не меняется. ([448144a](https://github.com/Muratovnik/Tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
+- **Совместимость:** каталоги сверены с Configuration Manager 1.1.23 и Azu Crafty Boxes 1.8.27. Для Crafty Boxes дополнены сообщения количества предметов и ошибок подключения. ([448144a](https://github.com/Muratovnik/Tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
+
+### Bug Fixes
+
+- **Идолы:** исправлены все 16 составных названий боевых и защитных идолов. Название переводится целиком при показе, сохраняя исходные ключи игры и имена предметов в сохранениях. ([448144a](https://github.com/Muratovnik/Tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
+- **Русские конструкции:** исправлены порядок слов и падежи в 47 строках каталогов, названия грузовых контейнеров, подписи ячеек хранилищ и вероятностей числа звезд CLLC. ([448144a](https://github.com/Muratovnik/Tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
+- **Crafty Boxes:** стандартный вопрос о получении предметов из сундуков переводится с разметкой и переносами LF/CRLF. Сообщения об ошибках переводятся при показе; исходные причины подключения и журналы сохраняются. ([448144a](https://github.com/Muratovnik/Tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
+
 ## [0.7.0](https://github.com/Muratovnik/Tolmach/compare/v0.6.2...v0.7.0) (2026-10-02)
 
 ### Highlights
