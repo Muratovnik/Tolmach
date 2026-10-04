@@ -1,0 +1,21 @@
+root = true
+
+[*.cs]
+dotnet_diagnostic.CA2011.severity = error
+dotnet_diagnostic.CA2012.severity = error
+dotnet_diagnostic.CA2013.severity = error
+dotnet_diagnostic.CA2200.severity = error
+dotnet_diagnostic.UNT0006.severity = error
+dotnet_diagnostic.UNT0007.severity = error
+dotnet_diagnostic.UNT0008.severity = error
+dotnet_diagnostic.UNT0010.severity = error
+dotnet_diagnostic.UNT0011.severity = error
+dotnet_diagnostic.UNT0014.severity = error
+dotnet_diagnostic.UNT0029.severity = error
+dotnet_diagnostic.HARMONIZE001.severity = error
+dotnet_diagnostic.HARMONIZE003.severity = error
+dotnet_diagnostic.HARMONIZE004.severity = error
+
+# Performance advice stays visible for measured tradeoffs.
+dotnet_analyzer_diagnostic.category-Performance.severity = suggestion
+

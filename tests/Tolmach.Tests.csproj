@@ -12,6 +12,7 @@
   </PropertyGroup>
   <Import Project="../build/RuntimeReferences.props" />
   <ItemGroup>
+    <Compile Remove="Runtime.Contracts/**/*.cs" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" PrivateAssets="all" />
     <PackageReference Include="NUnit" Version="3.14.0" PrivateAssets="all" />

@@ -1,0 +1,56 @@
+{
+  "methods": [
+    [
+      "Character",
+      "GetHoverName",
+      [],
+      "System.String",
+      false,
+      "assembly_valheim.dll"
+    ],
+    [
+      "Tameable",
+      "GetName",
+      [],
+      "System.String",
+      false,
+      "assembly_valheim.dll"
+    ],
+    [
+      "Localization",
+      "Localize",
+      [
+        "System.String"
+      ],
+      "System.String",
+      false,
+      "assembly_guiutils.dll"
+    ],
+    [
+      "ZNetScene",
+      "GetPrefab",
+      [
+        "System.Int32"
+      ],
+      "UnityEngine.GameObject",
+      false,
+      "assembly_valheim.dll"
+    ]
+  ],
+  "fields": [
+    [
+      "Character",
+      "m_name",
+      "System.String",
+      false,
+      "assembly_valheim.dll"
+    ],
+    [
+      "Tameable",
+      "m_character",
+      "Character",
+      false,
+      "assembly_valheim.dll"
+    ]
+  ]
+}

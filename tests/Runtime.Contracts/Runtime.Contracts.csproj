@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <GameDataDirectory Condition="'$(GameDataDirectory)' == ''">valheim_Data</GameDataDirectory>
+    <AssemblyName>Tolmach.RuntimeContracts</AssemblyName>
+    <IsTestProject>true</IsTestProject>
+    <IsPackable>false</IsPackable>
+    <GamePath Condition="'$(GamePath)' == ''">D:/SteamLibrary/steamapps/common/Valheim</GamePath>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Mono.Cecil" Version="0.11.6" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" PrivateAssets="all" />
+    <PackageReference Include="NUnit" Version="3.14.0" PrivateAssets="all" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.6.0" PrivateAssets="all" />
+    <None Update="contracts.json" CopyToOutputDirectory="PreserveNewest" />
+    <AssemblyMetadata Include="GameAssembly" Value="$(GamePath)/$(GameDataDirectory)/Managed/assembly_valheim.dll" />
+  </ItemGroup>
+</Project>

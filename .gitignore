@@ -5,6 +5,7 @@ TestResults/
 __pycache__/
 .pytest_cache/
 .vs/
+/tmp/
 *.user
 *.suo
 # release-kit scanner caches and candidate state; private notes and backups.

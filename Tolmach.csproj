@@ -1,4 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Condition="'$(EarlyCheckControl)' != ''">
+    <DefineConstants>$(DefineConstants);$(EarlyCheckControl)</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(EarlyCheckControl)' != ''">
+    <Compile Include="tests/AnalyzerControls.cs" Link="AnalyzerControls.cs" />
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
     <LangVersion>7.3</LangVersion>

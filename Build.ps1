@@ -5,7 +5,7 @@
 # TOLMACH_BEPINEX_CORE_PATH and TOLMACH_NEWTONSOFT_JSON_PATH, then asked for interactively.
 # -OutputDirectory (used by release-kit) receives the package and its SHA256SUMS instead
 # of artifacts/; the directory must not exist yet.
-# Intermediate files and validation logs use a fresh OS temporary directory, or -WorkDirectory.
+# Intermediate files and validation logs use a fresh project tmp directory, or -WorkDirectory.
 [CmdletBinding()]
 param(
     [string]$GamePath = $env:TOLMACH_GAME_PATH,
@@ -13,7 +13,8 @@ param(
     [string]$BepInExCorePath = $env:TOLMACH_BEPINEX_CORE_PATH,
     [string]$NewtonsoftJsonPath = $env:TOLMACH_NEWTONSOFT_JSON_PATH,
     [string]$OutputDirectory,
-    [string]$WorkDirectory
+    [string]$WorkDirectory,
+    [string]$DotnetExecutable = 'dotnet'
 )
 Set-StrictMode -Version 2.0
 $ErrorActionPreference = 'Stop'
@@ -34,7 +35,7 @@ function Run-Dotnet([string[]]$Arguments, [string]$LogPath) {
     $previous = $ErrorActionPreference
     try {
         $ErrorActionPreference = 'Continue'
-        & dotnet @Arguments 2>&1 | Tee-Object -FilePath $LogPath | ForEach-Object { Write-Host $_ }
+        & $DotnetExecutable @Arguments 2>&1 | Tee-Object -FilePath $LogPath | ForEach-Object { Write-Host $_ }
         $code = $LASTEXITCODE
     } finally { $ErrorActionPreference = $previous }
     if ($code -ne 0) { throw "dotnet $($Arguments[0]) failed (exit $code). Log: $LogPath" }
@@ -108,19 +109,22 @@ function Test-Package([string]$Zip, [string]$Version, [string]$DllHash, $Catalog
     } finally { $archive.Dispose() }
 }
 try {
-    if (-not (Get-Command dotnet -ErrorAction SilentlyContinue)) { throw '.NET SDK 8 or newer is required.' }
-    $sdk = (& dotnet --version | Out-String).Trim()
-    if ($LASTEXITCODE -ne 0 -or [int]($sdk.Split('.')[0]) -lt 8) { throw '.NET SDK 8 or newer is required (compiler only; the plugin still targets net48).' }
+    if (-not (Get-Command $DotnetExecutable -ErrorAction SilentlyContinue)) { throw '.NET SDK 10 is required.' }
+    $sdk = (& $DotnetExecutable --version | Out-String).Trim()
+    if ($LASTEXITCODE -ne 0 -or [int]($sdk.Split('.')[0]) -lt 10) { throw '.NET SDK 10 is required (compiler only; the plugin still targets net48).' }
     if ($OutputDirectory) {
         $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
         if (Test-Path -LiteralPath $OutputDirectory) { throw "Output directory already exists: $OutputDirectory" }
     }
     if (-not $WorkDirectory) {
-        $WorkDirectory = Join-Path ([IO.Path]::GetTempPath()) ('codex\tolmach-build\' + [Guid]::NewGuid().ToString('N'))
+        $WorkDirectory = Join-Path $Root ('tmp/build/' + [Guid]::NewGuid().ToString('N'))
     }
     $WorkDirectory = [IO.Path]::GetFullPath($WorkDirectory)
     if (Test-Path -LiteralPath $WorkDirectory) { throw "Working directory already exists: $WorkDirectory" }
     if ($WorkDirectory -match '[;,%\r\n]') { throw 'Working directory must not contain MSBuild separators or newlines.' }
+    for ($cursor=$WorkDirectory; $cursor; $cursor=[IO.Path]::GetDirectoryName($cursor)) {
+        if ((Test-Path -LiteralPath $cursor) -and ((Get-Item -LiteralPath $cursor -Force).Attributes -band [IO.FileAttributes]::ReparsePoint)) { throw "Linked work path: $cursor" }
+    }
     [IO.Directory]::CreateDirectory($WorkDirectory) | Out-Null
     $GamePath = Existing-Folder $GamePath 'Valheim installation directory'
     $ProfilePath = Existing-Folder $ProfilePath 'Mod-manager profile directory (or its BepInEx directory)'
@@ -145,14 +149,14 @@ try {
     }
     $props = @("-p:GamePath=$GamePath", "-p:ProfilePath=$ProfilePath", "-p:BepInExCorePath=$BepInExCorePath", "-p:NewtonsoftJsonPath=$NewtonsoftJsonPath")
     $project = [xml](Get-Content -LiteralPath (Join-Path $Root 'Tolmach.csproj') -Raw -Encoding UTF8)
-    $version = [string](@($project.Project.PropertyGroup | ForEach-Object { $_.Version } | Where-Object { $_ })[0])
+    $version = [string]$project.SelectSingleNode('/Project/PropertyGroup/Version').InnerText
     if ($version -notmatch '^\d+\.\d+\.\d+$') { throw "Tolmach.csproj <Version> must be Major.Minor.Patch, found '$version'." }
     $artifacts = Join-Path $Root 'artifacts'
     $stage = Join-Path $WorkDirectory 'stage'
     $stagePackage = Join-Path $WorkDirectory 'stage-package'
     # An earlier package must not be mistaken for this attempt's result.
     $previousDir = Join-Path $artifacts 'previous'
-    foreach ($old in @(Get-ChildItem -LiteralPath $artifacts -File -Filter "*-Tolmach-$version.zip" -ErrorAction SilentlyContinue)) {
+    foreach ($old in @(Get-ChildItem -LiteralPath $artifacts -File -Filter "*-Tolmach-$version.zip" -ErrorAction SilentlyContinue | Where-Object { -not $OutputDirectory })) {
         [IO.Directory]::CreateDirectory($previousDir) | Out-Null
         $moved = Join-Path $previousDir ($old.BaseName + '-' + [Guid]::NewGuid().ToString('N') + '.zip')
         Move-Item -LiteralPath $old.FullName -Destination $moved
@@ -166,6 +170,14 @@ try {
     Run-Dotnet (@('test', (Join-Path $Root 'tests\Tolmach.Tests.csproj'), '-c', 'Release',
         '--artifacts-path', $dotnetArtifacts, '--logger', 'trx;LogFileName=tests.trx', '--results-directory', $run, '--verbosity', 'minimal') + $props) (Join-Path $run 'dotnet-test.log')
     $trxPath = Join-Path $run 'tests.trx'
+    Run-Dotnet (@('test', (Join-Path $Root 'tests/Runtime.Contracts/Runtime.Contracts.csproj'), '-c', 'Release',
+        '--artifacts-path', $dotnetArtifacts, '--logger', 'trx;LogFileName=api.trx', '--results-directory', $run) + $props) (Join-Path $run 'api-test.log')
+    [xml]$apiReport = Get-Content -LiteralPath (Join-Path $run 'api.trx') -Raw
+    $apiCounters = $apiReport.SelectSingleNode("//*[local-name()='Counters']")
+    if ($null -eq $apiCounters -or [int]$apiCounters.total -le 0 -or
+        [int]$apiCounters.passed -ne [int]$apiCounters.total -or [int]$apiCounters.executed -ne [int]$apiCounters.total) {
+        throw 'Installed API tests were not all executed and passed.'
+    }
     if (-not (Test-Path -LiteralPath $trxPath -PathType Leaf)) { throw 'No VSTest result file. Nothing will be packaged.' }
     [xml]$trx = Get-Content -LiteralPath $trxPath -Raw
     $counters = $trx.SelectSingleNode("//*[local-name()='Counters']")
@@ -200,6 +212,7 @@ try {
         plugin_assembly_version = $identity.Version.ToString()
         plugin_sha256 = $dllHash
         nunit_passed = [int]$counters.passed
+        api_contracts_passed = [int]$apiCounters.passed
         test_scope = 'Compiled production plugin and profile Harmony against managed endpoints; not Unity gameplay.'
         game_test = 'not run'
         references = [string[]][IO.File]::ReadAllLines($inputHashes)
