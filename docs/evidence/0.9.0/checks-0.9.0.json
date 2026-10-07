@@ -1,0 +1,192 @@
+{
+  "version": "0.9.0",
+  "date": "2026-10-07",
+  "delivery": "local package; not published",
+  "source_base_commit": "b915b0dde4086aec977018d1faff4338b6565855",
+  "source_has_working_tree_changes": true,
+  "zip": "Muratovnik-Tolmach-0.9.0.zip",
+  "zip_sha256": "d89f6fbb5134d88df56c25f728f0f670d0e02b51da508c782d639237b269db9f",
+  "plugin_sha256": "68df3bc28640acc6fcf342ce88604f4127ae256863347530fb27f654f7085962",
+  "build_receipt_sha256": "32bfd1cfec64491e9b1b520b4f6df7940e9a0653819355360d00b8e048d5d447",
+  "build_utc": "2026-10-07T18:18:37.4925756Z",
+  "environment": {
+    "platform": "Windows",
+    "sdk": "10.0.401",
+    "api_testhost_target": "net9.0",
+    "api_testhost_runtime": "9.0.20",
+    "api_testhost_runtime_selection": "Installed .NET 9 runtime selected with DOTNET_ROOT and DOTNET_ROOT_X64; portable SDK remained 10.0.401.",
+    "python": "3.11.9",
+    "pytest": "9.1.1",
+    "jsonschema": "4.26.0",
+    "pyyaml": "6.0.3"
+  },
+  "validation": {
+    "nunit_passed": 665,
+    "api_contracts_passed": 6,
+    "pytest_passed": 27,
+    "pytest_duration_seconds": 28.1,
+    "catalog_assertions_passed": 20657,
+    "catalog_errors": [],
+    "catalog_skipped": [],
+    "package_controls_passed": 8,
+    "archive_cross_check": "passed with --evidence; no skipped comparisons",
+    "scope": "Compiled production plugin and profile Harmony against managed endpoints; not Unity gameplay."
+  },
+  "checks": [
+    {
+      "tool": "Build.ps1",
+      "work_directory": "tmp/VAL-111-build-r2",
+      "output_directory": "artifacts/VAL-111-0.9.0",
+      "result": "passed",
+      "receipt": "build-receipt.json inside ZIP"
+    },
+    {
+      "tool": "pytest",
+      "test_file": "tests/test_validation.py",
+      "flags": [
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "basetemp": "tmp/VAL-111-validation/pytest",
+      "result": "27 passed"
+    },
+    {
+      "tool": "tools/validate.py",
+      "flags": [
+        "--evidence"
+      ],
+      "source_input": "Matching versioned source materials identified by PROVENANCE.json",
+      "result": "20657 assertions; no errors or skips",
+      "report_sha256": "b53ade67037e018c0b592d7aaa3eab7d6c0b6efb3fed016155ab130a01b2b8c8"
+    },
+    {
+      "tool": "tools/Test-PackageCheck.ps1",
+      "package": "Muratovnik-Tolmach-0.9.0.zip",
+      "result": "8 controls passed",
+      "controls": [
+        "accept valid package",
+        "reject catalogs outside plugins",
+        "reject manifest UTF-8 BOM",
+        "reject 128x128 icon",
+        "reject JPEG icon",
+        "reject description longer than 250 characters",
+        "reject untested DLL",
+        "reject missing README"
+      ]
+    }
+  ],
+  "setup_failures": [
+    {
+      "stage": "pytest setup",
+      "cause": "Parent of the explicit basetemp directory did not exist.",
+      "resolution": "Created the project-local parent and reran the test suite."
+    },
+    {
+      "stage": "first API contract testhost launch",
+      "cause": "The net9 testhost found only the portable .NET 10 SDK installation.",
+      "resolution": "Selected the installed .NET 9.0.20 runtime with DOTNET_ROOT and DOTNET_ROOT_X64 and reran Build.ps1."
+    },
+    {
+      "stage": "first focused laboratory load",
+      "cause": "YamlDotNet dependency was missing and the loader reported errors.",
+      "resolution": "The supported laboratory setup added the real dependency; the final fresh log had no Tolmach warnings, errors or exception matches."
+    }
+  ],
+  "assertions_weakened": false,
+  "gameplay_acceptance": {
+    "status": "NOT_RUN",
+    "runner_passed": false,
+    "scope": "Rendered UI, cold persistence, network roles and native scenario-runner acceptance were not run. Diagnostic returns from the focused laboratory do not constitute acceptance.",
+    "full_profile_connection_attempts": {
+      "count": 2,
+      "status": "INCONCLUSIVE",
+      "reasons": [
+        "Connection exceeded the 30-second cutoff.",
+        "Bridge became available after the cutoff."
+      ],
+      "gameplay_assertions_reached": false
+    }
+  },
+  "native_diagnostics": {
+    "session_status": "INCONCLUSIVE",
+    "isLaboratory": true,
+    "readiness": [
+      "MENU_READY",
+      "PLAYER_READY"
+    ],
+    "profile": {
+      "Tolmach": "0.9.0",
+      "DynamicStorageForge": "1.0.2",
+      "Norsemen": "0.4.1",
+      "Jotunn": "2.30.2",
+      "additional_dependencies": [
+        "JsonDotNET",
+        "YamlDotNet",
+        "Bridge"
+      ]
+    },
+    "fresh_log": {
+      "tolmach_warning_error_exception_search_matches": 0
+    },
+    "production_adapter_read_sites": {
+      "Container.GetHoverName": 1,
+      "Container.GetHoverText": 3,
+      "Norsemen.Viking.GetHoverName": 2,
+      "Norsemen.Viking.GetHoverText": 1,
+      "Norsemen.VikingGui.Show": 1,
+      "Norsemen.VikingGui.InventoryGUI_UpdateContainer.Prefix": 1
+    },
+    "invocation_protocol": {
+      "outcome": "OUTCOME_UNKNOWN",
+      "returned_values_recorded": true,
+      "automatic_replay": false
+    },
+    "observations": [
+      {
+        "method": "Container.GetHoverText",
+        "recorded_return": "Стопка слитков бронзы (хранилище) ( ПУСТО )\n[...] Открыть (Удерживайте, чтобы сложить)",
+        "independent_field_inspection": {
+          "m_name": "Bronze Stack (Storage)"
+        }
+      },
+      {
+        "methods": [
+          "Norsemen.Viking.GetText",
+          "Norsemen.Viking.GetHoverName"
+        ],
+        "initial_name": "Ingrid",
+        "recorded_hover": "<color=white>Ингрид</color>"
+      },
+      {
+        "fixture_action": "Set the debug world NPC ZDO TamedName to Ulf.",
+        "independent_GetText_readback": "Ulf",
+        "recorded_hover": "<color=white>Ульф</color>"
+      },
+      {
+        "language_handler": "English",
+        "handler_result": "success",
+        "recorded_hover": "<color=white>Ulf</color>"
+      },
+      {
+        "language_handler": "Russian",
+        "handler_result": "success",
+        "fixture_action": "Debug SetTamed(true)",
+        "independent_IsTamed_readback": "True",
+        "recorded_hover": "<color=white>Ulf</color>",
+        "meaning": "Tamed/generated and renamed names share storage; the ambiguous name is preserved."
+      }
+    ],
+    "control_handling": {
+      "physical_input_pause": "CONTROL_PAUSED",
+      "resume": "Fresh state inspection followed by explicit resume with user permission.",
+      "cancelled_or_unknown_operations_repeated": false
+    },
+    "cleanup": {
+      "owned_game_stopped": true,
+      "errors": [],
+      "remaining_valheim_processes": 0
+    },
+    "evidence_scope": "Observations supplied from retained private diagnostic artifacts; no raw logs or private locations are included in this public summary."
+  }
+}

@@ -1,8 +1,8 @@
 {
   "id": "SocialSystem",
   "package": "M2Valheim-SocialSystem",
-  "version": "1.0.2",
-  "pluginVersion": "1.0.2",
+  "version": "1.0.4",
+  "pluginVersion": "1.0.4",
   "assembly": "SocialSystem",
   "guids": [
     "M2Valheim.SocialSystem"
@@ -240,20 +240,21 @@
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem/Plugin.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.csproj",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.Localization/SocialTexts.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.Localization/SocialLocalization.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.Client/DirectMessageCommand.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.Client/ReplyCommand.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.Client/PartyChatCommand.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/ldstr.json",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.UI/SocialWindow.cs",
-    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2/SocialSystem.UI/SocialListRenderer.cs"
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.4/SocialSystem.Client/DirectMessageCommand.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.4/SocialSystem.Client/PartyChatCommand.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.4/SocialSystem.Client/ReplyCommand.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.4/SocialSystem.Localization/SocialLocalization.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.4/SocialSystem.Localization/SocialTexts.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.4/SocialSystem.UI/SocialListRenderer.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.4/SocialSystem.UI/SocialWindow.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.4/SocialSystem.csproj",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.4/SocialSystem/Plugin.cs",
+    "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.4/il/SocialSystem.il"
   ],
   "notes": [
     "Profile mod: M2Valheim-SocialSystem 1.0.2 from Thunderstore, decompiled from the installed DLL on 2026-10-01",
     "The mod's own Jotunn table has English and German; Russian is added to it (fill-only)",
-    "Not translated: the cheat test command socialsystem_fake and its output, and log lines"
+    "Not translated: the cheat test command socialsystem_fake and its output, and log lines",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
   ]
 }

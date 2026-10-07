@@ -1,0 +1,405 @@
+{
+  "id": "PortalPreview",
+  "package": "Ivvty-PortalPreview",
+  "version": "1.3.6",
+  "pluginVersion": "1.3.6",
+  "assembly": "PortalPreview",
+  "guids": [
+    "ru.ivest.portalpreview"
+  ],
+  "namespaces": [
+    "PortalPreview"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {
+    "off": "выключено",
+    "always": "всегда",
+    "frozen": "неподвижны",
+    "follow the time of day": "следуют времени суток",
+    "enabled": "включена",
+    "disabled": "выключена",
+    "enabled; waiting for a loaded wooden or stone portal": "включено; ожидание загруженного деревянного или каменного портала",
+    "RAM cache cleared; saved snapshots retained on disk": "кеш памяти очищен; сохранённые снимки остались на диске",
+    "cleanup of stale saved scenes started; 'frozenportal status' shows the result": "начата очистка устаревших сохранённых сцен; результат показывает 'frozenportal status'",
+    "preview is disabled": "предпросмотр выключен",
+    "waiting for the local player": "ожидание локального игрока",
+    "no connected wooden or stone portal within 24 m": "в пределах 24 м нет связанного деревянного или каменного портала",
+    "loading exact exit snapshot across frames; local world remains visible": "загрузка точного снимка выхода в несколько кадров; местный мир остаётся видимым",
+    "exit snapshot missing; visit the linked exit, wait for capture, then return": "нет снимка выхода; посетите связанный выход, дождитесь захвата и вернитесь",
+    "waiting for the entry portal link to agree": "ожидание согласования связи входного портала",
+    "saved exit does not match the physical portal; recapture pending": "сохранённый выход не соответствует порталу; ожидается повторный захват",
+    "waiting for the main camera": "ожидание основной камеры",
+    "outside the configured approach radius": "за пределами заданного радиуса приближения",
+    "portal is outside the camera view": "портал вне поля зрения камеры",
+    "portal connection established": "связь порталов установлена",
+    "connected endpoint first seen nearby": "связанный выход впервые замечен поблизости",
+    "portal tag assigned": "порталу назначена метка",
+    "first arrival at linked exit": "первое прибытие к связанному выходу",
+    "connection changed in portal data": "связь изменилась в данных портала",
+    "disabled after a render/capture error; see log; frozenportal on retries": "выключено после ошибки отрисовки/захвата; смотрите журнал; frozenportal on повторяет попытку",
+    "captured under the loading screen when a teleport leaves or arrives through this portal": "захват под экраном загрузки при отправлении или прибытии через этот портал",
+    "waiting for the linked portal's position in world data": "ожидание положения связанного портала в данных мира",
+    "portal object is not loaded": "объект портала не загружен",
+    "waiting for the zone to finish loading": "ожидание завершения загрузки зоны",
+    "waiting for modified terrain to finish rebuilding": "ожидание завершения перестроения изменённой местности",
+    "a capture was waiting for a loading screen": "захват ожидал экрана загрузки",
+    "its last capture left texture copies to save": "после предыдущего захвата остались копии текстур для сохранения",
+    "it has no current saved scene": "нет актуальной сохранённой сцены",
+    "every trip": "при каждом переходе",
+    "no record of what stood around it at its last capture": "нет записи об окружении во время предыдущего захвата",
+    "something around it changed since its last capture": "окружение изменилось после предыдущего захвата",
+    "nearby snapshots scheduled for refresh after loading settles": "снимки поблизости запланированы к обновлению после завершения загрузки",
+    "archive identity does not match this physical portal; original file retained": "идентификатор архива не соответствует этому порталу; исходный файл сохранён",
+    "no EnvMan": "нет EnvMan",
+    "no lighting computed here (interior or no weather)": "освещение здесь не рассчитывается (помещение или нет погоды)",
+    "No connected portal within 24 m to capture.": "В пределах 24 м нет связанного портала для захвата.",
+    "Usage: frozenportal log on|off": "Использование: frozenportal log on|off",
+    "Enter a world first.": "Сначала войдите в мир.",
+    "Usage: frozenportal mode always|approach": "Использование: frozenportal mode always|approach",
+    "Usage: frozenportal profile auto|low|medium|high|ultra|custom": "Использование: frozenportal profile auto|low|medium|high|ultra|custom",
+    "Resolution, Max visible portals and Max resident snapshots follow the profile again (set to 0).": "Разрешение, число видимых порталов и число снимков в памяти снова определяются профилем (установлено 0).",
+    "Usage: frozenportal recapture <metres, 0.02-1; 0.3 by default>": "Использование: frozenportal recapture <metres, 0.02-1; 0.3 by default>",
+    "Usage: frozenportal pair on|off": "Использование: frozenportal pair on|off",
+    "Usage: frozenportal buffers on|off": "Использование: frozenportal buffers on|off",
+    "Usage: frozenportal on|off|status|clear|refresh|backdropcheck|cleanup|lighting|buffers on|off|pair on|off|recapture <m>; profile auto|low|medium|high|ultra|custom; mode always|approach; count|radius|spiral|memory <number> (count and memory 0: the profile's)": "Использование: frozenportal on|off|status|clear|refresh|backdropcheck|cleanup|lighting|buffers on|off|pair on|off|recapture <m>; profile auto|low|medium|high|ultra|custom; mode always|approach; count|radius|spiral|memory <number> (count и memory 0: из профиля)",
+    "WhenChanged": "при изменениях",
+    "EveryTrip": "при каждом переходе",
+    "Once": "один раз",
+    "portal depth and motion vectors written": "глубина портала и векторы движения записываются",
+    " (set)": " (задано)",
+    "Auto": "автоматически",
+    "Low": "низкий",
+    "Medium": "средний",
+    "High": "высокий",
+    "Ultra": "максимальный",
+    "Custom": "пользовательский",
+    "Off": "выключена",
+    "On": "включена",
+    ", integrated": ", встроенная графика",
+    "; a scene was saved meanwhile, the rest waits for the next run": "; за это время сохранилась сцена, остальное ожидает следующего запуска",
+    "none": "нет"
+  },
+  "patterns": [
+    {
+      "source": "The next capture of a nearby portal writes a panorama and view comparison to {0}",
+      "target": "Следующий захват ближайшего портала сохранит панораму и сравнение видов в {0}",
+      "singleLine": true
+    },
+    {
+      "source": "Portal diagnostics {0} for this session.",
+      "target": "Диагностика порталов {0} в этой сессии.",
+      "singleLine": true,
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "Usage: frozenportal {0} <number>",
+      "target": "Использование: frozenportal {0} <number>",
+      "singleLine": true
+    },
+    {
+      "source": "Lighting computed/live here: {0}",
+      "target": "Освещение здесь: расчётное/текущее: {0}",
+      "singleLine": true,
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "Frozen portals (scene-v20): {0}; {1}/{2} resident snapshots; up to {3} views; {4}. Snapshot updates: {5}; Scene, grass, particles, clouds and world tree frozen; sun and fog {6}; disk snapshots retained.",
+      "target": "Застывшие порталы (scene-v20): {0}; снимков в памяти: {1}/{2}; до {3} видов; {4}. Обновление снимков: {5}; сцена, трава, частицы, облака и мировое дерево неподвижны; солнце и туман {6}; снимки сохранены на диске.",
+      "singleLine": true,
+      "numeric": [
+        1,
+        2,
+        3
+      ],
+      "arguments": {
+        "0": "message",
+        "4": "message",
+        "5": "text",
+        "6": "text"
+      }
+    },
+    {
+      "source": "approach {0} m",
+      "target": "при приближении на {0} м",
+      "singleLine": true,
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "eye recapture every {0} m (diagnostic, not saved)",
+      "target": "повторный захват вида каждые {0} м (диагностика, не сохраняется)",
+      "singleLine": true,
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "eye capture pair {0} (diagnostic, not saved)",
+      "target": "парный захват вида {0} (диагностика, не сохраняется)",
+      "singleLine": true
+    },
+    {
+      "source": "portal depth and motion vectors not written (diagnostic)",
+      "target": "глубина портала и векторы движения не записываются (диагностика)",
+      "singleLine": true
+    },
+    {
+      "source": "first-link capture scheduled for {0}: {1}",
+      "target": "первый захват после связывания запланирован для {0}: {1}",
+      "singleLine": true,
+      "arguments": {
+        "1": "message"
+      }
+    },
+    {
+      "source": "{0} is seen from behind and the view is one-sided",
+      "target": "{0} виден сзади, а предпросмотр односторонний",
+      "singleLine": true
+    },
+    {
+      "source": "projection rejected for {0} using {1}",
+      "target": "проекция отклонена для {0} через {1}",
+      "singleLine": true
+    },
+    {
+      "source": "showing {0} portal views with frozen lighting: {1} using {2} ({3} meshes, {4} terrain, {5} grass, {6} frozen particle systems, {7} weather systems)",
+      "target": "показано видов порталов с неподвижным освещением: {0}; {1} через {2} (мешей: {3}, участков местности: {4}, травы: {5}, неподвижных систем частиц: {6}, систем погоды: {7})",
+      "singleLine": true,
+      "numeric": [
+        0,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "source": "settling loaded scene ({0} s)",
+      "target": "стабилизация загруженной сцены ({0} с)",
+      "singleLine": true,
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "departure {0}: saved scene kept ({1})",
+      "target": "отправление {0}: сохранённая сцена оставлена ({1})",
+      "singleLine": true,
+      "arguments": {
+        "1": "text"
+      }
+    },
+    {
+      "source": "departure {0} queued for capture during teleport: {1}",
+      "target": "отправление {0} запланировано к захвату во время телепортации: {1}",
+      "singleLine": true,
+      "arguments": {
+        "1": "message"
+      }
+    },
+    {
+      "source": "arrival {0} held for capture under the loading screen",
+      "target": "прибытие {0} ожидает захвата под экраном загрузки",
+      "singleLine": true
+    },
+    {
+      "source": "nearest {0} -> {1}, {2} m: {3}",
+      "target": "ближайший {0} -> {1}, {2} м: {3}",
+      "singleLine": true,
+      "numeric": [
+        2
+      ],
+      "arguments": {
+        "3": "message"
+      }
+    },
+    {
+      "source": "exit capture failed: {0}",
+      "target": "ошибка захвата выхода: {0}",
+      "singleLine": true,
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "exit capture pending: {0}",
+      "target": "захват выхода ожидает: {0}",
+      "singleLine": true,
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "local capture failed: {0}",
+      "target": "ошибка местного захвата: {0}",
+      "singleLine": true,
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "disk load failed: {0}",
+      "target": "ошибка загрузки с диска: {0}",
+      "singleLine": true,
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "exit snapshot ready ({0} meshes)",
+      "target": "снимок выхода готов (мешей: {0})",
+      "singleLine": true,
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "no saved scene matches the real portal at {0}; original file retained",
+      "target": "нет сохранённой сцены, соответствующей порталу в {0}; исходный файл сохранён",
+      "singleLine": true
+    },
+    {
+      "source": "loaded scene at {0} differs from real portal {1}",
+      "target": "загруженная сцена в {0} не соответствует порталу в {1}",
+      "singleLine": true
+    },
+    {
+      "source": "Hardware profile {0} ({1}): resolution {2}{3}, up to {4}{5} portal views, {6}{7} resident snapshots, captures kept {8} s unseen, preview quality {9}, hidden geometry {10}",
+      "target": "Профиль оборудования {0} ({1}): разрешение {2}{3}, до {4}{5} видов портала, снимков в памяти: {6}{7}, невидимые снимки хранятся {8} с, качество предпросмотра {9}, скрытая геометрия {10}",
+      "singleLine": true,
+      "numeric": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "arguments": {
+        "0": "message",
+        "1": "message",
+        "10": "message",
+        "3": "text",
+        "5": "text",
+        "7": "text",
+        "9": "text"
+      }
+    },
+    {
+      "source": "{0} -> {1}",
+      "target": "{0} -> {1}",
+      "singleLine": true,
+      "arguments": {
+        "0": "text",
+        "1": "text"
+      }
+    },
+    {
+      "source": "{0} (set)",
+      "target": "{0} (задано)",
+      "singleLine": true,
+      "arguments": {
+        "0": "text"
+      }
+    },
+    {
+      "source": "{0}, {1} MB video memory, {2} MB RAM, {3} threads{4}",
+      "target": "{0}, видеопамять {1} МБ, память {2} МБ, потоков: {3}{4}",
+      "singleLine": true,
+      "numeric": [
+        1,
+        2,
+        3
+      ],
+      "arguments": {
+        "4": "text"
+      }
+    },
+    {
+      "source": "Last cleanup: {0}",
+      "target": "Последняя очистка: {0}",
+      "singleLine": true,
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "cleanup failed: {0}",
+      "target": "ошибка очистки: {0}",
+      "singleLine": true,
+      "arguments": {
+        "0": "message"
+      }
+    },
+    {
+      "source": "removed {0} old game revision folders, {1} scenes of portals that are gone and {2} unused blobs, {3} MB{4}",
+      "target": "удалено старых папок версий игры: {0}, сцен исчезнувших порталов: {1}, неиспользуемых блоков данных: {2}, {3} МБ{4}",
+      "singleLine": true,
+      "numeric": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "arguments": {
+        "4": "message"
+      }
+    },
+    {
+      "source": "; {0} folders unchanged since the last cleanup, not read",
+      "target": "; папок без изменений после предыдущей очистки: {0}, не читались",
+      "singleLine": true,
+      "numeric": [
+        0
+      ]
+    },
+    {
+      "source": "weather computed {0}, live {1}; sun angle {2} deg, intensity {3}/{4}, colour {5}/{6}; ambient {7}/{8}; fog {9}/{10}, density {11}/{12}; aurora {13}/{14}; probe difference {15}",
+      "target": "расчётная погода {0}, текущая {1}; угол солнца {2} град., интенсивность {3}/{4}, цвет {5}/{6}; фоновое освещение {7}/{8}; туман {9}/{10}, плотность {11}/{12}; сияние {13}/{14}; разница проб {15}",
+      "singleLine": true,
+      "arguments": {
+        "1": "text"
+      }
+    },
+    {
+      "source": "{0}; a scene was saved meanwhile, the rest waits for the next run",
+      "target": "{0}; за это время сохранилась сцена, остальное ожидает следующего запуска",
+      "singleLine": true,
+      "arguments": {
+        "0": "message"
+      }
+    }
+  ],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/Ivvty-PortalPreview-1.3.6/PortalPreview/FrozenPortals.cs",
+    "source-evidence/profile-updates/Ivvty-PortalPreview-1.3.6/PortalPreview/HardwareProfile.cs",
+    "source-evidence/profile-updates/Ivvty-PortalPreview-1.3.6/PortalPreview/PortalCleanup.cs",
+    "source-evidence/profile-updates/Ivvty-PortalPreview-1.3.6/PortalPreview/PortalPreviewPlugin.cs",
+    "source-evidence/profile-updates/Ivvty-PortalPreview-1.3.6/PortalPreview/DestinationLighting.cs",
+    "source-evidence/profile-updates/Ivvty-PortalPreview-1.3.6/PortalPreview/SnapshotUpdates.cs",
+    "source-evidence/profile-updates/Ivvty-PortalPreview-1.3.6/PortalPreview/HardwareProfileSetting.cs",
+    "source-evidence/profile-updates/Ivvty-PortalPreview-1.3.6/PortalPreview/HiddenGeometryMode.cs",
+    "source-evidence/profile-updates/Ivvty-PortalPreview-1.3.6/PortalPreview/PreviewQuality.cs",
+    "source-evidence/profile-updates/Ivvty-PortalPreview-1.3.6/PortalPreview.il"
+  ],
+  "notes": [
+    "Перевод на границе вывода frozenportal: Terminal.AddString только в PortalPreview.FrozenPortals+<>c.<Initialize>b__49_0. Внутренние _status/LastError/WaitReason, параметры команд, метаданные ConfigEntry и идентификаторы остаются исходными.",
+    "Точные полные сообщения и шаблоны сводок команды, динамических состояний/причин захвата, ближайшего портала, оборудования, освещения и очистки. Вложенные сообщения явно типизированы; числовые поля и непрозрачные идентификаторы сохранены. Низкоуровневые исключения, probe и verbose debug log могут оставаться исходными. Игровой запуск не выполнен."
+  ],
+  "literals": [
+    {
+      "type": "PortalPreview.FrozenPortals",
+      "method": "Initialize",
+      "values": {
+        "Frozen 3D portals: on, off, status, clear (RAM), refresh (nearby)": "Застывшие 3D-порталы: on, off, status, clear (память), refresh (ближайшие)"
+      }
+    }
+  ]
+}

@@ -155,13 +155,79 @@
   "sourceFiles": [
     "profile/BepInEx/config/Norsemen/RandomTalks.yml",
     "source-evidence/localization/d/SephrinMods-VikingNPC_Continued-proj/Norsemen.translations.English.yml",
-    "source-evidence/localization/d/SephrinMods-VikingNPC_Continued-proj/Norsemen/NorsemenPlugin.cs"
+    "source-evidence/localization/d/SephrinMods-VikingNPC_Continued-proj/Norsemen/NorsemenPlugin.cs",
+    "source-evidence/profile-updates/SephrinMods-VikingNPC_Continued-0.4.1/Norsemen.Files.Names.yml"
   ],
   "notes": [
-    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен.",
+    "Имена npcNames сверены с embedded Norsemen.Files.Names.yml точной DLL 0.4.1; словарь применяется только к именам NPC через профильный адаптер, без глобальных rawTexts. Пользовательские списки имен вне словаря не переводятся."
   ],
   "namespaces": [
     "Norsemen"
   ],
-  "pluginVersion": "0.4.1"
+  "pluginVersion": "0.4.1",
+  "terms": {
+    "npcNames": {
+      "Ragnar": "Рагнар",
+      "Bjorn": "Бьёрн",
+      "Erik": "Эрик",
+      "Olaf": "Олаф",
+      "Thor": "Тор",
+      "Leif": "Лейф",
+      "Gunnar": "Гуннар",
+      "Ulf": "Ульф",
+      "Sven": "Свен",
+      "Magnus": "Магнус",
+      "Ivar": "Ивар",
+      "Harald": "Харальд",
+      "Knut": "Кнут",
+      "Sigurd": "Сигурд",
+      "Finn": "Финн",
+      "Rolf": "Рольф",
+      "Eirik": "Эйрик",
+      "Dag": "Даг",
+      "Nils": "Нильс",
+      "Arne": "Арне",
+      "Bard": "Бард",
+      "Einar": "Эйнар",
+      "Hakon": "Хокон",
+      "Ingvar": "Ингвар",
+      "Rollo": "Ролло",
+      "Odin": "Один",
+      "Loki": "Локи",
+      "Balder": "Бальдр",
+      "Tyr": "Тюр",
+      "Heimdall": "Хеймдалль",
+      "Vidar": "Видар",
+      "Vali": "Вали",
+      "Astrid": "Астрид",
+      "Freydis": "Фрейдис",
+      "Gudrun": "Гудрун",
+      "Helga": "Хельга",
+      "Ingrid": "Ингрид",
+      "Sigrid": "Сигрид",
+      "Thora": "Тора",
+      "Brunhild": "Брунхильд",
+      "Solveig": "Сольвейг",
+      "Ragnhild": "Рагнхильд",
+      "Asa": "Аса",
+      "Gunnhild": "Гуннхильд",
+      "Bergthora": "Бергтора",
+      "Valdis": "Вальдис",
+      "Thyra": "Тюра",
+      "Liv": "Лив",
+      "Signe": "Сигне",
+      "Inga": "Инга",
+      "Kirsten": "Кирстен",
+      "Runa": "Руна",
+      "Freyja": "Фрейя",
+      "Frigg": "Фригг",
+      "Sif": "Сиф",
+      "Idun": "Идунн",
+      "Nanna": "Нанна",
+      "Hel": "Хель",
+      "Skadi": "Скади",
+      "Eir": "Эйр"
+    }
+  }
 }

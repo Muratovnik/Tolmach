@@ -215,6 +215,10 @@ namespace Tolmach
             if (module.id == "ConditionalConfigSync") return CcsDisplay.Translate(module, text);
             return module.Table.Translate(text);
         }
+        public static string DisplayOwned(string text, string callerKey)
+        {
+            return DisplayPatches.TranslateOwned(text, callerKey);
+        }
         public static string[] DisplayArray(string[] texts, string moduleId)
         {
             if (!IsRussian || texts == null) return texts;

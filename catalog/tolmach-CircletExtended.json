@@ -1,0 +1,44 @@
+{
+  "id": "CircletExtended",
+  "package": "shudnal-CircletExtended",
+  "version": "1.1.13",
+  "pluginVersion": "1.1.13",
+  "assembly": "CircletExtended",
+  "guids": [
+    "shudnal.CircletExtended"
+  ],
+  "namespaces": [
+    "CircletExtended"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/shudnal-CircletExtended-1.1.13/CircletExtended/CircletExtended.cs",
+    "source-evidence/profile-updates/shudnal-CircletExtended-1.1.13/CircletExtended.il"
+  ],
+  "notes": [
+    "Перевод только стандартной отображаемой подписи слота ExtraSlots через два Func<string> getter; ConfigEntry и технический идентификатор CircletExtended не меняются. Пользовательские подписи сохраняются.",
+    "AzuEPI использует подпись также как идентификатор слота; его аргументы не переводятся. Игровые сообщения и описание топлива используют ключи Valheim. Config UI не переводится. Игровой запуск не выполнен."
+  ],
+  "configTexts": [
+    {
+      "type": "CircletExtended.CircletExtended+<>c",
+      "method": "<UpdateCustomEquipSlot>b__113_3",
+      "values": {
+        "Circlet": "Обруч"
+      }
+    },
+    {
+      "type": "CircletExtended.CircletExtended+<>c",
+      "method": "<UpdateCustomEquipSlot>b__113_6",
+      "values": {
+        "Circlet": "Обруч"
+      }
+    }
+  ],
+  "literals": []
+}

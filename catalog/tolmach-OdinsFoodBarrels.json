@@ -1,0 +1,40 @@
+{
+  "id": "OdinsFoodBarrels",
+  "package": "OdinPlus-OdinsFoodBarrels",
+  "version": "1.4.0",
+  "pluginVersion": "1.4.0",
+  "assembly": "OdinsFoodBarrels",
+  "guids": ["gravebear.odinsfoodbarrels"],
+  "namespaces": ["OdinsFoodBarrels"],
+  "words": {
+    "piecemanager_cat_foodbarrels": "Бочки с припасами"
+  },
+  "englishWords": {
+    "piecemanager_cat_foodbarrels": "Food Barrels"
+  },
+  "texts": {},
+  "patterns": [
+    {
+      "source": "{0} cannot be placed in {1}",
+      "target": "{0} нельзя положить в {1}",
+      "singleLine": true
+    }
+  ],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/OdinPlus-OdinsFoodBarrels-1.4.0/OdinsFoodBarrelsPlugin.cs",
+    "source-evidence/profile-updates/OdinPlus-OdinsFoodBarrels-1.4.0/RestrictContainers.cs",
+    "source-evidence/profile-updates/OdinPlus-OdinsFoodBarrels-1.4.0/PiecePrefabManager.cs",
+    "source-evidence/profile-updates/OdinPlus-OdinsFoodBarrels-1.4.0/Localizer.cs",
+    "source-evidence/profile-updates/OdinPlus-OdinsFoodBarrels-1.4.0/OdinsFoodBarrels.translations.English.yml",
+    "source-evidence/profile-updates/OdinPlus-OdinsFoodBarrels-1.4.0/OdinsFoodBarrels.translations.Russian.yml",
+    "source-evidence/profile-updates/OdinPlus-OdinsFoodBarrels-1.4.0/asset-labels.json"
+  ],
+  "notes": [
+    "Дополняются только отсутствующие в native Russian название категории строительства и сообщение RestrictContainers.CanAddItem. Все 72 собственных русских ключа названий и описаний построек остаются у мода; replaceNative не задан.",
+    "PiecePrefabManager.GetCategoryToken преобразует Food Barrels в piecemanager_cat_foodbarrels; категория читается из m_categoryLabels. Исходное имя категории, ConfigDefinition и prefab IDs не изменяются.",
+    "CanAddItem соединяет item.m_shared.m_name, английскую фразу и inventory.m_name перед Character.Message. Шаблон переводит целую строку в области OdinsFoodBarrels и сохраняет оба имени, включая исходные localization tokens.",
+    "Источники — точная DLL установленного профиля Gale 1.4.0 и metadata встроенного AssetBundle через UnityPy 1.25.3. Сборка и игровая проверка выполняются отдельно."
+  ]
+}

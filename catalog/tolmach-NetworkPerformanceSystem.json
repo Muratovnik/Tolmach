@@ -1,8 +1,8 @@
 {
   "id": "NetworkPerformanceSystem",
   "package": "MidnightMods-NetworkPerformanceSystem",
-  "version": "1.13.0",
-  "pluginVersion": "1.13.0",
+  "version": "1.15.1",
+  "pluginVersion": "1.15.1",
   "assembly": "NetworkPerformanceSystem",
   "guids": [
     "MidnightsFX.NetworkPerformanceSystem"
@@ -41,12 +41,14 @@
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.13.0/NetworkPerformanceSystem.Runtime/GhostWatchdog.cs",
-    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.13.0/NetworkPerformanceSystem.Patches/GhostWatchdogPatches.cs",
-    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.13.0/ldstr.json"
+    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.15.1/NetworkPerformanceSystem.Patches/GhostWatchdogPatches.cs",
+    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.15.1/NetworkPerformanceSystem.Runtime/GhostWatchdog.cs",
+    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.15.1/NetworkPerformanceSystem/NetworkPerformanceSystem.cs",
+    "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.15.1/il/NetworkPerformanceSystem.il"
   ],
   "notes": [
     "English is hard-coded in GhostWatchdog: Warn, Recover and Trip show center MessageHud messages, and Trip stores PendingReason, which GhostWatchdogPatches writes into FejdStartup.m_connectionFailedError.",
-    "Log lines in the same methods, the debug overlay (OnGUI) and the nps_stats console diagnostics stay English."
+    "Log lines in the same methods, the debug overlay (OnGUI) and the nps_stats console diagnostics stay English.",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
   ]
 }

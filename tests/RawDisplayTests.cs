@@ -79,6 +79,20 @@ namespace Tolmach.Tests
             Assert.That(cache.Count, Is.LessThanOrEqualTo(4096));
         }
         [Test]
+        public void ForgeContainerTitleUsesTheSameRawLocalizationBoundaryAsHover()
+        {
+            LoadModule("DynamicStorageForge");
+            RawDisplay.Initialize();
+            Localization.SelectedLanguage = "Russian";
+            Localization main = Localization.instance;
+            LocalizationBridge.Install(Patcher, typeof(Localization), () => "Russian");
+            string inventoryName = "Bronze Stack (Storage)";
+            Assert.That(main.Localize(inventoryName), Is.EqualTo("Стопка слитков бронзы (хранилище)"));
+            Assert.That(inventoryName, Is.EqualTo("Bronze Stack (Storage)"));
+            main.SetLanguage("English");
+            Assert.That(main.Localize(inventoryName), Is.EqualTo("Bronze Stack (Storage)"));
+        }
+        [Test]
         public void LocalizeShowsRawTextInRussianOnlyAndStoredNamesStayOriginal()
         {
             RawModule("raw");

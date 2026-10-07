@@ -1,8 +1,8 @@
 {
   "id": "ConditionalConfigSync",
   "package": "shudnal-ConditionalConfigSync",
-  "version": "1.0.9",
-  "pluginVersion": "1.0.9",
+  "version": "1.0.10",
+  "pluginVersion": "1.0.10",
   "assembly": "ConditionalConfigSync.Plugin",
   "codeAssembly": "ConditionalConfigSync",
   "guids": [
@@ -114,14 +114,14 @@
   "returns": [],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/current-profile/shudnal-ConditionalConfigSync-1.0.9/ConditionalConfigSync/ConditionalConfigSync/VersionCheck.cs",
-    "source-evidence/current-profile/shudnal-ConditionalConfigSync-1.0.9/ConditionalConfigSync.Plugin/ConditionalConfigSync/ConditionalConfigSyncPlugin.cs",
-    "source-evidence/current-profile/shudnal-ConditionalConfigSync-1.0.9/ConditionalConfigSync.Plugin/ConditionalConfigSync.Plugin.csproj"
+    "source-evidence/profile-updates/shudnal-ConditionalConfigSync-1.0.10/ConditionalConfigSync/VersionCheck.cs",
+    "source-evidence/profile-updates/shudnal-ConditionalConfigSync-1.0.10/il/ConditionalConfigSync.il"
   ],
   "notes": [
     "ConditionalConfigSync.Plugin owns the BepInEx identity; its directly referenced ConditionalConfigSync helper owns VersionCheck.ShowConnectionError.",
     "Read-only hooks capture the finalized NormalizeDisconnectReasons array only inside SetPendingDisconnectReport. Metadata binds to the newly created pendingDisconnectReport object and its original Message; final scoped TMP display preserves ModName while translating the isolated reason. RPC packages, pending reports and diagnostic logs remain unchanged.",
     "Legacy replacement, cleared pending state and a different report object cannot reuse prior metadata. Preserving the same pending report keeps its translations available until display clears upstream state. Known headers and guidance translate without structured metadata; unknown reasons and ambiguous normalized lines remain unchanged.",
-    "CCS pattern captures must agree between lazy and greedy matching. Repeated version delimiters and ambiguous adjacent name/version fields (including multiword display names in missing-handshake reasons) stay in English. Names, versions and malformed-payload diagnostics remain opaque; there are no global raw rules or literal/return adapters."
+    "CCS pattern captures must agree between lazy and greedy matching. Repeated version delimiters and ambiguous adjacent name/version fields (including multiword display names in missing-handshake reasons) stay in English. Names, versions and malformed-payload diagnostics remain opaque; there are no global raw rules or literal/return adapters.",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
   ]
 }

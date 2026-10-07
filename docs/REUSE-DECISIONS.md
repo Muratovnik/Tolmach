@@ -1,7 +1,6 @@
 # Переиспользование: результат и оставшиеся границы
 
-Основание — ревью версии 0.1.1 и критерии Assay code-change/reuse-and-migration,
-independent-audit/solution-choices-and-reuse. Это собственная доработка и саморевью.
+Документ сохраняет решения этапов 0.1.2–0.5.3 и условия возможной замены UI-механизма. Сведения о текущем коде — в [архитектуре](ARCHITECTURE.md); результаты новых запусков — в [статусе проверки](VALIDATION.md).
 
 | Прежний механизм | Решение в 0.1.2 | Оставшаяся граница |
 |---|---|---|
@@ -16,7 +15,7 @@ independent-audit/solution-choices-and-reuse. Это собственная до
 | Прямой доступ Jötunn.Map | Публичные GetTranslations/AddTranslation | Чужой scope всё ещё получается из internal registry |
 | Запись в game m_translations | Translate/AddWord | Узкий вызов cache.EvictAll через частный член остаётся |
 | Universal UI translation | Не расширен; ограничен имеющимися потребителями | XUnity pilot не выполнен |
-| Install.ps1: копирование в профиль, бэкап, откат | Удалён (0.1.3); пакет Thunderstore ставит Gale/r2modman | Установка вручную описана в BUILD.md |
+| Install.ps1: копирование в профиль, бэкап, откат | Удалён (0.1.3); пакет Thunderstore ставит Gale/r2modman | Установка вручную описана в [INSTALLATION.md](INSTALLATION.md) |
 | ZIP через Compress-Archive, свой receipt-формат | Thunderstore CLI (`tcli build`) собирает пакет по `thunderstore.toml` | Проверка формата/раскладки готового ZIP остаётся в Build.ps1 |
 
 ## Аудит 0.5.3: самописное и готовое

@@ -1,7 +1,7 @@
 {
   "id": "TradersExtended",
   "package": "shudnal-TradersExtended",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "assembly": "TradersExtended",
   "guids": [
     "shudnal.TradersExtended"
@@ -304,19 +304,21 @@
   "returns": [],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/localization/c/59/TradersExtended/ConfigEditor.cs",
-    "source-evidence/localization/c/59/TradersExtended/ConfigEditorTransport.cs",
-    "source-evidence/localization/c/59/TradersExtended/TraderConfigSchema.cs",
-    "source-evidence/localization/c/59/TradersExtended/TradersExtended.cs"
+    "source-evidence/profile-updates/shudnal-TradersExtended-2.0.5/TradersExtended/ConfigEditor.cs",
+    "source-evidence/profile-updates/shudnal-TradersExtended-2.0.5/TradersExtended/ConfigEditorTransport.cs",
+    "source-evidence/profile-updates/shudnal-TradersExtended-2.0.5/TradersExtended/TraderConfigSchema.cs",
+    "source-evidence/profile-updates/shudnal-TradersExtended-2.0.5/TradersExtended/TradersExtended.cs",
+    "source-evidence/profile-updates/shudnal-TradersExtended-2.0.5/il/TradersExtended.il"
   ],
   "notes": [
     "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен.",
-    "Валидация редактора переводится до объединения нескольких сообщений: литералы строго трёх методов. Идентификаторы/введённые значения и проверка валидности не изменяются."
+    "Валидация редактора переводится до объединения нескольких сообщений: литералы строго трёх методов. Идентификаторы/введённые значения и проверка валидности не изменяются.",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
   ],
   "namespaces": [
     "TradersExtended"
   ],
-  "pluginVersion": "2.0.4",
+  "pluginVersion": "2.0.5",
   "literals": [
     {
       "type": "TradersExtended.ConfigEditor",

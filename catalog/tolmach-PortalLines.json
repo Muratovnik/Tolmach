@@ -1,7 +1,7 @@
 {
   "id": "PortalLines",
   "package": "Jumpingmushroom-PortalLines",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "assembly": "PortalLines",
   "guids": [
     "com.jumpingmushroom.portallines"
@@ -16,13 +16,15 @@
   "returns": [],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/localization/d/Jumpingmushroom-PortalLines-proj/PortalLines/PortalLinesPlugin.cs"
+    "source-evidence/profile-updates/Jumpingmushroom-PortalLines-0.8.1/PortalLines/PortalLinesPlugin.cs",
+    "source-evidence/profile-updates/Jumpingmushroom-PortalLines-0.8.1/il/PortalLines.il"
   ],
   "notes": [
-    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен.",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
   ],
   "namespaces": [
     "PortalLines"
   ],
-  "pluginVersion": "0.8.0"
+  "pluginVersion": "0.8.1"
 }

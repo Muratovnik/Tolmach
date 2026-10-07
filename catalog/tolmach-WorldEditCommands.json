@@ -1,8 +1,8 @@
 {
   "id": "WorldEditCommands",
   "package": "JereKuusela-World_Edit_Commands",
-  "version": "1.79.0",
-  "pluginVersion": "1.79",
+  "version": "1.80.0",
+  "pluginVersion": "1.80",
   "assembly": "WorldEditCommands",
   "guids": [
     "world_edit_commands"
@@ -66,15 +66,16 @@
     }
   ],
   "sourceFiles": [
-    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.79.0/WorldEditCommands/WorldEditCommands.cs",
-    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.79.0/WorldEditCommands/UndoAction.cs",
-    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.79.0/WorldEditCommands/UndoHelper.cs",
-    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.79.0/WorldEditCommands/ObjectCommand.cs",
-    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.79.0/WorldEditCommands/TerrainCommand.cs",
-    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.79.0/WorldEditCommands.ldstr.il"
+    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.80.0/WorldEditCommands/ObjectCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.80.0/WorldEditCommands/TerrainCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.80.0/WorldEditCommands/UndoAction.cs",
+    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.80.0/WorldEditCommands/UndoHelper.cs",
+    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.80.0/WorldEditCommands/WorldEditCommands.cs",
+    "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.80.0/il/WorldEditCommands.il"
   ],
   "notes": [
     "English is hard-coded in WorldEditCommands.dll. Infinity Hammer undo/redo keys and its default hoe tools (terrain, object remove/tame) run these commands, and single-object results reach the screen through Server Devcommands Helper.AddMessage; the literals cover those messages.",
-    "Console help and console-only output of the world edit commands are left in English in this pass."
+    "Console help and console-only output of the world edit commands are left in English in this pass.",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
   ]
 }

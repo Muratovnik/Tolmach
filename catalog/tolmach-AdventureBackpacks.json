@@ -1,8 +1,8 @@
 {
   "id": "AdventureBackpacks",
   "package": "Vapok-AdventureBackpacks",
-  "version": "2.2.5",
-  "pluginVersion": "2.2.5",
+  "version": "2.2.10",
+  "pluginVersion": "2.2.10",
   "assembly": "AdventureBackpacks",
   "guids": [
     "vapok.mods.adventurebackpacks"
@@ -55,15 +55,17 @@
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5/Vapok.Common.Managers.Skill/Skill.cs",
-    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5/AdventureBackpacks.Translations.English.json",
-    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5/Vapok.Common.Managers.Splash/CyberTooltipTrigger.cs",
-    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5/Vapok.Common.Managers.Splash/SplashModalComponent.cs",
-    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5/ldstr.json"
+    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.10/AdventureBackpacks.Translations.English.json",
+    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.10/AdventureBackpacks/AdventureBackpacks.cs",
+    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.10/Vapok.Common.Managers.Skill/Skill.cs",
+    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.10/Vapok.Common.Managers.Splash/CyberTooltipTrigger.cs",
+    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.10/Vapok.Common.Managers.Splash/SplashModalComponent.cs",
+    "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.10/il/AdventureBackpacks.il"
   ],
   "notes": [
     "Английский текст взят из кода и ресурсов этой версии мода; русский перевод собственный.",
     "Собственный русский перевод мода сохраняется; добавлен только недостающий ключ и консольные сообщения.",
-    "The 32 native gameplay keys keep the mod's Russian table. Three hard-coded privacy UI headers are translated in their exact display methods; optional ChebsNecromancy content absent from the checked installation is not added."
+    "The 32 native gameplay keys keep the mod's Russian table. Three hard-coded privacy UI headers are translated in their exact display methods; optional ChebsNecromancy content absent from the checked installation is not added.",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
   ]
 }

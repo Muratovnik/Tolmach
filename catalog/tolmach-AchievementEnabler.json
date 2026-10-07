@@ -1,0 +1,44 @@
+{
+  "id": "AchievementEnabler",
+  "package": "MidnightMods-AchievementEnabler",
+  "version": "0.4.1",
+  "pluginVersion": "0.4.1",
+  "assembly": "AchievementEnabler",
+  "guids": [
+    "MidnightsFX.AchievementEnabler"
+  ],
+  "namespaces": [
+    "AchievementEnabler"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/MidnightMods-AchievementEnabler-0.4.1/AchievementEnabler/AchievementEnabler.cs",
+    "source-evidence/profile-updates/MidnightMods-AchievementEnabler-0.4.1/AchievementEnabler/ClearCheatedItemsCommand.cs"
+  ],
+  "notes": [
+    "Английские консольные сообщения сверены с точной установленной DLL; русский перевод собственный."
+  ],
+  "literals": [
+    {
+      "type": "AchievementEnabler.ClearCheatedItemsCommand",
+      "method": "Register",
+      "values": {
+        "clears the cheated flag from every item you are carrying": "снимает отметку читерского происхождения со всех предметов в инвентаре"
+      }
+    },
+    {
+      "type": "AchievementEnabler.ClearCheatedItemsCommand",
+      "method": "Run",
+      "values": {
+        "you need to be in a world with a character loaded": "нужно войти в мир с загруженным персонажем",
+        "Nothing to clear: none of the items you are carrying are flagged as cheated.": "В инвентаре нет предметов с отметкой читерского происхождения.",
+        "Cleared the cheated flag from {0} item(s): {1}": "Снята отметка читерского происхождения с предметов ({0}): {1}"
+      }
+    }
+  ]
+}

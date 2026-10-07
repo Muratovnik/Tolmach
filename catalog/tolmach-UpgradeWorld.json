@@ -1,0 +1,50 @@
+{
+  "id": "UpgradeWorld",
+  "package": "JereKuusela-Upgrade_World",
+  "version": "1.84.0",
+  "pluginVersion": "1.84",
+  "assembly": "UpgradeWorld",
+  "guids": ["upgrade_world"],
+  "namespaces": ["UpgradeWorld"],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "literals": [
+    {
+      "type": "UpgradeWorld.Helper",
+      "method": "AddError",
+      "values": {"Error: ": "Ошибка: "}
+    },
+    {
+      "type": "UpgradeWorld.RegisterLocation",
+      "method": "Register",
+      "values": {
+        "Location ": "Локация ",
+        " not found.": " не найдена."
+      }
+    },
+    {
+      "type": "UpgradeWorld.ResetChests",
+      "method": "GetPrefabsForOperation",
+      "values": {"Error: Invalid chest ID.": "Ошибка: неверный ID сундука."}
+    }
+  ],
+  "sourceFiles": [
+    "source-evidence/profile-updates/JereKuusela-Upgrade_World-1.84.0/UpgradeWorld/Helper.cs",
+    "source-evidence/profile-updates/JereKuusela-Upgrade_World-1.84.0/UpgradeWorld/RegisterLocation.cs",
+    "source-evidence/profile-updates/JereKuusela-Upgrade_World-1.84.0/UpgradeWorld/ResetChests.cs",
+    "source-evidence/profile-updates/JereKuusela-Upgrade_World-1.84.0/UpgradeWorld/LocationRegisterCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-Upgrade_World-1.84.0/UpgradeWorld/ChestsResetCommand.cs",
+    "source-evidence/profile-updates/JereKuusela-Upgrade_World-1.84.0/UpgradeWorld/ExecutedEntityOperation.cs",
+    "source-evidence/profile-updates/JereKuusela-Upgrade_World-1.84.0/UpgradeWorld/Executor.cs",
+    "source-evidence/profile-updates/JereKuusela-Upgrade_World-1.84.0/UpgradeWorld.il"
+  ],
+  "notes": [
+    "Scoped HUD error translation: Helper.Catch catches InvalidOperationException from command callbacks and calls AddError -> AddMessage -> Character.Message. RegisterLocation.Register and ResetChests.GetPrefabsForOperation provide the mod's two explicit InvalidOperationException messages; Executor.AddOperation invokes ResetChests.OnInit synchronously within the caught callback.",
+    "Command names, parameter IDs, help, autocomplete and ordinary console operation reports remain outside coverage. No general Terminal.AddString adapter is installed. The Location prefix is also shared by the successful registration report in Register; its opaque location ID is preserved.",
+    "Exact installed DLL was decompiled and its literal instructions checked. Package version is 1.84.0; BepInPlugin reports 1.84. No game execution or screen layout validation is claimed."
+  ]
+}

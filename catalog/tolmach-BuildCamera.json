@@ -1,7 +1,7 @@
 {
   "id": "BuildCamera",
   "package": "Azumatt-Build_Camera_Custom_Hammers_Edition",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "assembly": "Build Camera",
   "guids": [
     "Azumatt.BuildCameraCHE"
@@ -21,18 +21,20 @@
   "returns": [],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/localization/b/21-Azumatt-Build_Camera_Custom_Hammers_Edition/Valheim_Build_Camera/Valheim_Build_CameraPlugin.cs",
-    "source-evidence/localization/b/21-Azumatt-Build_Camera_Custom_Hammers_Edition/Valheim_Build_Camera/Utils.cs",
-    "source-evidence/localization/b/21-Azumatt-Build_Camera_Custom_Hammers_Edition/ServerSync/VersionCheck.cs"
+    "source-evidence/profile-updates/Azumatt-Build_Camera_Custom_Hammers_Edition-1.3.4/ServerSync/VersionCheck.cs",
+    "source-evidence/profile-updates/Azumatt-Build_Camera_Custom_Hammers_Edition-1.3.4/Valheim_Build_Camera/Utils.cs",
+    "source-evidence/profile-updates/Azumatt-Build_Camera_Custom_Hammers_Edition-1.3.4/Valheim_Build_Camera/Valheim_Build_CameraPlugin.cs",
+    "source-evidence/profile-updates/Azumatt-Build_Camera_Custom_Hammers_Edition-1.3.4/il/Build Camera.il"
   ],
   "notes": [
-    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен.",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
   ],
   "namespaces": [
     "Valheim_Build_Camera",
     "ServerSync"
   ],
-  "pluginVersion": "1.3.3",
+  "pluginVersion": "1.3.4",
   "literals": [
     {
       "type": "Valheim_Build_Camera.Utils",

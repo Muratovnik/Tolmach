@@ -1,8 +1,8 @@
 {
   "id": "PlantEasily",
   "package": "Advize-PlantEasily",
-  "version": "2.2.2",
-  "pluginVersion": "2.2.2",
+  "version": "2.3.0",
+  "pluginVersion": "2.3.0",
   "assembly": "Advize_PlantEasily",
   "guids": [
     "advize.PlantEasily"
@@ -47,10 +47,13 @@
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/localization/b/30-Advize-PlantEasily/Advize_PlantEasily/HoverTextPatches.cs",
-    "source-evidence/localization/b/30-Advize-PlantEasily/Advize_PlantEasily/KeyHintPatches.cs"
+    "source-evidence/profile-updates/Advize-PlantEasily-2.3.0/Advize_PlantEasily/HoverTextPatches.cs",
+    "source-evidence/profile-updates/Advize-PlantEasily-2.3.0/Advize_PlantEasily/KeyHintPatches.cs",
+    "source-evidence/profile-updates/Advize-PlantEasily-2.3.0/Advize_PlantEasily/PlantEasily.cs",
+    "source-evidence/profile-updates/Advize-PlantEasily-2.3.0/il/Advize_PlantEasily.il"
   ],
   "notes": [
-    "Английский текст взят из кода и ресурсов этой версии мода; русский перевод собственный."
+    "Английский текст взят из кода и ресурсов этой версии мода; русский перевод собственный.",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
   ]
 }

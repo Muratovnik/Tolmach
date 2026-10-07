@@ -1,8 +1,8 @@
 {
   "id": "BetterBeehives",
   "package": "MaxFoxGaming-Better_Beehives",
-  "version": "1.3.0",
-  "pluginVersion": "1.3.0",
+  "version": "1.3.1",
+  "pluginVersion": "1.3.1",
   "assembly": "BetterBeehives",
   "guids": [
     "maxfoxgaming.betterbeehives"
@@ -17,12 +17,13 @@
   "returns": [],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/profile-updates/MaxFoxGaming-Better_Beehives-1.3.0/BetterBeehives/BetterBeehives/Main.cs",
-    "source-evidence/profile-updates/MaxFoxGaming-Better_Beehives-1.3.0/BetterBeehives/ServerSync/VersionCheck.cs",
-    "source-evidence/profile-updates/MaxFoxGaming-Better_Beehives-1.3.0/BetterBeehives.ldstr.il"
+    "source-evidence/profile-updates/MaxFoxGaming-Better_Beehives-1.3.1/BetterBeehives/Main.cs",
+    "source-evidence/profile-updates/MaxFoxGaming-Better_Beehives-1.3.1/ServerSync/VersionCheck.cs",
+    "source-evidence/profile-updates/MaxFoxGaming-Better_Beehives-1.3.1/il/BetterBeehives.il"
   ],
   "notes": [
-    "The mod's own code shows no player text of its own (logs, config and vanilla tokens only); the only on-screen English is the embedded ServerSync version-mismatch message, translated through literals of ServerSync.VersionCheck."
+    "The mod's own code shows no player text of its own (logs, config and vanilla tokens only); the only on-screen English is the embedded ServerSync version-mismatch message, translated through literals of ServerSync.VersionCheck.",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
   ],
   "literals": [
     {

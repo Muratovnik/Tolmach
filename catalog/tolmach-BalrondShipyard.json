@@ -1,7 +1,7 @@
 {
   "id": "BalrondShipyard",
   "package": "Balrond-balrond_shipyard",
-  "version": "1.7.3",
+  "version": "1.8.4",
   "assembly": "BalrondShipyard.merged",
   "guids": [
     "balrond.astafaraios.BalrondShipyard"
@@ -31,23 +31,25 @@
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/Launch.cs",
-    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/ShipyardStation.cs",
-    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/AnchorSwitch.cs",
-    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/FishnetTrap.cs",
-    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/ShieldPainter.cs",
-    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/ShipProcessor.cs",
-    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/ShipOwnerName.cs",
-    "source-evidence/localization/d/Balrond-balrond_shipyard-proj/BalrondShipyard/ShipExtensionFactory.cs"
+    "source-evidence/profile-updates/Balrond-balrond_shipyard-1.8.4/BalrondShipyard/AnchorSwitch.cs",
+    "source-evidence/profile-updates/Balrond-balrond_shipyard-1.8.4/BalrondShipyard/FishnetTrap.cs",
+    "source-evidence/profile-updates/Balrond-balrond_shipyard-1.8.4/BalrondShipyard/Launch.cs",
+    "source-evidence/profile-updates/Balrond-balrond_shipyard-1.8.4/BalrondShipyard/ShieldPainter.cs",
+    "source-evidence/profile-updates/Balrond-balrond_shipyard-1.8.4/BalrondShipyard/ShipExtensionFactory.cs",
+    "source-evidence/profile-updates/Balrond-balrond_shipyard-1.8.4/BalrondShipyard/ShipOwnerName.cs",
+    "source-evidence/profile-updates/Balrond-balrond_shipyard-1.8.4/BalrondShipyard/ShipProcessor.cs",
+    "source-evidence/profile-updates/Balrond-balrond_shipyard-1.8.4/BalrondShipyard/ShipyardStation.cs",
+    "source-evidence/profile-updates/Balrond-balrond_shipyard-1.8.4/il/BalrondShipyard.il"
   ],
   "notes": [
     "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен.",
-    "rawTexts и rawPatterns: строки, которые мод хранит в объектах (названия, описания, записи Compendium, составные имена). Переводятся только при показе через Localization.Localize; сохранённые данные не меняются."
+    "rawTexts и rawPatterns: строки, которые мод хранит в объектах (названия, описания, записи Compendium, составные имена). Переводятся только при показе через Localization.Localize; сохранённые данные не меняются.",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
   ],
   "namespaces": [
     "BalrondShipyard"
   ],
-  "pluginVersion": "1.7.3",
+  "pluginVersion": "1.8.4",
   "literals": [
     {
       "type": "BalrondShipyard.ShipyardStation",

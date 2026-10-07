@@ -135,6 +135,11 @@ def fixture_data_checks(modules: list[dict]) -> None:
         check(case.get('module') in ids, 'Regression fixture references an unknown module')
         check(isinstance(case.get('source'), str) and isinstance(case.get('expected'), str), 'Invalid regression fixture strings')
 
+def native_caption_words(module: dict) -> dict[str, str]:
+    aliases = {key[1:] for key in module.get('nameAliases', {}).values()}
+    return {key: value for key, value in module['englishWords'].items() if key not in aliases}
+
+
 def evidence_checks(evidence: Path, modules: list[dict]) -> None:
     coverage = load(evidence / 'localization/coverage.json')
     # The archived audit lists packages without Russian text; each needs a module. Packages
@@ -153,7 +158,7 @@ def evidence_checks(evidence: Path, modules: list[dict]) -> None:
                     rows = list(csv.reader(stream))
                 column = rows[0].index('English')
                 english = {r[0]: r[column] for r in rows[1:] if r and r[0] and not r[0].startswith('//') and len(r) > column}
-                check(m['englishWords'] == english, m['id'] + ': game caption table not exactly represented')
+                check(native_caption_words(m) == english, m['id'] + ': game caption table not exactly represented')
     expert = next(m for m in modules if m['id'] == 'ExpertExplorer')
     expert_english = {}
     for path in (evidence / 'packages/MilkMediaProductions-ExpertExplorer/plugins').glob('*.English.json'):

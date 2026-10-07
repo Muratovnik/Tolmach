@@ -11,6 +11,7 @@ namespace Tolmach
     {
         private static readonly Dictionary<string, Module> Owners = new Dictionary<string, Module>();
         private static readonly MethodInfo Display = typeof(TextEngine).GetMethod("Display");
+        private static readonly MethodInfo DisplayOwned = typeof(TextEngine).GetMethod("DisplayOwned");
         private static readonly MethodInfo DisplayArray = typeof(TextEngine).GetMethod("DisplayArray");
         private static readonly MethodInfo Literal = typeof(TextEngine).GetMethod("Literal");
         private static readonly MethodInfo ConfigText = typeof(TextEngine).GetMethod("ConfigText");
@@ -111,7 +112,7 @@ namespace Tolmach
                     foreach (LiteralSpec spec in specs)
                         if (spec.values.ContainsKey(text)) { literal = true; seen.Add(LiteralKey(spec, text)); }
                 }
-                sink = module.HasDisplayText && original.Any(delegate(CodeInstruction instruction) { return Relevant(instruction, module); });
+                sink = module.HasDisplayText && original.Any(delegate(CodeInstruction instruction) { return Relevant(instruction, module, method); });
                 // Like a literal rule, a config text rule patches only the overload that reads a string config value.
                 config = configs.Length != 0 && original.Any(ConfigRead);
                 if (config) foreach (LiteralSpec spec in configs) seen.Add(ConfigKey(spec));
@@ -175,11 +176,11 @@ namespace Tolmach
             catch (Exception) { return false; }
         }
         internal static void Reset() { Owners.Clear(); CallSites.Reset(); CcsDisplay.Reset(); }
-        private static bool Relevant(CodeInstruction instruction, Module module)
+        private static bool Relevant(CodeInstruction instruction, Module module, MethodBase caller)
         {
             MethodBase call = instruction.operand as MethodBase;
             if (call != null && (instruction.opcode == OpCodes.Call || instruction.opcode == OpCodes.Callvirt || instruction.opcode == OpCodes.Newobj))
-                return StringSink(call).Any(delegate(bool b) { return b; });
+                return StringSinkAt(call, module, caller).Any(delegate(bool b) { return b; });
             FieldInfo field = instruction.operand as FieldInfo;
             return field != null && instruction.opcode == OpCodes.Stfld && DisplayField(field, module);
         }
@@ -221,6 +222,27 @@ namespace Tolmach
                     selected[i] = i == 0 && p == typeof(string);
             }
             return selected;
+        }
+        internal static bool ScopedTerminalSink(MethodBase sink, Module module, MethodBase caller)
+        {
+            if (module == null || module.id != "PortalPreview" || caller == null || caller.DeclaringType == null ||
+                caller.DeclaringType.FullName != "PortalPreview.FrozenPortals+<>c" || caller.Name != "<Initialize>b__49_0" ||
+                sink.DeclaringType == null || sink.DeclaringType.FullName != "Terminal" || sink.Name != "AddString" || sink.IsStatic) return false;
+            ParameterInfo[] parameters = sink.GetParameters();
+            return parameters.Length == 1 && parameters[0].ParameterType == typeof(string);
+        }
+        internal static bool[] StringSinkAt(MethodBase sink, Module module, MethodBase caller)
+        {
+            bool[] selected = StringSink(sink);
+            if (ScopedTerminalSink(sink, module, caller)) selected[0] = true;
+            return selected;
+        }
+        internal static string TranslateOwned(string value, string callerKey)
+        {
+            Module owner, current;
+            if (!TextEngine.IsRussian || callerKey == null || !Owners.TryGetValue(callerKey, out owner) || !owner.UiAllowed ||
+                !TextEngine.Modules.TryGetValue(owner.id, out current) || !ReferenceEquals(owner, current)) return value;
+            return TextEngine.Display(value, owner.id);
         }
         internal static bool LocalizedReturn(MethodBase method)
         {
@@ -299,7 +321,7 @@ namespace Tolmach
                 MethodBase call = current.operand as MethodBase;
                 bool isCall = current.opcode == OpCodes.Call || current.opcode == OpCodes.Callvirt || current.opcode == OpCodes.Newobj;
                 if (!module.HasDisplayText || call == null || !isCall) { output.Add(current); continue; }
-                bool[] selected = StringSink(call);
+                bool[] selected = StringSinkAt(call, module, __originalMethod);
                 if (!selected.Any(delegate(bool b) { return b; })) { output.Add(current); continue; }
                 ParameterInfo[] parameters = call.GetParameters();
                 LocalBuilder[] locals = parameters.Select(delegate(ParameterInfo p) { return generator.DeclareLocal(p.ParameterType); }).ToArray();
@@ -310,8 +332,9 @@ namespace Tolmach
                 {
                     replacement.Add(new CodeInstruction(OpCodes.Ldloc, locals[i]));
                     if (!selected[i]) continue;
-                    replacement.Add(new CodeInstruction(OpCodes.Ldstr, module.id));
-                    replacement.Add(new CodeInstruction(OpCodes.Call, parameters[i].ParameterType == typeof(string[]) ? DisplayArray : Display));
+                    bool scopedTerminal = ScopedTerminalSink(call, module, __originalMethod);
+                    replacement.Add(new CodeInstruction(OpCodes.Ldstr, scopedTerminal ? methodKey : module.id));
+                    replacement.Add(new CodeInstruction(OpCodes.Call, scopedTerminal ? DisplayOwned : parameters[i].ParameterType == typeof(string[]) ? DisplayArray : Display));
                 }
                 replacement[0].MoveLabelsFrom(current);
                 replacement.Add(current);

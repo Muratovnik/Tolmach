@@ -1,4 +1,5 @@
 """Fault controls for the DATA validator. No C# behavior or syntax is simulated."""
+import importlib.util
 import json
 import shutil
 import subprocess
@@ -53,7 +54,7 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
     root = tmp_path / 'subject'
     # .git and .cache hold release-kit state; its temporary directory, and so tmp_path,
     # can be inside .git, which would make the copy contain itself.
-    shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.git', '.cache', 'bin', 'obj', 'artifacts', 'evidence', '__pycache__', '.pytest_cache'))
+    shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.git', '.cache', '.private', 'tmp', 'bin', 'obj', 'artifacts', 'evidence', '__pycache__', '.pytest_cache'))
     name = 'BetterArchery' if mutation == 'markup' else 'StructureTweaks'
     if mutation in ('missing_key', 'empty_value'):
         name = 'Warfare'
@@ -116,3 +117,24 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
     process, report = run_validator(root)
     assert process.returncode == 1, process.stderr + process.stdout
     assert any(diagnostic in error for error in report['errors']), report
+
+
+@pytest.mark.parametrize('native_change', [None, 'wrong_value', 'missing_key', 'unexpected_key'])
+def test_caption_resource_comparison_keeps_native_words_and_excludes_only_aliases(native_change):
+    spec = importlib.util.spec_from_file_location('tolmach_validator', ROOT / 'tools/validate.py')
+    validator = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(validator)
+    resource = {'caption_groaning': 'groans', 'sfx_arrow_hit': 'Arrow hits'}
+    module = {
+        'englishWords': dict(resource, tolmach_idol_0_weapon='Wooden weapon idol'),
+        'nameAliases': {
+            '$item_upgrader_tier0 $item_upgrader_weapon $item_upgrader_name': '$tolmach_idol_0_weapon'
+        }
+    }
+    if native_change == 'wrong_value':
+        module['englishWords']['caption_groaning'] = 'incorrect'
+    elif native_change == 'missing_key':
+        del module['englishWords']['sfx_arrow_hit']
+    elif native_change == 'unexpected_key':
+        module['englishWords']['unexpected_caption'] = 'Unexpected caption'
+    assert (validator.native_caption_words(module) == resource) is (native_change is None)

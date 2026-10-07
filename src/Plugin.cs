@@ -11,6 +11,12 @@ using HarmonyLib;
 namespace Tolmach
 {
     [BepInPlugin(PluginId, "Tolmach", PluginVersion)]
+    [BepInDependency("shudnal.CircletExtended", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("ru.ivest.portalpreview", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("MidnightsFX.AchievementEnabler", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("MidnightsFX.ValheimCommunityPatch", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("gravebear.odinsfoodbarrels", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("upgrade_world", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("goldenrevolver.SmartWishbone", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("Rock3t.RecipeSync", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("Azumatt.AzuAntiArthriticCrafting", BepInDependency.DependencyFlags.SoftDependency)]
@@ -113,7 +119,7 @@ namespace Tolmach
     public sealed class Plugin : BaseUnityPlugin
     {
         public const string PluginId = "muratovnik.tolmach";
-        public const string PluginVersion = "0.8.0";
+        public const string PluginVersion = "0.9.0";
         private static ManualLogSource Log;
         private static readonly List<string> Notes = new List<string>();
         private static RuntimeReport report;
@@ -127,6 +133,8 @@ namespace Tolmach
             report = new RuntimeReport();
             DisplayPatches.Reset();
             CreatureNameDisplay.Reset();
+            NorsemenNames.Reset();
+            ContainerNameDisplay.Reset();
             TextEngine.IsRussian = false;
             Logger.LogInfo("Runtime report session: " + report.SessionId);
             WriteReport(); // Invalidate a previous successful report before configuration or I/O can fail.
@@ -196,6 +204,8 @@ namespace Tolmach
             // Fallback only: once the game's Localization exists, its GetSelectedLanguage decides.
             LocalizationBridge.Install(harmony, RuntimeAccess.ExactType("Localization"), delegate { return UnityEngine.PlayerPrefs.GetString("language", "English"); });
             CreatureNameDisplay.Install(harmony, RuntimeAccess.ExactType("Character"), RuntimeAccess.ExactType("Tameable"), RuntimeAccess.ExactType("ZNetScene"));
+            NorsemenNames.Install(harmony);
+            ContainerNameDisplay.Install(harmony, RuntimeAccess.ExactType("Container"));
             foreach (Module m in TextEngine.Modules.Values)
             {
                 try { DisplayPatches.Install(harmony, m); }
@@ -233,6 +243,8 @@ namespace Tolmach
             LocalizationBridge.Reset();
             RawDisplay.Reset();
             CreatureNameDisplay.Reset();
+            NorsemenNames.Reset();
+            ContainerNameDisplay.Reset();
             DisplayPatches.Reset();
             GameItems.Reset();
             TextEngine.Modules.Clear();

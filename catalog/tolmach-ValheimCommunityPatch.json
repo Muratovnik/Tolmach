@@ -1,0 +1,57 @@
+{
+  "id": "ValheimCommunityPatch",
+  "package": "MidnightMods-ValheimCommunityPatch",
+  "version": "0.33.0",
+  "pluginVersion": "0.33.0",
+  "assembly": "ValheimCommunityPatch",
+  "guids": [
+    "MidnightsFX.ValheimCommunityPatch"
+  ],
+  "namespaces": [
+    "ValheimCommunityPatch.Patches.Performance"
+  ],
+  "words": {},
+  "englishWords": {},
+  "texts": {},
+  "patterns": [],
+  "returns": [],
+  "prefabs": [],
+  "sourceFiles": [
+    "source-evidence/profile-updates/MidnightMods-ValheimCommunityPatch-0.33.0/ValheimCommunityPatch/ValheimCommunityPatch.cs",
+    "source-evidence/profile-updates/MidnightMods-ValheimCommunityPatch-0.33.0/ValheimCommunityPatch.Patches.Performance/ZdoMemoryStats.cs"
+  ],
+  "notes": [
+    "Английские консольные сообщения сверены с точной установленной DLL; русский перевод собственный."
+  ],
+  "literals": [
+    {
+      "type": "ValheimCommunityPatch.Patches.Performance.ZdoMemoryStats+TerminalHook",
+      "method": "InitTerminalPostfix",
+      "values": {
+        "Prints the sizes of the server's ZDO bookkeeping (Valheim Community Patch).": "Показывает размер служебных данных ZDO сервера (Valheim Community Patch)."
+      }
+    },
+    {
+      "type": "ValheimCommunityPatch.Patches.Performance.ZdoMemoryStats",
+      "method": "Build",
+      "values": {
+        "ZDO memory stats: no world loaded.": "Память ZDO: мир не загружен.",
+        "ZDO memory stats: peers ": "Память ZDO: участников ",
+        " | peer tables: sum ": " | таблицы участников: сумма ",
+        ", max ": ", максимум ",
+        ", force-send ": ", принудительная отправка ",
+        ", invalidated ": ", устаревших ",
+        " | dead records ": " | удалённых записей ",
+        " | zdos ": " | ZDO ",
+        ", zdo pool free ": ", свободных ZDO в пуле ",
+        " | field tables f/v/q/i/l/s/b ": " | таблицы полей f/v/q/i/l/s/b ",
+        " | field table pools ": " | пулы таблиц полей ",
+        " | fixes: evicted ": " | исправления: удалено ",
+        " pending)": " ожидают)",
+        ", dropped tables ": ", освобождено таблиц ",
+        " | managed heap ": " | управляемая куча ",
+        " of ": " из "
+      }
+    }
+  ]
+}

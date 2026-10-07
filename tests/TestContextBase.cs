@@ -90,6 +90,8 @@ namespace Tolmach.Tests
         private static void ResetGameFakes()
         {
             CreatureNameDisplay.Reset();
+            NorsemenNames.Reset();
+            ContainerNameDisplay.Reset();
             NameScene.instance = null;
             BalrondHumanoidRandomizer.Launch.itemSetBuilder = new BalrondHumanoidRandomizer.ItemSetBuilder();
             Localization.ResetForTests(); Minimap.ResetForTests(); FixturePlugin.LocalizeKey.ResetForTests();

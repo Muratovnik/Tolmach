@@ -1,7 +1,7 @@
 {
   "id": "WackysDatabase",
   "package": "WackyMole-WackysDatabase",
-  "version": "2.5.38",
+  "version": "2.5.39",
   "assembly": "WackysDatabase",
   "guids": [
     "WackyMole.WackysDatabase"
@@ -70,19 +70,20 @@
     }
   ],
   "sourceFiles": [
-    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38/wackydatabase/WMRecipeCust.cs",
-    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38/wackydatabase.OBJimporter/HandleData.cs",
-    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38/ServerSync/VersionCheck.cs",
-    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38/wackydatabase.Startup/Startup.cs",
-    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38/ldstr.json"
+    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.39/ServerSync/VersionCheck.cs",
+    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.39/wackydatabase.OBJimporter/HandleData.cs",
+    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.39/wackydatabase.Startup/Startup.cs",
+    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.39/wackydatabase/WMRecipeCust.cs",
+    "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.39/il/WackysDatabase.il"
   ],
   "notes": [
     "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен.",
-    "AssetSync HUD messages and connection errors are translated only at display boundaries. RPC payloads, ClientMSG control checks, logs, commands, arbitrary user YAML and configuration descriptions retain upstream text. Captured names, paths, versions and peer IDs stay opaque."
+    "AssetSync HUD messages and connection errors are translated only at display boundaries. RPC payloads, ClientMSG control checks, logs, commands, arbitrary user YAML and configuration descriptions retain upstream text. Captured names, paths, versions and peer IDs stay opaque.",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
   ],
   "namespaces": [
     "wackydatabase",
     "ServerSync"
   ],
-  "pluginVersion": "2.5.38"
+  "pluginVersion": "2.5.39"
 }

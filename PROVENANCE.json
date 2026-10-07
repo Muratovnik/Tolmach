@@ -4,21 +4,38 @@
   "basis": "User-provided snapshot plus the dated installed-profile updates recorded below. Binary hashes are evidence metadata, not a claim that DLLs were shipped or runtime-verified.",
   "modules": [
     {
-      "id": "AdventureBackpacks",
-      "package": "Vapok-AdventureBackpacks",
-      "version": "2.2.5",
-      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
-      "source_root": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.5",
+      "id": "AchievementEnabler",
+      "package": "MidnightMods-AchievementEnabler",
+      "version": "0.4.1",
+      "status_in_archive": "Installed profile exact source/literal audit 2026-10-07; game execution is separate.",
+      "source_root": "source-evidence/profile-updates/MidnightMods-AchievementEnabler-0.4.1",
       "binary_identities": [
         {
-          "mod": "Vapok-AdventureBackpacks-2.2.5",
+          "mod": "MidnightMods-AchievementEnabler-0.4.1",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/MidnightMods-AchievementEnabler/AchievementEnabler.dll",
+          "size": 31232,
+          "sha256": "63fae50601f54ed00e599f2547993303cd8c2ac5104e27eff1ecbb971726e2cd"
+        }
+      ]
+    },
+    {
+      "id": "AdventureBackpacks",
+      "package": "Vapok-AdventureBackpacks",
+      "version": "2.2.10",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/Vapok-AdventureBackpacks-2.2.10",
+      "binary_identities": [
+        {
+          "mod": "Vapok-AdventureBackpacks-2.2.10",
           "enabled": true,
           "profile_path": "BepInEx/plugins/Vapok-AdventureBackpacks/AdventureBackpacks.dll",
-          "size": 48925696,
-          "sha256": "9c9827059ee4d65e6b693f15e834e6508445df8700c4c39f52d52484fd845f9e"
+          "size": 48930304,
+          "sha256": "dc7f0a600f194e4c108a86e9449157f55a83731c6ac325d660ae2118db29e56c"
         }
       ],
-      "previous_version": "2.2.4"
+      "previous_version": "2.2.5",
+      "archived_version": "2.2.0"
     },
     {
       "id": "Advize_PlantEverything",
@@ -124,18 +141,20 @@
     {
       "id": "AzuAutoStore",
       "package": "Azumatt-AzuAutoStore",
-      "version": "3.1.6",
-      "status_in_archive": "partial",
-      "source_root": "source-evidence/localization/a/Azumatt-AzuAutoStore",
+      "version": "3.1.7",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/Azumatt-AzuAutoStore-3.1.7",
       "binary_identities": [
         {
-          "mod": "Azumatt-AzuAutoStore-3.1.6",
+          "mod": "Azumatt-AzuAutoStore-3.1.7",
           "enabled": true,
           "profile_path": "BepInEx/plugins/Azumatt-AzuAutoStore/AzuAutoStore.dll",
-          "size": 570368,
-          "sha256": "106876c65eef3c9b50ca2f9123ee166be3d64e5e6798dca1592a4ffc60378021"
+          "size": 570880,
+          "sha256": "a609e7209832fb96af11fe3a0f6c499d4ed54f599289d23df0826a51bde640ee"
         }
-      ]
+      ],
+      "previous_version": "3.1.6",
+      "archived_version": "3.1.6"
     },
     {
       "id": "AzuCraftyBoxes",
@@ -160,7 +179,8 @@
         "upstream_fetch_result": "404",
         "source_code_reused": false
       },
-      "runtime_validation": "not_run"
+      "runtime_validation": "not_run",
+      "archived_version": "1.8.26"
     },
     {
       "id": "AzuWorkbenchTweaks",
@@ -284,18 +304,20 @@
     {
       "id": "BalrondShipyard",
       "package": "Balrond-balrond_shipyard",
-      "version": "1.7.3",
-      "status_in_archive": "partial",
-      "source_root": "source-evidence/localization/d/Balrond-balrond_shipyard-proj",
+      "version": "1.8.4",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/Balrond-balrond_shipyard-1.8.4",
       "binary_identities": [
         {
-          "mod": "Balrond-balrond_shipyard-1.7.3",
+          "mod": "Balrond-balrond_shipyard-1.8.4",
           "enabled": true,
           "profile_path": "BepInEx/plugins/Balrond-balrond_shipyard/BalrondShipyard.dll",
-          "size": 44901888,
-          "sha256": "6137214da2470369efb717f06b16997c73e5fed1fc81e07f41806fcc64fc43e2"
+          "size": 45420032,
+          "sha256": "1a4b7d1595189e975429e826ddcc167d00a21679cb845deb2ed4da1848a7a5eb"
         }
-      ]
+      ],
+      "previous_version": "1.7.3",
+      "archived_version": "1.7.3"
     },
     {
       "id": "BetterArchery",
@@ -316,18 +338,19 @@
     {
       "id": "BetterBeehives",
       "package": "MaxFoxGaming-Better_Beehives",
-      "version": "1.3.0",
-      "status_in_archive": "not in archive (a profile mod outside the other pack's list); 1.3.0 decompiled from the profile on 2026-09-29",
-      "source_root": "source-evidence/profile-updates/MaxFoxGaming-Better_Beehives-1.3.0",
+      "version": "1.3.1",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/MaxFoxGaming-Better_Beehives-1.3.1",
       "binary_identities": [
         {
-          "mod": "MaxFoxGaming-Better_Beehives-1.3.0",
+          "mod": "MaxFoxGaming-Better_Beehives-1.3.1",
           "enabled": true,
           "profile_path": "BepInEx/plugins/MaxFoxGaming-Better_Beehives/BetterBeehives.dll",
-          "size": 101376,
-          "sha256": "5999c50aacd29666a1e1bca7ef9dea365d95dafa451b8f5f64e755bfcb69a689"
+          "size": 102400,
+          "sha256": "7e1c462878ee6f5ffcd7c3d272204e4105cb676ea0d7c2bb76808eea6adf985d"
         }
-      ]
+      ],
+      "previous_version": "1.3.0"
     },
     {
       "id": "BossAdd",
@@ -349,18 +372,20 @@
     {
       "id": "BuildCamera",
       "package": "Azumatt-Build_Camera_Custom_Hammers_Edition",
-      "version": "1.3.3",
-      "status_in_archive": "partial",
-      "source_root": "source-evidence/localization/b/21-Azumatt-Build_Camera_Custom_Hammers_Edition",
+      "version": "1.3.4",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/Azumatt-Build_Camera_Custom_Hammers_Edition-1.3.4",
       "binary_identities": [
         {
-          "mod": "Azumatt-Build_Camera_Custom_Hammers_Edition-1.3.3",
+          "mod": "Azumatt-Build_Camera_Custom_Hammers_Edition-1.3.4",
           "enabled": true,
           "profile_path": "BepInEx/plugins/Azumatt-Build_Camera_Custom_Hammers_Edition/Build Camera.dll",
-          "size": 95744,
-          "sha256": "6bdff35b982cc92a494cc37de6f136b2ca67ceca9681e9967e21181fc6a16f36"
+          "size": 92672,
+          "sha256": "0b71cabd4de76cb357be605cdb5b8a76f98fadcffe9d10b24066b2d344b3586e"
         }
-      ]
+      ],
+      "previous_version": "1.3.3",
+      "archived_version": "1.3.3"
     },
     {
       "id": "CarturFeedingTrough",
@@ -375,6 +400,22 @@
           "profile_path": "BepInEx/plugins/Cartur-Carturs_Feeding_Trough/CarturFeedingTrough/CarturFeedingTrough.dll",
           "size": 24064,
           "sha256": "20d37ad8be4188f21a0a6f7593b977a2852fa52912cf38503c260efe876f6191"
+        }
+      ]
+    },
+    {
+      "id": "CircletExtended",
+      "package": "shudnal-CircletExtended",
+      "version": "1.1.13",
+      "status_in_archive": "Installed profile exact DLL/source audit 2026-10-07; game not run.",
+      "source_root": "source-evidence/profile-updates/shudnal-CircletExtended-1.1.13",
+      "binary_identities": [
+        {
+          "mod": "shudnal-CircletExtended-1.1.13",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/shudnal-CircletExtended/CircletExtended.dll",
+          "size": 99328,
+          "sha256": "5841e569260ea4f6be4e8646776cbda8261c558e81d868bc266dc267beaec441"
         }
       ]
     },
@@ -397,43 +438,45 @@
     {
       "id": "ConditionalConfigSync",
       "package": "shudnal-ConditionalConfigSync",
-      "version": "1.0.9",
-      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
-      "source_root": "source-evidence/current-profile/shudnal-ConditionalConfigSync-1.0.9",
+      "version": "1.0.10",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/shudnal-ConditionalConfigSync-1.0.10",
       "binary_identities": [
         {
-          "mod": "shudnal-ConditionalConfigSync-1.0.9",
+          "mod": "shudnal-ConditionalConfigSync-1.0.10",
           "enabled": true,
           "profile_path": "BepInEx/plugins/shudnal-ConditionalConfigSync/ConditionalConfigSync.dll",
-          "size": 250368,
-          "sha256": "29fb07271c4f58f3f22c5b0d6db8aa13445b94abd3a92ee46c280283ca2b87a9"
+          "size": 250880,
+          "sha256": "3f9cd0d2b80ab14d289f4621f25c11c84045919cbad8013955450cf6e662ef4e"
         },
         {
-          "mod": "shudnal-ConditionalConfigSync-1.0.9",
+          "mod": "shudnal-ConditionalConfigSync-1.0.10",
           "enabled": true,
           "profile_path": "BepInEx/plugins/shudnal-ConditionalConfigSync/ConditionalConfigSync.Plugin.dll",
-          "size": 7680,
-          "sha256": "537d7185dc3d00b5715a9f9f09727fc15884a4f01c0700bbc661f0045fafde2a"
+          "size": 13824,
+          "sha256": "a9508884c9a2dc6e1cf1a4d0c64f996d54a738c17d42f0bce612d4a4efbaf2d5"
         }
       ],
-      "codeAssembly": "ConditionalConfigSync"
+      "codeAssembly": "ConditionalConfigSync",
+      "previous_version": "1.0.9",
+      "archived_version": "1.0.9"
     },
     {
       "id": "ConfigurationManager",
       "package": "shudnal-ConfigurationManager",
-      "version": "1.1.23",
-      "status_in_archive": "Installed profile audited on 2026-10-02; exact DLL and targeted display/resource sources. No upstream binaries shipped.",
-      "source_root": "source-evidence/profile-20261002/updates/shudnal-ConfigurationManager-1.1.23/ConfigurationManager",
+      "version": "1.1.25",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/shudnal-ConfigurationManager-1.1.25",
       "binary_identities": [
         {
-          "mod": "shudnal-ConfigurationManager-1.1.23",
+          "mod": "shudnal-ConfigurationManager-1.1.25",
           "enabled": true,
           "profile_path": "BepInEx/plugins/shudnal-ConfigurationManager/ConfigurationManager.dll",
           "size": 182784,
-          "sha256": "4ae08b4de3cd80b67bef2ab0e1cdf8405aa65a94dd8e061d0f267ffbe1af671f"
+          "sha256": "7c701434e90bf9eb65e5cbb9b0dea288b108d6fce07e1075f4c712756585d6cc"
         }
       ],
-      "previous_version": "1.1.22",
+      "previous_version": "1.1.23",
       "license": {
         "package_readme": "GPLv3 stated in exact installed README",
         "package_readme_source": {
@@ -446,7 +489,8 @@
         "source_url": "https://raw.githubusercontent.com/shudnal/ConfigurationManager/master/LICENSE.txt",
         "source_pinned_to_dll": false
       },
-      "runtime_validation": "not_run"
+      "runtime_validation": "not_run",
+      "archived_version": "1.1.22"
     },
     {
       "id": "CraftyCartsRemake",
@@ -536,22 +580,23 @@
     {
       "id": "DynamicStorageButchersHall",
       "package": "Muji-DynamicStorage_Butchers_Hall",
-      "version": "1.0.0",
-      "status_in_archive": "Installed profile audited on 2026-10-02; exact DLL and targeted display/resource sources. No upstream binaries shipped.",
-      "source_root": "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall",
+      "version": "1.1.0",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0",
       "binary_identities": [
         {
-          "mod": "Muji-DynamicStorage_Butchers_Hall-1.0.0",
+          "mod": "Muji-DynamicStorage_Butchers_Hall-1.1.0",
           "enabled": true,
           "profile_path": "BepInEx/plugins/Muji-DynamicStorage_Butchers_Hall/DynamicStorageButchersHall/DynamicStorageButchersHall.dll",
-          "size": 115712,
-          "sha256": "ee1273246cc9db0c919f72a9061e4e742342df19732963fc7c3d2654b06e9786"
+          "size": 348160,
+          "sha256": "ffc160491134dbc413f92712086deee85d4d89a648c3d03b05fa2ef21ad9d878"
         }
       ],
       "license": "MIT",
       "runtime_validation": "not_run",
       "assembly": "DynamicStorageMeatRack",
-      "pluginVersion": "1.0.0"
+      "pluginVersion": "1.0.0",
+      "previous_version": "1.0.0"
     },
     {
       "id": "DynamicStorageForge",
@@ -801,7 +846,8 @@
           "sha256": "69ea1a6489b7383533d077eab17a7d9994128a4d48b899858cfea9fb905bcf46"
         }
       ],
-      "previous_version": "1.6.0"
+      "previous_version": "1.6.0",
+      "archived_version": "1.6.0"
     },
     {
       "id": "Hunter_Legacy",
@@ -823,19 +869,20 @@
     {
       "id": "InfinityHammer",
       "package": "JereKuusela-Infinity_Hammer",
-      "version": "1.86.0",
-      "status_in_archive": "Installed profile update; current DLL and targeted English sources audited on 2026-09-30. Original archive remains historical evidence.",
-      "source_root": "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.86.0",
+      "version": "1.87.0",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/JereKuusela-Infinity_Hammer-1.87.0",
       "binary_identities": [
         {
-          "mod": "JereKuusela-Infinity_Hammer-1.86.0",
+          "mod": "JereKuusela-Infinity_Hammer-1.87.0",
           "enabled": true,
           "profile_path": "BepInEx/plugins/JereKuusela-Infinity_Hammer/InfinityHammer.dll",
-          "size": 386560,
-          "sha256": "a86af80d7f50814d1ee988aabcf217e95b1cb7a1d10dd7e1703e5d4bd44dadc4"
+          "size": 390656,
+          "sha256": "990a9bd7bea6562024b3094a45249837262aaaaa55510e9bd9511600c135adb4"
         }
       ],
-      "previous_version": "1.85.0"
+      "previous_version": "1.86.0",
+      "archived_version": "1.85.0"
     },
     {
       "id": "InventorySlots",
@@ -939,20 +986,20 @@
     {
       "id": "More_World_Locations_AIO",
       "package": "warpalicious-More_World_Locations_AIO",
-      "version": "5.1.7",
-      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
-      "source_root": "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.7",
+      "version": "5.1.9",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/warpalicious-More_World_Locations_AIO-5.1.9",
       "binary_identities": [
         {
-          "mod": "warpalicious-More_World_Locations_AIO-5.1.7",
+          "mod": "warpalicious-More_World_Locations_AIO-5.1.9",
           "enabled": true,
           "profile_path": "BepInEx/plugins/warpalicious-More_World_Locations_AIO/More_World_Locations_AIO.dll",
-          "size": 60850688,
-          "sha256": "5aad6c697f43e944cf61c154a8957d5c3836eb26a16973803903c86857911ae4"
+          "size": 60852736,
+          "sha256": "dd2334f0b2bada2bccfc6b9c61e4cfdf6bfeb46f9a9fcc7eca6d062362ad984c"
         }
       ],
       "archived_version": "5.1.4",
-      "previous_version": "5.1.5"
+      "previous_version": "5.1.7"
     },
     {
       "id": "MoveBuildPieces",
@@ -990,19 +1037,19 @@
     {
       "id": "NetworkPerformanceSystem",
       "package": "MidnightMods-NetworkPerformanceSystem",
-      "version": "1.13.0",
-      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
-      "source_root": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.13.0",
+      "version": "1.15.1",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/MidnightMods-NetworkPerformanceSystem-1.15.1",
       "binary_identities": [
         {
-          "mod": "MidnightMods-NetworkPerformanceSystem-1.13.0",
+          "mod": "MidnightMods-NetworkPerformanceSystem-1.15.1",
           "enabled": true,
           "profile_path": "BepInEx/plugins/MidnightMods-NetworkPerformanceSystem/NetworkPerformanceSystem.dll",
-          "size": 343040,
-          "sha256": "d87e12ac132c172dd874c114cfd9e7eb8edc9d19aceaf2c801154a4a61972241"
+          "size": 422912,
+          "sha256": "03b9c03c09eb8a917603481d735577e469df2fa1263f325c57cb7023d35ea7de"
         }
       ],
-      "previous_version": "1.11.1"
+      "previous_version": "1.13.0"
     },
     {
       "id": "Norsemen",
@@ -1017,6 +1064,25 @@
           "profile_path": "BepInEx/plugins/SephrinMods-VikingNPC_Continued/Norsemen.dll",
           "size": 418816,
           "sha256": "8681c7238ca2b1a2b199a31cd3a042b6dfe045292ae8f7a1c6821de56deaecb1"
+        }
+      ],
+      "additional_source_files": [
+        "source-evidence/profile-updates/SephrinMods-VikingNPC_Continued-0.4.1/Norsemen.Files.Names.yml"
+      ]
+    },
+    {
+      "id": "OdinsFoodBarrels",
+      "package": "OdinPlus-OdinsFoodBarrels",
+      "version": "1.4.0",
+      "status_in_archive": "Installed Default profile audited on 2026-10-07; gap-only category and restricted-container message. Native Russian 72 keys preserved. Runtime not run.",
+      "source_root": "source-evidence/profile-updates/OdinPlus-OdinsFoodBarrels-1.4.0",
+      "binary_identities": [
+        {
+          "mod": "OdinPlus-OdinsFoodBarrels-1.4.0",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/OdinPlus-OdinsFoodBarrels/OdinsFoodBarrels.dll",
+          "size": 5406720,
+          "sha256": "fc9cf4574ccd46147afaec3c4240f0d402160fc81209b55ff5f50091fcaeec0b"
         }
       ]
     },
@@ -1090,34 +1156,55 @@
     {
       "id": "PlantEasily",
       "package": "Advize-PlantEasily",
-      "version": "2.2.2",
-      "status_in_archive": "ru_present",
-      "source_root": "source-evidence/localization/b/30-Advize-PlantEasily",
+      "version": "2.3.0",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/Advize-PlantEasily-2.3.0",
       "binary_identities": [
         {
-          "mod": "Advize-PlantEasily-2.2.2",
+          "mod": "Advize-PlantEasily-2.3.0",
           "enabled": true,
           "profile_path": "BepInEx/plugins/Advize-PlantEasily/Advize_PlantEasily.dll",
-          "size": 75776,
-          "sha256": "8e48c43bb36c4e299037001734607fadd0635803d60e8ab84023a3bc7ffc6a58"
+          "size": 83456,
+          "sha256": "d5ad697931c97e86dbc72afa3b9bcac90f3ae249c3a50fe7ad94302c4c2b8416"
         }
-      ]
+      ],
+      "previous_version": "2.2.2",
+      "archived_version": "2.2.2"
     },
     {
       "id": "PortalLines",
       "package": "Jumpingmushroom-PortalLines",
-      "version": "0.8.0",
-      "status_in_archive": "missing",
-      "source_root": "source-evidence/localization/d/Jumpingmushroom-PortalLines-proj",
+      "version": "0.8.1",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/Jumpingmushroom-PortalLines-0.8.1",
       "binary_identities": [
         {
-          "mod": "Jumpingmushroom-PortalLines-0.8.0",
+          "mod": "Jumpingmushroom-PortalLines-0.8.1",
           "enabled": true,
           "profile_path": "BepInEx/plugins/Jumpingmushroom-PortalLines/PortalLines/PortalLines.dll",
-          "size": 75776,
-          "sha256": "f7aa352f99be26fdbc0c5a5c30b78ea93e92ec2fddbe57c48ee24c24cc426df8"
+          "size": 76288,
+          "sha256": "be9c6a5eee8cb73bbe1c48cd9d8947dc872dad4127e19c49123bf1ab9d7801a7"
         }
-      ]
+      ],
+      "previous_version": "0.8.0",
+      "archived_version": "0.8.0"
+    },
+    {
+      "id": "PortalPreview",
+      "package": "Ivvty-PortalPreview",
+      "version": "1.3.6",
+      "status_in_archive": "Installed profile exact DLL/source audit 2026-10-07; game not run.",
+      "source_root": "source-evidence/profile-updates/Ivvty-PortalPreview-1.3.6",
+      "binary_identities": [
+        {
+          "mod": "Ivvty-PortalPreview-1.3.6",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/Ivvty-PortalPreview/PortalPreview.dll",
+          "size": 978432,
+          "sha256": "dca9e6576f11391fadcc41d6d95ddc1328873b4f0691dc371d4a9c63937c695a"
+        }
+      ],
+      "archived_version": "1.2.0"
     },
     {
       "id": "QuickStackStore",
@@ -1343,19 +1430,19 @@
     {
       "id": "SocialSystem",
       "package": "M2Valheim-SocialSystem",
-      "version": "1.0.2",
-      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
-      "source_root": "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.2",
+      "version": "1.0.4",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/M2Valheim-SocialSystem-1.0.4",
       "binary_identities": [
         {
-          "mod": "M2Valheim-SocialSystem-1.0.2",
+          "mod": "M2Valheim-SocialSystem-1.0.4",
           "enabled": true,
           "profile_path": "BepInEx/plugins/M2Valheim-SocialSystem/SocialSystem.dll",
-          "size": 230400,
-          "sha256": "afe670b37e327a7cef45ca4e5c00cb2815399b1932e386e3d22bc904acb6ba27"
+          "size": 220160,
+          "sha256": "5bd11ec1c08969c60887065df4579d6d0ae18a64574972b30a675267cc56f1fd"
         }
       ],
-      "previous_version": "1.0.1"
+      "previous_version": "1.0.2"
     },
     {
       "id": "SolidHitboxes",
@@ -1457,18 +1544,20 @@
     {
       "id": "TradersExtended",
       "package": "shudnal-TradersExtended",
-      "version": "2.0.4",
-      "status_in_archive": "partial",
-      "source_root": "source-evidence/localization/c/59",
+      "version": "2.0.5",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/shudnal-TradersExtended-2.0.5",
       "binary_identities": [
         {
-          "mod": "shudnal-TradersExtended-2.0.4",
+          "mod": "shudnal-TradersExtended-2.0.5",
           "enabled": true,
           "profile_path": "BepInEx/plugins/shudnal-TradersExtended/TradersExtended.dll",
-          "size": 305664,
-          "sha256": "c3849c5fdbd5d5695e1f8c1ca6f4442d1081a1738994b7179804f6802ce36b3a"
+          "size": 297472,
+          "sha256": "e648b80ac50f840d0b6792dcaec4c08d7394dd8099706a4ce1519ca8cd96f50b"
         }
-      ]
+      ],
+      "previous_version": "2.0.4",
+      "archived_version": "2.0.4"
     },
     {
       "id": "Transmog",
@@ -1485,6 +1574,35 @@
           "sha256": "5cff9f447d35a6655633ba1ffceb07f9d481b0622f55ea0666d6f584e20144cc"
         }
       ]
+    },
+    {
+      "id": "UpgradeWorld",
+      "package": "JereKuusela-Upgrade_World",
+      "version": "1.84.0",
+      "pluginVersion": "1.84",
+      "assembly": "UpgradeWorld",
+      "guids": [
+        "upgrade_world"
+      ],
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL decompilation. Scoped HUD errors added; game acceptance pending.",
+      "source_root": "source-evidence/profile-updates/JereKuusela-Upgrade_World-1.84.0",
+      "binary_identities": [
+        {
+          "mod": "JereKuusela-Upgrade_World-1.84.0",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/JereKuusela-Upgrade_World/UpgradeWorld.dll",
+          "size": 212992,
+          "sha256": "1dd2674686605622b48f008777d6760efb91735bd2a21d7b8f11ceb15ded50d3"
+        }
+      ],
+      "sourceFiles": [
+        "source-evidence/profile-updates/JereKuusela-Upgrade_World-1.84.0/UpgradeWorld/Helper.cs"
+      ],
+      "observations": [
+        "Four scoped literal values translate the HUD error path Helper.Catch -> AddError/AddMessage -> Character.Message, RegisterLocation.Register missing location, and ResetChests.GetPrefabsForOperation invalid chest ID. Executor.AddOperation -> Init -> OnInit calls chest validation synchronously under Catch. Console commands/help/autocomplete and ordinary reports excluded. Game execution still pending."
+      ],
+      "audit_scope": "All extracted C# searched for display/localization/message sinks; owner code and relevant callers inspected. No arbitrary F1 config translation; no claim of full runtime compatibility.",
+      "archived_version": "1.83.0"
     },
     {
       "id": "UsefulRunestones",
@@ -1522,16 +1640,33 @@
     {
       "id": "Valheim",
       "package": "Valheim",
-      "version": "1.0.16",
-      "status_in_archive": "game: localization_captions has no Russian column values; 16 native composite idol names checked against Valheim 1.0.16 resources on 2026-10-02",
-      "source_root": "source-evidence/game/valheim-1.0.16",
+      "version": "1.0.17",
+      "status_in_archive": "Valheim 1.0.17 Steam build 25730771 audited 2026-10-07: native captions/localization and 16 serialized idol names; runtime is separate.",
+      "source_root": "source-evidence/game/valheim-1.0.17",
       "binary_identities": [
         {
-          "mod": "Valheim 1.0.16 (Steam build 25527674)",
+          "mod": "Valheim 1.0.17 (Steam build 25730771)",
           "enabled": true,
           "game_path": "valheim_Data/Managed/assembly_valheim.dll",
-          "size": 2572288,
-          "sha256": "96cfc004f7f4a6f30d070bef39eafd79c466a137121c4665a2f19fb9c15c6127"
+          "size": 2573312,
+          "sha256": "25a0a107dce4d834c44c2b72d0eafd5cb7793933bda81816accfa1ea9543dace"
+        }
+      ],
+      "previous_version": "1.0.16"
+    },
+    {
+      "id": "ValheimCommunityPatch",
+      "package": "MidnightMods-ValheimCommunityPatch",
+      "version": "0.33.0",
+      "status_in_archive": "Installed profile exact source/literal audit 2026-10-07; game execution is separate.",
+      "source_root": "source-evidence/profile-updates/MidnightMods-ValheimCommunityPatch-0.33.0",
+      "binary_identities": [
+        {
+          "mod": "MidnightMods-ValheimCommunityPatch-0.33.0",
+          "enabled": true,
+          "profile_path": "BepInEx/plugins/MidnightMods-ValheimCommunityPatch/ValheimCommunityPatch.dll",
+          "size": 283648,
+          "sha256": "abcf07139b987f0bdfcb623f77e32207207e98035154e046cb6e71bc53594dd5"
         }
       ]
     },
@@ -1570,20 +1705,20 @@
     {
       "id": "WackysDatabase",
       "package": "WackyMole-WackysDatabase",
-      "version": "2.5.38",
-      "status_in_archive": "Installed profile audited on 2026-10-01; exact DLL identities and targeted English sources. Original archive remains historical evidence.",
-      "source_root": "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.38",
+      "version": "2.5.39",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/WackyMole-WackysDatabase-2.5.39",
       "binary_identities": [
         {
-          "mod": "WackyMole-WackysDatabase-2.5.38",
+          "mod": "WackyMole-WackysDatabase-2.5.39",
           "enabled": true,
           "profile_path": "BepInEx/plugins/WackyMole-WackysDatabase/WackysDatabase.dll",
-          "size": 1380352,
-          "sha256": "0a9f9928eae88b4b15c32190f3b6c6809d83642c016a4ebc34a2b8342532e707"
+          "size": 1380864,
+          "sha256": "5f7cb76db2c11c8528618ed8f1115e710c08ca9e053ad3eaeb9e070fdaa0b8e5"
         }
       ],
       "archived_version": "2.5.35",
-      "previous_version": "2.5.36"
+      "previous_version": "2.5.38"
     },
     {
       "id": "Warfare",
@@ -1620,19 +1755,20 @@
     {
       "id": "WorldEditCommands",
       "package": "JereKuusela-World_Edit_Commands",
-      "version": "1.79.0",
-      "status_in_archive": "Installed profile update; current DLL and targeted English sources audited on 2026-09-30. Original archive remains historical evidence.",
-      "source_root": "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.79.0",
+      "version": "1.80.0",
+      "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL and targeted source/resource checks. Historical archive retained.",
+      "source_root": "source-evidence/profile-updates/JereKuusela-World_Edit_Commands-1.80.0",
       "binary_identities": [
         {
-          "mod": "JereKuusela-World_Edit_Commands-1.79.0",
+          "mod": "JereKuusela-World_Edit_Commands-1.80.0",
           "enabled": true,
           "profile_path": "BepInEx/plugins/JereKuusela-World_Edit_Commands/WorldEditCommands.dll",
-          "size": 304128,
-          "sha256": "bef94c1e91bf5f1ad678b24dd4dbbcc648d11a07d2768fb0c50fceec1cc68a64"
+          "size": 314368,
+          "sha256": "15b2d309850f411cd6b8bcbff679efb76824b84fa5b6904c18a343cba65ca00e"
         }
       ],
-      "previous_version": "1.78.0"
+      "previous_version": "1.79.0",
+      "archived_version": "1.78.0"
     },
     {
       "id": "XPortal",
@@ -1954,5 +2090,622 @@
     ],
     "limits": "General F1 parameter descriptions, administrator consoles, arbitrary user text and partial optional storage diagnostics are outside coverage. Runtime game validation not run.",
     "runtime_validation": "not_run"
+  },
+  "profile_update_2026_10_07": {
+    "captured_at": "2026-10-07T20:46:40+03:00",
+    "profile": "Default",
+    "enabled_packages": 103,
+    "updated_existing_modules": [
+      "AdventureBackpacks",
+      "AzuAutoStore",
+      "BalrondShipyard",
+      "BetterBeehives",
+      "BuildCamera",
+      "ConditionalConfigSync",
+      "ConfigurationManager",
+      "DynamicStorageButchersHall",
+      "InfinityHammer",
+      "More_World_Locations_AIO",
+      "NetworkPerformanceSystem",
+      "PlantEasily",
+      "PortalLines",
+      "SocialSystem",
+      "TradersExtended",
+      "WackysDatabase",
+      "WorldEditCommands"
+    ],
+    "source_evidence": "Exact installed DLLs decompiled with ILSpy 11.1; unchanged binary identities reuse previously read sources. Binary equality is not a game behavior test.",
+    "new_modules": [
+      "AchievementEnabler",
+      "CircletExtended",
+      "OdinsFoodBarrels",
+      "PortalPreview",
+      "UpgradeWorld",
+      "ValheimCommunityPatch"
+    ],
+    "no_catalog_audit": [
+      {
+        "id": "TooltipExpansion",
+        "package": "Azumatt-TooltipExpansion",
+        "version": "1.1.1",
+        "status_in_archive": "Installed profile exact DLL/source audit 2026-10-07; game not run.",
+        "source_root": "source-evidence/profile-updates/Azumatt-TooltipExpansion-1.1.1",
+        "binary_identities": [
+          {
+            "mod": "Azumatt-TooltipExpansion-1.1.1",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Azumatt-TooltipExpansion/TooltipExpansion.dll",
+            "size": 13312,
+            "sha256": "b85c38c09b656217bf8bee6695c822770491017bbe99b954ac6661a5ddc2b775"
+          }
+        ]
+      },
+      {
+        "package": "Cartur-Carturs_Flooring",
+        "version": "1.1.1",
+        "source_file": "source-evidence/profile-updates/Cartur-Carturs_Flooring-1.1.1/CarturFlooring.decompiled.cs",
+        "source_sha256": "1e83aae25645b9958d35b415fc8f463f50ee4f4bec75fd335ca255f605ea420d",
+        "audit_scope": "No gameplay text/items: four Config.Bind<bool> tooltips only, excluded scope.",
+        "binary_identities": [
+          {
+            "mod": "Cartur-Carturs_Flooring-1.1.1",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Cartur-Carturs_Flooring/CarturFlooring.dll",
+            "size": 11264,
+            "sha256": "ac6bdbf78bb18fffdcff015dce63adddae184493fef7f283be894418f30b0899"
+          }
+        ]
+      },
+      {
+        "id": "DigDeeper",
+        "package": "Crystal-DigDeeper",
+        "version": "1.3.1",
+        "pluginVersion": "1.3.1.0",
+        "assembly": "DigDeeper",
+        "guids": [
+          "dev.crystal.digdeeper"
+        ],
+        "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL decompilation. No own untranslated player text in Tolmach scope; config/log/technical strings excluded, no catalog added.",
+        "source_root": "source-evidence/profile-updates/Crystal-DigDeeper-1.3.1",
+        "binary_identities": [
+          {
+            "mod": "Crystal-DigDeeper-1.3.1",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Crystal-DigDeeper/DigDeeper.dll",
+            "size": 13312,
+            "sha256": "01fefd1e9c944a52cac71ef41618f59bbf6f2dee8f17aa45b08c25f05af62021"
+          }
+        ],
+        "sourceFiles": [
+          "source-evidence/profile-updates/Crystal-DigDeeper-1.3.1/DigDeeper/DigDeeperPlugin.cs"
+        ],
+        "observations": [
+          "DigDeeperPlugin.Awake and Heightmap_Patches/TerrainComp_Patches: numeric terrain limits, config descriptions only; ConditionalConfigSync is an external dependency, its messages are not embedded here."
+        ],
+        "audit_scope": "All extracted C# searched for display/localization/message sinks; owner code and relevant callers inspected. No arbitrary F1 config translation; no claim of full runtime compatibility."
+      },
+      {
+        "id": "ChainManager",
+        "package": "Digitalroot-Chain_Manager",
+        "version": "1.0.23",
+        "pluginVersion": "1.0.23",
+        "assembly": "Digitalroot.Valheim.ChainManager",
+        "guids": [
+          "digitalroot.mods.chainmanager"
+        ],
+        "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL decompilation. No own untranslated player text in Tolmach scope; config/log/technical strings excluded, no catalog added.",
+        "source_root": "source-evidence/profile-updates/Digitalroot-Chain_Manager-1.0.23",
+        "binary_identities": [
+          {
+            "mod": "Digitalroot-Chain_Manager-1.0.23",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Digitalroot-Chain_Manager/Digitalroot.Valheim.ChainManager.dll",
+            "size": 70656,
+            "sha256": "f5fcdd23c3d01f160cb53f81306687a67480cbea67932b0dc94ad777e139b9e9"
+          }
+        ],
+        "sourceFiles": [
+          "source-evidence/profile-updates/Digitalroot-Chain_Manager-1.0.23/Digitalroot.Valheim.ChainManager/Main.cs"
+        ],
+        "observations": [
+          "Main.OnVanillaPrefabsAvailable creates a recipe for the vanilla Chain with vanilla Forge/Iron IDs. Main.Awake config, Common.Log and unused Common.Utils helpers provide no independent player text."
+        ],
+        "audit_scope": "All extracted C# searched for display/localization/message sinks; owner code and relevant callers inspected. No arbitrary F1 config translation; no claim of full runtime compatibility."
+      },
+      {
+        "id": "SlopeCombatAssistance",
+        "package": "Digitalroot-Digitalroots_Slope_Combat_Assistance",
+        "version": "2.0.30",
+        "pluginVersion": "2.0.30",
+        "assembly": "Digitalroot.SlopeCombatAssistance",
+        "guids": [
+          "digitalroot.mods.slopecombatassistance"
+        ],
+        "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL decompilation. No own untranslated player text in Tolmach scope; config/log/technical strings excluded, no catalog added.",
+        "source_root": "source-evidence/profile-updates/Digitalroot-Digitalroots_Slope_Combat_Assistance-2.0.30",
+        "binary_identities": [
+          {
+            "mod": "Digitalroot-Digitalroots_Slope_Combat_Assistance-2.0.30",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Digitalroot-Digitalroots_Slope_Combat_Assistance/Digitalroot.SlopeCombatAssistance.dll",
+            "size": 13312,
+            "sha256": "8c3555b4d34e7e6a47c439e552e068a69744757601dca36c71103cc863219ca3"
+          }
+        ],
+        "sourceFiles": [
+          "source-evidence/profile-updates/Digitalroot-Digitalroots_Slope_Combat_Assistance-2.0.30/Digitalroot.SlopeCombatAssistance/Main.cs"
+        ],
+        "observations": [
+          "Main constructor binds Offset/Height config; Patch.DoMeleeAttack changes numeric attack geometry. Config/log/patch IDs only."
+        ],
+        "audit_scope": "All extracted C# searched for display/localization/message sinks; owner code and relevant callers inspected. No arbitrary F1 config translation; no claim of full runtime compatibility."
+      },
+      {
+        "id": "MaxDungeonRooms",
+        "package": "Digitalroot-Max_Dungeon_Rooms",
+        "version": "2.0.42",
+        "pluginVersion": "2.0.42",
+        "assembly": "Digitalroot.Valheim.MaxDungeonRooms",
+        "guids": [
+          "digitalroot.mods.maxdungeonrooms"
+        ],
+        "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL decompilation. No own untranslated player text in Tolmach scope; config/log/technical strings excluded, no catalog added.",
+        "source_root": "source-evidence/profile-updates/Digitalroot-Max_Dungeon_Rooms-2.0.42",
+        "binary_identities": [
+          {
+            "mod": "Digitalroot-Max_Dungeon_Rooms-2.0.42",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Digitalroot-Max_Dungeon_Rooms/Digitalroot.Valheim.MaxDungeonRooms.dll",
+            "size": 25600,
+            "sha256": "cf86b478538fbb782d824e50f741896298ea8c85f717bd121ecc78f74aee3c5c"
+          }
+        ],
+        "sourceFiles": [
+          "source-evidence/profile-updates/Digitalroot-Max_Dungeon_Rooms-2.0.42/Digitalroot.Valheim.MaxDungeonRooms/Patch.cs"
+        ],
+        "observations": [
+          "Main.Awake config; PatchDungeonGeneratorPlaceRooms.Prefix sets numeric min/max room counts and logs. DG_* names are lookup IDs, not displayed names."
+        ],
+        "audit_scope": "All extracted C# searched for display/localization/message sinks; owner code and relevant callers inspected. No arbitrary F1 config translation; no claim of full runtime compatibility."
+      },
+      {
+        "id": "TripleBronzeJVL",
+        "package": "Digitalroot-Triple_Bronze_JVL",
+        "version": "1.1.54",
+        "pluginVersion": "1.1.54",
+        "assembly": "TripleBronzeJVL",
+        "guids": [
+          "digitalroot.mods.triplebronze.jvl"
+        ],
+        "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL decompilation. No own untranslated player text in Tolmach scope; config/log/technical strings excluded, no catalog added.",
+        "source_root": "source-evidence/profile-updates/Digitalroot-Triple_Bronze_JVL-1.1.54",
+        "binary_identities": [
+          {
+            "mod": "Digitalroot-Triple_Bronze_JVL-1.1.54",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Digitalroot-Triple_Bronze_JVL/TripleBronzeJVL.dll",
+            "size": 75776,
+            "sha256": "0f800841747ab1c9e88bfcc80ef74cb7fb6bd4eff69c79a3ade2386239be1fa4"
+          }
+        ],
+        "sourceFiles": [
+          "source-evidence/profile-updates/Digitalroot-Triple_Bronze_JVL-1.1.54/TripleBronzeJVL/Main.cs"
+        ],
+        "observations": [
+          "Main updates vanilla recipe amounts/enabled flags and adds recipes for vanilla ores/bars, wood/coal; names and descriptions remain vanilla. Config, logging and Recipe_* IDs only."
+        ],
+        "audit_scope": "All extracted C# searched for display/localization/message sinks; owner code and relevant callers inspected. No arbitrary F1 config translation; no claim of full runtime compatibility."
+      },
+      {
+        "id": "InstantlyDestroyBoatsAndCarts",
+        "package": "Goldenrevolver-Instantly_Destroy_Boats_And_Carts",
+        "version": "1.0.4",
+        "pluginVersion": "1.0.4",
+        "assembly": "InstantlyDestroyBoatsAndCarts",
+        "guids": [
+          "goldenrevolver.InstantlyDestroyBoatsAndCarts"
+        ],
+        "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL decompilation. No own untranslated player text in Tolmach scope; config/log/technical strings excluded, no catalog added.",
+        "source_root": "source-evidence/profile-updates/Goldenrevolver-Instantly_Destroy_Boats_And_Carts-1.0.4",
+        "binary_identities": [
+          {
+            "mod": "Goldenrevolver-Instantly_Destroy_Boats_And_Carts-1.0.4",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Goldenrevolver-Instantly_Destroy_Boats_And_Carts/InstantlyDestroyBoatsAndCarts.dll",
+            "size": 8704,
+            "sha256": "055b1a36e4236b2a6129679b350fb2792c56410420ef7318d3f76755adda0c0a"
+          }
+        ],
+        "sourceFiles": [
+          "source-evidence/profile-updates/Goldenrevolver-Instantly_Destroy_Boats_And_Carts-1.0.4/InstantlyDestroyBoatsAndCarts/BoatWagonPatches.cs"
+        ],
+        "observations": [
+          "LoadConfig is config-only; BoatWagonPatches.Awake/CanBeRemoved changes flags/conditions, no new user text; MBRaft/MoveableBaseShipComponent are technical compatibility IDs."
+        ],
+        "audit_scope": "All extracted C# searched for display/localization/message sinks; owner code and relevant callers inspected. No arbitrary F1 config translation; no claim of full runtime compatibility."
+      },
+      {
+        "id": "SneakCameraAndCollision",
+        "package": "Goldenrevolver-Sneak_Camera_and_Collision_Height",
+        "version": "1.0.2",
+        "pluginVersion": "1.0.2",
+        "assembly": "SneakCameraAndCollision",
+        "guids": [
+          "goldenrevolver.SneakCameraAndCollision"
+        ],
+        "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL decompilation. No own untranslated player text in Tolmach scope; config/log/technical strings excluded, no catalog added.",
+        "source_root": "source-evidence/profile-updates/Goldenrevolver-Sneak_Camera_and_Collision_Height-1.0.2",
+        "binary_identities": [
+          {
+            "mod": "Goldenrevolver-Sneak_Camera_and_Collision_Height-1.0.2",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Goldenrevolver-Sneak_Camera_and_Collision_Height/SneakCameraAndCollision.dll",
+            "size": 9728,
+            "sha256": "1e5c066e115b17fc294e18f421a34f7542decd8c56fda316a331e378f42cf70b"
+          }
+        ],
+        "sourceFiles": [
+          "source-evidence/profile-updates/Goldenrevolver-Sneak_Camera_and_Collision_Height-1.0.2/SneakCameraAndCollision/SneakCameraAndCollisionPlugin.cs"
+        ],
+        "observations": [
+          "LoadConfig binds camera/collision settings; CameraPatches/CollisionPatches change position/capsule dimensions and contain no display strings."
+        ],
+        "audit_scope": "All extracted C# searched for display/localization/message sinks; owner code and relevant callers inspected. No arbitrary F1 config translation; no claim of full runtime compatibility."
+      },
+      {
+        "id": "GetOutOfTheWater",
+        "package": "Hardwire99-GetOutOfTheWater",
+        "version": "1.0.0",
+        "pluginVersion": "1.0.0",
+        "assembly": "GetOutOfTheWater",
+        "guids": [
+          "hardwire99.getoutofthewater"
+        ],
+        "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL decompilation. No own untranslated player text in Tolmach scope; config/log/technical strings excluded, no catalog added.",
+        "source_root": "source-evidence/profile-updates/Hardwire99-GetOutOfTheWater-1.0.0",
+        "binary_identities": [
+          {
+            "mod": "Hardwire99-GetOutOfTheWater-1.0.0",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Hardwire99-GetOutOfTheWater/GetOutOfTheWater.dll",
+            "size": 22528,
+            "sha256": "2659ad4e544dafe8784eabb86b9362b90bc75877427cc4ba7a261b468388d5ad"
+          }
+        ],
+        "sourceFiles": [
+          "source-evidence/profile-updates/Hardwire99-GetOutOfTheWater-1.0.0/GetOutOfTheWater/ModConfig.cs"
+        ],
+        "observations": [
+          "ModConfig config descriptions; GetOutOfTheWaterPlugin/SwimExitProbe/SwimExitLipLine debug logs and shader/layer/object IDs only. Visible lip indicator is a colored line, not text."
+        ],
+        "audit_scope": "All extracted C# searched for display/localization/message sinks; owner code and relevant callers inspected. No arbitrary F1 config translation; no claim of full runtime compatibility."
+      },
+      {
+        "id": "SteadyFrame",
+        "package": "Ivvty-SteadyFrame",
+        "version": "1.0.3",
+        "pluginVersion": "1.0.3",
+        "assembly": "SteadyFrame",
+        "guids": [
+          "ru.ivest.steadyframe"
+        ],
+        "status_in_archive": "Installed profile audited on 2026-10-07; exact DLL decompilation. No own untranslated player text in Tolmach scope; config/log/technical strings excluded, no catalog added.",
+        "source_root": "source-evidence/profile-updates/Ivvty-SteadyFrame-1.0.3",
+        "binary_identities": [
+          {
+            "mod": "Ivvty-SteadyFrame-1.0.3",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Ivvty-SteadyFrame/SteadyFrame.dll",
+            "size": 128512,
+            "sha256": "b519730ff533e27f5409895f6f315abd9f2c3e9288a3438f28be931ac9bf29cd"
+          }
+        ],
+        "sourceFiles": [
+          "source-evidence/profile-updates/Ivvty-SteadyFrame-1.0.3/SteadyFrame/SteadyFramePlugin.cs"
+        ],
+        "observations": [
+          "Plugin module labels and Cfg descriptions feed logging/config. Diagnostics namespace emits bench/probe/survey logs. Full extracted C# search found no MessageHud/Character.Message/GUI/GUILayout/text assignment sinks or localization registration."
+        ],
+        "audit_scope": "All extracted C# searched for display/localization/message sinks; owner code and relevant callers inspected. No arbitrary F1 config translation; no claim of full runtime compatibility."
+      },
+      {
+        "package": "MSchmoecker-LocalizationCache",
+        "version": "0.3.0",
+        "source_root": "source-evidence/profile-updates/MSchmoecker-LocalizationCache-0.3.0",
+        "binary_identities": [
+          {
+            "mod": "MSchmoecker-LocalizationCache-0.3.0",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/MSchmoecker-LocalizationCache/LocalizationCache.dll",
+            "size": 9728,
+            "sha256": "16d7bd010ad3559b475d27b20f5225801ad70403167ea8378daa3395e865e981"
+          }
+        ],
+        "audit_scope": "Exact installed C# searched for player display/localization/message sinks; config, logs and technical identifiers excluded. No own uncovered gameplay text found; runtime compatibility not established."
+      },
+      {
+        "package": "MSchmoecker-MultiUserChest",
+        "version": "0.6.2",
+        "source_root": "source-evidence/profile-updates/MSchmoecker-MultiUserChest-0.6.2",
+        "binary_identities": [
+          {
+            "mod": "MSchmoecker-MultiUserChest-0.6.2",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/MSchmoecker-MultiUserChest/MultiUserChest.dll",
+            "size": 55808,
+            "sha256": "afe0d6b437495fb6624a049ba72c2393572c8c02e1221ac090f16c0d99914514"
+          }
+        ],
+        "audit_scope": "Exact installed C# searched for player display/localization/message sinks; config, logs and technical identifiers excluded. No own uncovered gameplay text found; runtime compatibility not established."
+      },
+      {
+        "id": "ImpactfulSkills",
+        "package": "MidnightMods-ImpactfulSkills",
+        "version": "0.21.0",
+        "status_in_archive": "Installed profile exact DLL/source audit 2026-10-07; game not run.",
+        "source_root": "source-evidence/profile-updates/MidnightMods-ImpactfulSkills-0.21.0",
+        "binary_identities": [
+          {
+            "mod": "MidnightMods-ImpactfulSkills-0.21.0",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/MidnightMods-ImpactfulSkills/ImpactfulSkills.dll",
+            "size": 357376,
+            "sha256": "ade4fd2943a886b9b90c0241cb77ec65a97c1840ef39a906b58baf3925086706"
+          }
+        ]
+      },
+      {
+        "package": "MrZii-Stump_Grinder",
+        "version": "1.0.0",
+        "source_file": "source-evidence/profile-updates/MrZii-Stump_Grinder-1.0.0/StumpGrinder.decompiled.cs",
+        "source_sha256": "694c523e162766e7eff9f928fae97ec10a79ff1772266035ce41dafae1175977",
+        "audit_scope": "No game UI/config/items: Destructible.Damage patch and technical log only. No catalog required.",
+        "binary_identities": [
+          {
+            "mod": "MrZii-Stump_Grinder-1.0.0",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/MrZii-Stump_Grinder/StumpGrinder.dll",
+            "size": 5120,
+            "sha256": "61466a33bcb8ca116a6b915d8d4b5f33a97d1be2525318787ba0d6478e498170"
+          }
+        ]
+      },
+      {
+        "package": "Muratovnik-Tolmach",
+        "version": "0.8.0",
+        "audit_scope": "The translator itself; its Russian-owned interface and catalog code are inspected in this local change. No separate self-translation module."
+      },
+      {
+        "package": "Neobotics-StopChoppyAudio",
+        "version": "1.0.0",
+        "source_root": "source-evidence/profile-updates/Neobotics-StopChoppyAudio-1.0.0",
+        "binary_identities": [
+          {
+            "mod": "Neobotics-StopChoppyAudio-1.0.0",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Neobotics-StopChoppyAudio/StopChoppyAudio.dll",
+            "size": 54272,
+            "sha256": "ed53fa58b155648f8684bf4e29b68968b33e3f9d59215db144606b4c31483c55"
+          }
+        ],
+        "audit_scope": "Exact installed C# searched for player display/localization/message sinks; config, logs and technical identifiers excluded. No own uncovered gameplay text found; runtime compatibility not established."
+      },
+      {
+        "package": "OdinPlus-NotSoLoud",
+        "version": "1.0.1",
+        "source_root": "source-evidence/profile-updates/OdinPlus-NotSoLoud-1.0.1",
+        "binary_identities": [
+          {
+            "mod": "OdinPlus-NotSoLoud-1.0.1",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/OdinPlus-NotSoLoud/NotSoLoud.dll",
+            "size": 15360,
+            "sha256": "697e9b5bb1e0fa99dae85e722a2aefbfb46c4ee835660143668c3fd77292f12f"
+          }
+        ],
+        "audit_scope": "Exact installed C# searched for player display/localization/message sinks; config, logs and technical identifiers excluded. No own uncovered gameplay text found; runtime compatibility not established."
+      },
+      {
+        "package": "RAGEmedia-AntTrails",
+        "version": "1.2.2",
+        "source_root": "source-evidence/profile-updates/RAGEmedia-AntTrails-1.2.2",
+        "binary_identities": [
+          {
+            "mod": "RAGEmedia-AntTrails-1.2.2",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/RAGEmedia-AntTrails/AntTrails.dll",
+            "size": 36864,
+            "sha256": "a4d06db5ad855a4de6f7c0c9f7b2d175902b268dc3d245b1e0f9abca03178d11"
+          }
+        ],
+        "audit_scope": "Exact installed C# searched for player display/localization/message sinks; config, logs and technical identifiers excluded. No own uncovered gameplay text found; runtime compatibility not established."
+      },
+      {
+        "package": "Searica-BuildRestrictionTweaksSync",
+        "version": "1.3.0",
+        "source_root": "source-evidence/profile-updates/Searica-BuildRestrictionTweaksSync-1.3.0",
+        "binary_identities": [
+          {
+            "mod": "Searica-BuildRestrictionTweaksSync-1.3.0",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Searica-BuildRestrictionTweaksSync/BuildRestrictionTweaksSync.dll",
+            "size": 19968,
+            "sha256": "dba617320c6efb898227c1ef5d3e811b235689f327d878de6e41e428cdc7d654"
+          }
+        ],
+        "audit_scope": "Exact installed C# searched for player display/localization/message sinks; config, logs and technical identifiers excluded. No own uncovered gameplay text found; runtime compatibility not established."
+      },
+      {
+        "package": "Searica-ToolTweaks",
+        "version": "1.4.0",
+        "source_root": "source-evidence/profile-updates/Searica-ToolTweaks-1.4.0",
+        "binary_identities": [
+          {
+            "mod": "Searica-ToolTweaks-1.4.0",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Searica-ToolTweaks/ToolTweaks.dll",
+            "size": 23552,
+            "sha256": "5ae4ccf0a7dfe7b1fdd39000574d42856af1660852e2cf07b42a7ce0b68b3b32"
+          }
+        ],
+        "audit_scope": "Exact installed C# searched for player display/localization/message sinks; config, logs and technical identifiers excluded. No own uncovered gameplay text found; runtime compatibility not established."
+      },
+      {
+        "package": "StonedParadise-AnimalFeedingTrough",
+        "version": "1.0.5",
+        "source_file": "source-evidence/profile-updates/StonedParadise-AnimalFeedingTrough-1.0.5/AnimalFeedingTrough.decompiled.cs",
+        "source_sha256": "45895b94718f002b6b57b5c5b8dc6e7cebc680b05cf53107e2803bc2bdd54858",
+        "audit_scope": "TroughTranslations.Register provides all 21 English/Russian keys: ten variants with names/descriptions plus rejection message. No new catalog required.",
+        "binary_identities": [
+          {
+            "mod": "StonedParadise-AnimalFeedingTrough-1.0.5",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/StonedParadise-AnimalFeedingTrough/AnimalFeedingTrough.dll",
+            "size": 11772928,
+            "sha256": "864b13bfc2ed4e2657fc547b69d699ce7148fc71ccbccd5c6dc32af203a72d0d"
+          }
+        ]
+      },
+      {
+        "package": "ValheimModding-JsonDotNET",
+        "version": "13.0.4",
+        "audit_scope": "Serialization library, not a gameplay plugin; no gameplay content catalog. Library error strings are outside this player-display audit."
+      },
+      {
+        "package": "ValheimModding-YamlDotNet",
+        "version": "16.3.1",
+        "audit_scope": "Serialization library, not a gameplay plugin; no gameplay content catalog. Library error strings are outside this player-display audit."
+      },
+      {
+        "package": "Valphi-BetterLaddersContinued",
+        "version": "0.217.24",
+        "source_root": "source-evidence/profile-updates/Valphi-BetterLaddersContinued-0.217.24",
+        "binary_identities": [
+          {
+            "mod": "Valphi-BetterLaddersContinued-0.217.24",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/Valphi-BetterLaddersContinued/BetterLaddersContinued.dll",
+            "size": 6144,
+            "sha256": "d90bbeef1ee1e71bc540f770a4bda19bc8867decde61db83ab06133829c6eae7"
+          }
+        ],
+        "audit_scope": "Exact installed C# searched for player display/localization/message sinks; config, logs and technical identifiers excluded. No own uncovered gameplay text found; runtime compatibility not established."
+      },
+      {
+        "package": "VentureValheim-Mining_Caves",
+        "version": "1.0.3",
+        "source_root": "source-evidence/profile-updates/VentureValheim-Mining_Caves-1.0.3",
+        "binary_identities": [
+          {
+            "mod": "VentureValheim-Mining_Caves-1.0.3",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/VentureValheim-Mining_Caves/VentureValheim.MiningCaves.dll",
+            "size": 349184,
+            "sha256": "72a90790738f6d10cc17166afa336b7dd19163c30b80675a1d3586b2751b4387"
+          }
+        ],
+        "audit_scope": "CaveManager/TerrainManager use original native prefabs; vv_miningcaves bundle inspected with UnityPy: sole serialized m_name is native $piece_vegvisir. No own uncovered gameplay labels found."
+      },
+      {
+        "package": "VentureValheim-Venture_Floating_Items",
+        "version": "1.0.1",
+        "source_root": "source-evidence/profile-updates/VentureValheim-Venture_Floating_Items-1.0.1",
+        "binary_identities": [
+          {
+            "mod": "VentureValheim-Venture_Floating_Items-1.0.1",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/VentureValheim-Venture_Floating_Items/VentureValheim.FloatingItems.dll",
+            "size": 15872,
+            "sha256": "d1cd997f647b16327697b42f710453f7e7e8dcf97ed61fd359ddefc764d799df"
+          }
+        ],
+        "audit_scope": "Exact installed C# searched for player display/localization/message sinks; config, logs and technical identifiers excluded. No own uncovered gameplay text found; runtime compatibility not established."
+      },
+      {
+        "package": "denikson-BepInExPack_Valheim",
+        "version": "5.4.2351",
+        "audit_scope": "BepInEx loader infrastructure; no gameplay content catalog. Loader/system diagnostics are outside this player-display audit."
+      },
+      {
+        "id": "Compass",
+        "package": "shudnal-Compass",
+        "version": "1.1.2",
+        "status_in_archive": "Installed profile exact DLL/source audit 2026-10-07; game not run.",
+        "source_root": "source-evidence/profile-updates/shudnal-Compass-1.1.2",
+        "binary_identities": [
+          {
+            "mod": "shudnal-Compass-1.1.2",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/shudnal-Compass/Compass.dll",
+            "size": 80896,
+            "sha256": "1830a43f73e115c567d612d256516a1c5bd479722c499087ea8c039b267aef91"
+          }
+        ]
+      },
+      {
+        "package": "sighsorry-Fast_AssetBundle_Loader",
+        "version": "1.0.7",
+        "source_root": "source-evidence/profile-updates/sighsorry-Fast_AssetBundle_Loader-1.0.7",
+        "binary_identities": [
+          {
+            "mod": "sighsorry-Fast_AssetBundle_Loader-1.0.7",
+            "enabled": true,
+            "profile_path": "BepInEx/patchers/sighsorry-Fast_AssetBundle_Loader/FastAssetBundleLoader.dll",
+            "size": 36352,
+            "sha256": "954a8ec3c8be2c4f23c821959f35339753f20e060291500d68162776354a6e5e"
+          }
+        ],
+        "audit_scope": "Exact installed C# searched for player display/localization/message sinks; config, logs and technical identifiers excluded. No own uncovered gameplay text found; runtime compatibility not established."
+      },
+      {
+        "package": "warpalicious-More_Ore_Deposits",
+        "version": "1.4.1",
+        "source_root": "source-evidence/profile-updates/warpalicious-More_Ore_Deposits-1.4.1",
+        "binary_identities": [
+          {
+            "mod": "warpalicious-More_Ore_Deposits-1.4.1",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/warpalicious-More_Ore_Deposits/More Ore Deposits.dll",
+            "size": 1650688,
+            "sha256": "650d567413937ebb90af56a0578a52f8f94f4cc6f277ad996da172ed5b4bd0f1"
+          }
+        ],
+        "audit_scope": "English localization dictionary7 read in MoreOreDeposits.AddlocalizationsEnglish; translations_bundle inspected with UnityPy: native Russian contains all7 nonempty translations, retained unchanged."
+      },
+      {
+        "package": "yudi7ll-AutoRemoveDeathPin",
+        "version": "1.1.3",
+        "source_root": "source-evidence/profile-updates/yudi7ll-AutoRemoveDeathPin-1.1.3",
+        "binary_identities": [
+          {
+            "mod": "yudi7ll-AutoRemoveDeathPin-1.1.3",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/yudi7ll-AutoRemoveDeathPin/AutoRemoveDeathPin.dll",
+            "size": 7168,
+            "sha256": "5e31b8c927998d99da108b9e6f53fb3d6958e3ea35d8363b88151452e49963e5"
+          }
+        ],
+        "audit_scope": "Exact installed C# searched for player display/localization/message sinks; config, logs and technical identifiers excluded. No own uncovered gameplay text found; runtime compatibility not established."
+      },
+      {
+        "package": "ComfyMods-SearsCatalog",
+        "version": "1.9.0",
+        "source_root": "source-evidence/profile-updates/ComfyMods-SearsCatalog-1.9.0",
+        "binary_identities": [
+          {
+            "mod": "ComfyMods-SearsCatalog-1.9.0",
+            "enabled": true,
+            "profile_path": "BepInEx/plugins/ComfyMods-SearsCatalog/SearsCatalog.dll",
+            "size": 28672,
+            "sha256": "07767da939e2647d6868962eecf78f58ff5116ec89dfa313d495ddd38af2ed53"
+          }
+        ],
+        "audit_scope": "SearsCatalog.Awake/BuildUiController/BuildUiPatch checked: moves/resizes native BuildUi and uses existing native piece/tag controls; own readable literals are Config.Bind descriptions only, outside player-display scope."
+      }
+    ],
+    "content_noop_receipt": "source-evidence/profile-updates/OdinPlus-OdinsFoodBarrels-1.4.0/new-content-audit.json",
+    "game_version": "1.0.17",
+    "enabled_packages_with_catalog": 70,
+    "enabled_packages_without_catalog": 33
   }
 }

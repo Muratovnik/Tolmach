@@ -1,7 +1,7 @@
 {
   "id": "DynamicStorageButchersHall",
   "package": "Muji-DynamicStorage_Butchers_Hall",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "assembly": "DynamicStorageMeatRack",
   "guids": [
     "com.muji.DynamicStorageMeatRack"
@@ -43,11 +43,11 @@
     "Enable Advanced Debug -> Hook Anchor Calibration Tools first.": "Сначала включите Advanced Debug -> Hook Anchor Calibration Tools.",
     "Hook anchor orb: OFF": "Индикатор точки крепления крюка: выкл.",
     "Hook anchor orb: ON": "Индикатор точки крепления крюка: вкл.",
-    "<color=#D66B5D><b>MEAT RACK CALIBRATION</b></color>": "<color=#D66B5D><b>НАСТРОЙКА СТОЙКИ ДЛЯ МЯСА</b></color>",
-    "<color=#AAB4BC>Advanced meat/hook calibration is live while Calibration Tools are enabled; [R] snapshots it onto this rack.</color>": "<color=#AAB4BC>Расширенные настройки мяса и крюков действуют, пока включены Calibration Tools; [R] сохраняет их снимок для этой стойки.</color>",
-    "<color=#FFD166><b>[ / ]</b></color> <color=#AAB4BC>Cycle selected meat-hook anchor</color>": "<color=#FFD166><b>[ / ]</b></color> <color=#AAB4BC>Выбрать следующую точку крепления крюка</color>",
-    "<color=#FFD166><b>Right Ctrl</b></color> <color=#AAB4BC>Toggle bright anchor orb</color>": "<color=#FFD166><b>Right Ctrl</b></color> <color=#AAB4BC>Переключить яркий индикатор точки крепления</color>",
-    "<color=#FFD166><b>[R]</b></color> <color=#AAB4BC>Apply current rack template/behaviour to this placed rack</color>": "<color=#FFD166><b>[R]</b></color> <color=#AAB4BC>Применить текущий шаблон и режим к установленной стойке</color>",
+    "<color=#D66B5D><b>MEAT RACK CALIBRATION</b></color>": "<color=#D66B5D><b>КАЛИБРОВКА СТОЙКИ ДЛЯ МЯСА</b></color>",
+    "<color=#AAB4BC>Advanced meat/hook calibration is live while Calibration Tools are enabled; [R] snapshots it onto this rack.</color>": "<color=#AAB4BC>Расширенная калибровка мяса и крюков действует при включённых инструментах калибровки; [R] сохраняет её на этой стойке.</color>",
+    "<color=#FFD166><b>[ / ]</b></color> <color=#AAB4BC>Cycle selected meat-hook anchor</color>": "<color=#FFD166><b>[ / ]</b></color> <color=#AAB4BC>Выбрать крепление крюка для мяса</color>",
+    "<color=#FFD166><b>Right Ctrl</b></color> <color=#AAB4BC>Toggle bright anchor orb</color>": "<color=#FFD166><b>Right Ctrl</b></color> <color=#AAB4BC>Переключить яркий маркер крепления</color>",
+    "<color=#FFD166><b>[R]</b></color> <color=#AAB4BC>Apply current rack template/behaviour to this placed rack</color>": "<color=#FFD166><b>[R]</b></color> <color=#AAB4BC>Применить текущий шаблон и режим к этой стойке</color>",
     "Unavailable": "Недоступно"
   },
   "patterns": [
@@ -291,41 +291,117 @@
   ],
   "prefabs": [],
   "sourceFiles": [
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/ConfigurationManagerAttributes.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/DynamicStorageMeatRackPlugin.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/LooksFullAtMode.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatCatalog.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatCountEntry.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatDefinition.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatDisplaySlot.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackAppearance.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackAppearanceEditorPatches.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackAppearanceTemplate.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackBehaviour.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackCapacity.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackCapacityPatches.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackInventoryPatches.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackPlacementPatches.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackStorage.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackUnlocks.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackVisual.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatRackVisualProfile.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatStorageClass.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/MeatVisualTuning.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/RackColliderReconstructor.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/RackVisualPart.cs",
-    "source-evidence/profile-additions/Muji-DynamicStorage_Butchers_Hall-1.0.0/DynamicStorageButchersHall/DynamicStorageMeatRack/RackVisualReconstructor.cs"
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/ConfigurationManagerAttributes.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/DynamicStorageMeatRackPlugin.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/LooksFullAtMode.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatCatalog.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatCountEntry.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatDefinition.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatDisplaySlot.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatRackAppearance.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatRackAppearanceEditorPatches.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatRackAppearanceTemplate.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatRackBehaviour.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatRackCapacity.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatRackCapacityPatches.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatRackInventoryPatches.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatRackPlacementPatches.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatRackStorage.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatRackUnlocks.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatRackVisual.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatRackVisualProfile.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatStorageClass.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/MeatVisualTuning.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/RackColliderReconstructor.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/RackVisualPart.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/DynamicStorageMeatRack/RackVisualReconstructor.cs",
+    "source-evidence/profile-updates/Muji-DynamicStorage_Butchers_Hall-1.1.0/il/DynamicStorageButchersHall.il"
   ],
   "notes": [
-    "Проверено по установленной DLL. Русская нативная локализация отсутствует. Имена и описания переводятся при показе; идентификаторы, сохраненные настройки, RPC и журналы не изменяются. Игровой запуск не выполнен."
+    "Проверено по установленной DLL. Русская нативная локализация отсутствует. Имена и описания переводятся при показе; идентификаторы, сохраненные настройки, RPC и журналы не изменяются. Игровой запуск не выполнен.",
+    "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска.",
+    "В 1.1.0 добавлен перевод нового редактора стойки и настройки отдельных видов мяса; имена префабов и значения редактируемых полей не переводятся."
   ],
   "namespaces": [
     "DynamicStorageMeatRack"
   ],
-  "pluginVersion": "1.0.0",
+  "pluginVersion": "1.1.0",
   "rawTexts": {
     "Meat Rack": "Стойка для мяса",
-    "Dynamic raw or cooked meat storage. The first meat class inserted locks the rack to raw or cooked until it is emptied; raw and cooked meat can never be mixed.": "Динамическое хранилище сырого или приготовленного мяса. Первая порция определяет тип мяса до полного опустошения стойки; смешивать сырое и приготовленное мясо нельзя."
+    "Dynamic raw or cooked meat storage. The first meat class inserted locks the rack to raw or cooked until it is emptied; raw and cooked meat can never be mixed.": "Динамическое хранилище сырого или приготовленного мяса. Первая порция определяет тип мяса до полного опустошения стойки; смешивать сырое и приготовленное мясо нельзя.",
+    "10 items": "10 предметов",
+    "20 items": "20 предметов",
+    "40 items": "40 предметов",
+    "60 items": "60 предметов",
+    "100 items": "100 предметов",
+    "25% slots": "25% ячеек",
+    "50% slots": "50% ячеек",
+    "75% slots": "75% ячеек",
+    "100% slots": "100% ячеек",
+    "ADMIN SETTINGS": "НАСТРОЙКИ АДМИНИСТРАТОРА",
+    "Add an item to this rack, or enable Show all types.": "Положите предмет в эту стойку или включите показ всех видов.",
+    "Additional cooked meat": "Дополнительное готовое мясо",
+    "Additional prefabs": "Дополнительные префабы",
+    "Additional raw meat": "Дополнительное сырое мясо",
+    "Advanced prefab support": "Расширенная поддержка префабов",
+    "Allows multiple items within the current raw/cooked class.": "Разрешает несколько видов предметов в текущем классе сырого или готового мяса.",
+    "Always": "Всегда",
+    "Appearance Editor": "Редактор внешнего вида",
+    "Appearance choices": "Варианты внешнего вида",
+    "Apply": "Применить",
+    "Capacity change sent to the server.": "Запрос изменения вместимости отправлен серверу.",
+    "Changes apply to all racks. Unsafe reductions wait until every stack fits.": "Изменения действуют на все стойки. Уменьшение вместимости откладывается, пока все стопки не поместятся.",
+    "Changes preview and save on the selected rack.": "Изменения сразу видны и сохраняются на выбранной стойке.",
+    "Cooked": "Готовое",
+    "DYNAMICSTORAGE BUTCHER'S HALL": "DYNAMICSTORAGE: ЗАЛ МЯСНИКА",
+    "Enter exact, case-sensitive ItemDrop prefab IDs separated by commas. Keep IDs listed while items are stored.": "Введите точные имена префабов ItemDrop через запятую с учётом регистра. Сохраняйте имена в списке, пока предметы находятся в хранилище.",
+    "Fish": "Рыба",
+    "Fish appearance": "Внешний вид рыбы",
+    "Full rack preview: Off": "Просмотр полной стойки: выкл.",
+    "Full rack preview: On": "Просмотр полной стойки: вкл.",
+    "Global config tuning is active. Turn it off to edit this rack.": "Действует глобальная настройка. Отключите её, чтобы редактировать эту стойку.",
+    "Live preview. Rewind restores one preset value.": "Предпросмотр в реальном времени. Кнопка возврата восстанавливает одно исходное значение.",
+    "Locks to one exact item until empty.": "До опустошения принимает только один конкретный предмет.",
+    "Look at a placed Dynamic Meat Rack and press P.": "Наведите взгляд на установленную стойку для мяса и нажмите P.",
+    "Looks full at (single item display)": "Выглядит полной при (показ одного предмета)",
+    "Meat appearance": "Внешний вид мяса",
+    "Mixed Meat": "Разные виды мяса",
+    "No Dynamic Meat Rack selected": "Стойка для мяса не выбрана",
+    "No Dynamic Meat Rack selected.": "Стойка для мяса не выбрана.",
+    "One type grows; multiple raw or cooked types use five hooks.": "Один вид увеличивается; разные виды сырого или готового мяса размещаются на пяти крюках.",
+    "Only the server or an authorized admin can change capacity.": "Вместимость может менять только сервер или уполномоченный администратор.",
+    "Only the server or an authorized admin can change prefab support.": "Поддержку префабов может менять только сервер или уполномоченный администратор.",
+    "Only valid item prefabs load. Unknown IDs and duplicate class assignments are ignored.": "Загружаются только допустимые префабы предметов. Неизвестные имена и повторные назначения классов игнорируются.",
+    "Prefab IDs saved. Valid items are available immediately.": "Имена префабов сохранены. Допустимые предметы доступны сразу.",
+    "Prefab list change sent to the server.": "Запрос изменения списка префабов отправлен серверу.",
+    "Rack rotation": "Поворот стойки",
+    "Rack scale": "Масштаб стойки",
+    "Saved on this Dynamic Meat Rack.": "Сохранено на этой стойке для мяса.",
+    "Scale meat": "Масштабировать мясо",
+    "Server capacity": "Вместимость на сервере",
+    "Show all types": "Показать все виды",
+    "Single Meat": "Один вид мяса",
+    "Storage behaviour": "Режим хранения",
+    "THIS RACK": "ЭТА СТОЙКА",
+    "This item is not available in the server catalogue.": "Этого предмета нет в каталоге сервера.",
+    "Turn off global meat visual tuning to edit this rack.": "Отключите глобальную настройку внешнего вида мяса, чтобы редактировать эту стойку.",
+    "Visual height": "Высота модели",
+    "← This rack": "← Эта стойка",
+    "Anchor X": "Крепление X",
+    "Anchor Y": "Крепление Y",
+    "Anchor Z": "Крепление Z",
+    "Height": "Высота",
+    "Height variation": "Разброс высоты",
+    "Length": "Длина",
+    "Overall scale": "Общий масштаб",
+    "Rotation X": "Поворот X",
+    "Rotation Y": "Поворот Y",
+    "Rotation Z": "Поворот Z",
+    "Rotation variation": "Разброс поворота",
+    "Scale variation": "Разброс масштаба",
+    "Thickness": "Толщина",
+    "Width": "Ширина",
+    "Inventory full: rejected item dropped nearby.": "Инвентарь заполнен: отклонённый предмет выброшен рядом."
   },
   "terms": {
     "meat": {
@@ -418,5 +494,28 @@
     "pieces": {
       "Meat Rack": "Стойка для мяса"
     }
-  }
+  },
+  "rawPatterns": [
+    {
+      "source": "Meat appearance: {0}",
+      "target": "Внешний вид мяса: {0}"
+    }
+  ],
+  "literals": [
+    {
+      "type": "DynamicStorageMeatRack.MeatRackAppearanceEditorPatches",
+      "method": "GetHoverTextPostfix",
+      "values": {
+        "\n<color=white>[</color><color=yellow>P</color><color=white>]</color> Open Appearance Editor": "\n<color=white>[</color><color=yellow>P</color><color=white>]</color> Открыть редактор внешнего вида",
+        "\n<color=red>Stored item ID unavailable; restore its configured prefab or withdraw it. New deposits are paused.</color>": "\n<color=red>Имя хранимого предмета недоступно; восстановите его префаб в настройках или заберите предмет. Добавление новых предметов приостановлено.</color>"
+      }
+    },
+    {
+      "type": "DynamicStorageMeatRack.MeatRackUnlocks",
+      "method": "AddKnownItemPostfix",
+      "values": {
+        "New build piece: ": "Новая постройка: "
+      }
+    }
+  ]
 }
