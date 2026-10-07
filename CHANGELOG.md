@@ -1,10 +1,21 @@
 # Изменения
 
-## 0.9.0 (2026-10-07)
+## [0.9.0](https://github.com/Muratovnik/Tolmach/compare/v0.8.0...v0.9.0) (2026-10-07)
 
-- Исправлены английские названия пустых хранилищ Dynamic Storage и перевод штатных имён неприручённых NPC Norsemen. Сохранённые значения и пользовательские имена приручённых NPC не меняются.
-- Каталоги сверены с текущим профилем: обновлена поддержка 17 версий модов и Valheim 1.0.17. Добавлены Circlet Extended, Odins Food Barrels, Portal Preview, Upgrade World, Achievement Enabler и Valheim Community Patch; расширен перевод редактора Butchers Hall.
-- README, карточка пакета и руководства переписаны: установка и первый запуск, фактическое покрытие, источники и границы проверки описаны отдельно для игроков и разработчиков.
+### Highlights
+
+Перевод охватывает **103 мода**. Добавлены шесть новых модов, обновлена поддержка текущих версий и исправлены английские названия пустых хранилищ и штатные имена неприручённых NPC.
+
+### Features
+
+- **Новые моды:** добавлены Circlet Extended, Odins Food Barrels, Portal Preview, Upgrade World, Achievement Enabler и Valheim Community Patch; расширен перевод редактора Butchers Hall. ([21c4fa2](https://github.com/Muratovnik/Tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
+- **Совместимость:** каталоги сверены с текущим профилем, обновлена поддержка 17 версий модов и Valheim 1.0.17. ([21c4fa2](https://github.com/Muratovnik/Tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
+- **Руководства:** README, карточка пакета и руководства переписаны: установка и первый запуск, фактическое покрытие, источники и границы проверки описаны отдельно для игроков и разработчиков. ([21c4fa2](https://github.com/Muratovnik/Tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
+
+### Bug Fixes
+
+- **Хранилища:** исправлены английские названия пустых хранилищ Dynamic Storage; сохранённые значения не меняются. ([21c4fa2](https://github.com/Muratovnik/Tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
+- **NPC:** переведены штатные имена неприручённых NPC Norsemen, включая Ulf. Пользовательские имена приручённых NPC сохраняются. ([21c4fa2](https://github.com/Muratovnik/Tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
 
 ## [0.8.0](https://github.com/Muratovnik/Tolmach/compare/v0.7.0...v0.8.0) (2026-10-02)
 
