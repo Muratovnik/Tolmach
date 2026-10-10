@@ -89,12 +89,23 @@ namespace Tolmach.Tests
         {
             public int Reads;
             public int Writes;
+            public Localization LiveGame;
             public readonly Dictionary<string, string> Values = new Dictionary<string, string> { { "existing", "Перевод другого мода" }, { "fallback", "English fallback" } };
             public object Map { get { throw new InvalidOperationException("Private-map path must not be used."); } }
             public IReadOnlyDictionary<string, string> GetTranslations(in string language)
             { Reads++; Assert.That(language, Is.EqualTo("Russian")); return Values; }
             public void AddTranslation(in string language, Dictionary<string, string> additions)
-            { Writes++; foreach (var p in additions) Values[p.Key] = p.Value; }
+            {
+                Writes++;
+                foreach (var p in additions)
+                {
+                    Values[p.Key] = p.Value;
+                    // CustomLocalization.AddTranslationToMap in Jotunn 2.30.2 also
+                    // publishes absent keys to the active table, regardless of language.
+                    if (LiveGame != null && LiveGame.Translate(p.Key) == "[" + p.Key + "]")
+                        LiveGame.AddWord(p.Key, p.Value);
+                }
+            }
         }
         public sealed class UnsupportedScope
         {
@@ -120,6 +131,30 @@ namespace Tolmach.Tests
             NativeAdapters.FillJotunnScope(unsupported, m);
             Assert.That(unsupported.WasWritten, Is.False, "No blind write if existing translations cannot be read.");
             Assert.That(m.Warnings, Has.Count.EqualTo(1));
+        }
+        [TestCase("English")]
+        [TestCase("German")]
+        public void JotunnRegistrationDoesNotPublishRussianWordsInAnotherLanguage(string language)
+        {
+            Localization.SelectedLanguage = language;
+            Localization main = Localization.instance;
+            LocalizationBridge.Install(Patcher, typeof(Localization), () => language);
+            Module m = new Module { id = "scope" };
+            m.words["missing_jotunn_key"] = "Новый перевод";
+            m.englishWords["missing_jotunn_key"] = "New translation";
+            InScope scope = new InScope { LiveGame = main };
+            scope.Values.Clear();
+
+            NativeAdapters.FillJotunnScope(scope, m);
+            Assert.That(main.Translate("missing_jotunn_key"), Is.EqualTo("[missing_jotunn_key]"),
+                "Registering a Russian scope must not leak Russian into the active game language.");
+            Assert.That(scope.Writes, Is.Zero);
+
+            main.SetLanguage("Russian");
+            NativeAdapters.FillJotunnScope(scope, m);
+            Assert.That(scope.Values["missing_jotunn_key"], Is.EqualTo("Новый перевод"));
+            Assert.That(main.Translate("missing_jotunn_key"), Is.EqualTo("Новый перевод"));
+            Assert.That(scope.Writes, Is.EqualTo(1), "The same native registration still works in Russian.");
         }
         [Test]
         public void JotunnScopeTakesAReplaceNativeWordOverTheModsOwnRussian()

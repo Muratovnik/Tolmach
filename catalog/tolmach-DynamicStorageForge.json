@@ -446,7 +446,7 @@
     "Storage for Silver Ore. Hold E to quickly stack matching items.": "Хранилище для серебряной руды. Удерживайте E, чтобы быстро сложить подходящие предметы.",
     "Storage for Black Metal Scrap. Hold E to quickly stack matching items.": "Хранилище для лома черного металла. Удерживайте E, чтобы быстро сложить подходящие предметы.",
     "Storage for Flametal Ore. Hold E to quickly stack matching items.": "Хранилище для огнеметаллической руды. Удерживайте E, чтобы быстро сложить подходящие предметы.",
-    "Storage for Petrified Tissue. Hold E to quickly stack matching items.": "Хранилище для окаменевшей ткани. Удерживайте E, чтобы быстро сложить подходящие предметы.",
+    "Storage for Petrified Tissue. Hold E to quickly stack matching items.": "Хранилище для окаменевших тканей. Удерживайте E, чтобы быстро сложить подходящие предметы.",
     "Copper Stack (Storage)": "Стопка слитков меди (хранилище)",
     "Bronze Stack (Storage)": "Стопка слитков бронзы (хранилище)",
     "Iron Stack (Storage)": "Стопка слитков железа (хранилище)",
@@ -467,7 +467,7 @@
     "Silver Ore Pile (Storage)": "Груда серебряной руды (хранилище)",
     "Black Metal Scrap Pile (Storage)": "Груда лома черного металла (хранилище)",
     "Flametal Ore Pile (Storage)": "Груда огнеметаллической руды (хранилище)",
-    "Petrified Tissue Pile (Storage)": "Груда окаменевшей ткани (хранилище)"
+    "Petrified Tissue Pile (Storage)": "Груда окаменевших тканей (хранилище)"
   },
   "terms": {
     "pieces": {
@@ -491,7 +491,7 @@
       "Silver Ore Pile (Storage)": "Груда серебряной руды (хранилище)",
       "Black Metal Scrap Pile (Storage)": "Груда лома черного металла (хранилище)",
       "Flametal Ore Pile (Storage)": "Груда огнеметаллической руды (хранилище)",
-      "Petrified Tissue Pile (Storage)": "Груда окаменевшей ткани (хранилище)"
+      "Petrified Tissue Pile (Storage)": "Груда окаменевших тканей (хранилище)"
     },
     "appearance": {
       "Flint": "Кремень",
@@ -502,7 +502,7 @@
       "Crystal": "Кристалл",
       "Freeze Gland": "Морозная железа",
       "Needle": "Игла",
-      "Soft Tissue": "Мягкие ткани",
+      "Soft Tissue": "Мягкая ткань",
       "Black Core": "Черное ядро",
       "Sulfur": "Сера",
       "Ice": "Лед",
@@ -527,11 +527,11 @@
       "Silver Ore": "Серебряная руда",
       "Black Metal Scrap": "Лом черного металла",
       "Flametal Ore": "Огнеметаллическая руда",
-      "Petrified Tissue": "Окаменевшая ткань",
+      "Petrified Tissue": "Окаменевшие ткани",
       "Coal": "Уголь",
       "Stone": "Камень",
       "Black Marble": "Черный мрамор",
-      "Grausten": "Граустен",
+      "Grausten": "Серокамень",
       "Flint - Experimental": "Кремень — экспериментально",
       "Obsidian - Experimental": "Обсидиан — экспериментально",
       "Pyramid": "Пирамида",
@@ -569,7 +569,7 @@
       "Default (Coal)": "По умолчанию (Уголь)",
       "Default (Stone)": "По умолчанию (Камень)",
       "Default (Black Marble)": "По умолчанию (Черный мрамор)",
-      "Default (Grausten)": "По умолчанию (Граустен)",
+      "Default (Grausten)": "По умолчанию (Серокамень)",
       "Default (Flint - Experimental)": "По умолчанию (Кремень — экспериментально)",
       "Default (Obsidian - Experimental)": "По умолчанию (Обсидиан — экспериментально)",
       "Stone (Ore Model)": "Камень (модель руды)",

@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 GAME_GUID = 'valheim'
 GAME_ASSEMBLY = 'assembly_valheim'
 HOLE = re.compile(r'\{(\d+)\}')
-TOKEN = re.compile(r'\{\d+[^{}]*\}|\$\d+|\$[A-Za-z_]\w*|</?[^>\n]+>')
+TOKEN = re.compile(r'\{(?:\d+|[A-Za-z_]\w*)[^{}]*\}|\$\d+|\$[A-Za-z_]\w*|</?[^>\n]+>')
 IDOL_NAME = re.compile(r'\$item_upgrader_tier([0-7]) \$item_upgrader_(weapon|armor) \$item_upgrader_name')
 checks = 0
 errors: list[str] = []
@@ -219,7 +219,12 @@ def main() -> int:
     schema = load(ROOT / 'tools/catalog.schema.json')
     Draft202012Validator.check_schema(schema)
     shape = Draft202012Validator(schema)
-    loaded = [(p, load(p)) for p in paths]
+    loaded = []
+    for path in paths:
+        try:
+            loaded.append((path, load(path)))
+        except (OSError, UnicodeError, ValueError) as exc:
+            check(False, path.name + ': invalid JSON catalog: ' + str(exc))
     # A catalog of the wrong shape is reported by the schema alone; the checks below assume the shape.
     for path, m in loaded:
         problems = sorted(shape.iter_errors(m), key=lambda e: e.json_path)
@@ -270,7 +275,8 @@ def main() -> int:
                   name + ': name alias words must be plain full names')
         check(sum(len(m.get(k, [])) for k in ('words', 'texts', 'patterns', 'literals', 'configTexts', 'rawTexts', 'rawPatterns')) > 0, name + ': empty module')
         counts.update({key: len(m.get(key, [])) for key in ('words', 'texts', 'patterns', 'rawTexts', 'nameAliases', 'rawPatterns')})
-        pairs = [(m['englishWords'][k], ru) for k, ru in m['words'].items()] + list(m['texts'].items())
+        # Key-set differences are already reported above; keep checking the other pairs.
+        pairs = [(m['englishWords'][k], ru) for k, ru in m['words'].items() if k in m['englishWords']] + list(m['texts'].items())
         pairs += list(m.get('mapLabels', {}).items()) + list(m.get('rawTexts', {}).items())
         pairs += [pair for table in terms.values() for pair in table.items()]
         pairs += [(p['source'], p['target']) for p in m['patterns'] + m.get('rawPatterns', [])]

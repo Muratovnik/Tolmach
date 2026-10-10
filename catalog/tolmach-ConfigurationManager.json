@@ -45,8 +45,8 @@
     "Server policy: No override; using mod default": "Политика сервера: без переопределения; используется настройка мода",
     "Policy control: Requires administrator access": "Изменение политики: требуется доступ администратора",
     "Policy control: Requires a compatible active server session": "Изменение политики: требуется активное подключение к совместимому серверу",
-    "Policy control: Fixed by the mod": "Изменение политики: задана модом",
-    "Policy control: Fixed by the synchronization provider": "Изменение политики: задана поставщиком синхронизации"
+    "Policy control: Fixed by the mod": "Политика задана модом; изменить её нельзя",
+    "Policy control: Fixed by the synchronization provider": "Политика задана поставщиком синхронизации; изменить её нельзя"
   },
   "patterns": [
     {

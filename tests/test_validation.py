@@ -36,6 +36,10 @@ def test_unmodified_data_passes():
     ('single_line_break', 'single-line pattern contains line breaks'),
     ('markup', 'markup'),
     ('missing_key', 'mismatched English/Russian key sets'),
+    ('missing_english_key', 'mismatched English/Russian key sets'),
+    ('named_placeholder', 'placeholder/markup mismatch'),
+    ('duplicate_json_key', 'duplicate JSON key'),
+    ('invalid_json', 'invalid JSON catalog'),
     ('cllc_template', '$.cllc.genderedCreatureTranslations.m'),
     ('cllc_gender', 'CLLC gender without a nameplate template'),
     # Caught by tools/catalog.schema.json: before it, a misspelt section silently dropped its texts.
@@ -56,8 +60,10 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
     # can be inside .git, which would make the copy contain itself.
     shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.git', '.cache', '.private', 'tmp', 'bin', 'obj', 'artifacts', 'evidence', '__pycache__', '.pytest_cache'))
     name = 'BetterArchery' if mutation == 'markup' else 'StructureTweaks'
-    if mutation in ('missing_key', 'empty_value'):
+    if mutation in ('missing_key', 'missing_english_key', 'empty_value'):
         name = 'Warfare'
+    elif mutation == 'named_placeholder':
+        name = 'InventorySlots'
     elif mutation.startswith('cllc'):
         name = 'CreatureLevelControl'
     elif mutation.startswith('helper') or mutation.startswith('single_line'):
@@ -87,6 +93,11 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
         pattern['target'] = pattern['target'].replace('</size>', '', 1)
     elif mutation == 'missing_key':
         del data['words'][next(iter(data['words']))]
+    elif mutation == 'missing_english_key':
+        del data['englishWords'][next(iter(data['englishWords']))]
+    elif mutation == 'named_placeholder':
+        key = next(k for k, value in data['englishWords'].items() if value == 'Delete {item}?')
+        data['words'][key] = 'Удалить предмет?'
     elif mutation == 'cllc_template':
         data['cllc']['genderedCreatureTranslations']['m'] = '{name}[ ]'
     elif mutation == 'cllc_gender':
@@ -114,6 +125,10 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
         elif mutation == 'idol_owner':
             data['id'] = 'Other'
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
+    if mutation == 'duplicate_json_key':
+        path.write_text(path.read_text(encoding='utf-8').replace('"id":', '"id": "duplicate", "id":', 1), encoding='utf-8')
+    elif mutation == 'invalid_json':
+        path.write_text('{"id":', encoding='utf-8')
     process, report = run_validator(root)
     assert process.returncode == 1, process.stderr + process.stdout
     assert any(diagnostic in error for error in report['errors']), report

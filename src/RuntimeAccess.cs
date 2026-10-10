@@ -31,7 +31,12 @@ namespace Tolmach
         }
         internal static bool ManagedBody(MethodBase method)
         {
-            if (method.IsAbstract || method.ContainsGenericParameters) return false;
+            if (method.IsAbstract) return false;
+            // Mono can crash in ContainsGenericParameters when a signature references
+            // an absent optional assembly. Resolve it through the checked reflection
+            // API first, so the caller can catch the load failure and skip this method.
+            method.GetParameters();
+            if (method.ContainsGenericParameters) return false;
             try { return method.GetMethodBody() != null; }
             catch (InvalidOperationException) { return false; }
             catch (NotSupportedException) { return false; }

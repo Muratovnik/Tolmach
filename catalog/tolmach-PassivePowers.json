@@ -32,7 +32,7 @@
     "powers_carry_weight": "Увеличивает максимальный переносимый вес на $1.",
     "powers_depleted": "Истощение",
     "powers_depleted_description": "$1: сила истощена и со временем восстановится.",
-    "powers_depletion_hint": "После активации силы пассивный эффект отключается на $1",
+    "powers_depletion_hint": "По окончании активного эффекта пассивная сила отключается на $1",
     "powers_eitr_regen": "Ускоряет восстановление эйтра на $1%.",
     "powers_elemental_damage_reduction": "Снижает получаемый урон от стихий на $1%.",
     "powers_health_regen_increase": "Ускоряет восстановление здоровья на $1%.",

@@ -283,10 +283,14 @@ namespace FixtureOptional
 {
     // UnityEngine.AudioModule is referenced for compilation but deliberately not copied
     // beside the tests, like a mod's optional integration whose dependency is absent.
-    public static class Integration
+    // NUnit ignores abstract nonsealed fixture candidates before inspecting methods;
+    // the production scanner still inspects its static methods during the regression.
+    public abstract class Integration
     {
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static UnityEngine.AudioClip OptionalClip() { return null; }
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public static void OptionalArgument(UnityEngine.AudioClip clip) { }
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static void Draw() { UnityEngine.GUI.Label("Price"); }
     }

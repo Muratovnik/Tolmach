@@ -109,6 +109,9 @@ namespace Tolmach
         }
         internal static void FillJotunnScope(object scope, Module m)
         {
+            // Jotunn also publishes missing words to the active game table when
+            // registering another language. Defer Russian registration in other languages.
+            if (!TextEngine.IsRussian) return;
             // Jotunn 2.30.2 uses `in string` (String&) here; older variants may use
             // String by value. Match the actual public API, never read its private Map.
             Type type = scope.GetType();

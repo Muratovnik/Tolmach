@@ -236,7 +236,7 @@
     },
     {
       "source": "{0} Swordmaster",
-      "target": "{0}-мечник",
+      "target": "{0} — мастер меча",
       "arguments": {
         "0": "text"
       }

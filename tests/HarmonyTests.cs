@@ -422,14 +422,13 @@ namespace Tolmach.Tests
             Type iterator = typeof(FixturePlugin.Faulted).GetNestedTypes(BindingFlags.NonPublic).Single(t => t.Name.StartsWith("<Lines>", StringComparison.Ordinal));
             MethodInfo moveNext = iterator.GetMethod("MoveNext", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
             Assert.That(moveNext.GetMethodBody().ExceptionHandlingClauses.Select(c => c.Flags), Has.Member(ExceptionHandlingClauseOptions.Fault));
-            // The reason for the skip: this Harmony ends the fault handler with leave, and the runtime rejects the IL.
-            Assert.Throws<HarmonyLib.HarmonyException>(() => Patcher.Patch(moveNext,
-                transpiler: new HarmonyLib.HarmonyMethod(typeof(HarmonyTests).GetMethod("Unchanged", BindingFlags.NonPublic | BindingFlags.Static))));
-            Patcher.UnpatchSelf();
+            // Runtimes differ in when they reject rewritten fault IL. The contract
+            // is to leave this method unpatched before a deferred patcher can see it.
             Module m = FixtureModule("fault", "FixturePlugin");
             m.literals.Add(new LiteralSpec { type = iterator.FullName, method = "MoveNext", values = new Dictionary<string, string> { { "Faulted literal", "Литерал итератора" } } });
             Activate(m);
             Assert.DoesNotThrow(() => DisplayPatches.Install(Patcher, m));
+            Assert.That(HarmonyLib.Harmony.GetPatchInfo(moveNext), Is.Null, "The fault guard must not queue a patch.");
             Assert.That(m.Warnings, Has.Some.EqualTo("UI patch skipped " + iterator.FullName + ".MoveNext: fault block"));
             Assert.That(FixturePlugin.Faulted.Lines().ToList(), Is.EqualTo(new[] { "Faulted literal" }));
         }
@@ -502,6 +501,7 @@ namespace Tolmach.Tests
             FixtureOptional.Integration.Draw();
             Assert.That(UnityEngine.GUI.LastText, Is.EqualTo("Цена"), "Methods beside the unloadable one stay patched.");
             Assert.That(m.Warnings, Has.Some.StartsWith("UI adapter skipped FixtureOptional.Integration.OptionalClip"));
+            Assert.That(m.Warnings, Has.Some.StartsWith("UI adapter skipped FixtureOptional.Integration.OptionalArgument"));
             Assert.That(m.Warnings, Has.Some.StartsWith("Expected return adapter not found"), "Final adapter checks still run.");
         }
         [Test]

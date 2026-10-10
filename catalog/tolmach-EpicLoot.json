@@ -125,8 +125,8 @@
       "type": "EpicLoot.TerminalManager",
       "method": "OnTreasureChestSpawnComplete",
       "values": {
-        "> Failed to spawn treasure map chest": "> Не удалось создать сундук с картой сокровищ",
-        "> Spawning Treasure Map Chest at <{0:0.#}, {1:0.#}> (height:{2:0.#})": "> Создание сундука с картой сокровищ в точке <{0:0.#}, {1:0.#}> (высота: {2:0.#})"
+        "> Failed to spawn treasure map chest": "> Не удалось создать сундук с сокровищами",
+        "> Spawning Treasure Map Chest at <{0:0.#}, {1:0.#}> (height:{2:0.#})": "> Создание сундука с сокровищами в точке <{0:0.#}, {1:0.#}> (высота: {2:0.#})"
       }
     },
     {
@@ -147,14 +147,14 @@
       "type": "EpicLoot.TerminalManager",
       "method": "PrintAvailableBounties",
       "values": {
-        "Bounties for Interval {0}:": "Награды за интервал {0}:"
+        "Bounties for Interval {0}:": "Задания на охоту за интервал {0}:"
       }
     },
     {
       "type": "EpicLoot.TerminalManager",
       "method": "PrintPlayerAvailableBounties",
       "values": {
-        "Player Bounties:": "Награды игрока:"
+        "Player Bounties:": "Задания игрока:"
       }
     },
     {

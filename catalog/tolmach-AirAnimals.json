@@ -9,7 +9,7 @@
   "words": {},
   "englishWords": {},
   "texts": {
-    "Harpy Eagle": "Гарпия",
+    "Harpy Eagle": "Орел-гарпия",
     "Swan": "Лебедь",
     "Wild Duck": "Дикая утка",
     "Hummingbird": "Колибри",
@@ -19,12 +19,12 @@
     "Pigeon": "Голубь",
     "Secretary Bird": "Птица-секретарь",
     "Archaeopteryx": "Археоптерикс",
-    "Viceroy": "Бабочка-вице-король",
+    "Viceroy": "Ленточник архипп",
     "Horaces DuskyWing": "Толстоголовка Горация",
     "RedSpoted Purple": "Краснопятнистый ленточник",
     "RedBanded": "Краснополосая бабочка",
-    "CloudLess Sulphur": "Желтая бабочка",
-    "Checkered White": "Белянка",
+    "CloudLess Sulphur": "Желтушка сенны",
+    "Checkered White": "Клетчатая белянка",
     "Beetle Brown": "Коричневый жук",
     "Beetle Gold": "Золотистый жук",
     "Beetle Purple": "Фиолетовый жук",
@@ -37,7 +37,8 @@
     "source-evidence/localization/c/40/AirAnimals/AirAnimalsPlugin.cs"
   ],
   "notes": [
-    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен."
+    "version — версия пакета Gale; pluginVersion и assembly — метаданные приложенной декомпиляции. Игровой запуск не выполнен.",
+    "Viceroy и CloudLess Sulphur переданы как «Ленточник архипп» (Limenitis archippus) и «Желтушка сенны» (Phoebis sennae). Это редакторские игровые названия по виду, а не утверждение об официальной русской номенклатуре. Видовая принадлежность и происхождение sennae от сенны сверены по UF/IFAS: https://ask.ifas.ufl.edu/publication/IN828 и https://ask.ifas.ufl.edu/publication/IN929. Название «Клетчатая белянка» сохраняет признак Checkered White (Pontia protodice): https://www.butterfliesandmoths.org/species/Pontia-protodice."
   ],
   "namespaces": [
     "AirAnimals"
