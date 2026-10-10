@@ -179,7 +179,7 @@ push (см. [ниже](#хук-перед-push)).
 1. Поднимите `<Version>` в `Tolmach.csproj` и `PluginVersion` в `src/Plugin.cs`. Тест
    сверяет их между собой, release-kit берёт номер версии из csproj.
 2. Добавьте в начало `CHANGELOG.md` запись в формате conventional-changelog (пресет
-   angular): заголовок `## [<версия>](https://github.com/Muratovnik/Tolmach/compare/v<прошлая>...v<версия>) (<ГГГГ-ММ-ДД>)`,
+   angular): заголовок `## [<версия>](https://github.com/Muratovnik/tolmach/compare/v<прошлая>...v<версия>) (<ГГГГ-ММ-ДД>)`,
    разделы `### Features` и `### Bug Fixes`, у каждого пункта ссылка на коммит из выпуска.
    Обзор для игроков — в `### Highlights`. Запись входит в пакет, видна в менеджере модов
    и становится текстом релиза; release-kit проверяет ее формат (`profile` в `relkit.toml`).

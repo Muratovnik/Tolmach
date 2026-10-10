@@ -6,12 +6,12 @@
 
 Русский перевод для модов Valheim и звуковых субтитров игры.
 
-[![Release](https://img.shields.io/github/v/release/Muratovnik/Tolmach?style=flat-square&color=blue)](https://github.com/Muratovnik/Tolmach/releases)
-[![GitHub downloads](https://img.shields.io/github/downloads/Muratovnik/Tolmach/total?style=flat-square&color=blue&label=GitHub%20downloads)](https://github.com/Muratovnik/Tolmach/releases)
+[![Release](https://img.shields.io/github/v/release/Muratovnik/tolmach?style=flat-square&color=blue)](https://github.com/Muratovnik/tolmach/releases)
+[![GitHub downloads](https://img.shields.io/github/downloads/Muratovnik/tolmach/total?style=flat-square&color=blue&label=GitHub%20downloads)](https://github.com/Muratovnik/tolmach/releases)
 [![103 mods](https://img.shields.io/badge/mods-103-8b5a2b?style=flat-square)](docs/COVERAGE.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 
-[Что переведено](docs/COVERAGE.md) · [Установка](#установка) · [Документация](#документация) · [Сообщить об ошибке](https://github.com/Muratovnik/Tolmach/issues/new)
+[Что переведено](docs/COVERAGE.md) · [Установка](#установка) · [Документация](#документация) · [Сообщить об ошибке](https://github.com/Muratovnik/tolmach/issues/new)
 
 </div>
 
@@ -29,7 +29,7 @@ Tolmach меняет отображение текста. Сохранения, 
 
 Установите Tolmach из каталога Gale или r2modman в свой профиль Valheim. Менеджер также установит BepInExPack_Valheim и JsonDotNET. Tolmach нужен у игрока; устанавливать его на сервер не требуется. Переводимые моды устанавливаются отдельно — пакет не добавляет их в профиль.
 
-Для ZIP из [релизов GitHub](https://github.com/Muratovnik/Tolmach/releases), ручной установки и удаления используйте [инструкцию](docs/INSTALLATION.md). Перед обновлением закройте игру.
+Для ZIP из [релизов GitHub](https://github.com/Muratovnik/tolmach/releases), ручной установки и удаления используйте [инструкцию](docs/INSTALLATION.md). Перед обновлением закройте игру.
 
 ## Первый запуск
 
@@ -64,7 +64,7 @@ Tolmach меняет отображение текста. Сохранения, 
 
 ## Участие в разработке
 
-Нашли английский текст или неудачную формулировку? [Сообщите об ошибке](https://github.com/Muratovnik/Tolmach/issues/new): укажите мод и его версию, место появления текста и приложите скриншот либо полную строку. Отчёт Tolmach полезен для диагностики, но для замечания о формулировке не обязателен.
+Нашли английский текст или неудачную формулировку? [Сообщите об ошибке](https://github.com/Muratovnik/tolmach/issues/new): укажите мод и его версию, место появления текста и приложите скриншот либо полную строку. Отчёт Tolmach полезен для диагностики, но для замечания о формулировке не обязателен.
 
 Для изменения каталогов или кода начните с [руководства по сборке](docs/BUILD.md). В PR укажите выполненные проверки и оставшиеся игровые сценарии.
 

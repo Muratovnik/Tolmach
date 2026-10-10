@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/Muratovnik/Tolmach/main/tools/catalog.schema.json",
+  "$id": "https://raw.githubusercontent.com/Muratovnik/tolmach/main/tools/catalog.schema.json",
   "title": "Tolmach catalog",
   "description": "One tolmach-<id>.json file: the identity of one mod and its Russian texts. The plugin reads the same shape (src/Models.cs); tools/validate.py checks this schema first, then what a schema cannot express.",
   "type": "object",
