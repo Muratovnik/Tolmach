@@ -15,7 +15,7 @@ Tolmach содержит переводы и дополнения для **103 �
 | [AAA Crafting](https://thunderstore.io/c/valheim/p/Azumatt/AAA_Crafting/) | 2.1.11 | Обучение сетке рецептов, поиску и созданию нескольких предметов, типы предметов, подсказки станции и клавиш; дополняет встроенный русский. |
 | [Achievement Enabler](https://thunderstore.io/c/valheim/p/MidnightMods/AchievementEnabler/) | 0.4.1 | Справка и сообщения команды снятия отметки читерского происхождения с предметов. Имена команды и предметов сохраняются. |
 | [Adventure Backpacks](https://thunderstore.io/c/valheim/p/Vapok/AdventureBackpacks/) | 2.2.10 | Название Spectral Shroud of Holding, сообщения команд навыков и заголовки окна раскрытия данных. Шесть адресных исправлений собственного русского: два рюкзака и их описания, защита от холода и сообщение о потере сил. |
-| [Air Animals](https://thunderstore.io/c/valheim/p/Marlthon/AirAnimals/) | 0.3.2 | Названия птиц; существующие русские названия предметов сохраняются. |
+| [Air Animals](https://thunderstore.io/c/valheim/p/Marlthon/AirAnimals/) | 0.3.2 | Названия птиц и насекомых; существующие русские названия предметов сохраняются. |
 | [Armory (Therzie)](https://thunderstore.io/c/valheim/p/Therzie/Armory/) | 1.4.2 | Доспехи, плащ, пояс, оружейная станция, бонусы комплектов и вкладка молота. Это не Valheim Armory от MidnightMods. |
 | [Async Save](https://thunderstore.io/c/valheim/p/MidnightMods/AsyncSave/) | 0.6.0 | Уведомление о сохранении мира в дополнительном режиме асинхронного финального сохранения. Сам режим не включается переводчиком. |
 | [Azu Area Repair](https://thunderstore.io/c/valheim/p/Azumatt/AzuAreaRepair/) | 1.1.8 | Только сообщения о несовпадении версий при подключении к серверу. |
