@@ -12,10 +12,22 @@
     "Vapok.Common.Managers.Splash"
   ],
   "words": {
-    "item_friendlyskeletonwand_spectralshroud_backpack": "Призрачный саван для хранения"
+    "item_friendlyskeletonwand_spectralshroud_backpack": "Призрачный саван с хранилищем",
+    "vapok_mod_item_backpack_plains": "Рюкзак из шкуры быкоящера",
+    "vapok_mod_item_backpack_plains_description": "Походный рюкзак из чрезвычайно прочной шкуры быкоящера.",
+    "vapok_mod_item_backpack_mistlands": "Рюкзак исследователя со светлячком",
+    "vapok_mod_item_backpack_mistlands_description": "Искусно сделанный таинственный рюкзак с собственным волшебным сундуком. Никто толком не знает, как он устроен.",
+    "vapok_mod_se_cold_immunity": "Защита от холода",
+    "vapok_mod_no_inception5": "Тор лишил вас сил!"
   },
   "englishWords": {
-    "item_friendlyskeletonwand_spectralshroud_backpack": "Spectral Shroud of Holding"
+    "item_friendlyskeletonwand_spectralshroud_backpack": "Spectral Shroud of Holding",
+    "vapok_mod_item_backpack_plains": "Lox Hide Knappsack",
+    "vapok_mod_item_backpack_plains_description": "An adventuring backpack made from extremely durable lox hide.",
+    "vapok_mod_item_backpack_mistlands": "Explorers Wisppack",
+    "vapok_mod_item_backpack_mistlands_description": "A finely crafted, mystical backpack. Complete with it's own Box of Holding. No one is quite sure how it works.",
+    "vapok_mod_se_cold_immunity": "Cold Immunity",
+    "vapok_mod_no_inception5": "Thor has stripped you of your powers!!"
   },
   "texts": {},
   "patterns": [],
@@ -64,8 +76,16 @@
   ],
   "notes": [
     "Английский текст взят из кода и ресурсов этой версии мода; русский перевод собственный.",
-    "Собственный русский перевод мода сохраняется; добавлен только недостающий ключ и консольные сообщения.",
-    "The 32 native gameplay keys keep the mod's Russian table. Three hard-coded privacy UI headers are translated in their exact display methods; optional ChebsNecromancy content absent from the checked installation is not added.",
+    "Собственный русский перевод мода сохраняется, кроме шести явно перечисленных replaceNative: исправлены обещание вечного рюкзака, потерянные светлячок и волшебный сундук, название защиты от статуса «Холод» и ошибочное указание на силы Тора вместо сил игрока.",
+    "The native Russian gameplay table is preserved outside the explicit replaceNative allowlist. English keys and existing Russian values for those overrides were verified against the AdventureBackpacks 2.2.10 release commit 02d2326596d548199a9f02aa3e65e94c0f514377 (AdventureBackpacks/Translations/English.json and Translations/AdventureBackpacks.Russian.json). ColdResistance.cs removes only the Cold status; EffectsFactory.cs explicitly excludes freezing. Three hard-coded privacy UI headers are translated in their exact display methods; optional ChebsNecromancy content absent from the checked installation is not added.",
     "Пакет текущего профиля проверен 2026-10-07 по точной установленной DLL и декомпиляции; версия пакета и BepInPlugin сверены отдельно. Игровая приёмка относится к общей квитанции выпуска."
+  ],
+  "replaceNative": [
+    "vapok_mod_item_backpack_plains",
+    "vapok_mod_item_backpack_plains_description",
+    "vapok_mod_item_backpack_mistlands",
+    "vapok_mod_item_backpack_mistlands_description",
+    "vapok_mod_se_cold_immunity",
+    "vapok_mod_no_inception5"
   ]
 }

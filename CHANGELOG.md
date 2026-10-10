@@ -1,6 +1,6 @@
 # Изменения
 
-## [0.9.0](https://github.com/Muratovnik/Tolmach/compare/v0.8.0...v0.9.0) (2026-10-07)
+## [0.9.0](https://github.com/Muratovnik/tolmach/compare/v0.8.0...v0.9.0) (2026-10-07)
 
 ### Highlights
 
@@ -8,16 +8,16 @@
 
 ### Features
 
-- **Новые моды:** добавлены Circlet Extended, Odins Food Barrels, Portal Preview, Upgrade World, Achievement Enabler и Valheim Community Patch; расширен перевод редактора Butchers Hall. ([21c4fa2](https://github.com/Muratovnik/Tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
-- **Совместимость:** каталоги сверены с текущим профилем, обновлена поддержка 17 версий модов и Valheim 1.0.17. ([21c4fa2](https://github.com/Muratovnik/Tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
-- **Руководства:** README, карточка пакета и руководства переписаны: установка и первый запуск, фактическое покрытие, источники и границы проверки описаны отдельно для игроков и разработчиков. ([21c4fa2](https://github.com/Muratovnik/Tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
+- **Новые моды:** добавлены Circlet Extended, Odins Food Barrels, Portal Preview, Upgrade World, Achievement Enabler и Valheim Community Patch; расширен перевод редактора Butchers Hall. ([21c4fa2](https://github.com/Muratovnik/tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
+- **Совместимость:** каталоги сверены с текущим профилем, обновлена поддержка 17 версий модов и Valheim 1.0.17. ([21c4fa2](https://github.com/Muratovnik/tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
+- **Руководства:** README, карточка пакета и руководства переписаны: установка и первый запуск, фактическое покрытие, источники и границы проверки описаны отдельно для игроков и разработчиков. ([21c4fa2](https://github.com/Muratovnik/tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
 
 ### Bug Fixes
 
-- **Хранилища:** исправлены английские названия пустых хранилищ Dynamic Storage; сохранённые значения не меняются. ([21c4fa2](https://github.com/Muratovnik/Tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
-- **NPC:** переведены штатные имена неприручённых NPC Norsemen, включая Ulf. Пользовательские имена приручённых NPC сохраняются. ([21c4fa2](https://github.com/Muratovnik/Tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
+- **Хранилища:** исправлены английские названия пустых хранилищ Dynamic Storage; сохранённые значения не меняются. ([21c4fa2](https://github.com/Muratovnik/tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
+- **NPC:** переведены штатные имена неприручённых NPC Norsemen, включая Ulf. Пользовательские имена приручённых NPC сохраняются. ([21c4fa2](https://github.com/Muratovnik/tolmach/commit/21c4fa2d5ea8f03d33ed89b5d9e53889cb65bf01))
 
-## [0.8.0](https://github.com/Muratovnik/Tolmach/compare/v0.7.0...v0.8.0) (2026-10-02)
+## [0.8.0](https://github.com/Muratovnik/tolmach/compare/v0.7.0...v0.8.0) (2026-10-02)
 
 ### Highlights
 
@@ -25,17 +25,17 @@
 
 ### Features
 
-- **Новые моды:** добавлены переводы Dynamic Storage Ammunition Piles, Butchers Hall, Forge и Materials, AAA Crafting, Recipe Sync и Smart Wishbone Updated. Список поддерживаемых пакетов и их версий согласован с каталогами. ([448144a](https://github.com/Muratovnik/Tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
-- **Статистика:** переведены подписи всех 205 текущих счетчиков MyLittleUI для Valheim 1.0.16; настройка их показа не меняется. ([448144a](https://github.com/Muratovnik/Tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
-- **Совместимость:** каталоги сверены с Configuration Manager 1.1.23 и Azu Crafty Boxes 1.8.27. Для Crafty Boxes дополнены сообщения количества предметов и ошибок подключения. ([448144a](https://github.com/Muratovnik/Tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
+- **Новые моды:** добавлены переводы Dynamic Storage Ammunition Piles, Butchers Hall, Forge и Materials, AAA Crafting, Recipe Sync и Smart Wishbone Updated. Список поддерживаемых пакетов и их версий согласован с каталогами. ([448144a](https://github.com/Muratovnik/tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
+- **Статистика:** переведены подписи всех 205 текущих счетчиков MyLittleUI для Valheim 1.0.16; настройка их показа не меняется. ([448144a](https://github.com/Muratovnik/tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
+- **Совместимость:** каталоги сверены с Configuration Manager 1.1.23 и Azu Crafty Boxes 1.8.27. Для Crafty Boxes дополнены сообщения количества предметов и ошибок подключения. ([448144a](https://github.com/Muratovnik/tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
 
 ### Bug Fixes
 
-- **Идолы:** исправлены все 16 составных названий боевых и защитных идолов. Название переводится целиком при показе, сохраняя исходные ключи игры и имена предметов в сохранениях. ([448144a](https://github.com/Muratovnik/Tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
-- **Русские конструкции:** исправлены порядок слов и падежи в 47 строках каталогов, названия грузовых контейнеров, подписи ячеек хранилищ и вероятностей числа звезд CLLC. ([448144a](https://github.com/Muratovnik/Tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
-- **Crafty Boxes:** стандартный вопрос о получении предметов из сундуков переводится с разметкой и переносами LF/CRLF. Сообщения об ошибках переводятся при показе; исходные причины подключения и журналы сохраняются. ([448144a](https://github.com/Muratovnik/Tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
+- **Идолы:** исправлены все 16 составных названий боевых и защитных идолов. Название переводится целиком при показе, сохраняя исходные ключи игры и имена предметов в сохранениях. ([448144a](https://github.com/Muratovnik/tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
+- **Русские конструкции:** исправлены порядок слов и падежи в 47 строках каталогов, названия грузовых контейнеров, подписи ячеек хранилищ и вероятностей числа звезд CLLC. ([448144a](https://github.com/Muratovnik/tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
+- **Crafty Boxes:** стандартный вопрос о получении предметов из сундуков переводится с разметкой и переносами LF/CRLF. Сообщения об ошибках переводятся при показе; исходные причины подключения и журналы сохраняются. ([448144a](https://github.com/Muratovnik/tolmach/commit/448144a5d216720945cb86eac4f9447c6973bb89))
 
-## [0.7.0](https://github.com/Muratovnik/Tolmach/compare/v0.6.2...v0.7.0) (2026-10-02)
+## [0.7.0](https://github.com/Muratovnik/tolmach/compare/v0.6.2...v0.7.0) (2026-10-02)
 
 ### Highlights
 
@@ -43,16 +43,16 @@
 
 ### Features
 
-- **Настройки:** переведены поиск, редактор значений и файлов, кнопки, подсказки синхронизации и кнопка главного меню Configuration Manager 1.1.22; сохранённые значения конфигурации не меняются. ([53a71b2](https://github.com/Muratovnik/Tolmach/commit/53a71b25015b97e8eab3a956b267e9dfe621675a))
-- **Подключение:** переведены причины отказа Conditional Config Sync 1.0.9 и рекомендации по восстановлению подключения; несколько причин обрабатываются построчно с сохранением имён модов и версий. ([53a71b2](https://github.com/Muratovnik/Tolmach/commit/53a71b25015b97e8eab3a956b267e9dfe621675a))
-- **Сообщения:** добавлены уведомление Async Save 0.6.0, сообщения синхронизации ресурсов и ошибки подключения Wacky's Database 2.5.38, заголовки раскрытия данных Adventure Backpacks 2.2.5. ([53a71b2](https://github.com/Muratovnik/Tolmach/commit/53a71b25015b97e8eab3a956b267e9dfe621675a))
-- **Совместимость:** каталоги обновлены для Social System 1.0.2, More World Locations AIO 5.1.7, Wacky's Database 2.5.38, Network Performance System 1.13.0 и Adventure Backpacks 2.2.5. Список поддерживаемых пакетов и версий согласован с каталогами. ([53a71b2](https://github.com/Muratovnik/Tolmach/commit/53a71b25015b97e8eab3a956b267e9dfe621675a))
+- **Настройки:** переведены поиск, редактор значений и файлов, кнопки, подсказки синхронизации и кнопка главного меню Configuration Manager 1.1.22; сохранённые значения конфигурации не меняются. ([53a71b2](https://github.com/Muratovnik/tolmach/commit/53a71b25015b97e8eab3a956b267e9dfe621675a))
+- **Подключение:** переведены причины отказа Conditional Config Sync 1.0.9 и рекомендации по восстановлению подключения; несколько причин обрабатываются построчно с сохранением имён модов и версий. ([53a71b2](https://github.com/Muratovnik/tolmach/commit/53a71b25015b97e8eab3a956b267e9dfe621675a))
+- **Сообщения:** добавлены уведомление Async Save 0.6.0, сообщения синхронизации ресурсов и ошибки подключения Wacky's Database 2.5.38, заголовки раскрытия данных Adventure Backpacks 2.2.5. ([53a71b2](https://github.com/Muratovnik/tolmach/commit/53a71b25015b97e8eab3a956b267e9dfe621675a))
+- **Совместимость:** каталоги обновлены для Social System 1.0.2, More World Locations AIO 5.1.7, Wacky's Database 2.5.38, Network Performance System 1.13.0 и Adventure Backpacks 2.2.5. Список поддерживаемых пакетов и версий согласован с каталогами. ([53a71b2](https://github.com/Muratovnik/tolmach/commit/53a71b25015b97e8eab3a956b267e9dfe621675a))
 
 ### Bug Fixes
 
-- **Подключение:** имена модов в сообщениях Conditional Config Sync сохраняются целиком, даже если содержат двоеточия или начало известной фразы ошибки. Данные предыдущего отказа не используются после замены отчёта или сброса сессии. Причины без однозначной структуры остаются исходными. ([2e8d8ae](https://github.com/Muratovnik/Tolmach/commit/2e8d8ae2c013605a7314ebbebca85bc068a9b9c4)) ([2461c46](https://github.com/Muratovnik/Tolmach/commit/2461c4605722ce5ea05334223f1c3c0e2d6b4adf))
+- **Подключение:** имена модов в сообщениях Conditional Config Sync сохраняются целиком, даже если содержат двоеточия или начало известной фразы ошибки. Данные предыдущего отказа не используются после замены отчёта или сброса сессии. Причины без однозначной структуры остаются исходными. ([2e8d8ae](https://github.com/Muratovnik/tolmach/commit/2e8d8ae2c013605a7314ebbebca85bc068a9b9c4)) ([2461c46](https://github.com/Muratovnik/tolmach/commit/2461c4605722ce5ea05334223f1c3c0e2d6b4adf))
 
-## [0.6.2](https://github.com/Muratovnik/Tolmach/compare/v0.6.1...v0.6.2) (2026-10-01)
+## [0.6.2](https://github.com/Muratovnik/tolmach/compare/v0.6.1...v0.6.2) (2026-10-01)
 
 ### Highlights
 
@@ -60,26 +60,26 @@
 
 ### Bug Fixes
 
-- **Крафт:** уменьшена стоимость первого поиска названий предметов и комплектов; после регистрации новых предметов описания обновляются. ([e369f86](https://github.com/Muratovnik/Tolmach/commit/e369f86345102c71f9c097556370c6c2bb241f8e))
-- **Комплекты:** исправлен перевод частей в описаниях Recipe Description Expansion с переносами строк LF и CRLF; цвета, отметки и переносы сохраняются. ([e369f86](https://github.com/Muratovnik/Tolmach/commit/e369f86345102c71f9c097556370c6c2bb241f8e))
-- **Совместимость:** каталоги сверены с Humanoid Randomizer 1.6.1, Infinity Hammer 1.86.0, World Edit Commands 1.79.0, Network Performance System 1.11.1 и Adventure Backpacks 2.2.4. ([e369f86](https://github.com/Muratovnik/Tolmach/commit/e369f86345102c71f9c097556370c6c2bb241f8e))
+- **Крафт:** уменьшена стоимость первого поиска названий предметов и комплектов; после регистрации новых предметов описания обновляются. ([e369f86](https://github.com/Muratovnik/tolmach/commit/e369f86345102c71f9c097556370c6c2bb241f8e))
+- **Комплекты:** исправлен перевод частей в описаниях Recipe Description Expansion с переносами строк LF и CRLF; цвета, отметки и переносы сохраняются. ([e369f86](https://github.com/Muratovnik/tolmach/commit/e369f86345102c71f9c097556370c6c2bb241f8e))
+- **Совместимость:** каталоги сверены с Humanoid Randomizer 1.6.1, Infinity Hammer 1.86.0, World Edit Commands 1.79.0, Network Performance System 1.11.1 и Adventure Backpacks 2.2.4. ([e369f86](https://github.com/Muratovnik/tolmach/commit/e369f86345102c71f9c097556370c6c2bb241f8e))
 
-## [0.6.1](https://github.com/Muratovnik/Tolmach/compare/v0.6.0...v0.6.1) (2026-09-30)
+## [0.6.1](https://github.com/Muratovnik/tolmach/compare/v0.6.0...v0.6.1) (2026-09-30)
 
 ### Highlights
 
 Исправлены переводы настроек Creature Level and Loot Control, составных подсказок и имён вариантов Humanoid Randomizer. Готовые русские тексты и пользовательские имена питомцев сохраняются. Отчёт загрузки теперь помогает отличить текущий запуск от старого файла на диске.
 
-Обновлены описание пакета, установка, помощь и справочник покрытия. Уточнены ограничения перевода пользовательских надписей, настройки F1 и диагностика. Финальная приёмка с загрузкой мира ещё не выполнена; [границы автоматических проверок](https://github.com/Muratovnik/Tolmach/blob/v0.6.1/docs/VALIDATION.md) остаются в силе.
+Обновлены описание пакета, установка, помощь и справочник покрытия. Уточнены ограничения перевода пользовательских надписей, настройки F1 и диагностика. Финальная приёмка с загрузкой мира ещё не выполнена; [границы автоматических проверок](https://github.com/Muratovnik/tolmach/blob/v0.6.1/docs/VALIDATION.md) остаются в силе.
 
 ### Bug Fixes
 
-- **CLLC:** названия и описания настроек дополняются независимо: готовый русский текст одного поля не мешает перевести другое и не перезаписывается. ([a3f7e73](https://github.com/Muratovnik/Tolmach/commit/a3f7e73658acacfe262be47b53eaa6953b87db49))
-- **Подсказки:** фрагменты нескольких каталогов переводятся в одном сообщении без повторной обработки уже переведённого текста. ([fbf3651](https://github.com/Muratovnik/Tolmach/commit/fbf365134895711b750fae23aea8b994bd37780b))
-- **Humanoid Randomizer:** шаблоны имён ограничены существами этого мода, включая варианты без компонента рандомизатора и стандартные имена приручаемых существ. Пользовательские переименования сохраняются. При неизвестном игровом API имя остаётся без глобального запасного перевода. ([2f3bed0](https://github.com/Muratovnik/Tolmach/commit/2f3bed0ae6be2b5db87770c4d57ffe59f1a1e011))
-- **Диагностика:** отчёт различает запуск, отключение, отсутствие каталогов, ошибку и завершение работы; идентификатор сеанса связывает его с текущим журналом. ([f357bd1](https://github.com/Muratovnik/Tolmach/commit/f357bd16f2147defc9ca45bb6b362e884fdefe76))
+- **CLLC:** названия и описания настроек дополняются независимо: готовый русский текст одного поля не мешает перевести другое и не перезаписывается. ([a3f7e73](https://github.com/Muratovnik/tolmach/commit/a3f7e73658acacfe262be47b53eaa6953b87db49))
+- **Подсказки:** фрагменты нескольких каталогов переводятся в одном сообщении без повторной обработки уже переведённого текста. ([fbf3651](https://github.com/Muratovnik/tolmach/commit/fbf365134895711b750fae23aea8b994bd37780b))
+- **Humanoid Randomizer:** шаблоны имён ограничены существами этого мода, включая варианты без компонента рандомизатора и стандартные имена приручаемых существ. Пользовательские переименования сохраняются. При неизвестном игровом API имя остаётся без глобального запасного перевода. ([2f3bed0](https://github.com/Muratovnik/tolmach/commit/2f3bed0ae6be2b5db87770c4d57ffe59f1a1e011))
+- **Диагностика:** отчёт различает запуск, отключение, отсутствие каталогов, ошибку и завершение работы; идентификатор сеанса связывает его с текущим журналом. ([f357bd1](https://github.com/Muratovnik/tolmach/commit/f357bd16f2147defc9ca45bb6b362e884fdefe76))
 
-## [0.6.0](https://github.com/Muratovnik/Tolmach/compare/v0.2.0...v0.6.0) (2026-09-29)
+## [0.6.0](https://github.com/Muratovnik/tolmach/compare/v0.2.0...v0.6.0) (2026-09-29)
 
 ### Highlights
 
@@ -97,22 +97,22 @@
 
 ### Features
 
-- Добавлены Social System и ещё 18 каталогов; исправлены строки Missing Pieces и названия комплектов Recipe Description Expansion. ([ea3e9ac](https://github.com/Muratovnik/Tolmach/commit/ea3e9acb683610cc2a08d3ba6ac0f09e4394291e))
-- Адресные адаптеры могут работать на версиях модов, отличающихся от проверенных. ([ea3e9ac](https://github.com/Muratovnik/Tolmach/commit/ea3e9acb683610cc2a08d3ba6ac0f09e4394291e))
-- Добавлены таблица и адаптер Creature Level and Loot Control. ([a445acb](https://github.com/Muratovnik/Tolmach/commit/a445acb859b9be2d236c1a50f3268b345969c7c2))
-- Добавлены 25 каталогов модов, включая Balrond, VNEI, Odin's Steelworks и Inventory Slots. ([09ab47d](https://github.com/Muratovnik/Tolmach/commit/09ab47d2a158376cbf1beac7a5e796624ed34ed7))
-- Добавлены пять каталогов, звуковые субтитры игры и перевод строк, которые моды хранят в объектах. ([66b5328](https://github.com/Muratovnik/Tolmach/commit/66b5328288b0237753a84558834e0280c67df57f))
-- Добавлен перевод стандартного текста настройки в месте его показа, без изменения файла конфигурации. ([7c8df24](https://github.com/Muratovnik/Tolmach/commit/7c8df24445da7e62202011e8af17ce923e6abe56))
-- Загрузчик и валидатор отклоняют каталоги с неправильными типами и противоречащими переводами. ([f48a3d5](https://github.com/Muratovnik/Tolmach/commit/f48a3d5871023cd5a67846e5694375b3efebd2c8)) ([87813bd](https://github.com/Muratovnik/Tolmach/commit/87813bd7bdf52ecf8ce9328a61fc519415db18eb))
+- Добавлены Social System и ещё 18 каталогов; исправлены строки Missing Pieces и названия комплектов Recipe Description Expansion. ([ea3e9ac](https://github.com/Muratovnik/tolmach/commit/ea3e9acb683610cc2a08d3ba6ac0f09e4394291e))
+- Адресные адаптеры могут работать на версиях модов, отличающихся от проверенных. ([ea3e9ac](https://github.com/Muratovnik/tolmach/commit/ea3e9acb683610cc2a08d3ba6ac0f09e4394291e))
+- Добавлены таблица и адаптер Creature Level and Loot Control. ([a445acb](https://github.com/Muratovnik/tolmach/commit/a445acb859b9be2d236c1a50f3268b345969c7c2))
+- Добавлены 25 каталогов модов, включая Balrond, VNEI, Odin's Steelworks и Inventory Slots. ([09ab47d](https://github.com/Muratovnik/tolmach/commit/09ab47d2a158376cbf1beac7a5e796624ed34ed7))
+- Добавлены пять каталогов, звуковые субтитры игры и перевод строк, которые моды хранят в объектах. ([66b5328](https://github.com/Muratovnik/tolmach/commit/66b5328288b0237753a84558834e0280c67df57f))
+- Добавлен перевод стандартного текста настройки в месте его показа, без изменения файла конфигурации. ([7c8df24](https://github.com/Muratovnik/tolmach/commit/7c8df24445da7e62202011e8af17ce923e6abe56))
+- Загрузчик и валидатор отклоняют каталоги с неправильными типами и противоречащими переводами. ([f48a3d5](https://github.com/Muratovnik/tolmach/commit/f48a3d5871023cd5a67846e5694375b3efebd2c8)) ([87813bd](https://github.com/Muratovnik/tolmach/commit/87813bd7bdf52ecf8ce9328a61fc519415db18eb))
 
 ### Bug Fixes
 
-- Методы с неподдерживаемыми обработчиками исключений не пересобираются Harmony; доступные вызовы показа переводятся отдельно с проверкой вызывающего метода. ([ea3e9ac](https://github.com/Muratovnik/Tolmach/commit/ea3e9acb683610cc2a08d3ba6ac0f09e4394291e))
-- У перегруженных методов патчится только тело, содержащее нужную строку. ([5145688](https://github.com/Muratovnik/Tolmach/commit/5145688530e0f4967f8e63facf61a1c245ac49fa))
-- Исправлены переводы предметов, для которых одинаковое английское слово обозначало разные объекты. ([c1ecc3b](https://github.com/Muratovnik/Tolmach/commit/c1ecc3b939bcc7e4fdac4ecb3666d5f6cf8c88d5))
-- Восстановлены пропущенные строки и исправлены подписи, найденные при проверке ранней сборки в игре. ([0a2c5df](https://github.com/Muratovnik/Tolmach/commit/0a2c5dffac0c6d047a94108bc97527b717c2c41a)) ([22cb6a4](https://github.com/Muratovnik/Tolmach/commit/22cb6a480f91d3c721def5739b8108553c62749f))
-- Каталоги получили префикс `tolmach-`, чтобы встроенные менеджеры локализации других модов не принимали их за собственные файлы. ([69dd148](https://github.com/Muratovnik/Tolmach/commit/69dd148e8130679c27329439d7659aed4ce74500))
-- Проверка пакета декодирует иконку, а не доверяет только заголовку PNG. ([d585efd](https://github.com/Muratovnik/Tolmach/commit/d585efd9b33d247c00728506826e54aeae0f7752))
+- Методы с неподдерживаемыми обработчиками исключений не пересобираются Harmony; доступные вызовы показа переводятся отдельно с проверкой вызывающего метода. ([ea3e9ac](https://github.com/Muratovnik/tolmach/commit/ea3e9acb683610cc2a08d3ba6ac0f09e4394291e))
+- У перегруженных методов патчится только тело, содержащее нужную строку. ([5145688](https://github.com/Muratovnik/tolmach/commit/5145688530e0f4967f8e63facf61a1c245ac49fa))
+- Исправлены переводы предметов, для которых одинаковое английское слово обозначало разные объекты. ([c1ecc3b](https://github.com/Muratovnik/tolmach/commit/c1ecc3b939bcc7e4fdac4ecb3666d5f6cf8c88d5))
+- Восстановлены пропущенные строки и исправлены подписи, найденные при проверке ранней сборки в игре. ([0a2c5df](https://github.com/Muratovnik/tolmach/commit/0a2c5dffac0c6d047a94108bc97527b717c2c41a)) ([22cb6a4](https://github.com/Muratovnik/tolmach/commit/22cb6a480f91d3c721def5739b8108553c62749f))
+- Каталоги получили префикс `tolmach-`, чтобы встроенные менеджеры локализации других модов не принимали их за собственные файлы. ([69dd148](https://github.com/Muratovnik/tolmach/commit/69dd148e8130679c27329439d7659aed4ce74500))
+- Проверка пакета декодирует иконку, а не доверяет только заголовку PNG. ([d585efd](https://github.com/Muratovnik/tolmach/commit/d585efd9b33d247c00728506826e54aeae0f7752))
 
 ## 0.2.0 — новое имя: Tolmach
 
@@ -124,4 +124,4 @@
 
 ## История разработки до публичного выпуска
 
-Версии 0.1.x и промежуточные этапы между 0.2.0 и 0.6.0 описаны в [прежней редакции журнала](https://github.com/Muratovnik/Tolmach/blob/446be1f93ca2137f7d64ee0ab6686666418b9992/CHANGELOG.md). Она сохраняет технические детали и отменённые промежуточные решения; окончательный результат 0.6.0 приведён выше.
+Версии 0.1.x и промежуточные этапы между 0.2.0 и 0.6.0 описаны в [прежней редакции журнала](https://github.com/Muratovnik/tolmach/blob/446be1f93ca2137f7d64ee0ab6686666418b9992/CHANGELOG.md). Она сохраняет технические детали и отменённые промежуточные решения; окончательный результат 0.6.0 приведён выше.

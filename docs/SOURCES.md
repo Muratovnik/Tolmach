@@ -12,7 +12,7 @@
 
 Материалы извлекаются ILSpy/ilspycmd, dnfile и UnityPy. Изменённые DLL сторонних модов не распространяются. Русские тексты подготовлены по оригиналам модов; английский — основной, но не единственный исходный язык. Перечень строк ObeliskRU помогал находить пробелы, его русский перевод не является источником для копирования.
 
-История источников доступна в [прежней редакции](https://github.com/Muratovnik/Tolmach/blob/446be1f93ca2137f7d64ee0ab6686666418b9992/docs/SOURCES.md), текущие версии — в [покрытии](COVERAGE.md).
+История источников доступна в [прежней редакции](https://github.com/Muratovnik/tolmach/blob/446be1f93ca2137f7d64ee0ab6686666418b9992/docs/SOURCES.md), текущие версии — в [покрытии](COVERAGE.md).
 
 ## Правила редакторской работы
 
@@ -20,11 +20,24 @@
 
 Короткая подпись должна объяснять действие или измеряемую величину. Счётчик действий нельзя переименовывать в длительность, пока не проверено, что именно он считает. Неоднозначные варианты вроде `Vanguard` требуют сведений о роли существа; словарного соответствия недостаточно.
 
+Названия реальных животных сверяются с видом, а не только с буквальным значением английского имени. Художественная правка сохраняет различия между существами, свойства предмета и характер говорящего. Реплики NPC должны естественно звучать вслух; звуковые субтитры описывают слышимое действие. Термины ресурсов, урона и игровых эффектов согласуются с русской таблицей Valheim, если мод использует тот же объект или механику.
+
 Плейсхолдеры, игровые токены, теги, переносы и непрозрачные идентификаторы сохраняются. Опечатка или нестандартный пробел в исходной строке сопоставления могут быть необходимы для нахождения текста; исправляется перевод, а не ключ поиска, если сам мод не изменился.
 
 Написание в каталогах согласовано с русской локализацией игры: обычно «е», а «ё» сохраняется в соответствующих именах собственных; перед единицей измерения — неразрывный пробел. Это редакторская договорённость пакета, не основание автоматически заменять буквы в произвольных пользовательских данных.
 
-В сообщениях учитываются неизвестное имя и пол игрока. Для сообщений о чужом действии подходит конструкция «Игрок {0}…». Длину проверяют в реальном окне с обычным масштабом интерфейса; число символов само по себе не доказывает, что строка помещается.
+В сообщениях учитываются неизвестное имя и пол игрока. Для сообщений о чужом действии подходит конструкция «Игрок {0}…». Название еды или предмета в плейсхолдере также может иметь любой род и число: окружающий текст не должен требовать его склонения или согласования с заранее выбранным глаголом. Длину проверяют в реальном окне с обычным масштабом интерфейса; число символов само по себе не доказывает, что строка помещается.
+
+## Сверка спорных мест
+
+Следующие первичные источники поясняют адресные исправления. Сверка смысла по исходному коду или справочнику не заменяет запуск точной DLL из игрового профиля.
+
+- **Adventure Backpacks 2.2.10.** [Английский ресурс](https://github.com/Vapok/AdventureBackpacks/blob/02d2326596d548199a9f02aa3e65e94c0f514377/AdventureBackpacks/Translations/English.json) и [русский ресурс](https://github.com/Vapok/AdventureBackpacks/blob/02d2326596d548199a9f02aa3e65e94c0f514377/Translations/AdventureBackpacks.Russian.json) одного релизного commit подтверждают шесть исключений `replaceNative`: два рюкзака с описаниями, название защиты от холода и сообщение Тора. [ColdResistance](https://github.com/Vapok/AdventureBackpacks/blob/02d2326596d548199a9f02aa3e65e94c0f514377/AdventureBackpacks/Assets/Effects/ColdResistance.cs) снимает статус Cold, а [EffectsFactory](https://github.com/Vapok/AdventureBackpacks/blob/02d2326596d548199a9f02aa3e65e94c0f514377/AdventureBackpacks/Assets/Factories/EffectsFactory.cs) явно исключает защиту от замерзания.
+- **Passive Powers.** [Описание параметра и `power_se.m_stopEffects`](https://github.com/blaxxun-boop/PassivePowers/blob/6a1b10584246ce91b1213838dd90fa4e20b0016b/PassivePowers/PassivePowers.cs) подтверждают, что пассивная сила отключается после завершения активного эффекта.
+- **More World Locations.** [Авторский YAML](https://github.com/jneb802/MoreWorldLocations_All/blob/80470b7ab9040a0920fc648ae8ae369cc79a1d90/More%20World%20Locations_AIO/YAML/warpalicious.More_World_Locations_Localization.yml) и [описание мода](https://github.com/jneb802/MoreWorldLocations_All) дают контекст портовых грузовых сундуков, справки и рунических записей. Правка языка сохраняет условия перевозки и сведения сюжета.
+- **Epic Loot.** [Команды Adventure](https://github.com/RandyKnapp/ValheimMods/blob/69704d5fbe86910e6b0de7f68c054028f20e3826/EpicLoot/src/Terminal/Commands/Adventure.cs) связывают Bounties с заданиями на охоту, а Treasure Map Chest — с создаваемым сундуком с сокровищами.
+- **Air Animals.** Публикации UF/IFAS о [Viceroy / Limenitis archippus](https://ask.ifas.ufl.edu/publication/IN828) и [Cloudless Sulphur / Phoebis sennae](https://ask.ifas.ufl.edu/publication/IN929) определяют виды. «Ленточник архипп» и «Желтушка сенны» — редакторские игровые названия по этим видам; источники не устанавливают официальную русскую номенклатуру. Harpy Eagle (Harpia harpyja) назван «Южноамериканская гарпия»: такое русское название используется в [материале ЮНЕСКО о заповеднике Дарьен](https://articles.unesco.org/sites/default/files/medias/fichiers/2024/07/PR_UNESCO_designates_11_new_biosphere_reserves_ru.pdf).
+- **Термины Valheim.** [Автоматически извлечённая русская таблица JotunnDoc](https://valheim-modding.github.io/Jotunn/data/localization/translations/Russian.html) служит сверкой таких названий, как «Светлячок», «Серокамень» и «Рассекающий». Опубликованный снимок указывает Valheim 1.0.7; он не является новой проверкой ресурсов установленной 1.0.17.
 
 ## Какие проверки можно повторить
 
@@ -44,6 +57,7 @@
 ## Первичная документация
 
 - [Jötunn: локализация](https://valheim-modding.github.io/Jotunn/tutorials/localization.html) — словари, области локализации и события.
+- [Jötunn 2.30.2: `CustomLocalization.AddTranslationToMap`](https://github.com/Valheim-Modding/Jotunn/blob/v2.30.2/JotunnLib/Entities/CustomLocalization.cs) — регистрация отсутствующего ключа немедленно дополняет активную игровую таблицу без проверки выбранного языка; поэтому русский scope заполняется только в русском режиме.
 - [BepInEx 5: создание плагина](https://docs.bepinex.dev/v5.4.16/articles/dev_guide/plugin_tutorial/2_plugin_start.html) — метаданные, зависимости и ссылки на библиотеки.
 - [Harmony: транспайлеры](https://harmony.pardeike.net/v2/articles/patching-transpiler.html), [AccessTools](https://harmony.pardeike.net/v2/api/HarmonyLib.AccessTools.html) и [PatchProcessor](https://harmony.pardeike.net/v2/api/HarmonyLib.PatchProcessor.html) — работа с методами и инструкциями.
 - [Thunderstore: формат пакета](https://wiki.thunderstore.io/mods/creating-a-package) и [CLI 0.2.4](https://github.com/thunderstore-io/thunderstore-cli/tree/0.2.4) — README, манифест и упаковка.

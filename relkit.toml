@@ -31,7 +31,7 @@ first_version = "0.2.0"
 
 [release]
 publisher = "github"
-repository = "Muratovnik/Tolmach"
+repository = "Muratovnik/tolmach"
 branch = "main"
 # The csproj <Version> is the single version source; Plugin.PluginVersion is held to
 # it by a test, and Build.ps1 passes it to the Thunderstore manifest.

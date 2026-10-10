@@ -191,8 +191,8 @@ namespace Tolmach.Tests
             var pairs = m.words.Select(p => new KeyValuePair<string, string>(m.englishWords[p.Key], p.Value))
                 .Concat(m.texts).Concat(m.mapLabels).Concat(m.rawTexts).Concat(m.terms.Values.SelectMany(t => t))
                 .Concat(m.patterns.Concat(m.rawPatterns).Select(p => new KeyValuePair<string, string>(p.source, p.target)))
-                .Concat(m.literals.SelectMany(p => p.values));
-            const string tokens = @"\{\d+[^{}]*\}|\$\d+|\$[A-Za-z_]\w*|</?[^>\n]+>";
+                .Concat(m.literals.Concat(m.configTexts).SelectMany(p => p.values));
+            const string tokens = @"\{(?:\d+|[A-Za-z_]\w*)[^{}]*\}|\$\d+|\$[A-Za-z_]\w*|</?[^>\n]+>";
             foreach (var pair in pairs)
             {
                 Assert.That(Regex.Matches(pair.Value, tokens).Cast<Match>().Select(x => x.Value),

@@ -147,7 +147,7 @@
       "type": "BalrondShipyard.ShipExtensionFactory",
       "method": "createAshlandsSupply",
       "values": {
-        "Adds supplies. Increase ship blunt resistance": "Устанавливает припасы. Повышает защиту корабля от дробящего урона"
+        "Adds supplies. Increase ship blunt resistance": "Добавляет припасы. Повышает защиту корабля от дробящего урона"
       }
     },
     {
@@ -182,7 +182,7 @@
       "type": "BalrondShipyard.ShipExtensionFactory",
       "method": "createHolkSupply",
       "values": {
-        "Adds supplies. Increase ship blunt resistance": "Устанавливает припасы. Повышает защиту корабля от дробящего урона"
+        "Adds supplies. Increase ship blunt resistance": "Добавляет припасы. Повышает защиту корабля от дробящего урона"
       }
     },
     {
@@ -196,14 +196,14 @@
       "type": "BalrondShipyard.ShipExtensionFactory",
       "method": "createKarveSupply",
       "values": {
-        "Adds supplies. Increase ship blunt resistance": "Устанавливает припасы. Повышает защиту корабля от дробящего урона"
+        "Adds supplies. Increase ship blunt resistance": "Добавляет припасы. Повышает защиту корабля от дробящего урона"
       }
     },
     {
       "type": "BalrondShipyard.ShipExtensionFactory",
       "method": "createKnarrSupply",
       "values": {
-        "Adds supplies. Increase ship blunt resistance": "Устанавливает припасы. Повышает защиту корабля от дробящего урона"
+        "Adds supplies. Increase ship blunt resistance": "Добавляет припасы. Повышает защиту корабля от дробящего урона"
       }
     },
     {
@@ -246,7 +246,7 @@
       "type": "BalrondShipyard.ShipExtensionFactory",
       "method": "createSnekkeSupply",
       "values": {
-        "Adds supplies. Increase ship blunt resistance": "Устанавливает припасы. Повышает защиту корабля от дробящего урона"
+        "Adds supplies. Increase ship blunt resistance": "Добавляет припасы. Повышает защиту корабля от дробящего урона"
       }
     },
     {
@@ -307,7 +307,7 @@
     "$ship_raft floor": "$ship_raft: пол",
     "A massive 40 slot chest made of tarred wood": "Огромный сундук на 40 ячеек из просмоленного дерева",
     "A sailor's friend": "Друг моряка",
-    "A sailor's friend at a windy water": "Друг моряка в ветреных водах",
+    "A sailor's friend at a windy water": "Верный спутник моряка в ветреную погоду",
     "A sailor's last resort.": "Последняя надежда моряка.",
     "A set of easy to use dyes to color your sails.": "Набор простых в использовании красителей для окраски парусов.",
     "A small 4 slot chest made of tarred wood": "Небольшой сундук на 4 ячейки из просмоленного дерева",
@@ -324,7 +324,7 @@
     "Adds Tent. Gain shelter status. Increase health by 300": "Устанавливает шатер. Дает эффект «Укрытие». Увеличивает прочность на 300",
     "Adds Tent. Increase health by 200": "Устанавливает шатер. Увеличивает прочность на 200",
     "Adds side ropes. Allows you to get to upper deck from water level": "Устанавливает боковые канаты. Позволяют подняться на верхнюю палубу из воды",
-    "Adds supplies. Increase ship blunt resistance": "Устанавливает припасы. Повышает защиту корабля от дробящего урона",
+    "Adds supplies. Increase ship blunt resistance": "Добавляет припасы. Повышает защиту корабля от дробящего урона",
     "Anchor": "Якорь",
     "Bandana": "Бандана",
     "Cargo": "Груз",
@@ -349,7 +349,7 @@
     "It's waterproof": "Не промокает",
     "Knarr": "Кнорр",
     "Longship": "Длинный корабль",
-    "Lookout this is heavy....": "Осторожно, это тяжело....",
+    "Lookout this is heavy....": "Осторожно: тяжелая штука...",
     "My Ship": "Мой корабль",
     "Ocean Crusher": "Сокрушитель океанов",
     "Paint Shields": "Покрасить щиты",
@@ -402,11 +402,11 @@
     "Tent Roof Flat": "Плоская крыша шатра",
     "Tent Roof Sloope": "Скатная крыша шатра",
     "Tent wall side": "Боковая стенка шатра",
-    "This Shipyard will help you improve your ships. Put schematic in to the cargo and activate the table. If there is a ship in range that can be upgraded item put in to the cargo will be used.": "Эта верфь поможет улучшать корабли. Положите чертеж в груз и активируйте стол. Если поблизости есть корабль, который можно улучшить, положенный в груз предмет будет использован.",
+    "This Shipyard will help you improve your ships. Put schematic in to the cargo and activate the table. If there is a ship in range that can be upgraded item put in to the cargo will be used.": "Верфь позволяет улучшать корабли. Положите чертеж в хранилище верфи и активируйте стол. Если поблизости есть подходящий корабль, чертеж будет израсходован на его улучшение.",
     "This Trap will le tyou catch fish native to the biome you build it . \nPut proper Fishing Bait for the biome to increase chance of catching valuabe fishes. Note: You cant catch Angler with it.": "Эта ловушка ловит рыбу, которая водится в биоме, где она построена.\nПоложите подходящую для биома наживку, чтобы повысить шанс поймать ценную рыбу. Примечание: удильщика ею не поймать.",
     "This is Scribe's table for creating Schematics. Those items provide information about ship upgrades": "Это стол писца для создания чертежей. Чертежи содержат сведения об улучшениях кораблей",
-    "This maasive ship is proof of Dvergr's craftmanship": "Этот огромный корабль — доказательство мастерства двергов",
-    "This thic cape can whiwstand harsh wind and water\n": "Этот плотный плащ выдерживает суровый ветер и воду\n",
+    "This maasive ship is proof of Dvergr's craftmanship": "В этом огромном корабле воплотилось мастерство двергов",
+    "This thic cape can whiwstand harsh wind and water\n": "Плотный плащ укроет от ветра и воды\n",
     "Upgrade Added": "Улучшение установлено",
     "Upgrade Ship": "Улучшить корабль",
     "Waterproof": "Непромокаемость",

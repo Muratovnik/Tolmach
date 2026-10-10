@@ -151,9 +151,14 @@ namespace Tolmach
             StackTrace trace = new StackTrace(false);
             for (int i = 0; i < trace.FrameCount; i++)
             {
-                MethodBase frame = trace.GetFrame(i).GetMethod();
-                if (frame == null || frame.DeclaringType == null || frame.DeclaringType == typeof(CallSites) ||
-                    frame.DeclaringType.Assembly.IsDynamic || Same(frame, sink)) continue;
+                StackFrame stackFrame = trace.GetFrame(i);
+                MethodBase frame = stackFrame.GetMethod();
+                if (frame == null || frame.DeclaringType == typeof(CallSites)) continue;
+                // Mono can report a generated Harmony wrapper as a method of the
+                // original non-dynamic type. Let Harmony resolve that frame first.
+                try { frame = Harmony.GetMethodFromStackframe(stackFrame) ?? frame; }
+                catch (Exception) { } // Older Harmony builds may reject ordinary Mono frames; retain the raw method.
+                if (frame.DeclaringType == null || frame.DeclaringType.Assembly.IsDynamic || Same(frame, sink)) continue;
                 return frame;
             }
             return null;

@@ -48,8 +48,9 @@ namespace Tolmach.Tests
             Assert.That(RawDisplay.Translate("Alpha\nBeta"), Is.EqualTo("Целое сообщение"));
         }
 
-        [Test]
-        public void TemplatesKeepTheirOwnVocabulariesDuringComposition()
+        [TestCase("\n")]
+        [TestCase("\r\n")]
+        public void TemplatesKeepTheirOwnVocabulariesDuringComposition(string ending)
         {
             Add("a", "Alpha", "Альфа");
             Module b = FixtureModule("b", "FixturePlugin");
@@ -58,8 +59,10 @@ namespace Tolmach.Tests
                 arguments = new Dictionary<string, string> { { "0", "term:kind" } } });
             Activate(b);
             RawDisplay.Initialize();
-            Assert.That(RawDisplay.Translate("Alpha\nItem: Bow"), Is.EqualTo("Альфа\nПредмет: Лук"));
-            Assert.That(RawDisplay.Translate("Alpha\nItem: Unknown"), Is.EqualTo("Альфа\nItem: Unknown"));
+            Assert.That(RawDisplay.Translate("Alpha" + ending + "Item: Bow" + ending + "Alpha"),
+                Is.EqualTo("Альфа" + ending + "Предмет: Лук" + ending + "Альфа"));
+            Assert.That(RawDisplay.Translate("Alpha" + ending + "Item: Unknown" + ending + "Alpha"),
+                Is.EqualTo("Альфа" + ending + "Item: Unknown" + ending + "Альфа"));
         }
 
         [Test]

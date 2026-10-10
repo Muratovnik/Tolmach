@@ -36,7 +36,7 @@
     },
     {
       "source": "AzuCraftyBoxes Installed: {0}",
-      "target": "AzuCraftyBoxes установлен: {0}",
+      "target": "AzuCraftyBoxes: установлена версия {0}",
       "singleLine": true
     },
     {

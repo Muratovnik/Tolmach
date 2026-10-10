@@ -29,14 +29,14 @@
       "type": "CircletExtended.CircletExtended+<>c",
       "method": "<UpdateCustomEquipSlot>b__113_3",
       "values": {
-        "Circlet": "Обруч"
+        "Circlet": "Венец"
       }
     },
     {
       "type": "CircletExtended.CircletExtended+<>c",
       "method": "<UpdateCustomEquipSlot>b__113_6",
       "values": {
-        "Circlet": "Обруч"
+        "Circlet": "Венец"
       }
     }
   ],

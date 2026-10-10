@@ -154,9 +154,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools\Test-PackageCheck.ps1
 
 Скрипт берёт функции прямо из `Build.ps1` и по умолчанию проверяет самый новый ZIP в
 `artifacts/`; другой пакет передаётся параметром `-Package`. Корректный пакет должен
-приниматься, а шесть намеренно испорченных копий — отклоняться: каталоги вне
-`plugins/`, BOM в манифесте, иконка 128×128, длинное описание, чужая DLL, нет
-`README.md`.
+приниматься, а семь намеренно испорченных копий — отклоняться: каталоги вне
+`plugins/`, BOM в манифесте, иконка 128×128, JPEG вместо PNG, длинное описание,
+чужая DLL, нет `README.md`.
 
 ### Только тесты
 
@@ -179,7 +179,7 @@ push (см. [ниже](#хук-перед-push)).
 1. Поднимите `<Version>` в `Tolmach.csproj` и `PluginVersion` в `src/Plugin.cs`. Тест
    сверяет их между собой, release-kit берёт номер версии из csproj.
 2. Добавьте в начало `CHANGELOG.md` запись в формате conventional-changelog (пресет
-   angular): заголовок `## [<версия>](https://github.com/Muratovnik/Tolmach/compare/v<прошлая>...v<версия>) (<ГГГГ-ММ-ДД>)`,
+   angular): заголовок `## [<версия>](https://github.com/Muratovnik/tolmach/compare/v<прошлая>...v<версия>) (<ГГГГ-ММ-ДД>)`,
    разделы `### Features` и `### Bug Fixes`, у каждого пункта ссылка на коммит из выпуска.
    Обзор для игроков — в `### Highlights`. Запись входит в пакет, видна в менеджере модов
    и становится текстом релиза; release-kit проверяет ее формат (`profile` в `relkit.toml`).

@@ -36,6 +36,16 @@ namespace Tolmach.Tests
             Assert.That(RawDisplay.Translate("<Bleeding>"), Is.EqualTo("<Bleeding>"), "Markup is not text.");
             Assert.That(RawDisplay.Translate(null), Is.Null);
         }
+        [Test, Timeout(2000)]
+        public void UnmatchedOpeningTagsStayIntactAtTheInputLimit()
+        {
+            RawModule("raw"); RawDisplay.Initialize();
+            string brackets = new string('<', 32768);
+            Assert.That(RawDisplay.Translate(brackets), Is.EqualTo(brackets));
+            string malformed = new string('<', 32000) + "\n<color=orange>Bleeding</color>";
+            Assert.That(RawDisplay.Translate(malformed),
+                Is.EqualTo(new string('<', 32000) + "\n<color=orange>Кровотечение</color>"));
+        }
         [Test]
         public void ComposedNamesUseTemplatesAndOnlyKnownTerms()
         {

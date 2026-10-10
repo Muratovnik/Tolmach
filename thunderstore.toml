@@ -9,7 +9,7 @@ schemaVersion = "0.0.1"
 namespace = "Muratovnik"
 name = "Tolmach"
 description = "Русский перевод для 103 модов Valheim и звуковых субтитров игры: интерфейс, предметы, подсказки и сообщения. Устанавливается только у игрока — серверу Tolmach не нужен."
-websiteUrl = "https://github.com/Muratovnik/Tolmach"
+websiteUrl = "https://github.com/Muratovnik/tolmach"
 containsNsfwContent = false
 
 [package.dependencies]

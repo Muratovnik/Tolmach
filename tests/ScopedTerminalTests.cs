@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -20,22 +21,36 @@ namespace Tolmach.Tests
         [SetUp]
         public void CreateDiagnosticCaller()
         {
-            // Emit the verified compiler-generated identity; C# cannot declare <>c
-            // or <Initialize>b__49_0 directly. The sink is the real fixture Terminal.
-            AssemblyBuilder assembly = AppDomain.CurrentDomain.DefineDynamicAssembly(new AssemblyName("PortalConsumer." + Guid.NewGuid().ToString("N")), AssemblyBuilderAccess.Run);
-            ModuleBuilder builder = assembly.DefineDynamicModule("PortalConsumer");
-            TypeBuilder outer = builder.DefineType("PortalPreview.FrozenPortals", TypeAttributes.Public);
-            TypeBuilder nested = outer.DefineNestedType("<>c", TypeAttributes.NestedPublic);
-            nested.DefineDefaultConstructor(MethodAttributes.Public);
-            FieldBuilder state = nested.DefineField("_status", typeof(string), FieldAttributes.Public | FieldAttributes.Static);
-            FieldBuilder command = nested.DefineField("CommandId", typeof(string), FieldAttributes.Public | FieldAttributes.Static);
-            Emit(nested, state, command, "<Initialize>b__49_0");
-            Emit(nested, state, command, "OtherCaller");
-            callbackType = nested.CreateType();
-            outer.CreateType();
+            string name = "PortalConsumer." + Guid.NewGuid().ToString("N");
+            string directory = Path.Combine(Path.GetTempPath(), "Tolmach." + name);
+            const string fileName = "PortalConsumer.dll";
+            Directory.CreateDirectory(directory);
+            Assembly runtimeAssembly;
+            try
+            {
+                // Emit the verified compiler-generated identity; C# cannot declare <>c
+                // or <Initialize>b__49_0 directly. The sink is the real fixture Terminal.
+                AssemblyBuilder assembly = AppDomain.CurrentDomain.DefineDynamicAssembly(new AssemblyName(name), AssemblyBuilderAccess.RunAndSave, directory);
+                ModuleBuilder builder = assembly.DefineDynamicModule("PortalConsumer", fileName);
+                TypeBuilder outer = builder.DefineType("PortalPreview.FrozenPortals", TypeAttributes.Public);
+                TypeBuilder nested = outer.DefineNestedType("<>c", TypeAttributes.NestedPublic);
+                nested.DefineDefaultConstructor(MethodAttributes.Public);
+                FieldBuilder state = nested.DefineField("_status", typeof(string), FieldAttributes.Public | FieldAttributes.Static);
+                FieldBuilder command = nested.DefineField("CommandId", typeof(string), FieldAttributes.Public | FieldAttributes.Static);
+                Emit(nested, state, command, "<Initialize>b__49_0");
+                Emit(nested, state, command, "OtherCaller");
+                nested.CreateType();
+                outer.CreateType();
+                // Mono 6.8 omits nested types from in-memory AssemblyBuilder.GetTypes().
+                // Reload metadata as a plugin DLL so the normal ownership scan sees <>c.
+                assembly.Save(fileName);
+                runtimeAssembly = Assembly.Load(File.ReadAllBytes(Path.Combine(directory, fileName)));
+            }
+            finally { Directory.Delete(directory, true); }
+            callbackType = runtimeAssembly.GetType("PortalPreview.FrozenPortals+<>c", true);
             callback = Activator.CreateInstance(callbackType);
             module = CatalogLoader.Read(Catalog("PortalPreview"));
-            module.RuntimeAssembly = assembly; module.UiAllowed = module.ExactVersion = true;
+            module.RuntimeAssembly = runtimeAssembly; module.UiAllowed = module.ExactVersion = true;
             Activate(module);
         }
 

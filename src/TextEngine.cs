@@ -25,7 +25,9 @@ namespace Tolmach
         private readonly Dictionary<string, string> cache = new Dictionary<string, string>(StringComparer.Ordinal);
         private readonly object cacheLock = new object();
         private static readonly Regex Hole = new Regex(@"\{(\d+)\}", RegexOptions.CultureInvariant);
-        private static readonly Regex Tags = new Regex("(<[^>]+>)", RegexOptions.CultureInvariant);
+        // A second '<' cannot belong to this tag. Excluding it keeps unmatched
+        // opening brackets from causing overlapping scans on the global Localize path.
+        private static readonly Regex Tags = new Regex("(<[^<>]+>)", RegexOptions.CultureInvariant);
 
         public TextTable(Module module) : this(module.texts, module.patterns, module.mapLabels, module.terms, module.id == "ConditionalConfigSync") { }
         public TextTable(Dictionary<string, string> texts, IEnumerable<PatternSpec> patterns, Dictionary<string, string> labels,
@@ -183,9 +185,11 @@ namespace Tolmach
                 string[] lines = spans[i].Split('\n');
                 for (int j = 0; j < lines.Length; j++)
                 {
-                    string translated = translateWhole(lines[j]);
-                    if (translated == lines[j]) continue;
-                    lines[j] = translated;
+                    bool carriageReturn = j < lines.Length - 1 && lines[j].EndsWith("\r", StringComparison.Ordinal);
+                    string content = carriageReturn ? lines[j].Substring(0, lines[j].Length - 1) : lines[j];
+                    string translated = translateWhole(content);
+                    if (translated == content) continue;
+                    lines[j] = translated + (carriageReturn ? "\r" : "");
                     changed = true;
                 }
                 spans[i] = String.Join("\n", lines);

@@ -57,33 +57,33 @@
     "faction_norsemen": "Norsemen"
   },
   "texts": {
-    "Hail, traveler! Did you bring ale or just stories?": "Привет, путник! Ты принес эль или только байки?",
+    "Hail, traveler! Did you bring ale or just stories?": "Здравствуй, путник! Эль с собой или только байки?",
     "The mist of the fjords cloaks us like a shroud... or maybe it is just the smell of troll sweat.": "Туман фьордов окутывает нас саваном... Или это просто запах тролльего пота.",
     "Another dawn in Midgard, land of mortals... and mediocre mead.": "Еще один рассвет в Мидгарде — краю смертных... и посредственной медовухи.",
     "Beware the lurking fulings, creatures of the dark... and terrible table manners.": "Остерегайся затаившихся фулингов — порождений тьмы... с отвратительными манерами за столом.",
-    "Hast thou witnessed that marvel? The ale mug that never empties!": "Видал такое чудо? Кружку эля, которая никогда не пустеет!",
+    "Hast thou witnessed that marvel? The ale mug that never empties!": "Случалось видеть такое чудо? Кружку эля, которая никогда не пустеет!",
     "A fleet-footed deer flees to the woods... probably to avoid hearing my bawdy jokes.": "Быстроногий олень скрылся в лесу... Наверное, чтобы не слушать мои сальные шутки.",
     "Approach, wayfarer from distant lands! Let us swap tales and insults.": "Подойди, странник из далеких земель! Обменяемся байками и колкостями.",
-    "Your hands are nimble as a troll's, friend... but can you hold your drink like one?": "Руки у тебя ловкие, как у тролля, друг... А пить ты умеешь столько же?",
-    "Who dares enter these hallowed halls? Hope you brought more than just an appetite.": "Кто осмелился войти в эти священные чертоги? Надеюсь, ты принес не только аппетит.",
-    "Did I forget to extinguish the hearth fire? Or was it the heat from our last feast?": "Я забыл погасить очаг? Или это еще жар от нашего последнего пира?",
+    "Your hands are nimble as a troll's, friend... but can you hold your drink like one?": "Руки у тебя ловкие, как у тролля, друг... А после эля тоже на ногах устоишь?",
+    "Who dares enter these hallowed halls? Hope you brought more than just an appetite.": "Кто осмелился войти в эти священные чертоги? Надеюсь, у тебя при себе не только аппетит.",
+    "Did I forget to extinguish the hearth fire? Or was it the heat from our last feast?": "Очаг-то погашен? Или это еще жар от нашего последнего пира?",
     "A scent of mischief lingers in the air... or maybe it is just the smell of unwashed socks.": "В воздухе пахнет проделками... Или просто нестираными носками.",
-    "Is that where you'll rest your head, under this roof of shields? Watch out for the loose thatch, it's a hazard.": "Здесь собрался ночевать, под этой крышей из щитов? Берегись: солома вот-вот обвалится.",
+    "Is that where you'll rest your head, under this roof of shields? Watch out for the loose thatch, it's a hazard.": "Здесь будешь ночевать, под этой крышей из щитов? Берегись: соломенная кровля едва держится.",
     "Behold, a stronghold fit for a warrior! Just mind the cobwebs and the occasional rat.": "Вот крепость, достойная воина! Только берегись паутины, а порой и крыс.",
-    "What business have you within these walls? Looking for trouble or just lost your way to the outhouse?": "Что тебе нужно в этих стенах? Ищешь неприятностей или заблудился по пути в нужник?",
+    "What business have you within these walls? Looking for trouble or just lost your way to the outhouse?": "Что тебе нужно в этих стенах? Ищешь неприятностей или дорогу в нужник?",
     "Pay me no mind, I merely observe the surroundings... and occasionally partake in questionable activities.": "Не обращай на меня внимания. Я просто наблюдаю... и порой участвую в сомнительных затеях.",
     "By the Norns, what curious artifact is this? Or is it just a misplaced undergarment?": "Во имя норн, что это за диковинный артефакт? Или просто чье-то забытое исподнее?",
     "Skal, fellow warrior": "Скёль, брат по оружию!",
-    "Hail and well met, comrade": "Приветствую, товарищ! Рад встрече.",
+    "Hail and well met, comrade": "Приветствую, соратник!",
     "By the beard of Odin, greetings": "Клянусь бородой Одина, приветствую!",
     "May the hammer of Thor protect you": "Да защитит тебя молот Тора.",
     "Valhalla awaits, traveler": "Вальхалла ждет, путник.",
     "Fair winds to you, friend": "Попутного ветра, друг.",
     "In the name of the Allfather, greetings": "Приветствую во имя Всеотца.",
-    "Walk the path of the shieldmaiden, traveler": "Ступай путем девы щита, путник.",
+    "Walk the path of the shieldmaiden, traveler": "Ступай путем девы-воительницы, путник.",
     "May the Valkyries guide you": "Да направят тебя валькирии.",
     "Safe travels on the road to Valhalla": "Счастливого пути в Вальхаллу.",
-    "Fair winds and following seas": "Попутного ветра и спокойного моря.",
+    "Fair winds and following seas": "Попутного ветра и попутной волны.",
     "Until we meet in the halls of Asgard": "До встречи в чертогах Асгарда.",
     "May your path be clear, warrior": "Пусть твой путь будет свободен, воин.",
     "Skal, until we cross paths again": "Скёль! Еще встретимся.",
@@ -93,20 +93,20 @@
     "Back off, you insolent whelp!": "Отстань, наглый щенок!",
     "Do not test my patience, mortal!": "Не испытывай мое терпение, смертный!",
     "Thor's thunder, cease your folly!": "Клянусь громом Тора, хватит дурить!",
-    "Out of my sight, before I unleash Fenrir!": "С глаз долой, пока я не спустил Фенрира!",
+    "Out of my sight, before I unleash Fenrir!": "С глаз долой, пока я не спущу Фенрира!",
     "You tread on thin ice, beware!": "Ты ходишь по тонкому льду. Берегись!",
     "By Yggdrasil's roots, you try my temper!": "Клянусь корнями Иггдрасиля, ты меня выводишь!",
     "Enough! The wrath of the gods is not to be trifled with!": "Довольно! С гневом богов не шутят!",
     "Oi! That was mine, you thieving rat!": "Эй! Это мое, вороватая крыса!",
     "By Loki’s lies—return what you stole!": "Клянусь ложью Локи — верни украденное!",
-    "Hands off, sneak! I was saving that.": "Руки прочь, проныра! Я это приберег.",
+    "Hands off, sneak! I was saving that.": "Руки прочь, проныра! Это про запас.",
     "Thief! Even a greydwarf has better manners.": "Вор! Даже грейдворф ведет себя приличнее.",
-    "You dare rob a Norseman? Bold… and foolish.": "Осмелился ограбить северянина? Дерзко... и глупо.",
-    "I felt that! My purse grows lighter—and my mood darker.": "Я все почувствовал! Кошель стал легче, а настроение — мрачнее.",
+    "You dare rob a Norseman? Bold… and foolish.": "Смеешь грабить северянина? Дерзко... и глупо.",
+    "I felt that! My purse grows lighter—and my mood darker.": "Чую, кошель полегчал! А злости у меня прибавилось.",
     "By Odin’s missing eye, you’ll pay for that!": "Клянусь утраченным глазом Одина, ты за это заплатишь!",
     "Steal from me again and you’ll be eating dirt.": "Еще раз обворуешь меня — будешь жрать землю.",
     "By Thor's hammer, this feast has turned foul!": "Клянусь молотом Тора, пир пошел насмарку!",
-    "May Loki's trickery be the cause of this wretched meal!": "Наверняка это Локи подстроил такую мерзкую трапезу!",
+    "May Loki's trickery be the cause of this wretched meal!": "Уж не Локи ли подстроил такую мерзкую трапезу?",
     "Odin's ravens would not touch such a putrid offering!": "Даже вороны Одина не притронулись бы к такой тухлятине!",
     "Skál to the gods for this cursed sustenance!": "Скёль богам за эту проклятую стряпню!",
     "The mead may be sweet, but this meal is a sour betrayal!": "Медовуха-то сладкая, а вот еда — горькое предательство!",
@@ -119,23 +119,23 @@
   "patterns": [
     {
       "source": "{0} tastes better than a shieldmaiden's attention",
-      "target": "{0} приятнее на вкус, чем внимание девы щита."
+      "target": "{0} вкуснее, чем внимание девы-воительницы."
     },
     {
       "source": "{0} melts on my tongue like a surtling in water",
-      "target": "{0} тает на языке, как суртлинг в воде."
+      "target": "{0} — угощение, что тает на языке, как суртлинг в воде."
     },
     {
       "source": "{0} smells as good as a roasting greydwarf",
-      "target": "{0} пахнет не хуже жареного грейдворфа."
+      "target": "{0}... Аромат не хуже, чем у жареного грейдворфа!"
     },
     {
       "source": "{0} makes my entrails burn with joy",
-      "target": "{0} согревает мое брюхо радостью."
+      "target": "{0} — от такой радости в брюхе все пылает!"
     },
     {
       "source": "{0} is fit for a last meal",
-      "target": "{0} вполне годится для последней трапезы."
+      "target": "{0} — достойная последняя трапеза."
     },
     {
       "source": "Tamed {0} norsemen",
