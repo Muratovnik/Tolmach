@@ -14,7 +14,7 @@ namespace Tolmach.Tests
         [OneTimeSetUp]
         public void InitializeBepInExPaths()
         {
-            environmentRoot = Path.Combine(Path.GetTempPath(), "Tolmach.Tests." + Guid.NewGuid().ToString("N"));
+            environmentRoot = Path.Combine(TestContext.CurrentContext.TestDirectory, "tmp", "Tolmach.Tests." + Guid.NewGuid().ToString("N"));
             Directory.CreateDirectory(environmentRoot);
 
             // NUnit does not run the game preloader. Use BepInEx's own initializer before

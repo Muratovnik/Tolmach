@@ -11,8 +11,8 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def run_validator(root: Path):
-    result = subprocess.run([sys.executable, str(root / 'tools/validate.py')],
+def run_validator(root: Path, *arguments: str):
+    result = subprocess.run([sys.executable, str(root / 'tools/validate.py'), *arguments],
                             capture_output=True, text=True, timeout=30)
     return result, json.loads(result.stdout)
 
@@ -132,6 +132,29 @@ def test_real_data_mutation_is_detected(tmp_path, mutation, diagnostic):
     process, report = run_validator(root)
     assert process.returncode == 1, process.stderr + process.stdout
     assert any(diagnostic in error for error in report['errors']), report
+
+
+@pytest.mark.parametrize('module_id', ['ExpertExplorer', 'Norsemen'])
+@pytest.mark.parametrize('broken_catalog', ['invalid_json', 'invalid_shape', 'missing'])
+def test_incomplete_catalogs_with_evidence_keep_structured_report(tmp_path, module_id, broken_catalog):
+    root = tmp_path / 'subject'
+    shutil.copytree(ROOT, root, ignore=shutil.ignore_patterns('.git', '.cache', '.private', 'tmp', 'bin', 'obj', 'artifacts', 'evidence', '__pycache__', '.pytest_cache'))
+    path = root / 'catalog' / ('tolmach-' + module_id + '.json')
+    if broken_catalog == 'missing':
+        path.unlink()
+        diagnostic = 'Binding snapshot/module set mismatch'
+    else:
+        path.write_text('{"id":' if broken_catalog == 'invalid_json' else 'null', encoding='utf-8')
+        diagnostic = 'invalid JSON catalog' if broken_catalog == 'invalid_json' else 'does not match'
+    evidence = tmp_path / 'archive'
+    (evidence / 'localization').mkdir(parents=True)
+    (evidence / 'localization/coverage.json').write_text('{"rows": []}', encoding='utf-8')
+    process, report = run_validator(root, '--evidence', str(evidence))
+    assert process.returncode == 1, process.stderr + process.stdout
+    assert report['status'] == 'failed'
+    assert any(diagnostic in error for error in report['errors']), report
+    assert any('catalog set is incomplete or invalid' in item for item in report['skipped']), report
+    assert 'Traceback' not in process.stderr
 
 
 @pytest.mark.parametrize('native_change', [None, 'wrong_value', 'missing_key', 'unexpected_key'])

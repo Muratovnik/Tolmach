@@ -46,14 +46,15 @@ def no_duplicates(pairs: list[tuple[str, object]]) -> dict:
 def load(path: Path) -> dict:
     return json.loads(path.read_text(encoding='utf-8-sig'), object_pairs_hook=no_duplicates)
 
-def binding_checks(modules: list[dict], evidence: Path | None) -> None:
+def binding_checks(modules: list[dict], evidence: Path | None) -> bool:
     """Check independent metadata extracted from the supplied ILSpy projects/attributes.
     This validates catalog wiring data, not a BepInEx bootstrap in a running game.
     """
     import xml.etree.ElementTree as ET
     snapshot = load(ROOT / 'tests/fixtures/snapshot-bindings.json')
     known = {row['id']: row for row in snapshot}
-    check(set(known) == {m['id'] for m in modules}, 'Binding snapshot/module set mismatch')
+    complete = set(known) == {m['id'] for m in modules}
+    check(complete, 'Binding snapshot/module set mismatch')
     plugin_source = (ROOT / 'src/Plugin.cs').read_text()
     declared = set(re.findall(r'\[BepInDependency\("([^"\n]+)"', plugin_source))
     attribute = re.compile(r'\[BepInPlugin\("([^"\n]+)",\s*"([^"\n]+)",\s*"([^"\n]+)"\)\]')
@@ -85,6 +86,7 @@ def binding_checks(modules: list[dict], evidence: Path | None) -> None:
                 elif path.suffix == '.csproj':
                     names = [node.text for node in ET.parse(path).getroot().iter() if node.tag.rsplit('}', 1)[-1] == 'AssemblyName']
                     check(row['assembly'] in names, m['id'] + ': AssemblyName contradicts snapshot')
+    return complete
 
 
 CLLC_PLACEHOLDER = re.compile(r'\{[^{}]+\}')
@@ -300,10 +302,12 @@ def main() -> int:
         for en, ru in m.get('mapLabels', {}).items():
             check(m['texts'].get(en) == ru, name + ': map label differs from display translation')
         cllc_checks(m, counts)
-    binding_checks(modules, args.evidence.resolve() if args.evidence else None)
+    catalog_set_complete = binding_checks(modules, args.evidence.resolve() if args.evidence else None)
     fixture_data_checks(modules)
-    if args.evidence:
+    if args.evidence and catalog_set_complete:
         evidence_checks(args.evidence.resolve(), modules)
+    elif args.evidence:
+        skipped.append('Archive cross-checks: catalog set is incomplete or invalid.')
     else:
         skipped.append('Archive cross-checks: no --evidence directory supplied.')
     report = {
