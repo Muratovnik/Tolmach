@@ -1,5 +1,18 @@
 # Изменения
 
+## [0.9.1](https://github.com/Muratovnik/tolmach/compare/v0.9.0...v0.9.1) (2026-10-10)
+
+### Highlights
+
+Уточнены русские названия и описания в 23 каталогах, включая Adventure Backpacks, Odin's Steelworks, Norsemen и More World Locations. Исправлены обработка переводов на Mono и переносы строк Windows. Покрытие остаётся прежним: 103 мода и звуковые субтитры Valheim.
+
+### Bug Fixes
+
+- **Переводы:** исправлены смысл, терминология и формулировки названий, эффектов, материалов и перевозок; уточнено описание защиты от холода в Adventure Backpacks. ([781bf1a](https://github.com/Muratovnik/tolmach/commit/781bf1a71a37a4e23c874fce3197586bc36c1b27)) ([d3496c2](https://github.com/Muratovnik/tolmach/commit/d3496c2a6e936ca163bf00f0090346957f9d760d)) ([2c2c87e](https://github.com/Muratovnik/tolmach/commit/2c2c87e133dfefb6972dd6d825879da36054ea1f))
+- **Языки:** русские значения Jötunn регистрируются только при выбранном русском языке, чтобы не попадать в таблицу другого языка. ([781bf1a](https://github.com/Muratovnik/tolmach/commit/781bf1a71a37a4e23c874fce3197586bc36c1b27))
+- **Совместимость:** исправлены определение адресных переводов через Harmony-обёртки на Mono и проверка методов, ссылающихся на отсутствующие необязательные сборки. ([781bf1a](https://github.com/Muratovnik/tolmach/commit/781bf1a71a37a4e23c874fce3197586bc36c1b27))
+- **Текст:** исправлены построчный перевод с переносами CRLF и обработка незакрытой угловой скобки рядом с тегами оформления. ([781bf1a](https://github.com/Muratovnik/tolmach/commit/781bf1a71a37a4e23c874fce3197586bc36c1b27))
+
 ## [0.9.0](https://github.com/Muratovnik/tolmach/compare/v0.8.0...v0.9.0) (2026-10-07)
 
 ### Highlights
